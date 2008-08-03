@@ -2,11 +2,11 @@
 					bool skip_this = true) {
     for (scope_t * ptr = (skip_this ? parent : this); ptr; ) {
       if (typeid(ptr) == type)
-	return *ptr;
+        return *ptr;
       if (child_scope_t * scope = dynamic_cast<child_scope_t *>(ptr))
         ptr = scope->parent;
       else
-	ptr = NULL;
+        ptr = NULL;
     }
     return none;
   }

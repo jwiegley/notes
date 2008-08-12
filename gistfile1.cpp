@@ -1,3 +1,14 @@
+#include <istream>
+#include <ostream>
+#include <streambuf>
+#include <cstdio>
+
+#include <unicode/unistr.h>
+#include <unicode/ustring.h>
+#include <unicode/ustdio.h>
+
+#include <boost/filesystem/path.hpp>
+
 class ounistream : public std::basic_ostream<UChar>
 {
 public:

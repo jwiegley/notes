@@ -9,8 +9,7 @@ while read file; do
     fi
 done | \
 while read hash; do
-    if [ $(git cat-file -t $hash) = commit ]; then
+    if [ "$(git cat-file -t $hash)" = commit ]; then
         echo $hash
     fi
 done
-

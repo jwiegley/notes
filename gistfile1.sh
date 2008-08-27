@@ -1,8 +1,6 @@
 #!/bin/bash
 
 commit=$1
-shift 1
-
 branch=$2
 if [[ -z "$branch" ]]; then
     branch=HEAD

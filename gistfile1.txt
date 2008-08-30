@@ -1,0 +1,125 @@
+   /Applications
+
+     Where I install all licensed or free applications.
+
+   Archives
+
+     Seldom accessed, mostly immutable.  Could be placed on very slow media
+     without harm.  Tends to be rather large, and to grow and not shrink.
+
+   Books
+
+     Just like Archives, except frequently accessed.  Smaller in size.
+
+   Contracts
+
+     Decrypted mount points for ongoing Contract work.  For use with encfs.
+
+   Desktop
+
+     Highly volatile, representing files that are in an immediate queue to be
+     dealt with.  Usually live less than a week.  After that time, I either a)
+     deal with the file, or b) move it to a more appropriate place and create a
+     reference in my org-mode file to the new location.  It usually goes to
+     Documents, or gets archived as an org-mode attachment.
+
+   Documents         (aka ~/doc)                                     VERSIONED
+
+     Just like Books, except frequently written to as well as accessed.  Tends
+     to grow and not shrink.  Contains primarily documents written by me,
+     including work-in-process, such as the source documents for my websites.
+
+   Downloads         (aka ~/dl)
+
+     Frequently written to, but always resolved to zero size within 8 hours or
+     so.  Once a file in Downloads is dealt with, it almost always moves to
+     Archives or Sources.
+
+   Library
+
+     Contains user-specific settings, outside of the regular "dot files".  Very
+     frequently accessed (almost always within every 5 minutes).
+
+   Library/Scripts   (aka ~/bin)                                     VERSIONED
+
+     Scripts used to drive the system in various ways.  Not real Applications
+     in the sense that they typically have no UI, or exist solely to complement
+     an Application in an auxiliary capacity.
+
+   Machines
+
+     Virtual machines.  By far the large directory on my system, and only
+     backed up once a week.
+
+   Movies
+
+     Movies to watch, or that I have watched.  These are mostly downloaded
+     things, like screen casts.  Note that very large media, such as ripped
+     DVDs, are not kept here but in a "DVDs" directory on an external hard
+     drive.  Note that this directory is just like Archives, just more
+     frequently accessed and media specific.
+
+   Music
+
+     All of my music and other audio files.  This is just like Archives, just
+     more frequently accessed and media specific.
+
+   Pictures
+
+     Another directory in the vein of Books, Movies and Music, except that this
+     one contains photographs and pictures, both taken by me (Pictures/My
+     Photos), and taken by other people.  This directory can get truly
+     enormous, so the inactive parts of it -- such as digital negatives -- are
+     kept on a related "Pictures" directory on an external hard drive.  This
+     directory is only backed up weekly, with the external portion of it
+     mirrored on two separate devices.
+
+   Private
+
+     Contains encrypted disk images and sparse bundles, which get mounted in
+     /Volumes or ~/Contracts.
+
+   Products
+
+     Build products.  This is a sort of /tmp directory, except that I want the
+     build products kept around between reboots.  It could be trashed at any
+     time, however, without ill-effect.
+
+   Projects          (aka ~/src)                                     VERSIONED
+
+     Source code projects that I am either the author of, the principle
+     maintainer, or very actively involved.  Projects that I merely contribute
+     to are kept in ~/Sources.
+
+   Public                                                            VERSIONED
+
+     Contains files that are publically available to anyone within range of my
+     machine.  Note that this is an exact mirror of the FTP directory on my
+     public server.  I use "git push" to send over permanent contents, and
+     "scp" to send over transient contents (because they'll be deleted on the
+     next "git push -f && ssh newartisans.com 'GIT_DIR=/srv/ftp/pub (git reset
+     --hard && git clean -fxd)'").  By versioning the contents I know that
+     nothing has been changed.
+     
+   Sites                                                             VERSIONED
+
+     Contains published versions of all of my website, and serves as a local
+     mirror of the contents of /srv/httpd on my public server.  Contents are
+     deployed using git push as done for Public.
+
+   Sources                                                           VERSIONED
+
+     Source projects I install, reference, or infrequently contribute to.  I
+     prefer to access these projects using git or git-svn, although sometimes I
+     must use darcs or hg.  When downloading tarballs, I always create a Git
+     repository immediately after unarchiving so that I can track any changes I
+     make.  In this case, having .git/info/exclude is great because I can
+     ignore files without having to add a .gitignore file to the project.
+
+   Torrents
+
+     Analogous to Downloads, except that I never want to see its contents
+     because they are always "in progress".  When a torrent is finished
+     downloading, it gets moved to Downloads immediately and is seeded from
+     there until I archive it.
+

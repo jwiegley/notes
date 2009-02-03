@@ -1,0 +1,25 @@
+commit 2291d21252228a646d541eea4fa7565b9ac9a7b7
+Author: John Wiegley <johnw@newartisans.com>
+Date:   Tue Feb 3 16:33:43 2009 -0400
+
+    Allow visting of stashes.
+
+diff --git a/magit.el b/magit.el
+index 0082bf8..e3fecbb 100644
+--- a/magit.el
++++ b/magit.el
+@@ -2423,7 +2423,13 @@ Prefix arg means justify as well."
+        (goto-line line)))
+     ((commit)
+      (magit-show-commit info)
+-     (pop-to-buffer "*magit-commit*"))))
++     (pop-to-buffer "*magit-commit*"))
++    ((stash)
++     (let ((buf (get-buffer "*magit-diff*"))
++	   (inhibit-read-only t))
++      (with-current-buffer buf
++	(erase-buffer)))
++     (magit-diff (cons (concat info "^2^") info)))))
+ 
+ (defun magit-show-item-or-scroll-up ()
+   (interactive)

@@ -9,7 +9,7 @@ git checkout-index --prefix=$TMPDIR/ -af
 
 # Remove files which are no longer present in the index
 git diff-index --cached --name-only --diff-filter=D -z HEAD | \
-    (cd $TMPDIR && xargs --no-run-if-empty -0 rm -f --)
+    (cd $TMPDIR && xargs -0 rm -f --)
 
 cd $TMPDIR
 

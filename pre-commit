@@ -1,0 +1,19 @@
+#!/bin/sh
+
+TMPDIR=/tmp/ledger-pre-commit
+
+# Checkout a copy of the current index into TMPDIR
+git checkout-index --prefix=$TMPDIR/ -af
+
+# Remove files which are not present in the index
+git clean -n | grep '^Would remove' | awk '{print $3}' | xargs rm
+
+cd $TMPDIR
+
+if [ ! -f Makefile ]; then
+    tools/myacprep --local
+fi
+
+nice -n 20 make check && exit 0
+
+exit 1

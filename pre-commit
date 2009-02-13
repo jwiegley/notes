@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 TMPDIR=/tmp/ledger-pre-commit
 
 # Checkout a copy of the current index into TMPDIR
@@ -7,14 +9,18 @@ git checkout-index --prefix=$TMPDIR/ -af
 
 # Remove files which are no longer present in the index
 git diff-index --cached --name-only --diff-filter=D -z HEAD | \
-    (cd $TMPDIR; xargs --no-run-if-empty -0 rm -f --)
+    (cd $TMPDIR && xargs --no-run-if-empty -0 rm -f --)
 
 cd $TMPDIR
 
 if [ ! -f Makefile ]; then
-    tools/myacprep --local
+    if [ -f tools/myacprep ]; then
+	tools/myacprep --local
+    elif [ -f autogen.sh ]; then
+	sh autogen.sh && ./configure
+    else
+	autoreconf && ./configure
+    fi
 fi
 
-nice -n 20 make check && exit 0
-
-exit 1
+nice -n 20 make check

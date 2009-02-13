@@ -5,8 +5,9 @@ TMPDIR=/tmp/ledger-pre-commit
 # Checkout a copy of the current index into TMPDIR
 git checkout-index --prefix=$TMPDIR/ -af
 
-# Remove files which are not present in the index
-git clean -n | grep '^Would remove' | awk '{print $3}' | xargs rm
+# Remove files which are no longer present in the index
+git diff-index --cached --name-only --diff-filter=D -z HEAD | \
+    (cd $TMPDIR; xargs --no-run-if-empty -0 rm -f --)
 
 cd $TMPDIR
 

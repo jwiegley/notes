@@ -1,49 +1,49 @@
-2009/01/01 Sample 1
-    Assets:Brokerage                100 S
-    Assets:Brokerage               -100 P
+2009/01/01 Sample 1a
+    Assets:Brokerage:Stocks                100 S
+    Assets:Brokerage:Cash                 -100 P
 
-P 2009/01/15 12:00:00 P 2 S
+P 2009/01/15 12:00:00 S 2 P
 
-2009/02/01 Sample 2
-    Assets:Brokerage                100 S @ 1 P
-    Assets:Brokerage
+2009/02/01 Sample 2a
+    Assets:Brokerage:Stocks                100 S @ 1 P
+    Assets:Brokerage:Cash
 
-P 2009/01/15 12:00:00 P 4 S
+P 2009/01/15 12:00:00 S 4 P
 
-2009/03/01 Sample 3
-    Assets:Brokerage                100 S @@ 100 P
-    Assets:Brokerage
+2009/03/01 Sample 3a
+    Assets:Brokerage:Stocks                100 S @@ 100 P
+    Assets:Brokerage:Cash
 
-P 2009/01/15 12:00:00 P 8 S
+P 2009/01/15 12:00:00 S 8 P
 
-2009/04/01 Sample 4
-    Assets:Brokerage                100 P
-    Assets:Brokerage               -100 S {1 P}
+2009/04/01 Sample 4a
+    Assets:Brokerage:Cash                  100 P
+    Assets:Brokerage:Stocks               -100 S {1 P}
 
-P 2009/01/15 12:00:00 P 16 S
+P 2009/01/15 12:00:00 S 16 P
 
 ; In this usage case, the top amount is always secondary
-; 2010/01/01 Sample 1
-;     Assets:Brokerage               -100 P
-;     Assets:Brokerage                100 S
+; 2010/01/01 Sample 1b
+;     Assets:Brokerage:Cash               -100 P
+;     Assets:Brokerage:Stocks              100 S
 ; 
-; P 2010/01/15 12:00:00 P 2 S
+; P 2010/01/15 12:00:00 S 2 P
 
-2010/02/01 Sample 2
-    Assets:Brokerage
-    Assets:Brokerage                100 S @ 1 P
+2010/02/01 Sample 2b
+    Assets:Brokerage:Cash
+    Assets:Brokerage:Stocks                100 S @ 1 P
 
-P 2010/01/15 12:00:00 P 4 S
+P 2010/01/15 12:00:00 S 4 P
 
-2010/03/01 Sample 3
-    Assets:Brokerage
-    Assets:Brokerage                100 S @@ 100 P
+2010/03/01 Sample 3b
+    Assets:Brokerage:Cash
+    Assets:Brokerage:Stocks                100 S @@ 100 P
 
-P 2010/01/15 12:00:00 P 8 S
+P 2010/01/15 12:00:00 S 8 P
 
-2010/04/01 Sample 4
-    Assets:Brokerage               -100 S {1 P}
-    Assets:Brokerage                100 P
+2010/04/01 Sample 4b
+    Assets:Brokerage:Stocks               -100 S {1 P}
+    Assets:Brokerage:Cash                  100 P
 
-P 2010/01/15 12:00:00 P 16 S
+P 2010/01/15 12:00:00 S 16 P
 

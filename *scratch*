@@ -1,0 +1,4 @@
+Hermes ~ $ cd src/led compgen -d -- $cur )
+ compgen -d -- $cur 
+bash(4362) malloc: *** error for object 0xbfffda18: Non-aligned pointer being freed
+*** set a breakpoint in malloc_error_break to debug

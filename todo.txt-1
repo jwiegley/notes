@@ -1,0 +1,26 @@
+** TODO [#A] Changes to make to the way things are calculated [0/10]
+   SCHEDULED: <2009-03-04 Wed>
+   - [ ] During parsing, each account is given a pointer to the posts it
+         contains, in a deque.
+   - [ ] calc_xacts should only compute the amount, and store it in the post's
+         xdata.
+   - [ ] It then marks the post as "visited".
+   - [ ] When session_t::clean_posts is called, it should clear the "visited"
+	 flag.
+   - [ ] The running total is not stored with the post, but is calculated as
+         needed by the format_xacts object.
+   - [ ] Which means that format_xacts now need to know the display predicate,
+         much like format_accounts.
+   - [ ] account_t's xdata must remember whether or not the amount/total for
+         the account has been calculated (with a different bool for each).
+   - [ ] account_t exposes two methods: family_total and self_total, which
+         performs and caches a calculation based on walking the "visited"
+         posts relating to that account.
+   - [ ] These calculations must be lazy, so that if a report never uses them,
+         it never calculates either one.
+   - [ ] The same goes for statistics, which can determined from the list of
+         posts.
+   :PROPERTIES:
+   :ID: 240CAF9A-2681-4AE9-A0DF-F17416E31C60
+   :END:
+   [2009-03-04 Wed 15:34]

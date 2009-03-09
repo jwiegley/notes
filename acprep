@@ -1,0 +1,16 @@
+                    packages = [
+                        'sudo', 'apt-get', 'install',
+                         'build-essential',
+                         'libtool', 'autoconf', 'automake',
+                         'zlib1g-dev', 'libbz2-dev', 'python-dev',
+                         'libboost-dev',
+                         'libboost-python-dev',
+                         'libboost-regex-dev',
+                         'libboost-date-time-dev',
+                         'libboost-filesystem-dev'
+                         'libgmp3-dev', 'libmpfr-dev', 'gettext',
+                         'libedit-dev', 'libcppunit-dev',
+                         #'texlive-full',
+                         #'doxygen', 'graphviz', 'texinfo',
+                         'lcov', 'sloccount'
+                    ]

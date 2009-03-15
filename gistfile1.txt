@@ -1,0 +1,14 @@
+Prelude> :load "/Users/johnw/src/schroedinger3.hs"
+:load "/Users/johnw/src/schroedinger3.hs"
+[1 of 1] Compiling Main             ( /Users/johnw/src/schroedinger3.hs, interpreted )
+
+/Users/johnw/src/schroedinger3.hs:26:39:
+    Couldn't match expected type `Probable a'
+           against inferred type `a1'
+      `a1' is a rigid type variable bound by
+           the type signature for `>>=' at <no location info>
+    In the second argument of `flipCat', namely `x'
+    In the second argument of `($)', namely `flipCat y x'
+    In the expression: f $ flipCat y x
+Failed, modules loaded: none.
+

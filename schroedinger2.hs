@@ -15,12 +15,15 @@ flipCat gen cat = if flipCoin gen
                   else Dead (fromProbable cat)
 
 data Schroedinger a
-    = Opened StdGen a
+    = Opened a
     | Unopened StdGen a deriving Show
 
+fromTheBox (Opened a) = a
+fromTheBox (Unopened _ a) = a
+
 instance Monad Schroedinger where
-    Opened y x >>= f = f x
-    Unopened y x >>= f = f (flipCat y x)
+    Opened x >>= f = f x
+    Unopened y x >>= f = f $ flipCat y x
     return x = Unopened (mkStdGen 100) x
 
 main = do

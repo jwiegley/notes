@@ -1,0 +1,5 @@
+/Users/johnw/src/schroedinger2.hs:21:4:
+    Occurs check: cannot construct the infinite type: a = Probable a
+    When generalising the type(s) for `>>='
+    In the instance declaration for `Monad Schroedinger'
+Failed, modules loaded: none.

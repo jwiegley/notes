@@ -1,0 +1,42 @@
+PortSystem 1.0
+
+name	hs-AERN-Net
+set canonicalname	AERN-Net
+version	NYI
+categories	NYI
+maintainers	NYI
+platforms	NYI
+
+description	NYI
+long_description	NYI
+
+set hackage	NYI
+homepage	NYI
+master_sites	NYI
+distname	NYI
+
+checksums	NYI
+
+depends_build	NYI
+
+configure       { system "cd ${worksrcpath} && runhaskell Setup configure --ghc --prefix=${prefix} --with-compiler=${prefix}/bin/ghc --enable-library-profiling"
+                }
+
+build           { system "cd ${worksrcpath} && runhaskell Setup build -v"
+                }
+
+destroot        { system "cd ${worksrcpath} && runhaskell Setup copy --copy-prefix=${destroot}${prefix}"
+                  system "cd ${worksrcpath} && runhaskell Setup register   --gen-script"
+                  system "cd ${worksrcpath} && runhaskell Setup unregister --gen-script"
+
+                  file mkdir ${destroot}${prefix}/libexec/${name}
+                  file copy ${worksrcpath}/register.sh \
+                            ${destroot}${prefix}/libexec/${name}
+                  file copy ${worksrcpath}/unregister.sh \
+                            ${destroot}${prefix}/libexec/${name}
+                }
+
+post-activate   { system "${prefix}/libexec/${name}/register.sh" }
+
+#pre-deactivate { system "${prefix}/libexec/${name}/unregister.sh" }
+

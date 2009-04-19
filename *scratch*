@@ -1,0 +1,5 @@
+     [exec] 1  /Volumes/CEG/Projects/ABC/ABC_UserPortal/target/classes/PyABCUserAppDispatcher.java:574: cannot find symbol
+     [exec] symbol  : class dict
+     [exec] location: class PyABCUserAppDispatcher
+     [exec]     public void dispatch(java.lang.String arg0, dict arg1, adk.hornet.AppContext arg2) throws java.io.IOException {
+     [exec]                                                 ^

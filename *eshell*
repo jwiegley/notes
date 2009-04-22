@@ -1,0 +1,16 @@
+import: trying org.python.core.exceptions as builtin modules in syspath loader
+import: 'exceptions' as org.python.core.exceptions in builtin modules
+import: trying source ./BaconSpam.py
+import: trying precompiled ./BaconSpam$py.class
+import: 'BaconSpam' as ./BaconSpam$py.class
+import: trying source ./Spam.py
+import: trying ./Spam$py.class
+import: trying source /usr/local/stow/jython-2.1/Lib/Spam.py
+import: trying /usr/local/stow/jython-2.1/Lib/Spam$py.class
+import: trying Spam in packagemanager
+import: trying Spam as java class in syspath loader
+import: 'Spam' as java class
+import: 'Spam' as java package
+Exception in thread "main" Traceback (innermost last):
+  (no code object) at line 0
+TypeError: call of non-function (module 'BaconSpam')

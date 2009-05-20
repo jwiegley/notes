@@ -18,7 +18,7 @@ Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which inclu
 %setup -q -n ruby-enterprise-%{version}-%{release}/source
 
 %build 
-./configure --prefix=/opt/ree
+./configure --prefix=/usr/local/ruby-enterprise
 make
 
 %install 
@@ -26,7 +26,7 @@ make DESTDIR=$RPM_BUILD_ROOT install
 
 %files 
 %defattr(-,root,root)
-/opt/ree
+/usr/local/ruby-enterprise
 
 %changelog 
 * Fri Dec 13 2008 Tim C. Harper <tim.harper@leadmediapartners.com>

@@ -1,4 +1,3 @@
-cat ruby-enterprise.spec
 Summary: Ruby Enterprise Edition
 Name: ruby-enterprise
 Version: 1.8.6
@@ -8,7 +7,7 @@ Group: Applications/System
 Source: ruby-enterprise-%{version}-%{release}.tar.gz
 BuildRoot: /var/tmp/%{name}-%{version}-%{release} 
 %description 
-Ruby Enterprise Edition is a copy-on-right friendly version of ruby that also 
+Ruby Enterprise Edition is a copy-on-wright friendly version of ruby that also 
 includes several performance patches.
 
 %prep 
@@ -28,4 +27,3 @@ make DESTDIR=$RPM_BUILD_ROOT install
 %changelog 
 * Fri Dec 13 2008 Tim C. Harper <tim.harper@leadmediapartners.com>
 - first build of REE package
-

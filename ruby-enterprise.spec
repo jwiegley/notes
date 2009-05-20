@@ -1,7 +1,7 @@
 Summary: Ruby Enterprise Edition
 Name: ruby-enterprise
 Version: 1.8.6
-Release: 20081205
+Release: 20090421
 License: GPL 
 Group: Applications/System 
 Source: ruby-enterprise-%{version}-%{release}.tar.gz

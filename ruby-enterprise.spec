@@ -5,7 +5,7 @@ Release: 20090421
 License: GPL 
 Group: Applications/System 
 URL: http://www.rubyenterpriseedition.com/
-Source: ruby-enterprise-%{version}-%{release}.tar.gz
+Source0: http://rubyforge.org/frs/download.php/55511/ruby-enterprise-%{version}-%{release}.tar.gz
 BuildRoot: /var/tmp/%{name}-%{version}-%{release} 
 %description 
 Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which includes various enhancements:

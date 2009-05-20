@@ -4,6 +4,7 @@ Version: 1.8.6
 Release: 20090421
 License: GPL 
 Group: Applications/System 
+URL: http://www.rubyenterpriseedition.com/
 Source: ruby-enterprise-%{version}-%{release}.tar.gz
 BuildRoot: /var/tmp/%{name}-%{version}-%{release} 
 %description 

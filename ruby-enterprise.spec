@@ -35,5 +35,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/local/ruby-enterprise
 
 %changelog 
+* Tue May 26 2009 Adam Vollrath <adam@endpoint.com>
+- Updated for 1.8.6-20090520
+- Several small improvements to spec file
+
 * Fri Dec 13 2008 Tim C. Harper <tim.harper@leadmediapartners.com>
 - first build of REE package

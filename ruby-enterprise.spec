@@ -3,7 +3,7 @@ Name: ruby-enterprise
 Vendor: Phusion.nl
 Packager: Adam Vollrath <adam@endpoint.com>
 Version: 1.8.6
-Release: 20090520A
+Release: 20090520
 License: GPL 
 Group: Applications/System 
 URL: http://www.rubyenterpriseedition.com/

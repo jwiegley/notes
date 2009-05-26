@@ -3,11 +3,11 @@ Name: ruby-enterprise
 Vendor: Phusion.nl
 Packager: Adam Vollrath <adam@endpoint.com>
 Version: 1.8.6
-Release: 20090421
+Release: 20090520
 License: GPL 
 Group: Applications/System 
 URL: http://www.rubyenterpriseedition.com/
-Source0: http://rubyforge.org/frs/download.php/55511/ruby-enterprise-%{version}-%{release}.tar.gz
+Source0: http://rubyforge.org/frs/download.php/57097/ruby-enterprise-%{version}-%{release}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release} 
 %description 
 Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which includes various enhancements:

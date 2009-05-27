@@ -7,7 +7,7 @@ Vendor: Phusion.nl
 Packager: Adam Vollrath <adam@endpoint.com>
 Version: 1.8.6
 # Our release convention is based on Phusion's
-Release: 2009052601
+Release: 2009052601%{dist}
 License: GPL 
 Group: Applications/System 
 URL: http://www.rubyenterpriseedition.com/

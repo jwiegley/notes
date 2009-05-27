@@ -1,14 +1,18 @@
+# Package Maintainer: Increment phusion_release to match latest release available
+%define phusion_release	20090520
+
 Summary: Ruby Enterprise Edition
 Name: ruby-enterprise
 Vendor: Phusion.nl
 Packager: Adam Vollrath <adam@endpoint.com>
 Version: 1.8.6
-Release: 20090520
+# Our release convention is based on Phusion's
+Release: 2009052601
 License: GPL 
 Group: Applications/System 
 URL: http://www.rubyenterpriseedition.com/
-Source0: http://rubyforge.org/frs/download.php/57097/ruby-enterprise-%{version}-%{release}.tar.gz
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Source0: http://rubyforge.org/frs/download.php/57097/ruby-enterprise-%{version}-%{phusion_release}.tar.gz
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{phusion_release}-root-%(%{__id_u} -n)
 %description 
 Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which includes various enhancements:
 * A copy-on-write friendly garbage collector. Phusion Passenger uses this, in combination with a technique called preforking, to reduce Ruby on Rails applications' memory usage by 33% on average.
@@ -17,7 +21,7 @@ Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which inclu
 * The ability to dump stack traces for all running threads (caller_for_all_threads), making it easier for one to debug multithreaded Ruby web applications.
 
 %prep 
-%setup -q -n ruby-enterprise-%{version}-%{release}/source
+%setup -q -n ruby-enterprise-%{version}-%{phusion_release}/source
 
 %build 
 PREFIX=$RPM_BUILD_ROOT/%{_prefix}/local/ruby-enterprise

@@ -26,6 +26,14 @@ Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which inclu
 
 %build 
 PREFIX=$RPM_BUILD_ROOT/%{_prefix}/local/ruby-enterprise
+
+# Configure and build tcmalloc -- http://www.rubyenterpriseedition.com/documentation.html#_step_3_install_tcmalloc
+pushd vendor/google-perftools-*
+./configure --prefix=%{_prefix}/local/ruby-enterprise --disable-dependency-tracking
+make libtcmalloc_minimal.la
+popd
+
+# Configure and build the ruby-enterprise itself.
 ./configure --prefix=%{_prefix}/local/ruby-enterprise
 make
 
@@ -33,7 +41,11 @@ make
 make test
 
 %install
+PREFIX=$RPM_BUILD_ROOT/%{_prefix}/local/ruby-enterprise
 make DESTDIR=$RPM_BUILD_ROOT install
+
+# Add tcmalloc library.
+cp --recursive --force --preserve=mode,ownership,timestamps vendor/google-perftools-*/.libs/libtcmalloc_minimal*.so* $PREFIX/lib/
 
 %clean
 rm -rf $RPM_BUILD_ROOT

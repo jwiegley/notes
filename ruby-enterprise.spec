@@ -29,6 +29,9 @@ PREFIX=$RPM_BUILD_ROOT/%{_prefix}/local/ruby-enterprise
 ./configure --prefix=%{_prefix}/local/ruby-enterprise
 make
 
+%check
+make test
+
 %install
 make DESTDIR=$RPM_BUILD_ROOT install
 

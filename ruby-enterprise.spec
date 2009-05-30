@@ -13,6 +13,7 @@ Group: Applications/System
 URL: http://www.rubyenterpriseedition.com/
 Source0: http://rubyforge.org/frs/download.php/57097/ruby-enterprise-%{version}-%{phusion_release}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{phusion_release}-root-%(%{__id_u} -n)
+BuildRequires:	readline readline-devel ncurses ncurses-devel gdbm gdbm-devel glibc-devel autoconf gcc unzip openssl-devel db4-devel byacc
 %description 
 Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which includes various enhancements:
 * A copy-on-write friendly garbage collector. Phusion Passenger uses this, in combination with a technique called preforking, to reduce Ruby on Rails applications' memory usage by 33% on average.

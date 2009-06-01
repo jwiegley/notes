@@ -7,7 +7,7 @@ Vendor: Phusion.nl
 Packager: Adam Vollrath <adam@endpoint.com>
 Version: 1.8.6
 # Our release convention is based on Phusion's
-Release: 2009052602%{dist}
+Release: 2009060101%{dist}
 License: GPL 
 Group: Applications/System 
 URL: http://www.rubyenterpriseedition.com/
@@ -41,6 +41,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/local/share/man/man1/ruby.1
 
 %changelog 
+* Mon Jun 01 2009 Adam Vollrath <adam@endpoint.com>
+- Refactored to use Phusion's installer instead of building from source
+- Changed prefix to just /usr/local
+
 * Sat May 30 2009 Adam Vollrath <adam@endpoint.com>
 - Changed Release number convention
 - Added tcmalloc support and `make test`

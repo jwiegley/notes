@@ -7,7 +7,7 @@ Vendor: Phusion.nl
 Packager: Adam Vollrath <adam@endpoint.com>
 Version: 1.8.6
 # Our release convention is based on Phusion's
-Release: 2009052601%{dist}
+Release: 2009052602%{dist}
 License: GPL 
 Group: Applications/System 
 URL: http://www.rubyenterpriseedition.com/
@@ -55,6 +55,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/local/ruby-enterprise
 
 %changelog 
+* Sat May 30 2009 Adam Vollrath <adam@endpoint.com>
+- Changed Release number convention
+- Added tcmalloc support and `make test`
+
 * Tue May 26 2009 Adam Vollrath <adam@endpoint.com>
 - Updated for 1.8.6-20090520
 - Several small improvements to spec file

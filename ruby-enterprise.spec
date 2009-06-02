@@ -26,7 +26,7 @@ Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which inclu
 
 %package rubygems
 Summary: The Ruby standard for packaging ruby libraries
-Version: 1.3.1
+Version: 1.3.2
 License: Ruby or GPL+
 Group: Development/Libraries
 Requires: ruby-enterprise >= 1.8

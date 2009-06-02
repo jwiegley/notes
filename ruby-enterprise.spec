@@ -7,7 +7,7 @@ Vendor: Phusion.nl
 Packager: Adam Vollrath <adam@endpoint.com>
 Version: 1.8.6
 # Our release convention is based on Phusion's
-Release: 2009060101%{dist}
+Release: 2009060102%{dist}
 License: GPL 
 Group: Applications/System 
 URL: http://www.rubyenterpriseedition.com/
@@ -78,6 +78,8 @@ fi
 * Mon Jun 01 2009 Adam Vollrath <adam@endpoint.com>
 - Refactored to use Phusion's installer instead of building from source
 - Changed prefix to just /usr/local
+- Added check for existing /usr/local/bin/ruby
+- Split rubygems into a subpackage
 
 * Sat May 30 2009 Adam Vollrath <adam@endpoint.com>
 - Changed Release number convention

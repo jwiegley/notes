@@ -25,6 +25,18 @@ Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which inclu
 %prep 
 %setup -q -n ruby-enterprise-%{version}-%{phusion_release}
 
+%package rubygems
+Summary: The Ruby standard for packaging ruby libraries
+Version: 1.3.1
+License: Ruby or GPL+
+Group: Development/Libraries
+Requires: ruby-enterprise >= 1.8
+Provides: ruby-enterprise(rubygems) = %{version}
+
+%description rubygems
+RubyGems is the Ruby standard for publishing and managing third party
+libraries.  This rubygems package is for ruby-enterprise.
+
 %build 
 ./installer --auto /usr/local --dont-install-useful-gems --destdir $RPM_BUILD_ROOT
 
@@ -39,6 +51,20 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/local/bin/*
 %{_prefix}/local/lib/*
 %{_prefix}/local/share/man/man1/ruby.1
+
+# rubygems
+%exclude %{_prefix}/local/bin/gem
+%exclude %{_prefix}/local/lib/ruby/gems
+%exclude %{_prefix}/local/lib/ruby/site_ruby/1.8/rubygems*
+%exclude %{_prefix}/local/lib/ruby/site_ruby/1.8/ubygems.rb
+%exclude %{_prefix}/local/lib/ruby/site_ruby/1.8/rbconfig
+
+%files rubygems
+%{_prefix}/local/bin/gem
+%{_prefix}/local/lib/ruby/gems
+%{_prefix}/local/lib/ruby/site_ruby/1.8/rubygems*
+%{_prefix}/local/lib/ruby/site_ruby/1.8/ubygems.rb
+%{_prefix}/local/lib/ruby/site_ruby/1.8/rbconfig
 
 %changelog 
 * Mon Jun 01 2009 Adam Vollrath <adam@endpoint.com>

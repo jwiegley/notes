@@ -51,6 +51,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/local/bin/*
 %{_prefix}/local/lib/*
 %{_prefix}/local/share/man/man1/ruby.1
+%doc source/ChangeLog
+%doc source/COPYING
+%doc source/LEGAL
+%doc source/LGPL
+%doc source/NEWS
+%doc source/README
+%doc source/README.EXT
+%doc source/ToDo
 
 # rubygems
 %exclude %{_prefix}/local/bin/gem

@@ -1,15 +1,15 @@
 # Package Maintainer: Increment phusion_release to match latest release available
 %define phusion_release	20090520
 
-Summary: Ruby Enterprise Edition
+Summary: Ruby Enterprise Edition (Release %{phusion_release})
 Name: ruby-enterprise
 Vendor: Phusion.nl
 Packager: Adam Vollrath <adam@endpoint.com>
 Version: 1.8.6
 # Our release convention is based on Phusion's
-Release: 2009060102%{dist}
+Release: 3%{dist}
 License: GPL 
-Group: Applications/System 
+Group: Development/Languages 
 URL: http://www.rubyenterpriseedition.com/
 Source0: http://rubyforge.org/frs/download.php/57097/ruby-enterprise-%{version}-%{phusion_release}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{phusion_release}-root-%(%{__id_u} -n)
@@ -73,10 +73,22 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/local/lib/ruby/site_ruby/1.8/rubygems*
 %{_prefix}/local/lib/ruby/site_ruby/1.8/ubygems.rb
 %{_prefix}/local/lib/ruby/site_ruby/1.8/rbconfig
+%doc rubygems/LICENSE.txt
+%doc rubygems/README
+%doc rubygems/GPL.txt
+%doc rubygems/ChangeLog
 
 %pre
 # Do not install if /usr/local/bin/ruby exists and is not provided by an RPM
-if ([ -e /usr/local/bin/ruby ] && !(rpm -q --whatprovides /usr/local/bin/perl >/dev/null)); then
+if ([ -e /usr/local/bin/ruby ] && !(rpm -q --whatprovides /usr/local/bin/ruby >/dev/null)); then
+    exit 1
+else
+    exit 0
+fi
+
+%pre rubygems
+# Do not install if /usr/local/bin/gem exists and is not provided by an RPM
+if ([ -e /usr/local/bin/gem ] && !(rpm -q --whatprovides /usr/local/bin/gem >/dev/null)); then
     exit 1
 else
     exit 0

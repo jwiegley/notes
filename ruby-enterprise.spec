@@ -66,6 +66,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/local/lib/ruby/site_ruby/1.8/ubygems.rb
 %{_prefix}/local/lib/ruby/site_ruby/1.8/rbconfig
 
+%pre
+# Do not install if /usr/local/bin/ruby exists and is not provided by an RPM
+if ([ -e /usr/local/bin/ruby ] && !(rpm -q --whatprovides /usr/local/bin/perl >/dev/null)); then
+    exit 1
+else
+    exit 0
+fi
+
 %changelog 
 * Mon Jun 01 2009 Adam Vollrath <adam@endpoint.com>
 - Refactored to use Phusion's installer instead of building from source

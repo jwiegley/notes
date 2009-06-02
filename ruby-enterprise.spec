@@ -6,7 +6,6 @@ Name: ruby-enterprise
 Vendor: Phusion.nl
 Packager: Adam Vollrath <adam@endpoint.com>
 Version: 1.8.6
-# Our release convention is based on Phusion's
 Release: 3%{dist}
 License: GPL 
 Group: Development/Languages 
@@ -95,6 +94,10 @@ else
 fi
 
 %changelog 
+* Tue Jun 02 2009 Adam Vollrath <adam@endpoint.com>
+- Added check for existing /usr/local/bin/gem
+- Added LICENSE and other important document files
+
 * Mon Jun 01 2009 Adam Vollrath <adam@endpoint.com>
 - Refactored to use Phusion's installer instead of building from source
 - Changed prefix to just /usr/local

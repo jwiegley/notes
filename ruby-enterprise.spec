@@ -1,16 +1,16 @@
 # Package Maintainer: Increment phusion_release to match latest release available
-%define phusion_release	20090520
+%define phusion_release	20090610
 
 Summary: Ruby Enterprise Edition (Release %{phusion_release})
 Name: ruby-enterprise
 Vendor: Phusion.nl
 Packager: Adam Vollrath <adam@endpoint.com>
 Version: 1.8.6
-Release: 3%{dist}
+Release: 5%{dist}
 License: GPL 
 Group: Development/Languages 
 URL: http://www.rubyenterpriseedition.com/
-Source0: http://rubyforge.org/frs/download.php/57097/ruby-enterprise-%{version}-%{phusion_release}.tar.gz
+Source0: http://www.rubyenterpriseedition.com/ruby-enterprise-%{version}-%{phusion_release}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{phusion_release}-root-%(%{__id_u} -n)
 BuildRequires:	readline readline-devel ncurses ncurses-devel gdbm gdbm-devel glibc-devel autoconf gcc unzip openssl-devel db4-devel byacc
 BuildRequires: ruby
@@ -94,6 +94,9 @@ else
 fi
 
 %changelog 
+* Tue Jun 10 2009 Adam Vollrath <adam@endpoint.com>
+- Updated for release 20090610
+
 * Tue Jun 02 2009 Adam Vollrath <adam@endpoint.com>
 - Added check for existing /usr/local/bin/gem
 - Added LICENSE and other important document files

@@ -94,7 +94,7 @@ else
 fi
 
 %changelog 
-* Tue Jun 10 2009 Adam Vollrath <adam@endpoint.com>
+* Wed Jun 10 2009 Adam Vollrath <adam@endpoint.com>
 - Updated for release 20090610
 
 * Tue Jun 02 2009 Adam Vollrath <adam@endpoint.com>

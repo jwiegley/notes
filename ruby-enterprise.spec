@@ -1,16 +1,16 @@
 # Package Maintainer: Increment phusion_release to match latest release available
-%define phusion_release	20090610
+%define phusion_release	20090928
 
 Summary: Ruby Enterprise Edition (Release %{phusion_release})
 Name: ruby-enterprise
 Vendor: Phusion.nl
 Packager: Adam Vollrath <adam@endpoint.com>
-Version: 1.8.6
-Release: 5%{dist}
+Version: 1.8.7
+Release: 1%{dist}
 License: GPL 
 Group: Development/Languages 
 URL: http://www.rubyenterpriseedition.com/
-Source0: http://www.rubyenterpriseedition.com/ruby-enterprise-%{version}-%{phusion_release}.tar.gz
+Source0: ruby-enterprise-%{version}-%{phusion_release}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{phusion_release}-root-%(%{__id_u} -n)
 BuildRequires:	readline readline-devel ncurses ncurses-devel gdbm gdbm-devel glibc-devel autoconf gcc unzip openssl-devel db4-devel byacc
 BuildRequires: ruby
@@ -26,7 +26,7 @@ Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which inclu
 
 %package rubygems
 Summary: The Ruby standard for packaging ruby libraries
-Version: 1.3.2
+Version: 1.3.5
 License: Ruby or GPL+
 Group: Development/Libraries
 Requires: ruby-enterprise >= 1.8
@@ -94,6 +94,9 @@ else
 fi
 
 %changelog 
+* Wed Oct 07 2009 Adam Vollrath and Richard Templet <hosting@endpoint.com>
+- Updated for release 20090928
+
 * Wed Jun 10 2009 Adam Vollrath <adam@endpoint.com>
 - Updated for release 20090610
 

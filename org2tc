@@ -11,12 +11,19 @@ import time
 def parse_org_time(s):
     return time.strptime(s, "%Y-%m-%d %a %H:%M")
 
-events = []
+events       = []
+last_heading = None
+data         = sys.argv[1]
+fd           = open(data, "r")
 
-data = sys.argv[1]
-
-fd = open(data, "r")
 for line in fd:
+    match = re.search("^\*+\s*([A-Z]+(\s+\[#[ABC]\])?)?\s*(.+)", line)
+    if match:
+        last_heading = match.group(3)
+        match = re.search("(.+?)\s+:\S+:$", last_heading)
+        if match:
+            last_heading = match.group(1)
+
     match = re.search("CLOCK:\s+\[(.+?)\](--\[(.+?)\])?", line)
     if match:
         clock_in  = parse_org_time(match.group(1))
@@ -24,7 +31,7 @@ for line in fd:
         if clock_out:
             clock_out = parse_org_time(clock_out)
 
-        events.append((clock_in, clock_out, "TODO"))
+        events.append((clock_in, clock_out, last_heading))
 
 fd.close()
 

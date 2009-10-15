@@ -1,8 +1,9 @@
 2003/01/01 * Persian Room
     Expenses:Food                             $87.21
-    Assets:NRL:Checking
+    Expenses:Tip                               $5.00
+    Assets:NRL:Checking                      $-92.21
 
-Becomes (heading depth not significant):
+Becomes (heading depth not significant, and $ assumed as default currency):
 
 *** XACT Persian Room
     | Expenses:Food       |  87.21 |

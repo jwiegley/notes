@@ -1,0 +1,9 @@
+  Bugs:      WAITING [#A] Corrupted double-linked list in the register report                 :LINK:
+  Bugs:      WAITING [#A] --budget not including "~ Monthly" entry                     :LINK:ATTACH:
+  Emacs:     TODO [#A] Pressing space bar on items on the reconcile window does nothing       :LINK:
+  Bugs:      TODO --budget doesn't produce correct output                                     :LINK:
+  Bugs:      TODO ~/.ledgerrc not being consulted                                             :LINK:
+  Bugs:      TODO Found bugs in the report query syntax parser
+  Features:  TODO Restore the XML parser (code is in xml local branch)
+  Features:  TODO Add an --actual option to override --effective if in .ledgerc
+  Features:  TODO Value expressions for getting at the lot date

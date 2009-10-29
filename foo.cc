@@ -5,7 +5,7 @@ struct foo {
   int a;
   foo() : a(123) {}
   template<class Archive>
-  void serialize(Archive & ar, const unsigned int version) {
+  void serialize(Archive & ar, const unsigned int) {
     ar & a;
   }
 };

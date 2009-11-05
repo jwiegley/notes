@@ -1,0 +1,149 @@
+From: John Wiegley <jwiegley@gmail.com>
+To: emacs-orgmode@gnu.org
+Subject: Org-mode version 6.32trans (release_6.32b.96.gca82); Hello, Mr. C!
+--text follows this line--
+
+Remember to cover the basics, that is, what you expected to happen and
+what in fact did happen.  You don't know how to make a good report?  See
+
+     http://orgmode.org/manual/Feedback.html#Feedback
+
+Your bug report will be posted to the Org-mode mailing list.
+------------------------------------------------------------------------
+
+Whazzup.
+
+Emacs  : GNU Emacs 23.1.1 (i386-apple-darwin10.0.0, NS apple-appkit-1038.00)
+ of 2009-10-13 on Hermes.local
+Package: Org-mode version 6.32trans (release_6.32b.96.gca82)
+
+current state:
+==============
+(setq
+ org-agenda-deadline-leaders '("D: " "D%d: ")
+ org-clock-in-switch-to-state "STARTED"
+ org-agenda-skip-scheduled-if-deadline-is-shown t
+ org-todo-keyword-faces '(("TODO" :foreground "medium blue" :weight bold)
+                          ("APPT" :foreground "medium blue" :weight bold)
+                          ("NOTE" :foreground "brown" :weight bold)
+                          ("STARTED" :foreground "dark orange" :weight bold)
+                          ("WAITING" :foreground "red" :weight bold)
+                          ("DELEGATED" :foreground "dark violet" :weight bold)
+                          ("DEFERRED" :foreground "dark blue" :weight bold))
+ org-agenda-custom-commands '(("E" "Week's errands" tags
+                               "Errand&SCHEDULED<=\"<+1w>\"&TODO<>\"DONE\"&TODO<>\"CANCELLED\""
+                               nil)
+                              ("r" "Uncategorized entries" tags
+ "CATEGORY=\"Inbox\"&LEVEL=2" nil)
+                              ("W" agenda "" ((org-agenda-ndays 21)))
+                              ("A" agenda ""
+                               ((org-agenda-ndays 1)
+                                (org-agenda-overriding-header "Today's
+ Priority #A tasks: ")
+                                (org-agenda-skip-function
+                                 (quote
+                                  (org-agenda-skip-entry-if (quote notregexp)
+ "\\=.*\\[#A\\]"))
+                                 )
+                                )
+                               )
+                              ("B" agenda ""
+                               ((org-agenda-ndays 1)
+                                (org-agenda-overriding-header "Today's
+ Priority #A and #B tasks: ")
+                                (org-agenda-skip-function
+                                 (quote (org-agenda-skip-entry-if (quote
+ regexp) "\\=.*\\[#C\\]")))
+                                )
+                               )
+                              ("u" alltodo ""
+                               ((org-agenda-overriding-header "Unscheduled
+ TODO entries: ")
+                                (org-agenda-skip-function
+                                 (quote
+                                  (org-agenda-skip-entry-if (quote scheduled)
+ (quote deadline)
+                                   (quote regexp) "<[0-9-]\\{10\\} [^>\n]+>")
+                                  )
+                                 )
+                                )
+                               )
+                              ("l" "Ledger tasks" alltodo ""
+                               ((org-agenda-files (quote
+ ("~/src/ledger/plan/TODO")))))
+                              )
+ org-agenda-files '("~/Dropbox/todo.txt" "~/Projects/ledger/plan/TODO")
+ org-blocker-hook '(org-block-todo-from-children-or-siblings-or-parent)
+ org-pre-cycle-hook '(org-indent-empty-items)
+ org-agenda-tags-column -100
+ org-completion-use-iswitchb t
+ org-hide-leading-stars t
+ org-clock-into-drawer "LOGBOOK"
+ org-mobile-post-pull-hook '(my-org-mobile-post-pull-hook)
+ org-agenda-scheduled-leaders '("" "S%d: ")
+ org-footnote-section nil
+ org-archive-save-context-info '(time category itags)
+ org-after-todo-state-change-hook '(org-clock-out-if-current)
+ org-agenda-text-search-extra-files '(agenda-archives)
+ org-archive-location "TODO-archive::"
+ org-agenda-skip-unavailable-files t
+ org-agenda-default-appointment-duration 60
+ org-time-clocksum-use-fractional t
+ org-agenda-prefix-format '((agenda . "  %-11:c%?-12t% s") (timeline . "  %
+ s")
+                            (todo . "  %-11:c") (tags . "  %-11:c"))
+ org-habit-preceding-days 42
+ org-agenda-skip-scheduled-if-done t
+ org-stuck-projects '("+LEVEL=1/-DONE" ("TODO" "STARTED" "NEXT" "NEXTACTION")
+ nil
+                      "\\(Appointments\\|Notes\\|Anniversaries\\)")
+ org-clock-in-resume t
+ org-export-preprocess-hook '(org-export-blocks-preprocess org-eval-replace-snippts)
+ org-mobile-inbox-for-pull "~/Dropbox/from-mobile.org"
+ org-tab-first-hook '(org-hide-block-toggle-maybe)
+ org-src-mode-hook '(org-src-mode-configure-edit-buffer)
+ org-cycle-global-at-bob t
+ org-confirm-shell-link-function 'yes-or-no-p
+ org-use-tag-inheritance nil
+ org-clock-persist 'history
+ org-todo-keywords '((sequence "TODO" "APPT" "|" "DONE" "NOTE"))
+ org-agenda-before-write-hook '(org-agenda-add-entry-text)
+ org-M-RET-may-split-line '((headline) (default . t))
+ org-default-notes-file "~/Dropbox/todo.txt"
+ org-directory "~/Dropbox/"
+ org-tag-alist '((#("NASIM" 0 5 (face nil)) . 110) (#("WORK" 0 4 (face nil)) . 119))
+ org-cycle-hook '(org-cycle-hide-archived-subtrees org-cycle-hide-drawers
+                  org-cycle-show-empty-lines org-optimize-window-after-visibility-change)
+ org-use-speed-commands t
+ org-mode-hook '((lambda nil (org-set-local (quote yas/trigger-key) [tab])
+                  (define-key yas/keymap [tab] (quote yas/next-field-group)))
+                 #[nil "\300\301\302\303\304$\207"
+                   [org-add-hook change-major-mode-hook org-show-block-all
+ append local] 5]
+                 )
+ org-clock-out-remove-zero-time-clocks t
+ org-font-lock-hook '(org-eval-handle-snippets)
+ org-agenda-ndays 1
+ org-refile-targets '((org-agenda-files :level . 1))
+ org-extend-today-until 8
+ org-confirm-elisp-link-function 'yes-or-no-p
+ org-fast-tag-selection-single-key 'expert
+ org-clock-modeline-total 'current
+ org-agenda-start-on-weekday nil
+ org-agenda-fontify-priorities t
+ org-agenda-skip-deadline-if-done t
+ org-enforce-todo-dependencies t
+ org-reverse-note-order t
+ org-occur-hook '(org-first-headline-recenter)
+ org-mobile-directory "/ssh:root@192.168.9.144:/c/docs"
+ org-mobile-post-push-hook '(my-org-mobile-post-push-hook)
+ org-tags-column -97
+ org-modules '(org-crypt org-id org-habit org-mac-message org-bookmark org-eval org2rem)
+ org-agenda-auto-exclude-function 'org-my-auto-exclude-function
+ org-remember-templates '(("Task" 116
+                           "* TODO [#B] %?\n  SCHEDULED: %t\n  :PROPERTIES:\n
+ :ID: %(shell-command-to-string \"uuidgen\")  :END:\n  %U" nil "Inbox" nil)
+                          )
+ org-clock-idle-time 1
+ org-attach-method 'mv
+ )

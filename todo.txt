@@ -1,0 +1,25 @@
+** TODO Shave                                                                              :Home:
+   SCHEDULED: <2009-11-11 Wed .+2d/4d>
+   - State "DONE"       from "TODO"       [2009-11-09 Mon 19:39]
+   - State "DONE"       from "TODO"       [2009-11-06 Fri 17:00]
+   - State "DONE"       from "TODO"       [2009-11-04 Wed 18:22]
+   - State "DONE"       from "TODO"       [2009-10-31 Sat 18:16]
+   - State "DONE"       from "TODO"       [2009-10-29 Thu 17:03]
+   - State "DONE"       from "TODO"       [2009-10-26 Mon 23:26]
+   - State "DONE"       from "TODO"       [2009-10-23 Fri 21:26]
+   - State "DONE"       from "TODO"       [2009-10-19 Mon 23:01]
+   - State "DONE"       from "TODO"       [2009-10-15 Thu]
+   - State "DONE"       from "TODO"       [2009-10-12 Mon]
+   - State "DONE"       from "TODO"       [2009-10-10 Sat]
+   - State "DONE"       from "TODO"       [2009-10-04 Sun]
+   - State "DONE"       from "TODO"       [2009-10-02 Fri]
+   - State "DONE"       from "TODO"       [2009-09-29 Tue]
+   - State "DONE"       from "TODO"       [2009-09-25 Fri]
+   - State "DONE"       from "TODO"       [2009-09-19 Sat]
+   - State "DONE"       from "TODO"       [2009-09-16 Wed]
+   - State "DONE"       from "TODO"       [2009-09-12 Sat]
+   :PROPERTIES:
+   :STYLE:    habit
+   :LAST_REPEAT: [2009-11-09 Mon 19:39]
+   :ID:       56C17E26-AFF5-443D-9492-BEB411E5DB1D
+   :END:

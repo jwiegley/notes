@@ -1,0 +1,50 @@
+* Ledger's global variables
+
+  - ledger::commodity_t::european_by_default ::
+
+    Determines if 1.000 is initially parsed as one thousand or one, when seen
+    used with an unknown commodity.  Normally Ledger can figure out which
+    style is meant, but if there is an ambiguous case, like 1.000, it will
+    default to the "system standard".  This global makes the system standard
+    be the european style.
+    
+  - ledger::start_of_week ::
+
+    This global tells the time parsing code what the start of a week is.  This
+    is necessary for parsing periodic intervals like "this week", where the
+    start of the interval is backtracked to find the most recent
+    "start_of_week" day.
+    
+  - ledger::epoch ::
+
+    Holds the current time at startup of the Ledger library.
+    
+  - ledger::item_t::use_effective_date ::
+
+    A boolean indicating whether item_t::date() should return actual dates or
+    effective dates.
+    
+  - ledger::scope_t::default_scope ::
+
+    The scope to be used when none is specified.  This is used by journal_t's
+    textual data parser when called from Python (in which case the user only
+    passes a string, note the scope object representing the current Python
+    session's report).  The existence of this global is simply to avoid this
+    kind of awkwardness:
+
+        journal = ledger.Journal("/tmp/foo", session.current_report)
+    
+  - ledger::amount_t::current_pool ::
+
+    Points to the current commodity_pool_t object, which is owned by
+    journal_t.  This is needed by the amounts parser so that parsed
+    commodities can be associated.
+    
+  - ledger::format_t::default_style ::
+
+    The default formatting style, defaults to ABBREVIATE.  The user is allowed
+    to change it with the --truncate option.
+    
+  - ledger::format_t::default_style_changed ::
+
+    Indicates if the default_style was changed by the user.

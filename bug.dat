@@ -1,0 +1,20 @@
+; -*- ledger -*-
+
+D $1,000.00
+
+; From IRS:
+; http://www.irs.gov/taxpros/article/0,,id=156624,00.html
+P   2009/01/01       miles    0.55
+P   2008/07/01       miles    0.585
+P   2008/01/01       miles    0.505
+P   2007/01/01       miles    0.485
+P   2006/01/01       miles    0.445
+
+
+2008/08/15 Travel to IAH
+            Expenses:Mileage                  40 miles {=$0.585}
+            Equity:Mileage
+
+2009/01/09 Travel to IAH
+            Expenses:Mileage                  40 miles {=$0.55}
+            Equity:Mileage

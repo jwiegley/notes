@@ -1,12 +1,12 @@
 # Package Maintainer: Increment phusion_release to match latest release available
-%define phusion_release	20090928
+%define phusion_release	2009.10
 
 Summary: Ruby Enterprise Edition (Release %{phusion_release})
 Name: ruby-enterprise
 Vendor: Phusion.nl
 Packager: Adam Vollrath <adam@endpoint.com>
 Version: 1.8.7
-Release: 1%{dist}
+Release: 2%{dist}
 License: GPL 
 Group: Development/Languages 
 URL: http://www.rubyenterpriseedition.com/
@@ -94,6 +94,9 @@ else
 fi
 
 %changelog 
+* Wed Dec 02 2009 Adam Vollrath <adam@endpoint.com>
+- Updated for release 2009.10
+
 * Wed Oct 07 2009 Adam Vollrath and Richard Templet <hosting@endpoint.com>
 - Updated for release 20090928
 

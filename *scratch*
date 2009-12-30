@@ -1,0 +1,28 @@
+vulcan ~/Contracts/TI $ sudo port install py26-curl
+--->  Computing dependencies for py26-curl
+--->  Fetching py26-curl
+--->  Verifying checksum(s) for py26-curl
+--->  Extracting py26-curl
+--->  Configuring py26-curl
+--->  Building py26-curl
+Error: Target org.macports.build returned: shell command " cd "/opt/local/var/macports/build/_opt_local_var_macports_sources_rsync.macports.org_release_ports_python_py26-curl/work/pycurl-7.19.0" && /opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin/python2.6 setup.py --no-user-cfg build --curl-config=/opt/local/bin/curl-config " returned error 1
+Command output: Using /opt/local/bin/curl-config (libcurl 7.19.7)
+running build
+running build_py
+creating build
+creating build/lib.macosx-10.6-intel-2.6
+creating build/lib.macosx-10.6-intel-2.6/curl
+copying python/curl/__init__.py -> build/lib.macosx-10.6-intel-2.6/curl
+running build_ext
+building 'pycurl' extension
+creating build/temp.macosx-10.6-intel-2.6
+creating build/temp.macosx-10.6-intel-2.6/src
+/usr/bin/gcc-4.2 -arch x86_64 -arch i386 -isysroot / -fno-strict-aliasing -fno-common -dynamic -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -I/opt/local/include -I/opt/local/Library/Frameworks/Python.framework/Versions/2.6/include/python2.6 -c src/pycurl.c -o build/temp.macosx-10.6-intel-2.6/src/pycurl.o
+In file included from /opt/local/include/curl/curl.h:44,
+                 from src/pycurl.c:50:
+/opt/local/include/curl/curlrules.h:144: error: size of array '__curl_rule_01__' is negative
+/opt/local/include/curl/curlrules.h:154: error: size of array '__curl_rule_02__' is negative
+lipo: can't figure out the architecture type of: /var/tmp//ccnLrtZI.out
+error: command '/usr/bin/gcc-4.2' failed with exit status 1
+
+Error: Status 1 encountered during processing.

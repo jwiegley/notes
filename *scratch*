@@ -1,0 +1,3 @@
+RewriteMap unescape int:unescape
+RewriteCond ${unescape:%{QUERY_STRING}} ^(.*)$
+RewriteRule ^/user/cgi/preview\.(gif|jpg)$  /user/cgi/preview_open_document.hd?%1 [L]

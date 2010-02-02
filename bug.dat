@@ -1,0 +1,33 @@
+; TAG key: value
+
+2009/09/27 * (09/28/2009) HUDSON NEWS HOUSTN HBB HOUSTON, TX
+    ; ER: AISER0033
+    ; PROJECT: PROJXXXX
+    Source:Visa                             -$6.55
+    Projects:Meals
+
+2009/09/27 * (09/28/2009) PEET'S COFFEE & TEA KINGWOOD, TX
+    ; ER: AISER0033
+    ; PROJECT: PROJXXXX
+    Source:Visa                             -$2.44
+    Projects:Meals
+
+2009/09/28 * (09/29/2009) FUSIA NEW YORK, NY
+    ; ER: AISER0033
+    ; PROJECT: PROJXXXX
+    Source:Visa                            -$15.25
+    Projects:Meals
+
+2009/09/29 * (09/30/2009) BALUCHI'S NEW YORK, NY
+    Source:Visa                            -$20.00
+    ; ER: AISER0033
+    ; PROJECT: PROJXXXX
+    Projects:Meals                          $20.00
+    ; ER: AISER0033
+    ; PROJECT: PROJXXXX
+    Source:Visa                            -$10.44
+    ; ER: AISER0036
+    ; PROJECT: Internal
+    Internal:Travel                         $10.44
+    ; ER: AISER0036
+    ; PROJECT: Internal

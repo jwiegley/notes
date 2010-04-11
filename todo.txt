@@ -1,0 +1,4 @@
+* Inbox
+  :PROPERTIES:
+  :CATEGORY: Inbox
+  :END:

@@ -1,0 +1,2 @@
+[mergetool "deltawalker-merge"]
+        cmd = "cp -p \"$PWD/$BASE\" \"$PWD/$MERGED\"; dw \"$PWD/$MERGED\" \"$PWD/$LOCAL\" \"$PWD/$REMOTE\""

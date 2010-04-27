@@ -6,3 +6,16 @@
       (end-of-line))
     (set-mark (point))
     (goto-char here)))
+
+(defun mark-sentence (&optional arg)
+  (interactive "P")
+  (backward-sentence)
+  (mark-end-of-sentence arg))
+
+(define-key global-map [(meta shift ?w)] 'mark-word)
+(define-key global-map [(meta shift ?l)] 'mark-line)
+(define-key global-map [(meta shift ?s)] 'mark-sentence)
+(define-key global-map [(meta shift ?x)] 'mark-sexp)
+(define-key global-map [(meta shift ?b)] 'python-mark-block)
+(define-key global-map [(meta shift ?h)] 'mark-paragraph)
+(define-key global-map [(meta shift ?d)] 'mark-defun)

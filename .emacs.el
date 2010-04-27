@@ -1,0 +1,8 @@
+(defun mark-line (&optional arg)
+  (interactive "p")
+  (beginning-of-line)
+  (let ((here (point)))
+    (dotimes (i arg)
+      (end-of-line))
+    (set-mark (point))
+    (goto-char here)))

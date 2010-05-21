@@ -1,0 +1,25 @@
+** NOTE Monthly expenses
+#+srcname: monthly-expenses
+#+begin_src sh :results value :exports results
+   ledger -b 2010 -Mn -F "%(format_date(date, \"%m/%Y\"))\t%-.20(payee)\t%-.28(account)\t%12.66(display_amount)\t%12.80(display_total)\n" reg expenses | tr -d \$ | tr -d ,
+#+end_src
+
+#+results: monthly-expenses
+| 01/2010 | - 10-Jan-31 | <Total> | 1051.12 | 1051.12 |
+| 02/2010 | - 10-Feb-28 | <Total> |   70.71 | 1121.83 |
+| 03/2010 | - 10-Mar-31 | <Total> |    8.52 | 1130.35 |
+| 04/2010 | - 10-Apr-30 | <Total> |   99.65 |  1230.0 |
+
+#+begin_src R :var data=monthly-expenses() :results output :file hist-exp.png
+   expenses = data[,4]
+   months   = data[,1]
+   mp = barplot(expenses, names.arg=months)
+   text(mp, expenses/2, labels=expenses, col="red")
+#+end_src
+
+#+results:
+[[file:hist-exp.png]]
+   :PROPERTIES:
+   :ID:       13BD5B28-4A48-4ABA-93BC-68ED21385A72
+   :END:
+   [2010-04-30 Fri 07:22]

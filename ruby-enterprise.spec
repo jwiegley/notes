@@ -1,12 +1,12 @@
 # Package Maintainer: Increment phusion_release to match latest release available
-%define phusion_release	2009.10
+%define phusion_release	2010.01
 
 Summary: Ruby Enterprise Edition (Release %{phusion_release})
 Name: ruby-enterprise
 Vendor: Phusion.nl
 Packager: Adam Vollrath <adam@endpoint.com>
 Version: 1.8.7
-Release: 2%{dist}
+Release: 3%{dist}
 License: GPL 
 Group: Development/Languages 
 URL: http://www.rubyenterpriseedition.com/
@@ -26,7 +26,7 @@ Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which inclu
 
 %package rubygems
 Summary: The Ruby standard for packaging ruby libraries
-Version: 1.3.5
+Version: 1.3.6
 License: Ruby or GPL+
 Group: Development/Libraries
 Requires: ruby-enterprise >= 1.8
@@ -37,7 +37,10 @@ RubyGems is the Ruby standard for publishing and managing third party
 libraries.  This rubygems package is for ruby-enterprise.
 
 %build 
-./installer --auto /usr/local --dont-install-useful-gems --destdir $RPM_BUILD_ROOT
+# work around bug in "installer"
+mkdir -p $RPM_BUILD_ROOT/usr/local/lib/ruby/gems/1.8/gems
+# run installer
+./installer --auto /usr/local --dont-install-useful-gems --no-dev-docs --destdir $RPM_BUILD_ROOT
 
 %install
 # no-op
@@ -94,6 +97,10 @@ else
 fi
 
 %changelog 
+* Mon Apr 19 2010 End Point Corporation <hosting@endpoint.com>
+- Updated for release 2010.01
+- Updated rubygems to 1.3.6
+
 * Wed Dec 02 2009 Adam Vollrath <adam@endpoint.com>
 - Updated for release 2009.10
 

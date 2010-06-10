@@ -6,3 +6,10 @@ baz = 119.3200000001
 bow = 119.32
 x = (405dd47ae147ae14)
 y = (405dd47ae147c991)
+
+So it boils down to:
+
+ gdtoa: 405dd47ae147ae14 -> 119.32              -> 405dd47ae147ae14
+ glibc, 405dd47ae147ae14 -> 119.319999999999993 -> 405dd47ae147ae14
+
+Why doesn't glibc do what gdtoa does, and should it?

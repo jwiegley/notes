@@ -35,5 +35,11 @@ int main()
   g_dfmt(buf, &bow, 15, 127);
   printf("bow = %s\n", buf);
 
+  double x = strtod("119.32", 0);
+  double y = strtod("119.3200000001", 0);
+
+  printf("x = (%llx)\n", *((long long *)&x));
+  printf("y = (%llx)\n", *((long long *)&y));
+
   return 0;
 }

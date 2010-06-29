@@ -1,0 +1,7 @@
+node * prev = NULL;
+while (ptr) {
+  node * temp = ptr->next;
+  ptr->next = prev;
+  prev = ptr;
+  ptr = temp;
+}

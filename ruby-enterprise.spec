@@ -1,12 +1,12 @@
 # Package Maintainer: Increment phusion_release to match latest release available
-%define phusion_release	2010.01
+%define phusion_release	2010.02
 
 Summary: Ruby Enterprise Edition (Release %{phusion_release})
 Name: ruby-enterprise
 Vendor: Phusion.nl
-Packager: Adam Vollrath <adam@endpoint.com>
+Packager: Adam Vollrath <hosting@endpoint.com>
 Version: 1.8.7
-Release: 3%{dist}
+Release: 4%{dist}
 License: GPL 
 Group: Development/Languages 
 URL: http://www.rubyenterpriseedition.com/
@@ -26,7 +26,7 @@ Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which inclu
 
 %package rubygems
 Summary: The Ruby standard for packaging ruby libraries
-Version: 1.3.6
+Version: 1.3.7
 License: Ruby or GPL+
 Group: Development/Libraries
 Requires: ruby-enterprise >= 1.8
@@ -38,9 +38,9 @@ libraries.  This rubygems package is for ruby-enterprise.
 
 %build 
 # work around bug in "installer"
-mkdir -p $RPM_BUILD_ROOT/usr/local/lib/ruby/gems/1.8/gems
+mkdir -p $RPM_BUILD_ROOT%{_prefix}/lib/ruby/gems/1.8/gems
 # run installer
-./installer --auto /usr/local --dont-install-useful-gems --no-dev-docs --destdir $RPM_BUILD_ROOT
+./installer --auto %{_prefix} --dont-install-useful-gems --no-dev-docs --destdir $RPM_BUILD_ROOT
 
 %install
 # no-op
@@ -50,9 +50,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files 
 %defattr(-,root,root)
-%{_prefix}/local/bin/*
-%{_prefix}/local/lib/*
-%{_prefix}/local/share/man/man1/ruby.1
+%{_prefix}/bin/*
+%{_prefix}/lib/*
+%{_prefix}/share/man/man1/ruby.1
 %doc source/ChangeLog
 %doc source/COPYING
 %doc source/LEGAL
@@ -63,40 +63,45 @@ rm -rf $RPM_BUILD_ROOT
 %doc source/ToDo
 
 # rubygems
-%exclude %{_prefix}/local/bin/gem
-%exclude %{_prefix}/local/lib/ruby/gems
-%exclude %{_prefix}/local/lib/ruby/site_ruby/1.8/rubygems*
-%exclude %{_prefix}/local/lib/ruby/site_ruby/1.8/ubygems.rb
-%exclude %{_prefix}/local/lib/ruby/site_ruby/1.8/rbconfig
+%exclude %{_prefix}/bin/gem
+%exclude %{_prefix}/lib/ruby/gems
+%exclude %{_prefix}/lib/ruby/site_ruby/1.8/rubygems*
+%exclude %{_prefix}/lib/ruby/site_ruby/1.8/ubygems.rb
+%exclude %{_prefix}/lib/ruby/site_ruby/1.8/rbconfig
 
 %files rubygems
-%{_prefix}/local/bin/gem
-%{_prefix}/local/lib/ruby/gems
-%{_prefix}/local/lib/ruby/site_ruby/1.8/rubygems*
-%{_prefix}/local/lib/ruby/site_ruby/1.8/ubygems.rb
-%{_prefix}/local/lib/ruby/site_ruby/1.8/rbconfig
+%{_prefix}/bin/gem
+%{_prefix}/lib/ruby/gems
+%{_prefix}/lib/ruby/site_ruby/1.8/rubygems*
+%{_prefix}/lib/ruby/site_ruby/1.8/ubygems.rb
+%{_prefix}/lib/ruby/site_ruby/1.8/rbconfig
 %doc rubygems/LICENSE.txt
 %doc rubygems/README
 %doc rubygems/GPL.txt
 %doc rubygems/ChangeLog
 
 %pre
-# Do not install if /usr/local/bin/ruby exists and is not provided by an RPM
-if ([ -e /usr/local/bin/ruby ] && !(rpm -q --whatprovides /usr/local/bin/ruby >/dev/null)); then
+# Do not install if %{_prefix}/bin/ruby exists and is not provided by an RPM
+if ([ -e %{_prefix}/bin/ruby ] && !(rpm -q --whatprovides %{_prefix}/bin/ruby >/dev/null)); then
     exit 1
 else
     exit 0
 fi
 
 %pre rubygems
-# Do not install if /usr/local/bin/gem exists and is not provided by an RPM
-if ([ -e /usr/local/bin/gem ] && !(rpm -q --whatprovides /usr/local/bin/gem >/dev/null)); then
+# Do not install if %{_prefix}/bin/gem exists and is not provided by an RPM
+if ([ -e %{_prefix}/bin/gem ] && !(rpm -q --whatprovides %{_prefix}/bin/gem >/dev/null)); then
     exit 1
 else
     exit 0
 fi
 
 %changelog 
+* Wed Jun 30 2010 Adam Vollrath <hosting@endpoint.com>
+- Updated for release 2010.02
+- Updated rubygems version to 1.3.7
+- Generalized all paths
+
 * Mon Apr 19 2010 End Point Corporation <hosting@endpoint.com>
 - Updated for release 2010.01
 - Updated rubygems to 1.3.6

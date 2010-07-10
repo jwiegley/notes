@@ -81,18 +81,18 @@ main = do
     case result of
       ArchiveError err -> error err
       FileName fp      -> if fp /= path
-                          then success fp "file"
+                          then success fp "file" (delete_ opts)
                           else putStrLn $ "Unknown archive type: " ++ fp
-      DirectoryName dp -> success dp "directory"
+      DirectoryName dp -> success dp "directory" (delete_ opts)
                              
   -- In case of success, print the final product's path if -v was used; and
   -- delete the original archive if -d was used.  Otherwise, this is a no-op.
-  where success f kind = do 
+  where success f kind delete = do 
           loud <- isLoud
           when loud $ do
             rf <- makeRelativeToCurrentDirectory f
             putStrLn $ "-> " ++ kind ++ ": " ++ rf
-          when (delete_ opts) $ removeFile path
+          when delete $ removeFile f
 
 
 -- Determine which "type" an archive is by examining its extension.  It may
@@ -122,8 +122,8 @@ exts = [ (".tar",          [tarballExtractor])
        , (".cab",          [cabExtractor])
        , (".cpio",         [cpioExtractor])
 
-       -- , (".gpg",          [gpgExtractor])
-       -- , (".asc",          [gpgExtractor])
+       , (".gpg",          [gpgExtractor])
+       , (".asc",          [gpgExtractor])
 
        , (".dmg",          [diskImageExtractor])
        , (".iso",          [diskImageExtractor])
@@ -161,7 +161,7 @@ bzip2Extractor    = Extractor $ simpleExtractor "bzip2" ["-qdc"]
 xzipExtractor     = Extractor $ simpleExtractor "xz" ["-qdc"]
 
 uuExtractor       = Extractor $ simpleExtractor "uudecode" []
--- gpgExtractor      = Extractor $ simpleExtractor "gpg" ["-d"]
+gpgExtractor      = Extractor $ simpleExtractor "gpg" ["-d"]
 
 -- Tarballs and 7-zip are both archive formats that can accept their input on
 -- stdin.  It's not likely that someone will compress a 7zip archive, but it's
@@ -353,7 +353,7 @@ extract rpath overwrite = do
 
   extract' typs (FileName path,return ())
 
-  where (basename, typs) = findExtractors [] path
+  where (basename, typs) = findExtractors [] rpath
 
         -- The variations of extract' receive a list of archive types yet to
         -- be "unwrapped" from the previous extraction, plus a cleanup action
@@ -483,11 +483,11 @@ bReadProcessWithExitCode cmd args input = do
     -- now write and flush any input
     loud <- isLoud
     if loud
-      then unless (B.null input) $ do B.hPutStr inh input; hFlush inh
-      else if B.null input
+      then if B.null input
            then putStrLn $ cmd ++ " " ++ unwords args
            else do putStrLn $ "| " ++ cmd ++ " " ++ unwords args
                    B.hPutStr inh input; hFlush inh
+      else unless (B.null input) $ do B.hPutStr inh input; hFlush inh
     hClose inh -- done with stdin
 
     -- wait on the output

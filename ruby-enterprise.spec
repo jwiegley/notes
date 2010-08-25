@@ -3,17 +3,19 @@
 
 Summary: Ruby Enterprise Edition (Release %{phusion_release})
 Name: ruby-enterprise
-Vendor: Phusion.nl
+Vendor: Phusion.nl <info@phusion.nl>
 Packager: Adam Vollrath <hosting@endpoint.com>
 Version: 1.8.7
-Release: 4%{dist}
+Release: 5%{dist}
 License: GPL 
 Group: Development/Languages 
 URL: http://www.rubyenterpriseedition.com/
 Source0: ruby-enterprise-%{version}-%{phusion_release}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{phusion_release}-root-%(%{__id_u} -n)
-BuildRequires:	readline readline-devel ncurses ncurses-devel gdbm gdbm-devel glibc-devel autoconf gcc unzip openssl-devel db4-devel byacc
+BuildRequires: make patch gcc-c++ glibc-devel
+BuildRequires: openssl-devel readline-devel
 BuildRequires: ruby
+
 %description 
 Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which includes various enhancements:
 * A copy-on-write friendly garbage collector. Phusion Passenger uses this, in combination with a technique called preforking, to reduce Ruby on Rails applications' memory usage by 33% on average.
@@ -28,13 +30,14 @@ Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which inclu
 Summary: The Ruby standard for packaging ruby libraries
 Version: 1.3.7
 License: Ruby or GPL+
+Vendor: Jim Weirich, Chad Fowler, and Eric Hodel <rubygems-developers@rubyforge.org>
 Group: Development/Libraries
 Requires: ruby-enterprise >= 1.8
 Provides: ruby-enterprise(rubygems) = %{version}
 
 %description rubygems
 RubyGems is the Ruby standard for publishing and managing third party
-libraries.  This rubygems package is for ruby-enterprise.
+libraries.  This rubygems package is for ruby-enterprise in /opt.
 
 %build 
 # work around bug in "installer"
@@ -45,12 +48,21 @@ mkdir -p $RPM_BUILD_ROOT%{_prefix}/lib/ruby/gems/1.8/gems
 %install
 # no-op
 
+%check
+# Help the dynamic linker find the libtcmalloc files:
+export LD_LIBRARY_PATH="${RPM_BUILD_ROOT}%{_prefix}/lib/"
+# and the Ruby library files:
+export RUBYLIB="${RPM_BUILD_ROOT}%{_prefix}/lib/ruby/1.8"
+export RUBYLIB="${RUBYLIB}:${RPM_BUILD_ROOT}%{_prefix}/lib/ruby/1.8/%{_arch}-linux"
+# Run Ruby's unit tests:
+${RPM_BUILD_ROOT}%{_bindir}/ruby ./source/test/runner.rb | tee ./source/RPM_build_unit_tests || :
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files 
 %defattr(-,root,root)
-%{_prefix}/bin/*
+%{_bindir}/*
 %{_prefix}/lib/*
 %{_prefix}/share/man/man1/ruby.1
 %doc source/ChangeLog
@@ -61,6 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc source/README
 %doc source/README.EXT
 %doc source/ToDo
+%doc source/RPM_build_unit_tests
 
 # rubygems
 %exclude %{_prefix}/bin/gem
@@ -70,7 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 %exclude %{_prefix}/lib/ruby/site_ruby/1.8/rbconfig
 
 %files rubygems
-%{_prefix}/bin/gem
+%{_bindir}/gem
 %{_prefix}/lib/ruby/gems
 %{_prefix}/lib/ruby/site_ruby/1.8/rubygems*
 %{_prefix}/lib/ruby/site_ruby/1.8/ubygems.rb
@@ -82,7 +95,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %pre
 # Do not install if %{_prefix}/bin/ruby exists and is not provided by an RPM
-if ([ -e %{_prefix}/bin/ruby ] && !(rpm -q --whatprovides %{_prefix}/bin/ruby >/dev/null)); then
+if ([ -e %{_bindir}/ruby ] && !(rpm -q --whatprovides %{_bindir}/ruby >/dev/null)); then
     exit 1
 else
     exit 0
@@ -90,13 +103,18 @@ fi
 
 %pre rubygems
 # Do not install if %{_prefix}/bin/gem exists and is not provided by an RPM
-if ([ -e %{_prefix}/bin/gem ] && !(rpm -q --whatprovides %{_prefix}/bin/gem >/dev/null)); then
+if ([ -e %{_bindir}/gem ] && !(rpm -q --whatprovides %{_bindir}/gem >/dev/null)); then
     exit 1
 else
     exit 0
 fi
 
 %changelog 
+* Tue Aug 24 2010 Adam Vollrath <hosting@endpoint.com>
+- Updated package metadata
+- Updated BuildRequires dependency lists after testing
+- Run Ruby's unit tests during package building
+
 * Wed Jun 30 2010 Adam Vollrath <hosting@endpoint.com>
 - Updated for release 2010.02
 - Updated rubygems version to 1.3.7

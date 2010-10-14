@@ -1,0 +1,29 @@
+class nagios
+{
+  define service($args = "", $command = false) {
+    @@nagios_service { "${title}_${hostname}":
+      check_command       => $command ? {
+        false   => "${title}!${args}",
+        default => "${command}!${args}"
+      },
+      use                 => "generic-service",
+      host_name           => $fqdn,
+      notification_period => "24x7",
+      service_description => "${hostname}_${title}";
+    }
+  }
+
+  @@nagios_host { $fqdn:
+    use     => "linux-server",
+    alias   => $hostname,
+    address => $ipaddress,
+    ensure  => present;
+  }
+}
+
+class nagios::monitor
+{
+  # collect resources and populate /etc/nagios/nagios_*.cfg
+  Nagios_host <<||>>
+  Nagios_service <<||>>
+}

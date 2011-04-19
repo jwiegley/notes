@@ -1,12 +1,12 @@
 # Package Maintainer: Increment phusion_release to match latest release available
-%define phusion_release	2010.02
+%define phusion_release	2011.03
 
 Summary: Ruby Enterprise Edition (Release %{phusion_release})
 Name: ruby-enterprise
 Vendor: Phusion.nl <info@phusion.nl>
 Packager: Adam Vollrath <hosting@endpoint.com>
 Version: 1.8.7
-Release: 5%{dist}
+Release: 6%{dist}
 License: GPL 
 Group: Development/Languages 
 URL: http://www.rubyenterpriseedition.com/
@@ -14,7 +14,7 @@ Source0: ruby-enterprise-%{version}-%{phusion_release}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{phusion_release}-root-%(%{__id_u} -n)
 BuildRequires: make patch gcc-c++ glibc-devel
 BuildRequires: openssl-devel readline-devel
-BuildRequires: ruby
+BuildRequires: zlib-devel
 
 %description 
 Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which includes various enhancements:
@@ -28,7 +28,7 @@ Ruby Enterprise Edition is a server-oriented friendly branch of Ruby which inclu
 
 %package rubygems
 Summary: The Ruby standard for packaging ruby libraries
-Version: 1.3.7
+Version: 1.5.2
 License: Ruby or GPL+
 Vendor: Jim Weirich, Chad Fowler, and Eric Hodel <rubygems-developers@rubyforge.org>
 Group: Development/Libraries
@@ -89,8 +89,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_prefix}/lib/ruby/site_ruby/1.8/ubygems.rb
 %{_prefix}/lib/ruby/site_ruby/1.8/rbconfig
 %doc rubygems/LICENSE.txt
-%doc rubygems/README
+%doc rubygems/README.rdoc
+%doc rubygems/UPGRADING.rdoc
 %doc rubygems/GPL.txt
+%doc rubygems/Manifest.txt
+%doc rubygems/History.txt
 %doc rubygems/ChangeLog
 
 %pre
@@ -110,6 +113,9 @@ else
 fi
 
 %changelog 
+* Tue Apr 19 2011 Adam Vollrath <hosting@endpoint.com>
+- Updated for 2011.03 and rubygems 1.5.2
+
 * Tue Aug 24 2010 Adam Vollrath <hosting@endpoint.com>
 - Updated package metadata
 - Updated BuildRequires dependency lists after testing

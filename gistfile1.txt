@@ -1,0 +1,13 @@
+(defun erc-tiny-frame ()
+  (interactive)
+  (with-selected-frame
+      (make-frame '((width                . 80)
+                    (height               . 22)
+                    (left-fringe          . 0)
+                    (right-fringe         . 0)
+                    (vertical-scroll-bars . nil)
+                    (unsplittable         . t)
+                    (has-modeline-p       . nil)
+                    (background-color     . "grey80")
+                    (minibuffer           . nil)))
+    (setq mode-line-format nil)))

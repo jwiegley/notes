@@ -10,6 +10,9 @@ New command-line options:
                 -name and -path become straight SQL queries
                 -update is a no-op
                 -checksum will report "no data available")
+  -descend     whenever archives are encountered, read their contents
+  -recurse     even read archives found within archives!
+               (the archive name is reported as if it were a directory)
   
   PREDICATES:
   
@@ -46,9 +49,17 @@ New features:
 
 Recipes:
 
- - Delete anything that's been in my ~/.Trash for more than 30 days
+ - Delete anything that's been in ~/.Trash for more than 30 days, and add any
+   new files to the database:
 
-   find -F ~/.Trash/db.dat ~/.Trash \! -name db.dat -stime +30 -delete
+   find -F ~/.Trash/db.dat ~/.Trash -maxdepth 1 \
+       \( \! -name db.dat -stime +30 -delete -o -added -update \)
+
+ - To be much more resource friendly, run the above once a day, and run this
+   every hour:
+
+   find -F ~/.Trash/db.dat -N ~/.Trash -maxdepth 1 \
+       \! -name db.dat -stime +30 -delete
 
  - Create a database of all entries in foo.tar:
 

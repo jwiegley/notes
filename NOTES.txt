@@ -43,3 +43,21 @@ New features:
    rewritten as an SQL query.  The makes it possible to use find to catalog
    a large volume, and later do fast queries within it, replacing the need
    for utilities such as locate.
+
+Recipes:
+
+ - Delete anything that's been in my ~/.Trash for more than 30 days
+
+   find -F ~/.Trash/db.dat ~/.Trash \! -name db.dat -stime +30 -delete
+
+ - Create a database of all entries in foo.tar:
+
+   find -F db.dat foo.tar -update
+
+ - Later, show me if any files were newly added to foo.tar:
+
+   find -F db.dat foo.tar -added -print
+
+ - Same, updating the database entries after the files are reported
+
+   find -F db.dat foo.tar -added -print -update

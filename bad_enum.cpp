@@ -1,6 +1,18 @@
 #include <iostream>
 #include <climits>
 #include <cassert>
+#include <cstdlib>
+
+enum ShouldBeTiny { min, a, b, c, d, e, f, max };
+
+class foo {
+  ShouldBeTiny flag1;
+  ShouldBeTiny flag2;
+  ShouldBeTiny flag3;
+  ShouldBeTiny flag4;
+  ShouldBeTiny flag5;
+  ShouldBeTiny flag6;
+};
 
 enum System { Mac, Linux, Unix, Windows };
 
@@ -9,6 +21,9 @@ enum IntValues { MinInt = 0x00000000,
 
 int main(int argc, char *[])
 {
+  foo tiny_object;
+  assert(sizeof(foo) < 10);
+
   static const unsigned long Linux = ULONG_MAX;
 
   switch (argc) {

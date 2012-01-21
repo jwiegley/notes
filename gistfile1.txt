@@ -18,7 +18,7 @@ Date:   Fri Jan 20 19:05:00 2012 -0500
     Checkpoint
 
 
-root@bite:/srv/git/repositories# GIT_DIR=courses/BestPractices.git git log HEAD@{2}
+root@bite:/srv/git/repositories# GIT_DIR=courses/BestPractices.git git log HEAD@{1}
 commit b1469ff7760ad157f03b1f61d6f7e304e5c82cf3
 Author: Dave Abrahams <dave@boostpro.com>
 Date:   Fri Jan 20 20:44:17 2012 -0500

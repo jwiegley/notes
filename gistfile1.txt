@@ -1,0 +1,32 @@
+root@bite:/srv/git/repositories# GIT_DIR=courses/BestPractices.git git log HEAD@{2}
+commit 030d6318ade94bafa0f3ac6cb12549d6e99c5f78
+Author: John Wiegley <johnw@boostpro.com>
+Date:   Fri Jan 20 18:52:11 2012 -0600
+
+    Checkpoint
+
+commit 8786aec75b3eb99a9c4148c1c23bd731d92c5583
+Author: John Wiegley <johnw@boostpro.com>
+Date:   Fri Jan 20 18:46:10 2012 -0600
+
+    Reviewed through slide 497
+
+commit e4d8c054687c63338f400c064ada448a584a63e5
+Author: Dave Abrahams <dave@boostpro.com>
+Date:   Fri Jan 20 19:05:00 2012 -0500
+
+    Checkpoint
+
+
+root@bite:/srv/git/repositories# GIT_DIR=courses/BestPractices.git git log HEAD@{2}
+commit b1469ff7760ad157f03b1f61d6f7e304e5c82cf3
+Author: Dave Abrahams <dave@boostpro.com>
+Date:   Fri Jan 20 20:44:17 2012 -0500
+
+    Improved git flow diagram
+
+commit e4d8c054687c63338f400c064ada448a584a63e5
+Author: Dave Abrahams <dave@boostpro.com>
+Date:   Fri Jan 20 19:05:00 2012 -0500
+
+    Checkpoint

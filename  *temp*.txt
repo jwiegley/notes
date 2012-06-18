@@ -1,0 +1,25 @@
+(eval-when-compile
+  (require 'cl))
+
+(require 'gist)
+
+(defvar erc-yank-flood-limit 5
+  "Maximum number of lines allowed to yank to an erc buffer.")
+
+(defun erc-yank (&optional arg)
+  "Yank or make a gist depending on the size of the yanked text."
+  (interactive "*P")
+  (let ((buf (current-buffer)))
+    (if (> (length (split-string (current-kill (cond
+                                                ((listp arg) 0)
+                                                ((eq arg '-) -2)
+                                                (t (1- arg)))) "\n"))
+           erc-yank-flood-limit)
+        (with-temp-buffer
+          (yank arg)
+          (gist-region (point-min) (point-max) nil
+                       #'(lambda (gist)
+                           (let ((location (oref gist :html-url)))
+                             (with-current-buffer buf
+                               (insert location))))))
+      (yank arg))))

@@ -1,0 +1,17 @@
+(defun open-mail-logs ()
+  (interactive)
+  (flet ((switch-in-other-buffer
+          (buf)
+          (when buf
+            (split-window-vertically)
+            (balance-windows)
+            (switch-to-buffer-other-window buf))))
+    (loop initially (delete-other-windows)
+          with first = t
+          for log in (directory-files "~/Messages/" t "\\.log\\'")
+          for buf = (find-file-noselect log)
+          do (if first
+                 (progn
+                   (switch-to-buffer buf)
+                   (setf first nil))
+               (switch-in-other-buffer buf)))))

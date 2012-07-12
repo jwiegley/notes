@@ -1,0 +1,5 @@
+Host lion
+  User johnw
+  Compression yes
+  HostName johnw.homeunix.net
+  Port 2024

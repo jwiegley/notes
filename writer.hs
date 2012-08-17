@@ -8,29 +8,29 @@ import Data.Monoid              -- imports Control.Monad for us
 --    Last (Just 10) `mappend` Nothing              => Last (Just 10)
 --    Nothing        `mappend` Nothing              => Nothing
 
-newtype Writer w a = Writer { runWriter :: (a, Last w) }
+newtype Writer w a = Writer { runWriter :: (a, w) }
 
-instance Monad (Writer w) where
+instance (Monoid w) => Monad (Writer w) where
     -- return :: a -> Writer w a
-    return x = Writer (x, Last Nothing)
+    return x = Writer (x, mempty)
 
     -- (>>=) :: Writer w a -> (a -> Writer w b) -> Writer w b
     (Writer (a, w)) >>= f = let (a', w') = runWriter $ f a
                             in Writer (a', w `mappend` w')
 
 put :: w -> Writer w ()
-put newWriter = Writer ((), Last (Just newWriter))
+put newWriter = Writer ((), newWriter)
 
 ------------------------------------------------------------------------
 
-baz :: Int -> Writer Int Int
+baz :: Int -> Writer (Last Int) Int
 baz y = do if y == 0
-             then put 10
+             then put (Last (Just 10))
              else return ()
            return 5
 
-bar :: Writer Int Int
-bar = do put 20
+bar :: Writer (Last Int) Int
+bar = do put (Last (Just 20))
          _ <- baz 0
          return 5
 

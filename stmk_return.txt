@@ -1,0 +1,4 @@
+~/src/edg/build $ lli test/stmk_return.ll
+/usr/local/bin/lli: test/stmk_return.ll:18:3: error: instruction expected to be numbered '%2'
+  %1 = load i32* %retval, align 4
+  ^

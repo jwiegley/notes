@@ -1,0 +1,16 @@
+type MapStore k v = Store k (Maybe v)
+
+foo' :: MapStore Int Int -> IO ()
+foo' st = do
+  print $ extract st
+  print $ peek 2 st
+  let st' = seeks (+1) st       -- st' is now "based" at 4
+  print $ (+) <$> peeks ((-)1) st' <*> peeks (+1) st'
+
+bar' :: IO()
+bar' = do
+  foo' $ store (\k -> M.lookup k $ fromList [ (1, 100)
+                                            , (2, 200)
+                                            , (3, 300)
+                                            , (4, 400)
+                                            , (5, 500) ])

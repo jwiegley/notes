@@ -16,11 +16,18 @@ import Data.List (delete)
 
 main = do 
   args <- getArgs
-  forM_ (init args) $ \f -> updateDirectory f (last args)
+  forM_ (init args) $ \f -> updateDirectory f (last args) True
   putStrLn "Directories updated."
 
+translateExt :: String -> String
+translateExt ".swf" = ".SWF"
+translateExt ".SWF" = ".SWF"
+translateExt = map toLower
+
 translatePath :: FilePath -> FilePath
-translatePath path = dropFileName path </> map toLower (takeFileName path)
+translatePath path =     dropFileName path 
+                     </>    map toLower (dropExtension (takeFileName path)) 
+                         ++ translateExt (takeExtension path)
 
 updateElement :: FilePath -> FilePath -> IO ()
 updateElement source target = do
@@ -31,15 +38,34 @@ updateElement source target = do
             unless exists $ do
               putStrLn $ "Creating: " ++ dest
               createDirectory dest
-            updateDirectory source dest
-    else updateFile source dest
+            updateDirectory source dest False
+    else do isfile <- doesFileExist source
+            when isfile $ updateFile source dest
 
-updateDirectory :: FilePath -> FilePath -> IO ()
-updateDirectory source target = do
+removeFilePath :: FilePath -> IO ()
+removeFilePath path = do
+  fexists <- doesFileExist path
+  dexists <- doesDirectoryExist path
+  when (fexists || dexists) $ do
+    putStrLn $ "Removing: " ++ path
+    if fexists
+      then removeFile path
+      else removeDirectoryRecursive path
+
+updateDirectory :: FilePath -> FilePath -> Bool -> IO ()
+updateDirectory source target toplevelp = do
   contents <- getDirectoryContents source
   forM_ (delete "." $ delete ".." contents) $ \e ->
-    updateElement (source </> e) (target </> e)
-           
+    unless (takeExtension e == ".idlk") $
+      updateElement (source </> e) (target </> e)
+    
+  unless toplevelp $ do
+    tcontents <- getDirectoryContents target
+    forM_ (delete "." $ delete ".." tcontents) $ \e -> do
+      s_isdir  <- doesDirectoryExist (source </> e)
+      s_isfile <- doesFileExist (source </> e)
+      unless (s_isdir || s_isfile) $ removeFilePath (target </> e)
+
 updateFile :: FilePath -> FilePath -> IO ()
 updateFile source target = do
   exists <- doesFileExist target

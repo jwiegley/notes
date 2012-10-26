@@ -1,0 +1,675 @@
+Error printing disabled by default, value of --print-errors: 0
+Error printing disabled
+Adding virtual 'pkg-config' package to list of known packages
+Scanning directory '/usr/local/lib/pkgconfig'
+Ignoring file '.' in search directory; not a .pc file
+Ignoring file '..' in search directory; not a .pc file
+File 'atk.pc' appears to be a .pc file
+Will find package 'atk' in file '/usr/local/lib/pkgconfig/atk.pc'
+File 'bdw-gc.pc' appears to be a .pc file
+Will find package 'bdw-gc' in file '/usr/local/lib/pkgconfig/bdw-gc.pc'
+File 'cairo-fc.pc' appears to be a .pc file
+Will find package 'cairo-fc' in file '/usr/local/lib/pkgconfig/cairo-fc.pc'
+File 'cairo-ft.pc' appears to be a .pc file
+Will find package 'cairo-ft' in file '/usr/local/lib/pkgconfig/cairo-ft.pc'
+File 'cairo-gobject.pc' appears to be a .pc file
+Will find package 'cairo-gobject' in file '/usr/local/lib/pkgconfig/cairo-gobject.pc'
+File 'cairo-pdf.pc' appears to be a .pc file
+Will find package 'cairo-pdf' in file '/usr/local/lib/pkgconfig/cairo-pdf.pc'
+File 'cairo-png.pc' appears to be a .pc file
+Will find package 'cairo-png' in file '/usr/local/lib/pkgconfig/cairo-png.pc'
+File 'cairo-ps.pc' appears to be a .pc file
+Will find package 'cairo-ps' in file '/usr/local/lib/pkgconfig/cairo-ps.pc'
+File 'cairo-quartz-font.pc' appears to be a .pc file
+Will find package 'cairo-quartz-font' in file '/usr/local/lib/pkgconfig/cairo-quartz-font.pc'
+File 'cairo-quartz.pc' appears to be a .pc file
+Will find package 'cairo-quartz' in file '/usr/local/lib/pkgconfig/cairo-quartz.pc'
+File 'cairo-script.pc' appears to be a .pc file
+Will find package 'cairo-script' in file '/usr/local/lib/pkgconfig/cairo-script.pc'
+File 'cairo-svg.pc' appears to be a .pc file
+Will find package 'cairo-svg' in file '/usr/local/lib/pkgconfig/cairo-svg.pc'
+File 'cairo-xcb-shm.pc' appears to be a .pc file
+Will find package 'cairo-xcb-shm' in file '/usr/local/lib/pkgconfig/cairo-xcb-shm.pc'
+File 'cairo-xcb.pc' appears to be a .pc file
+Will find package 'cairo-xcb' in file '/usr/local/lib/pkgconfig/cairo-xcb.pc'
+File 'cairo-xlib-xrender.pc' appears to be a .pc file
+Will find package 'cairo-xlib-xrender' in file '/usr/local/lib/pkgconfig/cairo-xlib-xrender.pc'
+File 'cairo-xlib.pc' appears to be a .pc file
+Will find package 'cairo-xlib' in file '/usr/local/lib/pkgconfig/cairo-xlib.pc'
+File 'cairo.pc' appears to be a .pc file
+Will find package 'cairo' in file '/usr/local/lib/pkgconfig/cairo.pc'
+File 'fontconfig.pc' appears to be a .pc file
+Will find package 'fontconfig' in file '/usr/local/lib/pkgconfig/fontconfig.pc'
+File 'freetype2.pc' appears to be a .pc file
+Will find package 'freetype2' in file '/usr/local/lib/pkgconfig/freetype2.pc'
+File 'gail.pc' appears to be a .pc file
+Will find package 'gail' in file '/usr/local/lib/pkgconfig/gail.pc'
+File 'gdk-2.0.pc' appears to be a .pc file
+Will find package 'gdk-2.0' in file '/usr/local/lib/pkgconfig/gdk-2.0.pc'
+File 'gdk-pixbuf-2.0.pc' appears to be a .pc file
+Will find package 'gdk-pixbuf-2.0' in file '/usr/local/lib/pkgconfig/gdk-pixbuf-2.0.pc'
+File 'gdk-x11-2.0.pc' appears to be a .pc file
+Will find package 'gdk-x11-2.0' in file '/usr/local/lib/pkgconfig/gdk-x11-2.0.pc'
+File 'gdlib.pc' appears to be a .pc file
+Will find package 'gdlib' in file '/usr/local/lib/pkgconfig/gdlib.pc'
+File 'gio-2.0.pc' appears to be a .pc file
+Will find package 'gio-2.0' in file '/usr/local/lib/pkgconfig/gio-2.0.pc'
+File 'gio-unix-2.0.pc' appears to be a .pc file
+Will find package 'gio-unix-2.0' in file '/usr/local/lib/pkgconfig/gio-unix-2.0.pc'
+File 'glew.pc' appears to be a .pc file
+Will find package 'glew' in file '/usr/local/lib/pkgconfig/glew.pc'
+File 'glewmx.pc' appears to be a .pc file
+Will find package 'glewmx' in file '/usr/local/lib/pkgconfig/glewmx.pc'
+File 'glib-2.0.pc' appears to be a .pc file
+Will find package 'glib-2.0' in file '/usr/local/lib/pkgconfig/glib-2.0.pc'
+File 'gmodule-2.0.pc' appears to be a .pc file
+Will find package 'gmodule-2.0' in file '/usr/local/lib/pkgconfig/gmodule-2.0.pc'
+File 'gmodule-export-2.0.pc' appears to be a .pc file
+Will find package 'gmodule-export-2.0' in file '/usr/local/lib/pkgconfig/gmodule-export-2.0.pc'
+File 'gmodule-no-export-2.0.pc' appears to be a .pc file
+Will find package 'gmodule-no-export-2.0' in file '/usr/local/lib/pkgconfig/gmodule-no-export-2.0.pc'
+File 'gnutls-extra.pc' appears to be a .pc file
+Will find package 'gnutls-extra' in file '/usr/local/lib/pkgconfig/gnutls-extra.pc'
+File 'gnutls.pc' appears to be a .pc file
+Will find package 'gnutls' in file '/usr/local/lib/pkgconfig/gnutls.pc'
+File 'gobject-2.0.pc' appears to be a .pc file
+Will find package 'gobject-2.0' in file '/usr/local/lib/pkgconfig/gobject-2.0.pc'
+File 'gthread-2.0.pc' appears to be a .pc file
+Will find package 'gthread-2.0' in file '/usr/local/lib/pkgconfig/gthread-2.0.pc'
+File 'gtk+-2.0.pc' appears to be a .pc file
+Will find package 'gtk+-2.0' in file '/usr/local/lib/pkgconfig/gtk+-2.0.pc'
+File 'gtk+-unix-print-2.0.pc' appears to be a .pc file
+Will find package 'gtk+-unix-print-2.0' in file '/usr/local/lib/pkgconfig/gtk+-unix-print-2.0.pc'
+File 'gtk+-x11-2.0.pc' appears to be a .pc file
+Will find package 'gtk+-x11-2.0' in file '/usr/local/lib/pkgconfig/gtk+-x11-2.0.pc'
+File 'libcdt.pc' appears to be a .pc file
+Will find package 'libcdt' in file '/usr/local/lib/pkgconfig/libcdt.pc'
+File 'libcgraph.pc' appears to be a .pc file
+Will find package 'libcgraph' in file '/usr/local/lib/pkgconfig/libcgraph.pc'
+File 'libclucene-core.pc' appears to be a .pc file
+Will find package 'libclucene-core' in file '/usr/local/lib/pkgconfig/libclucene-core.pc'
+File 'libdar.pc' appears to be a .pc file
+Will find package 'libdar' in file '/usr/local/lib/pkgconfig/libdar.pc'
+File 'libgit2.pc' appears to be a .pc file
+Will find package 'libgit2' in file '/usr/local/lib/pkgconfig/libgit2.pc'
+File 'libgraph.pc' appears to be a .pc file
+Will find package 'libgraph' in file '/usr/local/lib/pkgconfig/libgraph.pc'
+File 'libgvc.pc' appears to be a .pc file
+Will find package 'libgvc' in file '/usr/local/lib/pkgconfig/libgvc.pc'
+File 'libgvpr.pc' appears to be a .pc file
+Will find package 'libgvpr' in file '/usr/local/lib/pkgconfig/libgvpr.pc'
+File 'libmpdclient.pc' appears to be a .pc file
+Will find package 'libmpdclient' in file '/usr/local/lib/pkgconfig/libmpdclient.pc'
+File 'libotr.pc' appears to be a .pc file
+Will find package 'libotr' in file '/usr/local/lib/pkgconfig/libotr.pc'
+File 'libpathplan.pc' appears to be a .pc file
+Will find package 'libpathplan' in file '/usr/local/lib/pkgconfig/libpathplan.pc'
+File 'libpcre.pc' appears to be a .pc file
+Will find package 'libpcre' in file '/usr/local/lib/pkgconfig/libpcre.pc'
+File 'libpcrecpp.pc' appears to be a .pc file
+Will find package 'libpcrecpp' in file '/usr/local/lib/pkgconfig/libpcrecpp.pc'
+File 'libpcreposix.pc' appears to be a .pc file
+Will find package 'libpcreposix' in file '/usr/local/lib/pkgconfig/libpcreposix.pc'
+File 'libpng.pc' appears to be a .pc file
+Will find package 'libpng' in file '/usr/local/lib/pkgconfig/libpng.pc'
+File 'libpng15.pc' appears to be a .pc file
+Will find package 'libpng15' in file '/usr/local/lib/pkgconfig/libpng15.pc'
+File 'libR.pc' appears to be a .pc file
+Will find package 'libR' in file '/usr/local/lib/pkgconfig/libR.pc'
+File 'libssh2.pc' appears to be a .pc file
+Will find package 'libssh2' in file '/usr/local/lib/pkgconfig/libssh2.pc'
+File 'libtasn1.pc' appears to be a .pc file
+Will find package 'libtasn1' in file '/usr/local/lib/pkgconfig/libtasn1.pc'
+File 'libtiff-4.pc' appears to be a .pc file
+Will find package 'libtiff-4' in file '/usr/local/lib/pkgconfig/libtiff-4.pc'
+File 'libusb.pc' appears to be a .pc file
+Will find package 'libusb' in file '/usr/local/lib/pkgconfig/libusb.pc'
+File 'libxdot.pc' appears to be a .pc file
+Will find package 'libxdot' in file '/usr/local/lib/pkgconfig/libxdot.pc'
+File 'lua.pc' appears to be a .pc file
+Will find package 'lua' in file '/usr/local/lib/pkgconfig/lua.pc'
+File 'pango.pc' appears to be a .pc file
+Will find package 'pango' in file '/usr/local/lib/pkgconfig/pango.pc'
+File 'pangocairo.pc' appears to be a .pc file
+Will find package 'pangocairo' in file '/usr/local/lib/pkgconfig/pangocairo.pc'
+File 'pangoft2.pc' appears to be a .pc file
+Will find package 'pangoft2' in file '/usr/local/lib/pkgconfig/pangoft2.pc'
+File 'pangox.pc' appears to be a .pc file
+Will find package 'pangox' in file '/usr/local/lib/pkgconfig/pangox.pc'
+File 'pangoxft.pc' appears to be a .pc file
+Will find package 'pangoxft' in file '/usr/local/lib/pkgconfig/pangoxft.pc'
+File 'pixman-1.pc' appears to be a .pc file
+Will find package 'pixman-1' in file '/usr/local/lib/pkgconfig/pixman-1.pc'
+File 'popt.pc' appears to be a .pc file
+Will find package 'popt' in file '/usr/local/lib/pkgconfig/popt.pc'
+File 'ruby-1.9.pc' appears to be a .pc file
+Will find package 'ruby-1.9' in file '/usr/local/lib/pkgconfig/ruby-1.9.pc'
+File 'sdl.pc' appears to be a .pc file
+Will find package 'sdl' in file '/usr/local/lib/pkgconfig/sdl.pc'
+File 'SDL_image.pc' appears to be a .pc file
+Will find package 'SDL_image' in file '/usr/local/lib/pkgconfig/SDL_image.pc'
+File 'tokyocabinet.pc' appears to be a .pc file
+Will find package 'tokyocabinet' in file '/usr/local/lib/pkgconfig/tokyocabinet.pc'
+File 'valgrind.pc' appears to be a .pc file
+Will find package 'valgrind' in file '/usr/local/lib/pkgconfig/valgrind.pc'
+File 'yaml-0.1.pc' appears to be a .pc file
+Will find package 'yaml-0.1' in file '/usr/local/lib/pkgconfig/yaml-0.1.pc'
+Scanning directory '/opt/X11/lib/pkgconfig'
+Ignoring file '.' in search directory; not a .pc file
+Ignoring file '..' in search directory; not a .pc file
+File 'applewm.pc' appears to be a .pc file
+Will find package 'applewm' in file '/opt/X11/lib/pkgconfig/applewm.pc'
+File 'applewmproto.pc' appears to be a .pc file
+Will find package 'applewmproto' in file '/opt/X11/lib/pkgconfig/applewmproto.pc'
+File 'bigreqsproto.pc' appears to be a .pc file
+Will find package 'bigreqsproto' in file '/opt/X11/lib/pkgconfig/bigreqsproto.pc'
+File 'cairo-fc.pc' appears to be a .pc file
+File 'cairo-fc.pc' ignored, we already know about package 'cairo-fc'
+File 'cairo-ft.pc' appears to be a .pc file
+File 'cairo-ft.pc' ignored, we already know about package 'cairo-ft'
+File 'cairo-pdf.pc' appears to be a .pc file
+File 'cairo-pdf.pc' ignored, we already know about package 'cairo-pdf'
+File 'cairo-png.pc' appears to be a .pc file
+File 'cairo-png.pc' ignored, we already know about package 'cairo-png'
+File 'cairo-ps.pc' appears to be a .pc file
+File 'cairo-ps.pc' ignored, we already know about package 'cairo-ps'
+File 'cairo-script.pc' appears to be a .pc file
+File 'cairo-script.pc' ignored, we already know about package 'cairo-script'
+File 'cairo-svg.pc' appears to be a .pc file
+File 'cairo-svg.pc' ignored, we already know about package 'cairo-svg'
+File 'cairo-tee.pc' appears to be a .pc file
+Will find package 'cairo-tee' in file '/opt/X11/lib/pkgconfig/cairo-tee.pc'
+File 'cairo-xcb-shm.pc' appears to be a .pc file
+File 'cairo-xcb-shm.pc' ignored, we already know about package 'cairo-xcb-shm'
+File 'cairo-xcb.pc' appears to be a .pc file
+File 'cairo-xcb.pc' ignored, we already know about package 'cairo-xcb'
+File 'cairo-xlib-xcb.pc' appears to be a .pc file
+Will find package 'cairo-xlib-xcb' in file '/opt/X11/lib/pkgconfig/cairo-xlib-xcb.pc'
+File 'cairo-xlib-xrender.pc' appears to be a .pc file
+File 'cairo-xlib-xrender.pc' ignored, we already know about package 'cairo-xlib-xrender'
+File 'cairo-xlib.pc' appears to be a .pc file
+File 'cairo-xlib.pc' ignored, we already know about package 'cairo-xlib'
+File 'cairo-xml.pc' appears to be a .pc file
+Will find package 'cairo-xml' in file '/opt/X11/lib/pkgconfig/cairo-xml.pc'
+File 'cairo.pc' appears to be a .pc file
+File 'cairo.pc' ignored, we already know about package 'cairo'
+File 'compositeproto.pc' appears to be a .pc file
+Will find package 'compositeproto' in file '/opt/X11/lib/pkgconfig/compositeproto.pc'
+File 'damageproto.pc' appears to be a .pc file
+Will find package 'damageproto' in file '/opt/X11/lib/pkgconfig/damageproto.pc'
+File 'dmx.pc' appears to be a .pc file
+Will find package 'dmx' in file '/opt/X11/lib/pkgconfig/dmx.pc'
+File 'dmxproto.pc' appears to be a .pc file
+Will find package 'dmxproto' in file '/opt/X11/lib/pkgconfig/dmxproto.pc'
+File 'dri2proto.pc' appears to be a .pc file
+Will find package 'dri2proto' in file '/opt/X11/lib/pkgconfig/dri2proto.pc'
+File 'evieproto.pc' appears to be a .pc file
+Will find package 'evieproto' in file '/opt/X11/lib/pkgconfig/evieproto.pc'
+File 'fixesproto.pc' appears to be a .pc file
+Will find package 'fixesproto' in file '/opt/X11/lib/pkgconfig/fixesproto.pc'
+File 'fontcacheproto.pc' appears to be a .pc file
+Will find package 'fontcacheproto' in file '/opt/X11/lib/pkgconfig/fontcacheproto.pc'
+File 'fontconfig.pc' appears to be a .pc file
+File 'fontconfig.pc' ignored, we already know about package 'fontconfig'
+File 'fontenc.pc' appears to be a .pc file
+Will find package 'fontenc' in file '/opt/X11/lib/pkgconfig/fontenc.pc'
+File 'fontsproto.pc' appears to be a .pc file
+Will find package 'fontsproto' in file '/opt/X11/lib/pkgconfig/fontsproto.pc'
+File 'fontutil.pc' appears to be a .pc file
+Will find package 'fontutil' in file '/opt/X11/lib/pkgconfig/fontutil.pc'
+File 'freetype2.pc' appears to be a .pc file
+File 'freetype2.pc' ignored, we already know about package 'freetype2'
+File 'gl.pc' appears to be a .pc file
+Will find package 'gl' in file '/opt/X11/lib/pkgconfig/gl.pc'
+File 'glproto.pc' appears to be a .pc file
+Will find package 'glproto' in file '/opt/X11/lib/pkgconfig/glproto.pc'
+File 'glu.pc' appears to be a .pc file
+Will find package 'glu' in file '/opt/X11/lib/pkgconfig/glu.pc'
+File 'ice.pc' appears to be a .pc file
+Will find package 'ice' in file '/opt/X11/lib/pkgconfig/ice.pc'
+File 'inputproto.pc' appears to be a .pc file
+Will find package 'inputproto' in file '/opt/X11/lib/pkgconfig/inputproto.pc'
+File 'kbproto.pc' appears to be a .pc file
+Will find package 'kbproto' in file '/opt/X11/lib/pkgconfig/kbproto.pc'
+File 'libfs.pc' appears to be a .pc file
+Will find package 'libfs' in file '/opt/X11/lib/pkgconfig/libfs.pc'
+File 'libpng.pc' appears to be a .pc file
+File 'libpng.pc' ignored, we already know about package 'libpng'
+File 'libpng15.pc' appears to be a .pc file
+File 'libpng15.pc' ignored, we already know about package 'libpng15'
+File 'osmesa.pc' appears to be a .pc file
+Will find package 'osmesa' in file '/opt/X11/lib/pkgconfig/osmesa.pc'
+File 'pixman-1.pc' appears to be a .pc file
+File 'pixman-1.pc' ignored, we already know about package 'pixman-1'
+File 'printproto.pc' appears to be a .pc file
+Will find package 'printproto' in file '/opt/X11/lib/pkgconfig/printproto.pc'
+File 'pthread-stubs.pc' appears to be a .pc file
+Will find package 'pthread-stubs' in file '/opt/X11/lib/pkgconfig/pthread-stubs.pc'
+File 'randrproto.pc' appears to be a .pc file
+Will find package 'randrproto' in file '/opt/X11/lib/pkgconfig/randrproto.pc'
+File 'recordproto.pc' appears to be a .pc file
+Will find package 'recordproto' in file '/opt/X11/lib/pkgconfig/recordproto.pc'
+File 'renderproto.pc' appears to be a .pc file
+Will find package 'renderproto' in file '/opt/X11/lib/pkgconfig/renderproto.pc'
+File 'resourceproto.pc' appears to be a .pc file
+Will find package 'resourceproto' in file '/opt/X11/lib/pkgconfig/resourceproto.pc'
+File 'scrnsaverproto.pc' appears to be a .pc file
+Will find package 'scrnsaverproto' in file '/opt/X11/lib/pkgconfig/scrnsaverproto.pc'
+File 'sm.pc' appears to be a .pc file
+Will find package 'sm' in file '/opt/X11/lib/pkgconfig/sm.pc'
+File 'trapproto.pc' appears to be a .pc file
+Will find package 'trapproto' in file '/opt/X11/lib/pkgconfig/trapproto.pc'
+File 'vg.pc' appears to be a .pc file
+Will find package 'vg' in file '/opt/X11/lib/pkgconfig/vg.pc'
+File 'videoproto.pc' appears to be a .pc file
+Will find package 'videoproto' in file '/opt/X11/lib/pkgconfig/videoproto.pc'
+File 'x11-xcb.pc' appears to be a .pc file
+Will find package 'x11-xcb' in file '/opt/X11/lib/pkgconfig/x11-xcb.pc'
+File 'x11.pc' appears to be a .pc file
+Will find package 'x11' in file '/opt/X11/lib/pkgconfig/x11.pc'
+File 'xau.pc' appears to be a .pc file
+Will find package 'xau' in file '/opt/X11/lib/pkgconfig/xau.pc'
+File 'xaw3d.pc' appears to be a .pc file
+Will find package 'xaw3d' in file '/opt/X11/lib/pkgconfig/xaw3d.pc'
+File 'xaw6.pc' appears to be a .pc file
+Will find package 'xaw6' in file '/opt/X11/lib/pkgconfig/xaw6.pc'
+File 'xaw7.pc' appears to be a .pc file
+Will find package 'xaw7' in file '/opt/X11/lib/pkgconfig/xaw7.pc'
+File 'xcb-atom.pc' appears to be a .pc file
+Will find package 'xcb-atom' in file '/opt/X11/lib/pkgconfig/xcb-atom.pc'
+File 'xcb-aux.pc' appears to be a .pc file
+Will find package 'xcb-aux' in file '/opt/X11/lib/pkgconfig/xcb-aux.pc'
+File 'xcb-composite.pc' appears to be a .pc file
+Will find package 'xcb-composite' in file '/opt/X11/lib/pkgconfig/xcb-composite.pc'
+File 'xcb-damage.pc' appears to be a .pc file
+Will find package 'xcb-damage' in file '/opt/X11/lib/pkgconfig/xcb-damage.pc'
+File 'xcb-dpms.pc' appears to be a .pc file
+Will find package 'xcb-dpms' in file '/opt/X11/lib/pkgconfig/xcb-dpms.pc'
+File 'xcb-dri2.pc' appears to be a .pc file
+Will find package 'xcb-dri2' in file '/opt/X11/lib/pkgconfig/xcb-dri2.pc'
+File 'xcb-event.pc' appears to be a .pc file
+Will find package 'xcb-event' in file '/opt/X11/lib/pkgconfig/xcb-event.pc'
+File 'xcb-ewmh.pc' appears to be a .pc file
+Will find package 'xcb-ewmh' in file '/opt/X11/lib/pkgconfig/xcb-ewmh.pc'
+File 'xcb-glx.pc' appears to be a .pc file
+Will find package 'xcb-glx' in file '/opt/X11/lib/pkgconfig/xcb-glx.pc'
+File 'xcb-icccm.pc' appears to be a .pc file
+Will find package 'xcb-icccm' in file '/opt/X11/lib/pkgconfig/xcb-icccm.pc'
+File 'xcb-image.pc' appears to be a .pc file
+Will find package 'xcb-image' in file '/opt/X11/lib/pkgconfig/xcb-image.pc'
+File 'xcb-keysyms.pc' appears to be a .pc file
+Will find package 'xcb-keysyms' in file '/opt/X11/lib/pkgconfig/xcb-keysyms.pc'
+File 'xcb-proto.pc' appears to be a .pc file
+Will find package 'xcb-proto' in file '/opt/X11/lib/pkgconfig/xcb-proto.pc'
+File 'xcb-randr.pc' appears to be a .pc file
+Will find package 'xcb-randr' in file '/opt/X11/lib/pkgconfig/xcb-randr.pc'
+File 'xcb-record.pc' appears to be a .pc file
+Will find package 'xcb-record' in file '/opt/X11/lib/pkgconfig/xcb-record.pc'
+File 'xcb-render.pc' appears to be a .pc file
+Will find package 'xcb-render' in file '/opt/X11/lib/pkgconfig/xcb-render.pc'
+File 'xcb-renderutil.pc' appears to be a .pc file
+Will find package 'xcb-renderutil' in file '/opt/X11/lib/pkgconfig/xcb-renderutil.pc'
+File 'xcb-res.pc' appears to be a .pc file
+Will find package 'xcb-res' in file '/opt/X11/lib/pkgconfig/xcb-res.pc'
+File 'xcb-screensaver.pc' appears to be a .pc file
+Will find package 'xcb-screensaver' in file '/opt/X11/lib/pkgconfig/xcb-screensaver.pc'
+File 'xcb-shape.pc' appears to be a .pc file
+Will find package 'xcb-shape' in file '/opt/X11/lib/pkgconfig/xcb-shape.pc'
+File 'xcb-shm.pc' appears to be a .pc file
+Will find package 'xcb-shm' in file '/opt/X11/lib/pkgconfig/xcb-shm.pc'
+File 'xcb-sync.pc' appears to be a .pc file
+Will find package 'xcb-sync' in file '/opt/X11/lib/pkgconfig/xcb-sync.pc'
+File 'xcb-util.pc' appears to be a .pc file
+Will find package 'xcb-util' in file '/opt/X11/lib/pkgconfig/xcb-util.pc'
+File 'xcb-xevie.pc' appears to be a .pc file
+Will find package 'xcb-xevie' in file '/opt/X11/lib/pkgconfig/xcb-xevie.pc'
+File 'xcb-xf86dri.pc' appears to be a .pc file
+Will find package 'xcb-xf86dri' in file '/opt/X11/lib/pkgconfig/xcb-xf86dri.pc'
+File 'xcb-xfixes.pc' appears to be a .pc file
+Will find package 'xcb-xfixes' in file '/opt/X11/lib/pkgconfig/xcb-xfixes.pc'
+File 'xcb-xinerama.pc' appears to be a .pc file
+Will find package 'xcb-xinerama' in file '/opt/X11/lib/pkgconfig/xcb-xinerama.pc'
+File 'xcb-xprint.pc' appears to be a .pc file
+Will find package 'xcb-xprint' in file '/opt/X11/lib/pkgconfig/xcb-xprint.pc'
+File 'xcb-xtest.pc' appears to be a .pc file
+Will find package 'xcb-xtest' in file '/opt/X11/lib/pkgconfig/xcb-xtest.pc'
+File 'xcb-xv.pc' appears to be a .pc file
+Will find package 'xcb-xv' in file '/opt/X11/lib/pkgconfig/xcb-xv.pc'
+File 'xcb-xvmc.pc' appears to be a .pc file
+Will find package 'xcb-xvmc' in file '/opt/X11/lib/pkgconfig/xcb-xvmc.pc'
+File 'xcb.pc' appears to be a .pc file
+Will find package 'xcb' in file '/opt/X11/lib/pkgconfig/xcb.pc'
+File 'xcmiscproto.pc' appears to be a .pc file
+Will find package 'xcmiscproto' in file '/opt/X11/lib/pkgconfig/xcmiscproto.pc'
+File 'xcomposite.pc' appears to be a .pc file
+Will find package 'xcomposite' in file '/opt/X11/lib/pkgconfig/xcomposite.pc'
+File 'xcursor.pc' appears to be a .pc file
+Will find package 'xcursor' in file '/opt/X11/lib/pkgconfig/xcursor.pc'
+File 'xdamage.pc' appears to be a .pc file
+Will find package 'xdamage' in file '/opt/X11/lib/pkgconfig/xdamage.pc'
+File 'xdmcp.pc' appears to be a .pc file
+Will find package 'xdmcp' in file '/opt/X11/lib/pkgconfig/xdmcp.pc'
+File 'xevie.pc' appears to be a .pc file
+Will find package 'xevie' in file '/opt/X11/lib/pkgconfig/xevie.pc'
+File 'xext.pc' appears to be a .pc file
+Will find package 'xext' in file '/opt/X11/lib/pkgconfig/xext.pc'
+File 'xextproto.pc' appears to be a .pc file
+Will find package 'xextproto' in file '/opt/X11/lib/pkgconfig/xextproto.pc'
+File 'xf86bigfontproto.pc' appears to be a .pc file
+Will find package 'xf86bigfontproto' in file '/opt/X11/lib/pkgconfig/xf86bigfontproto.pc'
+File 'xf86dgaproto.pc' appears to be a .pc file
+Will find package 'xf86dgaproto' in file '/opt/X11/lib/pkgconfig/xf86dgaproto.pc'
+File 'xf86driproto.pc' appears to be a .pc file
+Will find package 'xf86driproto' in file '/opt/X11/lib/pkgconfig/xf86driproto.pc'
+File 'xf86miscproto.pc' appears to be a .pc file
+Will find package 'xf86miscproto' in file '/opt/X11/lib/pkgconfig/xf86miscproto.pc'
+File 'xf86rushproto.pc' appears to be a .pc file
+Will find package 'xf86rushproto' in file '/opt/X11/lib/pkgconfig/xf86rushproto.pc'
+File 'xf86vidmodeproto.pc' appears to be a .pc file
+Will find package 'xf86vidmodeproto' in file '/opt/X11/lib/pkgconfig/xf86vidmodeproto.pc'
+File 'xfixes.pc' appears to be a .pc file
+Will find package 'xfixes' in file '/opt/X11/lib/pkgconfig/xfixes.pc'
+File 'xfont.pc' appears to be a .pc file
+Will find package 'xfont' in file '/opt/X11/lib/pkgconfig/xfont.pc'
+File 'xfontcache.pc' appears to be a .pc file
+Will find package 'xfontcache' in file '/opt/X11/lib/pkgconfig/xfontcache.pc'
+File 'xft.pc' appears to be a .pc file
+Will find package 'xft' in file '/opt/X11/lib/pkgconfig/xft.pc'
+File 'xi.pc' appears to be a .pc file
+Will find package 'xi' in file '/opt/X11/lib/pkgconfig/xi.pc'
+File 'xinerama.pc' appears to be a .pc file
+Will find package 'xinerama' in file '/opt/X11/lib/pkgconfig/xinerama.pc'
+File 'xineramaproto.pc' appears to be a .pc file
+Will find package 'xineramaproto' in file '/opt/X11/lib/pkgconfig/xineramaproto.pc'
+File 'xkbcomp.pc' appears to be a .pc file
+Will find package 'xkbcomp' in file '/opt/X11/lib/pkgconfig/xkbcomp.pc'
+File 'xkbfile.pc' appears to be a .pc file
+Will find package 'xkbfile' in file '/opt/X11/lib/pkgconfig/xkbfile.pc'
+File 'xkbui.pc' appears to be a .pc file
+Will find package 'xkbui' in file '/opt/X11/lib/pkgconfig/xkbui.pc'
+File 'xmu.pc' appears to be a .pc file
+Will find package 'xmu' in file '/opt/X11/lib/pkgconfig/xmu.pc'
+File 'xmuu.pc' appears to be a .pc file
+Will find package 'xmuu' in file '/opt/X11/lib/pkgconfig/xmuu.pc'
+File 'xorg-server.pc' appears to be a .pc file
+Will find package 'xorg-server' in file '/opt/X11/lib/pkgconfig/xorg-server.pc'
+File 'xp.pc' appears to be a .pc file
+Will find package 'xp' in file '/opt/X11/lib/pkgconfig/xp.pc'
+File 'xpm.pc' appears to be a .pc file
+Will find package 'xpm' in file '/opt/X11/lib/pkgconfig/xpm.pc'
+File 'xproto.pc' appears to be a .pc file
+Will find package 'xproto' in file '/opt/X11/lib/pkgconfig/xproto.pc'
+File 'xpyb.pc' appears to be a .pc file
+Will find package 'xpyb' in file '/opt/X11/lib/pkgconfig/xpyb.pc'
+File 'xrandr.pc' appears to be a .pc file
+Will find package 'xrandr' in file '/opt/X11/lib/pkgconfig/xrandr.pc'
+File 'xrender.pc' appears to be a .pc file
+Will find package 'xrender' in file '/opt/X11/lib/pkgconfig/xrender.pc'
+File 'xres.pc' appears to be a .pc file
+Will find package 'xres' in file '/opt/X11/lib/pkgconfig/xres.pc'
+File 'xscrnsaver.pc' appears to be a .pc file
+Will find package 'xscrnsaver' in file '/opt/X11/lib/pkgconfig/xscrnsaver.pc'
+File 'xt.pc' appears to be a .pc file
+Will find package 'xt' in file '/opt/X11/lib/pkgconfig/xt.pc'
+File 'xtrap.pc' appears to be a .pc file
+Will find package 'xtrap' in file '/opt/X11/lib/pkgconfig/xtrap.pc'
+File 'xtst.pc' appears to be a .pc file
+Will find package 'xtst' in file '/opt/X11/lib/pkgconfig/xtst.pc'
+File 'xv.pc' appears to be a .pc file
+Will find package 'xv' in file '/opt/X11/lib/pkgconfig/xv.pc'
+File 'xvmc.pc' appears to be a .pc file
+Will find package 'xvmc' in file '/opt/X11/lib/pkgconfig/xvmc.pc'
+File 'xxf86misc.pc' appears to be a .pc file
+Will find package 'xxf86misc' in file '/opt/X11/lib/pkgconfig/xxf86misc.pc'
+File 'xxf86vm.pc' appears to be a .pc file
+Will find package 'xxf86vm' in file '/opt/X11/lib/pkgconfig/xxf86vm.pc'
+Scanning directory '/usr/local/lib/pkgconfig'
+Ignoring file '.' in search directory; not a .pc file
+Ignoring file '..' in search directory; not a .pc file
+File 'atk.pc' appears to be a .pc file
+File 'atk.pc' ignored, we already know about package 'atk'
+File 'bdw-gc.pc' appears to be a .pc file
+File 'bdw-gc.pc' ignored, we already know about package 'bdw-gc'
+File 'cairo-fc.pc' appears to be a .pc file
+File 'cairo-fc.pc' ignored, we already know about package 'cairo-fc'
+File 'cairo-ft.pc' appears to be a .pc file
+File 'cairo-ft.pc' ignored, we already know about package 'cairo-ft'
+File 'cairo-gobject.pc' appears to be a .pc file
+File 'cairo-gobject.pc' ignored, we already know about package 'cairo-gobject'
+File 'cairo-pdf.pc' appears to be a .pc file
+File 'cairo-pdf.pc' ignored, we already know about package 'cairo-pdf'
+File 'cairo-png.pc' appears to be a .pc file
+File 'cairo-png.pc' ignored, we already know about package 'cairo-png'
+File 'cairo-ps.pc' appears to be a .pc file
+File 'cairo-ps.pc' ignored, we already know about package 'cairo-ps'
+File 'cairo-quartz-font.pc' appears to be a .pc file
+File 'cairo-quartz-font.pc' ignored, we already know about package 'cairo-quartz-font'
+File 'cairo-quartz.pc' appears to be a .pc file
+File 'cairo-quartz.pc' ignored, we already know about package 'cairo-quartz'
+File 'cairo-script.pc' appears to be a .pc file
+File 'cairo-script.pc' ignored, we already know about package 'cairo-script'
+File 'cairo-svg.pc' appears to be a .pc file
+File 'cairo-svg.pc' ignored, we already know about package 'cairo-svg'
+File 'cairo-xcb-shm.pc' appears to be a .pc file
+File 'cairo-xcb-shm.pc' ignored, we already know about package 'cairo-xcb-shm'
+File 'cairo-xcb.pc' appears to be a .pc file
+File 'cairo-xcb.pc' ignored, we already know about package 'cairo-xcb'
+File 'cairo-xlib-xrender.pc' appears to be a .pc file
+File 'cairo-xlib-xrender.pc' ignored, we already know about package 'cairo-xlib-xrender'
+File 'cairo-xlib.pc' appears to be a .pc file
+File 'cairo-xlib.pc' ignored, we already know about package 'cairo-xlib'
+File 'cairo.pc' appears to be a .pc file
+File 'cairo.pc' ignored, we already know about package 'cairo'
+File 'fontconfig.pc' appears to be a .pc file
+File 'fontconfig.pc' ignored, we already know about package 'fontconfig'
+File 'freetype2.pc' appears to be a .pc file
+File 'freetype2.pc' ignored, we already know about package 'freetype2'
+File 'gail.pc' appears to be a .pc file
+File 'gail.pc' ignored, we already know about package 'gail'
+File 'gdk-2.0.pc' appears to be a .pc file
+File 'gdk-2.0.pc' ignored, we already know about package 'gdk-2.0'
+File 'gdk-pixbuf-2.0.pc' appears to be a .pc file
+File 'gdk-pixbuf-2.0.pc' ignored, we already know about package 'gdk-pixbuf-2.0'
+File 'gdk-x11-2.0.pc' appears to be a .pc file
+File 'gdk-x11-2.0.pc' ignored, we already know about package 'gdk-x11-2.0'
+File 'gdlib.pc' appears to be a .pc file
+File 'gdlib.pc' ignored, we already know about package 'gdlib'
+File 'gio-2.0.pc' appears to be a .pc file
+File 'gio-2.0.pc' ignored, we already know about package 'gio-2.0'
+File 'gio-unix-2.0.pc' appears to be a .pc file
+File 'gio-unix-2.0.pc' ignored, we already know about package 'gio-unix-2.0'
+File 'glew.pc' appears to be a .pc file
+File 'glew.pc' ignored, we already know about package 'glew'
+File 'glewmx.pc' appears to be a .pc file
+File 'glewmx.pc' ignored, we already know about package 'glewmx'
+File 'glib-2.0.pc' appears to be a .pc file
+File 'glib-2.0.pc' ignored, we already know about package 'glib-2.0'
+File 'gmodule-2.0.pc' appears to be a .pc file
+File 'gmodule-2.0.pc' ignored, we already know about package 'gmodule-2.0'
+File 'gmodule-export-2.0.pc' appears to be a .pc file
+File 'gmodule-export-2.0.pc' ignored, we already know about package 'gmodule-export-2.0'
+File 'gmodule-no-export-2.0.pc' appears to be a .pc file
+File 'gmodule-no-export-2.0.pc' ignored, we already know about package 'gmodule-no-export-2.0'
+File 'gnutls-extra.pc' appears to be a .pc file
+File 'gnutls-extra.pc' ignored, we already know about package 'gnutls-extra'
+File 'gnutls.pc' appears to be a .pc file
+File 'gnutls.pc' ignored, we already know about package 'gnutls'
+File 'gobject-2.0.pc' appears to be a .pc file
+File 'gobject-2.0.pc' ignored, we already know about package 'gobject-2.0'
+File 'gthread-2.0.pc' appears to be a .pc file
+File 'gthread-2.0.pc' ignored, we already know about package 'gthread-2.0'
+File 'gtk+-2.0.pc' appears to be a .pc file
+File 'gtk+-2.0.pc' ignored, we already know about package 'gtk+-2.0'
+File 'gtk+-unix-print-2.0.pc' appears to be a .pc file
+File 'gtk+-unix-print-2.0.pc' ignored, we already know about package 'gtk+-unix-print-2.0'
+File 'gtk+-x11-2.0.pc' appears to be a .pc file
+File 'gtk+-x11-2.0.pc' ignored, we already know about package 'gtk+-x11-2.0'
+File 'libcdt.pc' appears to be a .pc file
+File 'libcdt.pc' ignored, we already know about package 'libcdt'
+File 'libcgraph.pc' appears to be a .pc file
+File 'libcgraph.pc' ignored, we already know about package 'libcgraph'
+File 'libclucene-core.pc' appears to be a .pc file
+File 'libclucene-core.pc' ignored, we already know about package 'libclucene-core'
+File 'libdar.pc' appears to be a .pc file
+File 'libdar.pc' ignored, we already know about package 'libdar'
+File 'libgit2.pc' appears to be a .pc file
+File 'libgit2.pc' ignored, we already know about package 'libgit2'
+File 'libgraph.pc' appears to be a .pc file
+File 'libgraph.pc' ignored, we already know about package 'libgraph'
+File 'libgvc.pc' appears to be a .pc file
+File 'libgvc.pc' ignored, we already know about package 'libgvc'
+File 'libgvpr.pc' appears to be a .pc file
+File 'libgvpr.pc' ignored, we already know about package 'libgvpr'
+File 'libmpdclient.pc' appears to be a .pc file
+File 'libmpdclient.pc' ignored, we already know about package 'libmpdclient'
+File 'libotr.pc' appears to be a .pc file
+File 'libotr.pc' ignored, we already know about package 'libotr'
+File 'libpathplan.pc' appears to be a .pc file
+File 'libpathplan.pc' ignored, we already know about package 'libpathplan'
+File 'libpcre.pc' appears to be a .pc file
+File 'libpcre.pc' ignored, we already know about package 'libpcre'
+File 'libpcrecpp.pc' appears to be a .pc file
+File 'libpcrecpp.pc' ignored, we already know about package 'libpcrecpp'
+File 'libpcreposix.pc' appears to be a .pc file
+File 'libpcreposix.pc' ignored, we already know about package 'libpcreposix'
+File 'libpng.pc' appears to be a .pc file
+File 'libpng.pc' ignored, we already know about package 'libpng'
+File 'libpng15.pc' appears to be a .pc file
+File 'libpng15.pc' ignored, we already know about package 'libpng15'
+File 'libR.pc' appears to be a .pc file
+File 'libR.pc' ignored, we already know about package 'libR'
+File 'libssh2.pc' appears to be a .pc file
+File 'libssh2.pc' ignored, we already know about package 'libssh2'
+File 'libtasn1.pc' appears to be a .pc file
+File 'libtasn1.pc' ignored, we already know about package 'libtasn1'
+File 'libtiff-4.pc' appears to be a .pc file
+File 'libtiff-4.pc' ignored, we already know about package 'libtiff-4'
+File 'libusb.pc' appears to be a .pc file
+File 'libusb.pc' ignored, we already know about package 'libusb'
+File 'libxdot.pc' appears to be a .pc file
+File 'libxdot.pc' ignored, we already know about package 'libxdot'
+File 'lua.pc' appears to be a .pc file
+File 'lua.pc' ignored, we already know about package 'lua'
+File 'pango.pc' appears to be a .pc file
+File 'pango.pc' ignored, we already know about package 'pango'
+File 'pangocairo.pc' appears to be a .pc file
+File 'pangocairo.pc' ignored, we already know about package 'pangocairo'
+File 'pangoft2.pc' appears to be a .pc file
+File 'pangoft2.pc' ignored, we already know about package 'pangoft2'
+File 'pangox.pc' appears to be a .pc file
+File 'pangox.pc' ignored, we already know about package 'pangox'
+File 'pangoxft.pc' appears to be a .pc file
+File 'pangoxft.pc' ignored, we already know about package 'pangoxft'
+File 'pixman-1.pc' appears to be a .pc file
+File 'pixman-1.pc' ignored, we already know about package 'pixman-1'
+File 'popt.pc' appears to be a .pc file
+File 'popt.pc' ignored, we already know about package 'popt'
+File 'ruby-1.9.pc' appears to be a .pc file
+File 'ruby-1.9.pc' ignored, we already know about package 'ruby-1.9'
+File 'sdl.pc' appears to be a .pc file
+File 'sdl.pc' ignored, we already know about package 'sdl'
+File 'SDL_image.pc' appears to be a .pc file
+File 'SDL_image.pc' ignored, we already know about package 'SDL_image'
+File 'tokyocabinet.pc' appears to be a .pc file
+File 'tokyocabinet.pc' ignored, we already know about package 'tokyocabinet'
+File 'valgrind.pc' appears to be a .pc file
+File 'valgrind.pc' ignored, we already know about package 'valgrind'
+File 'yaml-0.1.pc' appears to be a .pc file
+File 'yaml-0.1.pc' ignored, we already know about package 'yaml-0.1'
+Cannot open directory '/usr/local/share/pkgconfig' in package search path: No such file or directory
+Scanning directory '/usr/lib/pkgconfig'
+Ignoring file '.' in search directory; not a .pc file
+Ignoring file '..' in search directory; not a .pc file
+File 'apr-1.pc' appears to be a .pc file
+Will find package 'apr-1' in file '/usr/lib/pkgconfig/apr-1.pc'
+File 'apr-util-1.pc' appears to be a .pc file
+Will find package 'apr-util-1' in file '/usr/lib/pkgconfig/apr-util-1.pc'
+File 'libcrypto.pc' appears to be a .pc file
+Will find package 'libcrypto' in file '/usr/lib/pkgconfig/libcrypto.pc'
+File 'libedit.pc' appears to be a .pc file
+Will find package 'libedit' in file '/usr/lib/pkgconfig/libedit.pc'
+File 'libiodbc.pc' appears to be a .pc file
+Will find package 'libiodbc' in file '/usr/lib/pkgconfig/libiodbc.pc'
+File 'libpcre.pc' appears to be a .pc file
+File 'libpcre.pc' ignored, we already know about package 'libpcre'
+File 'libpcreposix.pc' appears to be a .pc file
+File 'libpcreposix.pc' ignored, we already know about package 'libpcreposix'
+File 'libssl.pc' appears to be a .pc file
+Will find package 'libssl' in file '/usr/lib/pkgconfig/libssl.pc'
+File 'openssl.pc' appears to be a .pc file
+Will find package 'openssl' in file '/usr/lib/pkgconfig/openssl.pc'
+Looking for package 'gnutls'
+Looking for package 'gnutls-uninstalled'
+Reading 'gnutls' from file '/usr/local/lib/pkgconfig/gnutls.pc'
+Parsing package file '/usr/local/lib/pkgconfig/gnutls.pc'
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>prefix=/usr/local/Cellar/gnutls/2.12.20
+ Variable declaration, 'prefix' has value '/usr/local/Cellar/gnutls/2.12.20'
+  line>exec_prefix=${prefix}
+ Variable declaration, 'exec_prefix' has value '/usr/local/Cellar/gnutls/2.12.20'
+  line>libdir=${exec_prefix}/lib
+ Variable declaration, 'libdir' has value '/usr/local/Cellar/gnutls/2.12.20/lib'
+  line>includedir=${prefix}/include
+ Variable declaration, 'includedir' has value '/usr/local/Cellar/gnutls/2.12.20/include'
+  line>
+  line>Name: GnuTLS
+  line>Description: Transport Security Layer implementation for the GNU system
+  line>URL: http://www.gnu.org/software/gnutls/
+  line>Version: 2.12.20
+  line>Libs: -L${libdir} -lgnutls
+  line>Libs.private: -lgcrypt -lgpg-error   -lz
+Unknown keyword 'Libs.private' in '/usr/local/lib/pkgconfig/gnutls.pc'
+  line>Requires.private: libtasn1, p11-kit-1
+Looking for package 'libtasn1'
+Looking for package 'libtasn1-uninstalled'
+Reading 'libtasn1' from file '/usr/local/lib/pkgconfig/libtasn1.pc'
+Parsing package file '/usr/local/lib/pkgconfig/libtasn1.pc'
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>
+  line>prefix=/usr/local/Cellar/libtasn1/2.14
+ Variable declaration, 'prefix' has value '/usr/local/Cellar/libtasn1/2.14'
+  line>exec_prefix=${prefix}
+ Variable declaration, 'exec_prefix' has value '/usr/local/Cellar/libtasn1/2.14'
+  line>libdir=${exec_prefix}/lib
+ Variable declaration, 'libdir' has value '/usr/local/Cellar/libtasn1/2.14/lib'
+  line>includedir=${prefix}/include
+ Variable declaration, 'includedir' has value '/usr/local/Cellar/libtasn1/2.14/include'
+  line>
+  line>Name: libtasn1
+  line>Description: Library for ASN.1 and DER manipulation
+  line>URL: http://www.gnu.org/software/libtasn1/
+  line>Version: 2.14
+  line>Libs: -L${libdir} -ltasn1
+  line>Cflags: -I${includedir}
+Path position of 'libtasn1' is 1
+Adding 'libtasn1' to list of known packages, returning as package 'libtasn1'
+Looking for package 'p11-kit-1'
+Looking for package 'p11-kit-1-uninstalled'

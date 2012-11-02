@@ -3,10 +3,8 @@
 module Traversal where
 
 import Control.Applicative
-import Control.Arrow
 import Control.Comonad
 import Control.Comonad.Identity
-import Data.Functor
 import Data.Functor.Compose
 
 -- This is called:
@@ -46,10 +44,10 @@ liftCtx f (Context g x) = f (g x)
 -- a "pre-applied lens", where Lens has the type (c -> f d) -> s -> f b)
 
 newtype ContextF a b t = ContextF {
-  runContextF :: forall f. Functor f => (b -> f t) -> f a
+  runContextF :: forall f. Functor f => (a -> f b) -> f t
 }
 
-instance a ~ b => Functor (ContextF a b) where
+instance Functor (ContextF a b) where
   fmap f (ContextF g) = ContextF (fmap f . g)
 
 instance a ~ b => Comonad (ContextF a b) where
@@ -57,19 +55,42 @@ instance a ~ b => Comonad (ContextF a b) where
   duplicate (ContextF g) = getCompose (g (Compose . fmap ctxt . ctxt))
   extend f w             = fmap f (duplicate w)
 
-ctxt :: a -> ContextF a b t
+ctxt :: a -> ContextF a b b
 ctxt i = ContextF (\k -> k i)
 
 getF :: ContextF a b t -> a
 getF (ContextF g) = getConst (g Const)
 
-modifyF :: (a -> a) -> ContextF a a t -> a
-modifyF f w@(ContextF g) = g (f w)
+modifyF :: (a -> a) -> ContextF a a t -> t
+modifyF f (ContextF g) = runIdentity (g (Identity . f))
 
-experimentF :: [a -> a] -> ContextF a a t -> [a]
+experimentF :: [a -> a] -> ContextF a a t -> [t]
 experimentF fs w = map (`modifyF` w) fs
 
 liftCtxF :: (t -> a) -> ContextF a a t -> a
-liftCtxF f (ContextF g) = undefined     -- jww (2012-11-01): TODO
+liftCtxF f (ContextF g) = f (runIdentity (g Identity))
+
+ctxToCtxF :: Context a b t -> ContextF a b t
+ctxToCtxF (Context c x) = ContextF (\k -> fmap c (k x))
+
+ctxFToCtx :: ContextF a b t -> Context a b t
+ctxFToCtx w@(ContextF g) =  Context (g (flip const)) (getF w)
+
+main :: IO()
+main = do
+  let x = Context takeInts 3
+  print $ modify (+1) x
+
+  let y = ctxToCtxF x
+  print $ modifyF (+1) y
+
+  let z = ctxFToCtx y
+  print $ modify (+1) z
+
+  let w = ContextF (\k -> fmap takeInts (k 3))
+  print $ modifyF (+1) w
+
+  where
+    takeInts n = take n [1..10] :: [Int]
 
 -- context.hs ends here

@@ -2,7 +2,11 @@
 
 module Lenses where
 
+import Data.Data.Lens
 import Control.Lens
+
+testTheInt :: (Int -> Bool) -> (a,b,c) -> Bool
+testTheInt pred tup = pred $ head $ (tup ^.. biplate :: [Int])
 
 data Foo = Foo { _counter :: Int } deriving Show
 

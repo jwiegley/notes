@@ -1,0 +1,15 @@
+Vulcan ~/Products/stackage (master) $ runghc app/stackage.hs build
+Creating a build plan
+Printing build plan to build-plan.log
+Wiping out old sandbox folder
+No mismatches, starting the sandboxed build.
+Installing the following build tools: happy
+Build tools built
+Sandbox built, beginning individual test suites
+Test suite failed: hspec-1.4.3(michael@snoyman.com)
+Test suite failed: hspec-expectations-0.3.0.3(michael@snoyman.com)
+Test suite failed: http-reverse-proxy-0.1.0.6(michael@snoyman.com)
+Test suite failed: http-conduit-1.8.5(michael@snoyman.com)
+Test suite failed: lens-3.7.0.2(Edward Kmett <ekmett@gmail.com>)
+Test suite failed: network-conduit-0.6.2(Neil Mitchell)
+simple-sendfile-0.2.10 passed, but I didn't think it would.

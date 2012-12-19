@@ -1,0 +1,28 @@
+--cc=/usr/bin/gcc --ld=/usr/bin/gcc --cflag=-m64 --lflag=-m64 --cflag=-D__GLASGOW_HASKELL__=704 --cflag=-Ddarwin_BUILD_OS --cflag=-Ddarwin_HOST_OS --cflag=-Dx86_64_BUILD_ARCH --cflag=-Dx86_64_HOST_ARCH --cflag=-Ilibgit2/src/unix --cflag=-Ilibgit2/include --cflag=-Ilibgit2/src --cflag=-Ilibgit2/deps/http-parser --cflag=-D_GNU_SOURCE --cflag=-DGIT_THREADS --cflag=-D_FILE_OFFSET_BITS=64 --cflag=-Idist/build/autogen --cflag=-include --cflag=dist/build/autogen/cabal_macros.h --cflag=-I/usr/local/Cellar/ghc/7.4.2/lib/ghc-7.4.2/bytestring-0.9.2.1/include --cflag=-Idist/build/autogen --cflag=-include --cflag=dist/build/autogen/cabal_macros.h --cflag=-I/Users/johnw/.cabal/lib/bindings-DSL-1.0.16/ghc-7.4.2/include --cflag=-Idist/build/autogen --cflag=-include --cflag=dist/build/autogen/cabal_macros.h --cflag=-I/usr/local/Cellar/ghc/7.4.2/lib/ghc-7.4.2/base-4.5.1.0/include --cflag=-Idist/build/autogen --cflag=-include --cflag=dist/build/autogen/cabal_macros.h --cflag=-Idist/build/autogen --cflag=-include --cflag=dist/build/autogen/cabal_macros.h --cflag=-Idist/build/autogen --cflag=-include --cflag=dist/build/autogen/cabal_macros.h --cflag=-I/usr/local/Cellar/ghc/7.4.2/lib/ghc-7.4.2/include --cflag=-Idist/build/autogen --cflag=-include --cflag=dist/build/autogen/cabal_macros.h --lflag=-L/Users/johnw/.cabal/lib/zlib-0.5.4.0/ghc-7.4.2 --lflag=-lz --lflag=-L/usr/local/Cellar/ghc/7.4.2/lib/ghc-7.4.2/bytestring-0.9.2.1 --lflag=-L/Users/johnw/.cabal/lib/bindings-DSL-1.0.16/ghc-7.4.2 --lflag=-L/usr/local/Cellar/ghc/7.4.2/lib/ghc-7.4.2/base-4.5.1.0 --lflag=-liconv --lflag=-L/usr/local/Cellar/ghc/7.4.2/lib/ghc-7.4.2/integer-gmp-0.4.0.0 --lflag=-L/usr/local/Cellar/ghc/7.4.2/lib/ghc-7.4.2/ghc-prim-0.2.0.0 --lflag=-L/usr/local/Cellar/ghc/7.4.2/lib/ghc-7.4.2 --lflag=-lm --lflag=-ldl
+
+rule hsc2hs
+  command = hsc2hs $hsc2hsflags -o $out $in
+
+build dist/build/Bindings/Libgit2/Version.o : ghc dist/build/Bindings/Libgit2/Version.hs
+build dist/build/Bindings/Libgit2/Common.o : ghc dist/build/Bindings/Libgit2/Common.hs
+build dist/build/Bindings/Libgit2/Threads.o : ghc dist/build/Bindings/Libgit2/Threads.hs
+build dist/build/Bindings/Libgit2/Windows.o : ghc dist/build/Bindings/Libgit2/Windows.hs
+build dist/build/Bindings/Libgit2/Errors.o : ghc dist/build/Bindings/Libgit2/Errors.hs
+build dist/build/Bindings/Libgit2/Types.o : ghc dist/build/Bindings/Libgit2/Types.hs
+build dist/build/Bindings/Libgit2/Refspec.o : ghc dist/build/Bindings/Libgit2/Refspec.hs
+build dist/build/Bindings/Libgit2/Signature.o : ghc dist/build/Bindings/Libgit2/Signature.hs
+build dist/build/Bindings/Libgit2/Oid.o : ghc dist/build/Bindings/Libgit2/Oid.hs
+build dist/build/Bindings/Libgit2/Revwalk.o : ghc dist/build/Bindings/Libgit2/Revwalk.hs
+build dist/build/Bindings/Libgit2/OdbBackend.o : ghc dist/build/Bindings/Libgit2/OdbBackend.hs
+build dist/build/Bindings/Libgit2/Net.o : ghc dist/build/Bindings/Libgit2/Net.hs
+build dist/build/Bindings/Libgit2/Refs.o : ghc dist/build/Bindings/Libgit2/Refs.hs
+build dist/build/Bindings/Libgit2/Reflog.o : ghc dist/build/Bindings/Libgit2/Reflog.hs
+build dist/build/Bindings/Libgit2/Index.o : ghc dist/build/Bindings/Libgit2/Index.hs
+build dist/build/Bindings/Libgit2/Indexer.o : ghc dist/build/Bindings/Libgit2/Indexer.hs
+build dist/build/Bindings/Libgit2/Odb.o : ghc dist/build/Bindings/Libgit2/Odb.hs
+build dist/build/Bindings/Libgit2/Object.o : ghc dist/build/Bindings/Libgit2/Object.hs
+build dist/build/Bindings/Libgit2/Tag.o : ghc dist/build/Bindings/Libgit2/Tag.hs
+build dist/build/Bindings/Libgit2/Commit.o : ghc dist/build/Bindings/Libgit2/Commit.hs
+build dist/build/Bindings/Libgit2/Blob.o : ghc dist/build/Bindings/Libgit2/Blob.hs
+build dist/build/Bindings/Libgit2/Tree.o : ghc dist/build/Bindings/Libgit2/Tree.hs
+build dist/build/Bindings/Libgit2/Attr.o : ghc dist/build/Bindings/Libgit2/Attr.hs

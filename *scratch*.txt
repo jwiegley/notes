@@ -1,0 +1,585 @@
+Last login: Sun Feb  3 13:05:14 on ttys007
+^R
+Vulcan:~ $ 
+Vulcan:~ $ 
+Vulcan:~ $ brew install -dv harfbuzz
+/usr/local/bin/brew: loading /usr/local/Library/Formula/harfbuzz.rb
+/usr/local/bin/brew: loading /usr/local/Library/Formula/pkg-config.rb
+/usr/local/bin/brew: loading /usr/local/Library/Formula/autoconf.rb
+/usr/local/bin/brew: loading /usr/local/Library/Formula/automake.rb
+/usr/local/bin/brew: loading /usr/local/Library/Formula/libtool.rb
+/usr/local/bin/brew: loading /usr/local/Library/Formula/glib.rb
+/usr/local/bin/brew: loading /usr/local/Library/Formula/xz.rb
+/usr/local/bin/brew: loading /usr/local/Library/Formula/gettext.rb
+/usr/local/bin/brew: loading /usr/local/Library/Formula/libffi.rb
+/usr/local/bin/brew: loading /usr/local/Library/Formula/icu4c.rb
+/usr/local/bin/brew: loading /usr/local/Library/Formula/fontconfig.rb
+/usr/local/bin/brew: loading /usr/local/Library/Formula/freetype.rb
+/usr/local/Library/Formula/harfbuzz.rb: loading /usr/local/Library/Formula/pkg-config.rb
+/usr/local/Library/Formula/harfbuzz.rb: loading /usr/local/Library/Formula/autoconf.rb
+/usr/local/Library/Formula/harfbuzz.rb: loading /usr/local/Library/Formula/automake.rb
+/usr/local/Library/Formula/harfbuzz.rb: loading /usr/local/Library/Formula/libtool.rb
+/usr/local/Library/Formula/harfbuzz.rb: loading /usr/local/Library/Formula/glib.rb
+/usr/local/Library/Formula/harfbuzz.rb: loading /usr/local/Library/Formula/xz.rb
+/usr/local/Library/Formula/harfbuzz.rb: loading /usr/local/Library/Formula/gettext.rb
+/usr/local/Library/Formula/harfbuzz.rb: loading /usr/local/Library/Formula/libffi.rb
+/usr/local/Library/Formula/harfbuzz.rb: loading /usr/local/Library/Formula/icu4c.rb
+/usr/local/Library/Formula/harfbuzz.rb: loading /usr/local/Library/Formula/fontconfig.rb
+/usr/local/Library/Formula/harfbuzz.rb: loading /usr/local/Library/Formula/freetype.rb
+/usr/local/Library/Formula/harfbuzz.rb: loading /usr/local/Library/Formula/python.rb
+==> Downloading http://www.freedesktop.org/software/harfbuzz/release/harfbuzz-0.9.12.tar.bz2
+Already downloaded: /Library/Caches/Homebrew/harfbuzz-0.9.12.tar.bz2
+/usr/bin/tar xf /Library/Caches/Homebrew/harfbuzz-0.9.12.tar.bz2
+==> ./autogen.sh
+./autogen.sh 
+-n checking for pkg-config... 
+/usr/local/opt/pkg-config/bin/pkg-config
+-n checking for autoreconf... 
+/usr/local/opt/autoconf/bin/autoreconf
+running autoreconf --force --install --verbose
+autoreconf: Entering directory `.'
+autoreconf: configure.ac: not using Gettext
+autoreconf: running: aclocal --force -I m4
+autoreconf: configure.ac: tracing
+autoreconf: running: glibtoolize --copy --force
+glibtoolize: putting auxiliary files in `.'.
+glibtoolize: copying file `./ltmain.sh'
+glibtoolize: putting macros in AC_CONFIG_MACRO_DIR, `m4'.
+glibtoolize: copying file `m4/libtool.m4'
+glibtoolize: copying file `m4/ltoptions.m4'
+glibtoolize: copying file `m4/ltsugar.m4'
+glibtoolize: copying file `m4/ltversion.m4'
+glibtoolize: copying file `m4/lt~obsolete.m4'
+autoreconf: running: /usr/local/Cellar/autoconf/2.69/bin/autoconf --force
+autoreconf: running: /usr/local/Cellar/autoconf/2.69/bin/autoheader --force
+autoreconf: running: automake --add-missing --copy --force-missing
+/usr/local/Cellar/automake/1.13.1/share/automake-1.13/am/ltlibrary.am: warning: 'libharfbuzz.la': linking libtool libraries using a non-POSIX
+/usr/local/Cellar/automake/1.13.1/share/automake-1.13/am/ltlibrary.am: archiver requires 'AM_PROG_AR' in 'configure.ac'
+src/Makefile.am:16:   while processing Libtool library 'libharfbuzz.la'
+parallel-tests: installing './test-driver'
+/usr/local/Cellar/automake/1.13.1/share/automake-1.13/am/ltlibrary.am: warning: 'libhb-icu-le.la': linking libtool libraries using a non-POSIX
+/usr/local/Cellar/automake/1.13.1/share/automake-1.13/am/ltlibrary.am: archiver requires 'AM_PROG_AR' in 'configure.ac'
+src/hb-icu-le/Makefile.am:3:   while processing Libtool library 'libhb-icu-le.la'
+/usr/local/Cellar/automake/1.13.1/share/automake-1.13/am/ltlibrary.am: warning: 'libhb-old.la': linking libtool libraries using a non-POSIX
+/usr/local/Cellar/automake/1.13.1/share/automake-1.13/am/ltlibrary.am: archiver requires 'AM_PROG_AR' in 'configure.ac'
+src/hb-old/Makefile.am:3:   while processing Libtool library 'libhb-old.la'
+/usr/local/Cellar/automake/1.13.1/share/automake-1.13/am/ltlibrary.am: warning: 'libhb-ucdn.la': linking libtool libraries using a non-POSIX
+/usr/local/Cellar/automake/1.13.1/share/automake-1.13/am/ltlibrary.am: archiver requires 'AM_PROG_AR' in 'configure.ac'
+src/hb-ucdn/Makefile.am:3:   while processing Libtool library 'libhb-ucdn.la'
+test/api/Makefile.am:98: warning: valgrind_verbose_$(V: non-POSIX recursive variable expansion
+test/api/Makefile.am:99: warning: valgrind_verbose_$(AM_DEFAULT_VERBOSITY: non-POSIX recursive variable expansion
+autoreconf: Leaving directory `.'
+running configure 
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... ./install-sh -c -d
+checking for gawk... no
+checking for mawk... no
+checking for nawk... no
+checking for awk... awk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking build system type... x86_64-apple-darwin12.2.0
+checking host system type... x86_64-apple-darwin12.2.0
+checking how to print strings... printf
+checking for style of include used by make... GNU
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking dependency style of cc... gcc3
+checking for a sed that does not truncate output... /usr/local/Library/ENV/4.3/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by cc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm
+checking the name lister (/usr/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 196608
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert x86_64-apple-darwin12.2.0 file names to x86_64-apple-darwin12.2.0 format... func_convert_file_noop
+checking how to convert x86_64-apple-darwin12.2.0 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... no
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm output from cc object... ok
+checking for sysroot... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dsymutil... dsymutil
+checking for nmedit... nmedit
+checking for lipo... lipo
+checking for otool... otool
+checking for otool64... no
+checking for -single_module linker flag... yes
+checking for -exported_symbols_list linker flag... yes
+checking for -force_load linker flag... yes
+checking how to run the C preprocessor... cc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if cc supports -fno-rtti -fno-exceptions... yes
+checking for cc option to produce PIC... -fno-common -DPIC
+checking if cc PIC flag -fno-common -DPIC works... yes
+checking if cc static flag -static works... no
+checking if cc supports -c -o file.o... yes
+checking if cc supports -c -o file.o... (cached) yes
+checking whether the cc linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin12.2.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for gcc... (cached) cc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether cc accepts -g... (cached) yes
+checking for cc option to accept ISO C89... (cached) none needed
+checking dependency style of cc... (cached) gcc3
+checking whether cc understands -c and -o together... yes
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking dependency style of c++... gcc3
+checking how to run the C++ preprocessor... c++ -E
+checking for ld used by c++... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking whether the c++ linker (/usr/bin/ld) supports shared libraries... yes
+checking for c++ option to produce PIC... -fno-common -DPIC
+checking if c++ PIC flag -fno-common -DPIC works... yes
+checking if c++ static flag -static works... no
+checking if c++ supports -c -o file.o... yes
+checking if c++ supports -c -o file.o... (cached) yes
+checking whether the c++ linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin12.2.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking for pkg-config... /usr/local/opt/pkg-config/bin/pkg-config
+checking pkg-config is at least version 0.20... yes
+checking for atexit... yes
+checking for mprotect... yes
+checking for sysconf... yes
+checking for getpagesize... yes
+checking for mmap... yes
+checking for _setmode... no
+checking for isatty... yes
+checking for unistd.h... (cached) yes
+checking sys/mman.h usability... yes
+checking sys/mman.h presence... yes
+checking for sys/mman.h... yes
+checking io.h usability... no
+checking io.h presence... no
+checking for io.h... no
+checking for native Win32... no
+checking whether pthreads work with -pthread... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking if more special flags are required for pthreads... -D_THREAD_SAFE
+checking for PTHREAD_PRIO_INHERIT... yes
+checking for GLIB... yes
+checking for GTHREAD... yes
+checking for GOBJECT... yes
+checking for CAIRO... no
+checking for CAIRO_FT... no
+checking for ICU... yes
+checking for ICU_LE... yes
+checking for GRAPHITE2... no
+checking for FREETYPE... yes
+checking for FT_Face_GetCharVariantIndex... yes
+checking for ScriptShapeOpenType in usp10... no
+checking for CTFontRef... yes
+checking for Intel atomic primitives... true
+checking for Solaris atomic operations... false
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating harfbuzz.pc
+config.status: creating src/Makefile
+config.status: creating src/hb-version.h
+config.status: creating src/hb-icu-le/Makefile
+config.status: creating src/hb-old/Makefile
+config.status: creating src/hb-ucdn/Makefile
+config.status: creating util/Makefile
+config.status: creating test/Makefile
+config.status: creating test/api/Makefile
+config.status: creating test/shaping/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing libtool commands
+configure:
+
+Build configuration:
+
+Unicode callbacks (you want at least one):
+	Glib:			true
+	ICU:			true
+	UCDN:			true
+
+Font callbacks (the more the better):
+	FreeType:		true
+
+Tools used for command-line utilities:
+	Cairo:			false
+
+Additional shapers (the more the better):
+	Graphite2:		false
+
+Test / platform shapers (not normally needed):
+	CoreText:		true
+	ICU Layout Engine:	true
+	Old HarfBuzz:		true
+	Uniscribe:		false
+
+==> ./configure --disable-dependency-tracking --prefix=/usr/local/Cellar/harfbuzz/0.9.12
+./configure --disable-dependency-tracking --prefix=/usr/local/Cellar/harfbuzz/0.9.12
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... ./install-sh -c -d
+checking for gawk... no
+checking for mawk... no
+checking for nawk... no
+checking for awk... awk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking build system type... x86_64-apple-darwin12.2.0
+checking host system type... x86_64-apple-darwin12.2.0
+checking how to print strings... printf
+checking for style of include used by make... GNU
+checking for gcc... cc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether cc accepts -g... yes
+checking for cc option to accept ISO C89... none needed
+checking dependency style of cc... none
+checking for a sed that does not truncate output... /usr/local/Library/ENV/4.3/sed
+checking for grep that handles long lines and -e... /usr/bin/grep
+checking for egrep... /usr/bin/grep -E
+checking for fgrep... /usr/bin/grep -F
+checking for ld used by cc... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking for BSD- or MS-compatible name lister (nm)... /usr/bin/nm
+checking the name lister (/usr/bin/nm) interface... BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... 196608
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking how to convert x86_64-apple-darwin12.2.0 file names to x86_64-apple-darwin12.2.0 format... func_convert_file_noop
+checking how to convert x86_64-apple-darwin12.2.0 file names to toolchain format... func_convert_file_noop
+checking for /usr/bin/ld option to reload object files... -r
+checking for objdump... no
+checking how to recognize dependent libraries... pass_all
+checking for dlltool... no
+checking how to associate runtime and link libraries... printf %s\n
+checking for ar... ar
+checking for archiver @FILE support... no
+checking for strip... strip
+checking for ranlib... ranlib
+checking command to parse /usr/bin/nm output from cc object... ok
+checking for sysroot... no
+checking for mt... no
+checking if : is a manifest tool... no
+checking for dsymutil... dsymutil
+checking for nmedit... nmedit
+checking for lipo... lipo
+checking for otool... otool
+checking for otool64... no
+checking for -single_module linker flag... yes
+checking for -exported_symbols_list linker flag... yes
+checking for -force_load linker flag... yes
+checking how to run the C preprocessor... cc -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking for dlfcn.h... yes
+checking for objdir... .libs
+checking if cc supports -fno-rtti -fno-exceptions... yes
+checking for cc option to produce PIC... -fno-common -DPIC
+checking if cc PIC flag -fno-common -DPIC works... yes
+checking if cc static flag -static works... no
+checking if cc supports -c -o file.o... yes
+checking if cc supports -c -o file.o... (cached) yes
+checking whether the cc linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin12.2.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for gcc... (cached) cc
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether cc accepts -g... (cached) yes
+checking for cc option to accept ISO C89... (cached) none needed
+checking dependency style of cc... (cached) none
+checking whether cc understands -c and -o together... yes
+checking whether we are using the GNU C++ compiler... yes
+checking whether c++ accepts -g... yes
+checking dependency style of c++... none
+checking how to run the C++ preprocessor... c++ -E
+checking for ld used by c++... /usr/bin/ld
+checking if the linker (/usr/bin/ld) is GNU ld... no
+checking whether the c++ linker (/usr/bin/ld) supports shared libraries... yes
+checking for c++ option to produce PIC... -fno-common -DPIC
+checking if c++ PIC flag -fno-common -DPIC works... yes
+checking if c++ static flag -static works... no
+checking if c++ supports -c -o file.o... yes
+checking if c++ supports -c -o file.o... (cached) yes
+checking whether the c++ linker (/usr/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin12.2.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking for pkg-config... /usr/local/opt/pkg-config/bin/pkg-config
+checking pkg-config is at least version 0.20... yes
+checking for atexit... yes
+checking for mprotect... yes
+checking for sysconf... yes
+checking for getpagesize... yes
+checking for mmap... yes
+checking for _setmode... no
+checking for isatty... yes
+checking for unistd.h... (cached) yes
+checking sys/mman.h usability... yes
+checking sys/mman.h presence... yes
+checking for sys/mman.h... yes
+checking io.h usability... no
+checking io.h presence... no
+checking for io.h... no
+checking for native Win32... no
+checking whether pthreads work with -pthread... yes
+checking for joinable pthread attribute... PTHREAD_CREATE_JOINABLE
+checking if more special flags are required for pthreads... -D_THREAD_SAFE
+checking for PTHREAD_PRIO_INHERIT... yes
+checking for GLIB... yes
+checking for GTHREAD... yes
+checking for GOBJECT... yes
+checking for CAIRO... no
+checking for CAIRO_FT... no
+checking for ICU... yes
+checking for ICU_LE... yes
+checking for GRAPHITE2... no
+checking for FREETYPE... yes
+checking for FT_Face_GetCharVariantIndex... yes
+checking for ScriptShapeOpenType in usp10... no
+checking for CTFontRef... yes
+checking for Intel atomic primitives... true
+checking for Solaris atomic operations... false
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating harfbuzz.pc
+config.status: creating src/Makefile
+config.status: creating src/hb-version.h
+config.status: creating src/hb-icu-le/Makefile
+config.status: creating src/hb-old/Makefile
+config.status: creating src/hb-ucdn/Makefile
+config.status: creating util/Makefile
+config.status: creating test/Makefile
+config.status: creating test/api/Makefile
+config.status: creating test/shaping/Makefile
+config.status: creating config.h
+config.status: config.h is unchanged
+config.status: executing depfiles commands
+config.status: executing libtool commands
+configure:
+
+Build configuration:
+
+Unicode callbacks (you want at least one):
+	Glib:			true
+	ICU:			true
+	UCDN:			true
+
+Font callbacks (the more the better):
+	FreeType:		true
+
+Tools used for command-line utilities:
+	Cairo:			false
+
+Additional shapers (the more the better):
+	Graphite2:		false
+
+Test / platform shapers (not normally needed):
+	CoreText:		true
+	ICU Layout Engine:	true
+	Old HarfBuzz:		true
+	Uniscribe:		false
+
+==> make install
+make install 
+Making install in src
+  GEN      hb-gobject-enums.cc
+/usr/bin/make  install-recursive
+Making install in hb-old
+  CC       libhb_old_la-harfbuzz-buffer.lo
+  CC       libhb_old_la-harfbuzz-stream.lo
+  CC       libhb_old_la-harfbuzz-gdef.lo
+  CC       libhb_old_la-harfbuzz-gpos.lo
+  CC       libhb_old_la-harfbuzz-gsub.lo
+  CC       libhb_old_la-harfbuzz-impl.lo
+  CC       libhb_old_la-harfbuzz-open.lo
+  CXX      libhb_old_la-harfbuzz-shaper.lo
+  CC       libhb_old_la-harfbuzz-greek.lo
+  CC       libhb_old_la-harfbuzz-khmer.lo
+  CC       libhb_old_la-harfbuzz-tibetan.lo
+  CXX      libhb_old_la-harfbuzz-indic.lo
+  CC       libhb_old_la-harfbuzz-hebrew.lo
+  CC       libhb_old_la-harfbuzz-hangul.lo
+  CC       libhb_old_la-harfbuzz-arabic.lo
+  CC       libhb_old_la-harfbuzz-myanmar.lo
+brew: superenv removed: -g -O2
+brew: superenv removed: -g -O2
+brew: superenv removed: -g -O2
+brew: superenv removed: -g -O2
+brew: superenv removed: -g -O2
+brew: superenv removed: -g -O2
+brew: superenv removed: -g -O2
+brew: superenv removed: -g -O2
+brew: superenv removed: -g -O2
+brew: superenv removed: -g -O2
+brew: superenv removed: -g -O2
+brew: superenv removed: -g -O2
+brew: superenv removed: -g -O2
+brew: superenv removed: -g -O2
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+  CXXLD    libhb-old.la
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+Making install in hb-icu-le
+  CXX      libhb_icu_le_la-FontTableCache.lo
+  CXX      libhb_icu_le_la-cmaps.lo
+  CXX      libhb_icu_le_la-PortableFontInstance.lo
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+  CXXLD    libhb-icu-le.la
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+Making install in hb-ucdn
+  CC       ucdn.lo
+brew: superenv removed: -g -O2
+  CCLD     libhb-ucdn.la
+make[4]: Nothing to be done for `install-exec-am'.
+make[4]: Nothing to be done for `install-data-am'.
+  CXX      libharfbuzz_la-hb-blob.lo
+  CXX      libharfbuzz_la-hb-buffer.lo
+  CXX      libharfbuzz_la-hb-common.lo
+  CXX      libharfbuzz_la-hb-fallback-shape.lo
+  CXX      libharfbuzz_la-hb-font.lo
+  CXX      libharfbuzz_la-hb-ot-tag.lo
+  CXX      libharfbuzz_la-hb-set.lo
+  CXX      libharfbuzz_la-hb-shape.lo
+  CXX      libharfbuzz_la-hb-shape-plan.lo
+  CXX      libharfbuzz_la-hb-shaper.lo
+  CXX      libharfbuzz_la-hb-tt-font.lo
+  CXX      libharfbuzz_la-hb-unicode.lo
+  CXX      libharfbuzz_la-hb-warning.lo
+  CXX      libharfbuzz_la-hb-ot-layout.lo
+  CXX      libharfbuzz_la-hb-ot-map.lo
+  CXX      libharfbuzz_la-hb-ot-shape.lo
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+  CXX      libharfbuzz_la-hb-ot-shape-complex-arabic.lo
+  CXX      libharfbuzz_la-hb-ot-shape-complex-default.lo
+  CXX      libharfbuzz_la-hb-ot-shape-complex-indic.lo
+  CXX      libharfbuzz_la-hb-ot-shape-complex-thai.lo
+  CXX      libharfbuzz_la-hb-ot-shape-normalize.lo
+  CXX      libharfbuzz_la-hb-ot-shape-fallback.lo
+  CXX      libharfbuzz_la-hb-glib.lo
+  CXX      libharfbuzz_la-hb-gobject-structs.lo
+  CXX      libharfbuzz_la-hb-icu.lo
+  CXX      libharfbuzz_la-hb-ft.lo
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+  CXX      libharfbuzz_la-hb-coretext.lo
+  CXX      libharfbuzz_la-hb-old.lo
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+  CXX      libharfbuzz_la-hb-icu-le.lo
+brew: superenv removed: -g -O2 -Wcast-align
+  CXX      libharfbuzz_la-hb-ucdn.lo
+  CXX      libharfbuzz_la-hb-gobject-enums.lo
+  CXX      main-main.o
+  CXX      test-test.o
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+  CXX      test_would_substitute-test-would-substitute.o
+brew: superenv removed: -g -O2 -Wcast-align
+  CXX      test_size_params-test-size-params.o
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+brew: superenv removed: -g -O2 -Wcast-align
+  GEN      libharfbuzz.la
+brew: superenv removed: -O2
+Undefined symbols for architecture x86_64:
+  "icu_50::LEFontInstance::getSubFont(unsigned short const*, int*, int, int, LEErrorCode&) const", referenced from:
+      vtable for PortableFontInstance in libhb-icu-le.a(libhb_icu_le_la-PortableFontInstance.o)
+  "icu_50::LEFontInstance::mapCharsToGlyphs(unsigned short const*, int, int, signed char, icu_50::LECharMapper const*, signed char, icu_50::LEGlyphStorage&) const", referenced from:
+      vtable for PortableFontInstance in libhb-icu-le.a(libhb_icu_le_la-PortableFontInstance.o)
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[3]: *** [libharfbuzz.la] Error 1
+make[2]: *** [install-recursive] Error 1
+make[1]: *** [install] Error 2
+make: *** [install-recursive] Error 1
+/usr/local/Library/Homebrew/formula.rb:584:in `system'
+BuildError: BuildError
+1. raise
+2. ignore
+3. backtrace
+4. irb
+5. shell
+Choose an action: 

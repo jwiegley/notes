@@ -1,0 +1,7 @@
+Undefined symbols for architecture x86_64:
+  "icu_50::LEFontInstance::getSubFont(unsigned short const*, int*, int, int, LEErrorCode&) const", referenced from:
+      vtable for PortableFontInstance in libhb-icu-le.a(libhb_icu_le_la-PortableFontInstance.o)
+  "icu_50::LEFontInstance::mapCharsToGlyphs(unsigned short const*, int, int, signed char, icu_50::LECharMapper const*, signed char, icu_50::LEGlyphStorage&) const", referenced from:
+      vtable for PortableFontInstance in libhb-icu-le.a(libhb_icu_le_la-PortableFontInstance.o)
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)

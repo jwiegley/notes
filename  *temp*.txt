@@ -1,0 +1,13 @@
+Hermes:~/Products/tmp/ghc $ make
+===--- building phase 0
+make -r --no-print-directory -f ghc.mk phase=0 phase_0_builds
+make[1]: Nothing to be done for `phase_0_builds'.
+===--- building phase 1
+make -r --no-print-directory -f ghc.mk phase=1 phase_1_builds
+/usr/bin/gcc -E  -m64 -undef -traditional -P -DTOP='"/tank/Data/Products/tmp/ghc"' -DPAPI_INCLUDE_DIR="" -DPAPI_LIB_DIR="" -x c -Iincludes rts/package.conf.in -o rts/package.conf.inplace.raw
+grep -v '^#pragma GCC' rts/package.conf.inplace.raw | sed -e 's/""//g' -e 's/:[ 	]*,/: /g' > rts/package.conf.inplace
+"inplace/bin/ghc-pkg" update --force rts/package.conf.inplace
+inplace/bin/ghc-pkg: line 3: /Volumes/tank/Data/Products/tmp/ghc/utils/ghc-pkg/dist/build/ghc-pkg: No such file or directory
+make[1]: *** [rts/package.conf.inplace] Error 127
+make[1]: *** Deleting file `rts/package.conf.inplace'
+make: *** [all] Error 2

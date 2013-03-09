@@ -1,0 +1,10 @@
+instance Binary UTCTime where
+  put t = do
+    let d = toModifiedJulianDay (utctDay t)
+        s = realToFrac $ utctDayTime t :: Pico
+        ps = truncate $ s * 1e12 :: Integer
+    put d >> put ps
+  get = do
+    d <- get
+    ps <- get
+    return $ UTCTime (ModifiedJulianDay d) (picosecondsToDiffTime ps)

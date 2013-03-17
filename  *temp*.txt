@@ -1,0 +1,23 @@
+#!/bin/sh -x
+
+set -e
+
+/bin/rm -fr ~/.ghc/* ~/.cabal/lib/*
+
+cabal update
+
+# If we have no cabal-dev binary, build it first and wipe out the older build
+# products it installs.
+if [ ! -x ~/.cabal/bin/cabal-dev ]; then
+    cabal install --disable-executable-dynamic cabal-dev --force-reinstalls
+    /bin/rm -fr ~/.ghc ~/.cabal/lib/*
+fi
+
+cabal install Cabal cabal-install
+
+~/.cabal/bin/cabal update
+~/.cabal/bin/cabal install -j --disable-executable-dynamic alex
+~/.cabal/bin/cabal install -j cpphs happy html hspec HUnit doctest \
+    cabal-meta cabal-src hdevtools hsenv hlint
+
+exit 0

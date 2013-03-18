@@ -1,0 +1,7 @@
+            status <- atomically $ do
+                status <- readTMVar next
+                case status of
+                    PSReady _ _ -> retry
+                    PSInterrupting _ ->
+                        if anyNonReady then return status else retry
+                    _ -> return status

@@ -1,0 +1,23 @@
+A Profunctor: φ : 𝑪 ↛ 𝑫, is a Functor: φ : (𝑫^op,𝑪) → 𝑺𝒆𝒕.
+
+Let's say I use this functor to map two objects, one each from 𝑪 and 𝑫, for
+example: φ(𝑑,𝑐) : 𝑃(𝑑′,𝑐), where 𝑃 denotes my object in 𝑺𝒆𝒕.
+
+𝑃 can be represented as a function, 𝑑′ → 𝑐.  When I map a function over the
+𝑐 component, it is covariant; but when I map over 𝑑′ it is contravariant and
+"flips" the arrow.
+
+Thus, assume two morphisms: 𝑓 : 𝑎 → 𝑏 (in 𝑫), and 𝑔 : 𝑥 → 𝑦 (in 𝑪).
+
+The operation for mapping the "right" component, 𝑐, is covariant:
+
+    rmap : (𝑎 → 𝑏) → 𝑃(𝑑′,𝑎) → 𝑃(𝑑′,𝑏)
+
+but the operation for mapping over the left component is contravariant, as it
+maps 𝑔 from 𝑪 into 𝑫^op:
+
+    lmap : (𝑥 → 𝑦) → 𝑃(𝑦,𝑐) → 𝑃(𝑥,𝑐) 
+
+Said another way: If 𝑪 and 𝑫 are both 𝑯𝒂𝒔𝒌, a Profunctor builds a new type out
+of two Haskell types, say X and Y, and flips the direction of any function
+applied to the Y component.

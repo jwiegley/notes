@@ -5,8 +5,9 @@ import Data.Data.Lens
 data Type = Foo Int
           | Bar String
           | Baz Int
+          deriving Show
 
-data Foozle = Foozle [Type]
+data Foozle = Foozle [Type] deriving Show
 
 _foozle :: Traversal Type Type String String
 _foozle f x@(Bar a) = Bar <$> f a

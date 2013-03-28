@@ -1,0 +1,16 @@
+Theorem: rmap is equal to fmap for any Profunctor P.
+
+Proof:
+
+    data Foo a b = Foo a b
+    
+    instance Profunctor Foo where
+        rmap :: (a -> b) -> Foo c a -> Foo c b
+        rmap f (Foo x y) = Foo x (f y)
+    class Functor where
+        fmap :: (a -> b) -> f a -> f b
+
+    instance Functor (Profunctor c) where fmap :: (a -> b) -> P c a -> P c b
+        fmap = rmap
+
+       

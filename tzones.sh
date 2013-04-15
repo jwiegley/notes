@@ -4,12 +4,10 @@ function working() {
     start=$1
     end=$2
     hour=$(date +%H)
-    stamp=$(date +"%I:%M %p %a  ")
+    stamp=$(date +'%I:%M %p %a')
     echo -n "$stamp  "
     if (( hour >= start && hour < end )); then
         echo -n "[32m"
-    else
-        echo -n "[31m"
     fi
     echo -n $3
     echo "[0m"

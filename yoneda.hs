@@ -16,17 +16,17 @@ unembed y = runYoneda y id
 
 main = do
     -- By using the Yoneda embedding, I can "box up" two different types, and
-    -- get a representation for both that has the same type.  I can now pass
-    -- this around to code which only accepts the one type, Identity Int.
+    -- get a representation for both that has the same result type.
     let y = \f -> runYoneda (embed (Identity "Hello")) f :: Identity Int
         z = \f -> runYoneda (embed (Identity 10))      f :: Identity Int
 
-    -- However, even though embedded values have the same type, I can only
-    -- apply functions to them which are appropriate to the underlying type.
-    -- In this case, I apply String -> Int to y, and Int -> Int to z.
+    -- However, even though embedded values yield the same type, I must apply
+    -- functions to them that are appropriate.  For example, I can apply
+    -- String -> Int to y, and Int -> Int to z.
     print $ runIdentity $ y length
     print $ runIdentity $ z id
 
-    -- If I try to treat all of the embedded values as the same type, I'll get
-    -- a type error.  Just uncomment this line and try to compile it!
-    -- print $ map (runIdentity . ($ length)) [y,z]
+    -- If I try to treat all of the embedded values as if they had embedded
+    -- the same type, I'll get a type error.  Just uncomment this line below
+    -- and try to compile it!
+    -- print [y,z]

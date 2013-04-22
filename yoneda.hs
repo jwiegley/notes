@@ -39,8 +39,8 @@ main = do
         cps_add  = cpsify_binop add
         cps_mult = cpsify_binop mult
 
-    putStrLn "Resulting of normal math:"
+    putStrLn "Result of normal math:"
     print $ add (mult (add 4 5) 2) 2
 
-    putStrLn "Resulting of CPS math:"
+    putStrLn "Result of CPS math:"
     print $ cps_add 4 5 (\x -> cps_mult x 2 (\x -> cps_add x 2 id))

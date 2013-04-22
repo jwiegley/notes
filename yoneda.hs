@@ -15,5 +15,5 @@ unembed :: Functor f => Yoneda f a -> f a
 unembed y = runYoneda y id
 
 main = do
-    let ys = embed (Identity "Hello")
-    print $ runIdentity $ unembed ys
+    let y = embed (Identity "Hello")
+    print $ runIdentity $ runYoneda y length

@@ -26,7 +26,21 @@ main = do
     print $ runIdentity $ y length
     print $ runIdentity $ z id
 
-    -- If I try to treat all of the embedded values as if they had embedded
-    -- the same type, I'll get a type error.  Just uncomment this line below
-    -- and try to compile it!
-    -- print [y,z]
+    -- One use of Yoneda is to transform a function into a CPS-version of that
+    -- function.  Yoneda's lemma guarantees that this transformed function is
+    -- isomorphic to the original.
+    let add  x y = x + y
+        mult x y = x * y
+
+        cps_embed = runYoneda . embed . uncurry
+
+        cpsify_binop f x y cont = cps_embed f cont (x,y)
+
+        cps_add  = cpsify_binop add
+        cps_mult = cpsify_binop mult
+
+    putStrLn "Resulting of normal math:"
+    print $ add (mult (add 4 5) 2) 2
+
+    putStrLn "Resulting of CPS math:"
+    print $ cps_add 4 5 (\x -> cps_mult x 2 (\x -> cps_add x 2 id))

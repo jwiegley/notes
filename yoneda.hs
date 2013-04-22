@@ -5,7 +5,7 @@ module Main where
 import Data.Functor.Identity
 
 data Yoneda f a = Yoneda
-    { runYoneda :: forall b. (a -> b) -> f b
+    { runYoneda :: forall b. Functor f => (a -> b) -> f b
     }
 
 embed :: Functor f => f a -> Yoneda f a

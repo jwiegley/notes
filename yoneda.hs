@@ -129,3 +129,24 @@ main = do
     let z = YonedaEndo (liftYoneda (+9)) :: YonedaEndo Int
     print $ lowerYoneda (appYonedaEndo (z >>= (\x -> return $ 1 + x))) 20
     print $ lowerYoneda (appYonedaEndo (return 30)) 20
+
+{- Further notes from edwardk:
+
+21:15 <edwardk> Yoneda Endo a = forall r. (a -> r) -> (r -> r)
+21:15 <johnw> but I'm getting stuck
+21:15 <johnw> yeah, I saw that part
+21:15 <monochrom> @type maybe
+21:15 <lambdabot> b -> (a -> b) -> Maybe a -> b
+21:15 <johnw> but how does "Maybe" behavior come into that at all?
+21:15 <edwardk> now, given that what can it do? it can't put the 'r's together.
+21:15 <johnw> there's no "empty"
+21:15 <edwardk> so it has to either use the function a -> r   -- in which case it has an
+          'a' lying around
+21:15 <edwardk> or it has to use the 'r'
+21:15 <johnw> oh
+21:15 <edwardk> in which case it doesn't
+21:15 <edwardk> nothing _ r = r
+21:15 <edwardk> just a f _ = f a
+21:16 <edwardk> add newtype noise and season to taste
+21:16 <johnw> ok, let me go chew on that, thanks!
+ -}

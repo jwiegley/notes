@@ -1,0 +1,23 @@
+        errs <- update' upd (const (return ())) 0 mgr
+        ps   <-
+            if not (any isError errs)
+            then do
+                log "Code loaded correctly, checking if it was canceled"
+                mfinal <- fmap isFinalStatus
+                          <$> atomically (getProcStatus pid mgr)
+                case mfinal of
+                    Just True -> return PSCanceled
+                    _-> do
+                        log "It was not, running"
+                        era <- try (runStmt session (unpack runModule) runFunc)
+                        case era of
+                            Left e -> do
+                                log $ "Code run failed: " ++ show e
+                                return $ PSRunFailed (show (e :: SomeException))
+                            Right ra -> invokeProcess pid li ra mgr
+            else do
+                let msg = "Could not load module: " ++ runModule
+                log msg
+                return $ PSLoadFailed (msg, errs)
+
+        atomically $ putProcStatus pid ps mgr

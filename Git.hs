@@ -1,21 +1,13 @@
-data ConflictType = BothModified
-                  | ModifiedAndDeleted
-                  | BothTypeChanged
-                  | ModifiedAndTypeChanged
-                  | DeletedAndTypeChanged
-
-data ConflictEntry = ConflictEntry
-    { conflictEntryType   :: ConflictType
-    , conflictEntryLeft   :: Maybe TreeEntry
-    , conflictEntryRight  :: Maybe TreeEntry
-    , conflictEntryMerged :: Maybe TreeEntry
-    }
+data ModificationKind = Unchanged | Modified | Added | Deleted
+                      deriving (Eq, Ord, Enum, Show)
 
 data MergeResult m
     = MergeSuccess
+        { mergeCommit    :: CommitOid m
+        }
     | MergeConflicted
-        { mergeHead       :: CommitOid m
-        , mergePulledHead :: CommitOid m
-        , mergeCommit     :: CommitRef m
-        , mergeConflicts  :: Map FilePath ConflictEntry
+        { mergeCommit    :: CommitOid m
+        , mergeHeadLeft  :: CommitOid m
+        , mergeHeadRight :: CommitOid m
+        , mergeConflicts :: Map FilePath (ModificationKind, ModificationKind)
         }

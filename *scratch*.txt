@@ -1,0 +1,8 @@
+                 case x of
+                     Just x' -> blah
+                     Nothing -> blah'
+
+
+  where
+    go (Just x') = blah
+    go Nothing   = blah'

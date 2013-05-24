@@ -29,7 +29,7 @@ main = do
     let y = \f -> runYoneda (liftYoneda (Identity "Hello")) f :: Identity Int
         z = \f -> runYoneda (liftYoneda (Identity 10))      f :: Identity Int
 
-    -- However, even though liftYonedaded values yield the same type, I must
+    -- However, even though liftYoneda values yield the same type, I must
     -- apply functions to them that are appropriate.  For example, I can apply
     -- String -> Int to y, and Int -> Int to z.
     print $ runIdentity $ y length

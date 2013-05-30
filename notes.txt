@@ -1,0 +1,81 @@
+>>> ("Hello","Heinrich") & over both length
+(5, 8)
+
+>>> ("abcdef","ghijkl") ^. both
+"abcdefghijkl"
+
+>>> ("abcdef","ghijkl") ^. partsOf both
+["abcdef","ghijkl"]
+
+>>> ("abcdef","ghijkl") % partsOf (both.traverse) .~ "hi there"
+("hi the","reijkl")
+
+>>> ("abcdef","ghijkl") % partsOf (backwards (both.traverse)) .~ "hi there"
+("abcder","eht ih")
+
+>>> ("hello","world") % partsOf (both.traverse) %~ reverse
+("dlrow","olleh")
+
+>>> ["a","bc","def"] % partsOf (traverse.traverse) %~ reverse
+["f","ed","cba"]
+
+>>> "Hello, World" % partsOf (traverse . filtered isAlpha) .~ "Howdy!"
+"Howdy, !orld"
+
+>>> (`evalStateT` ("hello","world")) $ zoom both (get >>= lift . print)
+"hello"
+"world"
+
+>>> partsOf both %~ reverse $ ('a','b')
+('b','a')
+
+>>> ((1,2), (3,4)) ^. alongside _2 _1
+(2,3)
+
+>>> [(1,2,3,4),(5,6,7,8),(9,10,11,12)]^.folded._4.to Sum
+Sum {getSum = 24}
+
+>>> ("hello","there")^.._1.replicated 3.traverse.to toUpper
+"HELLOHELLOHELLO"
+
+>>> (("hello","world"),"!!!", 2 :: Int, ()) ^..biplate :: [String]
+["hello","world","!!!"]
+
+>>> (("hello","world"),"!!!", 2 :: Int, ()) ^..biplate :: [Int]
+[2]
+
+>>> (("hello","world"),"!!!", 2 :: Int, ()) & biplate %~ toUpper
+(("HELLO","WORLD"),"!!!",2,())
+
+>>> (("hello","world"),"!!!", 2 :: Int, ()) & biplate._head %~ toUpper
+(("Hello","World"),"!!!",2,())
+
+>>> ("hello","world",["!!!"])^..biplate :: [String]
+["hello","world","!!!"]
+
+>>> ("hello","world",["!!!"]) & partsOf biplate %~ (reverse :: String -> String)
+("!!!dl","rowol",["leh"])
+
+>>> minimumOf both (1,2)
+Just 1
+
+>>> traverse .~ 42 $ [1,2,3,4]
+[42,42,42,42]
+
+>>> iwhere (\i -> i `mod` 2 == 0) .~ 42 $ [1,2,3,4]
+Just 1
+
+>>> rezip $ zipper ("hello","world") & down _1 & fromWithin traverse & focus .~ 'J' & farthest Control.Lens.right & focus .~ 'y'
+("Jelly","world")
+
+>>> [1..20] & upon last .~ 1000
+[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,1000]
+
+>>> [1..20] & upon (!! 5) .~ 1000
+[1,2,3,4,5,1000,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+
+>>> (1,2,"hello") & _3 id
+[(1,2,'h'),(1,2,'e'),(1,2,'l'),(1,2,'l'),(1,2,'o')]
+
+>>> sequenceAOf _3 (1,2,"hello")
+[(1,2,'h'),(1,2,'e'),(1,2,'l'),(1,2,'l'),(1,2,'o')]

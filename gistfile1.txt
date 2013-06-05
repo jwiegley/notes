@@ -1,0 +1,392 @@
+[02:52:54] <johnw> ski!
+[02:52:56] <zorkmoid> tsdh: above is what you where trying to do code wise, which is different from what you wish to achive.
+[02:53:02] <johnw> I didn't know you were in here
+[02:53:03] <xecycle> ski: Of course.
+[02:53:26] *** Joins: shahinism (~shahinism@unaffiliated/shahinism)
+[02:53:35] <ski> xecycle : *nod* -- but perhaps not apparent to the layemacser
+[02:53:36] <taylanub> I should just stop thinking about this until I know substantially more maths; else I'll end up like one of those crankers.
+[02:54:05] <ski> taylanub : thinking some can't hurt, methinks
+[02:54:25] <twb> What was the name of the nationstates that some guy here had
+[02:54:28] <twb> it was like monadistan
+[02:54:31] <xecycle> taylanub: lol.  Don't waste your brain on this.
+[02:54:52] *** Quits: greenhat (~greenhat@c-50-134-155-202.hsd1.co.comcast.net) (Ping timeout: 248 seconds)
+[02:57:32] <yhvh> ski: The connection, I had hoped, was that Homotopy offered a way to abstract over Godel's little problem, with 'pull backs', and here you see my current limitations
+[02:57:54] * johnw was just learning what pull backs are last night
+[02:58:33] <tali713> tsdh: so basically, iiuc, you want to be able to have visual commands apply to more than just the first word?
+[02:58:41] *** Parts: xecycle (~user@59.78.37.25) ("ERC Version 5.3 (IRC client for Emacs)")
+[02:58:54] *** Joins: osnr (~Adium@Verbum.Stanford.EDU)
+[02:58:54] *** Quits: osnr (~Adium@Verbum.Stanford.EDU) (Changing host)
+[02:58:54] *** Joins: osnr (~Adium@unaffiliated/osnr)
+[02:58:58] <tali713> tsdh: you might want to file a feature request.
+[02:59:14] <tsdh> tali713: Exactly, for things like "git log" and "bzr log" and "hg log".
+[02:59:48] <tali713> tsdh: seriously, file a feature request.  possibly ask aidalgol next time he is here.
+[02:59:49] *** Quits: Vulpes (~Vulpes@ip72-223-92-96.ph.ph.cox.net) (Quit: !((flag&0XFA)^0X72))
+[02:59:50] <zorkmoid> doesn't eshell already do that ..
+[03:00:03] <tsdh> tali713, johnw: Since the author is here, John, there's no easy way to do that right now. right?
+[03:00:06] <tali713> I assume it doesn't or he wouldn't be asking.
+[03:00:32] <johnw> check out the code that does visual command processing
+[03:00:33] <tsdh> zorkmoid: No, only if it can be determined from the command, not command + subcommand.
+[03:00:44] <johnw> i don't think the current code could handle that, no
+[03:00:53] <johnw> but redefining that function to be smarter shouldn't really be very hard
+[03:01:03] <tali713> that's what I was thinking.
+[03:01:05] <tsdh> johnw: I did so, and the function checking only receives COMMAND, not the ARGS.
+[03:01:38] <tali713> tsdh: johnw probably means the command processing logic responsible for visual commands.
+[03:01:43] <johnw> ah
+[03:02:03] <tsdh> tali713: Yes, that's what I'm talking about, too. :-)
+[03:02:05] <tali713> tsdh: oh, i see, never mind me.
+[03:02:52] *** Joins: nicferrier (~nicferrie@140.35.155.90.in-addr.arpa)
+[03:03:25] <nicferrier> I keep losing my bouncer connection
+[03:03:34] <nicferrier> well, I say "keep". I mean overnight.
+[03:03:45] *** Joins: bishboria (~user@88.211.70.170)
+[03:03:46] <tsdh> The problem I've had when having a quick look is that some callers of the relevant function `eshell-find-interpreter' don't have access to the args.  But maybe those aren't important.  I'll fiddle a bit around.
+[03:03:56] <ski> yhvh : hm, not seeing how pullbacks would be relevant here
+[03:04:16] <ski> ("Gödel's little problem" referring to the incompleteness theorems, yes ?)
+[03:04:24] <tali713> johnw: in the mean time, do you remember if there is a way to say "process this without checking for eshell/ aliases and so forth"?
+[03:04:40] <johnw> put * in front of it
+[03:05:05] *** Joins: Joreji (~thomas@vpn-eu1.unidsl.de)
+[03:05:10] <tali713> tsdh: there's the simpler way^
+[03:05:33] *** Quits: yezariaely (arj1@2a01:130:2000:121:230:48ff:fe64:340a) (Remote host closed the connection)
+[03:05:49] <ski> johnw : what did you pull back ?
+[03:05:53] <yhvh> ski: Yup, incompleteness. I must admit I'm just making my way into this
+[03:06:12] *** Joins: yezariaely (arj1@2a01:130:2000:121:230:48ff:fe64:340a)
+[03:06:14] *** Quits: yezariaely (arj1@2a01:130:2000:121:230:48ff:fe64:340a) (Max SendQ exceeded)
+[03:06:14] <johnw> ski: my eyes from the text
+[03:06:24] <tsdh> johnw, tali713: Doesn't work.  The * only tells that an external command should be preferred over a lisp command, doesn't it?
+[03:06:39] *** Joins: yezariaely (arj1@2a01:130:2000:121:230:48ff:fe64:340a)
+[03:06:41] *** Quits: yezariaely (arj1@2a01:130:2000:121:230:48ff:fe64:340a) (Max SendQ exceeded)
+[03:06:41] <johnw> i'm trying to grok initial objects and universal properties, and they came up in that connection; I still have no clue about pull backs yet
+[03:07:06] <johnw> I think I made progress on universal properties, though
+[03:07:10] *** Joins: yezariaely (arj1@2a01:130:2000:121:230:48ff:fe64:340a)
+[03:07:12] *** Quits: yezariaely (arj1@2a01:130:2000:121:230:48ff:fe64:340a) (Max SendQ exceeded)
+[03:07:29] <johnw> tsdh: it says, "don't interpret this command in any way"
+[03:07:32] *** Quits: Viiru (viiru@cl-684.hel-01.fi.sixxs.net) (Quit: ERC Version 5.3 (IRC client for Emacs))
+[03:07:38] <tali713> johnw: am I right in remembering that aidalgol is now responsible for eshell?
+[03:07:42] *** Joins: yezariaely (arj1@2a01:130:2000:121:230:48ff:fe64:340a)
+[03:07:43] <johnw> you are so right
+[03:07:44] *** Quits: yezariaely (arj1@2a01:130:2000:121:230:48ff:fe64:340a) (Max SendQ exceeded)
+[03:08:13] *** Joins: yezariaely (arj1@2a01:130:2000:121:230:48ff:fe64:340a)
+[03:08:19] *** Quits: negaduck (~negaduck@176.195.218.119) (Quit: negaduck)
+[03:08:38] <tali713> tsdh: if you get this figured out, let me know, I would be interested in that patch.
+[03:08:42] *** Joins: ajb-mark-tools (~ajb@cbnluk-gw0.cambridgebroadband.com)
+[03:08:55] <tsdh> tali713: Sure.
+[03:10:04] <yhvh> johnw: what text are you reading?
+[03:10:52] <johnw> it was an article, I don't remember which
+[03:10:57] *** Joins: plotr (~name@unaffiliated/plotr)
+[03:11:10] *** Quits: jrm (~jrm@freebsd/hacker/jrm) (Ping timeout: 276 seconds)
+[03:11:23] *** Joins: targzeta (~targzeta@213.188.207.159)
+[03:11:24] *** Quits: chimay (~chimay@unaffiliated/chimay) (Quit: WeeChat 0.4.2-dev)
+[03:11:27] *** Joins: mstevens (~mstevens@fsf/member/pdpc.active.mstevens)
+[03:11:59] * ski . o O ( "An introduction to Category Theory for Software Engineers" (slides) by Steve Easterbrook in 1999 at <http://www.cs.toronto.edu/~sme/presentations/cat101.pdf> )
+[03:12:02] *** Joins: Viiru (viiru@cl-684.hel-01.fi.sixxs.net)
+[03:12:15] <yhvh> Thanks, there are nice videos at IAS, Vladimir Vysotsky
+[03:12:20] <johnw> yeah, it could have been that one!
+[03:12:40] <johnw> ski: yes, that was it
+[03:12:45] <johnw> slide 24
+[03:13:05] <johnw> good guess!
+[03:13:38] *** Quits: agumonkey (~agu@52.158.70.86.rev.sfr.net) (Read error: Operation timed out)
+[03:14:25] <ski> johnw : actually i only noticed you talked about an article after i pasted that link :)
+[03:14:33] <johnw> lol
+[03:14:36] *** Joins: MasseR (~masse@82.192.74.13)
+[03:15:09] <johnw> I have maybe 30 intro-level CT texts on my iPad, I just keep pounding my brain with it into stuff begins to seep in
+[03:15:13] *** Quits: sjihs (~chandan@122.248.161.59) (Read error: Operation timed out)
+[03:15:27] <ski> pullbacks can be used to express multiple inheritance, where a common superclass isn't replicated
+[03:15:37] <johnw> oh, that's interesting
+[03:15:41] <johnw> is there an example of that somewhere?
+[03:17:02] <tali713> yhvh: incompletness is way cool, but hard to wrap ones brain around.
+[03:17:11] <ski> i think the book "Categories for Software Engineering" by José Luiz Fiadeiro in 2005 mentions it, in terms of Eiffel
+[03:18:14] *** Quits: targzeta (~targzeta@213.188.207.159) (Ping timeout: 256 seconds)
+[03:18:43] <plotr> is there sasl support available for irc in emacs?
+[03:19:22] <twb> Uh, do you mean TLS (SSL) ?
+[03:19:51] <twb> SASL is a protocol that allows a server to check a user's details against a backend database -- similar to RADIUS and PAM.
+[03:19:56] <ski> "Dissertation - Ch. 3, A View of Documents - Documents as Categories" by William Wake in 1996-03-26 at <http://billwake.blogspot.se/1996_03_01_archive.html> might perhaps also be interesting
+[03:20:25] *** Joins: shergill (~user@gateway/tor-sasl/shergill)
+[03:20:25] *** Joins: benny (~user@maidenhead3.tunnelr.com)
+[03:20:25] *** Joins: drewc (~drewc@drewc.org)
+[03:20:25] *** Joins: prebz (~prebz@tunna.org)
+[03:20:25] *** Joins: _mst (~foo@dishevelled.net)
+[03:20:25] *** Joins: vmeson (~quassel@128.224.252.2)
+[03:20:25] *** Joins: tazle_ (tazle@kapsi.fi)
+[03:20:25] *** Joins: zz_zobbo (~ian@li500-123.members.linode.com)
+[03:20:25] *** Joins: CrazyEddy (~bislings@wrongplanet/CrazyEddy)
+[03:20:25] *** Joins: binski (~binski@192.81.216.32)
+[03:20:25] *** Joins: theBlackDragon (~dragon@213.211.143.23)
+[03:20:25] *** Joins: hhuuggoo (~hugoshi@li321-151.members.linode.com)
+[03:20:25] *** Joins: mgaare (~quassel@192.81.216.48)
+[03:20:25] *** Joins: j0ni (~j0ni@tomos.lollyshouse.net)
+[03:20:25] *** Joins: angelixd (~pcmantz@box.mcpantz.org)
+[03:20:33] <Sketch> http://www.emacswiki.org/emacs-test/ErcSASL
+[03:20:50] <ski> johnw : you know cartesian product and disjoint union, yes ?
+[03:21:00] *** Joins: joshnz (~joshnz@125-238-88-108.jetstream.xtra.co.nz)
+[03:21:01] <yhvh> tali713: I read GEB about 10 years ago and it's been stuck in my craw ever since, I know this is probably an amateurish affect, like being obsessed with the primes but hey, free month I can study what I want
+[03:21:03] <johnw> not fully in the CT sense yet
+[03:21:07] <johnw> but in set theory I know them
+[03:21:22] <ski> "cartesian product" and "disjoint union" are not CT terms
+[03:21:32] <johnw> products and coproducts, right?
+[03:21:34] <Sketch> it might be easier to use a proxy like znc which supports sasl
+[03:21:40] <plotr> twb: no, I mean sasl - for authentication at freenode for example
+[03:21:57] <ski> johnw : "(categorial) product" and "(categorical) coproduct" are the categorical generalizations of those concepts, yes
+[03:22:06] <johnw> ok, go on...
+[03:22:09] *** Quits: Laynef (~Laynef@ACaen-654-1-34-173.w90-51.abo.wanadoo.fr) (Ping timeout: 248 seconds)
+[03:22:17] <johnw> if you want, we can move to ##categorytheory
+[03:22:17] <plotr> how so? I've found patches from Joseph Gay which are few years old
+[03:22:27] <plotr> anyone knows if it was merged?
+[03:22:32] <plotr> and if not - why?
+[03:22:45] *** Joins: aaptel (~aaptel__@89.159.164.124)
+[03:23:01] *** Joins: exoticorn (~user@mail.keenflare.com)
+[03:24:09] *** Joins: freefall (~ff@gateway/tor-sasl/freefall)
+[03:24:20] <ski> johnw : if `ℕ' is the set of natural numbers, then the disjoint union of it with itself is usually written `ℕ + ℕ' (or sometimes `2 ⋅ ℕ')
+[03:24:28] <plotr> Sketch: this link points to those patches - the problem is that they require slight modification to erc code - so unless it's merged into emacs I have to completely replace built-in erc
+[03:24:46] <johnw> ski: where every member is either L ℕ or R ℕ?
+[03:25:09] <ski> johnw : we can think of this as taking two "copies" of `ℕ', where the elements have been renamed, and then taking the union of them, so that we don't mix ones from the left set up with ones for the right set
+[03:25:25] <johnw> right
+[03:25:36] <ski> johnw : that's one way to systematically do such a "renaming", yes
+[03:25:43] <johnw> it's what Either Int Int expresses (if Int didn't go negative)
+[03:26:19] *** Quits: exoticorn (~user@mail.keenflare.com) (Remote host closed the connection)
+[03:26:20] <ski> johnw : while, in the usual set-theoretic union, if there happened to be any elements in common between the two sets, they would only occur once in the union set
+[03:26:28] <johnw> right
+[03:26:45] *** Quits: alfplayer (~alfplayer@190.193.156.219) (Read error: Operation timed out)
+[03:27:09] <ski> johnw : one advantage of disjoint union is that we don't have to care about how elements of the two sets are represented (e.g. in terms of sets containing sets containing ..., in ZF set theory)
+[03:27:40] <ski> johnw : since it doesn't then matter whether one element of one set "accidentally" happened to be represented in the same way as one in the other set
+[03:28:04] <johnw> yep, this much is easy so far
+[03:28:09] <ski> you can compare this with an elisp function accepting both a string and a symbol as argument
+[03:28:10] *** Quits: arnested (~arnested@002131226053.mbb.telenor.dk) (Read error: Connection reset by peer)
+[03:28:33] <ski> because strings and symbols are disjointly represented, we can distinguish them from each other
+[03:29:09] <johnw> right
+[03:29:16] <johnw> 'foo vs "foo"
+[03:29:24] *** Joins: qwerty_nor (~Thunderbi@46.118.71.85)
+[03:29:27] <plotr> ok I've checked the source and no traces of sasl implementation for erc although patches were submitted to list
+[03:29:31] <ski> but, we might encode more complicated data structures in terms of lists (say) -- and then it's not a given that there is no list thing which can't be interpreted both as the one kind of data structure that we want to allow as input, and as the other kind
+[03:29:37] *** Quits: kcj (~casey@unaffiliated/kcj) (Ping timeout: 248 seconds)
+[03:30:17] <johnw> unless you tag them, like Left xs and Right xs?
+[03:30:20] *** Quits: deSilva (~deSilva@host-95-199-143-60.mobileonline.telia.com) (Read error: Connection reset by peer)
+[03:30:39] *** Joins: deSilva (~deSilva@host-95-199-140-231.mobileonline.telia.com)
+[03:30:42] <ski> one might use  (cons 'my-data-structure real-data-structure)  or perhaps some kind of record construction after generating a new unique record type in the system
+[03:30:49] <ski> *nod*
+[03:31:30] <ski> johnw : now, sometimes, one explicitly *wants* to allow a certain "overlap" between the two sets, but in a controlled fashion
+[03:31:49] *** Quits: danicampa901 (~dani@nat-default.sssup.it) (Remote host closed the connection)
+[03:32:00] <ski> johnw : e.g. we might think of `R n' as encoding the integer `n', and `L n' encoding the integer `-n'
+[03:32:09] *** Joins: Laynef (~Laynef@ACaen-654-1-34-53.w90-51.abo.wanadoo.fr)
+[03:32:22] *** Joins: danicampa901 (~dani@nat-default.sssup.it)
+[03:32:23] <ski> but then `L 0' and `R 0' should really be thought of as the same thing (namely `0')
+[03:32:38] <johnw> ahh... and does a pushout give you functions going R n -> n and L n -> n?
+[03:33:22] *** Joins: yordan (~user@91.92.178.235)
+[03:33:24] <ski> so, the idea of the *pushout* `A +_C B' is that we want roughly a disjoint union of `A' and `B' .. except that the elements of `A' and `B' that come from the common subset `C' should only be counted *once*
+[03:33:53] <johnw> how are they counted?
+[03:34:02] <johnw> will we have L i, j, R k?
+[03:34:16] <ski> in the example above, the pushout is `ℕ +_{0} ℕ', with `{0}' being the subset of `ℕ' just containing the `0' element
+[03:34:29] *** Quits: mstevens (~mstevens@fsf/member/pdpc.active.mstevens) (Quit: leaving)
+[03:34:42] <johnw> i see...
+[03:34:46] *** Joins: xificurC (xificurC@nat/ibm/x-blsazzsrtokzqtzd)
+[03:35:04] <johnw> the pushout lets us sort of "collapse" the disjunction for a given subset
+[03:35:10] <ski> well, the simplest way to implement them is in case `A' and `B' have disjoint representations, except for the overlap `C'
+[03:35:15] <ski> yep
+[03:35:20] <johnw> cool!!!
+[03:35:26] <johnw> that was a great presentation
+[03:35:37] <yhvh> yeah I got most of that :D thanks
+[03:35:50] <ski> but i should mention a little about quotient sets and pullbacks, as well
+[03:36:07] <ski> we all know (vaguely, at least) subsets
+[03:36:13] <johnw> and a pullback let's me take 0 to (0,0)?
+[03:36:33] <ski> quotient sets are really just as basic, imo
+[03:37:22] *** Joins: targzeta (~targzeta@213.188.207.159)
+[03:37:41] <ski> consider rational numbers, `ℚ'
+[03:37:48] *** Joins: sjihs (~chandan@122.248.161.59)
+[03:37:57] <YoungFrog> hm, I thought I was in ##math for a second
+[03:38:00] *** Quits: dark_element (~textual@61.12.96.226) (Quit: Computer has gone to sleep.)
+[03:38:36] *** Joins: exoticorn (~user@mail.keenflare.com)
+[03:38:55] <ski> we think of a rational number as having a standard form, `n / d', `n' and `d' being integers (and `d' not being zero)
+[03:39:06] *** Joins: arnested (~arnested@194-239-236-13-hotspot.dk.customer.tdc.net)
+[03:39:35] <ski> however, there's the complication that a single rational numbers can be represented in many different ways as such a fraction
+[03:39:51] <ski> `2 / 3' and `10 / 15' means the same rational number
+[03:40:20] <johnw> right
+[03:40:35] <johnw> equality vs. equivalence
+[03:40:39] <ski> so, a rational number is basically a pair of integers (second one non-zero), but where we don't care which exact representation we actually use
+[03:40:42] <ski> yep
+[03:40:56] <ski> what does "we don't care ..." mean here ?
+[03:41:03] <YoungFrog> Ok, I *am* in ##math ; I should just (rename-buffer ) and everything will be correct again.
+[03:41:09] <johnw> isomorphism
+[03:41:30] <ski> it means that we decice when two such pairs should be *considered* as equal (when regarding them as representing rational numbers)
+[03:41:31] *** Joins: lyanchih (~lyanchih@118-163-141-228.HINET-IP.hinet.net)
+[03:42:09] <plotr> YoungFrog: wait until they reach homotopy type theory - it'll be closer to programming ;-)
+[03:42:10] *** Joins: agumonkey (~agu@52.158.70.86.rev.sfr.net)
+[03:42:28] <ski> and, we can basically use any binary relation at all for such a "considered as equal" -- provided only that
+[03:42:33] <ski> it is reflexive (any element is considered as equal to itself)
+[03:42:43] *** Joins: sawjig (~sawjig@gateway/tor-sasl/sawjig)
+[03:42:58] <ski> it is symmetric (if one element is considered as equal to another, then the other is considered equal to the first one)
+[03:43:13] <johnw> it is transitive
+[03:43:23] <ski> it is transitive (if one element is considered as equal to another, and that one to a third, then the first is considered equal to the third)
+[03:43:26] <ski> yep
+[03:43:46] <YoungFrog> plotr: oh really ?
+[03:43:56] *** Joins: ggole (~ggole@124-148-102-48.dyn.iinet.net.au)
+[03:44:01] <ski> these are the minimum requirement for when a binary relation could be thought of as an "equality" (in a rough sense)
+[03:44:29] <plotr> I mean closer to strongly, statically typed programming - not regular elisp :)
+[03:44:47] <ski> as one example, we could decide that `(m0,n0)' is to be considered as equal to `(m1,n1)' whenever `m0 = m1' (regardless of `n0',`n1')
+[03:45:08] *** Joins: amoe_ (~amoe@host-78-147-162-157.as13285.net)
+[03:45:18] <johnw> ah, interesting
+[03:45:20] <ski> in such a case, we completely forget about the second component of the pair, it might as well never have been there
+[03:46:07] <johnw> so, any group of pairs have the same first element forms an equivalence class from that relation?
+[03:46:10] <YoungFrog> plotr: actually I know about homotopy theory, but I'm not accustomed to its use in programming
+[03:46:26] <ski> compare this with having objects of a subclass, the subclass having one extra method than the superclass (and no overridden methods) -- now if we pass such an object to a context expecting objects of the superclass, it appears to that context as if the extra method didn't exist
+[03:46:39] <ski> johnw : yep
+[03:46:57] *** Joins: alfplayer (~alfplayer@190.193.156.219)
+[03:47:19] <plotr> pretty much nobody does - agda, idris and alike are still way too exotic
+[03:47:20] <johnw> ah, good point!
+[03:47:21] <ski> johnw : however, with the rational numbers, we do something more subtle : `(n0,d0)' is to be considered equal to `(n1,d1)' whenever `n0 * d1 = n1 * d0'
+[03:47:32] <johnw> right
+[03:47:34] *** Quits: amoe (~amoe@host-78-147-163-65.as13285.net) (Ping timeout: 276 seconds)
+[03:47:35] <plotr> and haskell is not hardcore enough to have dependent types just yet
+[03:48:07] <ski> johnw : so, here it's not like we forget one component completely, or the other completely; but rather forget some aspects about the relation between the two components
+[03:49:21] <johnw> ski: that smells like an adjunction
+[03:49:48] <johnw> (,) -| *
+[03:49:51] *** Joins: {cms} (~cms@zappa.beatworm.co.uk)
+[03:49:55] <nicferrier> hey johnw
+[03:49:56] <ski> so, `ℚ' is a quotient set of `ℤ × (ℤ ∸ {0})', wrt this equivalence relation on the latter set
+[03:49:58] *** Quits: deSilva (~deSilva@host-95-199-140-231.mobileonline.telia.com) ()
+[03:50:00] <johnw> nicferrier: hi!
+[03:50:18] <ski> (`∸' being set difference, sometimes written as `\')
+[03:50:30] <johnw> ah, I see now
+[03:51:26] <ski> typically we write `n / d' instead of `(n,d)' (and this motivates the equivalence relation)
+[03:51:33] <YoungFrog> So you have a big set of objects (here, pairs of integers), some of them look alike so you put all those that look the same in one bag, taking as many bags as needed to put every element in one bag, and the quotient is a set of bags. A rational number is a bag full of pairs. The hardest part might be : how do I sum two bags together ?
+[03:51:46] *** Quits: ntus1017 (~ntus1017@113.173.219.198) (Remote host closed the connection)
+[03:52:11] <ski> and, if you want to, you can think of `ℤ' as being a quotient set of `ℕ × ℕ' wrt : `(p0,m0)' being considered equal to `(p1,m1)' whenever `p0 + m1 = p1 + m0' (`(p,m)' traditionally written as `p - m')
+[03:52:37] <ski> YoungFrog : that's one (traditional) way to think about it, yes
+[03:53:04] <johnw> it's like saying that rational numbers may be defined as p/q, but they are identified by p*q
+[03:53:19] <ski> YoungFrog : however, i think it's more practical to think of a rational number as being represented by any one of the possible representations (the elements in your set)
+[03:53:33] *** Joins: Mon_Ouie (~Mon_Ouie@subtle/user/MonOuie)
+[03:53:49] <ski> but, there's one potential problem
+[03:54:41] <ski> if we want to define a function `f : ℚ → X' (for any set `X'), it's then natural to want to define it like `f(n / d) = ..n..d..'
+[03:55:01] <ski> (for some expression `..n..d..' (possibly) depending on `n' and on `d')
+[03:55:23] *** Joins: redeemed (m@nat/ibm/x-mwbqfuxywexbdfez)
+[03:55:32] *** Joins: davef (dave@nightfall.bogus.net)
+[03:56:29] *** Joins: przl (~przlrkt@62.217.45.194)
+[03:56:54] <ski> but, since it's not supposed to matter which representation of a rational number we use, we actually have to prove that if `n0 / d0' and `n1 / d1' are equal rational numbers (iow, `(n0,d0)' and `(n1,d1)' represent the same rational number), then `..n0..d0..' and `..n1..d1..' are *equal* (perhaps because they reprent the same thing, in case the set `X' is also a quotient set, with multiple representations of some elements)
+[03:57:08] <MasseR> For a while I thought I was in #haskell 
+[03:57:11] <ski> this it called "checking if the function is well-defined"
+[03:58:11] *** Joins: miojo (~tux@187.65.94.44)
+[03:58:34] <ski> you may compare this with defining a function `g : Y -> ℝ₊' (`ℝ₊' being the subset of `ℝ' of *positive* real numbers) -- here you have to check that the result is always positive, for any input in the set `Y'
+[03:59:06] <ski> the idea of subsets and the idea of quotient sets are in a sense *dual* (mirror images) of each other
+[03:59:28] <ski> johnw : anyway, enough about quotient sets -- back a moment to pushouts
+[04:00:30] *** Joins: deSilva (~deSilva@host-95-199-140-231.mobileonline.telia.com)
+[04:00:38] <ski> johnw : now you can hopefully see that `A +_C B' can be thought of as a quotient set on `A + B', where `L c' and `R c' (but no other elements) are being considered equal for all elements `c' in the subset `C' of `A' and `B'
+[04:01:13] <ski> <johnw> the pushout lets us sort of "collapse" the disjunction for a given subset
+[04:01:25] <ski> this collapse can be thought of as effected by a quotient set
+[04:02:02] <nicferrier> am in magnars librarys pollutin' their purity.
+[04:02:11] *** Quits: dueno (~daiki@du-a.org) (Changing host)
+[04:02:11] *** Joins: dueno (~daiki@fsf/member/dueno)
+[04:02:20] *** Quits: julienXX (~julienXX@unaffiliated/julienxx) (Quit: Linkinus - http://linkinus.com)
+[04:02:44] <johnw> ah! excellent!
+[04:02:54] *** Joins: mjs2600 (~mjs2600@24.106.194.14)
+[04:03:28] <ski> now, i wanted to finish up by a short explanation of pullbacks (since they're dual to pushouts)
+[04:03:28] * yhvh has already taken more notes than all this year of CS
+[04:04:16] *** Joins: negaduck (~negaduck@91.206.116.254)
+[04:04:20] <ski> consider a product (think "cartesian product") `A × B'
+[04:05:00] *** Joins: exoticb (~exoticb@FL1-125-197-228-88.tky.mesh.ad.jp)
+[04:06:38] <ski> this can be thought (*roughly*) about as a class, subclassing both `A' and `B', getting both the fields of `A' and those of `B' (ignore the methods here. you might perhaps think of something CLOS-like)
+[04:07:21] <ski> however, sometimes both `A' and `B' are "subclasses" of a common `C' -- meaning, both have been derived by adding "fields" to `C'
+[04:07:30] *** Joins: thiagotnunes (~thiagotnu@62.217.45.194)
+[04:07:32] *** Quits: gciolli (~gianni@83.149.163.202) (Ping timeout: 252 seconds)
+[04:07:36] <johnw> right
+[04:08:02] <ski> even if so, `A × B' would still contain two copies of each field in `C' (one for `A' and one for `B')
+[04:08:13] *** Joins: ferz (~nonsoloso@host35-105-static.24-87-b.business.telecomitalia.it)
+[04:08:21] <ferz> Hi
+[04:08:25] *** Joins: morazow (~morazow@92.36.136.95.rev.vodafone.pt)
+[04:08:32] <ski> you may think of the fields coming from `A' resp. `B' has having been renamed (that's actually exactly what you'd do in Eiffel)
+[04:08:51] *** Quits: atomx (~user@92.86.74.147) (Read error: Connection reset by peer)
+[04:09:02] <ski> (cf. with "renaming elements" from the two disjuncts in the disjoint union set)
+[04:09:13] <ski> .. and sometimes, this is exactly what you want
+[04:09:32] *** Quits: deSilva (~deSilva@host-95-199-140-231.mobileonline.telia.com) (Read error: Connection reset by peer)
+[04:09:39] <ferz> Is emacs portable a version of emacs that I can run from a pendrive without to install it on the main system disk?
+[04:09:39] <ski> sometimes, `A' and `B' should get their own copy of the fields, not mixing stuff up together
+[04:09:40] *** Joins: julienXX (~julienXX@home.tigerlilyapps.com)
+[04:09:40] *** Quits: julienXX (~julienXX@home.tigerlilyapps.com) (Changing host)
+[04:09:40] *** Joins: julienXX (~julienXX@unaffiliated/julienxx)
+[04:09:43] <nicferrier> johnw: I am adding lazy stuff to emacs... me and my homies are gonna pwn haskell
+[04:09:59] <johnw> nicferrier: haha :)
+[04:10:21] <ski> however, sometimes you *do* want to only have a single instance (at least as regards to this `A' and `B', not talking about any further extension) of each field in `C'
+[04:10:21] <nicferrier> it's not so much emacs on guile more guile on emacs.
+[04:10:35] <johnw> ski: but sometimes, we want to collapse the duplication, so that A c and B c are just C c, assuming c came from C
+[04:10:41] <ski> then you get the pullback `A ×_C B'
+[04:11:06] <ski> note how in the pushout `A +_C B', `C' was a *subset* of both `A' and `B'
+[04:11:41] <ski> while here in the pullback `A ×_C B', `C' is actually a *quotient* set (think very roughly "superclass") of both `A' and `B'
+[04:11:43] <johnw> is A +_C B the same thing as the symmetric difference of A and B?
+[04:11:56] *** Quits: thiagotnunes (~thiagotnu@62.217.45.194) (Remote host closed the connection)
+[04:12:20] <ski> (this is not a coincidence : pullbacks and pushouts are dual to each other, just like quotient sets and subsets are dual to each other)
+[04:12:28] *** Joins: fayek^ (~fayek@foresight/developer/fayek)
+[04:12:29] <ski> johnw : no
+[04:12:49] <johnw> oh, because C isn't actually removed from the result
+[04:13:02] <johnw> those members are just not "tagged"
+[04:13:11] *** Joins: deSilva (~deSilva@host-95-199-156-64.mobileonline.telia.com)
+[04:13:28] *** Quits: Joreji (~thomas@vpn-eu1.unidsl.de) (Read error: Operation timed out)
+[04:13:31] <johnw> <ski> while here in the pullback `A ×_C B', `C' is actually a *quotient* set
+[04:13:36] <johnw> ^^ I'll have to think about that a lot more
+[04:13:38] <ski> the symmetric difference (which is a set theoretic thing, no simple CT analogue, means that you *remove* *the* common overlap -- while in the pushout, you *identify* (iow count only once) *any* common overlap you want (you have a choice of how large overlap you want)
+[04:13:59] <ski> `A' is an extension of `C' with some fields added
+[04:14:08] <ski> if we forget about those fields, then we get `C'
+[04:14:19] <johnw> now what's the dual of that?
+[04:14:40] <johnw> oh, wait
+[04:14:46] <johnw> this stuff comes into play when we consider a B
+[04:14:50] <johnw> which is also related via C
+[04:14:56] <ski> iow, `(a_fields0,c_fields0)' being considered as equal to `(a_fields1,c_fields1)' whenever `c_fields0 = c_fields1' (forgetting the fields native to `A')
+[04:15:21] <johnw> so, A +_C B is the total set of methods, while A x_C B is....?
+[04:15:23] *** Joins: newcup (newcup@peruna.fi)
+[04:15:24] <ski> dual of what ? symmetric difference ?
+[04:15:28] *** Quits: fayek (~fayek@foresight/developer/fayek) (Ping timeout: 252 seconds)
+[04:15:28] *** fayek^ is now known as fayek
+[04:15:43] <YoungFrog> A +_C B is probably A union B whenever C = A \cap B, isn't it ?
+[04:16:00] <ski> `A x_C B' could be thought of as the (selectively merged) instance state
+[04:16:10] <YoungFrog> (I didn't follow from the beginning, sorry)
+[04:16:22] <johnw> "(selectively merged) instance state"?
+[04:16:47] *** Joins: Visual_E (~easy@unaffiliated/visuale/x-000000001)
+[04:16:49] *** Joins: thiagotnunes (~thiagotnu@62.217.45.194)
+[04:16:51] <ski> YoungFrog : yep
+[04:18:01] <ski> anyway, an element of `A ×_C B' has basic shape `(a,b)'
+[04:18:16] <ski> however, if we stopped there, we'd have duplicate `c' parts in `a' and `b'
+[04:18:34] <ski> so, say `a' is `(a_only,c)' and `b' is `(b_only,c)'
+[04:18:38] *** Joins: ahoops (~ahoops__@121.96.14.223)
+[04:18:56] <YoungFrog> perhaps you could make an easy example of a useful C ?
+[04:19:04] *** Quits: matematikaadit (~user@182.12.128.66) (Quit: ERC Version 5.3 (IRC client for Emacs))
+[04:19:05] *** Quits: osnr (~Adium@unaffiliated/osnr) (Quit: Leaving.)
+[04:19:33] *** Quits: vijaykiran (~user@fw1.lunatech.com) (Remote host closed the connection)
+[04:19:34] *** Quits: chm``` (~user@lubanbook.org) (Remote host closed the connection)
+[04:19:47] *** Joins: chm``` (~user@218.242.168.194)
+[04:21:09] <ski> we're only considering elements `(a,b)', i.e. `((a_only,c_a),(b_only,c_b))', where `c_a' is actually equal to `c_b' -- so that *subset* of elements `(a,b)' which satisfy this condition
+[04:21:41] <ski> iow, `((a_only,c),(b_only,c))', which amounts to basically `(a_only,b_only,c)'
+[04:21:42] *** Quits: plotr (~name@unaffiliated/plotr) (Ping timeout: 256 seconds)
+[04:21:43] *** Quits: twb (~twb@203.7.155.72) (Ping timeout: 240 seconds)
+[04:21:48] *** Joins: gnumonk (~deepak@116.197.178.83)
+[04:22:25] <ski> (in practice, we prefer to only have to store the `c' fields once, instead of storing them twice and keeping them synchronized -- but this is "merely" an implementation detail)
+[04:25:00] *** Quits: Visual_E (~easy@unaffiliated/visuale/x-000000001) (Quit: Down the |)
+[04:25:49] <ski> in general, we often talk in terms of conceptual "forgetting"/projection functions, `f : A → C' and `g : B → C', and then `A ×_C B' is the subset `{(a,b) : A × B | f(a) = g(b)}'; `f' resp. `g' being responsible for forgetting all the fields from `A' and `B', except the `C' fields
+[04:26:18] *** Quits: yacc (~yacc@148.198.43.5) (Read error: Connection reset by peer)
+[04:26:42] *** Joins: yacc (~yacc@148.198.43.5)
+[04:26:52] <ski> (so, if you pass an `A' object/value to a context that accepts `C's, then `f' is being (conceptually) implicitly called, to convert the `A' to a `C')
+[04:28:47] *** Joins: alephnull (~alok@115.115.139.234)
+[04:29:06] *** Quits: vmeson (~quassel@128.224.252.2) (Quit: No Ping reply in 180 seconds.)
+[04:29:15] *** Quits: mgaare (~quassel@192.81.216.48) (Quit: No Ping reply in 180 seconds.)
+[04:29:16] <ski> going back to pushout `A +_C B', we commonly do something similar there : instead of just saying that `C' is a subset of `A' and `B', we say that `C' is being *considered* as a subset of `A' and `B', via "inclusion" functions `f : C → A' and `g : C → B'
+[04:29:21] *** Joins: mefisto (~quassel@192.81.216.48)
+[04:29:22] *** Joins: vmeson (~quassel@128.224.252.2)
+[04:29:37] *** Quits: zz_zobbo (~ian@li500-123.members.linode.com) (Quit: ZNC - http://znc.sourceforge.net)
+[04:30:04] <ski> (so, even if `C' isn't strictly speaking a subset of `A', we can still *consider* it to be one, as long as `f' is an injective function (so that distinct elements of `C' gets translated by `f' to distinct elements of `A'))
+[04:30:07] *** Joins: zobbop (~ian@li500-123.members.linode.com)
+[04:30:07] *** zobbop is now known as zobbo
+[04:30:47] *** Joins: gic (~gic@proxy.iitk.ac.in)
+[04:31:24] *** Quits: MaxLanar (~user1@80.215.44.24) (Ping timeout: 248 seconds)
+[04:31:29] *** Quits: kludge` (~comet@unaffiliated/espiral) (Ping timeout: 252 seconds)
+[04:31:31] *** Quits: abuiles (uid1641@gateway/web/irccloud.com/x-hjenqvyhimoggywa) (Ping timeout: 260 seconds)
+[04:32:04] *** Joins: plotr (~name@unaffiliated/plotr)
+[04:33:31] *** Joins: vijaykiran (~user@fw1.lunatech.com)
+[04:34:30] *** Quits: przl (~przlrkt@62.217.45.194) (Quit: leaving)
+[04:34:52] *** Joins: przl (~przlrkt@62.217.45.194)
+[04:35:28] <ski> finally, i want to say that at some level, i regard the constructions `×',`+' as more fundamental and simple than the traditional concepts of subsets, unions, intersections of set theory
+[04:35:41] *** Joins: hualet (de8d174c@gateway/web/freenode/ip.222.141.23.76)
+[04:35:44] *** Joins: osnr (~Adium@Verbum.Stanford.EDU)
+[04:35:44] *** Quits: osnr (~Adium@Verbum.Stanford.EDU) (Changing host)
+[04:35:44] *** Joins: osnr (~Adium@unaffiliated/osnr)
+[04:36:07] <ski> i don't think it makes sense to ask whether any two random sets have any common elements
+[04:36:15] *** Quits: przl (~przlrkt@62.217.45.194) (Client Quit)
+[04:36:17] <hualet> who can tell me the difference between mapcar and mapc in elisp?
+[04:36:24] <ski> however, it still makes sense to form the product and coproduct of any two random sets
+[04:36:31] *** Joins: kludge` (~comet@unaffiliated/espiral)
+[04:36:36] *** Joins: przl (~przlrkt@62.217.45.194)
+[04:37:00] *** Quits: uuball_gabriel (~gabriel@182.92.247.2) (Ping timeout: 256 seconds)
+[04:37:00] <ski> to ask whether two random sets have any common elements, we have to first show that they are subsets of a common, larget set -- then we can ask whether they're disjoint

@@ -2,29 +2,31 @@
 
 module Main where
 
+import Control.Lens
+
 -- When f is a Functor, CoYoneda f is isomorphic to f.
-data CoYoneda f a = forall x. CoYoneda (f x) (x -> a)
+data CoYoneda f a = forall s. CoYoneda (f s) (s -> a)
 
 instance Functor (CoYoneda f) where
-    fmap f (CoYoneda tr g) = CoYoneda tr (f . g)
+    fmap g (CoYoneda x k) = CoYoneda x (g . k)
 
 lowerCoYoneda :: Functor f => CoYoneda f a -> f a
-lowerCoYoneda (CoYoneda tr f) = fmap f tr
+lowerCoYoneda (CoYoneda x k) = fmap k x
 
 liftCoYoneda :: f Int -> CoYoneda f Int
-liftCoYoneda tr = CoYoneda tr id
+liftCoYoneda x = CoYoneda x id
 
--- When f is a Functor, CoYoneda f is isomorphic to f.
-data Yoneda f a = Yoneda (forall x. (a -> x) -> f x)
+-- When f is a Functor, Yoneda f is isomorphic to f.
+data Yoneda f a = Yoneda (forall r. (a -> r) -> f r)
 
 instance Functor (Yoneda f) where
-    fmap f (Yoneda k) = Yoneda $ \x -> k (x . f)
+    fmap g (Yoneda k) = Yoneda $ \h -> k (h . g)
 
 lowerYoneda :: Yoneda f a -> f a
-lowerYoneda (Yoneda f) = f id
+lowerYoneda (Yoneda k) = k id
 
 liftYoneda :: Functor f => f Int -> Yoneda f Int
-liftYoneda a = Yoneda $ \f -> fmap f a
+liftYoneda a = Yoneda $ \k -> fmap k a
 
 main :: IO ()
 main = undefined

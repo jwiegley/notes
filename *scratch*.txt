@@ -1,0 +1,55 @@
+Vulcan:/tmp/isolation-runner-workdir/projects/189 $ find .
+.
+./data.43887
+./data.43887/bar
+./data.43887/bar/bar.txt
+./data.43887/bar/bar2.txt
+./data.43887/bar/bar3.txt
+./data.43887/bar/foo.txt
+./data.43887/foo
+./data.43887/foo/bar
+./data.43887/foo/bar/baz.txt
+./data.43887/foo/hello.txt
+./data.43887/foo/hello2.txt
+./data.43887/foo/hello3.txt
+./data.43887/foo/README.md
+./data.43888
+./data.43888/bar
+./data.43888/bar/bar.txt
+./data.43888/bar/bar2.txt
+./data.43888/bar/bar3.txt
+./data.43888/bar/foo.txt
+./data.43888/foo
+./data.43888/foo/bar
+./data.43888/foo/bar/baz.txt
+./data.43888/foo/hello.txt
+./data.43888/foo/hello2.txt
+./data.43888/foo/hello3.txt
+./data.43888/foo/README.md
+./dist.43887
+./dist.43887/build
+./dist.43887/build/autogen
+./dist.43887/build/autogen/cabal_macros.h
+./dist.43887/build/autogen/Paths_main.hs
+./dist.43887/build/ide-backend-exe.stderr
+./dist.43887/build/ide-backend-exe.stdout
+./dist.43887/package.conf.inplace
+./dist.43888
+./src.43887
+./src.43887/Main.hs
+./src.43888
+./src.43888/Main.hs
+Vulcan:/tmp/isolation-runner-workdir/projects/189 $ cat src/43888/Ma
+cat: src/43888/Ma: No such file or directory
+Vulcan:/tmp/isolation-runner-workdir/projects/189 [1] $ cat src.43888/Main.hs 
+module Main where
+
+main = putStrLn "Hello, world!"
+Vulcan:/tmp/isolation-runner-workdir/projects/189 $ cat dist.43887/build/ide-backend-exe.stderr 
+
+Main.hs:1:8:
+    Could not find module `Application'
+    It is a member of the hidden package `deployment-subsite-0.0.0'.
+    Perhaps you need to add `deployment-subsite' to the build-depends in your .cabal file.
+    Use -v to see a list of the files searched for.
+Vulcan:/tmp/isolation-runner-workdir/projects/189 $ 

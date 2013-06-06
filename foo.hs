@@ -13,7 +13,7 @@ instance Functor (CoYoneda f) where
 lowerCoYoneda :: Functor f => CoYoneda f a -> f a
 lowerCoYoneda (CoYoneda x k) = fmap k x
 
-liftCoYoneda :: f Int -> CoYoneda f Int
+liftCoYoneda :: f a -> CoYoneda f a
 liftCoYoneda x = CoYoneda x id
 
 -- When f is a Functor, Yoneda f is isomorphic to f.
@@ -25,7 +25,7 @@ instance Functor (Yoneda f) where
 lowerYoneda :: Yoneda f a -> f a
 lowerYoneda (Yoneda k) = k id
 
-liftYoneda :: Functor f => f Int -> Yoneda f Int
+liftYoneda :: Functor f => f a -> Yoneda f a
 liftYoneda a = Yoneda $ \k -> fmap k a
 
 main :: IO ()

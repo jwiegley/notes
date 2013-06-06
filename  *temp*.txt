@@ -1,0 +1,7 @@
+ideSourcesDir = "/private/tmp/isolation-runner-workdir/projects/191/src.68011"
+ideDistDir    = "/private/tmp/isolation-runner-workdir/projects/191/dist.68011"
+ghcOpts       = ["-XOverloadedStrings"]
+dynlink       = False
+pkgs          = [base-4.5.1.0]
+loadedMs      = ["Main"]
+ms            = [("Main","Main.hs")]

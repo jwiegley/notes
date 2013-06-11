@@ -7,20 +7,25 @@ Date: Tue, 11 Jun 2013 13:17:38 -0500
 --text follows this line--
 1. I propose that we add the following package to base:
 
-     http://hackage.haskell.org/package/archive/semigroups/0.9.2/doc/html/Data-Semigroup.html
+     http://hackage.haskell.org/packages/archive/semigroups/0.9.2/doc/html/Data-Semigroup.html
 
    This is somewhat in the spirit of the AMP proposal: further improving the
    correctness of our algebraic abstractions.
 
-2. That we make Semigroup a superclass of Monoid, so that:
+2. That we make Semigroup a superclass of Monoid, so that (minimally):
 
      class Semigroup a where
          (<>) :: a -> a -> a
 
      class Semigroup a => Monoid a where
          mempty :: a
-         mappend :: a -> a -> a
-         mappend = (<>)
+
+     mappend :: Semigroup a => a -> a -> a
+     mappend = (<>)
+
+   There are other useful functions that can be added to Semigroup, such as
+   sconcat and times1p, but I will let Edward speak to whether those should be
+   proposed at this time.
 
 3. That we fix the Monoid instance for Maybe to be:
 

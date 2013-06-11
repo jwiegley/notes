@@ -3,7 +3,7 @@ To: libraries@haskell.org
 Subject: Proposal: Add Data.Semigroup to base, as a superclass of Monoid
 Gcc: list.haskell.libraries
 Organization: FP Complete Corp.
-Date: Tue, 11 Jun 2013 13:29:14 -0500
+Date: Tue, 11 Jun 2013 13:30:58 -0500
 --text follows this line--
 1. I propose that we add the following package to base:
 
@@ -31,7 +31,7 @@ Date: Tue, 11 Jun 2013 13:29:14 -0500
 
 4. (Optional, recommended) That we fix the Monoid instance for Maybe to be:
 
-    instance Semigroup (Maybe a) where
+    instance Semigroup a => Semigroup (Maybe a) where
          Just x <> Just y = Just (x <> y)
 
     instance Semigroup a => Monoid (Maybe a) where

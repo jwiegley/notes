@@ -1,5 +1,3 @@
-given: fmap id = id
-
 id g = g  (could also be written id = \g -> g)
 applier f g x = f (g x)
 
@@ -9,11 +7,11 @@ instance Functor ((->) r) where
      fmap id
    { eta-expand }
    = \g -> fmap id g
-   { substitude definition of fmap for (->) r }
+   { substitute definition of fmap for (->) r }
    = \g -> \x -> applier id g x
-   { substitude definition of applier }
+   { substitute definition of applier }
    = \g -> \x -> id (g x)
-   { substitude definition of id }
+   { substitute definition of id }
    = \g -> \x -> g x
    { eta-reduction }
    = \g -> g

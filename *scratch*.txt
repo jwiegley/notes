@@ -1,0 +1,19 @@
+src/LLVM/General/Internal/Attribute.hs:43:51:
+    Illegal tuple constraint EncodeM t_tJ [t_tK] t_tL
+    (Use -XConstraintKinds to permit this)
+    In the Template Haskell quotation
+      [t| EncodeM $m [$type'] $(conT ctn) |]
+    In the second argument of `instanceD', namely
+      `[t| EncodeM $m [$type'] $(conT ctn) |]'
+    In the expression:
+      instanceD
+        (sequence [classP ''Monad [m]])
+        [t| EncodeM $m [$type'] $(conT ctn) |]
+        [funD
+           (mkName "encodeM")
+           [clause
+              []
+              (normalB
+                 [| return
+                    . (let ... in foldl (.|.) (...) . map encodeAttribute) |])
+              []]]

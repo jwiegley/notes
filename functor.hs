@@ -17,8 +17,11 @@ data HomF a = Hom (r -> a)
 instance Functor HomF where
     fmap f (Hom g) = Hom (f . g)
 
-homFunctorLaw1 : (m : HomF a) -> fmap id m = m
-homFunctorLaw1 (Hom f) = refl
+apply : HomF a -> r -> a
+apply (Hom f) x = f x
+
+homFunctorLaw1 : (x : a) -> (m : HomF a) -> apply (fmap id m) x = apply m x
+homFunctorLaw1 x (Hom f) = refl
 
 homFunctorLaw2 : (m : HomF a) -> (f : b -> c) -> (g : a -> b)
             -> (fmap f . fmap g $ m) = fmap (f . g) m

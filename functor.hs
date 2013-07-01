@@ -1,28 +1,16 @@
 module FunctorLaws
 
-data IdentityF a = Identity a
+data HomF r a = Hom (r -> a)
 
-instance Functor IdentityF where
-    fmap f (Identity x) = Identity (f x)
+runHom : HomF r a -> (r -> a)
+runHom (Hom f) = f
 
-identityFunctorLaw1 : (m : IdentityF a) -> fmap id m = m
-identityFunctorLaw1 (Identity x) = refl
-
-identityFunctorLaw2 : (m : IdentityF a) -> (f : b -> c) -> (g : a -> b)
-            -> (fmap f . fmap g $ m) = fmap (f . g) m
-identityFunctorLaw2 (Identity x) f g = refl
-
-data HomF a = Hom (r -> a)
-
-instance Functor HomF where
+instance Functor (HomF r) where
     fmap f (Hom g) = Hom (f . g)
 
-apply : HomF a -> r -> a
-apply (Hom f) x = f x
-
-homFunctorLaw1 : (x : a) -> (m : HomF a) -> apply (fmap id m) x = apply m x
+homFunctorLaw1 : (x : r) -> (m : HomF r a) -> runHom (fmap id m) x = runHom m x
 homFunctorLaw1 x (Hom f) = refl
 
-homFunctorLaw2 : (m : HomF a) -> (f : b -> c) -> (g : a -> b)
-            -> (fmap f . fmap g $ m) = fmap (f . g) m
-homFunctorLaw2 (Hom f) f g = refl
+homFunctorLaw2 : (x : r) -> (m : HomF r a) -> (f : b -> c) -> (g : a -> b)
+            -> runHom (fmap f . fmap g $ m) x = runHom (fmap (f . g) m) x
+homFunctorLaw2 x (Hom f) f g = refl

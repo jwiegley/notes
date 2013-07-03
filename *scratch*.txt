@@ -1,0 +1,19 @@
+Vulcan:~/build/fpco {master} $ ghc -v
+Glasgow Haskell Compiler, Version 7.4.2.9, stage 2 booted by GHC version 7.4.2
+Using binary package database: /Volumes/Data/Home/Products/build/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/ghc/lib/ghc-7.4.2.9/package.conf.d/package.cache
+Using binary package database: /Volumes/Data/Home/Products/build/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/ghc_pkg_db/package.cache
+Using binary package database: /Volumes/Data/Home/Products/build/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/ghc/lib/ghc-7.4.2.9/package.conf.d/package.cache
+wired-in package ghc-prim mapped to ghc-prim-0.2.0.0-c9a65ff80e4b2d6bafc55c63ecf2a599
+wired-in package integer-gmp mapped to integer-gmp-0.4.0.0-30ebbc85f32de48e3037b977da7e3b2f
+wired-in package base mapped to base-4.5.1.0-9575992f609c11499c62110a3095f447
+wired-in package rts mapped to builtin_rts
+wired-in package template-haskell mapped to template-haskell-2.7.0.0-97391a17333ab5c9efb129843fdc2534
+wired-in package dph-seq not found.
+wired-in package dph-par not found.
+Hsc static flags: -static
+*** Deleting temp files:
+Deleting: 
+*** Deleting temp dirs:
+Deleting: 
+ghc: no input files
+Usage: For basic information, try the `--help' option.

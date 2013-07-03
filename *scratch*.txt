@@ -1,0 +1,28 @@
+Vulcan:~/build/fpco {master} $ fpbuild -j --force-reinstalls -fdev -flibrary-only -fNoGoogleClosure
+Files updated in local package: git-monitor
+Going to build the following local packages:
+git-monitor
+Resolving dependencies...
+Configuring git-monitor-1.2.1...
+Failed to install git-monitor-1.2.1
+Last 10 lines of the build log (
+/Volumes/Data/Home/Products/build/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/cabal/logs/git-monitor-1.2.1.log
+):
+cabal: Error: some packages failed to install:
+git-monitor-1.2.1 failed during the configure step. The exception was:
+user error (<command line>: cannot satisfy -package Cabal-1.16.0
+(use -v for more information)
+)
+^C
+Vulcan:~/build/fpco {master} [130] $ ^C
+Vulcan:~/build/fpco {master} [130] $ fpbuild --force-reinstalls -fdev -flibrary-only -fNoGoogleClosure
+Files updated in local package: git-monitor
+Going to build the following local packages:
+git-monitor
+Resolving dependencies...
+Configuring git-monitor-1.2.1...
+Building git-monitor-1.2.1...
+Preprocessing executable 'git-monitor' for git-monitor-1.2.1...
+Installing executable(s) in
+/Volumes/Data/Home/Products/build/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/cabal/bin
+Installed git-monitor-1.2.1

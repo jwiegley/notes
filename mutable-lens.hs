@@ -4,6 +4,7 @@
 
 module Control.Lens.Mutable where
 
+import Control.Concurrent.MVar
 import Control.Concurrent.STM
 import Control.Lens
 import Control.Monad.IO.Class
@@ -13,28 +14,21 @@ import Data.IORef
 import Data.STRef
 
 class Mutable m (s :: * -> *) where
-    readMutable  :: s a -> m a
-    writeMutable :: s a -> a -> m ()
     withMutable  :: s a -> (a -> a) -> m ()
 
 instance MonadIO m => Mutable m IORef where
-    readMutable  = liftIO     . readIORef
-    writeMutable = (liftIO .) . writeIORef
-    withMutable  = (liftIO .) . modifyIORef
+    withMutable = (liftIO .) . modifyIORef
+
+instance MonadIO m => Mutable m MVar where
+    withMutable v f = liftIO $ modifyMVar_ v (return . f)
 
 instance Mutable (ST s) (STRef s) where
-    readMutable  = readSTRef
-    writeMutable = writeSTRef
     withMutable  = modifySTRef
 
 instance MonadSTM m => Mutable m TVar where
-    readMutable  = liftSTM     . readTVar
-    writeMutable = (liftSTM .) . writeTVar
     withMutable  = (liftSTM .) . modifyTVar
 
 instance MonadSTM m => Mutable m TMVar where
-    readMutable  = liftSTM     . takeTMVar
-    writeMutable = (liftSTM .) . putTMVar
     withMutable tmv f = liftSTM $ do
         x <- takeTMVar tmv
         putTMVar tmv (f x)
@@ -48,14 +42,17 @@ l @+= arg = withMutable ?? (l +~ arg)
 main :: IO ()
 main = do
     ior <- newIORef ((10,20) :: (Int, Int))
+    mv  <- newMVar ((10,20) :: (Int, Int))
     tv  <- newTVarIO ((10,20) :: (Int, Int))
     tmv <- newTMVarIO ((10,20) :: (Int, Int))
 
     ior & _2 @+= 5
+    mv  & _2 @+= 5
     tv  & _2 @+= 5
     tmv & _2 @+= 5
 
     print =<< readIORef ior
+    print =<< takeMVar mv
     print =<< atomically (readTVar tv)
     print =<< atomically (readTMVar tmv)
 

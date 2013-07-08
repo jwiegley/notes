@@ -29,9 +29,7 @@ instance MonadSTM m => Mutable m TVar where
     withMutable  = (liftSTM .) . modifyTVar
 
 instance MonadSTM m => Mutable m TMVar where
-    withMutable tmv f = liftSTM $ do
-        x <- takeTMVar tmv
-        putTMVar tmv (f x)
+    withMutable tmv f = liftSTM $ putTMVar tmv . f =<< takeTMVar tmv
 
 -- | This is an example lens operator for acting on any type of mutable state
 --   kept in a variable, rather than in an enclosing State monad.  The idea is

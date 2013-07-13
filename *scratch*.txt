@@ -1,0 +1,17 @@
+Vulcan:~/fpco/branches/backend-update {master} [130] $ fpbuild -fdev
+Files updated in local package: ide-backend-server
+Going to build the following local packages:
+ide-backend
+isolation-runner
+learning-site
+ide-backend-server
+Resolving dependencies...
+cabal: Could not resolve dependencies:
+trying: ide-backend-0.6
+rejecting: Cabal-1.14.0/installed-1d4... (conflict: ide-backend => Cabal>=1.16
+&& <1.17)
+trying: Cabal-1.16.0.3
+trying: ide-backend-server-0.6
+rejecting: ghc-7.4.2.9/installed-ae9... (conflict: Cabal==1.16.0.3, ghc =>
+Cabal==1.14.0/installed-1d4...)
+fpbuild: Build failed: ExitFailure 1

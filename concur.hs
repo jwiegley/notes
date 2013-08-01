@@ -16,25 +16,25 @@ import Control.Concurrent (threadDelay)
 
 buffer :: (MonadBaseControl IO m, MonadIO m)
        => Int -> Producer m a -> Consumer a m b -> m b
-buffer _size input output = do
-    chan <- liftIO $ newTChanIO
+buffer size input output = do
+    chan <- liftIO $ newTBQueueIO size
     control $ \runInIO ->
         bracketOnError
             (async $ runInIO $ input $$ mapM_ (submit chan))
             cancel
             (const $ runInIO $ loop chan $$ output)
   where
-    submit chan = liftIO . atomically . writeTChan chan . Just
+    submit chan = liftIO . atomically . writeTBQueue chan . Just
 
     loop chan = do
-        mx <- liftIO $ atomically $ readTChan chan
+        mx <- liftIO $ atomically $ readTBQueue chan
         case mx of
             Nothing -> return ()
             Just x  -> yield x >> loop chan
 
 ($$&) :: (MonadIO m, MonadBaseControl IO m)
       => Producer m a -> Consumer a m b -> m b
-($$&) = buffer 16
+($$&) = buffer 64
 
 main :: IO ()
 main = do

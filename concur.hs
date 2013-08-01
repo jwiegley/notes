@@ -19,17 +19,17 @@ buffer size input output = do
     chan <- liftIO $ newTBQueueIO size
     control $ \runInIO -> do
         (_,b) <- concurrently
-            (runInIO $ input $$ mapM_ (submit chan))
-            (runInIO $ loop chan $$ output)
+            (runInIO $ input $$ mapM_ (send chan))
+            (runInIO $ recv chan $$ output)
         return b
   where
-    submit chan = liftIO . atomically . writeTBQueue chan . Just
+    send chan = liftIO . atomically . writeTBQueue chan . Just
 
-    loop chan = do
+    recv chan = do
         mx <- liftIO $ atomically $ readTBQueue chan
         case mx of
             Nothing -> return ()
-            Just x  -> yield x >> loop chan
+            Just x  -> yield x >> recv chan
 
 ($$&) :: (MonadIO m, MonadBaseControl IO m)
       => Producer m a -> Consumer a m b -> m b

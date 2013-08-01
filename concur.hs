@@ -5,7 +5,6 @@ module Data.Conduit.Concurrent where
 
 import Control.Concurrent.Async
 import Control.Concurrent.STM
-import Control.Exception
 import Control.Monad.IO.Class
 import Control.Monad.Trans.Control
 import Data.Conduit
@@ -18,11 +17,11 @@ buffer :: (MonadBaseControl IO m, MonadIO m)
        => Int -> Producer m a -> Consumer a m b -> m b
 buffer size input output = do
     chan <- liftIO $ newTBQueueIO size
-    control $ \runInIO ->
-        bracketOnError
-            (async $ runInIO $ input $$ mapM_ (submit chan))
-            cancel
-            (const $ runInIO $ loop chan $$ output)
+    control $ \runInIO -> do
+        (_,b) <- concurrently
+            (runInIO $ input $$ mapM_ (submit chan))
+            (runInIO $ loop chan $$ output)
+        return b
   where
     submit chan = liftIO . atomically . writeTBQueue chan . Just
 

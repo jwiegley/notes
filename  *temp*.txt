@@ -1,0 +1,53 @@
+lun:~# apt-get update
+Ign http://security.debian.org lenny/updates Release.gpg
+Ign http://security.debian.org lenny/updates/main Translation-en_GB
+Ign http://security.debian.org lenny/updates Release                                               
+Ign http://security.debian.org lenny/updates/main Packages/DiffIndex                               
+Ign http://security.debian.org lenny/updates/main Sources/DiffIndex                                
+Ign http://security.debian.org lenny/updates/main Packages                             
+Ign http://security.debian.org lenny/updates/main Sources
+Ign http://security.debian.org lenny/updates/main Packages
+Ign http://ftp.de.debian.org lenny Release.gpg 
+Ign http://ftp.de.debian.org lenny/main Translation-en_GB
+Ign http://volatile.debian.org lenny/volatile Release.gpg
+Ign http://volatile.debian.org lenny/volatile/main Translation-en_GB
+Ign http://security.debian.org lenny/updates/main Sources
+Err http://security.debian.org lenny/updates/main Packages
+  404 Not Found [IP: 2001:a78:5:1:216:35ff:fe7f:6ceb 80]
+Err http://security.debian.org lenny/updates/main Sources
+  404 Not Found [IP: 2001:a78:5:1:216:35ff:fe7f:6ceb 80]
+Ign http://ftp.de.debian.org lenny Release     
+Ign http://volatile.debian.org lenny/volatile Release
+Ign http://ftp.de.debian.org lenny/main Packages/DiffIndex
+Ign http://volatile.debian.org lenny/volatile/main Packages/DiffIndex
+Ign http://ftp.de.debian.org lenny/main Sources/DiffIndex
+Ign http://volatile.debian.org lenny/volatile/main Sources/DiffIndex
+Ign http://ftp.de.debian.org lenny/main Packages
+Ign http://volatile.debian.org lenny/volatile/main Packages
+Ign http://ftp.de.debian.org lenny/main Sources
+Ign http://volatile.debian.org lenny/volatile/main Sources
+Ign http://ftp.de.debian.org lenny/main Packages
+Ign http://volatile.debian.org lenny/volatile/main Packages
+Ign http://ftp.de.debian.org lenny/main Sources
+Ign http://volatile.debian.org lenny/volatile/main Sources
+Err http://ftp.de.debian.org lenny/main Packages
+  404 Not Found
+Err http://volatile.debian.org lenny/volatile/main Packages
+  301 Moved Permanently [IP: 2001:41c8:1000:21::21:4 80]
+Err http://ftp.de.debian.org lenny/main Sources
+  404 Not Found
+Err http://volatile.debian.org lenny/volatile/main Sources
+  301 Moved Permanently [IP: 2001:41c8:1000:21::21:4 80]
+W: Failed to fetch http://security.debian.org/dists/lenny/updates/main/binary-amd64/Packages  404 Not Found [IP: 2001:a78:5:1:216:35ff:fe7f:6ceb 80]
+
+W: Failed to fetch http://security.debian.org/dists/lenny/updates/main/source/Sources  404 Not Found [IP: 2001:a78:5:1:216:35ff:fe7f:6ceb 80]
+
+W: Failed to fetch http://ftp.de.debian.org/debian/dists/lenny/main/binary-amd64/Packages  404 Not Found
+
+W: Failed to fetch http://volatile.debian.org/debian-volatile/dists/lenny/volatile/main/binary-amd64/Packages  301 Moved Permanently [IP: 2001:41c8:1000:21::21:4 80]
+
+W: Failed to fetch http://ftp.de.debian.org/debian/dists/lenny/main/source/Sources  404 Not Found
+
+W: Failed to fetch http://volatile.debian.org/debian-volatile/dists/lenny/volatile/main/source/Sources  301 Moved Permanently [IP: 2001:41c8:1000:21::21:4 80]
+
+E: Some index files failed to download, they have been ignored, or old ones used instead.

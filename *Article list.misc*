@@ -1,0 +1,39 @@
+From: root@ghc.haskell.org (Cron Daemon)
+Subject: Cron <root@ghc> if [ -x /usr/bin/mrtg ] && [ -r /etc/mrtg.cfg ] && [
+ -d "$(grep '^[[:space:]]*[^#]*[[:space:]]*WorkDir' /etc/mrtg.cfg | awk '{
+ print $NF }')" ]; then mkdir -p /var/log/mrtg ; env LANG=C /usr/bin/mrtg
+ /etc/mrtg.cfg 2>&1 | tee -a /var/log/mrtg/mrtg.log ; fi
+To: root@ghc.haskell.org
+Date: Thu, 12 Sep 2013 19:05:01 +0000 (UTC) (15 minutes, 14 seconds ago)
+
+Can't exec "/home/local/mrtg/memory": No such file or directory at /usr/bin/mrtg line 2172.
+2013-09-12 19:05:01: WARNING: Running '/home/local/mrtg/memory': No such file or directory
+2013-09-12 19:05:01: WARNING: Could not get any data from external command '/home/local/mrtg/memory'
+Maybe the external command did not even start. (No such file or directory)
+
+2013-09-12 19:05:01: WARNING: Problem with External get '/home/local/mrtg/memory':
+   Expected a Number for 'in' but nothing'
+
+2013-09-12 19:05:01: WARNING: Problem with External get '/home/local/mrtg/memory':
+   Expected a Number for 'out' but nothing'
+
+Can't exec "/home/local/mrtg/freedisk": No such file or directory at /usr/bin/mrtg line 2172.
+2013-09-12 19:05:01: WARNING: Running '/home/local/mrtg/freedisk': No such file or directory
+2013-09-12 19:05:01: WARNING: Could not get any data from external command
+/home/local/mrtg/freedisk'
+Maybe the external command did not even start. (No such file or directory)
+
+2013-09-12 19:05:01: WARNING: Problem with External get '/home/local/mrtg/freedisk':
+   Expected a Number for 'in' but nothing'
+
+2013-09-12 19:05:01: WARNING: Problem with External get '/home/local/mrtg/freedisk':
+   Expected a Number for 'out' but nothing'
+
+2013-09-12 19:05:01: ERROR: Target[memory][_IN_] ' $target->[2]{$mode} ' did
+not eval into defined data
+2013-09-12 19:05:01: ERROR: Target[memory][_OUT_] ' $target->[2]{$mode} ' did
+not eval into defined data
+2013-09-12 19:05:01: ERROR: Target[freedisk][_IN_] ' $target->[3]{$mode} ' did
+not eval into defined data
+2013-09-12 19:05:01: ERROR: Target[freedisk][_OUT_] ' $target->[3]{$mode} '
+did not eval into defined data

@@ -1,0 +1,14 @@
+Failed to install learning-site-0.0.0
+Last 10 lines of the build log ( /data/Home/Contracts/FPComplete/Projects/fpco/branches/backend-update/.hsenvs/ghc-7.4.2.9/.hsenv/cabal/logs/learning-site-0.0.0.log ):
+[122 of 122] Compiling Application      ( Application.hs, dist/build/Application.o )
+Registering learning-site-0.0.0...
+Preprocessing test suite 'test' for learning-site-0.0.0...
+[ 1 of 16] Compiling FP.FayAPI.TH     ( tests/FP/FayAPI/TH.hs, dist/build/test/test-tmp/FP/FayAPI/TH.o )
+
+tests/FP/FayAPI/TH.hs:13:25:
+    Module `SharedTypes.All' does not export `FayProjectId'
+
+tests/FP/FayAPI/TH.hs:14:25:
+    Module `SharedTypes.Ide' does not export Returns'
+cabal: Error: some packages failed to install:
+learning-site-0.0.0 failed during the building phase. The exception was:

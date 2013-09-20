@@ -1,21 +1,17 @@
-{-# LANGUAGE ExistentialQuantification #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
-module Main where
+module DMonoid where
 
 import Data.Monoid
 
--- When f is a Functor, DMonoid f is isomorphic to f.
-data DMonoid a = DMonoid (a -> a)
+newtype DMonoid a = DMonoid { getDM :: Endo a } deriving Monoid
 
-instance Monoid f => Monoid (DMonoid f) where
-    mempty = DMonoid id
-    DMonoid g `mappend` DMonoid k = DMonoid $ g <> k
+toDM :: Monoid a => a -> DMonoid a
+toDM m = DMonoid $ Endo (m <>)
 
-lowerDMonoid :: Monoid a => DMonoid a -> a
-lowerDMonoid (DMonoid k) = k mempty
-
-liftDMonoid :: Monoid a => a -> DMonoid a
-liftDMonoid a = DMonoid $ \k -> mappend k a
+fromDM :: Monoid a => DMonoid a => a
+fromDM (DMonoid dm) = appEndo dm mempty
 
 main :: IO ()
-main = undefined
+main =
+    print $ fromDM $ toDM [1 :: Int] <> toDM [2] <> toDM [3]

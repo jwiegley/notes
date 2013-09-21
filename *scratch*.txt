@@ -1,0 +1,35 @@
+Started by timer
+Building on master in workspace /var/lib/jenkins/jobs/ghc-head/workspace
+Checkout:workspace / /var/lib/jenkins/jobs/ghc-head/workspace - hudson.remoting.LocalChannel@3dd261e0
+Using strategy: Default
+Last Built Revision: Revision 9ef384d6d013221451d0892d65e367246ad2d18f (origin/master)
+Wiping out workspace first.
+java.io.IOException: Unable to delete /var/lib/jenkins/jobs/ghc-head/workspace/libraries/haskeline/tests - files in dir: [/var/lib/jenkins/jobs/ghc-head/workspace/libraries/haskeline/tests/dummy-????????????]
+	at hudson.Util.deleteFile(Util.java:254)
+	at hudson.Util.deleteRecursive(Util.java:307)
+	at hudson.Util.deleteContentsRecursive(Util.java:204)
+	at hudson.Util.deleteRecursive(Util.java:298)
+	at hudson.Util.deleteContentsRecursive(Util.java:204)
+	at hudson.Util.deleteRecursive(Util.java:298)
+	at hudson.Util.deleteContentsRecursive(Util.java:204)
+	at hudson.FilePath$13.invoke(FilePath.java:1078)
+	at hudson.FilePath$13.invoke(FilePath.java:1075)
+	at hudson.FilePath.act(FilePath.java:909)
+	at hudson.FilePath.act(FilePath.java:882)
+	at hudson.FilePath.deleteContents(FilePath.java:1075)
+	at hudson.plugins.git.GitSCM$2.invoke(GitSCM.java:964)
+	at hudson.plugins.git.GitSCM$2.invoke(GitSCM.java:948)
+	at hudson.FilePath.act(FilePath.java:909)
+	at hudson.FilePath.act(FilePath.java:882)
+	at hudson.plugins.git.GitSCM.determineRevisionToBuild(GitSCM.java:948)
+	at hudson.plugins.git.GitSCM.checkout(GitSCM.java:1114)
+	at hudson.model.AbstractProject.checkout(AbstractProject.java:1408)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.defaultCheckout(AbstractBuild.java:676)
+	at jenkins.scm.SCMCheckoutStrategy.checkout(SCMCheckoutStrategy.java:88)
+	at hudson.model.AbstractBuild$AbstractBuildExecution.run(AbstractBuild.java:581)
+	at hudson.model.Run.execute(Run.java:1603)
+	at hudson.matrix.MatrixBuild.run(MatrixBuild.java:304)
+	at hudson.model.ResourceController.execute(ResourceController.java:88)
+	at hudson.model.Executor.run(Executor.java:247)
+	at hudson.model.OneOffExecutor.run(OneOffExecutor.java:66)
+Finished: FAILURE

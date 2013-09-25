@@ -30,7 +30,7 @@ liftProducer p = StateT $ flip go p
                         go ps rest
             Just l -> do
                 P.yield l
-                go ps p'
+                go ps { psLeftover = Nothing } p'
 
 main :: IO ()
 main = do

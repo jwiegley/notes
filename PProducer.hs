@@ -40,5 +40,5 @@ main = do
         evalStateT
             (liftProducer P.stdinLn)
             (PipeState Nothing (putStrLn "Hello!") False)
-            >-> P.take 10
-            >-> P.stdoutLn
+        >-> P.take 10
+        >-> P.stdoutLn

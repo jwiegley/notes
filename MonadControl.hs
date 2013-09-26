@@ -23,10 +23,8 @@ class MonadBaseControl b m | m -> b where
 
 instance MonadBase b m => MonadBaseControl b (StateT s m) where
     type StM (StateT s m) a = m (a, s)
-    liftBaseWith f = StateT $ \s -> do
-        m <- liftBase $ f $ \k -> return $ runStateT k s
-        m' <- m
-        return m'
+    liftBaseWith f = StateT $ \s ->
+        join $ liftBase $ f $ \k -> return $ runStateT k s
 
 liftBaseDiscard :: (MonadBaseControl b m, Monad b, Monad m)
                 => (b () -> b a) -> m () -> m a

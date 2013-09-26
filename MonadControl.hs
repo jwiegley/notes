@@ -22,6 +22,7 @@ class MonadBaseControl b m | m -> b where
     liftBaseWith :: ((forall x. (m x -> b (StM m x))) -> b a) -> m a
     restoreM :: StM m a -> m a
 
+{- NOTE: This is currently broken, working on it. -}
 instance MonadBase b m => MonadBaseControl b (StateT s m) where
     newtype StM (StateT s m) a = StateTStM { unStateTStM :: m (a, s) }
     liftBaseWith f = StateT $ \s ->

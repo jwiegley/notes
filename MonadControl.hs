@@ -27,7 +27,7 @@ instance MonadBase b m => MonadBaseControl b (StateT s m) where
     newtype StM (StateT s m) a = StateTStM { unStateTStM :: m (a, s) }
     liftBaseWith f = StateT $ \s ->
         fmap (,s) $ liftBase $ f $ \k ->
-            return . StateTStM $ runStateT k s
+            return $ StateTStM $ runStateT k s
     restoreM = StateT . const . unStateTStM
     {-# INLINE liftBaseWith #-}
     {-# INLINE restoreM #-}

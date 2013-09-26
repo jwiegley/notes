@@ -19,6 +19,7 @@ class MonadBaseControl b m | m -> b where
     type StM m a :: *
     liftBaseWith :: ((forall x. (m x -> b (StM m x))) -> b (StM m a)) -> m a
 
+{- ERROR: It should be MonadBase b m here.  Working on that now. -}
 instance MonadBase b b => MonadBaseControl b (StateT s b) where
     type StM (StateT s b) a = (a, s)
     liftBaseWith f = StateT $ \s -> liftBase $ f $ flip runStateT s

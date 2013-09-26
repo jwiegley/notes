@@ -16,7 +16,7 @@ import           Control.Monad.Base
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.State
 
-class Monad b => MonadBaseControl b m | m -> b where
+class MonadBaseControl b m | m -> b where
     type StM m a :: *
     liftBaseWith :: ((forall x. (m x -> b (StM m x))) -> b (StM m a)) -> m a
 
@@ -24,7 +24,7 @@ instance MonadBase b b => MonadBaseControl b (StateT s b) where
     type StM (StateT s b) a = (a, s)
     liftBaseWith f = StateT $ \s -> liftBase $ f $ flip runStateT s
 
-liftBaseDiscard :: (MonadBaseControl b m, Monad m)
+liftBaseDiscard :: (MonadBaseControl b m, Monad b, Monad m)
                 => (b () -> b a) -> m () -> m a
 liftBaseDiscard f m =
     liftBaseWith $ \run -> run . return =<< f (run m >> return ())

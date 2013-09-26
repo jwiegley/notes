@@ -15,7 +15,6 @@ import qualified Control.Exception as E
 import           Control.Monad
 import           Control.Monad.Base
 import           Control.Monad.IO.Class
-import           Control.Monad.Trans.Class
 import           Control.Monad.Trans.State
 
 class MonadBaseControl b m | m -> b where
@@ -37,7 +36,7 @@ control :: (MonadBaseControl b m, Monad m)
 control = liftBaseWith >=> restoreM
 {-# INLINE control #-}
 
-liftBaseDiscard :: (MonadBaseControl b m, Monad b, Monad m)
+liftBaseDiscard :: (MonadBaseControl b m, Monad b)
                 => (b () -> b a) -> m () -> m a
 liftBaseDiscard f m =
     liftBaseWith $ \runInBase -> f $ runInBase m >> return ()

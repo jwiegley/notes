@@ -7,6 +7,7 @@
 
 module MonadControl where
 
+import           Control.Concurrent
 import           Control.Exception (Exception, SomeException)
 import qualified Control.Exception as E
 import           Control.Monad
@@ -41,11 +42,11 @@ control :: (MonadBaseControl b m, Monad m)
 control = liftBaseWith >=> restoreM
 {-# INLINE control #-}
 
--- liftBaseDiscard :: (MonadBaseControl b m, Monad b)
---                 => (b () -> b a) -> m () -> m a
--- liftBaseDiscard f m = liftBaseWith $ \runInBase ->
---     f $ runInBase m >> return ()
--- {-# INLINE liftBaseDiscard #-}
+liftBaseDiscard :: (MonadBaseControl b m, Monad b)
+                => (b () -> b a) -> m () -> m a
+liftBaseDiscard f m =
+    liftBaseWith $ \runInBase -> f $ runInBase m >> return ()
+{-# INLINE liftBaseDiscard #-}
 
 catch :: (MonadBaseControl IO m, Monad m, Exception e)
       => m a -> (e -> m a) -> m a
@@ -72,12 +73,12 @@ main = do
             putStrLn "Hello, I'm in the IO monad!"
             run $ inner abort
 
-        -- threadId <- liftBaseDiscard forkIO $ do
-        --     liftIO $ putStrLn "Inside the thread, state is:"
-        --     get >>= liftIO . print
-        --     void $ inner abort
-        -- liftIO $ putStrLn $ "Forked thread: " ++ show threadId
-        -- liftIO $ threadDelay 100
+        threadId <- liftBaseDiscard forkIO $ do
+            liftIO $ putStrLn "Inside the thread, state is:"
+            get >>= liftIO . print
+            void $ inner abort
+        liftIO $ putStrLn $ "Forked thread: " ++ show threadId
+        liftIO $ threadDelay 100
 
         liftIO $ putStrLn $ "Back outside with: " ++ show x
         get >>= liftIO . print

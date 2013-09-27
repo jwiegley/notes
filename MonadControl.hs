@@ -2,8 +2,6 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE FunctionalDependencies #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
-{-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE UndecidableInstances #-}
 
@@ -17,11 +15,11 @@ import           Control.Monad.Trans.State
 
 class MonadBaseControl b m | m -> b where
     data StM m a :: *
-    liftBaseWith :: ((forall x. (m x -> b (StM m x))) -> b a) -> m a
+    liftBaseWith :: ((m x -> b (StM m x)) -> b a) -> m a
     restoreM :: StM m a -> m a
 
 instance MonadBaseControl IO IO where
-    newtype StM IO a = IOStM { unIOStM :: a }
+    data StM IO a = IOStM { unIOStM :: a }
     liftBaseWith f = f $ liftM IOStM
     restoreM       = return . unIOStM
     {-# INLINE liftBaseWith #-}
@@ -29,7 +27,7 @@ instance MonadBaseControl IO IO where
 
 instance (MonadBaseControl b m, Monad b, Monad m)
          => MonadBaseControl b (StateT s m) where
-    newtype StM (StateT s m) a = StateTStM { unStateTStM :: StM m (a, s) }
+    data StM (StateT s m) a = StateTStM { unStateTStM :: StM m (a, s) }
     liftBaseWith f = StateT $ \s -> do
         x <- liftBaseWith $ \runInBase -> f $ \k ->
             liftM StateTStM $ runInBase $ runStateT k s
@@ -39,7 +37,7 @@ instance (MonadBaseControl b m, Monad b, Monad m)
     {-# INLINE restoreM #-}
 
 control :: (MonadBaseControl b m, Monad m)
-        => ((forall x. (m x -> b (StM m x))) -> b (StM m a)) -> m a
+        => ((m x -> b (StM m x)) -> b (StM m a)) -> m a
 control = liftBaseWith >=> restoreM
 {-# INLINE control #-}
 

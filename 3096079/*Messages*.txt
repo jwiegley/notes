@@ -1,0 +1,39 @@
+Loading /Users/johnw/.emacs.d/init.el...
+Loading /Users/johnw/.emacs.d/load-path.el (source)...done
+Loading /Users/johnw/.emacs.d/settings.el (source)...done
+Configuring package abbrev...done
+Loading package browse-kill-ring+...done (0.088s)
+Loading package dvc-autoloads...done (0.105s)
+Loading package edit-server...done (0.036s)
+Loading package helm-config...
+Loading package helm-commands...done
+Loading package helm-config...done (0.109s)
+Loading package ido...
+Loading package ido-hacks...done (0.015s)
+Loading package ido-springboard...done
+Loading package ido...done (0.068s)
+Loading package info-look...
+Configuring package info...done
+Loading package info-look...done (0.053s)
+Loading package lisp-mode...done
+Loading package mule...done
+Loading package mic-paren...done (0.010s)
+Loading package per-window-point...
+Per-window-point mode enabled
+Loading package per-window-point...done (0.038s)
+Loading package persistent-scratch...done
+Loading package pp-c-l...done (0.019s)
+Loading package recentf...
+Loading /Users/johnw/.emacs.d/data/recentf...done
+Loading package recentf...done (0.093s)
+Loading package selectkey...done (0.022s)
+Loading package session...done
+Loading package winner...done (0.011s)
+Loading package workgroups...
+Reset: Workgroups
+Switched:  ( -<{ 0: main }>- | 1: alt )
+Loaded: /Users/johnw/.emacs.d/data/workgroups
+Loading package workgroups...done (0.101s)
+Loading /Users/johnw/.emacs.d/init.el...done (1.434s)
+Loading /Users/johnw/.emacs.d/data/session...done
+Loading /Users/johnw/.emacs.d/init.el...done (1.510s) [after-init]

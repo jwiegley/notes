@@ -1,0 +1,367 @@
+BlogLiterately-0.6 (Brent Yorgey <byorgey@gmail.com>): 
+BlogLiterately-diagrams-0.1.2 (Brent Yorgey <byorgey@gmail.com>): 
+Boolean-0.2 (Brent Yorgey <byorgey@gmail.com>): vector-space force-layout
+ChasingBottoms-1.3.0.5 (Neil Mitchell): unordered-containers shake
+Diff-0.3.0 (Brent Yorgey <byorgey@gmail.com>): pandoc BlogLiterately-diagrams
+GLUT-2.1.2.1 (Haskell Platform): 
+Glob-0.7.2 (michael@snoyman.com): fsnotify yesod
+HTF-0.10.0.7 (Stefan Wehr <wehr@factisresearch.com> @skogsbaer): 
+HTTP-4000.2.5 (Haskell Platform @haskell): 
+HUnit-1.2.5.1 (Haskell Platform): HTTP
+HaXml-1.23.3 (Brent Yorgey <byorgey@gmail.com>): haxr
+List-0.5.1 (Brent Yorgey <byorgey@gmail.com> @yairchu): hexpat citeproc-hs pandoc BlogLiterately
+MemoTrie-0.6.1 (Brent Yorgey <byorgey@gmail.com>): vector-space diagrams-contrib
+MonadCatchIO-mtl-0.3.0.5 (Brent Yorgey <byorgey@gmail.com>): hint diagrams-builder BlogLiterately-diagrams
+MonadCatchIO-transformers-0.3.0.0 (Brent Yorgey <byorgey@gmail.com>): lens force-layout
+MonadRandom-0.1.8 (Edward Kmett <ekmett@gmail.com>): either
+NumInstances-1.0 (Michael Snoyman): 
+OpenGL-2.2.3.1 (Haskell Platform): GLUT
+QuickCheck-2.5.1.1 (Stefan Wehr <wehr@factisresearch.com>): HTF
+ReadArgs-1.2.1 (michael@snoyman.com @rampion): basic-prelude classy-prelude http-reverse-proxy keter
+SHA-1.6.1 (michael@snoyman.com): yesod-auth yesod
+abstract-deque-0.1.6 (Stefan Wehr <wehr@factisresearch.com> @rrnewton): monad-par statistics criterion attoparsec aeson HTF
+abstract-par-0.3.1 (Stefan Wehr <wehr@factisresearch.com> @simonmar): monad-par statistics criterion attoparsec aeson HTF
+active-0.1.0.4 (Brent Yorgey <byorgey@gmail.com> @diagrams): 
+ad-3.4 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+adjunctions-3.1 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+aeson-0.6.1.0 (michael@snoyman.com @bos): yesod
+alex-3.0.2 (Haskell Platform @simonmar): 
+ansi-terminal-0.6 (Alan Zimmerman): test-framework hjsmin
+ansi-wl-pprint-0.6.6 (Jasper Van der Jeugt @batterseapower): test-framework stylish-haskell
+arithmoi-0.4.0.3 (Brent Yorgey <byorgey@gmail.com>): diagrams-contrib diagrams
+asn1-data-0.7.1 (Vincent Hanquez @vincenthz): 
+async-2.0.1.3 (Haskell Platform @simonmar): 
+attoparsec-0.10.4.0 (michael@snoyman.com @bos): yesod-test
+attoparsec-conduit-1.0.1 (michael@snoyman.com @snoyberg): markdown
+attoparsec-enumerator-0.3.1 (michael@snoyman.com): snap-core web-fpco
+authenticate-1.3.2.6 (michael@snoyman.com @yesodweb): yesod-auth yesod
+base-compat-0.2.1 (Simon Hengel <sol@typeful.net> @sol): 
+base-unicode-symbols-0.2.2.4 (Felipe Lessa <felipe.lessa@gmail.com>): monad-control esqueleto
+base16-bytestring-0.1.1.5 (Brent Yorgey <byorgey@gmail.com> @bos): diagrams-builder BlogLiterately-diagrams
+base64-bytestring-1.0.0.1 (michael@snoyman.com @bos): yesod-static
+base64-conduit-1.0.0 (michael@snoyman.com @snoyberg): project-template yesod
+basic-prelude-0.3.4.0 (michael@snoyman.com @snoyberg): classy-prelude http-reverse-proxy keter
+bifunctors-3.2.0.1 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+blaze-builder-0.3.1.1 (michael@snoyman.com @meiersi): yesod-test
+blaze-builder-conduit-1.0.0 (Neil Mitchell @snoyberg): warp hoogle
+blaze-builder-enumerator-0.2.0.5 (michael@snoyman.com @meiersi): snap-core web-fpco
+blaze-html-0.6.1.1 (Brent Yorgey <byorgey@gmail.com> @jaspervdj): BlogLiterately
+blaze-markup-0.5.1.5 (Jasper Van der Jeugt @jaspervdj): blaze-html
+blaze-svg-0.3.3.0 (Brent Yorgey <byorgey@gmail.com> @deepakjois): diagrams-svg diagrams
+bool-extras-0.3.0 (Brent Yorgey <byorgey@gmail.com>): BlogLiterately
+bound-0.7 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+bytedump-1.0 (Vincent Hanquez @vincenthz): 
+byteorder-1.0.3 (Antoine Latter): 
+bytestring-mmap-0.2.2 (michael@snoyman.com): snap-core web-fpco
+cabal-install-0.14.0 (Haskell Platform): 
+cairo-0.12.4 (Brent Yorgey <byorgey@gmail.com>): diagrams-cairo BlogLiterately-diagrams
+case-insensitive-1.0 (michael@snoyman.com @basvandijk): yesod-test
+categories-1.0.5 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+cereal-0.3.5.2 (michael@snoyman.com): yesod-static
+certificate-1.3.5 (Vincent Hanquez @vincenthz): 
+cgi-3001.1.7.4 (Haskell Platform): 
+charset-0.3.4 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+cipher-aes-0.1.7 (Vincent Hanquez @vincenthz): 
+cipher-rc4-0.1.2 (Vincent Hanquez @vincenthz): 
+circle-packing-0.1.0.2 (Brent Yorgey <byorgey@gmail.com>): diagrams-contrib diagrams
+citeproc-hs-0.3.8 (Brent Yorgey <byorgey@gmail.com>): pandoc BlogLiterately-diagrams
+classy-prelude-0.5.4 (michael@snoyman.com @snoyberg): http-reverse-proxy keter
+clientsession-0.8.1 (michael@snoyman.com @yesodweb): yesod-core yesod
+cmdargs-0.10.2 (michael@snoyman.com): yackage
+colour-2.3.3 (Brent Yorgey <byorgey@gmail.com>): diagrams-svg diagrams
+comonad-3.0.2 (Edward Kmett <ekmett@gmail.com> @ekmett): bound
+comonad-extras-3.0.1 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+comonad-transformers-3.0.1 (Edward Kmett <ekmett@gmail.com> @ekmett): comonad-extras
+comonads-fd-3.0.1 (Edward Kmett <ekmett@gmail.com> @ekmett): comonad-extras
+compressed-3.0.1 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+concurrent-extra-0.7.0.5 (michael@snoyman.com @basvandijk): threads happstack-server web-fpco
+concurrent-supply-0.1.4.1 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+conduit-1.0.4.1 (michael@snoyman.com @snoyberg): yesod-static
+connection-0.1.3 (Vincent Hanquez @vincenthz): 
+constraints-0.3.2 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+contravariant-0.4 (Edward Kmett <ekmett@gmail.com> @ekmett): comonad-transformers
+cookie-0.4.0.1 (michael@snoyman.com @snoyberg): yesod-test
+cpphs-1.16 (Vincent Hanquez): language-java
+cprng-aes-0.3.4 (Vincent Hanquez @vincenthz): connection
+cpu-0.1.1 (Vincent Hanquez @vincenthz): 
+criterion-0.6.2.1 (Antoine Latter @bos): uuid
+crypto-api-0.11 (Haskell Platform @TomMD): pureMD5 HTTP
+crypto-conduit-0.5.0 (michael@snoyman.com @meteficha): yesod-static
+crypto-numbers-0.1.3 (Vincent Hanquez @vincenthz): crypto-pubkey tls
+crypto-pubkey-0.1.2 (michael@snoyman.com @vincenthz): tls-extra network-conduit-tls
+crypto-pubkey-types-0.2.0 (Vincent Hanquez @vincenthz): certificate
+crypto-random-api-0.2.0 (Vincent Hanquez @vincenthz): cprng-aes
+cryptocipher-0.4.0 (Vincent Hanquez @vincenthz): 
+cryptohash-0.8.3 (Vincent Hanquez @vincenthz): cryptocipher
+css-text-0.1.1 (michael@snoyman.com): xss-sanitize markdown
+data-default-0.5.1 (Edward Kmett <ekmett@gmail.com> @mauke): pointed
+data-reify-0.6 (Edward Kmett <ekmett@gmail.com>): ad
+date-cache-0.3.0 (Felipe Lessa <felipe.lessa@gmail.com>): fast-logger monad-logger esqueleto
+diagrams-0.6 (Brent Yorgey <byorgey@gmail.com>): 
+diagrams-builder-0.3 (Brent Yorgey <byorgey@gmail.com> @diagrams): BlogLiterately-diagrams
+diagrams-cairo-0.6 (Brent Yorgey <byorgey@gmail.com> @diagrams): BlogLiterately-diagrams
+diagrams-contrib-0.6.1 (Brent Yorgey <byorgey@gmail.com> @diagrams): diagrams
+diagrams-core-0.6.0.2 (Brent Yorgey <byorgey@gmail.com>): diagrams-contrib
+diagrams-lib-0.6.0.1 (Brent Yorgey <byorgey@gmail.com> @diagrams): diagrams-contrib
+diagrams-postscript-0.6.0.1 (Brent Yorgey <byorgey@gmail.com> @diagrams): 
+diagrams-svg-0.6.0.1 (Brent Yorgey <byorgey@gmail.com> @diagrams): diagrams
+digest-0.0.1.2 (Brent Yorgey <byorgey@gmail.com>): zip-archive pandoc BlogLiterately-diagrams
+distributive-0.3.1 (Edward Kmett <ekmett@gmail.com> @ekmett): comonad-transformers
+dlist-0.5 (Brent Yorgey <byorgey@gmail.com>): diagrams-postscript
+doctest-0.9.5.1 (Edward Kmett <ekmett@gmail.com> @sol): distributive
+dual-tree-0.1.0.1 (Brent Yorgey <byorgey@gmail.com> @diagrams): diagrams-core
+either-3.4 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+email-validate-1.0.0 (michael@snoyman.com): yesod-form yesod
+encoding-0.6.7.2 (michael@snoyman.com): punycode idna publicsuffixlist http-conduit http-reverse-proxy keter
+entropy-0.2.1 (Vincent Hanquez): cryptocipher
+enumerator-0.4.19 (michael@snoyman.com): snap-core web-fpco
+eq-3.0 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+erf-2.0.0.0 (Edward Kmett <ekmett@gmail.com>): ad
+esqueleto-1.0.6 (Felipe Lessa <felipe.lessa@gmail.com> @meteficha): 
+failure-0.2.0.1 (michael@snoyman.com): http-conduit http-reverse-proxy keter
+fast-logger-0.3.1 (Felipe Lessa <felipe.lessa@gmail.com>): monad-logger esqueleto
+fgl-5.4.2.4 (Haskell Platform): 
+file-embed-0.0.4.7 (michael@snoyman.com @snoyberg): yesod-static
+file-location-0.4.5.2 (michael@snoyman.com @gregwebs): path-pieces persistent
+filesystem-conduit-1.0.0 (michael@snoyman.com @snoyberg): 
+fingertree-0.0.1.1 (Edward Kmett <ekmett@gmail.com>): reducers
+force-layout-0.2 (Brent Yorgey <byorgey@gmail.com>): diagrams-contrib
+free-3.3.1 (Edward Kmett <ekmett@gmail.com> @ekmett): adjunctions
+fsnotify-0.0.6 (michael@snoyman.com): yesod
+generic-deriving-1.4.0 (Brent Yorgey <byorgey@gmail.com> @dreixel): lens force-layout
+ghc-mtl-1.0.1.2 (Brent Yorgey <byorgey@gmail.com>): hint diagrams-builder BlogLiterately-diagrams
+ghc-paths-0.1.0.9 (michael@snoyman.com @simonmar): yesod
+graphs-0.4.1 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+gravatar-0.5.2 (Patrick Brisbin @pbrisbin): 
+groupoids-3.0.1.1 (Edward Kmett <ekmett@gmail.com> @ekmett): eq
+hamlet-1.1.7 (michael@snoyman.com): yesod-newsfeed
+happstack-server-7.1.7 (michael@snoyman.com): web-fpco
+happy-1.18.10 (Haskell Platform): 
+hashable-1.2.0.5 (Haskell Platform @tibbe): warp HTTP
+hashable-extras-0.1 (Edward Kmett <ekmett@gmail.com> @analytics): bound
+haskell-src-1.0.1.5 (Haskell Platform): 
+haskell-src-exts-1.13.5 (Jasper Van der Jeugt): stylish-haskell
+hastache-0.5.0 (Vincent Hanquez @lymar): criterion cprng-aes
+haxr-3000.9.0.1 (Brent Yorgey <byorgey@gmail.com>): BlogLiterately
+heaps-0.2.3 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+hexpat-0.20.3 (Brent Yorgey <byorgey@gmail.com>): citeproc-hs pandoc BlogLiterately
+hfsevents-0.1.4 (michael@snoyman.com @luite): fsnotify yesod
+highlighting-kate-0.5.3.8 (Brent Yorgey <byorgey@gmail.com> @jgm): BlogLiterately
+hinotify-0.3.5 (michael@snoyman.com @kolmodin): keter
+hint-0.3.3.6 (Brent Yorgey <byorgey@gmail.com>): diagrams-builder BlogLiterately-diagrams
+hit-0.5.0 (Vincent Hanquez @vincenthz): 
+hjsmin-0.1.4.1 (Alan Zimmerman @alanz): 
+hlint-1.8.43 (Neil Mitchell): 
+hoogle-4.2.16 (Neil Mitchell): 
+hostname-1.0 (Jasper Van der Jeugt): test-framework stylish-haskell
+hs-bibutils-4.17 (Brent Yorgey <byorgey@gmail.com>): citeproc-hs pandoc BlogLiterately
+hscolour-1.20.3 (Neil Mitchell): hlint
+hscurses-1.4.1.2 (Stefan Wehr <wehr@factisresearch.com> @skogsbaer): 
+hslogger-1.2.1 (michael@snoyman.com): happstack-server web-fpco
+hspec-1.4.5 (michael@snoyman.com @hspec): filesystem-conduit
+hspec-expectations-0.3.0.3 (michael@snoyman.com @sol): hspec filesystem-conduit
+hspec-meta-1.4.5 (michael@snoyman.com @hspec): hspec filesystem-conduit
+html-1.0.1.2 (Haskell Platform): 
+html-conduit-1.1.0 (michael@snoyman.com @snoyberg): yesod-test
+http-conduit-1.9.2.2 (michael@snoyman.com): yesod
+http-date-0.0.4 (michael@snoyman.com): wai-app-static keter
+http-reverse-proxy-0.1.1.3 (michael@snoyman.com @fpco): yesod
+http-types-0.8.0 (michael@snoyman.com @aristidb): yesod-test
+httpd-shed-0.4 (Haskell Platform): HTTP
+hyphenation-0.2.1.8 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+idna-0.2 (michael@snoyman.com @Porges): publicsuffixlist http-conduit http-reverse-proxy keter
+ieee754-0.7.3 (Vincent Hanquez @patperry): statistics criterion cprng-aes
+integration-0.1.1 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+intervals-0.2.1.1 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+json-0.7 (Brent Yorgey <byorgey@gmail.com>): pandoc BlogLiterately-diagrams
+kan-extensions-3.1.1 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+keter-0.3.5.4 (michael@snoyman.com @snoyberg): 
+keys-3.0.2 (Edward Kmett <ekmett@gmail.com> @ekmett): vector-instances
+language-haskell-extract-0.2.4 (Brent Yorgey <byorgey@gmail.com> @finnsson): test-framework-th lens force-layout
+language-java-0.2.2 (Vincent Hanquez @vincenthz): 
+language-javascript-0.5.7 (Alan Zimmerman @alanz): hjsmin
+lca-0.2.2 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+lens-3.8.7.3 (Brent Yorgey <byorgey@gmail.com> @ekmett): force-layout
+libgit-0.3.0 (Vincent Hanquez @vincenthz): 
+lifted-base-0.2.0.2 (michael@snoyman.com @basvandijk): yesod
+linear-1.1.1 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+maccatcher-2.1.5 (Antoine Latter @solidsnack): uuid
+machines-0.2.3.1 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+markdown-0.1.2.1 (michael@snoyman.com @snoyberg): 
+markdown-unlit-0.2.0.1 (michael@snoyman.com @sol): hspec-expectations hspec filesystem-conduit
+math-functions-0.1.3.0 (Stefan Wehr <wehr@factisresearch.com> @bos): statistics mwc-random criterion attoparsec aeson HTF
+mersenne-random-pure64-0.2.0.3 (Antoine Latter): uuid
+mime-mail-0.4.1.2 (michael@snoyman.com @snoyberg): mime-mail-ses
+mime-mail-ses-0.2.1.1 (michael@snoyman.com @snoyberg): 
+mime-types-0.1.0.3 (michael@snoyman.com @yesodweb): http-conduit http-reverse-proxy keter
+mmap-0.5.8 (Vincent Hanquez): vhd
+mmorph-1.0.0 (Haskell Platform @Gabriel439): conduit HTTP
+monad-control-0.3.2 (michael@snoyman.com @basvandijk): yesod-test
+monad-logger-0.3.1.1 (michael@snoyman.com @kazu-yamamoto): persistent-sqlite
+monad-par-0.3.4.1 (Stefan Wehr <wehr@factisresearch.com> @simonmar): statistics mwc-random criterion attoparsec aeson HTF
+monad-par-extras-0.3.2 (Stefan Wehr <wehr@factisresearch.com> @simonmar): monad-par statistics criterion attoparsec aeson HTF
+monad-peel-0.1.1 (Stefan Wehr <wehr@factisresearch.com>): lifted-base HTF
+monad-products-3.0 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+monad-st-0.2.2 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+monadic-arrays-0.2.1.2 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+monoid-extras-0.2.2.2 (Brent Yorgey <byorgey@gmail.com> @diagrams): dual-tree
+mtl-2.1.2 (Edward Kmett <ekmett@gmail.com> @ekmett): machines
+mwc-random-0.12.0.1 (Vincent Hanquez @bos): criterion cprng-aes
+nanospec-0.1.0 (michael@snoyman.com @hspec): silently persistent
+nats-0.1 (Edward Kmett <ekmett@gmail.com> @ekmett): wl-pprint-terminfo
+network-2.3.1.0 (michael@snoyman.com @haskell): keter
+network-conduit-1.0.0 (michael@snoyman.com @snoyberg): yesod
+network-conduit-tls-1.0.0.1 (michael@snoyman.com @snoyberg): keter
+newtype-0.2 (Brent Yorgey <byorgey@gmail.com>): vector-space-points
+numeric-extras-0.0.2.3 (Edward Kmett <ekmett@gmail.com> @ekmett): intervals
+optparse-applicative-0.5.2.1 (michael@snoyman.com @pcapriotti): yesod
+pandoc-1.11.1 (Brent Yorgey <byorgey@gmail.com>): BlogLiterately-diagrams
+pandoc-types-1.10 (Brent Yorgey <byorgey@gmail.com>): pandoc BlogLiterately
+parallel-3.2.0.3 (Edward Kmett <ekmett@gmail.com>): lens
+parseargs-0.1.3.4 (Bart Massey <bart.massey+stackage@gmail.com>): 
+parsec-3.1.3 (Haskell Platform): network
+parsers-0.5.2 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+path-pieces-0.1.2 (Felipe Lessa <felipe.lessa@gmail.com> @yesodweb): persistent esqueleto
+pem-0.1.2 (michael@snoyman.com @vincenthz): network-conduit-tls
+persistent-1.1.5.1 (Felipe Lessa <felipe.lessa@gmail.com>): esqueleto
+persistent-sqlite-1.1.5 (Felipe Lessa <felipe.lessa@gmail.com>): esqueleto
+persistent-template-1.1.3.1 (Felipe Lessa <felipe.lessa@gmail.com>): esqueleto
+pointed-3.0.2 (Edward Kmett <ekmett@gmail.com> @ekmett): machines
+polyparse-1.8 (Brent Yorgey <byorgey@gmail.com>): HaXml BlogLiterately
+pool-conduit-0.1.1 (michael@snoyman.com): yesod-test
+prelude-extras-0.3 (Edward Kmett <ekmett@gmail.com> @ekmett): bound
+primitive-0.5.0.1 (Vincent Hanquez): cryptocipher
+profunctor-extras-3.3 (Edward Kmett <ekmett@gmail.com> @ekmett): lens
+profunctors-3.3 (Edward Kmett <ekmett@gmail.com> @ekmett): profunctor-extras
+project-template-0.1.3 (michael@snoyman.com @fpco): yesod
+publicsuffixlist-0.0.4 (michael@snoyman.com @litherum): http-conduit http-reverse-proxy keter
+punycode-2.0 (michael@snoyman.com @litherum): idna publicsuffixlist http-conduit http-reverse-proxy keter
+pureMD5-2.1.2.1 (Patrick Brisbin @TomMD): gravatar
+pwstore-fast-2.3 (michael@snoyman.com @PeterScott): yesod-auth yesod
+random-1.0.1.1 (michael@snoyman.com): keter
+ranges-0.2.4 (michael@snoyman.com): stringprep idna publicsuffixlist http-conduit http-reverse-proxy keter
+recursion-schemes-3.0.0.2 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+reducers-3.0.1 (Edward Kmett <ekmett@gmail.com> @ekmett): compressed
+reflection-1.1.7 (Edward Kmett <ekmett@gmail.com> @ekmett): linear
+regex-base-0.93.2 (Haskell Platform): 
+regex-compat-0.95.1 (Stefan Wehr <wehr@factisresearch.com>): HTF
+regex-pcre-builtin-0.94.4.5.8.31 (Brent Yorgey <byorgey@gmail.com>): highlighting-kate BlogLiterately
+regex-posix-0.95.2 (Haskell Platform): regex-compat
+representable-functors-3.0.1 (Edward Kmett <ekmett@gmail.com> @ekmett): kan-extensions
+representable-tries-3.0.2 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+resource-pool-0.2.1.1 (Felipe Lessa <felipe.lessa@gmail.com> @bos): pool-conduit persistent esqueleto
+resourcet-0.4.7 (michael@snoyman.com @snoyberg): yesod
+safe-0.3.3 (michael@snoyman.com): web-fpco
+semigroupoid-extras-3.0.1 (Edward Kmett <ekmett@gmail.com> @ekmett): profunctor-extras
+semigroupoids-3.0.2 (Edward Kmett <ekmett@gmail.com> @ekmett): semigroupoid-extras
+semigroups-0.9 (Edward Kmett <ekmett@gmail.com> @ekmett): semigroupoids
+sendfile-0.7.9 (michael@snoyman.com): happstack-server web-fpco
+setenv-0.1.0 (Simon Hengel <sol@typeful.net> @sol): hspec base-compat
+shake-0.10.1 (Neil Mitchell): 
+shakespeare-1.0.3.1 (michael@snoyman.com): yesod
+shakespeare-css-1.0.3 (michael@snoyman.com): yesod-form yackage
+shakespeare-i18n-1.0.0.2 (michael@snoyman.com): yesod-core yesod
+shakespeare-js-1.1.2.1 (michael@snoyman.com): yesod-form yackage
+shakespeare-text-1.0.0.5 (michael@snoyman.com): yesod
+silently-1.2.4.1 (michael@snoyman.com @trystan): persistent
+simple-reflect-0.3.1 (Edward Kmett <ekmett@gmail.com> @twanvl): linear
+simple-sendfile-0.2.11 (Neil Mitchell): warp hoogle
+siphash-1.0.3 (Vincent Hanquez @vincenthz): 
+skein-0.1.0.12 (michael@snoyman.com @meteficha): crypto-conduit wai-app-static keter
+snap-core-0.9.3.1 (michael@snoyman.com): web-fpco
+snap-server-0.9.3.3 (michael@snoyman.com): web-fpco
+socks-0.5.0 (Vincent Hanquez @vincenthz): connection
+speculation-1.4.1.2 (Edward Kmett <ekmett@gmail.com> @ekmett): kan-extensions
+split-0.2.1.1 (Edward Kmett <ekmett@gmail.com>): lens
+statistics-0.10.2.0 (Stefan Wehr <wehr@factisresearch.com> @bos): mwc-random criterion attoparsec aeson HTF
+stm-2.4 (Edward Kmett <ekmett@gmail.com>): speculation
+stm-stats-0.2.0.0 (Stefan Wehr <wehr@factisresearch.com>): 
+storable-endian-0.2.5 (Vincent Hanquez): vhd
+streams-3.1 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+strict-0.3.2 (Jasper Van der Jeugt): stylish-haskell
+stringbuilder-0.4.0 (Edward Kmett <ekmett@gmail.com> @sol): doctest distributive
+stringprep-0.1.5 (michael@snoyman.com): idna publicsuffixlist http-conduit http-reverse-proxy keter
+stringsearch-0.3.6.4 (michael@snoyman.com): wai-extra yesod
+stylish-haskell-0.5.6.1 (Jasper Van der Jeugt @jaspervdj): 
+syb-0.3.7 (Jasper Van der Jeugt @dreixel): stylish-haskell
+syb-extras-0.2.4 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+system-fileio-0.3.11 (michael@snoyman.com): yesod
+system-filepath-0.4.7 (michael@snoyman.com): yesod-static
+tag-bits-0.1.1.2 (Edward Kmett <ekmett@gmail.com> @ekmett): speculation kan-extensions
+tagged-0.4.5 (Edward Kmett <ekmett@gmail.com> @ekmett): reflection
+tagsoup-0.12.8 (Brent Yorgey <byorgey@gmail.com>): pandoc BlogLiterately-diagrams
+tagstream-conduit-0.5.4 (michael@snoyman.com @yihuang): html-conduit yesod-test
+tar-0.4.0.1 (michael@snoyman.com): yesod
+temporary-1.1.2.4 (Brent Yorgey <byorgey@gmail.com>): pandoc BlogLiterately-diagrams
+terminfo-0.3.2.5 (Edward Kmett <ekmett@gmail.com>): wl-pprint-terminfo
+test-framework-0.8 (Stefan Wehr <wehr@factisresearch.com>): unordered-containers HTF
+test-framework-hunit-0.3.0 (Stefan Wehr <wehr@factisresearch.com>): unordered-containers HTF
+test-framework-quickcheck2-0.3.0.1 (Stefan Wehr <wehr@factisresearch.com>): unordered-containers HTF
+test-framework-th-0.2.4 (Brent Yorgey <byorgey@gmail.com> @finnsson): lens force-layout
+test-framework-th-prime-0.0.5 (michael@snoyman.com): optparse-applicative yesod
+texmath-0.6.1.3 (Brent Yorgey <byorgey@gmail.com> @jgm): pandoc BlogLiterately-diagrams
+text-0.11.2.3 (Edward Kmett <ekmett@gmail.com> @bos): reducers
+text-icu-0.6.3.5 (michael@snoyman.com @bos): stringprep idna publicsuffixlist http-conduit http-reverse-proxy keter
+threads-0.5.0.2 (michael@snoyman.com @basvandijk): happstack-server web-fpco
+time-compat-0.1.0.3 (michael@snoyman.com): happstack-server web-fpco
+tls-1.1.2 (michael@snoyman.com @vincenthz): network-conduit-tls
+tls-debug-0.2.3 (Vincent Hanquez @vincenthz): 
+tls-extra-0.6.1 (Vincent Hanquez @vincenthz): tls-debug
+transformers-0.3.0.0 (Edward Kmett <ekmett@gmail.com>): speculation
+transformers-base-0.4.1 (Haskell Platform @mvv): resourcet conduit HTTP
+transformers-compat-0.1.1.1 (Brent Yorgey <byorgey@gmail.com> @ekmett): lens BlogLiterately
+udbus-0.2.0 (Vincent Hanquez @vincenthz): 
+unbounded-delays-0.1.0.5 (michael@snoyman.com @basvandijk): concurrent-extra threads happstack-server web-fpco
+uniplate-1.6.10 (Neil Mitchell): hoogle
+uniqueid-0.1.1 (michael@snoyman.com @sebfisch): fsnotify yesod
+unix-compat-0.4.1.0 (michael@snoyman.com @jystic): yesod-static
+unix-process-conduit-0.2.0.2 (michael@snoyman.com @snoyberg): keter
+unix-time-0.1.5 (Felipe Lessa <felipe.lessa@gmail.com> @kazu-yamamoto): fast-logger monad-logger esqueleto
+unordered-containers-0.2.3.0 (michael@snoyman.com @tibbe): yesod
+utf8-light-0.4.0.1 (Alan Zimmerman): language-javascript hjsmin
+utf8-string-0.3.7 (Edward Kmett <ekmett@gmail.com> @glguy): wl-pprint-extras
+uuid-1.2.9 (Antoine Latter): 
+vault-0.2.0.4 (michael@snoyman.com @HeinrichApfelmus): wai keter
+vector-0.10.0.1 (Vincent Hanquez): tls-extra
+vector-algorithms-0.5.4.2 (Stefan Wehr <wehr@factisresearch.com>): statistics criterion attoparsec aeson HTF
+vector-instances-3.2.1 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+vector-space-0.8.6 (Brent Yorgey <byorgey@gmail.com>): vector-space-points
+vector-space-points-0.1.2.0 (Brent Yorgey <byorgey@gmail.com>): force-layout
+vhd-0.2 (Vincent Hanquez @jonathanknowles): 
+void-0.6 (Edward Kmett <ekmett@gmail.com> @ekmett): lens
+wai-1.4.0 (michael@snoyman.com @yesodweb): yesod-test
+wai-app-static-1.3.1.2 (michael@snoyman.com): yesod-static
+wai-extra-1.3.3.2 (michael@snoyman.com @yesodweb): yesod-core yackage
+wai-logger-0.3.0 (michael@snoyman.com): wai-extra yesod
+wai-test-1.3.0.5 (michael@snoyman.com): yesod-test
+warp-1.3.7.5 (michael@snoyman.com @yesodweb): yesod
+web-fpco-0.1.0.0 (michael@snoyman.com @fpco): 
+wl-pprint-extras-3.4 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+wl-pprint-terminfo-3.6 (Edward Kmett <ekmett@gmail.com> @ekmett): 
+word8-0.0.3 (michael@snoyman.com @kazu-yamamoto): http-reverse-proxy keter
+xenstore-0.1.1 (Vincent Hanquez): 
+xhtml-3000.2.1 (Haskell Platform @haskell): cgi
+xml-1.3.12 (Brent Yorgey <byorgey@gmail.com>): texmath pandoc BlogLiterately
+xml-conduit-1.1.0.3 (michael@snoyman.com @snoyberg): yesod-test
+xml-types-0.3.3 (michael@snoyman.com): yesod-test
+xmlgen-0.4.0.3 (Stefan Wehr <wehr@factisresearch.com> @skogsbaer): 
+xss-sanitize-0.3.3 (michael@snoyman.com @yesodweb): markdown
+yackage-0.6.0.5 (michael@snoyman.com @snoyberg): 
+yaml-0.8.2.3 (michael@snoyman.com @snoyberg): yesod
+yesod-1.1.9.2 (michael@snoyman.com @yesodweb): 
+yesod-auth-1.1.5.3 (michael@snoyman.com @yesodweb): yesod
+yesod-core-1.1.8.2 (michael@snoyman.com @yesodweb): yesod-static
+yesod-default-1.1.3.2 (michael@snoyman.com @yesodweb): yesod
+yesod-form-1.2.1.3 (michael@snoyman.com @yesodweb): yesod
+yesod-json-1.1.2.2 (michael@snoyman.com @yesodweb): yesod-auth yesod
+yesod-newsfeed-1.1.0.1 (michael@snoyman.com @yesodweb): 
+yesod-persistent-1.1.0.1 (michael@snoyman.com @yesodweb): yesod-form yesod
+yesod-routes-1.1.2 (michael@snoyman.com @yesodweb): yesod-json yesod-auth yesod
+yesod-sitemap-1.1.0.1 (michael@snoyman.com @yesodweb): 
+yesod-static-1.1.2.2 (michael@snoyman.com @yesodweb): 
+yesod-test-0.3.5 (michael@snoyman.com): 
+zip-archive-0.1.3.4 (Brent Yorgey <byorgey@gmail.com> @jgm): pandoc BlogLiterately-diagrams
+zlib-0.5.4.0 (michael@snoyman.com): yesod
+zlib-bindings-0.1.1.3 (Vincent Hanquez @snoyberg): hit
+zlib-conduit-1.0.0 (michael@snoyman.com @snoyberg): http-conduit http-reverse-proxy keter
+zlib-enum-0.2.3 (michael@snoyman.com @maltem): snap-core web-fpco

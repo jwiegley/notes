@@ -1,0 +1,19 @@
+traversal.hs:13:10:
+    Could not deduce (Functor (Context d d))
+      arising from the superclasses of an instance declaration
+    from the context (c ~ d)
+      bound by the instance declaration at traversal.hs:13:10-39
+    Possible fix:
+      add an instance declaration for (Functor (Context d d))
+    In the instance declaration for `Comonad (Context c d)'
+
+traversal.hs:14:38:
+    Could not deduce (a ~ Identity a)
+    from the context (Functor (Context c d), c ~ d)
+      bound by the instance declaration at traversal.hs:13:10-39
+      `a' is a rigid type variable bound by
+          the type signature for extract :: Context c d a -> a
+          at traversal.hs:14:3
+    In the return type of a call of `f'
+    In the first argument of `runIdentity', namely `(f Identity)'
+    In the expression: runIdentity (f Identity)

@@ -1,0 +1,39 @@
+(gdb) run
+gdb(23746) malloc: *** error for object 0x10041c3f0: pointer being freed was not allocated
+*** set a breakpoint in malloc_error_break to debug
+
+Program received signal SIGABRT, Aborted.
+0x00007fff8e1b382a in __kill ()
+(gdb) bt
+#0  0x00007fff8e1b382a in __kill ()
+#1  0x00007fff8c819a9c in abort ()
+#2  0x00007fff8c87884c in free ()
+#3  0x0000000100333cf2 in xfree (ptr=0x10041c3f0) at common-utils.c:107
+#4  0x000000010020263a in gdb_bfd_unref (abfd=0x103631120) at objfiles.c:1557
+#5  0x00000001001ff59b in free_objfile (objfile=0x1076c5e00) at objfiles.c:597
+#6  0x0000000100200b2e in objfile_purge_solibs () at objfiles.c:986
+#7  0x0000000100026589 in no_shared_libraries (ignored=0x0, from_tty=1) at solib.c:1205
+#8  0x00000001001e9edd in target_pre_inferior (from_tty=1) at target.c:2479
+#9  0x0000000100186976 in run_command_1 (args=0x0, from_tty=1, tbreak_at_main=0) at infcmd.c:516
+#10 0x0000000100186ca7 in run_command (args=0x0, from_tty=1) at infcmd.c:620
+#11 0x000000010007468c in do_cfunc (c=0x100b403d0, args=0x0, from_tty=1) at cli-decode.c:67
+#12 0x0000000100078f27 in cmd_func (cmd=0x100b403d0, args=0x0, from_tty=1) at cli-decode.c:1810
+#13 0x00000001002eee8c in execute_command (p=0x100b0a253 "", from_tty=1) at top.c:441
+#14 0x00000001001ba1ea in command_handler (command=0x100b0a250 "") at event-top.c:435
+#15 0x00000001001ba9f3 in command_line_handler (rl=0x1036399d0 "") at event-top.c:636
+#16 0x0000000100359289 in rl_callback_read_char () at callback.c:220
+#17 0x00000001001b9931 in rl_callback_read_char_wrapper (client_data=0x0) at event-top.c:169
+#18 0x00000001001ba097 in stdin_event_handler (error=0, client_data=0x0) at event-top.c:375
+#19 0x00000001001b875a in handle_file_event (data={ptr = 0x7fff00000000, integer = 0}) at event-loop.c:827
+#20 0x00000001001b7b3e in process_event () at event-loop.c:401
+#21 0x00000001001b7c3d in gdb_do_one_event () at event-loop.c:465
+#22 0x00000001001b7cb2 in start_event_loop () at event-loop.c:490
+#23 0x00000001001b997b in cli_command_loop () at event-top.c:182
+#24 0x00000001001ae3ba in current_interp_command_loop () at interps.c:309
+#25 0x00000001001af1fe in captured_command_loop (data=0x0) at main.c:232
+#26 0x00000001001ad43a in catch_errors (func=0x1001af1e0 <captured_command_loop>, func_args=0x0, errstring=0x100481b10 "", mask=6) at exceptions.c:502
+#27 0x00000001001b0945 in captured_main (data=0x7fff5fbff680) at main.c:942
+#28 0x00000001001ad43a in catch_errors (func=0x1001af260 <captured_main>, func_args=0x7fff5fbff680, errstring=0x100481b10 "", mask=6) at exceptions.c:502
+#29 0x00000001001b0ae4 in gdb_main (args=0x7fff5fbff680) at main.c:951
+#30 0x0000000100001033 in main (argc=2, argv=0x7fff5fbff6e8) at gdb.c:34
+(gdb) 

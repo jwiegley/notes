@@ -1,0 +1,11 @@
+   def OBJECT NAME
+     alias NAME
+     commodities NAME[, NAME...]
+     report NAME[, NAME...]
+     set NAME EXPR
+   end def
+
+   def commodity GAL
+     set fixed_commodity true
+     set another_value $100 * 20
+   end def

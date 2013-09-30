@@ -1,0 +1,20 @@
+Loading package stm-2.4.2 ... linking ... done.
+Loading package resource-pool-0.2.1.1 ... linking ... done.
+Loading package pool-conduit-0.1.2 ... linking ... done.
+Loading package silently-1.2.4.1 ... linking ... done.
+Loading package persistent-1.2.1.1 ... linking ... done.
+Loading package esqueleto-1.2.4 ... linking ... done.
+Loading package postgresql-libpq-0.8.2.2 ... linking ... done.
+Loading package blaze-textual-0.2.0.8 ... linking ... done.
+Loading package postgresql-simple-0.3.1.0 ... linking ... done.
+Loading package persistent-postgresql-1.2.1 ... linking ... done.
+Loading package persistent-sqlite-1.2.1 ... linking ... done.
+Loading package persistent-template-1.2.0.2 ... linking ... done.
+Loading package data-ordlist-0.4.5 ... linking ... done.
+Loading package time-recurrence-0.9.2 ... linking ... done.
+Loading package merchant-0.1.0.0 ... linking ... done.
+Loading package cybersource-0.1.0.0 ... <command line>: can't load .so/.DLL for: /usr/lib/gcc/x86_64-linux-gnu/4.6/../../../../lib/libgsoapssl++.so (/usr/lib/gcc/x86_64-linux-gnu/4.6/../../../../lib/libgsoapssl++.so: undefined symbol: namespaces)
+Failed to install billing-server-0.1.0.0
+cabal: Error: some packages failed to install:
+billing-server-0.1.0.0 failed during the building phase. The exception was:
+ExitFailure 1

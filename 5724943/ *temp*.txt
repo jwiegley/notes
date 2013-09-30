@@ -1,0 +1,34 @@
+Building executable failed with exit status 1:Warning: Instead of 'ghc-options: -XOverloadedStrings -XOverloadedStrings' use
+'extensions: OverloadedStrings OverloadedStrings'
+Glasgow Haskell Compiler, Version 7.4.2.9, stage 2 booted by GHC version 7.4.2
+Using binary package database: /Volumes/Data/Home/Products/build/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/ghc/lib/ghc-7.4.2.9/package.conf.d/package.cache
+Using binary package database: /Volumes/Data/Home/Products/build/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/ghc_pkg_db/package.cache
+Using binary package database: /Volumes/Data/Home/Products/build/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/ghc/lib/ghc-7.4.2.9/package.conf.d/package.cache
+package learning-site-0.0.0-73c3a2af0e0bf7a76a1968d63be27b8f is unusable due to missing or recursive dependencies:
+  isolation-runner-0.1.0.0-99bcc92fd543dcf28028dec02854d816
+wired-in package ghc-prim mapped to ghc-prim-0.2.0.0-c9a65ff80e4b2d6bafc55c63ecf2a599
+wired-in package integer-gmp mapped to integer-gmp-0.4.0.0-30ebbc85f32de48e3037b977da7e3b2f
+wired-in package base mapped to base-4.5.1.0-9575992f609c11499c62110a3095f447
+wired-in package rts mapped to builtin_rts
+wired-in package template-haskell mapped to template-haskell-2.7.0.0-97391a17333ab5c9efb129843fdc2534
+wired-in package dph-seq not found.
+wired-in package dph-par not found.
+Hsc static flags: -static
+*** Chasing dependencies:
+Chasing modules from: *Main.hs
+
+Main.hs:1:8:
+    Could not find module `Application'
+    It is a member of the hidden package `deployment-subsite-0.0.0'.
+    Perhaps you need to add `deployment-subsite' to the build-depends in your .cabal file.
+    Locations searched:
+      /private/tmp/isolation-runner-workdir/projects/192/dist.80879/build/Application.hs
+      /private/tmp/isolation-runner-workdir/projects/192/dist.80879/build/Application.lhs
+      /private/tmp/isolation-runner-workdir/projects/192/src.80879/Application.hs
+      /private/tmp/isolation-runner-workdir/projects/192/src.80879/Application.lhs
+      /private/tmp/isolation-runner-workdir/projects/192/dist.80879/build/autogen/Application.hs
+      /private/tmp/isolation-runner-workdir/projects/192/dist.80879/build/autogen/Application.lhs
+*** Deleting temp files:
+Deleting: 
+*** Deleting temp dirs:
+Deleting: 

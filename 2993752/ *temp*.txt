@@ -1,0 +1,6 @@
+        size_t len = values.size();
+        Value * args = Builder->CreateAlloca(Array<LispObject>(values.size()));
+        for (int i = 0; i < len; ++i) {
+          Value * GEP = Builder->CreateGEP(args, Constant<UChar>(i));
+          Builder->CreateStore(values[i], GEP);
+        }

@@ -1,0 +1,19 @@
+Vulcan:~ $ sudo zpool status
+  pool: tank
+ state: DEGRADED
+status: One or more devices are faulted in response to persistent errors.
+	Sufficient replicas exist for the pool to continue functioning in a
+	degraded state.
+action: Replace the faulted device, or use 'zpool clear' to mark the device
+	repaired.
+ scan: scrub canceled on Wed Apr 17 10:10:21 2013
+config:
+
+	NAME                                           STATE     READ WRITE CKSUM
+	tank                                           DEGRADED     0     0     0
+	  mirror-0                                     DEGRADED     0     0     0
+	    GPTE_A960E1EE-C110-4D7D-B794-0B1B6EDB3C27  FAULTED      3   354     0  too many errors
+	    GPTE_81F62B2D-D15E-44C6-8C3F-4742B5D2F677  ONLINE       0     0     0  at disk1s2
+	  GPTE_475B2EF0-83E8-4A15-946F-8ECB9B121473    ONLINE       0     0     0  at disk4s2
+
+errors: No known data errors

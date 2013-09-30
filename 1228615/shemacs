@@ -1,0 +1,8 @@
+#!/bin/bash
+
+EMACS=emacs
+
+file="$1"
+shift 1
+
+exec "$EMACS" -Q -nw -batch -l "$file" -f main "$@"

@@ -11,7 +11,7 @@ USER = os.environ['USER'] or 'jwiegley'
 
 def download_gists(page):
     req = urllib2.Request('https://api.github.com/users/' + USER + '/gists?page=' + page + '&per_page=100')
-    req.add_header('Authorization', 'token 02274fe53ab315467bf25b2d7b5f3382249b03d4')
+    req.add_header('Authorization', 'token ' + os.environ['TOKEN'])
     u = urllib2.urlopen(req)
     gists = json.load(u)
 

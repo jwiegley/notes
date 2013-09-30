@@ -1,0 +1,7 @@
+2009/12/01 Foo
+    Assets:Checking    $10.00
+    Equity
+
+2009/12/10 Reconciled statement dated 2009/12/08
+    ; Link: [[file:statements/checking/2009-12.pdf][2009-12.pdf]]
+    [Assets:Checking]    = $10.00

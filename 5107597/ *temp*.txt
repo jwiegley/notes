@@ -1,0 +1,25 @@
+    traverseEntries t f = go "" t f
+      where
+        go fp t f = do
+            entries <- liftIO $ withForeignPtr (lgTreeContents t) $ \tb -> do
+                ior <- newIORef []
+                bracket
+                    (mk'git_treebuilder_filter_callback (callback fp ior))
+                    freeHaskellFunPtr
+                    (flip (c'git_treebuilder_filter tb) nullPtr)
+                readIORef ior
+            concat <$> mapM (uncurry handle) entries
+
+        handle path entry@(Git.TreeEntry tref) = do
+            x  <- f path entry
+            xs <- Git.resolveTree tref >>= flip (go path) f
+            return (x:xs)
+        handle path entry = liftM2 (:) (f path entry) (return [])
+
+        callback fp ior te _ = do
+            cname <- c'git_tree_entry_name te
+            name  <- (fp </>) . F.decodeString <$> peekCString cname
+            entry <- entryToTreeEntry te
+            modifyIORef ior $
+                seq name $ seq entry $ (\xs -> (name,entry):xs)
+            return 0

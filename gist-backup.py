@@ -6,7 +6,8 @@ import urllib
 from subprocess import call
 import urllib2
 import os
-USER = os.environ['USER']
+import sys
+USER = os.environ['USER'] or 'jwiegley'
 
 def download_gists(page):
     req = urllib2.Request('https://api.github.com/users/' + USER + '/gists?page=' + page + '&per_page=100')
@@ -15,9 +16,10 @@ def download_gists(page):
     gists = json.load(u)
 
     for gist in gists:
+        print gist['id']
+        print ['git', 'subtree', 'pull' if os.path.isdir(gist['id']) else 'add', '--prefix', gist['id'], gist['git_pull_url'], 'master']
         try: 
-            print gist['id']
-            call(['git', 'subtree', 'pull', '--prefix', gist['id'], gist['git_pull_url'], 'master'])
+            call(['git', 'subtree', 'pull' if isdir(gist['id']) else 'add', '--prefix', gist['id'], gist['git_pull_url'], 'master'])
         except: pass
 
 download_gists('1')

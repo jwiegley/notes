@@ -1,0 +1,6 @@
+data Foo a = Foo { fooName  :: a
+                 , fooValue :: a }
+
+instance Functor Foo where
+  fmap f (Foo { fooName = e, fooValue = t }) =
+    Foo { fooName = e, fooValue = f t }

@@ -1,0 +1,20 @@
+                                  Semigroups
+
+  A semigroup is like a monoid without the requirement of an identity element:
+  it consists simply of a set with an associative binary operation....
+  
+  Of course, any monoid is automatically a semigroup (by forgetting about its
+  identity element). In the other direction, to turn a semigroup into a
+  monoid, simply add a new distinguished element to serve as the identity, and
+  extend the definition of the binary operation appropriately. This creates an
+  identity element by definition, and it is not hard to see that it preserves
+  associativity....
+  
+  Adding a new distinguished element to a type is typically accomplished by
+  wrapping it in Maybe. One might therefore expect to turn an instance of
+  Semigroup into an instance of Monoid by wrapping it in Maybe. Sadly,
+  Data.Monoid does not define semigroups, and has a Monoid instance for Maybe
+  which requires a Monoid constraint on its argument type...
+
+  This is somewhat odd: in essence, it ignores the identity element of a and
+  replaces it with a different one....

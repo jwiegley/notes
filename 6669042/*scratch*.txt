@@ -1,0 +1,8 @@
+checking XCode version... dyld: Symbol not found: __cg_jpeg_resync_to_restart
+  Referenced from: /System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO
+  Expected in: /usr/local/lib/libJPEG.dylib
+ in /System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO
+xcrun: error: unable to locate xcodebuild, please make sure the path to the Xcode folder is set correctly!
+xcrun: error: You can set the path to the Xcode folder using /usr/bin/xcode-select -switch
+not found (too old?)
+checking for gcc... /usr/bin/gcc

@@ -1,0 +1,19 @@
+Hermes ~/src/ledger $ ./ledger parse '30 + 20 + "foo"'   
+--- Input text ---
+30 + 20 + "foo"
+
+--- Text as parsed ---
+(30 + (20 + "foo"))
+
+--- Expression tree ---
+0x1102e20 O_ADD (1)
+0x1102e00  VALUE: 30 (1)
+0x1102f10  O_ADD (1)
+0x1102ef0   VALUE: 20 (1)
+0x1102f40   VALUE: "foo" (1)
+
+--- Calculated value ---
+While evaluating value expression:
+  (30 + (20 + "foo"))
+        ^^^^^^^^^^^^
+Error: Cannot add a string to an amount

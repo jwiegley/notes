@@ -1,0 +1,24 @@
+2009/10/01 Purchase of commodity
+  Assets:Brokerage                10 AAPL
+  Assets:Checking                -100 EUR
+
+2009/10/01 Purchase of commodity with second currency
+  Assets:Brokerage                10 AAPL
+  Assets:Checking                -100 CAD
+
+2009/10/02 Purchase of commodity with third currency
+  Assets:Brokerage                10 AAPL
+  Assets:Checking                -100 ECD
+
+2009/10/03 Exchange of one currency to another
+  Assets:Checking                     $30
+  Assets:Checking                  20 EUR
+
+; Price entry for the other currencies
+
+P 2009/10/04 00:00:00 CAD $1.60
+P 2009/10/04 00:00:00 ECD $1.60
+
+; Now, the person asks for a report using -X $.  We have enough information to
+; report the value of 30 AAPL in terms of of its present dollar value.  But
+; what would the Unrealized Gains transactions look like?

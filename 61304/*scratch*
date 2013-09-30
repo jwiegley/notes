@@ -1,0 +1,5 @@
+2004/05/27 Book Store
+    Assets:Receivable:Intel                 $20.00
+      |Company:Expenses:Books|
+    Liabilities:MasterCard
+      |Company:Liabilities:Payable:John|

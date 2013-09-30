@@ -1,0 +1,69 @@
+Date: Wed, 21 Apr 2010 17:56:20 +0100
+Subject: Use parent directory for files with same base name
+
+---
+ lisp/ido.el |   32 +++++++++++++++++++++++++++++++-
+ 1 files changed, 31 insertions(+), 1 deletions(-)
+
+diff --git a/lisp/ido.el b/lisp/ido.el
+index cc7a9a0..05952c5 100644
+--- a/lisp/ido.el
++++ b/lisp/ido.el
+@@ -793,6 +793,13 @@ enabled if this variable is configured to a non-nil value."
+   :type 'boolean
+   :group 'ido)
+ 
++(defcustom ido-handle-duplicate-virtual-buffers 0
++  "Number of parent directories to add to a duplicate virtual buffer.
++The default value is 0 which means no parent directory is added."
++  :version "24.1"
++  :type 'integer
++  :group 'ido)
++
+ (defcustom ido-use-faces t
+   "Non-nil means use ido faces to highlighting first match, only match and
+ subdirs in the alternatives."
+@@ -3414,6 +3421,21 @@ for first matching file."
+     (run-hooks 'ido-make-buffer-list-hook)
+     ido-temp-list))
+ 
++(defun ido-find-duplicate-basenames (files)
++  "Find all the duplicate base names in FILES."
++  (let ((names (mapcar 'file-name-nondirectory files))
++        dups head dup-p)
++    (setq names (sort names 'string<))
++    (while names
++      (setq head (pop names))
++      (while (string= head (car names))
++        (pop names)
++        (setq dup-p t))
++      (when dup-p
++        (push head dups)
++        (setq dup-p nil)))
++    dups))
++
+ (defun ido-add-virtual-buffers-to-list ()
+   "Add recently visited files, and bookmark files, to the buffer list.
+ This is to make them appear as if they were \"virtual buffers\"."
+@@ -3422,10 +3444,18 @@ This is to make them appear as if they were \"virtual buffers\"."
+   ;; the file which the user might thought was still open.
+   (unless recentf-mode (recentf-mode 1))
+   (setq ido-virtual-buffers nil)
+-  (let (name)
++  (let ((dups (unless (zerop ido-handle-duplicate-virtual-buffers)
++                (ido-find-duplicate-basenames recentf-list)))
++        name dir)
+     (dolist (head recentf-list)
+       (and (setq name (file-name-nondirectory head))
+            (null (get-file-buffer head))
++           (if (not (member name dups))
++               t
++             (setq dir head)
++             (dotimes (__ (1+ ido-handle-duplicate-virtual-buffers))
++               (setq dir (directory-file-name (file-name-directory dir))))
++             (setq name (file-relative-name head dir)))
+            (not (assoc name ido-virtual-buffers))
+            (not (member name ido-temp-list))
+            (not (ido-ignore-item-p name ido-ignore-buffers))
+-- 
+1.7.0.4

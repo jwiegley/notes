@@ -1,0 +1,20 @@
+make -r --no-print-directory -f ghc.mk unix-binary-dist-prep
+"rm" -rf bindistprep/  
+"inplace/bin/mkdirhier" bindistprep/ghc-7.4.2
+set -e; for i in packages LICENSE compiler ghc rts libraries utils docs libffi includes driver mk rules Makefile aclocal.m4 config.sub config.guess install-sh settings.in ghc.mk inplace distrib/configure.ac distrib/README distrib/INSTALL; do ln -s ../../$i bindistprep/ghc-7.4.2/; done
+echo "HADDOCK_DOCS       = YES"       >> bindistprep/ghc-7.4.2/bindist.mk
+echo "LATEX_DOCS         = YES"         >> bindistprep/ghc-7.4.2/bindist.mk
+echo "BUILD_DOCBOOK_HTML = YES" >> bindistprep/ghc-7.4.2/bindist.mk
+echo "BUILD_DOCBOOK_PS   = YES"   >> bindistprep/ghc-7.4.2/bindist.mk
+echo "BUILD_DOCBOOK_PDF  = YES"  >> bindistprep/ghc-7.4.2/bindist.mk
+echo "BUILD_MAN          = YES"          >> bindistprep/ghc-7.4.2/bindist.mk
+echo "GHC_CABAL_INPLACE  = utils/ghc-cabal/dist-install/build/tmp/ghc-cabal" >> bindistprep/ghc-7.4.2/bindist.mk
+cd bindistprep/ghc-7.4.2 && autoreconf
+"rm" -f bindistprep/ghc-7.4.2-x86_64-unknown-linux.tar  
+cd bindistprep && "/bin/tar" hcf - -T ../bindist-list | bzip2 -c > ../bindistprep/ghc-7.4.2-x86_64-unknown-linux.tar.bz2
+mv bindistprep/*.tar.bz2 .
+ERROR: No artifacts are configured for archiving.
+You probably forgot to set the file pattern, so please go back to the configuration and specify it.
+If you really did mean to archive all the files in the workspace, please specify "**"
+Build step 'Archive the artifacts' changed build result to FAILURE
+Finished: FAILURE

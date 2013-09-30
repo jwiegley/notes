@@ -1,0 +1,100 @@
+    - times out
+
+  web
+2013-04-17 16:55:25.270277 UTC: Port bound: 15660
+Beginning TEST
+2013-04-17 16:55:25.27236 UTC: After calling runWait
+2013-04-17 16:55:25.272632 UTC: Execution completed: RunProgException "AsyncException: user interrupt"
+2013-04-17 16:55:25.272697 UTC: Setting process status for PID 1 to PSException "AsyncException: user interrupt"
+2013-04-17 16:55:25.2735 UTC: Calling startInteractive
+2013-04-17 16:55:25.273577 UTC: Queueing Reload
+2013-04-17 16:55:25.273666 UTC: Loading source files...
+2013-04-17 16:55:25.273717 UTC: Queueing Update
+2013-04-17 16:55:25.273766 UTC: Waiting for compile errors...
+2013-04-17 16:55:25.273816 UTC: Resetting session
+2013-04-17 16:55:25.807481 UTC: Waiting for compile errors...done
+2013-04-17 16:55:25.807602 UTC: Code compiled successfully
+2013-04-17 16:55:25.807659 UTC: Running main module...
+2013-04-17 16:55:25.807704 UTC: Setting process status for PID 1 to PSReady#PID 1
+2013-04-17 16:55:25.807759 UTC: Queueing Run
+2013-04-17 16:55:25.807808 UTC: Waiting for process status...
+2013-04-17 16:55:25.807858 UTC: Waiting for final status of process PID 1 gen Just (ProjectGeneration 4)
+2013-04-17 16:55:25.807928 UTC: Running process PID 1, approot/module name: (Nothing,"Main")
+2013-04-17 16:55:25.807987 UTC: LaunchInfo: LaunchInfo {liApproot = Nothing, liPort = Nothing}
+2013-04-17 16:55:25.808464 UTC: Code loaded correctly, running
+2013-04-17 16:55:25.808535 UTC: Invoking process PID 1
+2013-04-17 16:55:25.808951 UTC: Calling runWait
+2013-04-17 16:55:25.808935 UTC: Setting process status for PID 1 to PSRunning#PID 1
+2013-04-17 16:55:25.809064 UTC: Got proc status PID 1: PSRunning#PID 1
+2013-04-17 16:55:25.809118 UTC: Waiting for process status...done
+2013-04-17 16:55:25.810498 UTC: Calling getCurrentApproot
+2013-04-17 16:55:25.811736 UTC: Calling startInteractive
+2013-04-17 16:55:25.811836 UTC: Queueing Reload
+2013-04-17 16:55:25.811899 UTC: Loading source files...
+2013-04-17 16:55:25.811951 UTC: Queueing Update
+2013-04-17 16:55:25.812011 UTC: Waiting for compile errors...
+2013-04-17 16:55:25.812145 UTC: Resetting session
+2013-04-17 16:55:25.812225 UTC: Stopping process Just (PID 1)
+2013-04-17 16:55:25.812307 UTC: Process was running, killing it
+2013-04-17 16:55:25.81238 UTC: Currently running a process, interrupting
+2013-04-17 16:55:25.812451 UTC: Setting process status for PID 1 to PSInterrupting#PID 1
+2013-04-17 16:55:25.812534 UTC: Interrupt complete
+2013-04-17 16:55:25.839397 UTC: After calling runWait
+2013-04-17 16:55:25.839537 UTC: Received more stdout, looping
+2013-04-17 16:55:25.839594 UTC: Calling runWait
+2013-04-17 16:55:25.839693 UTC: After calling runWait
+2013-04-17 16:55:25.839743 UTC: Execution completed: RunProgException "AsyncException: user interrupt"
+2013-04-17 16:55:25.839972 UTC: Setting process status for PID 1 to PSException "AsyncException: user interrupt"
+2013-04-17 16:55:25.890919 UTC: Waiting for compile errors...done
+2013-04-17 16:55:25.891036 UTC: Code compiled successfully
+2013-04-17 16:55:25.891079 UTC: Running main module...
+2013-04-17 16:55:25.891134 UTC: Setting process status for PID 2 to PSReady#PID 2
+2013-04-17 16:55:25.891191 UTC: Queueing Run
+2013-04-17 16:55:25.891245 UTC: Waiting for process status...
+2013-04-17 16:55:25.891295 UTC: Waiting for final status of process PID 2 gen Just (ProjectGeneration 7)
+2013-04-17 16:55:25.891371 UTC: Running process PID 2, approot/module name: (Just "approot1","Main")
+2013-04-17 16:55:25.891562 UTC: LaunchInfo: LaunchInfo {liApproot = Just "approot1", liPort = Just 15661}
+2013-04-17 16:55:25.892155 UTC: Code loaded correctly, running
+2013-04-17 16:55:25.892228 UTC: Invoking process PID 2
+2013-04-17 16:55:25.892437 UTC: Calling runWait
+2013-04-17 16:55:25.892491 UTC: Setting process status for PID 2 to PSRunning#PID 2
+2013-04-17 16:55:25.892546 UTC: Got proc status PID 2: PSRunning#PID 2
+2013-04-17 16:55:25.892603 UTC: Waiting for process status...done
+2013-04-17 16:55:25.893891 UTC: Calling getCurrentApproot
+2013-04-17 16:55:25.895193 UTC: Calling startInteractive
+2013-04-17 16:55:25.895265 UTC: Queueing Reload
+2013-04-17 16:55:25.895325 UTC: Loading source files...
+2013-04-17 16:55:25.895374 UTC: Queueing Update
+2013-04-17 16:55:25.895424 UTC: Waiting for compile errors...
+2013-04-17 16:55:25.8955 UTC: Resetting session
+2013-04-17 16:55:25.89557 UTC: Stopping process Just (PID 2)
+2013-04-17 16:55:25.895627 UTC: Process was running, killing it
+2013-04-17 16:55:25.895677 UTC: Currently running a process, interrupting
+2013-04-17 16:55:25.895726 UTC: Setting process status for PID 2 to PSInterrupting#PID 2
+2013-04-17 16:55:25.895787 UTC: Interrupt complete
+2013-04-17 16:55:25.922679 UTC: After calling runWait
+2013-04-17 16:55:25.92299 UTC: runWait gave another ByteString for a web app: "1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n1\n"
+2013-04-17 16:55:25.923076 UTC: Calling runWait
+2013-04-17 16:55:25.923416 UTC: After calling runWait
+2013-04-17 16:55:25.923469 UTC: Execution completed: RunProgException "AsyncException: user interrupt"
+2013-04-17 16:55:25.923552 UTC: Setting process status for PID 2 to PSException "AsyncException: user interrupt"
+2013-04-17 16:55:26.010712 UTC: Waiting for compile errors...done
+2013-04-17 16:55:26.010841 UTC: Code compiled successfully
+2013-04-17 16:55:26.010885 UTC: Running main module...
+2013-04-17 16:55:26.010936 UTC: Setting process status for PID 3 to PSReady#PID 3
+2013-04-17 16:55:26.010994 UTC: Queueing Run
+2013-04-17 16:55:26.011047 UTC: Waiting for process status...
+2013-04-17 16:55:26.011096 UTC: Waiting for final status of process PID 3 gen Just (ProjectGeneration 10)
+2013-04-17 16:55:26.011169 UTC: Running process PID 3, approot/module name: (Just "approot2","Main")
+2013-04-17 16:55:26.011347 UTC: LaunchInfo: LaunchInfo {liApproot = Just "approot2", liPort = Just 15662}
+2013-04-17 16:55:26.01184 UTC: Code loaded correctly, running
+2013-04-17 16:55:26.011968 UTC: Invoking process PID 3
+2013-04-17 16:55:26.012078 UTC: Calling runWait
+2013-04-17 16:55:26.012033 UTC: Setting process status for PID 3 to PSRunning#PID 3
+2013-04-17 16:55:26.012197 UTC: Got proc status PID 3: PSRunning#PID 3
+2013-04-17 16:55:26.012257 UTC: Waiting for process status...done
+2013-04-17 16:55:26.013934 UTC: Calling getCurrentApproot
+    - starting a second process does not have approot race condition
+
+Finished in 26.8458 seconds
+37 examples, 0 failures

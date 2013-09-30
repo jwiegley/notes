@@ -1,0 +1,30 @@
+/usr/local/bin/ghc --make -fbuilding-cabal-package -O -odir dist/build -hidir dist/build -stubdir dist/build -i -idist/build -i. -idist/build/autogen -Idist/build/autogen -Idist/build -optP-DLANGUAGE_TypeFamilies -optP-include -optPdist/build/autogen/cabal_macros.h -package-name eq-3.0 -hide-all-packages -no-user-package-db -package-db /Volumes/tank/Data/Products/jenkins/jobs/stackage/workspace/sandbox/package-db -package-db dist/package.conf.inplace -package-id base-4.6.0.1-2514ecbfe6573e639515d3e91d6e1f29 -package-id groupoids-3.0.1.1-e5fa53eabadaefd07978021ceeed5d0d -package-id semigroupoids-3.0.2-c912f366660e11cf04878e0f9f40a7fc -XHaskell98 -XTypeFamilies Data.Eq.Type -Wall
+[1 of 1] Compiling Data.Eq.Type     ( Data/Eq/Type.hs, dist/build/Data/Eq/Type.o )
+
+Data/Eq/Type.hs:112:13:
+    Couldn't match type `b' with `Inj2 (f b c)'
+      `b' is a rigid type variable bound by
+          the type signature for lower2 :: (f a c := f b c) -> a := b
+          at Data/Eq/Type.hs:111:11
+    Expected type: a := b
+      Actual type: Inj2 (f a c) := Inj2 (f b c)
+    In the return type of a call of `unlower2'
+    In the expression:
+      unlower2 (subst eq (Lower2 id :: Lower2 (f a c) (f a c)))
+    In an equation for `lower2':
+        lower2 eq
+          = unlower2 (subst eq (Lower2 id :: Lower2 (f a c) (f a c)))
+
+Data/Eq/Type.hs:118:13:
+    Couldn't match type `b' with `Inj3 (f b c d)'
+      `b' is a rigid type variable bound by
+          the type signature for lower3 :: (f a c d := f b c d) -> a := b
+          at Data/Eq/Type.hs:117:11
+    Expected type: a := b
+      Actual type: Inj3 (f a c d) := Inj3 (f b c d)
+    In the return type of a call of `unlower3'
+    In the expression:
+      unlower3 (subst eq (Lower3 id :: Lower3 (f a c d) (f a c d)))
+    In an equation for `lower3':
+        lower3 eq
+          = unlower3 (subst eq (Lower3 id :: Lower3 (f a c d) (f a c d)))

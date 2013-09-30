@@ -1,0 +1,16 @@
+I ran this command:
+#+begin_src sh
+/usr/local/bin/dsync -fv mirror mbox:$HOME/Products/mailboxes
+#+end_src
+
+And saw this output at the end:
+:OUTPUT:
+dsync(johnw): Error: Sync failed for mbox file /Users/johnw/Products/mailboxes/mail/archive: UID inserted in the middle of mailbox (18820 > 17871, seq=17373, idx_msgs=49216)
+dsync(johnw): Error: Log synchronization error at seq=5,offset=21152 for /Users/johnw/Products/mailboxes/mail/.imap/archive/dovecot.index: Append with UID 1, but next_uid = 98760
+dsync(johnw): Error: Log synchronization error at seq=5,offset=490156 for /Users/johnw/Products/mailboxes/mail/.imap/archive/dovecot.index: Extension record update for invalid uid=99783
+dsync(johnw): Error: Log synchronization error at seq=5,offset=1193644 for /Users/johnw/Products/mailboxes/mail/.imap/archive/dovecot.index: Extension record update for invalid uid=99783
+dsync(johnw): Warning: fscking index file /Users/johnw/Products/mailboxes/mail/.imap/archive/dovecot.index
+dsync(johnw): Error: Sync failed for mbox file /Users/johnw/Products/mailboxes/mail/archive: Expunged message reappeared to mailbox (UID 193058 < 193595, seq=58102, idx_msgs=58101)
+dsync(johnw): Warning: Our dotlock file /Users/johnw/Products/mailboxes/mail/archive.lock was deleted (locked 242 secs ago, touched 242 secs ago)
+dsync(johnw): Error: file_dotlock_delete() failed with mbox file /Users/johnw/Products/mailboxes/mail/archive: No such file or directory
+:END:

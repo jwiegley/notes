@@ -1,0 +1,14 @@
+~/src/ledger $ tools/regtest 
+testing: -O $cmd 0ecbb1b15e2cf3e515cc0f8533e5bb0fb2326728
+testing: -B $cmd c56a21d23a6535184e7152ee138c28974f14280c
+testing: -V $cmd c56a21d23a6535184e7152ee138c28974f14280c
+DISCREPANCY: 0.020 (75113.360 - 75113.340) at line 51:
+03-Mar-18 Commodities revalued  <Revalued>                $2,502.14   $75,113.34
+DISCREPANCY: -0.020 (98627.070 - 98627.090) at line 87:
+                                ..4e7152ee138c28974f14  $-24,988.77   $98,627.09
+testing: -G $cmd c56a21d23a6535184e7152ee138c28974f14280c
+DISCREPANCY: 0.020 (3899.890 - 3899.870) at line 51:
+03-Mar-18 Commodities revalued  <Revalued>                $2,502.14    $3,899.87
+testing: -B $cmd c0226fafdf9e6711ac9121cf263e2d50791859cb
+testing: -V $cmd c0226fafdf9e6711ac9121cf263e2d50791859cb
+testing: -G $cmd c0226fafdf9e6711ac9121cf263e2d50791859cb

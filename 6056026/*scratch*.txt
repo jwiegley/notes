@@ -1,0 +1,79 @@
+Preprocessing executable 'ghci-ng' for ghci-ng-7.4.2.1...
+[1 of 5] Compiling GhciMonad        ( ghc/GhciMonad.hs, dist/build/ghci-ng/ghci-ng-tmp/GhciMonad.o )
+
+ghc/GhciMonad.hs:264:9:
+    No instance for (ExceptionMonad
+                       ((->) (GHC.MVar.MVar (Maybe GHC.Conc.Sync.ThreadId))))
+      arising from a use of `handleSourceError'
+    Possible fix:
+      add an instance declaration for
+      (ExceptionMonad
+         ((->) (GHC.MVar.MVar (Maybe GHC.Conc.Sync.ThreadId))))
+    In the expression:
+      handleSourceError
+        (\ e
+           -> do { printException e;
+                   return Nothing })
+    In a stmt of a 'do' block:
+      handleSourceError
+        (\ e
+           -> do { printException e;
+                   return Nothing })
+      $ do { r <- GHC.runStmtWithLocation
+                    (progname st) (line_number st) expr step;
+             return (Just r) }
+    In the second argument of `($)', namely
+      `do { handleSourceError
+              (\ e
+                 -> do { printException e;
+                         .... })
+            $ do { r <- GHC.runStmtWithLocation
+                          (progname st) (line_number st) expr step;
+                   return (Just r) } }'
+
+ghc/GhciMonad.hs:264:9:
+    Couldn't match expected type `GHCi a0'
+                with actual type `GHC.MVar.MVar (Maybe GHC.Conc.Sync.ThreadId)
+                                  -> Maybe (m0 GHC.RunResult)'
+    In a stmt of a 'do' block:
+      handleSourceError
+        (\ e
+           -> do { printException e;
+                   return Nothing })
+      $ do { r <- GHC.runStmtWithLocation
+                    (progname st) (line_number st) expr step;
+             return (Just r) }
+    In the second argument of `($)', namely
+      `do { handleSourceError
+              (\ e
+                 -> do { printException e;
+                         .... })
+            $ do { r <- GHC.runStmtWithLocation
+                          (progname st) (line_number st) expr step;
+                   return (Just r) } }'
+    In the second argument of `($)', namely
+      `reflectGHCi x
+       $ do { handleSourceError
+                (\ e
+                   -> do { printException e;
+                           .... })
+              $ do { r <- GHC.runStmtWithLocation
+                            (progname st) (line_number st) expr step;
+                     return (Just r) } }'
+
+ghc/GhciMonad.hs:264:41:
+    No instance for (GhcMonad
+                       ((->) (GHC.MVar.MVar (Maybe GHC.Conc.Sync.ThreadId))))
+      arising from a use of `printException'
+    Possible fix:
+      add an instance declaration for
+      (GhcMonad ((->) (GHC.MVar.MVar (Maybe GHC.Conc.Sync.ThreadId))))
+    In a stmt of a 'do' block: printException e
+    In the expression:
+      do { printException e;
+           return Nothing }
+    In the first argument of `handleSourceError', namely
+      `(\ e
+          -> do { printException e;
+                  return Nothing })'
+Failed to install ghci-ng-7.4.2.1

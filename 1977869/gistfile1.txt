@@ -1,0 +1,43 @@
+	Modified   src/format.cc
+diff --git a/src/format.cc b/src/format.cc
+index 4ff1fc1..97dcfb2 100644
+--- a/src/format.cc
++++ b/src/format.cc
+@@ -40,6 +40,17 @@ namespace ledger {
+ format_t::elision_style_t format_t::default_style         = TRUNCATE_TRAILING;
+ bool                      format_t::default_style_changed = false;
+ 
++format_t::element_t::element_t(const element_t& elem)
++  : supports_flags<>(),
++    type(elem.type),
++    min_width(elem.min_width),
++    max_width(elem.max_width),
++    data(elem.data),
++    next(elem.next ? new element_t(*elem.next) : NULL)
++{
++  TRACE_CTOR(element_t, "copy");
++}
++
+ void format_t::element_t::dump(std::ostream& out) const
+ {
+   out << "Element: ";
+	Modified   src/format.h
+diff --git a/src/format.h b/src/format.h
+index 74d7776..0073b42 100644
+--- a/src/format.h
++++ b/src/format.h
+@@ -71,12 +71,11 @@ class format_t : public expr_base_t<string>
+       : supports_flags<>(), type(STRING), min_width(0), max_width(0) {
+       TRACE_CTOR(element_t, "");
+     }
++    element_t(const element_t& elem);
++
+     ~element_t() throw() {
+       TRACE_DTOR(element_t);
+     }
+-    element_t(const element_t& elem) : supports_flags<>() {
+-      *this = elem;
+-    }
+ 
+     element_t& operator=(const element_t& elem) {
+       if (this != &elem) {

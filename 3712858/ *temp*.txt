@@ -1,0 +1,13 @@
+main :: IO ()
+main = do
+  let path = "/Users/johnw/Mirrors/Boost/boost.svnrepo.dump"
+  d <- S.readFile path
+  let ctxs = parMap rseq (updateEd2k initEd2k) (getChunks d (9500*1024))
+      ctx  = foldl' (\(Ctx xs) (Ctx ys) ->
+                      MD4.update xs (MD4.finalize ys)) initEd2k ctxs
+  putStrLn $ fileLine path $ finalizeEd2k ctx
+
+getChunks :: S.ByteString -> Int -> [S.ByteString]
+getChunks bs chunk =
+  let (bs1,bs2) = S.splitAt chunk bs
+  in bs1 : getChunks bs2 chunk

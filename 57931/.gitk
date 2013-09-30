@@ -1,0 +1,29 @@
+set mainfont {Arial 14}
+set textfont {"Courier" 14}
+set uifont {Arial 14 bold}
+set tabstop 8
+set findmergefiles 1
+set maxgraphpct 50
+set maxwidth 16
+set cmitmode patch
+set wrapcomment none
+set autoselect 1
+set showneartags 1
+set showlocalchanges 1
+set datetimeformat {%Y-%m-%d %H:%M:%S}
+set limitdiffs 1
+set bgcolor white
+set fgcolor black
+set colors {green red blue magenta darkgrey brown orange}
+set diffcolors {red "#00a000" blue}
+set diffcontext 3
+set selectbgcolor gray85
+set extdifftool meld
+set geometry(main) 1436x823+0+0
+set geometry(topwidth) 1434
+set geometry(topheight) 415
+set geometry(pwsash0) "518 1"
+set geometry(pwsash1) "844 1"
+set geometry(botwidth) 647
+set geometry(botheight) 396
+set permviews {}

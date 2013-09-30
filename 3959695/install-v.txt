@@ -1,0 +1,13 @@
+Vulcan ~ $ brew install -v bitlbee
+==> Downloading http://get.bitlbee.org/src/bitlbee-3.0.6.tar.gz
+Already downloaded: /Library/Caches/Homebrew/bitlbee-3.0.6.tar.gz
+/usr/bin/tar xf /Library/Caches/Homebrew/bitlbee-3.0.6.tar.gz
+==> ./configure --prefix=/usr/local/Cellar/bitlbee/3.0.6 --debug=0 --ssl=gnutls --pidfile=/usr/local/var/bitlbee/run/bitlbee.pid --config=/usr/local/var/bitlbee/lib/ --ipsocket=/usr/local/var/bitlbee/run/bitlbee.sock
+./configure --prefix=/usr/local/Cellar/bitlbee/3.0.6 --debug=0 --ssl=gnutls --pidfile=/usr/local/var/bitlbee/run/bitlbee.pid --config=/usr/local/var/bitlbee/lib/ --ipsocket=/usr/local/var/bitlbee/run/bitlbee.sock
+BitlBee configure
+
+ERROR: Could not find a suitable SSL library (GnuTLS, libnss or OpenSSL).
+       Please note that this script doesn't have detection code for OpenSSL,
+       so if you want to use that, you have to select it by hand. If you don't
+       need SSL support, you can select the "bogus" SSL library. (--ssl=bogus)
+Error: Failure while executing: ./configure --prefix=/usr/local/Cellar/bitlbee/3.0.6 --debug=0 --ssl=gnutls --pidfile=/usr/local/var/bitlbee/run/bitlbee.pid --config=/usr/local/var/bitlbee/lib/ --ipsocket=/usr/local/var/bitlbee/run/bitlbee.sock

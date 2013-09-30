@@ -1,0 +1,74 @@
+New command-line options:
+
+  OPTIONS:
+  
+  -F FILE      FILE is a SQLite3 database related to this query
+  -N           do not consider the filesystem, but only the database
+               (this causes behavior changes in many options:
+                -missing will always be true
+                -added, -changed, -mismatch will always be false
+                -name and -path become straight SQL queries
+                -update is a no-op
+                -checksum will report "no data available")
+  -descend     whenever archives are encountered, read their contents
+  -recurse     even read archives found within archives!
+               (the archive name is reported as if it were a directory)
+  
+  PREDICATES:
+  
+  -added       file newly added to the filesystem?
+  -missing     file no longer on the filesystem?
+  -changed     mtime/size (but not checksum) different from db?
+  -mismatch    does checksum not match from previous run?
+               (this is useful for verifying file integrity, even if the
+                modtime and size are identical)
+  -hassum      file has checksum information in database?
+  -stime n     entry was first seen by db n*24 hours ago?
+  -utime n     entry's last db update was n*24 hours ago?
+  -total n     file, or dir and all its contents, uses n units of space?
+  
+  COMMANDS:
+  
+  -update      update or create info in database
+  -remove      remove info from the database
+  -checksum    (re-)calculate file checksum (implies -update)
+
+New features:
+
+ - Store filesystem data in a database.  This makes it possible to catalog
+   offlined volumes like DVDs, and query their contents later using regular
+   find syntax.
+
+ - The ability to descend into "virtual filesystems", such as tarballs, disk
+   images (on Mac OS X) and other archive formats.
+
+ - When only the database is being considered (-N), find predicates are
+   rewritten as an SQL query.  The makes it possible to use find to catalog
+   a large volume, and later do fast queries within it, replacing the need
+   for utilities such as locate.
+
+Recipes:
+
+ - Delete anything that's been in ~/.Trash for more than 30 days, and add any
+   new files to the database:
+
+   find -F ~/.Trash/db.dat ~/.Trash -maxdepth 1 \
+       \( \! -name db.dat -stime +30 -delete -o -added -update \)
+
+ - To be much more resource friendly, run the above once a day, and run this
+   every hour:
+
+   find -F ~/.Trash/db.dat -N ~/.Trash -maxdepth 1 \
+       \! -name db.dat -stime +30 -delete
+
+ - Create a database of all entries in foo.tar:
+
+   find -F db.dat foo.tar -update
+
+ - Later, show me if any files were newly added to foo.tar:
+
+   find -F db.dat foo.tar -added -print
+
+ - Same, updating the database entries after the files are reported
+
+   find -F db.dat foo.tar -added -print -update

@@ -1,0 +1,8 @@
+Checking Plus (/Volumes/Data/Home/Downloads/plus.agda).
+/Volumes/Data/Home/Downloads/plus.agda:3,13-16
+Failed to find source of module Nat in any of the following
+locations:
+  /Volumes/Data/Home/Downloads/Nat.agda
+  /Volumes/Data/Home/Downloads/Nat.lagda
+when scope checking the declaration
+  open import Nat

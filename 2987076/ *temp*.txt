@@ -1,0 +1,10 @@
+host tunnel
+  HostName newartisans.com
+  ProxyCommand ssh router nc %h %p 2> /dev/null
+  Ciphers aes256-cbc
+  Compression yes
+  HostName johnwiegley.com
+  IdentityFile ~/.ssh/id_vps
+  RekeyLimit 16M
+  User root
+  UserKnownHostsFile ~/.ssh/vps_known_host

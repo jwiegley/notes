@@ -1,0 +1,18 @@
+main :: IO ()
+main = do
+  args <- cmdArgs
+  c    <- newChan
+  cs   <- getChanContents c
+  forM_ args $ \dir -> do
+    forkIO $ findGitDirectories c dir
+    forM_ cs $ \gitDir -> do
+      putStrLn gitDir
+
+findGitDirectories :: Chan FilePath -> FilePath -> IO ()
+findGitDirectories c dir = do
+  dirs <- search ".git" dir
+  mapM_ (writeChan c) dirs
+
+search :: FilePath -> FilePath -> IO [FilePath]
+search name dir =
+  F.find F.always (F.fileName F.==? name) dir

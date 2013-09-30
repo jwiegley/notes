@@ -1,0 +1,12 @@
+type MapStore k v = Store (Map k v) v
+
+foo' :: MapStore k v -> IO ()
+foo' st = do
+  print $ extract <<= seek "foo" st
+  print $ extract <<= seek "bar" st
+
+bar' :: IO()
+bar' = do
+  foo $ store $ \v ->
+    fromMaybe "not found" $
+      M.lookup v (fromList [("foo", "fooval"), ("bar", "barval")])

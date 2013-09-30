@@ -1,0 +1,17 @@
+module Main where
+
+import Control.Monad.CC
+import Control.Monad.IO.Class
+
+main = do
+    value <- runCCT $ reset $ \p -> do
+        liftIO $ putStrLn "Hello, world!"
+        result <- shift p $ \k -> do
+            liftIO $ putStrLn "Beginning the template"
+            k $ return 10
+            k $ return 20
+            liftIO $ putStrLn "Ending the template"
+            return 30
+        liftIO $ putStrLn "Goodbye, world!"
+        return result
+    print value

@@ -1,0 +1,31 @@
+class amount_t
+{
+  void _move(amount_t&& amt, bool destroy = false);
+
+  amount_t(amount_t&& amt) {
+    TRACE_CTOR(amount_t, "move");
+    if (amt.quantity) {
+      _move(std::move(amt));
+    } else {
+      quantity   = NULL;
+      commodity_ = NULL;
+    }
+  }
+}
+
+void amount_t::_move(amount_t&& amt, bool destroy)
+{
+  VERIFY(amt.valid());
+
+  if (destroy && quantity)
+    _clear();
+
+  quantity   = amt.quantity;
+  commodity_ = amt.commodity_;
+
+  amt.quantity   = NULL;
+  amt.commodity_ = NULL;
+
+  VERIFY(valid());
+}
+

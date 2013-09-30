@@ -1,0 +1,89 @@
+commit 4c911e570f8c82b7f91b251bb92089e27c4bc15f
+Author: Leo <sdl.web@gmail.com>
+Date:   Fri Apr 23 11:57:02 2010 +0100
+
+    Use parent directory for files with same base name
+
+        Modified lisp/ChangeLog
+diff --git a/lisp/ChangeLog b/lisp/ChangeLog
+index eb80b35..1b3dd8b 100644
+--- a/lisp/ChangeLog
++++ b/lisp/ChangeLog
+@@ -269,6 +269,15 @@
+        * desktop.el (desktop-kill): ask-if-new: Ask if desktop file exists,
+        but we aren't using it.
+ 
++2010-04-26 Leo Liu <sdl.web@googlemail.com>
++
++       * ido.el (ido-handle-duplicate-virtual-buffers): New variable.
++       (ido-find-duplicate-basenames): New function.
++       (ido-add-virtual-buffers-to-list): If multiple virtual buffer
++       names appear, optionally prefix some with parent directory names
++       to disambiguate.  By default this is disabled and only the most
++       recently used name is used.
++
+ 2010-04-25  Jan Djärv  <jan.h.d@swipnet.se>
+ 
+        * tool-bar.el (tool-bar-local-item-from-menu): Revert unintended
+        Modified lisp/ido.el
+diff --git a/lisp/ido.el b/lisp/ido.el
+index f75f029..eca7652 100644
+--- a/lisp/ido.el
++++ b/lisp/ido.el
+@@ -792,6 +792,13 @@ enabled if this variable is configured to a non-nil value."
+   :type 'boolean
+   :group 'ido)
+ 
++(defcustom ido-handle-duplicate-virtual-buffers 0
++  "Number of parent directories to add to a duplicate virtual buffer.
++The default value is 0 which means no parent directory is added."
++  :version "24.1"
++  :type 'integer
++  :group 'ido)
++
+ (defcustom ido-use-faces t
+   "Non-nil means use ido faces to highlighting first match, only match and
+ subdirs in the alternatives."
+@@ -3408,6 +3415,21 @@ for first matching file."
+     (run-hooks 'ido-make-buffer-list-hook)
+     ido-temp-list))
+ 
++(defun ido-find-duplicate-basenames (files)
++  "Find all the duplicate base names in FILES."
++  (let ((names (mapcar 'file-name-nondirectory files))
++        dups head dup-p)
++    (setq names (sort names 'string<))
++    (while names
++      (setq head (pop names))
++      (while (string= head (car names))
++        (pop names)
++        (setq dup-p t))
++      (when dup-p
++        (push head dups)
++        (setq dup-p nil)))
++    dups))
++
+ (defun ido-add-virtual-buffers-to-list ()
+   "Add recently visited files, and bookmark files, to the buffer list.
+ This is to make them appear as if they were \"virtual buffers\"."
+@@ -3416,10 +3438,18 @@ This is to make them appear as if they were \"virtual buffers\"."
+   ;; the file which the user might thought was still open.
+   (unless recentf-mode (recentf-mode 1))
+   (setq ido-virtual-buffers nil)
+-  (let (name)
++  (let ((dups (unless (zerop ido-handle-duplicate-virtual-buffers)
++                (ido-find-duplicate-basenames recentf-list)))
++        name dir)
+     (dolist (head recentf-list)
+       (and (setq name (file-name-nondirectory head))
+            (null (get-file-buffer head))
++           (if (not (member name dups))
++               t
++             (setq dir head)
++             (dotimes (__ (1+ ido-handle-duplicate-virtual-buffers))
++               (setq dir (directory-file-name (file-name-directory dir))))
++             (setq name (file-relative-name head dir)))
+            (not (assoc name ido-virtual-buffers))
+            (not (member name ido-temp-list))
+            (not (ido-ignore-item-p name ido-ignore-buffers))
+

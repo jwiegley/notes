@@ -1,0 +1,6 @@
+data GitUrlInfo = GitUrlInfo Text Int Text Text -- user port host path
+
+data GitUrl = GitUrlLocal
+            | GitUrlSsh GitUrlInfo
+            | GitUrlReadOnly Text GitUrlInfo
+            | GitUrlReadWrite Text GitUrlInfo

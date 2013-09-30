@@ -1,0 +1,64 @@
+* ert
+#+begin_src emacs-lisp
+(ert-deftest foo ()
+  (assert nil))
+#+end_src
+Now: M-x ert RET foo RET
+* apropos
+
+Emacs makes *discovery* easier.
+
+ - M-x apropos
+ - M-x apropos-command
+ - M-x apropos-variable
+* specialized keybindings
+#+begin_src emacs-lisp
+(bind-key "C-c e b" 'do-eval-buffer)
+(bind-key "C-c e e" 'toggle-debug-on-error)
+(bind-key "C-c e f" 'emacs-lisp-byte-compile-and-load)
+(bind-key "C-c e r" 'eval-region)
+(bind-key "C-c e s" 'scratch)
+
+(bind-key "C-h e" 'lisp-find-map)
+
+(bind-key "C-h e e" 'view-echo-area-messages)
+(bind-key "C-h e f" 'find-function)
+(bind-key "C-h e k" 'find-function-on-key)
+(bind-key "C-h e l" 'find-library)
+(bind-key "C-h e v" 'find-variable)
+(bind-key "C-h e V" 'apropos-value)
+#+end_src
+* macrostep (C-c e m)
+* eval-expr, M-C-x, C-x C-e
+* paredit
+* check-parens
+#+begin_src emacs-lisp
+(add-hook 'after-save-hook 'check-parens nil t)
+#+end_src
+* redshank
+#+begin_src emacs-lisp
+(let (a)
+  (progn
+    (foo (hello-world))))
+#+end_src
+* elp
+#+begin_src emacs-lisp
+(memory-use-counts)
+#+end_src
+* edebug
+* elint
+* eldoc
+* ielm/eshell
+* slime nav
+* dimming parens and pretty lambdas
+#+begin_src emacs-lisp
+(((lambda (x) (+ x 1))))
+#+end_src
+* workgroups
+* yasnippet
+* highlight-cl
+* Info-lookmore
+* backup-each-save
+* ace-jump-mode
+* magit
+* ediff, compare-windows

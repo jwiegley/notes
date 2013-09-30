@@ -1,0 +1,5 @@
+~/src/ledger $ ledger -f /tmp/bond.dat -X \$ --args-only --columns=80 reg
+09-Oct-01 Purchase of bond      Assets:Brokerage             $50.00       $50.00
+                                Expenses:Commissions          $1.00       $51.00
+                                Assets:Brokerage            $-51.00            0
+09-Nov-17 Commodities revalued  <Revalued>                    $5.56        $5.56

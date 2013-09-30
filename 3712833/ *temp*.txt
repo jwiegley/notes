@@ -1,0 +1,5 @@
+  d    <- S.readFile path
+  ctxs <- parallel $ mapOverChunks d (9500*1024) (updateEd2k initEd2k)
+  let ctx = foldl' (\(Ctx xs) (Ctx ys) ->
+                     MD4.update xs (MD4.finalize ys)) initEd2k ctxs
+  putStrLn $ fileLine path $ finalizeEd2k ctx

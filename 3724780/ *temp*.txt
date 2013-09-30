@@ -1,0 +1,9 @@
+vulcan puppet/bootstrap/files/centos $ update
+[1] Downloading log                                         ...      [OK]
+[2] Scanning for '54e95e949e29035e65d256c0a720c32080907347' ...      [OK]
+   --> 2 new uploads to mirror
+[3] Mirroring new packages                                  ...   [START]
+        wtk-0.2.1 (1/2)                                     ...      [OK]
+        rmonad-0.8 (2/2)                                    ...      [OK]
+    Mirroring new packages                                  ...    [DONE]
+[4] Building index                                          ...   [START]

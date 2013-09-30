@@ -1,0 +1,32 @@
+src/LLVM/General/Internal/FFI/Constant.hs:1:1:
+    Exception when trying to run compile-time code:
+      Prelude.undefined
+      Code: do { let AbsBinds
+                     []
+                     []
+                     [constExprInfo <= constExprInfo
+                        <>]
+                       constExprInfo
+                         :: Map.Map [Char] ((TH.Con, TH.Con), ID.InstructionDef)
+                       [LclId]
+                       ...;
+                 let AbsBinds
+                     []
+                     []
+                     [tm <= tm
+                        <>]
+                       tm :: TH.Type -> TH.TypeQ
+                       [LclId]
+                       ...;
+                 ($)
+                   liftM (concat)
+                   sequence
+                     [foreignDecl
+                        ((++) "LLVMConst" name)
+                        ((++) "constant" name)
+                        [tm t | (_, _, t) <- fs]
+                        [t| Ptr Constant |] |
+                        (name,
+                         ((TH.RecC _ fs, _),
+                          ID.InstructionDef {ID.instructionKind = ID.Other})) <- Map.toList
+                                                                                   constExprInfo] }

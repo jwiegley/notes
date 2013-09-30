@@ -1,0 +1,12 @@
+template <typename T>
+class foo {
+  template <typename U>
+  void template_member_function(U& u);
+};
+
+template <typename T, typename U>
+void template_function(T& t, U& u) {
+  t.template template_member_function<U>(u);
+}
+
+template template_function(int&, double&);

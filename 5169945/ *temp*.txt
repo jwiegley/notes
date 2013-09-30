@@ -1,0 +1,48 @@
+    (flycheck-declare-checker haskell-ghc
+      "Haskell checker using ghc"
+      :command '("ghc" "-i." "-i.." "-i../.." "-v0" source-inplace)
+      :error-patterns
+      `((,(concat "^\\(?1:.*?\\):\\(?2:[0-9]+\\):\\(?3:[0-9]+\\):[ \t\n\r]*"
+                  "\\(?5:Warning:\\)?"
+                  "\\(?4:\\(.\\|[ \t\n\r]\\)+?\\)\\(^\n\\|\\'\\)")
+         (if (let ((out (match-string 5 output)))
+               (and out (string= out "Warning:")))
+             'warning
+           'error)))
+      :modes 'haskell-mode)
+
+    (push 'haskell-ghc flycheck-checkers)
+
+    (flycheck-declare-checker haskell-hdevtools
+      "Haskell checker using hdevtools"
+      :command '("hdevtools" "check" source-inplace)
+      :error-patterns
+      `((,(concat "^\\(?1:.*?\\):\\(?2:[0-9]+\\):\\(?3:[0-9]+\\):[ \t\n\r]*"
+                  "\\(?5:Warning:\\)?"
+                  "\\(?4:\\(.\\|[ \t\n\r]\\)+?\\)\\(^\n\\|\\'\\)")
+         (if (let ((out (match-string 5 output)))
+               (and out (string= out "Warning:")))
+             'warning
+           'error)))
+      :modes 'haskell-mode)
+
+    (push 'haskell-hdevtools flycheck-checkers)
+
+    (flycheck-declare-checker haskell-hlint
+      "Haskell checker using hlint"
+      :command '("hlint++" source-inplace)
+      :error-patterns
+      `((,(concat "^\\(?1:.*?\\):\\(?2:[0-9]+\\):\\(?3:[0-9]+\\): Error:"
+                  "\\(?4:\\(.\\|[ \t\n\r]\\)+?\\)\\(^\n\\|\\'\\)")
+         error)
+        (,(concat
+           "^\\(?1:.*?\\):\\(?2:[0-9]+\\):\\(?3:[0-9]+\\): Warning:"
+           "\\(?4:\\(.\\|[ \t\n\r]\\)+?\\)\\(^\n\\|\\'\\)")
+         warning)
+        (,(concat
+           "^\\(?1:.*?\\):\\(?2:[0-9]+\\): Warning: "
+           "\\(?4:\\(.\\|[ \t\n\r]\\)+?\\)\\(^\n\\|\\'\\)")
+         warning))
+      :modes 'haskell-mode)
+
+    ;;(push 'haskell-hlint flycheck-checkers)

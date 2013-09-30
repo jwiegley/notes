@@ -1,0 +1,33 @@
+Give it a shot!
+
+```active haskell
+{-# LANGUAGE DeriveFunctor, ScopedTypeVariables #-}
+-- show
+import Control.Comonad
+-- /show
+import Control.Exception
+import Control.Monad
+-- show
+data Env e a = Env e a deriving (Eq,Ord,Show,Read,Functor)
+
+instance Comonad (Env e) where
+  -- extract :: Env e a -> a
+  extract (Env e a) = error "unimplemented exercise"
+  
+  -- duplicate :: Env e a -> Env e (Env e a)
+  duplicate (Env e a) = error "unimplemented exercise"
+-- /show
+
+main = do
+  test "extract" $ extract (Env 1 2) == 2
+  test "duplicate" $ duplicate (Env 1 2) == Env 1 (Env 1 2)
+  
+test :: String -> Bool -> IO ()
+test s b = try (return $! b) >>= \ ec -> case ec of
+  Left (e :: SomeException) -> putStrLn $ s ++ " failed: " ++ show e
+  Right True -> putStrLn $ s ++ " is correct!"
+  Right False -> putStrLn $ s ++ " is not correct!"
+```
+
+When we bolt an extra bit of environment onto our `Store` from the first part, we get
+

@@ -1,0 +1,15 @@
+    - times out
+
+  web
+2013-04-17 16:56:10.183291 UTC: Port bound: 15659
+2013-04-17 16:56:10.185364 UTC: After calling runWait
+2013-04-17 16:56:10.185432 UTC: Execution completed: RunProgException "AsyncException: user interrupt"
+2013-04-17 16:56:10.185494 UTC: Setting process status for PID 1 to PSException "AsyncException: user interrupt"
+Beginning TEST
+    - starting a second process does not have approot race condition FAILED [1]
+
+1) FP.IsolationRunner.web starting a second process does not have approot race condition FAILED (uncaught exception)
+HttpException (ResponseTimeout)
+
+Finished in 40.5567 seconds
+37 examples, 1 failure

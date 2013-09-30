@@ -1,0 +1,16 @@
+(defun erc-yank (&optional arg)
+  "Yank or make a gist depending on the size of the yanked text."
+  (interactive "*P")
+  (let ((buf (current-buffer)))
+    (if (> (length (split-string (current-kill (cond
+                                                ((listp arg) 0)
+                                                ((eq arg '-) -2)
+                                                (t (1- arg)))) "\n"))
+           erc-yank-flood-limit)
+        (with-temp-buffer
+          (yank arg)
+          (gist-region (point-min) (point-max) nil
+                       #'(lambda (&rest ignore)
+                           (with-current-buffer buf
+                             (yank arg)))))
+      (yank arg))))

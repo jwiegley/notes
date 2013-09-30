@@ -1,0 +1,5 @@
+Majdhub /opt/local/var/macports/build $ sudo port install subversion--->  Configuring subversion
+Error: Target org.macports.configure returned: configure failure: shell command " cd "/opt/local/var/macports/build/_Users_johnw_Projects_macports_dports_devel_subversion/work/subversion-1.5.5" && ./configure --prefix=/opt/local --with-berkeley-db=/opt/local/include/db46:/opt/local/lib/db46 --with-neon=/opt/local --with-apr=/opt/local/bin/apr-1-config --with-apr-util=/opt/local/bin/apu-1-config --without-apxs --mandir=\${prefix}/share/man --disable-neon-version-check --with-serf=/opt/local --with-sasl=/opt/local " returned error 126
+Command output: sh: ./configure: Permission denied
+
+Error: Status 1 encountered during processing.

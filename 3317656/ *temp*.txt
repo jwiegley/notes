@@ -1,0 +1,9 @@
+Prelude System.Environment Control.Applicative> :t putStrLn $ show <$> (length <$> getArgs)
+
+<interactive>:1:12:
+    Couldn't match expected type `Char' with actual type `String'
+    Expected type: a0 -> Char
+      Actual type: a0 -> String
+    In the first argument of `(<$>)', namely `show'
+    In the second argument of `($)', namely
+      `show <$> (length <$> getArgs)'

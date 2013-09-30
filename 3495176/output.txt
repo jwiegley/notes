@@ -1,0 +1,6 @@
+ghci> bar'
+Just "bazval"
+Just "barval"
+Just "fooval"
+Just "barval"
+Nothing

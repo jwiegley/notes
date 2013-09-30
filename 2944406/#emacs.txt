@@ -1,0 +1,83 @@
+<leo2007> johnw: I would like to try your clang-tags, but I don't know how to
+          compile it.
+<johnw> have you run cmake?                                             [07:05]
+<leo2007> I did
+<johnw> and you ran cmake?
+<johnw> i mean, make?
+<leo2007> It seems to require clang 3.1
+<johnw> yep, indeed it does                                             [07:06]
+<leo2007> I have Apple clang version 3.1 (tags/Apple/clang-318.0.61)
+<johnw> that's not clang 3.1
+<johnw> that's Apple Clang 3.1
+<johnw> you have to download the llvm/clang 3.1 release tarballs
+<johnw> from the Clang project
+<johnw> fortunately, Clang is easy to build and install
+<johnw> then run cmake like this: cmake
+        -DCMAKE_CXX_COMPILER:PATH=/usr/local/stow/clang-3.1/bin/clang++ 
+                                                                        [07:07]
+<johnw> for example
+<johnw> oh, and a "." at the end, of course
+<pcompassion> i wonder if you could debug ios(xcode based) project in emacs..?
+<johnw> why not?                                                        [07:08]
+<pcompassion> johnw: that was to me?
+<johnw> correct
+<pcompassion> wow .. i thought that was impossible                      [07:09]
+<johnw> you can call gdb; Xcode just uses gdb
+<pcompassion> yeah that i Know, and i tried, but didn't know how to do it
+<johnw> run Xcode, then debug, then use ps axwwww to find the gdb invocation
+        it's using
+<leo2007> johnw: do you have a standalone executable clang-tags to share?
+                                                                        [07:10]
+<johnw> for Lion?
+<leo2007> Lion or snow leopard                                          [07:11]
+<johnw> my current version is built against the address-sanitizer
+<johnw> lete me rebuild without
+<leo2007> johnw: thanks
+<pcompassion> johnw: and then?                                          [07:12]
+<johnw> pcompassion: invoke that in Emacs
+<Gildas> ,more                                                          [07:13]
+<fsbot> [2] at http://www.emacswiki.org/cgi-bin/wiki.pl?Circe
+<leo2007> johnw: this is not your site: http://johnwiegley.com/, right?
+                                                                        [07:14]
+<Gildas> bremner: nor where to find such a piece of advice, apart from here
+         elsetime ? the mailing list maybe ?
+<johnw> leo2007: it is one of them                                      [07:15]
+<johnw> leo2007: the technical site is newartisans.com
+<bremner> Gildas: did you try writing to forcer ? 
+<leo2007> johnw: apparently that one is ranked in front of the second
+<Gildas> bremner: not, who is that ? 
+<bremner> the author
+<johnw> leo2007: http://ftp.newartisans.com/pub/clang-tags.xz
+<johnw> i've posted to johnwiegley.com a lot more recently              [07:16]
+<johnw> so, to use clang-tags your project must provide a json build database
+<johnw> cmake can generate this automatically
+<johnw> but if not, here's an example:
+<Gildas> forcer: i'm looking forwards to hook notifications on channel
+         activity in circe
+<johnw> https://gist.github.com/2941192                                 [07:17]
+<johnw> (that's from my current Ledger build)
+<johnw> then call: clang-tags <path to dir containing compile_commands.json>
+        <source paths...>
+<pcompassion> johnw: please bear with me, i really want to get this right.. i
+              did ps and got
+              /Developer/Platforms/iPhoneSimulator.platform/Developer/usr/libexec/gdb/gdb-i386-apple-darwin
+              --arch i386 --interp=mi1 -q .. this doesn't have any project
+              information.. how do i run the program from here?
+<johnw> did you do ps axwwwwwww?
+<pcompassion> ps axwwww
+<johnw> ok, then type M-x gdb                                           [07:18]
+<leo2007> johnw: thanks, I am reading them.
+<johnw> and give that whole same command
+<pcompassion> johnw: yes i did that
+<pcompassion> after that?
+<johnw> oops, the clang-tags I built you doesn't do any database creation
+<johnw> ask me in a day or two and I'll get you another one
+<johnw> pcompassion: after that, set breakpoints in your code and go
+<johnw> time for me to hit the hey now
+<johnw> good night all!                                                 [07:19]
+<pcompassion> how do i go?
+<pcompassion> johnw: plz
+<johnw> run
+<leo2007> johnw: thanks. I will try this one first.
+<johnw> night
+<leo2007> night

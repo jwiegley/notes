@@ -1,0 +1,21 @@
+Resolving dependencies...
+                                                                               
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                                                                               
+  REMEMBER: This compiler is in flux, supercalifragelistic style. You should   
+            read the CHANGELOG for this release as the changes probably        
+            affect you.                                                        
+                                                                               
+                                                                               
+                                                                               
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Configuring fay-0.14.5.0...
+Building fay-0.14.5.0...
+Preprocessing library fay-0.14.5.0...
+setup: can't find source for Fay/Compiler/InitialPass in src,
+dist/build/autogen
+Failed to install fay-0.14.5.0
+cabal: Error: some packages failed to install:
+fay-0.14.5.0 failed during the building phase. The exception was:
+ExitFailure 1

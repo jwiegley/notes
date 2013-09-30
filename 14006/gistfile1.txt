@@ -1,0 +1,4 @@
+~/src/ledger $ ledger -f ~/Desktop/bug.dat -sEV bal AR:
+                   0  AR:BillableHours:Russell
+                   0  AR:Invoices
+                   0  AR:Projects:PROJ0000

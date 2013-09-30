@@ -1,0 +1,24 @@
+vulcan /usr/local/src/bitlbee $ make
+make[1]: Nothing to be done for `all'.
+make[2]: Nothing to be done for `all'.
+make[2]: Nothing to be done for `all'.
+make[2]: Nothing to be done for `all'.
+make[2]: Nothing to be done for `all'.
+make[2]: Nothing to be done for `all'.
+* Linking protocols.o
+* Linking bitlbee
+ld: warning: directory '/lib' following -L not found
+* Stripping bitlbee
+* Building plugin skype
+Undefined symbols:
+  "_imcb_chat_free", referenced from:
+      _skype_logout in ccGHAdlZ.o
+      _skype_parse_chat in ccGHAdlZ.o
+  "_imcb_chat_msg", referenced from:
+      _skype_parse_chatmessage in ccGHAdlZ.o
+  "_ssl_read", referenced from:
+      _skype_read_callback in ccGHAdlZ.o
+  "_b_input_add", referenced from:
+      _skype_start_stream in ccGHAdlZ.o
+  "_g_string_free", referenced from:
+      _skype_parse_user in ccGHAdlZ.o

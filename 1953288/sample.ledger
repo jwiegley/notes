@@ -1,0 +1,8 @@
+python
+    import os
+
+    def file_exists(path):
+        return os.file.ispath(str(path))
+
+tag RECEIPT
+    check file_exists(value)

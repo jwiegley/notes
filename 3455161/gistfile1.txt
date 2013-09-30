@@ -1,0 +1,30 @@
+; ModuleID = 'test/stmk_goto2.ll'
+
+define i32 @main() {
+entry:
+  %retval = alloca i32, align 4
+  %x = alloca i32, align 4
+  br label %bar
+
+unreachable:                                      ; No predecessors!
+  store i32 0, i32* %x, align 4
+  br label %unused
+
+unused:                                           ; preds = %unreachable
+  store i32 5, i32* %x, align 4
+  br label %foo
+
+foo:                                              ; preds = %bar, %unused
+  store i32 10, i32* %x, align 4
+  br label %end
+
+bar:                                              ; preds = %entry
+  store i32 20, i32* %x, align 4
+  br label %foo
+
+end:                                              ; preds = %foo
+  %0 = load i32* %x, align 4
+  %cmp = icmp eq i32 %0, 10
+  %cond = select i1 %cmp, i32 0, i32 1
+  ret i32 %cond
+}

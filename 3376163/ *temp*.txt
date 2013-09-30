@@ -1,0 +1,16 @@
+       -- Let's see what the initial position is
+       hTell temph >>= \pos ->
+         putStrLn $ "My initial position is " ++ show pos >>= \_ ->
+  
+         -- Now, write some data to the temporary file
+         let tempdata = show [1..10] in
+         putStrLn  ("Writing one line containing " ++ 
+                    show (length tempdata) ++ " bytes: " ++
+                    tempdata) >>= \_ ->
+           hPutStrLn temph tempdata >>= \_ ->
+  
+             -- Get our new position.  This doesn't actually modify pos
+             -- in memory, but makes the name "pos" correspond to a different 
+             -- value for the remainder of the "do" block.
+             hTell temph >>= \pos -> 
+               ...

@@ -1,0 +1,123 @@
+-*- mode: grep; default-directory: "~/.emacs.d/" -*-
+Grep started at Sun Jun 17 05:05:45
+
+grep -nH -e use-package emacs.el
+emacs.el:10:(require 'use-package)
+emacs.el:582:(use-package abbrev
+emacs.el:596:(use-package ace-jump-mode
+emacs.el:601:(use-package allout
+emacs.el:627:(use-package archive-region)
+emacs.el:631:(use-package tex-site
+emacs.el:657:    (use-package latex-mode
+emacs.el:668:(use-package auto-complete-config
+emacs.el:683:(use-package autorevert
+emacs.el:689:(use-package backup-each-save
+emacs.el:710:(use-package bm
+emacs.el:721:(use-package bookmark
+emacs.el:724:  (use-package bookmark+))
+emacs.el:728:(use-package browse-kill-ring+)
+emacs.el:732:(use-package cc-mode
+emacs.el:979:(use-package cmake-mode
+emacs.el:988:(use-package color-moccur
+emacs.el:991:  (use-package moccur-edit))
+emacs.el:995:(use-package crosshairs
+emacs.el:1000:(use-package css-mode
+emacs.el:1007:(use-package delsel
+emacs.el:1013:(use-package diff-mode
+emacs.el:1016:  (use-package diff-mode-))
+emacs.el:1020:(use-package dired
+emacs.el:1026:        (use-package dired-x)
+emacs.el:1027:        (use-package dired-async)
+emacs.el:1028:        (use-package dired-sort-map)
+emacs.el:1029:        (use-package runner)
+emacs.el:1131:(use-package ediff
+emacs.el:1227:(use-package edit-server
+emacs.el:1237:(use-package erc
+emacs.el:1242:    (use-package auth-source
+emacs.el:1279:    (use-package erc-alert)
+emacs.el:1280:    (use-package erc-highlight-nicknames)
+emacs.el:1281:    (use-package erc-patch)
+emacs.el:1295:    (use-package wtf
+emacs.el:1328:(use-package eshell
+emacs.el:1353:(use-package esh-toggle
+emacs.el:1359:(use-package ess-site
+emacs.el:1365:(use-package ispell
+emacs.el:1372:(use-package flyspell
+emacs.el:1381: '(use-package fold-dwim
+emacs.el:1388:(use-package gist
+emacs.el:1393:(use-package dot-gnus
+emacs.el:1402:(use-package grep
+emacs.el:1431:(use-package gtags
+emacs.el:1449:    (use-package helm-gtags
+emacs.el:1456:(use-package gud
+emacs.el:1482:(use-package haskell-mode
+emacs.el:1488:    (use-package inf-haskell)
+emacs.el:1489:    (use-package hs-lint)
+emacs.el:1491:    (use-package ghc
+emacs.el:1509:(use-package helm-config
+emacs.el:1574:    (use-package helm-descbinds
+emacs.el:1592:(use-package hi-lock
+emacs.el:1599:(use-package hilit-chg
+emacs.el:1604:(use-package hl-line
+emacs.el:1607:  (use-package hl-line+))
+emacs.el:1611:(use-package icicles
+emacs.el:1624:    (use-package fuzzy-match)))
+emacs.el:1628:(use-package ido
+emacs.el:1639:    (use-package ido-hacks
+emacs.el:1737:(use-package image-file
+emacs.el:1743:(use-package info
+emacs.el:1751:      (use-package info+))
+emacs.el:1760:(use-package indirect
+emacs.el:1765:(use-package initsplit)
+emacs.el:1769:(use-package ipa)
+emacs.el:1773:(use-package "ldg-new"
+emacs.el:1823:(use-package lisp-mode
+emacs.el:1856:        (use-package paren
+emacs.el:1860:        (use-package paredit
+emacs.el:1864:        (use-package redshank
+emacs.el:1868:        (use-package edebug)
+emacs.el:1870:        (use-package eldoc
+emacs.el:1874:          (use-package eldoc-extension
+emacs.el:1880:        (use-package cldoc
+emacs.el:1883:        (use-package elint
+emacs.el:1918:        (use-package info-lookmore
+emacs.el:1964:(use-package log4j-mode
+emacs.el:1972:(use-package lua-mode
+emacs.el:1982:(use-package lusty-explorer
+emacs.el:2003:(use-package magit
+emacs.el:2027:(use-package markdown-mode
+emacs.el:2138:(use-package mule
+emacs.el:2147:(use-package nroff-mode
+emacs.el:2169:(use-package nxml-mode
+emacs.el:2190:(use-package dot-org
+emacs.el:2204:(use-package per-window-point
+emacs.el:2210:(use-package persistent-scratch
+emacs.el:2216:(use-package pp-c-l
+emacs.el:2222:(use-package ps-print
+emacs.el:2237:(use-package puppet-mode
+emacs.el:2244:(use-package python-mode
+emacs.el:2284:(use-package quickrun
+emacs.el:2289:(use-package recentf
+emacs.el:2296:(use-package repeat-insert
+emacs.el:2305:(use-package session
+emacs.el:2325:(use-package sh-script
+emacs.el:2342:(use-package smart-compile
+emacs.el:2362:(use-package springboard
+emacs.el:2367:(use-package stopwatch
+emacs.el:2372:(use-package sunrise-commander
+emacs.el:2430:(use-package texinfo
+emacs.el:2467:(use-package vkill
+emacs.el:2483:(use-package w3m
+emacs.el:2528:    (use-package w3m-type-ahead
+emacs.el:2538:(use-package wcount-mode
+emacs.el:2543:(use-package whitespace
+emacs.el:2606:(use-package winner
+emacs.el:2618:(use-package workgroups
+emacs.el:2644:(use-package wrap-region
+emacs.el:2687:(use-package yasnippet
+emacs.el:2738:(use-package yaoddmuse
+emacs.el:2745:(use-package zencoding-mode
+emacs.el:2764:(use-package ruby-mode
+emacs.el:2770:    (use-package yari
+
+Grep finished (matches found) at Sun Jun 17 05:05:45

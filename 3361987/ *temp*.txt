@@ -1,0 +1,9 @@
+vulcan ~ $ sudo nix-env --show-trace -i cabal-install
+error: while evaluating the attribute `ghc.meta.platforms' at `/nix/store/v7fwqv6qanlrc8pac9pa72q42h1zv21j-nixpkgs-1.0pre20646_c67c397/nixpkgs/pkgs/development/compilers/ghc/6.10.4.nix:26:5':
+while evaluating the function at `/nix/store/v7fwqv6qanlrc8pac9pa72q42h1zv21j-nixpkgs-1.0pre20646_c67c397/nixpkgs/pkgs/lib/meta.nix:41:13':
+while evaluating the function at `/nix/store/v7fwqv6qanlrc8pac9pa72q42h1zv21j-nixpkgs-1.0pre20646_c67c397/nixpkgs/pkgs/lib/meta.nix:13:28':
+while evaluating the function at `/nix/store/v7fwqv6qanlrc8pac9pa72q42h1zv21j-nixpkgs-1.0pre20646_c67c397/nixpkgs/pkgs/lib/customisation.nix:98:35':
+while evaluating the function at `/nix/store/v7fwqv6qanlrc8pac9pa72q42h1zv21j-nixpkgs-1.0pre20646_c67c397/nixpkgs/pkgs/lib/customisation.nix:59:24':
+while evaluating the builtin function `isAttrs':
+while evaluating the function at `/nix/store/v7fwqv6qanlrc8pac9pa72q42h1zv21j-nixpkgs-1.0pre20646_c67c397/nixpkgs/pkgs/development/compilers/ghc/6.10.1-binary.nix:1:1':
+assertion failed at `/nix/store/v7fwqv6qanlrc8pac9pa72q42h1zv21j-nixpkgs-1.0pre20646_c67c397/nixpkgs/pkgs/development/compilers/ghc/6.10.1-binary.nix:7:1'

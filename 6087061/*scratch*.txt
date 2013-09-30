@@ -1,0 +1,25 @@
+Loading package zlib-0.5.4.1 ... linking ... done.
+Loading package zlib-bindings-0.1.1.3 ... linking ... done.
+Loading package zlib-conduit-1.0.0 ... linking ... done.
+Loading package http-conduit-1.9.3 ... linking ... done.
+Loading package HUnit-1.2.5.2 ... linking ... done.
+Loading package QuickCheck-2.5.1.1 ... linking ... done.
+Loading package ansi-terminal-0.6 ... linking ... done.
+Loading package hspec-expectations-0.3.2 ... linking ... done.
+Loading package quickcheck-io-0.1.0 ... linking ... done.
+Loading package setenv-0.1.0 ... linking ... done.
+Loading package hspec-1.5.4 ... linking ... done.
+Loading package fuzzcheck-0.1.1 ... linking ... done.
+Loading package bindings-DSL-1.0.16 ... linking ... done.
+Loading object (static) /home/johnw/src/fpco/merchant/dist/build/libcybs/CybsSoapClient.o ... done
+Loading object (static) /home/johnw/src/fpco/merchant/dist/build/libcybs/soapC.o ... done
+Loading object (static) /home/johnw/src/fpco/merchant/dist/build/libcybs/soapClient.o ... done
+Loading object (static) /home/johnw/src/fpco/merchant/dist/build/libcybs/wsseapi.o ... done
+Loading object (static) /home/johnw/src/fpco/merchant/dist/build/libcybs/wsaapi.o ... done
+Loading object (static) /home/johnw/src/fpco/merchant/dist/build/libcybs/smdevp.o ... done
+Loading object (static) /home/johnw/src/fpco/merchant/dist/build/libcybs/mecevp.o ... done
+Loading object (dynamic) /usr/lib/libgsoapssl++.so ... failed.
+<command line>: user specified .o/.so/.DLL could not be loaded (/usr/lib/libgsoapssl++.so: undefined symbol: namespaces)
+Whilst trying to load:  (dynamic) /usr/lib/libgsoapssl++.so
+Additional directories searched:   /home/johnw/src/fpco/merchant/dist/build/libcybs
+   /usr/lib

@@ -1,0 +1,17 @@
+Lambdabot.hs:266:27:
+    No instance for (mtl-2.1:Control.Monad.Error.Class.MonadError
+                       e0 LB)
+      arising from a use of `withIrcSignalCatch'
+    Possible fix:
+      add an instance declaration for
+      (mtl-2.1:Control.Monad.Error.Class.MonadError e0 LB)
+    In a stmt of a 'do' block: withIrcSignalCatch mainLoop
+    In the first argument of `evalLB', namely
+      `(do { withDebug "Initialising plugins" initialise;
+             withIrcSignalCatch mainLoop })'
+    In the second argument of `($)', namely
+      `evalLB
+         (do { withDebug "Initialising plugins" initialise;
+               withIrcSignalCatch mainLoop })
+         rost
+         (initState ld plugins evcmds)'

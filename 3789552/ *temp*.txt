@@ -1,0 +1,11 @@
+~/src/edg/build $ lli wc.ll
+0  libLLVM-3.1.dylib 0x000000010960e0a2 PrintStackTrace(void*) + 34
+1  libLLVM-3.1.dylib 0x000000010960e5b4 SignalHandler(int) + 692
+2  libsystem_c.dylib 0x00007fff904df8ea _sigtramp + 26
+3  libsystem_c.dylib 0x0000000000004600 _sigtramp + 18446603338095152432
+4  libLLVM-3.1.dylib 0x000000010918826c llvm::ExecutionEngine::runFunctionAsMain(llvm::Function*, std::vector<std::string, std::allocator<std::string> > const&, char const* const*) + 1260
+5  lli               0x0000000108c028c8
+6  lli               0x0000000108c01e64
+Stack dump:
+0.	Program arguments: /usr/local/bin/lli wc.ll 
+segmentation fault: 11

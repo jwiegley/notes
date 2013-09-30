@@ -1,0 +1,19 @@
+  32968:<shachaf> I don't like this library much, by the way.
+  59233:<shachaf> I don't like the Haskell exception mechanism. :-(             [00:29]
+ 232133:22:50 <shachaf> I don't like wikis. :-(
+ 255422:23:47 <shachaf> I just don't like the chracter.
+  48784:<shachaf> thirsteh: if/then/else is the devil.
+  64027:<shachaf> Don't use flip. :-(
+  64028:<shachaf> flip = the devil
+  69505:<SHACHAF> startling: Overloaded character literals that resolve to Word8s?
+  69506:<SHACHAF> That's *definitely* the devil.
+  87994:<shachaf> Also, (length x < 3) is generally an evil thing to do.
+ 105337:<shachaf> SomeException is the devil. :-(                               [19:53]
+ 113935:<shachaf> Although Bool is the devil.
+ 114170:<shachaf> RecordWildCards = the devil
+ 165153:<shachaf> Arrows are the devil anyway.
+ 225180:19:26 <shachaf> Enum is slightly evil, to be fair. But it's probably still reasonable.
+ 259020:00:43 <shachaf> System.Posix.Regex is the devil.
+  66156:<shachaf> certainty: Don't use Template Haskell.                        [01:59]
+ 126924:<shachaf> Template Haskell :-(                                          [22:44]
+ 207966:* shachaf doesn't like LambdaCase.

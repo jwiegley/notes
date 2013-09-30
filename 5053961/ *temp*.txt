@@ -1,0 +1,22 @@
+Vulcan:~ $ brew install highlight
+==> Installing highlight dependency: lua
+==> Downloading http://www.lua.org/ftp/lua-5.1.5.tar.gz
+Already downloaded: /Library/Caches/Homebrew/lua-5.1.5.tar.gz
+==> Patching
+patching file Makefile
+patching file src/Makefile
+==> make macosx INSTALL_TOP=/usr/local/Cellar/lua/5.1.5 INSTALL_MAN=/usr/local/Cellar/lua/5.1.5/sh
+==> make install INSTALL_TOP=/usr/local/Cellar/lua/5.1.5 INSTALL_MAN=/usr/local/Cellar/lua/5.1.5/s
+ἷa  /usr/local/Cellar/lua/5.1.5: 15 files, 288K, built in 2 seconds
+==> Installing highlight
+==> Downloading http://www.andre-simon.de/zip/highlight-3.12.tar.bz2
+Already downloaded: /Library/Caches/Homebrew/highlight-3.12.tar.bz2
+==> make PREFIX=/usr/local/Cellar/highlight/3.12 conf_dir=/usr/local/etc/highlight/
+      Diluculum::Impl::CallFunctionOnTop(lua_State*, std::vector<Diluculum::LuaValue, std::allocator<Diluculum::LuaValue> > const&) in libhighlight.a(InternalUtils.o)
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[1]: *** [cli] Error 1
+make: *** [all] Error 2
+
+READ THIS: https://github.com/mxcl/homebrew/wiki/troubleshooting
+

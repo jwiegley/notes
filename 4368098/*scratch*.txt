@@ -1,0 +1,30 @@
+0x1051b3540:	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>	0x1072fdd59
+0x1051b3550:	0x10078a159 <base_GHCziBase_id_closure+1>	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>
+0x1051b3560:	0x1072fdd81	0x10078a159 <base_GHCziBase_id_closure+1>
+0x1051b3570:	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>	0x1072fdda9
+0x1051b3580:	0x10078a159 <base_GHCziBase_id_closure+1>	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>
+0x1051b3590:	0x1072fddd1	0x10078a159 <base_GHCziBase_id_closure+1>
+0x1051b35a0:	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>	0x1072fddf9
+0x1051b35b0:	0x10078a159 <base_GHCziBase_id_closure+1>	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>
+0x1051b35c0:	0x1072fde21	0x10078a159 <base_GHCziBase_id_closure+1>
+0x1051b35d0:	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>	0x1072fde49
+0x1051b35e0:	0x10078a159 <base_GHCziBase_id_closure+1>	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>
+0x1051b35f0:	0x1072fde71	0x10078a159 <base_GHCziBase_id_closure+1>
+0x1051b3600:	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>	0x1072fde99
+0x1051b3610:	0x10078a159 <base_GHCziBase_id_closure+1>	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>
+0x1051b3620:	0x1072fdec1	0x10078a159 <base_GHCziBase_id_closure+1>
+0x1051b3630:	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>	0x1072fdee9
+0x1051b3640:	0x10078a159 <base_GHCziBase_id_closure+1>	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>
+0x1051b3650:	0x1072fdf11	0x10078a159 <base_GHCziBase_id_closure+1>
+0x1051b3660:	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>	0x1072fdf39
+0x1051b3670:	0x10078a159 <base_GHCziBase_id_closure+1>	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>
+0x1051b3680:	0x1072fdf61	0x10078a159 <base_GHCziBase_id_closure+1>
+0x1051b3690:	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>	0x1072fdf89
+0x1051b36a0:	0x10078a159 <base_GHCziBase_id_closure+1>	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>
+0x1051b36b0:	0x1072fdfb1	0x10078a159 <base_GHCziBase_id_closure+1>
+0x1051b36c0:	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>	0x1072fdfd9
+0x1051b36d0:	0x10078a159 <base_GHCziBase_id_closure+1>	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>
+0x1051b36e0:	0x1072fc001	0x10078a159 <base_GHCziBase_id_closure+1>
+0x1051b36f0:	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>	0x1072fc029
+0x1051b3700:	0x10078a159 <base_GHCziBase_id_closure+1>	0x1006c7078 <ghczmprim_GHCziTuple_Z2T_con_info>
+0x1051b3710:	0x1072fc051	0x10078a159 <base_GHCziBase_id_closure+1>

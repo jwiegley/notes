@@ -1,0 +1,19 @@
++ Remote
+
+menu = Remote
+title = Remote Hosts
+#parents = owner:/Test/James location:/
+
+++ ServerAxis
+
+menu = newartisans.com
+title = newartisans.com
+host = newartisans.com
+#alerts = someloss
+
+++ Google
+
+menu = google.com
+title = google.com
+host = google.com
+#alerts = someloss

@@ -1,0 +1,4 @@
+ghci> testme
+Failure /Users/johnw/Documents/Finances/ledger.dat:10055:50: error: expected: end of line,
+    note
+2006/06/17 DENNY'S #7259                         Q67                           

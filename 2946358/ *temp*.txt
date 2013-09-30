@@ -1,0 +1,16 @@
+  (let ((buf (current-buffer)))
+    (if (> (length (split-string (current-kill (cond
+                                                ((listp arg) 0)
+                                                ((eq arg '-) -2)
+                                                (t (1- arg)))) "\n"))
+           erc-yank-flood-limit)
+        (with-temp-buffer
+          (yank arg)
+          (gist-region (point-min) (point-max) nil
+                       #'(lambda (gist)
+                           (let ((location (oref gist :html-url)))
+                             (message "Paste created: %s" location)
+                             (with-current-buffer buf
+                             (insert location))))))
+      (yank arg))))
+

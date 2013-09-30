@@ -1,0 +1,9 @@
+Handler/UserTutorial.hs:5:1:
+    Warning: The import of `Text.Markdown' is redundant
+               except perhaps to import instances from `Text.Markdown'
+             To import instances alone, use: import Text.Markdown()
+
+Handler/UserTutorial.hs:10:1:
+    Warning: The import of `Import' is redundant
+               except perhaps to import instances from `Import'
+             To import instances alone, use: import Import()

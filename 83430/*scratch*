@@ -1,0 +1,9 @@
+server {
+    listen       80;
+    server_name  www.newartisans.com newartisans.com;
+
+    location / {
+        root   /srv/httpd/newartisans.com;
+        index  index.html;
+    }
+}

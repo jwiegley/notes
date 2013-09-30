@@ -1,0 +1,6 @@
+2013-04-30 09:47:53.615578 UTC: Execution completed: RunGhcException "External exception: user interrupt. Local exception: user error (Unexpected EOF)"
+2013-04-30 09:47:53.615761 UTC: Setting process status for PID 2 to PSGhcException "External exception: user interrupt. Local exception: user error (Unexpected EOF)"
+test: External exception: user interrupt. Local exception: user error (Unexpected EOF)
+2013-04-30 09:47:53.616854 UTC: Waiting for compile errors...done
+2013-04-30 09:47:53.621768 UTC: Code failed to compiled
+    - issue #1093 FAILED [1]

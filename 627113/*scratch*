@@ -1,0 +1,15 @@
+  @@host { "$fqdn":
+    ip     => $fqdn ? {
+      "$pm_1" => $environment ? { production  => $ipaddress_eth1,
+                                  development => $ipaddress },
+      "$fs_1" => $environment ? { production  => $ipaddress_eth1,
+                                  development => $ipaddress },
+      default  => $ipaddress
+    },
+    alias  => [ "$hostname" ],
+    ensure => present;
+  }
+
+  if $environment == "development" {
+    Host <<| title != fqdn |>>
+  }

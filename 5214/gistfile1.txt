@@ -1,0 +1,19 @@
+2008/08/11 Food
+           Assets:Accounts Payable:Reim           10  ; :PROJ0000: breakfast
+           Liabilities:VISA
+
+2008/08/12 Food
+           Assets:Accounts Payable:Reim           20  ; :PROJ0000: lunch
+           Liabilities:VISA
+
+2008/08/13 Food
+           Assets:Accounts Payable:Reim           30  ; :PROJ0000: dinner
+           Liabilities:VISA
+
+2008/08/15 (#100) Invoice Paid
+           Assets:Checking                        60
+           Assets:Accounts Payable:Reim               ; :PROJ0000: reimbursement
+
+2008/08/15 Paid VISA bill
+           Liabilities:VISA                       60
+           Assets:Checking

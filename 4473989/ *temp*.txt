@@ -1,0 +1,7 @@
+Test suite failed: HTF-0.10.0.7(Stefan Wehr <wehr@factisresearch.com>)
+Test suite failed: hspec-1.4.3(michael@snoyman.com)
+Test suite failed: hspec-expectations-0.3.0.3(michael@snoyman.com)
+Test suite failed: hit-0.4.1(Vincent Hanquez)
+Test suite failed: http-reverse-proxy-0.1.1(michael@snoyman.com)
+Test suite failed: network-conduit-0.6.2.1(michael@snoyman.com)
+simple-sendfile-0.2.10 passed, but I didn't think it would.

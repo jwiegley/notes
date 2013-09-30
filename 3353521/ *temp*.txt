@@ -1,0 +1,12 @@
+configure:20186: /nix/store/50jm9ckfz0865gqd9i0nrx6hncgmyc6q-gcc-wrapper-4.6.3/bin/gcc -o conftest  -m64 -fno-stack-protector    -m64    -m64   conftest.c -liconv   >&5
+Undefined symbols for architecture x86_64:
+  "_libiconv_open", referenced from:
+      _main in ccspkNGl.o
+  "_libiconv", referenced from:
+      _main in ccspkNGl.o
+  "_libiconv_close", referenced from:
+      _main in ccspkNGl.o
+ld: symbol(s) not found for architecture x86_64
+collect2: ld returned 1 exit status
+configure:20186: $? = 1
+configure: failed program was:

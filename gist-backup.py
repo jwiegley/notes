@@ -16,11 +16,13 @@ def download_gists(page):
     gists = json.load(u)
 
     for gist in gists:
-        print gist['id']
-        print ['git', 'subtree', 'pull' if os.path.isdir(gist['id']) else 'add', '--prefix', gist['id'], gist['git_pull_url'], 'master']
-        try: 
-            call(['git', 'subtree', 'pull' if isdir(gist['id']) else 'add', '--prefix', gist['id'], gist['git_pull_url'], 'master'])
-        except: pass
+        call(['git', 
+              'subtree', 
+              'pull' if isdir(gist['id']) else 'add',
+              '--prefix', 
+              gist['id'], 
+              gist['git_pull_url'], 
+              'master'])
 
 download_gists('1')
 download_gists('2')

@@ -1,0 +1,29 @@
+accessObject :: OdbS3Details
+             -> Text
+             -> IO (Maybe CacheEntry)
+accessObject dets sha = flip runContT return $ callCC $ \exit -> do
+    mentry <- liftIO $ cacheLookupEntry dets sha
+    for_ mentry $ const $
+        exit mentry
+
+    mentry <- liftIO $ callbackLocateObject dets sha
+    for_ mentry $ \entry -> do
+        liftIO $ cacheUpdateEntry dets sha entry
+        exit mentry
+
+    exists <- liftIO $ runResourceT $ remoteObjectExists dets sha
+    when exists $ do
+        liftIO $ cacheUpdateEntry dets sha LooseRemote
+        liftIO $ callbackRegisterCacheEntry dets sha LooseRemote
+        exit (Just LooseRemote)
+
+    -- jww (2013-04-27): This is disabled, pending further discussion with
+    -- Snoyman about Bug #965.
+    -- lift $ runResourceT $ remoteCatalogContents dets
+
+    mentry <- liftIO $ cacheLookupEntry dets sha
+    for_ mentry $ \entry -> do
+        liftIO $ callbackRegisterCacheEntry dets sha entry
+        exit mentry
+
+    return Nothing

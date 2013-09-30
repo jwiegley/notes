@@ -1,0 +1,6 @@
+(defun erc-open-tls-stream (name buffer host port)
+      (open-network-stream
+       name buffer host port
+       :type 'tls
+       :client-certificate (list (expand-file-name "~/Messages/me.key")
+                                 (expand-file-name "~/Messages/me.cer"))))

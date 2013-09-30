@@ -1,0 +1,5 @@
+  return $ void
+         $ mapM (\line ->
+                  let (cName:ffiName:[]) = splitOn " -> " line
+                  in overrideType cName ffiName)
+                (lines contents)

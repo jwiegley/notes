@@ -1,0 +1,33 @@
+Vulcan ~/Archives/Systems (master) $ export RSYNC_RSH=ssh 
+Vulcan ~/Archives/Systems (master) $ ga copy --to titan Linux/Ubuntu/Media/12.10
+copy Linux/Ubuntu/Media/12.10/ubuntu-12.10-desktop-amd64+mac.iso (checking titan...) git-annex-shell: user error (git ["config","--null","--list"] exited 126)
+(to titan...) 
+git-annex-shell: user error (git ["config","--null","--list"] exited 126)
+rsync: connection unexpectedly closed (0 bytes received so far) [sender]
+rsync error: error in rsync protocol data stream (code 12) at io.c(605) [sender=3.0.9]
+failed
+copy Linux/Ubuntu/Media/12.10/ubuntu-12.10-desktop-amd64.iso (checking titan...) git-annex-shell: user error (git ["config","--null","--list"] exited 126)
+(to titan...) 
+git-annex-shell: user error (git ["config","--null","--list"] exited 126)
+rsync: connection unexpectedly closed (0 bytes received so far) [sender]
+rsync error: error in rsync protocol data stream (code 12) at io.c(605) [sender=3.0.9]
+failed
+copy Linux/Ubuntu/Media/12.10/ubuntu-12.10-desktop-i386.iso (checking titan...) git-annex-shell: user error (git ["config","--null","--list"] exited 126)
+(to titan...) 
+git-annex-shell: user error (git ["config","--null","--list"] exited 126)
+rsync: connection unexpectedly closed (0 bytes received so far) [sender]
+rsync error: error in rsync protocol data stream (code 12) at io.c(605) [sender=3.0.9]
+failed
+copy Linux/Ubuntu/Media/12.10/ubuntu-12.10-server-amd64.iso (checking titan...) git-annex-shell: user error (git ["config","--null","--list"] exited 126)
+(to titan...) 
+git-annex-shell: user error (git ["config","--null","--list"] exited 126)
+rsync: connection unexpectedly closed (0 bytes received so far) [sender]
+rsync error: error in rsync protocol data stream (code 12) at io.c(605) [sender=3.0.9]
+failed
+copy Linux/Ubuntu/Media/12.10/ubuntu-12.10-server-i386.iso (checking titan...) git-annex-shell: user error (git ["config","--null","--list"] exited 126)
+(to titan...) 
+git-annex-shell: user error (git ["config","--null","--list"] exited 126)
+rsync: connection unexpectedly closed (0 bytes received so far) [sender]
+rsync error: error in rsync protocol data stream (code 12) at io.c(605) [sender=3.0.9]
+failed
+ga: copy: 5 failed

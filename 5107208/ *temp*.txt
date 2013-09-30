@@ -1,0 +1,6 @@
+    treeFiles :: t -> Source (TreeRepository t) FilePath
+    treeFiles t =
+        lift $ traverseEntries t (\fp e -> case e of
+                                       BlobEntry {} -> return (Just fp)
+                                       _ -> return Nothing)
+        >>= mapM_ yield . catMaybes

@@ -18,7 +18,7 @@ def download_gists(page):
     for gist in gists:
         call(['git', 
               'subtree', 
-              'pull' if isdir(gist['id']) else 'add',
+              'pull' if os.path.isdir(gist['id']) else 'add',
               '--prefix', 
               gist['id'], 
               gist['git_pull_url'], 

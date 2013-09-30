@@ -1,0 +1,9 @@
+[1 of 1] Compiling Main             ( /Users/johnw/dl/monad.hs, interpreted )
+
+/Users/johnw/dl/monad.hs:97:26:
+    Occurs check: cannot construct the infinite type: a0 = Tree a0
+    Expected type: Tree (Tree a0)
+      Actual type: Tree a0
+    In the first argument of `Node', namely `l'
+    In the expression: Node l j Empty
+Failed, modules loaded: none.

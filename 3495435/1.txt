@@ -1,0 +1,76 @@
+While the State monad is a thing you can push a value into, and later get that
+same value back out, the Store Comonad is a thing you get a value out of *from
+within a context*.  You can't edit the Store, as it's immutable, but you can
+make a new Store based on the old Store, if the given Store allows that.
+
+What makes a Store valuable is that it's essentially a data set with a cursor;
+so like a really smart input iterator that can move backwards and forwards, or
+absolutely.  Here's a simple example of a Store encapsulating a Map:
+
+    type MapStore k v = Store k (Maybe v)
+
+    foo' :: MapStore Int Int -> IO ()
+    foo' st = do
+      print $ extract st
+      print $ peek 2 st
+      let st' = seeks (+1) st       -- st' is now "based" at 4
+      -- (have to use applicative because the return values are Maybes)
+      print $ (+) <$> peeks pred st' <*> peeks succ st'
+
+    bar' :: IO()
+    bar' =
+      -- create a store that looks up its values from a Map, with
+      -- the "cursor" starting at 3.
+      foo' $ store (\k -> M.lookup k $ fromList [ (1, 100)
+                                                , (2, 200)
+                                                , (3, 300)
+                                                , (4, 400)
+                                                , (5, 500) ])
+                   3
+
+The "cursor" for my Map starts at the key value 3.  If I 'extract' from this
+Store, I'll get the value associated with 3.  I can use peek to access a value
+related to a particular key, or peeks to pass a function that will compute a
+relative offset.  seek and seeks do absolute and relative seeks, returning a
+new store whose cursor is set at that position.
+
+Where this gets interesting -- and I think, the whole reason for Comonads --
+is that it abstracts the idea of traversing/inspecting a data space.  As long
+as your data type (which could be a stream, an image, a Subversion repository)
+supports the Comonad interface, you can write generic algorithms that are able
+to sniff around and pass the returned data on to other functions.
+
+    -- The Subversion store returns Left String to indicate failure (such as
+    -- no more revisions), and Maybe a to represent each revision.  A revision
+    -- can be Nothing if there is no data for that revision (this happens for
+    -- revision in the Git-converted repository), or Just a.
+    --
+    -- What is 'a' here?  It's whatever data type you want to use to represent
+    -- a revision.  By using a Store instead of a specific container type, we
+    -- defer the choice of container.  It could end up being a Map, an
+    -- association list, a BTree, a database... or even shell out to
+    -- Subversion to obtain the requested information on demand.
+
+    type SvnRepository a = Store Int (Either String (Maybe a))
+
+    -- Function to process the contents of a Subversion store and return the
+    -- results as a list.
+    processSvn :: (a -> b) -> SvnStore a -> [b]
+    processSvn f st = 
+      case extract st of
+        Left _         -> []                            -- at the end/error
+        Right Nothing  -> processSvn f $ seeks (+1) st  -- skip it
+        Right (Just x) -> f x : processSvn f $ seeks (+1) st
+
+With a Comonad, there is no easy way to do this.  Let's say our SvnRepository
+store actually shells out to "svn log -r X" to extract the information
+relating to revision X.  But rather than doing a linear walk, as we do above,
+you want to write code that examines everything 1000th revision.
+
+Without a Comonad, the best we can do is create a list of IO actions (thus
+infecting our traversal code with the IO monad), and either (a) only produce
+actions for every 1000th revision, which means the caller needs special
+knowledge, or (b) produce promises for every revision, but keep calling "drop
+999" so they don't get evaluated.  With the Comonad, we both avoid infection
+(the "IO context" is in the input value, not the result), and we only cause
+actions to occur for the specific revisions we're interested in.

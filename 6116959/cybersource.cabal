@@ -1,0 +1,134 @@
+name:          cybersource
+version:       0.1.0.0
+synopsis:      CyberSource client library
+license:       MIT
+license-file:  LICENSE
+author:        John Wiegley
+maintainer:    johnw@fpcomplete.com
+build-type:    Custom
+cabal-version: >=1.10
+
+flag hpc
+    default: False
+flag dev
+    default: False
+
+library
+    default-language: Haskell2010
+    ghc-options: -Wall
+    if flag(hpc)
+        ghc-options: -fhpc -hpcdir dist/hpc
+    if flag(dev)
+        cpp-options: -DDEVELOPMENT
+    include-dirs: FP/Merchant/Processor
+    exposed-modules:
+        FP.Merchant.Processor
+        FP.Merchant.Processor.CybsSoapClient
+        FP.Merchant.Processor.CyberSource
+        FP.Merchant.Processor.MockSource
+    build-depends:
+        base >= 4 && < 5
+      , merchant
+      , aeson
+      , bindings-DSL
+      , bytestring
+      , esqueleto >= 1.2.4
+      , failure
+      , fast-logger
+      , lifted-base
+      , monad-extras
+      , monad-logger
+      , old-locale
+      , persistent
+      , persistent-template
+      -- jww (2013-07-12): remove
+      , persistent-sqlite
+      , persistent-postgresql
+      , resourcet
+      , system-fileio
+      , system-filepath
+      , template-haskell
+      , text
+      , time
+      , time-recurrence
+      , transformers
+
+    cc-options: -w -DWITH_DOM -DWITH_OPENSSL -std=c++11
+    if os(linux)
+        cc-options: -DLINUX
+
+    include-dirs:
+        FP/Merchant/Processor
+        dist/build/libcybs
+    if os(linux)
+        include-dirs:
+            /usr/share/gsoap
+            /usr/share/gsoap/plugin
+    if os(darwin)
+        include-dirs:
+            /usr/local/opt/gsoap/share/gsoap
+            /usr/local/opt/gsoap/share/gsoap/plugin
+
+    c-sources:
+        dist/build/libcybs/CybsSoapClient.cpp
+        dist/build/libcybs/soapC.cpp
+        dist/build/libcybs/soapClient.cpp
+        dist/build/libcybs/wsseapi.cpp
+        dist/build/libcybs/wsaapi.cpp
+        dist/build/libcybs/smdevp.cpp
+        dist/build/libcybs/mecevp.cpp
+    if os(darwin)
+        c-sources: dist/build/libcybs/soapITransactionProcessorProxy.cpp
+
+    extra-libraries:
+        gsoapssl++
+      , crypto
+      , ssl
+      , z
+    if os(darwin)
+        extra-lib-dirs: /usr/local/opt/gsoap/lib
+
+executable api-tester
+    default-language: Haskell2010
+    main-is: FP/Merchant/Processor/ApiTester.hs
+    ghc-options: -Wall -threaded
+    if os(darwin)
+        ghc-options: -pgml clang++
+    else
+        ghc-options: -pgml g++
+    cc-options: -std=c++11
+    ld-options: -std=c++11
+    if flag(hpc)
+        ghc-options: -fhpc -hpcdir dist/hpc
+    if flag(dev)
+        cpp-options: -DDEVELOPMENT
+    build-depends:
+        base
+      , merchant
+      , cybersource
+      , aeson
+      , bytestring
+      , conduit
+      , containers
+      , esqueleto >= 1.2.4
+      , failure
+      , fast-logger
+      , http-conduit
+      , lifted-base
+      , monad-extras
+      , monad-logger
+      , old-locale
+      , persistent
+      , persistent-template
+      -- jww (2013-07-12): remove
+      , persistent-sqlite
+      , persistent-postgresql
+      , resourcet
+      , system-fileio
+      , system-filepath
+      , template-haskell
+      , text
+      , time
+      , time-recurrence
+      , transformers
+      , xml-conduit

@@ -1,0 +1,433 @@
+-- BEGIN tools
+alex-3.0.2
+happy-1.18.10
+gtk2hs-buildtools-0.12.4
+-- END tools
+
+-- BEGIN packages
+BlogLiterately 0.6 notest @ Brent Yorgey <byorgey@gmail.com>
+BlogLiterately-diagrams 0.1.2 notest @ Brent Yorgey <byorgey@gmail.com>
+Boolean 0.2 notest @ Brent Yorgey <byorgey@gmail.com>
+ChasingBottoms 1.3.0.5 notest @ Neil Mitchell
+Diff 0.3.0 notest @ Brent Yorgey <byorgey@gmail.com>
+GLUT 2.1.2.1 notest @ Haskell Platform
+Glob 0.7.2 notest @ michael@snoyman.com
+HTF 0.10.0.7 test @skogsbaer Stefan Wehr <wehr@factisresearch.com>
+HTTP 4000.2.5 test @haskell Haskell Platform
+HUnit 1.2.5.1 notest @ Haskell Platform
+HaXml 1.23.3 notest @ Brent Yorgey <byorgey@gmail.com>
+List 0.5.1 notest @yairchu Brent Yorgey <byorgey@gmail.com>
+MemoTrie 0.6.1 notest @ Brent Yorgey <byorgey@gmail.com>
+MonadCatchIO-mtl 0.3.0.5 notest @ Brent Yorgey <byorgey@gmail.com>
+MonadCatchIO-transformers 0.3.0.0 notest @ Brent Yorgey <byorgey@gmail.com>
+MonadRandom 0.1.8 notest @ Edward Kmett <ekmett@gmail.com>
+NumInstances 1.0 notest @ Michael Snoyman
+OpenGL 2.2.3.1 notest @ Haskell Platform
+QuickCheck 2.5.1.1 notest @ Stefan Wehr <wehr@factisresearch.com>
+ReadArgs 1.2.1 test @rampion michael@snoyman.com
+SHA 1.6.1 notest @ michael@snoyman.com
+abstract-deque 0.1.6 notest @rrnewton Stefan Wehr <wehr@factisresearch.com>
+abstract-par 0.3.1 notest @simonmar Stefan Wehr <wehr@factisresearch.com>
+active 0.1.0.4 test @diagrams Brent Yorgey <byorgey@gmail.com>
+ad 3.4 test @ekmett Edward Kmett <ekmett@gmail.com>
+adjunctions 3.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+aeson 0.6.1.0 test @bos michael@snoyman.com
+alex 3.0.2 notest @simonmar Haskell Platform
+ansi-terminal 0.6 notest @ Alan Zimmerman
+ansi-wl-pprint 0.6.6 notest @batterseapower Jasper Van der Jeugt
+arithmoi 0.4.0.3 notest @ Brent Yorgey <byorgey@gmail.com>
+asn1-data 0.7.1 notest @vincenthz Vincent Hanquez
+async 2.0.1.3 test @simonmar Haskell Platform
+attoparsec 0.10.4.0 test @bos michael@snoyman.com
+attoparsec-conduit 1.0.1 test @snoyberg michael@snoyman.com
+attoparsec-enumerator 0.3.1 notest @ michael@snoyman.com
+authenticate 1.3.2.6 notest @yesodweb michael@snoyman.com
+base-compat 0.2.1 test @sol Simon Hengel <sol@typeful.net>
+base-unicode-symbols 0.2.2.4 notest @ Felipe Lessa <felipe.lessa@gmail.com>
+base16-bytestring 0.1.1.5 notest @bos Brent Yorgey <byorgey@gmail.com>
+base64-bytestring 1.0.0.1 test @bos michael@snoyman.com
+base64-conduit 1.0.0 test @snoyberg michael@snoyman.com
+basic-prelude 0.3.4.0 notest @snoyberg michael@snoyman.com
+bifunctors 3.2.0.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+blaze-builder 0.3.1.1 notest @meiersi michael@snoyman.com
+blaze-builder-conduit 1.0.0 test @snoyberg Neil Mitchell
+blaze-builder-enumerator 0.2.0.5 notest @meiersi michael@snoyman.com
+blaze-html 0.6.1.1 test @jaspervdj Brent Yorgey <byorgey@gmail.com>
+blaze-markup 0.5.1.5 test @jaspervdj Jasper Van der Jeugt
+blaze-svg 0.3.3.0 notest @deepakjois Brent Yorgey <byorgey@gmail.com>
+bool-extras 0.3.0 notest @ Brent Yorgey <byorgey@gmail.com>
+bound 0.7 test @ekmett Edward Kmett <ekmett@gmail.com>
+bytedump 1.0 notest @vincenthz Vincent Hanquez
+byteorder 1.0.3 notest @ Antoine Latter
+bytestring-mmap 0.2.2 notest @ michael@snoyman.com
+cabal-install 0.14.0 notest @ Haskell Platform
+cairo 0.12.4 notest @ Brent Yorgey <byorgey@gmail.com>
+case-insensitive 1.0 test @basvandijk michael@snoyman.com
+categories 1.0.5 notest @ekmett Edward Kmett <ekmett@gmail.com>
+cereal 0.3.5.2 notest @ michael@snoyman.com
+certificate 1.3.5 notest @vincenthz Vincent Hanquez
+cgi 3001.1.7.4 notest @ Haskell Platform
+charset 0.3.4 notest @ekmett Edward Kmett <ekmett@gmail.com>
+cipher-aes 0.1.7 test @vincenthz Vincent Hanquez
+cipher-rc4 0.1.2 test @vincenthz Vincent Hanquez
+circle-packing 0.1.0.2 notest @ Brent Yorgey <byorgey@gmail.com>
+citeproc-hs 0.3.8 notest @ Brent Yorgey <byorgey@gmail.com>
+classy-prelude 0.5.4 test @snoyberg michael@snoyman.com
+clientsession 0.8.1 test @yesodweb michael@snoyman.com
+cmdargs 0.10.2 notest @ michael@snoyman.com
+colour 2.3.3 notest @ Brent Yorgey <byorgey@gmail.com>
+comonad 3.0.2 test @ekmett Edward Kmett <ekmett@gmail.com>
+comonad-extras 3.0.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+comonad-transformers 3.0.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+comonads-fd 3.0.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+compressed 3.0.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+concurrent-extra 0.7.0.5 test @basvandijk michael@snoyman.com
+concurrent-supply 0.1.4.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+conduit 1.0.4.1 test @snoyberg michael@snoyman.com
+connection 0.1.3 notest @vincenthz Vincent Hanquez
+constraints 0.3.2 notest @ekmett Edward Kmett <ekmett@gmail.com>
+contravariant 0.4 notest @ekmett Edward Kmett <ekmett@gmail.com>
+cookie 0.4.0.1 notest @snoyberg michael@snoyman.com
+cpphs 1.16 notest @ Vincent Hanquez
+cprng-aes 0.3.4 notest @vincenthz Vincent Hanquez
+cpu 0.1.1 notest @vincenthz Vincent Hanquez
+criterion 0.6.2.1 notest @bos Antoine Latter
+crypto-api 0.11 notest @TomMD Haskell Platform
+crypto-conduit 0.5.0 test @meteficha michael@snoyman.com
+crypto-numbers 0.1.3 test @vincenthz Vincent Hanquez
+crypto-pubkey 0.1.2 test @vincenthz michael@snoyman.com
+crypto-pubkey-types 0.2.0 notest @vincenthz Vincent Hanquez
+crypto-random-api 0.2.0 notest @vincenthz Vincent Hanquez
+cryptocipher 0.4.0 test @vincenthz Vincent Hanquez
+cryptohash 0.8.3 test @vincenthz Vincent Hanquez
+css-text 0.1.1 test @ michael@snoyman.com
+data-default 0.5.1 notest @mauke Edward Kmett <ekmett@gmail.com>
+data-reify 0.6 notest @ Edward Kmett <ekmett@gmail.com>
+date-cache 0.3.0 notest @ Felipe Lessa <felipe.lessa@gmail.com>
+diagrams 0.6 notest @ Brent Yorgey <byorgey@gmail.com>
+diagrams-builder 0.3 notest @diagrams Brent Yorgey <byorgey@gmail.com>
+diagrams-cairo 0.6 notest @diagrams Brent Yorgey <byorgey@gmail.com>
+diagrams-contrib 0.6.1 test @diagrams Brent Yorgey <byorgey@gmail.com>
+diagrams-core 0.6.0.2 notest @ Brent Yorgey <byorgey@gmail.com>
+diagrams-lib 0.6.0.1 notest @diagrams Brent Yorgey <byorgey@gmail.com>
+diagrams-postscript 0.6.0.1 notest @diagrams Brent Yorgey <byorgey@gmail.com>
+diagrams-svg 0.6.0.1 notest @diagrams Brent Yorgey <byorgey@gmail.com>
+digest 0.0.1.2 notest @ Brent Yorgey <byorgey@gmail.com>
+distributive 0.3.1 test @ekmett Edward Kmett <ekmett@gmail.com>
+dlist 0.5 notest @ Brent Yorgey <byorgey@gmail.com>
+doctest 0.9.5.1 test @sol Edward Kmett <ekmett@gmail.com>
+dual-tree 0.1.0.1 notest @diagrams Brent Yorgey <byorgey@gmail.com>
+either 3.4 notest @ekmett Edward Kmett <ekmett@gmail.com>
+email-validate 1.0.0 test @ michael@snoyman.com
+encoding 0.6.7.2 notest @ michael@snoyman.com
+entropy 0.2.1 notest @ Vincent Hanquez
+enumerator 0.4.19 notest @ michael@snoyman.com
+eq 3.0 notest @ekmett Edward Kmett <ekmett@gmail.com>
+erf 2.0.0.0 notest @ Edward Kmett <ekmett@gmail.com>
+esqueleto 1.0.6 test @meteficha Felipe Lessa <felipe.lessa@gmail.com>
+failure 0.2.0.1 notest @ michael@snoyman.com
+fast-logger 0.3.1 test @ Felipe Lessa <felipe.lessa@gmail.com>
+fgl 5.4.2.4 notest @ Haskell Platform
+file-embed 0.0.4.7 test @snoyberg michael@snoyman.com
+file-location 0.4.5.2 test @gregwebs michael@snoyman.com
+filesystem-conduit 1.0.0 test @snoyberg michael@snoyman.com
+fingertree 0.0.1.1 notest @ Edward Kmett <ekmett@gmail.com>
+force-layout 0.2 notest @ Brent Yorgey <byorgey@gmail.com>
+free 3.3.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+fsnotify 0.0.6 test @ michael@snoyman.com
+generic-deriving 1.4.0 notest @dreixel Brent Yorgey <byorgey@gmail.com>
+ghc-mtl 1.0.1.2 notest @ Brent Yorgey <byorgey@gmail.com>
+ghc-paths 0.1.0.9 notest @simonmar michael@snoyman.com
+graphs 0.4.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+gravatar 0.5.2 notest @pbrisbin Patrick Brisbin
+groupoids 3.0.1.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+hamlet 1.1.7 test @ michael@snoyman.com
+happstack-server 7.1.7 test @ michael@snoyman.com
+happy 1.18.10 notest @ Haskell Platform
+hashable 1.2.0.5 notest @tibbe Haskell Platform
+hashable-extras 0.1 test @analytics Edward Kmett <ekmett@gmail.com>
+haskell-src 1.0.1.5 notest @ Haskell Platform
+haskell-src-exts 1.13.5 notest @ Jasper Van der Jeugt
+hastache 0.5.0 test @lymar Vincent Hanquez
+haxr 3000.9.0.1 notest @ Brent Yorgey <byorgey@gmail.com>
+heaps 0.2.3 test @ekmett Edward Kmett <ekmett@gmail.com>
+hexpat 0.20.3 notest @ Brent Yorgey <byorgey@gmail.com>
+hfsevents 0.1.4 notest @luite michael@snoyman.com
+highlighting-kate 0.5.3.8 notest @jgm Brent Yorgey <byorgey@gmail.com>
+hinotify 0.3.5 notest @kolmodin michael@snoyman.com
+hint 0.3.3.6 notest @ Brent Yorgey <byorgey@gmail.com>
+hit 0.5.0 test @vincenthz Vincent Hanquez
+hjsmin 0.1.4.1 test @alanz Alan Zimmerman
+hlint 1.8.43 notest @ Neil Mitchell
+hoogle 4.2.16 notest @ Neil Mitchell
+hostname 1.0 notest @ Jasper Van der Jeugt
+hs-bibutils 4.17 notest @ Brent Yorgey <byorgey@gmail.com>
+hscolour 1.20.3 notest @ Neil Mitchell
+hscurses 1.4.1.2 notest @skogsbaer Stefan Wehr <wehr@factisresearch.com>
+hslogger 1.2.1 notest @ michael@snoyman.com
+hspec 1.4.5 test @hspec michael@snoyman.com
+hspec-expectations 0.3.0.3 test @sol michael@snoyman.com
+hspec-meta 1.4.5 notest @hspec michael@snoyman.com
+html 1.0.1.2 notest @ Haskell Platform
+html-conduit 1.1.0 test @snoyberg michael@snoyman.com
+http-conduit 1.9.2.2 test @ michael@snoyman.com
+http-date 0.0.4 test @ michael@snoyman.com
+http-reverse-proxy 0.1.1.3 test @fpco michael@snoyman.com
+http-types 0.8.0 test @aristidb michael@snoyman.com
+httpd-shed 0.4 notest @ Haskell Platform
+hyphenation 0.2.1.8 test @ekmett Edward Kmett <ekmett@gmail.com>
+idna 0.2 notest @Porges michael@snoyman.com
+ieee754 0.7.3 notest @patperry Vincent Hanquez
+integration 0.1.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+intervals 0.2.1.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+json 0.7 notest @ Brent Yorgey <byorgey@gmail.com>
+kan-extensions 3.1.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+keter 0.3.5.4 notest @snoyberg michael@snoyman.com
+keys 3.0.2 notest @ekmett Edward Kmett <ekmett@gmail.com>
+language-haskell-extract 0.2.4 notest @finnsson Brent Yorgey <byorgey@gmail.com>
+language-java 0.2.2 notest @vincenthz Vincent Hanquez
+language-javascript 0.5.7 test @alanz Alan Zimmerman
+lca 0.2.2 notest @ekmett Edward Kmett <ekmett@gmail.com>
+lens 3.8.7.3 test @ekmett Brent Yorgey <byorgey@gmail.com>
+libgit 0.3.0 notest @vincenthz Vincent Hanquez
+lifted-base 0.2.0.2 test @basvandijk michael@snoyman.com
+linear 1.1.1 test @ekmett Edward Kmett <ekmett@gmail.com>
+maccatcher 2.1.5 notest @solidsnack Antoine Latter
+machines 0.2.3.1 test @ekmett Edward Kmett <ekmett@gmail.com>
+markdown 0.1.2.1 test @snoyberg michael@snoyman.com
+markdown-unlit 0.2.0.1 test @sol michael@snoyman.com
+math-functions 0.1.3.0 test @bos Stefan Wehr <wehr@factisresearch.com>
+mersenne-random-pure64 0.2.0.3 notest @ Antoine Latter
+mime-mail 0.4.1.2 notest @snoyberg michael@snoyman.com
+mime-mail-ses 0.2.1.1 notest @snoyberg michael@snoyman.com
+mime-types 0.1.0.3 notest @yesodweb michael@snoyman.com
+mmap 0.5.8 notest @ Vincent Hanquez
+mmorph 1.0.0 notest @Gabriel439 Haskell Platform
+monad-control 0.3.2 notest @basvandijk michael@snoyman.com
+monad-logger 0.3.1.1 notest @kazu-yamamoto michael@snoyman.com
+monad-par 0.3.4.1 test @simonmar Stefan Wehr <wehr@factisresearch.com>
+monad-par-extras 0.3.2 notest @simonmar Stefan Wehr <wehr@factisresearch.com>
+monad-peel 0.1.1 notest @ Stefan Wehr <wehr@factisresearch.com>
+monad-products 3.0 notest @ekmett Edward Kmett <ekmett@gmail.com>
+monad-st 0.2.2 notest @ekmett Edward Kmett <ekmett@gmail.com>
+monadic-arrays 0.2.1.2 notest @ekmett Edward Kmett <ekmett@gmail.com>
+monoid-extras 0.2.2.2 notest @diagrams Brent Yorgey <byorgey@gmail.com>
+mtl 2.1.2 notest @ekmett Edward Kmett <ekmett@gmail.com>
+mwc-random 0.12.0.1 test @bos Vincent Hanquez
+nanospec 0.1.0 test @hspec michael@snoyman.com
+nats 0.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+network 2.3.1.0 test @haskell michael@snoyman.com
+network-conduit 1.0.0 test @snoyberg michael@snoyman.com
+network-conduit-tls 1.0.0.1 notest @snoyberg michael@snoyman.com
+newtype 0.2 notest @ Brent Yorgey <byorgey@gmail.com>
+numeric-extras 0.0.2.3 notest @ekmett Edward Kmett <ekmett@gmail.com>
+optparse-applicative 0.5.2.1 test @pcapriotti michael@snoyman.com
+pandoc 1.11.1 test @ Brent Yorgey <byorgey@gmail.com>
+pandoc-types 1.10 notest @ Brent Yorgey <byorgey@gmail.com>
+parallel 3.2.0.3 notest @ Edward Kmett <ekmett@gmail.com>
+parseargs 0.1.3.4 notest @ Bart Massey <bart.massey+stackage@gmail.com>
+parsec 3.1.3 notest @ Haskell Platform
+parsers 0.5.2 test @ekmett Edward Kmett <ekmett@gmail.com>
+path-pieces 0.1.2 test @yesodweb Felipe Lessa <felipe.lessa@gmail.com>
+pem 0.1.2 test @vincenthz michael@snoyman.com
+persistent 1.1.5.1 test @ Felipe Lessa <felipe.lessa@gmail.com>
+persistent-sqlite 1.1.5 notest @ Felipe Lessa <felipe.lessa@gmail.com>
+persistent-template 1.1.3.1 test @ Felipe Lessa <felipe.lessa@gmail.com>
+pointed 3.0.2 notest @ekmett Edward Kmett <ekmett@gmail.com>
+polyparse 1.8 notest @ Brent Yorgey <byorgey@gmail.com>
+pool-conduit 0.1.1 notest @ michael@snoyman.com
+prelude-extras 0.3 notest @ekmett Edward Kmett <ekmett@gmail.com>
+primitive 0.5.0.1 notest @ Vincent Hanquez
+profunctor-extras 3.3 notest @ekmett Edward Kmett <ekmett@gmail.com>
+profunctors 3.3 notest @ekmett Edward Kmett <ekmett@gmail.com>
+project-template 0.1.3 test @fpco michael@snoyman.com
+publicsuffixlist 0.0.4 test @litherum michael@snoyman.com
+punycode 2.0 test @litherum michael@snoyman.com
+pureMD5 2.1.2.1 notest @TomMD Patrick Brisbin
+pwstore-fast 2.3 notest @PeterScott michael@snoyman.com
+random 1.0.1.1 notest @ michael@snoyman.com
+ranges 0.2.4 notest @ michael@snoyman.com
+recursion-schemes 3.0.0.2 notest @ekmett Edward Kmett <ekmett@gmail.com>
+reducers 3.0.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+reflection 1.1.7 notest @ekmett Edward Kmett <ekmett@gmail.com>
+regex-base 0.93.2 notest @ Haskell Platform
+regex-compat 0.95.1 notest @ Stefan Wehr <wehr@factisresearch.com>
+regex-pcre-builtin 0.94.4.5.8.31 notest @ Brent Yorgey <byorgey@gmail.com>
+regex-posix 0.95.2 notest @ Haskell Platform
+representable-functors 3.0.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+representable-tries 3.0.2 notest @ekmett Edward Kmett <ekmett@gmail.com>
+resource-pool 0.2.1.1 notest @bos Felipe Lessa <felipe.lessa@gmail.com>
+resourcet 0.4.7 test @snoyberg michael@snoyman.com
+safe 0.3.3 notest @ michael@snoyman.com
+semigroupoid-extras 3.0.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+semigroupoids 3.0.2 notest @ekmett Edward Kmett <ekmett@gmail.com>
+semigroups 0.9 notest @ekmett Edward Kmett <ekmett@gmail.com>
+sendfile 0.7.9 notest @ michael@snoyman.com
+setenv 0.1.0 test @sol Simon Hengel <sol@typeful.net>
+shake 0.10.1 notest @ Neil Mitchell
+shakespeare 1.0.3.1 test @ michael@snoyman.com
+shakespeare-css 1.0.3 test @ michael@snoyman.com
+shakespeare-i18n 1.0.0.2 notest @ michael@snoyman.com
+shakespeare-js 1.1.2.1 test @ michael@snoyman.com
+shakespeare-text 1.0.0.5 test @ michael@snoyman.com
+silently 1.2.4.1 test @trystan michael@snoyman.com
+simple-reflect 0.3.1 notest @twanvl Edward Kmett <ekmett@gmail.com>
+simple-sendfile 0.2.11 test @ Neil Mitchell
+siphash 1.0.3 test @vincenthz Vincent Hanquez
+skein 0.1.0.12 test @meteficha michael@snoyman.com
+snap-core 0.9.3.1 notest @ michael@snoyman.com
+snap-server 0.9.3.3 notest @ michael@snoyman.com
+socks 0.5.0 notest @vincenthz Vincent Hanquez
+speculation 1.4.1.2 notest @ekmett Edward Kmett <ekmett@gmail.com>
+split 0.2.1.1 test @ Edward Kmett <ekmett@gmail.com>
+statistics 0.10.2.0 test @bos Stefan Wehr <wehr@factisresearch.com>
+stm 2.4 notest @ Edward Kmett <ekmett@gmail.com>
+stm-stats 0.2.0.0 notest @ Stefan Wehr <wehr@factisresearch.com>
+storable-endian 0.2.5 notest @ Vincent Hanquez
+streams 3.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+strict 0.3.2 notest @ Jasper Van der Jeugt
+stringbuilder 0.4.0 test @sol Edward Kmett <ekmett@gmail.com>
+stringprep 0.1.5 notest @ michael@snoyman.com
+stringsearch 0.3.6.4 notest @ michael@snoyman.com
+stylish-haskell 0.5.6.1 test @jaspervdj Jasper Van der Jeugt
+syb 0.3.7 notest @dreixel Jasper Van der Jeugt
+syb-extras 0.2.4 notest @ekmett Edward Kmett <ekmett@gmail.com>
+system-fileio 0.3.11 notest @ michael@snoyman.com
+system-filepath 0.4.7 notest @ michael@snoyman.com
+tag-bits 0.1.1.2 notest @ekmett Edward Kmett <ekmett@gmail.com>
+tagged 0.4.5 notest @ekmett Edward Kmett <ekmett@gmail.com>
+tagsoup 0.12.8 notest @ Brent Yorgey <byorgey@gmail.com>
+tagstream-conduit 0.5.4 test @yihuang michael@snoyman.com
+tar 0.4.0.1 notest @ michael@snoyman.com
+temporary 1.1.2.4 notest @ Brent Yorgey <byorgey@gmail.com>
+terminfo 0.3.2.5 notest @ Edward Kmett <ekmett@gmail.com>
+test-framework 0.8 notest @ Stefan Wehr <wehr@factisresearch.com>
+test-framework-hunit 0.3.0 notest @ Stefan Wehr <wehr@factisresearch.com>
+test-framework-quickcheck2 0.3.0.1 notest @ Stefan Wehr <wehr@factisresearch.com>
+test-framework-th 0.2.4 notest @finnsson Brent Yorgey <byorgey@gmail.com>
+test-framework-th-prime 0.0.5 notest @ michael@snoyman.com
+texmath 0.6.1.3 notest @jgm Brent Yorgey <byorgey@gmail.com>
+text 0.11.2.3 test @bos Edward Kmett <ekmett@gmail.com>
+text-icu 0.6.3.5 notest @bos michael@snoyman.com
+threads 0.5.0.2 test @basvandijk michael@snoyman.com
+time-compat 0.1.0.3 notest @ michael@snoyman.com
+tls 1.1.2 test @vincenthz michael@snoyman.com
+tls-debug 0.2.3 notest @vincenthz Vincent Hanquez
+tls-extra 0.6.1 notest @vincenthz Vincent Hanquez
+transformers 0.3.0.0 notest @ Edward Kmett <ekmett@gmail.com>
+transformers-base 0.4.1 notest @mvv Haskell Platform
+transformers-compat 0.1.1.1 notest @ekmett Brent Yorgey <byorgey@gmail.com>
+udbus 0.2.0 notest @vincenthz Vincent Hanquez
+unbounded-delays 0.1.0.5 notest @basvandijk michael@snoyman.com
+uniplate 1.6.10 notest @ Neil Mitchell
+uniqueid 0.1.1 notest @sebfisch michael@snoyman.com
+unix-compat 0.4.1.0 notest @jystic michael@snoyman.com
+unix-process-conduit 0.2.0.2 test @snoyberg michael@snoyman.com
+unix-time 0.1.5 test @kazu-yamamoto Felipe Lessa <felipe.lessa@gmail.com>
+unordered-containers 0.2.3.0 test @tibbe michael@snoyman.com
+utf8-light 0.4.0.1 notest @ Alan Zimmerman
+utf8-string 0.3.7 notest @glguy Edward Kmett <ekmett@gmail.com>
+uuid 1.2.9 test @ Antoine Latter
+vault 0.2.0.4 notest @HeinrichApfelmus michael@snoyman.com
+vector 0.10.0.1 notest @ Vincent Hanquez
+vector-algorithms 0.5.4.2 notest @ Stefan Wehr <wehr@factisresearch.com>
+vector-instances 3.2.1 notest @ekmett Edward Kmett <ekmett@gmail.com>
+vector-space 0.8.6 notest @ Brent Yorgey <byorgey@gmail.com>
+vector-space-points 0.1.2.0 notest @ Brent Yorgey <byorgey@gmail.com>
+vhd 0.2 notest @jonathanknowles Vincent Hanquez
+void 0.6 notest @ekmett Edward Kmett <ekmett@gmail.com>
+wai 1.4.0 notest @yesodweb michael@snoyman.com
+wai-app-static 1.3.1.2 test @ michael@snoyman.com
+wai-extra 1.3.3.2 test @yesodweb michael@snoyman.com
+wai-logger 0.3.0 notest @ michael@snoyman.com
+wai-test 1.3.0.5 notest @ michael@snoyman.com
+warp 1.3.7.5 test @yesodweb michael@snoyman.com
+web-fpco 0.1.0.0 notest @fpco michael@snoyman.com
+wl-pprint-extras 3.4 notest @ekmett Edward Kmett <ekmett@gmail.com>
+wl-pprint-terminfo 3.6 notest @ekmett Edward Kmett <ekmett@gmail.com>
+word8 0.0.3 test @kazu-yamamoto michael@snoyman.com
+xenstore 0.1.1 notest @ Vincent Hanquez
+xhtml 3000.2.1 notest @haskell Haskell Platform
+xml 1.3.12 notest @ Brent Yorgey <byorgey@gmail.com>
+xml-conduit 1.1.0.3 test @snoyberg michael@snoyman.com
+xml-types 0.3.3 notest @ michael@snoyman.com
+xmlgen 0.4.0.3 notest @skogsbaer Stefan Wehr <wehr@factisresearch.com>
+xss-sanitize 0.3.3 test @yesodweb michael@snoyman.com
+yackage 0.6.0.5 notest @snoyberg michael@snoyman.com
+yaml 0.8.2.3 test @snoyberg michael@snoyman.com
+yesod 1.1.9.2 notest @yesodweb michael@snoyman.com
+yesod-auth 1.1.5.3 notest @yesodweb michael@snoyman.com
+yesod-core 1.1.8.2 test @yesodweb michael@snoyman.com
+yesod-default 1.1.3.2 notest @yesodweb michael@snoyman.com
+yesod-form 1.2.1.3 test @yesodweb michael@snoyman.com
+yesod-json 1.1.2.2 test @yesodweb michael@snoyman.com
+yesod-newsfeed 1.1.0.1 notest @yesodweb michael@snoyman.com
+yesod-persistent 1.1.0.1 notest @yesodweb michael@snoyman.com
+yesod-routes 1.1.2 test @yesodweb michael@snoyman.com
+yesod-sitemap 1.1.0.1 notest @yesodweb michael@snoyman.com
+yesod-static 1.1.2.2 test @yesodweb michael@snoyman.com
+yesod-test 0.3.5 test @ michael@snoyman.com
+zip-archive 0.1.3.4 test @jgm Brent Yorgey <byorgey@gmail.com>
+zlib 0.5.4.0 notest @ michael@snoyman.com
+zlib-bindings 0.1.1.3 test @snoyberg Vincent Hanquez
+zlib-conduit 1.0.0 test @snoyberg michael@snoyman.com
+zlib-enum 0.2.3 notest @maltem michael@snoyman.com
+-- END packages
+
+-- BEGIN core
+Cabal
+Win32
+array
+base
+binary
+bytestring
+containers
+deepseq
+directory
+extensible-exceptions
+filepath
+haskell2010
+haskell98
+hpc
+old-locale
+old-time
+pretty
+process
+template-haskell
+time
+unix
+-- END core
+
+-- BEGIN optional-core
+GLUT 2.1.2.1
+HTTP 4000.2.5
+HUnit 1.2.5.1
+OpenGL 2.2.3.1
+QuickCheck 2.5.1.1
+alex 3.0.2
+async 2.0.1.3
+cabal-install 0.14.0
+cgi 3001.1.7.4
+fgl 5.4.2.4
+happy 1.18.10
+haskell-src 1.0.1.5
+html 1.0.1.2
+mtl 2.1.2
+network 2.3.1.0
+parallel 3.2.0.3
+parsec 3.1.3
+primitive 0.5.0.1
+random 1.0.1.1
+regex-base 0.93.2
+regex-compat 0.95.1
+regex-posix 0.95.2
+split 0.2.1.1
+stm 2.4
+syb 0.3.7
+text 0.11.2.3
+transformers 0.3.0.0
+vector 0.10.0.1
+xhtml 3000.2.1
+zlib 0.5.4.0
+-- END optional-core
+

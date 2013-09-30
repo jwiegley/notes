@@ -1,0 +1,33 @@
+There might be a possible intermediate step which could help: switch the
+`elpa' branch to Git.  Bzr has been problematic mostly for `elpa', so
+maybe moving to Git would help, and I think there's a good chance we
+might get it past RMS because it's "the only way to work around the bug
+in Bzr".
+
+If you can work on that, it might help.  Here's the issue:
+`elpa' is a branch that brings together various external unrelated branches.
+More specifically, for example `packages/f90-interface-browser' was "bzr
+merge"d from https://github.com/wence-/f90-iface.git, and
+packages/ioccur was merged from
+http://mercurial.intuxication.org/hg/ioccur (which has since moved to Git).
+
+If you can build a new `elpa' branch using Git which keeps those merges
+(even better if it records more clearly the source of each such
+branch/package), then I think we'd have a good case to move `elpa' to Git.
+
+IIRC ioccur was the only merged branch that used Mercurial (hence merged
+using bzr-hg, which basically doesn't work any longer).  The `sml-mode'
+package used Svn (i.e. merged via bzr-svn), and I'm not sure if there
+are others.  Also, there might be a branch or two that uses Bzr, but
+again I can't remember the details.  Most external branches use Git
+(i.e. merged via bzr-git).
+And most packages have no external branch.
+
+   bzr log --include-merges
+
+would give you the "[merge]" points.  Not all of which correspond to
+merges from external branches (some correspond to things like simple
+merges of personal/transient feature branches), but that should give you
+a starting list of "packages that might be merged from external
+branches", so you can search those candidates on the web to see if such
+a branch does exist.

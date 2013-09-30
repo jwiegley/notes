@@ -1,0 +1,26 @@
+Git.hs:250:9:
+    Could not deduce (TreeRepository t ~ ConduitM i0 FilePath m0)
+    from the context (Treeish t)
+      bound by the class declaration for `Treeish'
+      at Git.hs:(203,1)-(253,35)
+    Expected type: Source (TreeRepository t) FilePath
+      Actual type: ConduitM () FilePath (ConduitM i0 FilePath m0) ()
+    In the expression:
+      lift
+      $ traverseEntries
+          t
+          (\ fp e
+             -> case e of {
+                  BlobEntry {} -> return (Just fp)
+                  _ -> return Nothing })
+        >>= mapM_ yield . catMaybes
+    In an equation for `treeFiles':
+        treeFiles t
+          = lift
+            $ traverseEntries
+                t
+                (\ fp e
+                   -> case e of {
+                        BlobEntry {} -> return (Just fp)
+                        _ -> return Nothing })
+              >>= mapM_ yield . catMaybes

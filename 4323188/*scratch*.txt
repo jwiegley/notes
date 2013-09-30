@@ -1,0 +1,43 @@
+real	0m0.600s
+user	0m0.587s
+sys	0m0.011s
+<<ghc: 537769264 bytes, 910 GCs (799 + 111), 0/0 avg/max bytes residency (0 samples), 186264736 bytes GC work, 3M in use, 0.00 INIT (0.00 elapsed), 0.23 MUT (0.23 elapsed), 0.36 GC (0.36 elapsed), 0.30 GC(0) (0.30 elapsed), 0.06 GC(1) (0.06 elapsed), 1 balance :ghc>>
+
+real	0m0.613s
+user	0m0.601s
+sys	0m0.010s
+<<ghc: 537769264 bytes, 910 GCs (799 + 111), 0/0 avg/max bytes residency (0 samples), 186264736 bytes GC work, 3M in use, 0.00 INIT (0.00 elapsed), 0.23 MUT (0.23 elapsed), 0.37 GC (0.37 elapsed), 0.31 GC(0) (0.31 elapsed), 0.06 GC(1) (0.06 elapsed), 1 balance :ghc>>
+
+real	0m0.599s
+user	0m0.586s
+sys	0m0.011s
+<<ghc: 537769264 bytes, 910 GCs (799 + 111), 0/0 avg/max bytes residency (0 samples), 186264736 bytes GC work, 3M in use, 0.00 INIT (0.00 elapsed), 0.22 MUT (0.23 elapsed), 0.36 GC (0.36 elapsed), 0.30 GC(0) (0.30 elapsed), 0.06 GC(1) (0.06 elapsed), 1 balance :ghc>>
+
+real	0m0.613s
+user	0m0.600s
+sys	0m0.011s
+<<ghc: 537769264 bytes, 910 GCs (799 + 111), 0/0 avg/max bytes residency (0 samples), 186264736 bytes GC work, 3M in use, 0.00 INIT (0.00 elapsed), 0.23 MUT (0.23 elapsed), 0.37 GC (0.37 elapsed), 0.31 GC(0) (0.31 elapsed), 0.06 GC(1) (0.06 elapsed), 1 balance :ghc>>
+Finished making all in atom: 0
+------------------------------------------------------------------------
+== make all - --no-print-directory;
+ in /Volumes/tank/Data/Products/ghc/nofib/spectral/awards
+------------------------------------------------------------------------
+HC = /Volumes/tank/Data/Products/ghc/inplace/bin/ghc-stage2
+HC_OPTS = -H64m -O0 -fasm -O -Rghc-timing -package array -H32m -hisuf hi -rtsopts
+RUNTEST_OPTS = -ghc-timing
+==nofib== awards: time to compile Main follows...
+/Volumes/tank/Data/Products/ghc/inplace/bin/ghc-stage2 -H64m -O0 -fasm -O -Rghc-timing -package array -H32m -hisuf hi -rtsopts -c Main.hs -o Main.o
+
+Main.hs:30:1:
+    Failed to load interface for `QSort'
+    Use -v to see a list of the files searched for.
+<<ghc: 102742672 bytes, 58 GCs, 1417781/2213120 avg/max bytes residency (3 samples), 31M in use, 0.00 INIT (0.00 elapsed), 0.08 MUT (0.11 elapsed), 0.04 GC (0.04 elapsed) :ghc>>
+make[2]: *** [Main.o] Error 1
+Failed making all in awards: 1
+make[1]: *** [all] Error 1
+Failed making all in spectral: 1
+make: *** [all] Error 1
+
+real	1m3.682s
+user	0m42.374s
+sys	0m7.975s

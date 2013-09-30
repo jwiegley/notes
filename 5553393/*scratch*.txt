@@ -1,0 +1,17 @@
+Failed to install ide-backend-0.6
+Last 10 lines of the build log (
+/Users/johnw/Contracts/FPComplete/Products/fpco/.hsenvs/ghc-7.4.2-fp20130508/.hsenv/cabal/logs/ide-backend-0.6.log
+):
+Test suite logged to: dist/test/ide-backend-0.6-ghc-errors.log
+Test suite typecheck-dir: RUNNING...
+Copying files from: test/Cabal
+to a temporary directory at:
+/var/folders/bz/92xg7ss96nz3n7rdfy656zkw0000gn/T/typecheck-dir.56761
+typecheck-dir: IdeSession/GHC/Server.hs:(502,1)-(515,28): Non-exhaustive
+patterns in function forkGhcServer
+Test suite typecheck-dir: FAIL
+Test suite logged to: dist/test/ide-backend-0.6-typecheck-dir.log
+0 of 3 test suites (0 of 3 test cases) passed.
+cabal: Error: some packages failed to install:
+ide-backend-0.6 failed during the tests phase. The exception was:
+ExitFailure 1

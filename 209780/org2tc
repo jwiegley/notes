@@ -1,0 +1,54 @@
+#!/usr/bin/env python
+
+# A simple script that takes an org-mode file as input, and prints a timeclock
+# file as output.  This can then be read directly by Ledger for fancy time
+# reporting and querying.
+
+import sys
+import re
+import time
+
+def parse_org_time(s):
+    return time.strptime(s, "%Y-%m-%d %a %H:%M")
+
+events       = []
+last_heading = None
+data         = sys.argv[1]
+fd           = open(data, "r")
+
+for line in fd:
+    match = re.search("^\*+\s*([A-Z]+(\s+\[#[ABC]\])?)?\s*(.+)", line)
+    if match:
+        last_heading = match.group(3)
+        match = re.search("(.+?)\s+:\S+:$", last_heading)
+        if match:
+            last_heading = match.group(1)
+
+    match = re.search("CLOCK:\s+\[(.+?)\](--\[(.+?)\])?", line)
+    if match:
+        clock_in  = parse_org_time(match.group(1))
+        clock_out = match.group(3) # optional
+        if clock_out:
+            clock_out = parse_org_time(clock_out)
+
+        events.append((clock_in, clock_out, last_heading))
+
+fd.close()
+
+def event_compare(x, y):
+    xt = time.mktime(x[0])
+    yt = time.mktime(y[0])
+    if xt < yt:
+        return -1
+    elif xt > yt:
+        return 1
+    else:
+        return 0
+
+events.sort(event_compare)
+
+for event in events:
+    print "i %s %s" % (time.strftime("%Y/%m/%d %H:%M:%S", event[0]), event[2])
+    print "o %s" % time.strftime("%Y/%m/%d %H:%M:%S", event[1])
+
+# org2tc ends here

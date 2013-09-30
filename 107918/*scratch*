@@ -1,0 +1,15 @@
+node 'abc-p1-ws-1.corp.smartceg.com' inherits abc_slave
+{
+    nfs::server::exports { "/srv":
+      shares       => [ "data" ],
+      share_access => "${net_cluster}.0/24";
+    }
+}
+
+node 'abc-p1-gw-1.corp.smartceg.com' inherits abc_node
+{
+    nfs::client::mount { "/mnt/data":
+      host  => "abc-p1-ws-1",
+      share => "/data";
+    }
+}

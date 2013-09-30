@@ -1,0 +1,8 @@
+parseField :: PB.Parser (Text,Text)
+parseField = tuplate pack <$> keyValue
+  where
+    keyValue   = (,) <$> (fieldKey   <* char ':' <* space)
+                     <*> (fieldValue <* newline)
+    fieldKey   = (:) <$> letter <*> many fieldChar
+    fieldChar  = letter <|> digit <|> oneOf "-_"
+    fieldValue = (:) <$> letter <*> many (noneOf "\n")

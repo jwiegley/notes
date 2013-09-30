@@ -1,0 +1,4 @@
+Hermes:/Volumes/Hackage 1 $ /usr/local/tools/hackage-server/cabal-dev/bin/hackage-server init
+hackage-server:
+/usr/local/tools/hackage-server/cabal-dev//share/x86_64-osx-ghc-7.6.3/hackage-server-0.3/templates/Search:
+does not exist

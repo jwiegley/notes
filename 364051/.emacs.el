@@ -1,0 +1,8 @@
+ '(ido-auto-merge-work-directories-length 0)
+ '(ido-cannot-complete-command (quote ido-exit-minibuffer))
+ '(ido-decorations (quote ("{" "}" "," ",..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
+ '(ido-enable-flex-matching t)
+ '(ido-ignore-files (quote ("\\`CVS/" "\\`#" "\\`.#" "\\`\\.\\./" "\\`\\./" "\\`\\.DS_Store" "\\`\\.localized")))
+ '(ido-mode (quote both) nil (ido))
+ '(ido-use-filename-at-point nil)
+ '(ido-use-virtual-buffers t)

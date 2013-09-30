@@ -1,4 +1,10 @@
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
+module Main where
+
 import Control.Applicative
+import Control.Comonad
+import Data.List.NonEmpty as NE
 import Control.Comonad.Store
 import Data.Map as M
 
@@ -81,12 +87,25 @@ foo' st = do
   print $ (+) <$> peeks pred st' <*> peeks succ st'
 
 bar' :: IO()
-bar' = do
-  foo' $ store (\k -> M.lookup k $ fromList [ (1, 100)
-                                            , (2, 200)
-                                            , (3, 300)
-                                            , (4, 400)
-                                            , (5, 500) ])
+bar' =
+  foo' $ store (\k -> M.lookup k $ M.fromList [ (1, 100)
+                                              , (2, 200)
+                                              , (3, 300)
+                                              , (4, 400)
+                                              , (5, 500) ])
                3
 
 -- type MapStore k v = Store (Map k) v
+
+newtype MyNonEmpty a = MyNonEmpty { getMyNonEmpty :: NonEmpty a }
+    deriving (Functor, Applicative, Monad, Show)
+
+neLength :: NonEmpty a -> Int
+neLength (_ :| xs) = 1 + length xs
+
+instance Comonad MyNonEmpty where
+    extract (MyNonEmpty (a :| _)) = a
+    extend f (MyNonEmpty w) = MyNonEmpty $ NE.map f (NE.map (MyNonEmpty . NE.fromList) (NE.fromList (NE.take (neLength w) (NE.tails w))))
+
+main :: IO ()
+main = undefined

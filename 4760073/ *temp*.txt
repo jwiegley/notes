@@ -1,0 +1,11 @@
+Vulcan:~/dl/fpco/fpco.wiki $ git push -f
+Counting objects: 807, done.
+Delta compression using up to 16 threads.
+Compressing objects: 100% (364/364), done.
+Writing objects: 100% (802/802), 204.26 KiB, done.
+Total 802 (delta 490), reused 488 (delta 436)
+fatal: loose object 275bf8723514d29d1337785476b5ad9cd1e125aa (stored in ./objects/27/5bf8723514d29d1337785476b5ad9cd1e125aa) is corrupt
+fatal: loose object 275bf8723514d29d1337785476b5ad9cd1e125aa (stored in ./objects/27/5bf8723514d29d1337785476b5ad9cd1e125aa) is corrupt
+To git@github.com:fpco/fpco.wiki.git
+ ! [remote rejected] wiki -> master (missing necessary objects)
+error: failed to push some refs to 'git@github.com:fpco/fpco.wiki.git'

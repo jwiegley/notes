@@ -1,0 +1,29 @@
+Hermes:~/fpco/learning-site master $ cat fptest.err 
+Warning: Unknown extensions: DeriveGeneric
+
+Handler/UserTutorial.hs:297:25:
+    Exception when trying to run compile-time code:
+      Unable to compile Fay module "Ide": UnsupportedDeclaration (DeprPragmaDecl (SrcLoc {srcFilename = "fay/Ide/Import.hs", srcLine = 113, srcColumn = 1}) [([Ident "print",Ident "putStrLn"],"Don't leave debugging statements in the code")])
+      Code: fayFile "Ide"
+    In a stmt of a 'do' block: $(fayFile "Ide")
+    In the second argument of `($)', namely
+      `do { setTitle $ toHtml title;
+            toWidgetHead
+              (\ _render_a6eYH
+                 -> GHC.Base.id
+                      ((Text.Blaze.Internal.preEscapedText GHC.Base.. Data.Text.pack)
+                         "<meta http-equiv=\"X-UA-Compatible\" content=\"chrome=IE8\"> </meta>"));
+            defaultWidgetJs;
+            $(widgetFile "console");
+            .... }'
+    In a stmt of a 'do' block:
+      pc <- widgetToPageContent
+            $ do { setTitle $ toHtml title;
+                   toWidgetHead
+                     (\ _render_a6eYH
+                        -> GHC.Base.id
+                             ((Text.Blaze.Internal.preEscapedText GHC.Base.. Data.Text.pack)
+                                "<meta http-equiv=\"X-UA-Compatible\" content=\"chrome=IE8\"> </meta>"));
+                   defaultWidgetJs;
+                   $(widgetFile "console");
+                   .... }

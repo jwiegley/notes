@@ -1,0 +1,15 @@
+# Setting up a new user:
+#
+# user=merijn
+# groupadd $user
+# useradd -m -g sudo -g $user $user
+# eval chmod 755 ~$user
+# eval cd ~$user
+# mkdir .ssh
+# chmod 700 .ssh ; chown $user:$user .ssh
+# cat > .ssh/authorized_keys2
+# chmod 600 .ssh/authorized_keys2 ; chown $user:$user .ssh/authorized_keys2
+# EDITOR=vi visudo
+# vi /etc/shadow
+#
+# On lun, you have to edit /etc/sudoers by hand

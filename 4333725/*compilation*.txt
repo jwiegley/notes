@@ -1,0 +1,25 @@
+-*- mode: compilation; default-directory: "~/src/gitlib/gitlib-s3/" -*-
+Compilation started at Tue Dec 18 19:48:34
+
+cd ~/src/gitlib/gitlib-s3 ; cabal build && cabal test
+Building gitlib-s3-0.0.3...
+Preprocessing library gitlib-s3-0.0.3...
+In-place registering gitlib-s3-0.0.3...
+Preprocessing test suite 'smoke' for gitlib-s3-0.0.3...
+[1 of 1] Compiling Main             ( test/Smoke.hs, dist/build/smoke/smoke-tmp/Main.p_o )
+Linking dist/build/smoke/smoke ...
+Running 1 test suites...
+Test suite smoke: RUNNING...
+Cases: 1  Tried: 0  Errors: 0  Failures: 0Debug: String to sign: "PUT\n\n\nWed, 19 Dec 2012 01:48:45 GMT\n/fpco-john-development/af5626b4a114abcb82d63db7c8082c3c4756e51b"
+Debug: sqHost: "127.0.0.1"
+Debug: sqPath: "/fpco-john-development/af5626b4a114abcb82d63db7c8082c3c4756e51b"
+Debug: sqPort: 10001
+Debug: Host: "127.0.0.1"
+Info: Response metadata: S3: request ID=<none>, x-amz-id-2=<none>
+Write af5626b4a114abcb82d63db7c8082c3c4756e51b len 14
+smoke: ParseError {errorContexts = ["HTTP status line"], errorMessage = "Failed reading: EOF reached", errorPosition = 1:1}
+Test suite smoke: FAIL
+Test suite logged to: dist/test/gitlib-s3-0.0.3-smoke.log
+0 of 1 test suites (0 of 1 test cases) passed.
+
+Compilation exited abnormally with code 1 at Tue Dec 18 19:48:45

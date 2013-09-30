@@ -1,0 +1,117 @@
+The Free Monad is something I've been having a great deal of difficulty
+wrapping my head around.  It's one of those Haskell concepts that ends up
+being far simpler than any of the articles on the Net would have you think.
+So, here's a whirlwind tour of this Monad and how it can be super handy.
+
+First, imagine you're building a robot to walk through a maze.  The robot is
+programmed to go forward until it can't go forward anymore, and then check a
+set of instructions to learn if it should turn left, turn right, or shutdown.
+A possible data type to model such instructions could be:
+
+    data Directive = L | R | S
+
+Here's what our processing function might look like:
+
+    instrs = [L, R, L, S]
+   
+    interpret :: [Directive] -> IO ()
+    interpret = mapM_ process
+      where process L = putStrLn "Going left"
+            process R = putStrLn "Going right"
+            process S = putStrLn "Saw shutdown, stopping"
+
+And the output, as expected:
+
+    > interpret instrs
+    Going left
+    Going right
+    Going left
+    Saw shutdown, stopping
+
+Easy as pie, right?  But this is Haskell, so it's time to obfuscate the
+simple, so we can make something even simpler later on down the road...
+
+## Enter the Free Monad
+
+The first step toward using the Free Monad is to make our `Directive` type
+recursive, and give it a Functor instance:
+
+    {-# LANGUAGE DeriveFunctor #-}
+
+    import Control.Monad
+    import Control.Monad.Free
+
+    data FDirective next = FL next | FR next | FS
+      deriving Functor
+
+We will now chain directives together using the `Free` data type, from
+`Control.Monad.Free` (in the `free` package on Hackage).  Here's what the Free
+data type looks like:
+
+    data Free f r = Free (f (Free f r)) | Pure r
+
+And our set of instructions encoded using it:
+
+    instrs2 = Free (FL (Free (FR (Free (FL (Free FS))))))
+
+Pretty ugly, right?  But it's easy to pattern match on this using a recursive
+function, giving us another interpreter for robotic instructions:
+
+    interpret' :: Free FDirective a -> IO ()
+    interpret' (Free (FL f)) = putStrLn "Going left"  >> interpret' f
+    interpret' (Free (FR f)) = putStrLn "Going right" >> interpret' f
+    interpret' (Free FS)     = putStrLn "Saw shutdown, stopping"
+    interpret' (Pure _)      = error "Improper termination"
+
+Now, why go through all this mess rather than use a list?  Because now we have
+a Monad, people!  Isn't that reason enough?  But seriously, by just adding a
+few helper functions:
+
+    left     = liftF (FL ())
+    right    = liftF (FR ())
+    shutdown = liftF FS
+
+We can now get this:
+
+    instrs4 :: Free FDirective a
+    instrs4 = do
+      left
+      right
+      left
+      shutdown
+   
+    runRobot = interpret' instrs4
+
+And `runRobot` works!  We've come full circle at the cost of several neurons.
+I went from a list that used brackets and commas, to a list that uses just
+newlines.  But wait, does this mean I can now express logic in my robot's
+programming?
+
+    instrs5 :: Bool -> Free FDirective a
+    instrs5 goLeftAlways = do
+      left
+      if goLeftAlways
+         then left
+         else right
+      left
+      shutdown
+   
+    runRobot2 = interpret' (instrs5 True)
+
+Yes!  In fact, I can use any sort of logic I want, use let to bind local
+variables, etc.  All of which would be much uglier hard to do -- and less
+optimal in many ways -- if I were still using lists to sequence instructions.
+
+What the Free Monad gives us is the ability to create imperative-style DSLs,
+for which we can write as many different interpreters as we like.  Consider it
+another power tool in your meta-programming toolbox.
+
+Another bonus is that our interpreter will ignore any further instructions
+after the call to `shutdown`.  We'll also get an error if the user forgets to
+`shutdown`.  And we get all of this for free, just by using the Free Monad.
+Hmm... I wonder if I can use another meaning for free in the same paragraph...
+GPL, anyone?
+
+(I still don't know what the adjective "Free" means in the term "Free Monad".
+It has something to do with mathematics, but that will just have to wait for
+another day).

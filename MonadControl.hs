@@ -8,25 +8,34 @@
 module MonadControl where
 
 import           Control.Concurrent
+import           Control.DeepSeq
 import           Control.Exception (Exception, SomeException)
+import           Control.Exception (evaluate)
 import qualified Control.Exception as E
-import           Data.Monoid
 import           Control.Monad
 import           Control.Monad.IO.Class
-import           Control.Monad.Trans.Class
 import           Control.Monad.Trans.Cont
 import           Control.Monad.Trans.State
-import           Data.Conduit hiding (MonadBaseControl)
-import           Data.Conduit.Internal hiding (await, transPipe)
+import           Criterion
+import           Criterion.Main
+import           System.IO.Unsafe
 
 class (Monad m, Monad b) => MonadBaseControl b m | m -> b where
     data StM m a :: *
     liftBaseWith :: ((m x -> b (StM m x)) -> b a) -> m a
+    liftBaseAndRestore :: ((m a -> b (StM m a)) -> b (StM m a)) -> m a
     restoreM :: StM m a -> m a
+
+captureM :: MonadBaseControl b m => m (StM m ())
+captureM = liftBaseWith ($ return ())
+
+ignoring :: (Functor m, MonadBaseControl b m) => m a -> m ()
+ignoring = void . liftBaseWith . flip id
 
 instance MonadBaseControl IO IO where
     data StM IO a = IOStM { unIOStM :: a }
     liftBaseWith f = f $ liftM IOStM
+    liftBaseAndRestore f = liftM unIOStM $ f $ liftM IOStM
     restoreM       = return . unIOStM
     {-# INLINE liftBaseWith #-}
     {-# INLINE restoreM #-}
@@ -37,6 +46,9 @@ instance MonadBaseControl b m => MonadBaseControl b (StateT s m) where
         x <- liftBaseWith $ \runInBase -> f $ \k ->
             liftM StateTStM $ runInBase $ runStateT k s
         return (x, s)
+    liftBaseAndRestore f = StateT $ \s ->
+        liftBaseAndRestore $ \runInBase -> liftM unStateTStM $ f $ \k ->
+            liftM StateTStM $ runInBase $ runStateT k s
     restoreM (StateTStM m) = StateT $ \_ -> restoreM m
     {-# INLINE liftBaseWith #-}
     {-# INLINE restoreM #-}
@@ -77,26 +89,34 @@ catch :: (MonadBaseControl IO m, Exception e) => m a -> (e -> m a) -> m a
 catch f c = control $ \run -> run f `E.catch` (run . c)
 {-# INLINE catch #-}
 
+instance NFData a => NFData (IO a) where
+    rnf = unsafePerformIO . fmap rnf
+
 main :: IO ()
 main = do
-    flip evalStateT (10 :: Int) $ go False
+    flip evalStateT (10 :: Int) $ go False False
 
     flip evalStateT (10 :: Int) $ do
         modify (+5)
-        go False `catch` \e -> do
+        go False False `catch` \e -> do
             liftIO $ putStrLn "In the exception handler, state is:"
             get >>= liftIO . print
             liftIO $ putStrLn $
                 "Caught exception: " ++ show (e :: SomeException)
 
-        go True `catch` \e -> do
+        go True False `catch` \e -> do
             liftIO $ putStrLn "In the exception handler, state is:"
             get >>= liftIO . print
             liftIO $ putStrLn $
                 "Caught exception: " ++ show (e :: SomeException)
+
+    defaultMain
+        [ bench "split"  $ nf (split 100000) (go False False)
+        , bench "direct" $ nf (direct 100000) (go False True)
+        ]
 
     -- putStrLn "Testing ContT 1..."
-    -- putStrLn "--------------------"
+--    -- putStrLn "--------------------"
     -- flip runContT return $ go' False False
 
     -- putStrLn "Testing ContT 2..."
@@ -117,27 +137,33 @@ main = do
     --             "Caught exception: " ++ show (e :: SomeException)
 
   where
-    go abort = do
-        liftIO $ putStrLn "In the outer transformer, the state is:"
-        get >>= liftIO . print
+    split :: Int -> StateT Int (StateT Int (StateT Int (StateT Int (StateT Int IO)))) () -> IO Int
+    split n f  = flip execStateT 0 $ flip execStateT 0 $ flip execStateT 0 $ flip execStateT 0 $ flip execStateT 0 $ replicateM_ n $ control ($ f)
+    direct :: Int -> StateT Int (StateT Int (StateT Int (StateT Int (StateT Int IO)))) () -> IO Int
+    direct n f = flip execStateT 0 $ flip execStateT 0 $ flip execStateT 0 $ flip execStateT 0 $ flip execStateT 0 $ replicateM_ n $ liftBaseAndRestore ($ f)
 
-        x <- control $ \run -> do
-            putStrLn "Hello, I'm in the IO monad!"
+    go abort goDirect = do
+        -- liftIO $ putStrLn "In the outer transformer, the state is:"
+        -- get >>= liftIO . print
+
+        x <- (if goDirect then liftBaseAndRestore else control) $ \run -> do
+            -- putStrLn "Hello, I'm in the IO monad!"
             run $ inner abort
 
-        threadId <- liftBaseDiscard forkIO $ do
-            liftIO $ putStrLn "Inside the thread, state is:"
-            get >>= liftIO . print
-            void $ inner abort
-        liftIO $ putStrLn $ "Forked thread: " ++ show threadId
-        liftIO $ threadDelay 100
+        -- threadId <- liftBaseDiscard forkIO $ do
+        --     -- liftIO $ putStrLn "Inside the thread, state is:"
+        --     -- get >>= liftIO . print
+        --     void $ inner abort
+        -- liftIO $ putStrLn $ "Forked thread: " ++ show threadId
+        -- liftIO $ threadDelay 100
 
-        liftIO $ putStrLn $ "Back outside with: " ++ show x
-        get >>= liftIO . print
+        -- liftIO $ putStrLn $ "Back outside with: " ++ show x
+        -- get >>= liftIO . print
+        return ()
 
     inner abort = do
-        liftIO $ putStrLn "In the inner transformer, the state is:"
-        get >>= liftIO . print
+        -- liftIO $ putStrLn "In the inner transformer, the state is:"
+        -- get >>= liftIO . print
         modify (+1)
         when abort $ liftIO $ E.throwIO (userError "Oops!")
         return (100 :: Int)

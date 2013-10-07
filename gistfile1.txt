@@ -1,0 +1,12 @@
+lemma-*comm2 : ∀ n m → n * m ≡ m * n
+lemma-*comm2 zero m = sym (lemma-*0 m)
+lemma-*comm2 (suc n) m =
+    begin
+        suc n * m
+    ≡⟨ refl ⟩
+        m + n * m
+    ≡⟨ cong (_+_ m) (lemma-*comm2 n m) ⟩
+        m + m * n
+    ≡⟨ sym (lemma-*suc m n) ⟩
+        m * suc n
+    ∎

@@ -1,0 +1,7 @@
+lemma-*ldist : ∀ n m o → n * (m + o) ≡ n * m + n * o
+lemma-*ldist zero m o = refl
+lemma-*ldist (suc n) m o =
+    begin
+        suc n * (m + o) ≡⟨ refl ⟩
+        suc n * m + suc n + o
+    ∎

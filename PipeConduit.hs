@@ -4,6 +4,8 @@ module PipeConduit where
 
 import Control.Monad
 import Control.Monad.Trans.State
+import Data.Conduit (($$))
+import Data.Conduit.List as CL
 import Data.Conduit.Internal as Conduit
 import Data.Void
 import Pipes as P
@@ -77,6 +79,7 @@ liftProducer p = StateT $ flip go p
 
 main :: IO ()
 main = do
+    runEffect $ forP (Conduit.yield 10) Conduit.yield
     runEffect $
         P.stdinLn >-> P.take 10 >-> P.stdoutLn
     runEffect $

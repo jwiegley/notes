@@ -39,17 +39,17 @@ data Proxy a' a b' b m r
 -}
 
 fromPipe :: Monad m => P.Proxy l i () o m r -> Conduit.Pipe l i o u m (Maybe r)
-fromPipe (Request _ fu) = NeedInput (fmap fromPipe fu) (const $ return Nothing)
+fromPipe (Request _ fu)  = NeedInput (fmap fromPipe fu) (const $ return Nothing)
 fromPipe (Respond b  fu) = HaveOutput (fromPipe $ fu ()) (return ()) b
-fromPipe (M m)           = PipeM $ liftM fromPipe m
-fromPipe (Pure r)         = Done (Just r)
+fromPipe (M m)           = PipeM $ liftM fromPipe m
+fromPipe (Pure r)        = Done (Just r)
 
 toPipe :: Monad m => Conduit.Pipe Void i o u m r -> P.Proxy () i u o m r
 toPipe (HaveOutput p _m o) = Respond o (const (toPipe p))
-toPipe (NeedInput fi _)   = Request () (fmap toPipe fi)
-toPipe (Done r)             = Pure r
-toPipe (PipeM m)           = M $ liftM toPipe m
-toPipe (Leftover _ l)       = absurd l
+toPipe (NeedInput fi _)    = Request () (fmap toPipe fi)
+toPipe (Done r)            = Pure r
+toPipe (PipeM m)           = M $ liftM toPipe m
+toPipe (Leftover _ l)      = absurd l
 
 data PipeState m a = PipeState
     { psLeftover  :: Maybe a

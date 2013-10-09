@@ -56,9 +56,7 @@ instance MonadBaseControl IO m => Applicative (ConcurrentT m) where
     pure = return
     ConcurrentT f <*> ConcurrentT a =
         -- run actions concurrently in the Applicative
-        ConcurrentT $ do
-            (f', a') <- concurrently f a
-            return $ f' a'
+        ConcurrentT $ withAsync a $ \a' -> ($) <$> f <*> wait a'
 
 instance MonadTrans ConcurrentT where
     lift = ConcurrentT . lift
@@ -78,13 +76,13 @@ instance MonadBaseControl IO m => MonadBaseControl IO (ConcurrentT m) where
     restoreM (StMConcurrentT m) = ConcurrentT . restoreM $ m
 
 newtype ConcurrentPoolT s m a = ConcurrentPoolT
-    { getConcurrentPoolT :: ConcurrentT (ReaderT (TVar (Tagged s Int)) m) a }
+    { getConcurrentPoolT :: ReaderT (TVar (Tagged s Int)) (ConcurrentT m) a }
 
 runConcurrentPoolT :: MonadIO m
                    => Int -> (forall s. ConcurrentPoolT s m a) -> m a
 runConcurrentPoolT count (ConcurrentPoolT m) = do
     counter <- liftIO $ newTVarIO (Tagged count)
-    runReaderT (runConcurrentT m) counter
+    runConcurrentT $ runReaderT m counter
 
 instance Monad m => Functor (ConcurrentPoolT s m) where
     fmap f (ConcurrentPoolT m) = ConcurrentPoolT (fmap f m)
@@ -97,15 +95,12 @@ instance (MonadBaseControl IO m, MonadIO m)
          => Applicative (ConcurrentPoolT s m) where
     pure = return
     ConcurrentPoolT f <*> ConcurrentPoolT a = ConcurrentPoolT $ do
-        counter <- lift ask
-        run counter f $ \af -> run counter a $ \aa -> do
-            (f', a') <- waitBoth af aa
-            return $ f' a'
+        counter <- ask
+        run counter a $ \aa -> ($) <$> f <*> wait aa
       where
-        run counter g = withAsync $ bracket
+        run counter g = withAsync $ bracket_
             (modifyCounter counter pred False)
-            (const $ modifyCounter counter succ True)
-            (const g)
+            (modifyCounter counter succ True) g
 
         modifyCounter counter g doit = liftIO $ atomically $ do
             count <- readTVar counter
@@ -126,7 +121,7 @@ instance (MonadBaseControl IO m, MonadIO m)
          => MonadBaseControl IO (ConcurrentPoolT s m) where
     newtype StM (ConcurrentPoolT s m) a =
         StMConcurrentPoolT
-            (StM (ConcurrentT (ReaderT (TVar (Tagged s Int)) m)) a)
+            (StM (ReaderT (TVar (Tagged s Int)) (ConcurrentT m)) a)
     liftBaseWith f =
         ConcurrentPoolT $ liftBaseWith $ \runInBase -> f $ \k ->
             liftM StMConcurrentPoolT $ runInBase $ getConcurrentPoolT k
@@ -134,32 +129,32 @@ instance (MonadBaseControl IO m, MonadIO m)
 
 main :: IO ()
 main = do
-    -- putStrLn "Using the Monad instance, things happen serially"
-    -- start <- getCurrentTime
-    -- runConcurrentT $ do
-    --     delay "start 1" (return ()) "end 1"
-    --     delay "start 2" (return ()) "end 2"
-    -- stop <- getCurrentTime
-    -- print $ diffUTCTime stop start
+    putStrLn "Using the Monad instance, things happen serially"
+    start <- getCurrentTime
+    runConcurrentT $ do
+        delay "start 1" (return ()) "end 1"
+        delay "start 2" (return ()) "end 2"
+    stop <- getCurrentTime
+    print $ diffUTCTime stop start
 
-    -- putStrLn "Using the Applicative instance, things happen concurrently"
-    -- start' <- getCurrentTime
-    -- print =<<
-    --     runConcurrentT
-    --         (sequenceA
-    --             [ delay "scompute 1" (return (1 :: Int)) "ecompute 1"
-    --             , delay "scompute 2" (return (2 :: Int)) "ecompute 2"
-    --             , delay "scompute 3" (return (3 :: Int)) "ecompute 3"
-    --             , delay "scompute 4" (return (4 :: Int)) "ecompute 4"
-    --             , delay "scompute 5" (return (5 :: Int)) "ecompute 5"
-    --             , delay "scompute 6" (return (6 :: Int)) "ecompute 6"
-    --             , delay "scompute 7" (return (7 :: Int)) "ecompute 7"
-    --             , delay "scompute 8" (return (8 :: Int)) "ecompute 8"
-    --             , delay "scompute 9" (return (9 :: Int)) "ecompute 9"
-    --             , delay "scompute 10" (return (10 :: Int)) "ecompute 10"
-    --             ])
-    -- stop' <- getCurrentTime
-    -- print $ diffUTCTime stop' start'
+    putStrLn "Using the Applicative instance, things happen concurrently"
+    start' <- getCurrentTime
+    print =<<
+        runConcurrentT
+            (sequenceA
+                [ delay "scompute 1" (return (1 :: Int)) "ecompute 1"
+                , delay "scompute 2" (return (2 :: Int)) "ecompute 2"
+                , delay "scompute 3" (return (3 :: Int)) "ecompute 3"
+                , delay "scompute 4" (return (4 :: Int)) "ecompute 4"
+                , delay "scompute 5" (return (5 :: Int)) "ecompute 5"
+                , delay "scompute 6" (return (6 :: Int)) "ecompute 6"
+                , delay "scompute 7" (return (7 :: Int)) "ecompute 7"
+                , delay "scompute 8" (return (8 :: Int)) "ecompute 8"
+                , delay "scompute 9" (return (9 :: Int)) "ecompute 9"
+                , delay "scompute 10" (return (10 :: Int)) "ecompute 10"
+                ])
+    stop' <- getCurrentTime
+    print $ diffUTCTime stop' start'
 
     putStrLn "Using a pool restricts the number of concurrent computations"
     start'' <- getCurrentTime

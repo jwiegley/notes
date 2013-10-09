@@ -100,15 +100,18 @@ instance (MonadBaseControl IO m, MonadIO m)
         bracket
             (liftIO $ atomically $ do
                   count <- readTVar counter
-                  -- jww (2013-10-09): This doesn't work, because 'counter' is
-                  -- not incremented again until the last computation has
-                  -- finished, since the n+1th computation is blocked.
-                  check $ count > 0
-                  writeTVar counter (pred count))
+                  writeTVar counter (pred count)
+                  return count)
             (const $ liftIO $ atomically $ do
                   count <- readTVar counter
                   writeTVar counter (succ count))
-            (const $ f <*> a)
+            $ \count ->
+                if count > 0
+                then f <*> a -- execute asynchronously, there are slots free
+                else do      -- execute synchronously, no slots at the moment
+                    f' <- f
+                    a' <- a
+                    return $ f' a'
 
 instance MonadTrans (ConcurrentPoolT s) where
     lift = ConcurrentPoolT . lift . lift

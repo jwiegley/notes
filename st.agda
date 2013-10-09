@@ -4,6 +4,7 @@ open import Data.Nat hiding (_⊔_; suc; zero)
 open import Data.Sum
 open import Level
 open import Relation.Binary
+open import Relation.Binary.Sum
 open import Relation.Binary.PropositionalEquality
 open ≡-Reasoning
 
@@ -32,7 +33,7 @@ module _ {a} {A : Set a} where
     -- Equality: Axiom of extensionality.
 
     _==_ : ∀ {ℓ₁ ℓ₂} → Pred A ℓ₁ → Pred A ℓ₂ → Set _
-    P == Q = ∀ {x} → x ∈ P → x ∈ Q → x ∉ P → x ∉ Q
+    P == Q = ∀ {x} → x ∈ P → x ∈ Q → (∀ {y} → y ∉ P → y ∉ Q)
 
     -- singleton : ∀ {ℓ} → A → Pred A ℓ
     -- singleton x = λ y → x ≈ y
@@ -74,21 +75,12 @@ module _ {a} {A : Set a} where
     _∪_ : ∀ {ℓ₁ ℓ₂} → Pred A ℓ₁ → Pred A ℓ₂ → Pred A _
     Q ∪ P = λ x → Q x ⊎ P x
 
-x⊎⊥≡x : ∀ {a} {x : Set a} → x ⊎ ⊥ → x
-x⊎⊥≡x (inj₁ x) = x
-x⊎⊥≡x (inj₂ ())
+-- P∪∅≡P : ∀ {ℓ a} {A : Set a} (P : Pred A ℓ) → P ∪ ∅ ≡ P
+-- P∪∅≡P p = {!!}
 
-P∪∅≡P : ∀ {ℓ a} {A : Set a} (P : Pred A ℓ) → P ∪ ∅ ≡ P
-P∪∅≡P p =
-    begin
-        p ∪ ∅
-    ≡⟨ refl ⟩
-        (λ x → p x ⊎ ⊥)
-    ≡⟨ cong x⊎⊥≡x refl ⟩
-        (λ x → p x)
-    ≡⟨ refl ⟩
-        p
-    ∎
+-- ∪-comm : ∀ {ℓ₁ ℓ₂ a} {A : Set a} (P : Pred A ℓ₁) → (Q : Pred A ℓ₂)
+--          → P ∪ Q ≡ Q ∪ P
+-- ∪-comm P Q = {!!}
 
 ⊆-trans : ∀ {ℓ₁ ℓ₂ ℓ₃ a} {A : Set a}
           {P : Pred A ℓ₁} {Q : Pred A ℓ₂} {R : Pred A ℓ₃}

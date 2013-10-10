@@ -34,10 +34,30 @@ foldFreeT f (Free m) = do
     void $ traverse (foldFreeT f) val
     return x
 
+toFreeT :: Monad m => ListT m a -> m (FreeT ((,) a) m ())
+toFreeT Nil = return $ Pure ()
+toFreeT (Cons x m) = do
+    val <- m
+    val' <- toFreeT val
+    return $ Free (return (x, val'))
+
+fromFreeT :: Monad m => FreeT ((,) a) m () -> m (ListT m a)
+fromFreeT (Pure ()) = return Nil
+fromFreeT (Free m) = do
+    (x, xs) <- m
+    xs' <- fromFreeT xs
+    return $ Cons x (return xs')
+
 main :: IO ()
 main = do
     foldListT print listTdata
     foldFreeT (print . fst) freeTdata
+
+    listTdata' <- fromFreeT freeTdata
+    foldListT print listTdata'
+
+    freeTdata' <- toFreeT listTdata
+    foldFreeT (print . fst) freeTdata'
   where
     listTdata =
         Cons (10 :: Int)

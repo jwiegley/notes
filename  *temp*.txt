@@ -1,0 +1,15 @@
+[ 27 of 126] Compiling Import.Prune     ( Import/Prune.hs, dist/build/Import/Prune.o ) [flags changed]
+[ 28 of 126] Compiling FP.TempUpload    ( FP/TempUpload.hs, dist/build/FP/TempUpload.o ) [flags changed]
+[ 29 of 126] Compiling FP.FileStore     ( FP/FileStore.hs, dist/build/FP/FileStore.o ) [flags changed]
+[ 30 of 126] Compiling Settings         ( Settings.hs, dist/build/Settings.o ) [flags changed]
+[ 31 of 126] Compiling Settings.StaticFiles ( Settings/StaticFiles.hs, dist/build/Settings/StaticFiles.o ) [flags changed]
+[ 32 of 126] Compiling Import.Fay       ( Import/Fay.hs, dist/build/Import/Fay.o ) [flags changed]
+[ 33 of 126] Compiling Foundation       ( Foundation.hs, dist/build/Foundation.o ) [flags changed]
+Failed to install learning-site-0.0.0
+cabal: Error: some packages failed to install:
+learning-site-0.0.0 failed during the building phase. The exception was:
+ExitFailure 11
+learning-site-ui-test-0.0.0 depends on learning-site-0.0.0 which failed to
+install.
+fpbuild: Build failed: ExitFailure 1
+Vulcan:~/fpco/branches/test {2439-ghc763} [1] $ 

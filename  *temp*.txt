@@ -1,0 +1,6 @@
+lemma-+drop : ∀ n m o → o + n ≡ o + m → n ≡ m
+lemma-+drop n m zero h = h
+lemma-+drop n m (suc zero) h = lemma-uncong-suc n m h
+lemma-+drop n m (suc (suc o)) h =
+    lemma-+drop n m o (lemma-uncong-suc (o + n) (o + m)
+                      (lemma-uncong-suc (suc (o + n)) (suc (o + m)) h))

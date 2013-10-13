@@ -1,6 +1,12 @@
 module nat where
 
 open import Data.Nat
+open import Data.Unit
+open import Data.Empty
+open import Data.Product
+open import Relation.Nullary
+open import Relation.Nullary.Decidable
+open import Relation.Unary
 open import Relation.Binary
 open import Relation.Binary.PropositionalEquality
 open ≡-Reasoning
@@ -176,3 +182,135 @@ lemma-*assoc (suc n) m o =
     ≡⟨ refl ⟩
         (suc n * m) * o
     ∎
+
+-- data Even : ℕ → Set where
+--     even-0  : Even 0
+--     even-2+ : {n : ℕ} → Even n → Even (suc (suc n))
+
+-- EvenDecidable : Set
+-- EvenDecidable = ∀ n → Dec (Even n)
+
+-- even : EvenDecidable
+-- even zero = yes even-0
+-- even (suc zero) = no (λ ())
+-- even (suc (suc n)) = yes (even-2+ {!!})
+
+even : ∀ n → Set
+even zero = ⊤
+even (suc zero) = ⊥
+even (suc (suc n)) = even n
+
+even+even≡even : ∀ n m → even n → even m → even (n + m)
+even+even≡even zero m h₁ h₂ = h₂
+even+even≡even (suc zero) zero h₁ h₂ = h₁
+even+even≡even (suc zero) (suc zero) h₁ h₂ = tt
+even+even≡even (suc zero) (suc (suc m)) h₁ h₂ =
+    even+even≡even (suc zero) m h₁ h₂
+even+even≡even (suc (suc n)) zero h₁ h₂ =
+    even+even≡even n zero h₁ tt
+even+even≡even (suc (suc n)) (suc zero) h₁ h₂ =
+    even+even≡even n (suc zero) h₁ h₂
+even+even≡even (suc (suc n)) (suc (suc m)) h₁ h₂ =
+    even+even≡even n (suc (suc m)) h₁ h₂
+
+odd+odd≡even : ∀ n m → ¬ (even n) → ¬ (even m) → even (n + m)
+odd+odd≡even zero zero h₁ h₂ = tt
+odd+odd≡even zero (suc zero) h₁ h₂ = h₂ (h₁ tt)
+odd+odd≡even zero (suc (suc m)) h₁ h₂ =
+    odd+odd≡even zero m (λ _ → h₁ tt) h₂
+odd+odd≡even (suc zero) zero h₁ h₂ = h₂ tt
+odd+odd≡even (suc zero) (suc zero) h₁ h₂ = tt
+odd+odd≡even (suc zero) (suc (suc m)) h₁ h₂ =
+    odd+odd≡even (suc zero) m (λ z → z) h₂
+odd+odd≡even (suc (suc n)) zero h₁ h₂ =
+    odd+odd≡even n zero (λ _ → h₂ tt) (λ _ → h₂ tt)
+odd+odd≡even (suc (suc n)) (suc zero) h₁ h₂ =
+    odd+odd≡even n (suc zero) (λ z → h₂ (h₁ z)) (λ z → z)
+odd+odd≡even (suc (suc n)) (suc (suc m)) h₁ h₂ =
+    odd+odd≡even n (suc (suc m)) h₁ h₂
+
+even+odd≡odd : ∀ n m → even n → ¬ (even m) → ¬ (even (n + m))
+even+odd≡odd zero zero h₁ h₂ = λ _ → h₂ tt
+even+odd≡odd zero (suc zero) h₁ h₂ = λ z → z
+even+odd≡odd zero (suc (suc m)) h₁ h₂ = h₂
+even+odd≡odd (suc zero) zero h₁ h₂ = λ z → z
+even+odd≡odd (suc zero) (suc zero) h₁ h₂ = λ _ → h₂ h₁
+even+odd≡odd (suc zero) (suc (suc m)) h₁ h₂ = λ _ → h₁
+even+odd≡odd (suc (suc n)) zero h₁ h₂ = λ _ → h₂ tt
+even+odd≡odd (suc (suc n)) (suc zero) h₁ h₂ =
+    even+odd≡odd n (suc zero) h₁ (λ z → z)
+even+odd≡odd (suc (suc n)) (suc (suc m)) h₁ h₂ =
+    even+odd≡odd n (suc (suc m)) h₁ h₂
+
+even-sucsuc : ∀ n → even (suc (suc n)) → even n
+even-sucsuc n = λ z → z
+
+sucsuc-even : ∀ n → even n → even (suc (suc n))
+sucsuc-even n = λ x → x
+
+lemma-++ : ∀ n → n + suc (suc n) ≡ suc (suc (n + n))
+lemma-++ n =
+    begin
+        n + suc (suc n)
+    ≡⟨ sym (lemma-+sucgr n (suc n)) ⟩
+        suc (n + suc n)
+    ≡⟨ cong suc (sym (lemma-+sucgr n n)) ⟩
+        suc (suc (n + n))
+    ∎
+
+even-++ : ∀ n → even (n + n)
+even-++ zero = tt
+even-++ (suc zero) = tt
+even-++ (suc (suc n)) = subst even (sym (lemma-++ n)) (even-++ n)
+
+even*n≡even : ∀ n m → even n → even (n * m)
+even*n≡even zero m h = tt
+even*n≡even (suc zero) _ ()
+even*n≡even (suc (suc n)) m h =
+    subst even (lemma-+assoc m m (n * m))
+               (even+even≡even (m + m) (n * m) (even-++ m) (even*n≡even n m h))
+
+odd : ∀ n → even (suc n) → ¬ (even n)
+odd zero h = λ _ → h
+odd (suc zero) h = λ z → z
+odd (suc (suc n)) h = odd n h
+
+even-plus-assoc : ∀ n m → even ((m + m) + (n * m)) → even (m + (m + n * m))
+even-plus-assoc n m = subst even (lemma-+assoc m m (n * m))
+
+lemma-uncong-suc : ∀ n m → suc n ≡ suc m → n ≡ m
+lemma-uncong-suc .m m refl = refl
+
+lemma-+drop : ∀ n m o → o + n ≡ o + m → n ≡ m
+lemma-+drop n m zero h = h
+lemma-+drop n m (suc o) h =
+    lemma-+drop n m o (lemma-uncong-suc (o + n) (o + m) h)
+
+lemma-*drop : ∀ n m o → n ≡ m → n * o ≡ m * o
+lemma-*drop zero zero o h = refl
+lemma-*drop zero (suc m) o ()
+lemma-*drop (suc n) zero o ()
+lemma-*drop (suc n) (suc m) o h = cong (λ x → x * o) h
+
+sucsuc-2+ : ∀ n m → suc (suc n) * m ≡ (2 * m) + n * m
+sucsuc-2+ n m = lemma-*rdist m (suc (suc zero)) n
+
+even-plus : ∀ n m → even (n + m) → even n → even m
+even-plus zero m h₁ h₂ = h₁
+even-plus (suc n) zero h₁ h₂ = tt
+even-plus (suc zero) (suc zero) h₁ h₂ = h₂
+even-plus (suc zero) (suc (suc m)) h₁ h₂ = even-plus (suc zero) m h₁ h₂
+even-plus (suc (suc n)) (suc zero) h₁ h₂ = even-plus n (suc zero) h₁ h₂
+even-plus (suc (suc n)) (suc (suc m)) h₁ h₂ = even-plus n (suc (suc m)) h₁ h₂
+
+even-goall : ∀ n m → even (n * m) → even (suc (suc n) * m)
+even-goall n m h = {!!}
+
+even-goal : ∀ n m → even (suc (suc n) * m) → even (n * m)
+even-goal n m h = {!!}
+
+odd*odd≡both-odd : ∀ n m → ¬ (even (n * m)) → ¬ (even n) × ¬ (even m)
+odd*odd≡both-odd n m h = {!!}
+
+odd*odd≡odd : ∀ n m → ¬ (even n) → ¬ (even m) → ¬ (even (n * m))
+odd*odd≡odd n m h₁ h₂ = subst ¬_ (sym {!!}) (λ x → x)

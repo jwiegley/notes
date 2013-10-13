@@ -313,4 +313,15 @@ odd*odd≡both-odd : ∀ n m → ¬ (even (n * m)) → ¬ (even n) × ¬ (even m
 odd*odd≡both-odd n m h = {!!}
 
 odd*odd≡odd : ∀ n m → ¬ (even n) → ¬ (even m) → ¬ (even (n * m))
-odd*odd≡odd n m h₁ h₂ = subst ¬_ (sym {!!}) (λ x → x)
+odd*odd≡odd n m h₁ h₂ = {!!}
+
+prime : ∀ n → Set
+prime zero = ⊥
+prime (suc zero) = ⊥
+prime (suc (suc zero)) = ⊤
+prime (suc n) = prime n
+
+goldbach : (n p q : ℕ) → n > 2 → even n
+           → ∃₂ (λ p q → prime p × prime q × p + q ≡ n)
+goldbach zero p q () _
+goldbach (suc n) p q h₁ h₂ = {!!}

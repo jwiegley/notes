@@ -292,9 +292,6 @@ lemma-*drop zero (suc m) o ()
 lemma-*drop (suc n) zero o ()
 lemma-*drop (suc n) (suc m) o h = cong (λ x → x * o) h
 
-sucsuc-2+ : ∀ n m → suc (suc n) * m ≡ (2 * m) + n * m
-sucsuc-2+ n m = lemma-*rdist m (suc (suc zero)) n
-
 even-plus : ∀ n m → even (n + m) → even n → even m
 even-plus zero m h₁ h₂ = h₁
 even-plus (suc n) zero h₁ h₂ = tt
@@ -303,25 +300,28 @@ even-plus (suc zero) (suc (suc m)) h₁ h₂ = even-plus (suc zero) m h₁ h₂
 even-plus (suc (suc n)) (suc zero) h₁ h₂ = even-plus n (suc zero) h₁ h₂
 even-plus (suc (suc n)) (suc (suc m)) h₁ h₂ = even-plus n (suc (suc m)) h₁ h₂
 
-even-goall : ∀ n m → even (n * m) → even (suc (suc n) * m)
-even-goall n m h = {!!}
-
-even-goal : ∀ n m → even (suc (suc n) * m) → even (n * m)
-even-goal n m h = {!!}
-
-odd*odd≡both-odd : ∀ n m → ¬ (even (n * m)) → ¬ (even n) × ¬ (even m)
-odd*odd≡both-odd n m h = {!!}
+even-sucsuc* : ∀ n m → even (suc (suc n) * m) → even (n * m)
+even-sucsuc* n m h = even-plus (2 * m) (n * m)
+    (subst even (lemma-*rdist m (suc (suc zero)) n) h)
+    (subst even (lemma-+assoc m m zero)
+        (subst even (sym (lemma-+0 (m + m))) (even-++ m)))
 
 odd*odd≡odd : ∀ n m → ¬ (even n) → ¬ (even m) → ¬ (even (n * m))
-odd*odd≡odd n m h₁ h₂ = {!!}
+odd*odd≡odd zero m h₁ h₂ = λ _ → h₁ tt
+odd*odd≡odd (suc zero) m h₁ h₂ = λ x → h₂ (subst even (lemma-+0 m) x)
+odd*odd≡odd (suc (suc n)) m h₁ h₂ =
+    λ x → odd*odd≡odd n m h₁ h₂ (even-sucsuc* n m x)
 
-prime : ∀ n → Set
-prime zero = ⊥
-prime (suc zero) = ⊥
-prime (suc (suc zero)) = ⊤
-prime (suc n) = prime n
+-- odd*odd≡both-odd : ∀ n m → ¬ (even (n * m)) → ¬ (even n) × ¬ (even m)
+-- odd*odd≡both-odd n m h = {!!}
 
-goldbach : (n p q : ℕ) → n > 2 → even n
-           → ∃₂ (λ p q → prime p × prime q × p + q ≡ n)
-goldbach zero p q () _
-goldbach (suc n) p q h₁ h₂ = {!!}
+-- prime : ∀ n → Set
+-- prime zero = ⊥
+-- prime (suc zero) = ⊥
+-- prime (suc (suc zero)) = ⊤
+-- prime (suc n) = prime n
+
+-- goldbach : (n p q : ℕ) → n > 2 → even n
+--            → ∃₂ (λ p q → prime p × prime q × p + q ≡ n)
+-- goldbach zero p q () _
+-- goldbach (suc n) p q h₁ h₂ = {!!} , {!!}

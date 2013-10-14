@@ -1,0 +1,11 @@
+data Even : ℕ → Set where
+    even-0  : Even 0
+    even-2+ : {n : ℕ} → Even n → Even (suc (suc n))
+
+EvenDecidable : Set
+EvenDecidable = ∀ n → Dec (Even n)
+
+even' : EvenDecidable
+even' zero = yes even-0
+even' (suc zero) = no (λ ())
+even' (suc (suc n)) = even' n

@@ -55,41 +55,20 @@ Z ≈ℕ S m = ⊥
 S n ≈ℕ Z = ⊥
 S n ≈ℕ S m = n ≈ℕ m
 
-≈ℕ-refl : ∀ n → n ≈ℕ n
-≈ℕ-refl Z = tt
-≈ℕ-refl (S n) = ≈ℕ-refl n
-
-≈ℕ-sym : ∀ n m → n ≈ℕ m → m ≈ℕ n
-≈ℕ-sym Z Z = λ _ → tt
-≈ℕ-sym Z (S m) = λ z → z
-≈ℕ-sym (S n) Z = λ z → z
-≈ℕ-sym (S n) (S m) = ≈ℕ-sym n m
-
-≈ℕ-trans : ∀ n m o → n ≈ℕ m → m ≈ℕ o → n ≈ℕ o
-≈ℕ-trans Z Z o = λ _ z → z
-≈ℕ-trans Z (S m) o = λ ()
-≈ℕ-trans (S n) Z o = λ ()
-≈ℕ-trans (S n) (S m) Z = λ _ z → z
-≈ℕ-trans (S n) (S m) (S o) = ≈ℕ-trans n m o
-
 _+_ : ℕ → ℕ → ℕ
 Z + m = m
 S n + m = S (n + m)
 
-+assoc : ∀ n m o → ((n + m) + o) ≈ℕ (n + (m + o))
-+assoc Z Z Z = tt
-+assoc Z Z (S o) = +assoc Z Z o
-+assoc Z (S m) Z = +assoc Z m Z
-+assoc Z (S m) (S o) = +assoc Z m (S o)
-+assoc (S n) m Z = +assoc n m Z
-+assoc (S n) m (S o) = +assoc n m (S o)
++assoc : ∀ n m o → ((n + m) + o) ≡ (n + (m + o))
++assoc Z m o = refl
++assoc (S n) m o = cong S (+assoc n m o)
 
-ℕ+-IsSemigroup : IsSemigroup _≈ℕ_ _+_
+ℕ+-IsSemigroup : IsSemigroup _≡_ _+_
 ℕ+-IsSemigroup = record
     { isEquivalence = record
-        { refl  = λ {x} → ≈ℕ-refl x
-        ; sym   = λ {i j} x → ≈ℕ-sym i j x
-        ; trans = λ {i j k} x y → ≈ℕ-trans i j k x y
+        { refl  = refl
+        ; sym   = sym
+        ; trans = trans
         }
     ; associativity = +assoc
     }
@@ -97,7 +76,7 @@ S n + m = S (n + m)
 ℕ+-Semigroup : Semigroup _ _
 ℕ+-Semigroup = record
     { Carrier = ℕ
-    ; _≈_ = _≈ℕ_
+    ; _≈_ = _≡_
     ; _∙_ = _+_
     ; isSemigroup = ℕ+-IsSemigroup
     }

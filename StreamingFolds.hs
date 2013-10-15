@@ -1,11 +1,14 @@
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 {-# OPTIONS_GHC -fno-warn-unused-do-bind #-}
 
 module StreamingFolds where
 
+import Control.Monad
 import Control.Monad.Trans.Class
 import Control.Monad.Trans.Cont
+import Control.Monad.Trans.State
 import Data.Void
 import Debug.Trace
 
@@ -15,35 +18,57 @@ shift e = ContT $ \k -> e (lift . k) `runContT` return
 reset :: Cont a a -> Cont r a
 reset e = return $ e `runCont` id
 
-type Pipe i o r = Cont r o
+newtype Pipe i r = Pipe
+    { unPipe :: StateT (Maybe (Either (Pipe i (Step i r))
+                                     (Cont r (Step i r))))
+                      (Cont r) i }
 
-runPipe :: Pipe Void r r -> r
-runPipe p = runCont p id
+instance Monad (Pipe i)
+
+runPipe :: Pipe r r -> r
+runPipe p = runCont (evalStateT (unPipe p) Nothing) id
 
 data Step a b = Done | Step a (Cont b (Step a b))
 
-yield :: o -> Pipe i Void (Step o b)
-yield o = shift $ \k -> return $ Step o (k undefined)
+await :: Pipe o (Maybe o)
+await = Pipe $ do
+    Just e <- get
+    x <- case e of
+        Left e'  -> unPipe e' >>= lift . reset
+        Right e' -> lift e'
+    case x of
+        Step y next -> do
+            put $ Just (Right next)
+            return next
+        Done -> do
+            put Nothing
+            return undefined
 
-(>->) :: Pipe Void a a -> (Pipe Void a r -> p) -> p
-u >-> d = d (reset u)
+yield :: o -> Pipe o (Step o r)
+yield o = Pipe $ lift $ shift $ \k -> return $ Step o (k undefined)
 
-producer :: Pipe Void (Step Int r) (Step Int r)
+(>->) :: Pipe a (Step a r) -> Pipe a r -> Pipe a r
+u >-> d = Pipe $ do
+    put . Just . Left $ u
+    unPipe d
+
+producer :: Pipe Int (Step Int r)
 producer = do
     yield 1
     yield 2
     yield 3
-    return Done
 
-consumer :: Cont r (Step Int r) -> Pipe Int String r
-consumer i = do
-    Step x await <- i
+consumer :: Pipe Int Int
+consumer = do
+    x <- await
     trace (show x) $ return ()
-    Step x' await' <- await
-    trace (show x') $ return ()
-    Step x'' _ <- await'
-    trace (show x'') $ return ()
-    return "Hello"
+    x <- await
+    trace (show x) $ return ()
+    x <- await
+    trace (show x) $ return ()
+    x <- await
+    trace (show x) $ return ()
+    return 10
 
 main :: IO ()
 main = print $ runPipe (producer >-> consumer)

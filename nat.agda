@@ -11,12 +11,40 @@ open import Relation.Binary
 open import Relation.Binary.PropositionalEquality
 open ≡-Reasoning
 
+-- prime : ∀ n → Set
+-- prime zero = ⊥
+-- prime (suc zero) = ⊥
+-- prime (suc (suc zero)) = ⊤
+-- prime (suc n) = prime n
+
+-- goldbach : (n p q : ℕ) → n > 2 → even n
+--            → ∃₂ (λ p q → prime p × prime q × p + q ≡ n)
+-- goldbach zero p q () _
+-- goldbach (suc n) p q h₁ h₂ = {!!} , {!!}
+
+-- data Divides : ℕ → ℕ → Set where
+--     divides-by-1 : (n : ℕ) → Divides n 1
+
+-- DividesDecidable : Set
+-- DividesDecidable = ∀ n m → Dec (Divides n m)
+
+-- divides' : DividesDecidable
+-- divides' n zero = no (λ ())
+-- divides' n (suc zero) = yes (divides-by-1 n)
+-- divides' n m = {!!}
+
+-- divisible : ∀ n m → ∃₂ (λ q r → n ≡ m * q + r)
+-- divisible zero zero = zero , zero , refl
+-- divisible zero (suc m) = {!!}
+-- divisible (suc n) zero = n , suc n , refl
+-- divisible (suc n) (suc m) = {!!}
+
 lemma-indℕ : (P : ℕ → Set) → P zero → (∀ n → P n → P (suc n)) → ∀ n → P n
 lemma-indℕ P P0 istep zero    = P0
 lemma-indℕ P P0 istep (suc n) = istep n (lemma-indℕ P P0 istep n)
 
-lemma-suc= : ∀ a b → suc a ≡ suc b → a ≡ b
-lemma-suc= x .x refl = refl
+lemma-suc= : ∀ a b → a ≡ b → suc a ≡ suc b
+lemma-suc= n .n refl = refl
 
 lemma-+= : ∀ n m o → m ≡ o → n + m ≡ n + o
 lemma-+= n m o h = cong (_+_ n) h
@@ -44,6 +72,9 @@ lemma-+sucgl (suc a) b = refl
 lemma-+sucgr : ∀ a b → suc (a + b) ≡ a + suc b
 lemma-+sucgr zero b = refl
 lemma-+sucgr (suc a) b = cong suc (lemma-+sucgr a b)
+
+lemma-+sucsucl : ∀ n m → suc (suc (n + m)) ≡ suc n + suc m
+lemma-+sucsucl n m = cong suc (lemma-+sucgr n m)
 
 lemma-+sucsuc : ∀ a b → suc a + suc b ≡ suc (suc (a + b))
 lemma-+sucsuc zero b = refl
@@ -183,17 +214,19 @@ lemma-*assoc (suc n) m o =
         (suc n * m) * o
     ∎
 
--- data Even : ℕ → Set where
---     even-0  : Even 0
---     even-2+ : {n : ℕ} → Even n → Even (suc (suc n))
-
--- EvenDecidable : Set
--- EvenDecidable = ∀ n → Dec (Even n)
-
--- even : EvenDecidable
--- even zero = yes even-0
--- even (suc zero) = no (λ ())
--- even (suc (suc n)) = yes (even-2+ {!!})
+lemma-*over+ : ∀ a b c d → (a + b) * (c + d) ≡ a * c + a * d + b * c + b * d
+lemma-*over+ a b c d =
+    begin
+        (a + b) * (c + d)
+    ≡⟨ lemma-*rdist (c + d) a b ⟩
+        a * (c + d) + b * (c + d)
+    ≡⟨ cong (λ x → x + b * (c + d)) (lemma-*ldist a c d) ⟩
+        (a * c + a * d) + b * (c + d)
+    ≡⟨ cong (λ x → a * c + a * d + x) (lemma-*ldist b c d) ⟩
+        (a * c + a * d) + (b * c + b * d)
+    ≡⟨ sym (lemma-+assoc (a * c + a * d) (b * c) (b * d)) ⟩
+        a * c + a * d + b * c + b * d
+    ∎
 
 even : ∀ n → Set
 even zero = ⊤
@@ -312,16 +345,43 @@ odd*odd≡odd (suc zero) m h₁ h₂ = λ x → h₂ (subst even (lemma-+0 m) x)
 odd*odd≡odd (suc (suc n)) m h₁ h₂ =
     λ x → odd*odd≡odd n m h₁ h₂ (even-sucsuc* n m x)
 
--- odd*odd≡both-odd : ∀ n m → ¬ (even (n * m)) → ¬ (even n) × ¬ (even m)
--- odd*odd≡both-odd n m h = {!!}
+data Even : ℕ → Set where
+    even-0  : Even 0
+    even-2+ : {n : ℕ} → Even n → Even (suc (suc n))
 
--- prime : ∀ n → Set
--- prime zero = ⊥
--- prime (suc zero) = ⊥
--- prime (suc (suc zero)) = ⊤
--- prime (suc n) = prime n
+EvenDecidable : Set
+EvenDecidable = ∀ n → Dec (Even n)
 
--- goldbach : (n p q : ℕ) → n > 2 → even n
---            → ∃₂ (λ p q → prime p × prime q × p + q ≡ n)
--- goldbach zero p q () _
--- goldbach (suc n) p q h₁ h₂ = {!!} , {!!}
+even' : EvenDecidable
+even' zero = yes even-0
+even' (suc zero) = no (λ ())
+even' (suc (suc n)) with even' n
+even' (suc (suc n)) | yes p = yes (even-2+ p)
+even' (suc (suc n)) | no p = no (λ { (even-2+ x) → p x} )
+
+even+even≡even' : ∀ n m → Even n → Even m → Even (n + m)
+even+even≡even' .0 m even-0 h₂ = h₂
+even+even≡even' .(suc (suc n)) m (even-2+ {n} h₁) h₂ =
+    even-2+ (even+even≡even' n m h₁ h₂)
+
+even-sucsuc' : ∀ n → Even (suc (suc n)) → Even n
+even-sucsuc' n (even-2+ h) = h
+
+even-++' : ∀ n → Even (n + n)
+even-++' zero = even-0
+even-++' (suc zero) = even-2+ even-0
+even-++' (suc (suc n)) =
+    subst Even (cong suc (cong suc (sym (lemma-++ n))))
+        (even-2+ (even-2+ (even-++' n)))
+
+even*n≡even' : ∀ n m → Even n → Even (n * m)
+even*n≡even' .0 m even-0 = even-0
+even*n≡even' .(suc (suc n)) m (even-2+ {n} h) =
+    subst Even (lemma-+assoc m m (n * m))
+               (even+even≡even' (m + m) (n * m) (even-++' m)
+                                (even*n≡even' n m h))
+
+odd*odd≡both-odd : ∀ n m → ¬ (Even (n * m)) → ¬ (Even n) × ¬ (Even m)
+odd*odd≡both-odd n m h =
+    (λ x → h (even*n≡even' n m x)) ,
+    (λ x → h (subst Even (lemma-*comm m n) (even*n≡even' m n x)))

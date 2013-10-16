@@ -111,22 +111,31 @@ record Functor {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
            → Hom codomain (FObj A) (FObj B)
     isFunctor : IsFunctor domain codomain FObj FMap
 
-Sets : {α c₁ c₂ ℓ : Level} → Category (suc α) c₂ ℓ
-Sets {α} {c₁} {c₂} {ℓ} = record
-    { Obj = Set α
-    ; Hom = {!!} -- Set α → Set α → Set c₂
-    ; _≈_ = {!!}
-    ; _∘_ = {!!}
-    ; Id  = {!!}
-    ; isCategory = setIsCategory
-    }
-  where
-    setIsCategory : {c₁ c₂ ℓ : Level}
-                  → IsCategory {c₁} {c₂} {ℓ} {!!} {!!} {!!} {!!} {!!}
-    setIsCategory = record
-        { equivalence = {!!}
-        ; identityL   = {!!}
-        ; identityR   = {!!}
-        ; associative = {!!}
-        ; ∘-resp-≈    = {!!}
-        }
+-- Sets : {α c₁ c₂ ℓ : Level} → Category (suc c₂) c₂ ℓ
+-- Sets {α} {c₁} {c₂} {ℓ} = record
+--     { Obj = Set c₂
+--     ; Hom = λ x y → x → y
+--     ; _≈_ = {!!}
+--     ; _∘_ = λ x y z → x (y z)
+--     ; Id  = id
+--     ; isCategory = setIsCategory
+--     }
+--   where
+--     setIsCategory : {c₁ c₂ ℓ : Level}
+--                   → IsCategory {suc c₂} {c₂} {ℓ}
+--                         (Set c₂)
+--                         (λ x y → x → y)
+--                         {!!}
+--                         (λ x y z → x (y z))
+--                         id
+--     setIsCategory = record
+--         { equivalence =
+--               record { refl = refl
+--                      ; sym = sym
+--                      ; trans = trans
+--                      }
+--         ; identityL   = refl
+--         ; identityR   = refl
+--         ; associative = refl
+--         ; ∘-resp-≈    = λ x y → refl
+--         }

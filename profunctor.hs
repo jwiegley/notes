@@ -1,8 +1,18 @@
+{-# LANGUAGE TypeOperators #-}
+
 module Profunctor where
 
-import Control.Arrow
-import Control.Category
-import Prelude hiding ((.), id)
+import Control.Monad.IO.Class
+import Control.Monad.Trans.Maybe
+import Data.Maybe
+
+headMay :: [a] -> Maybe a
+headMay [] = Nothing
+headMay (a:_) = Just a
+
+maybeToList :: Maybe a -> [a]
+maybeToList Nothing = []
+maybeToList (Just a) = [a]
 
 class Profunctor p where
     dimap :: (a -> b) -> (c -> d) -> p b c -> p a d
@@ -14,17 +24,14 @@ class Profunctor p where
     rmap :: (c -> d) -> p b c -> p b d
     rmap = dimap id
 
-    (>>>>) :: p a b -> p b c -> p a c
-    (<<<<) :: p b c -> p a b -> p a c
+instance Profunctor (->) where
+    lmap f p = p . f
+    rmap f p = f . p
 
-newtype Hom a b = Hom (a -> b)
-
-instance Category Hom where
-    id = Hom id
-    Hom f . Hom g = Hom (f . g)
-
-instance Profunctor Hom where
-    lmap f (Hom p) = Hom (p . f)
-    rmap f (Hom p) = Hom (f . p)
-    Hom f <<<< Hom g = Hom (f . g)
-    Hom f >>>> Hom g = Hom (g . f)
+main :: IO ()
+main = do
+    _ <- runMaybeT . liftIO $ print (10 :: Int)
+    _ <- rmap runMaybeT liftIO $ print (10 :: Int)
+    print $ headMay [1,2,3]
+    print $ fromJust (headMay [1,2,3])
+    print $ (rmap fromJust headMay) [1,2,3]

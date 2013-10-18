@@ -1,0 +1,15 @@
+
+
+
+*** Protocol.hs: Syntax and style errors (Flycheck v0.14alpha)
+Protocol.hs:75:5:error: Couldn't match expected type `RunnerBaseIO (ProjectResult a)'
+                with actual type `ResourceT IO a0'
+    In the return type of a call of `runRunner'
+    In the expression: runRunner (projLabel label pid) irst go
+    In an equation for `runProject':
+        runProject label irst pid (RunnerProjectIO action)
+          = runRunner (projLabel label pid) irst go
+          where
+              go
+                = do { rs <- runnerState;
+                       .... } (haskell-ghc)

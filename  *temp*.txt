@@ -1,0 +1,7 @@
+    preConfig <- control $ \run -> do
+        let doLog = void . run . log . pack . ("ide-backend project: " ++)
+        run $ return defaultSessionConfig
+            { configDir = msDirectory
+            , configGenerateModInfo = msUseModInfo
+            , configLog = doLog
+            }

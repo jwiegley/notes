@@ -10,3 +10,6 @@
 [submodule "ct/coq-categories"]
 	path = ct/coq-categories
 	url = http://git.megacz.com/coq-categories.git
+[submodule "ct/mapoidcats"]
+	path = ct/mapoidcats
+	url = git://gitorious.org/cats/mapoidcats.git

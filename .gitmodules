@@ -13,3 +13,6 @@
 [submodule "ct/mapoidcats"]
 	path = ct/mapoidcats
 	url = git://gitorious.org/cats/mapoidcats.git
+[submodule "ct/setoidcats"]
+	path = ct/setoidcats
+	url = git://gitorious.org/cats/setoidcats.git

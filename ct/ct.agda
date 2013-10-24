@@ -83,7 +83,7 @@ C [ f ∘ g ] = Category._∘_ C f g
 infix  4 _[_≈_]
 infixr 9 _[_∘_]
 
-Id : ∀{c₁ c₂ ℓ} {C : Category c₁ c₂ ℓ} → (A : Obj C) →  Hom C A A
+Id : ∀{c₁ c₂ ℓ} {C : Category c₁ c₂ ℓ} → (A : Obj C) → Hom C A A
 Id {C = C} A = Category.Id C {A}
 
 record IsFunctor {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
@@ -121,17 +121,6 @@ f ∘ g = λ x → f (g x)
          → f ≡ g → h ≡ i → h ∘ f ≡ i ∘ g
 ∘-resp-≈ refl refl = refl
 
-Identity : {c₁ c₂ ℓ : Level} (C : Category c₁ c₂ ℓ) → Functor C C
-Identity C = record
-    { FObj = λ x → x
-    ; FMap = λ x → x
-    ; isFunctor = record
-        { ≈-cong = λ x → x
-        ; identity = Id C
-        ; distr = {!!}
-        }
-    }
-
 Sets : {ℓ : Level} → Category _ _ ℓ
 Sets {ℓ} = record
     { Obj = Set ℓ
@@ -151,6 +140,17 @@ Sets {ℓ} = record
         ; ∘-resp-≈    = ∘-resp-≈
         }
 
+Identity : {c₁ c₂ ℓ : Level} (C : Category c₁ c₂ ℓ) → Functor C C
+Identity C = record
+    { FObj = λ x → x
+    ; FMap = λ x → x
+    ; isFunctor = record
+        { ≈-cong = λ x → x
+        ; identity = λ {A} → {!!}
+        ; distr = λ {a} {b} {c} {f} {g} → {!!}
+        }
+    }
+
 data _-Nat⟶_ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
     {C : Category c₁ c₂ ℓ}
     {D : Category c₁′ c₂′ ℓ′}
@@ -161,7 +161,7 @@ IdNat : {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
     {C : Category c₁ c₂ ℓ}
     {D : Category c₁′ c₂′ ℓ′}
     (A : Functor C D) → _-Nat⟶_ A A
-IdNat a = {!!}
+IdNat F = NatTrans {!!}
 
 _-Nat∘_ : ∀ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
             {C : Category c₁ c₂ ℓ}

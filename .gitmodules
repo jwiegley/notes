@@ -4,3 +4,6 @@
 [submodule "ct/category-agda"]
 	path = ct/category-agda
 	url = git://github.com/konn/category-agda.git
+[submodule "ct/cats"]
+	path = ct/cats
+	url = git://gitorious.org/cats/cats.git

@@ -16,3 +16,6 @@
 [submodule "ct/setoidcats"]
 	path = ct/setoidcats
 	url = git://gitorious.org/cats/setoidcats.git
+[submodule "ct/setoidfam"]
+	path = ct/setoidfam
+	url = git://gitorious.org/cats/setoidfam.git

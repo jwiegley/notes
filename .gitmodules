@@ -1,3 +1,6 @@
 [submodule "ct/categories"]
 	path = ct/categories
 	url = git://github.com/copumpkin/categories.git
+[submodule "ct/category-agda"]
+	path = ct/category-agda
+	url = git://github.com/konn/category-agda.git

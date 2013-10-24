@@ -2,7 +2,7 @@
 
 module Monads where
 
-import Data.Monoid
+import Data.Monoid hiding (Sum)
 
 newtype Compose f g a = Compose (f (g a)) deriving Functor
 

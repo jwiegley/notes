@@ -1,0 +1,3 @@
+[submodule "ct/categories"]
+	path = ct/categories
+	url = git://github.com/copumpkin/categories.git

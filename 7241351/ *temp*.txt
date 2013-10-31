@@ -1,0 +1,33 @@
+Vulcan:~/fpco/branches/feature {master} $ fpbuild -j -fdev --enable-tests
+Files updated in local package: isolation-runner
+unregistering: isolation-runner
+unregistering isolation-runner would break the following packages: learning-site-0.0.0 (ignoring)
+unregistering: learning-site
+Going to build the following local packages:
+isolation-runner
+learning-site
+learning-site-ui-test
+Resolving dependencies...
+Configuring isolation-runner-0.1.0.0...
+Building isolation-runner-0.1.0.0...
+Installed isolation-runner-0.1.0.0
+Configuring learning-site-0.0.0...
+Building learning-site-0.0.0...
+Failed to install learning-site-0.0.0
+Last 10 lines of the build log ( /Volumes/Data/Home/Contracts/FPComplete/Projects/fpco/branches/feature/.hsenvs/ghc-7.4.2.9/.hsenv/cabal/logs/learning-site-0.0.0.log ):
+uncaught exception: ErrorCall (Expected 0 errors, received: [SourceInfo {infoKind = KindError, infoSpan = ProperSpan (SourceSpan {spanSource = SpanModuleName (FayNormalModule "Bar"), spanFromLine = 1, spanFromColumn = 8, spanToLine = 1, spanToColumn = 11}), infoMsg = "Unexpected module name: Foo"},SourceInfo {infoKind = KindHint, infoSpan = ProperSpan (SourceSpan {spanSource = SpanModuleName (FayMainModule "src/Main.hs"), spanFromLine = 6, spanFromColumn = 8, spanToLine = 6, spanToColumn = 8}), infoMsg = "Suggestion: Redundant do\nFound:\n  do putStrLn \"Welcome to FP Haskell Center!\"\nWhy not:\n  putStrLn \"Welcome to FP Haskell Center!\""}])
+
+Randomized with seed 512399800866186168
+
+Finished in 76.6924 seconds
+149 examples, 1 failure
+Oct-30 22:17:56 [INFO] >closeAllProjects@298
+Test suite test: FAIL
+Test suite logged to: dist/test/learning-site-0.0.0-test.log
+0 of 1 test suites (0 of 1 test cases) passed.
+cabal: Error: some packages failed to install:
+learning-site-0.0.0 failed during the tests phase. The exception was:
+ExitFailure 1
+learning-site-ui-test-0.0.0 depends on learning-site-0.0.0 which failed to
+install.
+fpbuild: Build failed: ExitFailure 1

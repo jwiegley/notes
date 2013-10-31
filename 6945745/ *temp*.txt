@@ -1,0 +1,13 @@
+{-# LANGUAGE TypeOperators #-}
+
+module HOApplicative where
+
+import Data.Functor.Compose
+import Control.Monad.Free
+
+newtype (f :-> g) a = NTrans (f a -> g a)
+
+(<<*>>) :: (Functor f, Functor g)
+        => Free (f :-> g) a -> Free f a -> Free g a
+Pure _ <<*>> _ = error "Uh oh"
+Free (NTrans f) <<*>> x = fmap (hoistFree f) x

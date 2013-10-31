@@ -1,0 +1,4 @@
+Loading package isolation-runner-0.1.0.0 ... linking ... ghc: 
+lookupSymbol failed in relocateSection (relocate external)
+/Volumes/Data/Home/Contracts/FPComplete/Projects/fpco/isolation-runner/dist/build/libHSisolation-runner-0.1.0.0.a: unknown symbol `_asynczmactorzm0zi1zi0zi0_ControlziConcurrentziActorziContext_zdfMonadBaseControlIOContextT_closure'
+ghc: unable to load package `isolation-runner-0.1.0.0'

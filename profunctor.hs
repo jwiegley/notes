@@ -1,10 +1,14 @@
+{-# LANGUAGE ConstraintKinds #-}
 {-# LANGUAGE TypeOperators #-}
 
 module Profunctor where
 
+import Control.Lens.Internal.Indexed
 import Control.Monad.IO.Class
 import Control.Monad.Trans.Maybe
+import Data.Copointed
 import Data.Maybe
+import GHC.Exts
 
 headMay :: [a] -> Maybe a
 headMay [] = Nothing
@@ -27,6 +31,14 @@ class Profunctor p where
 instance Profunctor (->) where
     lmap f p = p . f
     rmap f p = f . p
+
+class (Functor f, Profunctor p) => PApplicative f p where
+    pure :: a -> p (f ()) (f a)
+    (<*>) :: f (p a b) -> p (f a) (f b)
+
+instance (Functor f, Copointed f) => PApplicative f (->) where
+    pure x = fmap (\() -> x)
+    (<*>) = copoint . fmap distrib
 
 main :: IO ()
 main = do

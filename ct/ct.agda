@@ -156,48 +156,60 @@ Identity C = record
 data _-Nat⟶_ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
     {C : Category c₁ c₂ ℓ}
     {D : Category c₁′ c₂′ ℓ′}
-    (A B : Functor C D) : Set (suc (c₁ ⊔ c₂ ⊔ ℓ ⊔ c₁′ ⊔ c₂′ ⊔ ℓ′)) where
-    NatTrans : ((x : Category.Obj C)
-                → Category.Hom D (Functor.FObj A x) (Functor.FObj B x))
-             → A -Nat⟶ B
+    (F G : Functor C D) : Set (suc (c₁ ⊔ c₂ ⊔ ℓ ⊔ c₁′ ⊔ c₂′ ⊔ ℓ′)) where
+    NatTrans : (∀ {x : Category.Obj C}
+                → Category.Hom D (Functor.FObj F x) (Functor.FObj G x))
+             → F -Nat⟶ G
 
 _-Nat≈_ : ∀ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
             {C : Category c₁ c₂ ℓ}
             {D : Category c₁′ c₂′ ℓ′}
-            {F G : Functor C D} → F -Nat⟶ G → F -Nat⟶ G → Set c₁′
-F -Nat≈ G = {!!}
+            {F G : Functor C D}
+            {x : Category.Obj C}
+          → Rel (F -Nat⟶ G) ℓ′
+_-Nat≈_ {C = C} {D = D} {x = x} (NatTrans f) (NatTrans g) =
+    Category._≈_ D (f {x}) (g {x})
 
 _-Nat∘_ : ∀ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
             {C : Category c₁ c₂ ℓ}
             {D : Category c₁′ c₂′ ℓ′}
-            {A B C : Functor C D}
-            (f : B -Nat⟶ C) (g : A -Nat⟶ B) → (A -Nat⟶ C)
-f -Nat∘ g = NatTrans (λ x → {!!})
+            {F G H : Functor C D}
+          (f : G -Nat⟶ H) (g : F -Nat⟶ G) → (F -Nat⟶ H)
+_-Nat∘_ {D = D} (NatTrans f) (NatTrans g) = NatTrans (Category._∘_ D f g)
+
+Nat∘-resp-Nat≈ : ∀ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
+                   {C : Category c₁ c₂ ℓ}
+                   {D : Category c₁′ c₂′ ℓ′}
+                   {F G H : Functor C D}
+                   {f g : F -Nat⟶ G} {h i : G -Nat⟶ H}
+                 → f -Nat≈ g → h -Nat≈ i → (h -Nat∘ f) -Nat≈ (i -Nat∘ g)
+Nat∘-resp-Nat≈ p q = {!!}
 
 IdNat : {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
-    {C : Category c₁ c₂ ℓ}
-    {D : Category c₁′ c₂′ ℓ′}
-    (A : Functor C D) → A -Nat⟶ A
-IdNat {C = C} F = NatTrans (λ x → Functor.FMap F (Category.Id C))
+        {C : Category c₁ c₂ ℓ}
+        {D : Category c₁′ c₂′ ℓ′}
+        {F : Functor C D}
+        → F -Nat⟶ F
+IdNat {C = C} {F = F} = NatTrans (Functor.FMap F (Category.Id C))
 
 Fun : {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
-    → (C : Category c₁ c₂ ℓ)
-    → (D : Category c₁′ c₂′ ℓ′)
-    → Category _ _ c₁′
-Fun {c₁} {c₂} {ℓ} {c₁′} {c₂′} {ℓ′} C D = record
+      → (C : Category c₁ c₂ ℓ)
+      → (D : Category c₁′ c₂′ ℓ′)
+      → Category _ _ ℓ′
+Fun C D = record
     { Obj = Functor C D
     ; Hom = _-Nat⟶_
     ; _≈_ = _-Nat≈_
     ; _∘_ = _-Nat∘_
-    ; Id  = λ {A} → IdNat A
+    ; Id  = IdNat
     ; isCategory = funIsCategory
     }
   where
-    funIsCategory : {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
-                    {C : Category c₁ c₂ ℓ}
-                    {D : Category c₁′ c₂′ ℓ′}
-                  → IsCategory (Functor C D)
-                        _-Nat⟶_ _-Nat≈_ _-Nat∘_ (λ {A} → IdNat A)
+    funIsCategory
+        : {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
+          {C : Category c₁ c₂ ℓ}
+          {D : Category c₁′ c₂′ ℓ′}
+          → IsCategory (Functor C D) _-Nat⟶_ _-Nat≈_ _-Nat∘_ IdNat
     funIsCategory = record
         { equivalence =
               record { refl  = {!!}

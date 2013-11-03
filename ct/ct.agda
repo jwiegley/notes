@@ -140,6 +140,8 @@ Sets {ℓ} = record
         ; ∘-resp-≈    = ∘-resp-≈
         }
 
+-- The Identity functor
+
 Identity : {c₁ c₂ ℓ : Level} (C : Category c₁ c₂ ℓ) → Functor C C
 Identity C = record
     { FObj = id
@@ -150,52 +152,45 @@ Identity C = record
             (IsCategory.equivalence (Category.isCategory C))
         ; distr = IsEquivalence.refl
             (IsCategory.equivalence (Category.isCategory C))
-        }
+
+            }
     }
 
-data _-Nat⟶_ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
-    {C : Category c₁ c₂ ℓ}
-    {D : Category c₁′ c₂′ ℓ′}
+-- Every functor F : C → D forms a category by the identity natural
+-- transformation and composition of natural transformations.
+
+data _-Nat⟶_
+    {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
+    {C : Category c₁ c₂ ℓ} {D : Category c₁′ c₂′ ℓ′}
     (F G : Functor C D) : Set (suc (c₁ ⊔ c₂ ⊔ ℓ ⊔ c₁′ ⊔ c₂′ ⊔ ℓ′)) where
     NatTrans : (∀ {x : Category.Obj C}
                 → Category.Hom D (Functor.FObj F x) (Functor.FObj G x))
              → F -Nat⟶ G
 
-_-Nat≈_ : ∀ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
-            {C : Category c₁ c₂ ℓ}
-            {D : Category c₁′ c₂′ ℓ′}
-            {F G : Functor C D}
-            {x : Category.Obj C}
-          → Rel (F -Nat⟶ G) ℓ′
-_-Nat≈_ {C = C} {D = D} {x = x} (NatTrans f) (NatTrans g) =
-    Category._≈_ D (f {x}) (g {x})
+data _-Nat≈_
+    {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
+    {C : Category c₁ c₂ ℓ} {D : Category c₁′ c₂′ ℓ′}
+    {F G : Functor C D}
+    : Rel (F -Nat⟶ G) (suc (c₁ ⊔ c₂ ⊔ ℓ ⊔ c₁′ ⊔ c₂′ ⊔ ℓ′)) where
+    NatEq : (f g : F -Nat⟶ G) → f -Nat≈ g
 
 _-Nat∘_ : ∀ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
-            {C : Category c₁ c₂ ℓ}
-            {D : Category c₁′ c₂′ ℓ′}
+            {C : Category c₁ c₂ ℓ} {D : Category c₁′ c₂′ ℓ′}
             {F G H : Functor C D}
           (f : G -Nat⟶ H) (g : F -Nat⟶ G) → (F -Nat⟶ H)
 _-Nat∘_ {D = D} (NatTrans f) (NatTrans g) = NatTrans (Category._∘_ D f g)
 
-Nat∘-resp-Nat≈ : ∀ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
-                   {C : Category c₁ c₂ ℓ}
-                   {D : Category c₁′ c₂′ ℓ′}
-                   {F G H : Functor C D}
-                   {f g : F -Nat⟶ G} {h i : G -Nat⟶ H}
-                 → f -Nat≈ g → h -Nat≈ i → (h -Nat∘ f) -Nat≈ (i -Nat∘ g)
-Nat∘-resp-Nat≈ p q = {!!}
-
-IdNat : {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
-        {C : Category c₁ c₂ ℓ}
-        {D : Category c₁′ c₂′ ℓ′}
-        {F : Functor C D}
+IdNat : ∀ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
+          {C : Category c₁ c₂ ℓ} {D : Category c₁′ c₂′ ℓ′}
+          {F : Functor C D}
         → F -Nat⟶ F
 IdNat {C = C} {F = F} = NatTrans (Functor.FMap F (Category.Id C))
 
-Fun : {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
+Fun : ∀ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
       → (C : Category c₁ c₂ ℓ)
       → (D : Category c₁′ c₂′ ℓ′)
-      → Category _ _ ℓ′
+      → Category _ _
+        (suc ℓ′ ⊔ (suc c₂′ ⊔ (suc c₁′ ⊔ (suc ℓ ⊔ (suc c₂ ⊔ suc c₁)))))
 Fun C D = record
     { Obj = Functor C D
     ; Hom = _-Nat⟶_
@@ -212,12 +207,14 @@ Fun C D = record
           → IsCategory (Functor C D) _-Nat⟶_ _-Nat≈_ _-Nat∘_ IdNat
     funIsCategory = record
         { equivalence =
-              record { refl  = {!!}
-                     ; sym   = {!!}
-                     ; trans = {!!}
+              record { refl  = λ {x} → NatEq x x
+                     ; sym   = λ {i} {j} _ → NatEq j i
+                     ; trans = λ {i} {j} {k} _ _ → NatEq i k
                      }
-        ; identityL   = {!!}
-        ; identityR   = {!!}
-        ; associative = {!!}
-        ; ∘-resp-≈    = {!!}
+        ; identityL   = λ {A} {B} {f} → NatEq (IdNat -Nat∘ f) f
+        ; identityR   = λ {A} {B} {f} → NatEq (f -Nat∘ IdNat) f
+        ; associative = λ {A} {B} {C₁} {D₁} {f} {g} {h} →
+                            NatEq (f -Nat∘ (g -Nat∘ h)) ((f -Nat∘ g) -Nat∘ h)
+        ; ∘-resp-≈    = λ {A} {B} {C₁} {f} {g} {h} {i} _ _ →
+                            NatEq (h -Nat∘ f) (i -Nat∘ g)
         }

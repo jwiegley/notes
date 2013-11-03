@@ -167,12 +167,11 @@ data _-Nat⟶_
                 → Category.Hom D (Functor.FObj F x) (Functor.FObj G x))
              → F -Nat⟶ G
 
-data _-Nat≈_
-    {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
-    {C : Category c₁ c₂ ℓ} {D : Category c₁′ c₂′ ℓ′}
-    {F G : Functor C D}
-    : Rel (F -Nat⟶ G) (suc (c₁ ⊔ c₂ ⊔ ℓ ⊔ c₁′ ⊔ c₂′ ⊔ ℓ′)) where
-    NatEq : (f g : F -Nat⟶ G) → f -Nat≈ g
+IdNat : ∀ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
+          {C : Category c₁ c₂ ℓ} {D : Category c₁′ c₂′ ℓ′}
+          {F : Functor C D}
+        → F -Nat⟶ F
+IdNat {C = C} {F = F} = NatTrans (Functor.FMap F (Category.Id C))
 
 _-Nat∘_ : ∀ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
             {C : Category c₁ c₂ ℓ} {D : Category c₁′ c₂′ ℓ′}
@@ -180,11 +179,12 @@ _-Nat∘_ : ∀ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
           (f : G -Nat⟶ H) (g : F -Nat⟶ G) → (F -Nat⟶ H)
 _-Nat∘_ {D = D} (NatTrans f) (NatTrans g) = NatTrans (Category._∘_ D f g)
 
-IdNat : ∀ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
-          {C : Category c₁ c₂ ℓ} {D : Category c₁′ c₂′ ℓ′}
-          {F : Functor C D}
-        → F -Nat⟶ F
-IdNat {C = C} {F = F} = NatTrans (Functor.FMap F (Category.Id C))
+data _-Nat≈_
+    {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
+    {C : Category c₁ c₂ ℓ} {D : Category c₁′ c₂′ ℓ′}
+    {F G : Functor C D}
+    : Rel (F -Nat⟶ G) (suc (c₁ ⊔ c₂ ⊔ ℓ ⊔ c₁′ ⊔ c₂′ ⊔ ℓ′)) where
+    NatEq : (f g : F -Nat⟶ G) → f -Nat≈ g
 
 Fun : ∀ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
       → (C : Category c₁ c₂ ℓ)

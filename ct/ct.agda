@@ -218,3 +218,8 @@ Fun C D = record
         ; ∘-resp-≈    = λ {A} {B} {C₁} {f} {g} {h} {i} _ _ →
                             NatEq (h -Nat∘ f) (i -Nat∘ g)
         }
+
+-- The category of endofunctors
+
+EndoFun : {c₁ c₂ ℓ : Level} → (C : Category c₁ c₂ ℓ) → Category _ _ _
+EndoFun C = Fun C C

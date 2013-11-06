@@ -56,7 +56,7 @@ instance MonadBaseControl IO m => Applicative (ConcurrentT m) where
     pure = return
     ConcurrentT f <*> ConcurrentT a =
         -- run actions concurrently in the Applicative
-        ConcurrentT $ withAsync a $ \a' -> ($) <$> f <*> wait a'
+        ConcurrentT $ withAsync a $ \a' -> f <*> wait a'
 
 instance MonadTrans ConcurrentT where
     lift = ConcurrentT . lift

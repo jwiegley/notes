@@ -18,8 +18,8 @@ type Free f a = Fix (Compose (Either a) f)
 --     fmap f (Fix (Compose (Right m))) = Fix $ Right $ fmap (fmap f) m
 
 iterM :: (Monad m, Functor f) => (f (m a) -> m a) -> Free f a -> m a
-iterM _  (Fix (Compose (Left a)))  = return a
-iterM f  (Fix (Compose (Right m))) = f $ fmap (iterM f) m
+iterM _ (Fix (Compose (Left a)))  = return a
+iterM f (Fix (Compose (Right m))) = f $ fmap (iterM f) m
 
 main :: IO ()
 main = print =<< iterM (\(x, y) -> print x >> y) xs

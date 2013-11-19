@@ -3,6 +3,8 @@ module ct where
 open import alg
 open import Level
 open import Function hiding (_∘_)
+open import Relation.Nullary
+open import Relation.Nullary.Decidable
 open import Relation.Binary
 open import Relation.Binary.PropositionalEquality
 open ≡-Reasoning
@@ -121,8 +123,8 @@ f ∘ g = λ x → f (g x)
          → f ≡ g → h ≡ i → h ∘ f ≡ i ∘ g
 ∘-resp-≈ refl refl = refl
 
-Sets : {ℓ : Level} → Category _ _ ℓ
-Sets {ℓ} = record
+Set′ : {ℓ : Level} → Category _ _ ℓ
+Set′ {ℓ} = record
     { Obj = Set ℓ
     ; Hom = _⟶_
     ; _≈_ = _≡_
@@ -167,6 +169,10 @@ data _-Nat⟶_
                 → Category.Hom D (Functor.FObj F x) (Functor.FObj G x))
              → F -Nat⟶ G
 
+Nat⟶Decidable : {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
+                 {C : Category c₁ c₂ ℓ} {D : Category c₁′ c₂′ ℓ′} → Set _
+Nat⟶Decidable {C = C} {D = D} = ∀ (F G : Functor C D) → Dec (F -Nat⟶ G)
+
 IdNat : ∀ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
           {C : Category c₁ c₂ ℓ} {D : Category c₁′ c₂′ ℓ′}
           {F : Functor C D}
@@ -186,6 +192,25 @@ data _-Nat≈_
     : Rel (F -Nat⟶ G) (suc (c₁ ⊔ c₂ ⊔ ℓ ⊔ c₁′ ⊔ c₂′ ⊔ ℓ′)) where
     NatEq : (f g : F -Nat⟶ G) → f -Nat≈ g
 
+funIsCategory
+    : {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
+      {C : Category c₁ c₂ ℓ}
+      {D : Category c₁′ c₂′ ℓ′}
+      → IsCategory (Functor C D) _-Nat⟶_ _-Nat≈_ _-Nat∘_ IdNat
+funIsCategory = record
+    { equivalence =
+          record { refl  = λ {x} → NatEq x x
+                 ; sym   = λ {i} {j} _ → NatEq j i
+                 ; trans = λ {i} {j} {k} _ _ → NatEq i k
+                 }
+    ; identityL   = λ {A} {B} {f} → NatEq (IdNat -Nat∘ f) f
+    ; identityR   = λ {A} {B} {f} → NatEq (f -Nat∘ IdNat) f
+    ; associative = λ {A} {B} {C₁} {D₁} {f} {g} {h} →
+                    NatEq (f -Nat∘ (g -Nat∘ h)) ((f -Nat∘ g) -Nat∘ h)
+    ; ∘-resp-≈    = λ {A} {B} {C₁} {f} {g} {h} {i} _ _ →
+                        NatEq (h -Nat∘ f) (i -Nat∘ g)
+    }
+
 Fun : ∀ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
       → (C : Category c₁ c₂ ℓ)
       → (D : Category c₁′ c₂′ ℓ′)
@@ -199,27 +224,78 @@ Fun C D = record
     ; Id  = IdNat
     ; isCategory = funIsCategory
     }
-  where
-    funIsCategory
-        : {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
-          {C : Category c₁ c₂ ℓ}
-          {D : Category c₁′ c₂′ ℓ′}
-          → IsCategory (Functor C D) _-Nat⟶_ _-Nat≈_ _-Nat∘_ IdNat
-    funIsCategory = record
-        { equivalence =
-              record { refl  = λ {x} → NatEq x x
-                     ; sym   = λ {i} {j} _ → NatEq j i
-                     ; trans = λ {i} {j} {k} _ _ → NatEq i k
-                     }
-        ; identityL   = λ {A} {B} {f} → NatEq (IdNat -Nat∘ f) f
-        ; identityR   = λ {A} {B} {f} → NatEq (f -Nat∘ IdNat) f
-        ; associative = λ {A} {B} {C₁} {D₁} {f} {g} {h} →
-                            NatEq (f -Nat∘ (g -Nat∘ h)) ((f -Nat∘ g) -Nat∘ h)
-        ; ∘-resp-≈    = λ {A} {B} {C₁} {f} {g} {h} {i} _ _ →
-                            NatEq (h -Nat∘ f) (i -Nat∘ g)
-        }
 
 -- The category of endofunctors
 
 EndoFun : {c₁ c₂ ℓ : Level} → (C : Category c₁ c₂ ℓ) → Category _ _ _
 EndoFun C = Fun C C
+
+-- fun' : {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
+--        {C : Category c₁ c₂ ℓ} {D : Category c₁′ c₂′ ℓ′}
+--        → Nat⟶Decidable {c₁} {c₂} {ℓ} {c₁} {c₂} {ℓ} {C} {C}
+-- fun' {c₁} {c₂} {ℓ} {c₁′} {c₂′} {ℓ′} {C} {D} =
+--     λ F G → yes (NatTrans (Functor.FMap F (Category.Id C)))
+
+-- record IsAdjunction {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
+--     (C : Category c₁ c₂ ℓ)
+--     (D : Category c₁′ c₂′ ℓ′)
+--     (G : Functor C D)
+--     (F : Functor D C)
+--     ((A : Obj C) → (G -Nat∘ F) A)
+--     : Set ? where
+--   field
+
+open Functor
+
+_○_ : ∀ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ c₁″ c₂″ ℓ″ : Level}
+        {C : Category c₁ c₂ ℓ}
+        {D : Category c₁′ c₂′ ℓ′}
+        {E : Category c₁″ c₂″ ℓ″}
+        (F : Functor D E) → (G : Functor C D) → Functor C E
+_○_ {C = C} {E = E} G F = record
+    { FObj = λ x → FObj G (FObj F x)
+    ; FMap = λ f → FMap G (FMap F f)
+    ; isFunctor = myIsFunctor
+    }
+  where
+    myIsFunctor
+        : IsFunctor C E (λ x → FObj G (FObj F x)) (λ x → FMap G (FMap F x))
+    myIsFunctor = record
+        { ≈-cong = λ x →
+            IsFunctor.≈-cong (isFunctor G) (IsFunctor.≈-cong (isFunctor F) x)
+        ; identity = IsEquivalence.trans
+            (IsCategory.equivalence (Category.isCategory E))
+            (IsFunctor.≈-cong (isFunctor G) (IsFunctor.identity (isFunctor F)))
+            (IsFunctor.identity (isFunctor G))
+        ; distr = IsEquivalence.trans
+            (IsCategory.equivalence (Category.isCategory E))
+            (IsFunctor.≈-cong (isFunctor G) (IsFunctor.distr (isFunctor F)))
+            (IsFunctor.distr (isFunctor G))
+        }
+
+record Adjunction {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
+    {C : Category c₁ c₂ ℓ} {D : Category c₁′ c₂′ ℓ′}
+    (G : Functor C D) (F : Functor D C)
+    : Set (suc (c₁ ⊔ c₂ ⊔ ℓ ⊔ c₁′ ⊔ c₂′ ⊔ ℓ′)) where
+  field
+    ε : (F ○ G) -Nat⟶ Identity C
+    η : Identity D  -Nat⟶ (G ○ F)
+
+HomF : {c₁ c₂ ℓ : Level}
+    (C : Category c₁ c₂ ℓ) → Functor C Set′
+HomF C = record
+    { FObj = λ (x : Obj C) → ∀ a → Hom C a x
+    ; FMap = λ f g a → Category._∘_ C f (g a)
+    ; isFunctor = record
+        { ≈-cong = λ x → {!!}
+        ; identity = λ {A} →
+            begin
+                (λ f a → Category._∘_ C (Category.Id C) (f a))
+            ≡⟨ IsCategory.identityL (Category.isCategory C) ⟩
+                (λ f a → f a)
+            ≡⟨ refl ⟩
+                (λ x → x)
+            ∎
+        ; distr = λ {a} {b} {c} {f} {g} → {!!}
+        }
+    }

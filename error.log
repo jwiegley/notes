@@ -1,53 +1,96 @@
-Import/Project.hs:514:27:
-    No instance for (PersistQuery
-                       (Lg.LgRepository (SqlPersistT (HandlerT App IO))))
-      arising from a use of `selectSource'
+Import/Project.hs:511:35:
+    Couldn't match expected type `Lg.LgRepository m0 a0'
+                with actual type `HandlerT site0 IO a1'
+    In the second argument of `($)', namely
+      `$runDB
+       $ do { commitoid <- parseObjOid (unCommitSHA sha);
+              commit <- lookupCommit commitoid;
+              tree <- lookupTree (commitTree commit);
+              bs <- diffContentsWithTree (modules >> dataFiles) tree
+                    $$ CB.sinkLbs;
+              .... }'
+    In a stmt of a 'do' block:
+      Lg.runLgRepository repo
+      $ $runDB
+        $ do { commitoid <- parseObjOid (unCommitSHA sha);
+               commit <- lookupCommit commitoid;
+               tree <- lookupTree (commitTree commit);
+               bs <- diffContentsWithTree (modules >> dataFiles) tree
+                     $$ CB.sinkLbs;
+               .... }
+    In the expression:
+      do { repo <- openProjectRepo projid;
+           Lg.runLgRepository repo
+           $ $runDB
+             $ do { commitoid <- parseObjOid (unCommitSHA sha);
+                    commit <- lookupCommit commitoid;
+                    .... } }
+
+Import/Project.hs:512:13:
+    Couldn't match type `YesodPersistBackend site0' with `SqlPersistT'
+    Expected type: YesodDB site0 (Either a1 ByteString)
+      Actual type: SqlPersistT
+                     (HandlerT site0 IO) (Either a1 ByteString)
+    Expected type: SqlPersistT
+                     (HandlerT site0 IO) (CommitOid (SqlPersistT (HandlerT site0 IO)))
+                   -> (CommitOid (SqlPersistT (HandlerT site0 IO))
+                       -> SqlPersistT (HandlerT site0 IO) (Either a1 ByteString))
+                   -> YesodDB site0 (Either a1 ByteString)
+      Actual type: SqlPersistT
+                     (HandlerT site0 IO) (CommitOid (SqlPersistT (HandlerT site0 IO)))
+                   -> (CommitOid (SqlPersistT (HandlerT site0 IO))
+                       -> SqlPersistT (HandlerT site0 IO) (Either a1 ByteString))
+                   -> SqlPersistT (HandlerT site0 IO) (Either a1 ByteString)
+    In a stmt of a 'do' block:
+      commitoid <- parseObjOid (unCommitSHA sha)
+    In the second argument of `($)', namely
+      `do { commitoid <- parseObjOid (unCommitSHA sha);
+            commit <- lookupCommit commitoid;
+            tree <- lookupTree (commitTree commit);
+            bs <- diffContentsWithTree (modules >> dataFiles) tree
+                  $$ CB.sinkLbs;
+            .... }'
+
+Import/Project.hs:512:26:
+    No instance for (Repository (SqlPersistT (HandlerT site0 IO)))
+      arising from a use of `parseObjOid'
     Possible fix:
       add an instance declaration for
-      (PersistQuery (Lg.LgRepository (SqlPersistT (HandlerT App IO))))
-    In the first argument of `($=)', namely
-      `selectSource [ModuleProject ==. projid] []'
-    In the expression:
-      selectSource [ModuleProject ==. projid] [] $= awaitForever mf
-    In an equation for `modules':
-        modules
-          = selectSource [ModuleProject ==. projid] [] $= awaitForever mf
+      (Repository (SqlPersistT (HandlerT site0 IO)))
+    In a stmt of a 'do' block:
+      commitoid <- parseObjOid (unCommitSHA sha)
+    In the second argument of `($)', namely
+      `do { commitoid <- parseObjOid (unCommitSHA sha);
+            commit <- lookupCommit commitoid;
+            tree <- lookupTree (commitTree commit);
+            bs <- diffContentsWithTree (modules >> dataFiles) tree
+                  $$ CB.sinkLbs;
+            .... }'
+    In the second argument of `($)', namely
+      `$runDB
+       $ do { commitoid <- parseObjOid (unCommitSHA sha);
+              commit <- lookupCommit commitoid;
+              tree <- lookupTree (commitTree commit);
+              bs <- diffContentsWithTree (modules >> dataFiles) tree
+                    $$ CB.sinkLbs;
+              .... }'
 
-Import/Project.hs:514:27:
-    Couldn't match type `PersistMonadBackend
-                           (Lg.LgRepository (SqlPersistT (HandlerT App IO)))'
-                   with `SqlBackend'
-    Expected type: PersistMonadBackend
-                     (Lg.LgRepository (SqlPersistT (HandlerT App IO)))
-      Actual type: PersistEntityBackend Module
-    In the first argument of `($=)', namely
-      `selectSource [ModuleProject ==. projid] []'
-    In the expression:
-      selectSource [ModuleProject ==. projid] [] $= awaitForever mf
-    In an equation for `modules':
-        modules
-          = selectSource [ModuleProject ==. projid] [] $= awaitForever mf
+Import/Project.hs:768:44:
+    No instance for (IsOid (Oid m3))
+      arising from a use of `renderObjOid'
+    Possible fix: add an instance declaration for (IsOid (Oid m3))
+    In the second argument of `($)', namely `renderObjOid oid'
+    In the expression: BlobSHA $ renderObjOid oid
+    In an equation for `sha': sha = BlobSHA $ renderObjOid oid
 
-Import/Project.hs:523:45:
-    Couldn't match type `i' with `()'
-      `i' is a rigid type variable bound by
-          a type expected by the context:
-            ConduitM
-              i
-              (Either TreeFilePath ByteString)
-              (Lg.LgRepository (SqlPersistT (HandlerT App IO)))
-              ()
-          at Import/Project.hs:523:23
-    Expected type: ConduitM
-                     i
-                     (Either TreeFilePath ByteString)
-                     (Lg.LgRepository (SqlPersistT (HandlerT App IO)))
-                     ()
-      Actual type: Source
-                     (Lg.LgRepository (SqlPersistT (HandlerT App IO)))
-                     (Either TreeFilePath ByteString)
-    In the first argument of `(>>)', namely `modules'
-    In the first argument of `diffContentsWithTree', namely
-      `(modules >> dataFiles)'
-
-Compilation exited abnormally with code 1 at Mon Nov 25 06:46:24
+Import/Project.hs:841:27:
+    Couldn't match type `PersistMonadBackend m2' with `SqlBackend'
+    Expected type: PersistMonadBackend m2
+      Actual type: PersistEntityBackend Project
+    In the expression: update pid [ProjectTargetName =. Just mainName]
+    In a case alternative:
+        Just _ -> update pid [ProjectTargetName =. Just mainName]
+    In a stmt of a 'do' block:
+      case mmain of {
+        Just _ -> update pid [ProjectTargetName =. Just mainName]
+        Nothing -> update pid [ProjectTargetName =. Nothing] }

@@ -6,13 +6,11 @@ projectWorkingDiff (Entity projid Project {..}) =
   where
     go sha = do
         repo <- openProjectRepo projid
-        src <- $runDB $ modules >> dataFiles $$ CL.consume
-        Lg.runLgRepository repo $ do
+        Lg.runLgRepository repo $ $runDB $ do
             commitoid <- parseObjOid (unCommitSHA sha)
             commit <- lookupCommit commitoid
             tree <- lookupTree (commitTree commit)
-            bs <- diffContentsWithTree (CL.sourceList src) tree
-                $$ CB.sinkLbs
+            bs <- diffContentsWithTree (modules >> dataFiles) tree $$ CB.sinkLbs
             return $ Right $ toStrict bs
 
     modules = selectSource [ModuleProject ==. projid] []

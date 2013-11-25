@@ -1,0 +1,41 @@
+Import/Project.hs:520:37:
+    No instance for (Repository (SqlPersistT (HandlerT App IO)))
+      arising from a use of `parseObjOid'
+    Possible fix:
+      add an instance declaration for
+      (Repository (SqlPersistT (HandlerT App IO)))
+    In the second argument of `($)', namely
+      `parseObjOid (unCommitSHA sha)'
+    In a stmt of a 'do' block:
+      commitoid <- lift $ parseObjOid (unCommitSHA sha)
+    In the second argument of `($)', namely
+      `do { commitoid <- lift $ parseObjOid (unCommitSHA sha);
+            commit <- lift $ lookupCommit commitoid;
+            tree <- lift $ lookupTree (commitTree commit);
+            bs <- lift
+                  $ diffContentsWithTree (modules >> dataFiles) tree $$ CB.sinkLbs;
+            .... }'
+
+Import/Project.hs:523:52:
+    Couldn't match type `i' with `()'
+      `i' is a rigid type variable bound by
+          a type expected by the context:
+            ConduitM
+              i
+              (Either TreeFilePath ByteString)
+              (SqlPersistT (HandlerT App IO))
+              ()
+          at Import/Project.hs:523:30
+    Expected type: ConduitM
+                     i
+                     (Either TreeFilePath ByteString)
+                     (SqlPersistT (HandlerT App IO))
+                     ()
+      Actual type: ConduitM
+                     ()
+                     (Either TreeFilePath ByteString)
+                     (SqlPersistT (HandlerT App IO))
+                     ()
+    In the first argument of `(>>)', namely `modules'
+    In the first argument of `diffContentsWithTree', namely
+      `(modules >> dataFiles)'

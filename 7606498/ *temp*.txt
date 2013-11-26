@@ -1,0 +1,10 @@
+>>> let x = (1 :: Int, 2 :: Int, 3 :: Int) in x ^. alongside _1 _2
+
+<interactive>:26:48:
+    Couldn't match expected type `(Int, Int, Int)'
+                with actual type `(s0, s'0)'
+    Expected type: Getting (a0, a'0) (Int, Int, Int) (a0, a'0)
+      Actual type: ((a0, a'0) -> Accessor (a0, a'0) (a0, a'0))
+                   -> (s0, s'0) -> Accessor (a0, a'0) (t0, t'0)
+    In the return type of a call of `alongside'
+    In the second argument of `(^.)', namely `alongside _1 _2'

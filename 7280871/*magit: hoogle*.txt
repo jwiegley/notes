@@ -1,0 +1,67 @@
+Local:    master /usr/local/tools/hoogle/
+Remote:   master @ origin (git@github.com:fpco/hoogle)
+Head:     b89bb45 Add instance NFData BSC.ByteString
+
+Unstaged changes:
+	Modified   src/CmdLine/All.hs
+diff --git a/src/CmdLine/All.hs b/src/CmdLine/All.hs
+index 9953ae0..767b6e9 100644
+--- a/src/CmdLine/All.hs
++++ b/src/CmdLine/All.hs
+@@ -83,6 +83,11 @@ guessLocal = do
+     lib <- getLibDir
+     let xs = [takeDirectory (takeDirectory lib) </> "doc" {- Windows, installed with Cabal -}  ] ++
+              [takeDirectory (takeDirectory ghc) </> "doc/html/libraries" | Just ghc <- [ghc] {- Windows, installed by GHC -} ] ++
++             ["/usr/local/opt/ghc/share/doc/ghc/html/libraries" {- Mac, installed by Homebrew -} ] ++
++             ["/usr/local/opt/haskell-platform/share/doc" {- Mac, installed by Homebrew -} ] ++
++             ["/usr/local/opt/ghc/var/dot-cabal/share/doc"] ++
++             ["/Users/johnw/build/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/cabal/share/doc"] ++
++             [home </> ".cabal/share/doc/x86_64-osx-ghc-7.6.3" {- Linux -} ] ++
+              [home </> ".cabal/share/doc" {- Linux -} ]
+     filterM doesDirectoryExist xs
+ 
+	Modified   src/Hoogle/DataBase/SubstrSearch.hs
+diff --git a/src/Hoogle/DataBase/SubstrSearch.hs b/src/Hoogle/DataBase/SubstrSearch.hs
+index 6dcfb55..1cff471 100644
+--- a/src/Hoogle/DataBase/SubstrSearch.hs
++++ b/src/Hoogle/DataBase/SubstrSearch.hs
+@@ -68,8 +68,6 @@ data SubstrSearch a = SubstrSearch
+     }
+     deriving Typeable
+ 
+-instance NFData BSC.ByteString
+-
+ instance NFData a => NFData (SubstrSearch a) where
+     rnf (SubstrSearch a b c) = rnf (a,b,c)
+ 
+	Modified   src/Hoogle/Language/Haskell.hs
+diff --git a/src/Hoogle/Language/Haskell.hs b/src/Hoogle/Language/Haskell.hs
+index de1c25b..369868e 100644
+--- a/src/Hoogle/Language/Haskell.hs
++++ b/src/Hoogle/Language/Haskell.hs
+@@ -110,7 +110,7 @@ setPriority pkg mod x = x{itemPriority = pri}
+ 
+ setModuleURL (Just pkg) _ x | itemLevel x == 1 = x{itemURL=if null $ itemURL x then f $ itemName x else itemURL x}
+     where f xs = if "http://hackage.haskell.org/package/" `isPrefixOf` itemURL pkg
+-                 then "http://hackage.haskell.org/packages/archive/" ++ itemName pkg ++ "/latest/doc/html/" ++ file
++                 then "http://hackage.haskell.org/package/" ++ itemName pkg ++ "/docs/" ++ file
+                  else takeDirectory (itemURL pkg) ++ "/" ++ file
+               where file = reps '.' '-' xs ++ ".html"
+ setModuleURL _ _ x = x
+	Modified   src/Recipe/Download.hs
+diff --git a/src/Recipe/Download.hs b/src/Recipe/Download.hs
+index 4698f3b..473d74c 100644
+--- a/src/Recipe/Download.hs
++++ b/src/Recipe/Download.hs
+@@ -43,8 +43,8 @@ download opt = do
+                 , (platform, platform, "http://code.galois.com/darcs/haskell-platform/haskell-platform.cabal")
+                 , ("download/base.txt", "download/base.txt", "http://www.haskell.org/hoogle/base.txt")
+                 , ("download/ghc.txt",  "download/ghc.txt", "http://www.haskell.org/ghc/docs/latest/html/libraries/ghc/ghc.txt")
+-                , (cabals <.> "txt", cabals <.> "tar.gz", "http://hackage.haskell.org/packages/archive/00-index.tar.gz")
+-                , (inputs <.> "txt", inputs <.> "tar.gz", "http://hackage.haskell.org/packages/archive/00-hoogle.tar.gz")
++                , (cabals <.> "txt", cabals <.> "tar.gz", "http://hackage.haskell.org/packages/index.tar.gz")
++                , (inputs <.> "txt", inputs <.> "tar.gz", "http://hackage.haskell.org:82/packages/hoogle.tar.gz")
+                 ]
+     withDownloader opt downloader items
+     extractTarball cabals
+

@@ -1,0 +1,5 @@
+-        expectResult' $ \s ->
+-                s `shouldBe` SnapshotProcessUserException procId
+-                    "AsyncException: user interrupt"
+-            <|> s `shouldBe` SnapshotProcessGhcException procId
+-                    "Process was interrupted"

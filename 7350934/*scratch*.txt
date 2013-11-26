@@ -1,0 +1,26 @@
+Nov-07 08:11:38 [DEBUG] Posted project message [15704, Just 6]: ProcessOutput "Application is starting\nListening on port: 15705\n"
+Nov-07 08:11:39 [DEBUG] Status updated to: ProjectStatus
+  { _openingStatus = RunnerProjectOpening "Project opening..."
+  , _compileStatus = RunnerNotCompiling
+  , _processStatus = RunnerProcessRunning 6 PortIsListening
+  , _buildStatus =
+      RunnerBuildDone
+        { rbsBuildId = BuildId { getBuildId = JobId { getJobId = 5 } }
+        , rbsPathName = "/static/ANLQTRKBQY"
+        , rbsMainModule = "Main"
+        , rbsFileSize = 2266686
+        }
+  }
+Nov-07 08:11:53 [INFO] >closeAllProjects@331 ()
+Nov-07 08:11:53 [INFO] <closeAllProjects@331 ProjectResult ()
+Nov-07 08:11:53 [DEBUG] Context: Shutting down actor
+Nov-07 08:11:53 [INFO] Shutting down a compilation context...
+  - compiles a WAI app FAILED [1]
+TEST: Checking if port 15705 is available
+Nov-07 08:11:53 [INFO] Port bound: 15705
+Nov-07 08:11:53 [INFO] isolation-runner caught exception: thread killed
+Nov-07 08:11:53 [INFO] >closeAllProjects@332 ()
+Nov-07 08:11:53 [INFO] <waitForProcessStdout-15704@330
+RestAPI: eoutput was Left: thread killed
+Nov-07 08:11:53 [INFO] <closeAllProjects@332 ProjectResult ()
+Nov-07 08:11:53 [DEBUG] Posted project message [15704, Just 6]: ProcessOutput "Received request at: [\"project\",\"close\"]\n"

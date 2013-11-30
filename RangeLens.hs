@@ -36,14 +36,26 @@ instance Applicative f => IxRangeable f [a] where
         ub = fromMaybe len mub
         len = length xs
 
+-- | Splice a range of a list using a lens, supporting Python-style indices.
+--
+-- >>> [1,2,3,4,5] ^. irange 1 (-2)
+-- [2,3]
+-- >>> [1,2,3,4,5] ^. irange 3 (-1)
+-- [4]
+-- >>> [1,2,3,4,5] ^. irange (-2) 4
+-- [4]
 irange :: IxRangeable f m
        => Index m -> Index m -> IndexedLensLike' [Index m] f m [IxValue m]
 irange lb ub = ixrange (Just lb) (Just ub)
 
+-- | Performs the same action as 'irange', only it assumes an upper bound
+--   equal to the length of the list.
 ifrom :: IxRangeable f m
       => Index m -> IndexedLensLike' [Index m] f m [IxValue m]
 ifrom lb = ixrange (Just lb) Nothing
 
+-- | Performs the same action as 'irange', only it assumes a lower bound set
+--   at the beginning of the list.
 iuntil :: (IxRangeable f m, Num (Index m))
        => Index m -> IndexedLensLike' [Index m] f m [IxValue m]
 iuntil = ixrange Nothing . Just

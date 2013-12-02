@@ -19,3 +19,6 @@
 [submodule "ct/setoidfam"]
 	path = ct/setoidfam
 	url = git://gitorious.org/cats/setoidfam.git
+[submodule "concurrent"]
+	path = concurrent
+	url = git://github.com/jwiegley/concurrent.git

@@ -22,3 +22,6 @@
 [submodule "concurrent"]
 	path = concurrent
 	url = git://github.com/jwiegley/concurrent.git
+[submodule "euler"]
+	path = euler
+	url = git://github.com/jwiegley/project-euler.git

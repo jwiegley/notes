@@ -25,3 +25,6 @@
 [submodule "euler"]
 	path = euler
 	url = git://github.com/jwiegley/project-euler.git
+[submodule "functors"]
+	path = functors
+	url = git://github.com/jwiegley/functors.git

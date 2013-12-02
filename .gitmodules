@@ -28,3 +28,6 @@
 [submodule "functors"]
 	path = functors
 	url = git://github.com/jwiegley/functors.git
+[submodule "monad-base-control"]
+	path = monad-base-control
+	url = git://github.com/jwiegley/monad-base-control.git

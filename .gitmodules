@@ -31,3 +31,6 @@
 [submodule "monad-base-control"]
 	path = monad-base-control
 	url = git://github.com/jwiegley/monad-base-control.git
+[submodule "sf"]
+	path = sf
+	url = git://github.com/jwiegley/foundations.git

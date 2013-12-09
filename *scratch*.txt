@@ -1,0 +1,16 @@
+1) web compiles a WAI app
+uncaught exception: ErrorCall (Building executable failed with exit status 1:
+/Users/johnw/Contracts/FPComplete/Projects/fpco/isolation-runner/test-workdir/projects/15625/src.30701/Main.hs:1:1:
+    Could not find module `Prelude'
+    It is a member of the hidden package `base'.
+    Perhaps you need to add `base' to the build-depends in your .cabal file.
+    It is a member of the hidden package `haskell98-2.0.0.1'.
+Dec-09 18:39:00 [INFO] >closeAllProjects@13 ()    Perhaps you need to add `haskell98' to the build-depends in your .cabal file.
+
+    It is a member of the hidden package `haskell2010-1.1.0.1'.
+    Perhaps you need to add `haskell2010' to the build-depends in your .cabal file.
+Dec-09 18:39:00 [INFO] <closeAllProjects@13 ProjectResult ()    It is a member of the hidden package `fay-base-0.18.0.0'.
+
+    Perhaps you need to add `fay-base' to the build-depends in your .cabal file.
+    Use -v to see a list of the files searched for.
+)

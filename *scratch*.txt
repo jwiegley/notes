@@ -1,0 +1,9 @@
+downloadContent manager = do
+  mx <- await
+  case mx of
+    Nothing               -> return ()
+    Just (sym, Nothing)   -> return ()
+    Just (sym, Just link) -> liftIO $ runResourceT $ do
+      req <- parseUrl link
+      res <- http req manager
+      responseBody res $$+- sinkFile sym

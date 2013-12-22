@@ -3,8 +3,7 @@
 
 module SpeedTest where
 
-import Control.Concurrent.Async (withAsync, pollSTM)
-import Control.Concurrent.STM (atomically)
+import Control.Concurrent.Async (withAsync, poll)
 import Control.Exception (SomeException, throwIO)
 import Foreign.Ptr (FunPtr)
 
@@ -19,7 +18,7 @@ main = do
     withAsync test gather
   where
     gather worker = do
-        mres <- atomically $ pollSTM worker
+        mres <- poll worker
 #if SPEED_BUG
         putStrLn "..."
 #endif

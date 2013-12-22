@@ -3,12 +3,9 @@
 
 module SpeedTest where
 
-import Control.Applicative ((<$))
-import Control.Concurrent.Async (async, pollSTM)
+import Control.Concurrent.Async (withAsync, pollSTM)
 import Control.Concurrent.STM (atomically)
 import Control.Exception (SomeException, throwIO)
-import Control.Monad.Trans.Class (lift)
-import Data.Conduit (($$), await)
 import Foreign.Ptr (FunPtr)
 
 type C'speed_test_cb = FunPtr (IO ())
@@ -19,15 +16,14 @@ main :: IO ()
 main = do
     let test = mk'speed_test_cb (return ()) >>= speed_test
     test
-    w <- async test
-    gather w $$ () <$ await
+    withAsync test gather
   where
     gather worker = do
-        mres <- lift $ atomically $ pollSTM worker
+        mres <- atomically $ pollSTM worker
 #if SPEED_BUG
-        lift $ putStrLn "..."
+        putStrLn "..."
 #endif
         case mres of
-            Just (Left e)  -> lift $ throwIO (e :: SomeException)
+            Just (Left e)  -> throwIO (e :: SomeException)
             Just (Right r) -> return r
             Nothing        -> gather worker

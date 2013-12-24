@@ -16,5 +16,5 @@ main = do
         $$ CL.mapM_ print
 
     sourceList [(10, Left 'a'), (20, Right 'b'), (30, Left 'c')]
-        $= narrow (filtered ((== Right 'b') . snd) . _2 . _Right)
+        $= narrow (_2 . _Left . filtered (== 'a'))
         $$ CL.mapM_ print

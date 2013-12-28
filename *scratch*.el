@@ -1,11 +1,11 @@
-(defun smart-hyphen (n)
+(defun smart-hyphen (arg)
     "Insert a hyphen or capitalize the next word."
     (interactive "p")
     (if (memq (get-text-property (point) 'face)
               '(font-lock-doc-face
                 font-lock-comment-face
                 font-lock-string-face))
-        (self-insert-command n)
+        (call-interactively 'self-insert-command)
       (let ((next (progn
                     (insert ?-)
                     (read-char))))

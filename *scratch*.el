@@ -1,9 +1,11 @@
-  (defun smart-hypen (next)
-    (interactive (list (progn
-                         (insert ?-)
-                         (read-char))))
-    (if (eq ?w (char-syntax next))
-        (progn
-          (delete-char -1)
-          (insert (upcase next)))
-      (insert next)))
+(defun smart-hyphen (arg)
+    (interactive "P")
+    (let ((charb (eq ?w (char-syntax (char-before)))))
+      (insert ?-)
+      (when (and (not arg) charb)
+        (let ((next (read-char)))
+          (if (eq ?w (char-syntax next))
+              (progn
+                (delete-char -1)
+                (insert (upcase next)))
+            (insert next))))))

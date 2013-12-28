@@ -1,6 +1,6 @@
-(defun smart-hyphen (arg)
+  (defun smart-hyphen ()
     "Insert a hyphen or capitalize the next word."
-    (interactive "p")
+    (interactive)
     (if (memq (get-text-property (point) 'face)
               '(font-lock-doc-face
                 font-lock-comment-face

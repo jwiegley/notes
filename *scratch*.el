@@ -1,0 +1,5 @@
+(defun smart-hypen (next)
+  (interactive (list (read-char)))
+  (if (eq ?w (char-syntax next))
+      (insert (upcase next))
+    (insert ?- next)))

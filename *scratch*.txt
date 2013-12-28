@@ -1,0 +1,12 @@
+main = do a <- return 1
+          let x = 123
+              y = x * a
+              in print (x * y)
+          print y
+
+main = do 
+  a <- return 1
+  let x = 123
+      y = x * a
+      in print (x * y)
+  print y

@@ -1,0 +1,5 @@
+2011/10/24 Bastien Guerry
+    Assets:PayPal                             $14.11
+    Expenses:Fees                              $0.88
+    Liabilities:FSF                          $-15.00
+

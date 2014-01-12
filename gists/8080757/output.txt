@@ -1,0 +1,15 @@
+[1 of 1] Compiling SpeedTest        ( SpeedTest.hs, SpeedTest.o )
+Linking SpeedTest ...
+
+<lots of ".." lines...>
+
+real	0m0.026s
+user	0m0.012s
+sys	0m0.020s
+
+[1 of 1] Compiling SpeedTest        ( SpeedTest.hs, SpeedTest.o )
+Linking SpeedTest ...
+
+real	0m1.996s
+user	0m1.978s
+sys	0m0.018s

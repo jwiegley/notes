@@ -1,0 +1,10 @@
+Vulcan:~/Dropbox/Notes/SpeedTest {master} $ time ./SpeedTest +RTS -N1
+
+real	0m1.997s
+user	0m1.982s
+sys	0m0.013s
+Vulcan:~/Dropbox/Notes/SpeedTest {master} $ time ./SpeedTest +RTS -N2
+
+real	0m0.011s
+user	0m0.005s
+sys	0m0.005s

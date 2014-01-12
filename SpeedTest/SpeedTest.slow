@@ -1,0 +1,907 @@
+[1 of 1] Compiling SpeedTest        ( SpeedTest.hs, SpeedTest.o )
+
+==================== Tidy Core ====================
+Result size = 162
+
+a_r1zS
+  :: IO ()
+     -> State# RealWorld
+     -> (# State# RealWorld,
+           FunPtr (IO ()) #)
+
+a_r1zS =
+  \ (ds_dC3 :: IO ())
+    (eta_B1 :: State# RealWorld) ->
+    case makeStablePtr# @ (IO ()) ds_dC3 eta_B1
+    of _ { (# s'_dDO, sp_dDP #) ->
+    case {__pkg_ccall createAdjustor Int#
+                            -> StablePtr# (IO ())
+                            -> Addr#
+                            -> Addr#
+                            -> State# RealWorld
+                            -> (# State# RealWorld, Addr# #)}_dCp
+           1 sp_dDP (__label "SpeedTest_dC2" (function)) "" s'_dDO
+    of _ { (# ds1_dCn, ds2_dCm #) ->
+    (# ds1_dCn, FunPtr @ (IO ()) ds2_dCm #)
+    }
+    }
+
+SpeedTest.mk'speed_test_cb [InlPrag=[NEVER]]
+  :: IO () -> IO SpeedTest.C'speed_test_cb
+
+SpeedTest.mk'speed_test_cb =
+  a_r1zS
+  `cast` (<IO ()>
+          -> Sym (NTCo:IO <FunPtr (IO ())>)
+          :: (IO ()
+              -> State# RealWorld
+              -> (# State# RealWorld,
+                    FunPtr (IO ()) #))
+               ~#
+             (IO ()
+              -> IO (FunPtr (IO ()))))
+
+a1_r1zT
+  :: FunPtr (IO ())
+     -> State# RealWorld
+     -> (# State# RealWorld, () #)
+
+a1_r1zT =
+  \ (ds_dBV :: FunPtr (IO ()))
+    (eta_B1 :: State# RealWorld) ->
+    case ds_dBV of _ { FunPtr ds2_dBX ->
+    case {__pkg_ccall_GC main speed_test Addr#
+                                -> State# RealWorld
+                                -> (# State# RealWorld #)}_dC0
+           ds2_dBX eta_B1
+    of _ { (# ds3_dBY #) ->
+    (# ds3_dBY, () #)
+    }
+    }
+
+SpeedTest.speed_test
+  :: SpeedTest.C'speed_test_cb -> IO ()
+[GblId,
+ Arity=2,
+
+ Unf=Unf{Src=InlineStable, TopLvl=True, Arity=1, Value=True,
+         ConLike=True, Cheap=True, Expandable=True,
+         Guidance=ALWAYS_IF(unsat_ok=False,boring_ok=False)
+         Tmpl= \ (ds_XC9 [Occ=Once!] :: FunPtr (IO ())) ->
+                 case ds_XC9 of _ { FunPtr ds2_dBX [Occ=Once] ->
+                 (\ (ds3_dBZ [Occ=Once] :: State# RealWorld) ->
+                    case {__pkg_ccall_GC main speed_test Addr#
+                                -> State# RealWorld
+                                -> (# State# RealWorld #)}_dC0
+                           ds2_dBX ds3_dBZ
+                    of _ { (# ds4_dBY [Occ=Once] #) ->
+                    (# ds4_dBY, () #)
+                    })
+                 `cast` (Sym (NTCo:IO <()>)
+                         :: (State# RealWorld
+                             -> (# State# RealWorld, () #))
+                              ~#
+                            IO ())
+                 }}]
+SpeedTest.speed_test =
+  a1_r1zT
+  `cast` (<FunPtr (IO ())>
+          -> Sym (NTCo:IO <()>)
+          :: (FunPtr (IO ())
+              -> State# RealWorld
+              -> (# State# RealWorld, () #))
+               ~#
+             (FunPtr (IO ()) -> IO ()))
+
+SpeedTest.main2 [Occ=LoopBreaker]
+  :: Control.Concurrent.Async.Async ()
+     -> State# RealWorld
+     -> (# State# RealWorld, () #)
+
+SpeedTest.main2 =
+  \ (worker_aic :: Control.Concurrent.Async.Async ())
+    (eta_B1 :: State# RealWorld) ->
+    case ((Control.Concurrent.Async.poll @ () worker_aic)
+          `cast` (NTCo:IO
+                    <Data.Maybe.Maybe
+                       (Data.Either.Either SomeException ())>
+                  :: IO
+                       (Data.Maybe.Maybe
+                          (Data.Either.Either SomeException ()))
+                       ~#
+                     (State# RealWorld
+                      -> (# State# RealWorld,
+                            Data.Maybe.Maybe
+                              (Data.Either.Either SomeException ()) #))))
+           eta_B1
+    of _ { (# new_s_aDG, a2_aDH #) ->
+    case a2_aDH of _ {
+      Data.Maybe.Nothing -> SpeedTest.main2 worker_aic new_s_aDG;
+      Data.Maybe.Just ds_dBQ ->
+        case ds_dBQ of _ {
+          Data.Either.Left e_aie ->
+            raiseIO#
+              @ SomeException @ () e_aie new_s_aDG;
+          Data.Either.Right r_aif -> (# new_s_aDG, r_aif #)
+        }
+    }
+    }
+
+SpeedTest.main4
+  :: State# RealWorld
+     -> (# State# RealWorld, () #)
+[GblId,
+ Arity=1,
+
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Arity=1, Value=True,
+         ConLike=True, Cheap=True, Expandable=True,
+         Guidance=ALWAYS_IF(unsat_ok=True,boring_ok=True)}]
+SpeedTest.main4 =
+  \ (eta_B1 :: State# RealWorld) ->
+    (# eta_B1, () #)
+
+SpeedTest.main3
+  :: State# RealWorld
+     -> (# State# RealWorld, () #)
+[GblId,
+ Arity=1,
+
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Arity=1, Value=True,
+         ConLike=True, Cheap=True, Expandable=True,
+         Guidance=IF_ARGS [0] 81 30}]
+SpeedTest.main3 =
+  \ (eta_Xm :: State# RealWorld) ->
+    case ((SpeedTest.mk'speed_test_cb
+             (SpeedTest.main4
+              `cast` (Sym (NTCo:IO <()>)
+                      :: (State# RealWorld
+                          -> (# State# RealWorld, () #))
+                           ~#
+                         IO ())))
+          `cast` (NTCo:IO <SpeedTest.C'speed_test_cb>
+                  :: IO SpeedTest.C'speed_test_cb
+                       ~#
+                     (State# RealWorld
+                      -> (# State# RealWorld,
+                            SpeedTest.C'speed_test_cb #))))
+           eta_Xm
+    of _ { (# new_s_XEc, a2_XEe #) ->
+    case a2_XEe of _ { FunPtr ds1_XCx ->
+    case {__pkg_ccall_GC main speed_test Addr#
+                                -> State# RealWorld
+                                -> (# State# RealWorld #)}_dC0
+           ds1_XCx new_s_XEc
+    of _ { (# ds2_XCC #) ->
+    (# ds2_XCC, () #)
+    }
+    }
+    }
+
+SpeedTest.main1
+  :: State# RealWorld
+     -> (# State# RealWorld, () #)
+[GblId,
+ Arity=1,
+
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Arity=1, Value=True,
+         ConLike=True, Cheap=True, Expandable=True,
+         Guidance=IF_ARGS [0] 112 0}]
+SpeedTest.main1 =
+  \ (eta_Xq :: State# RealWorld) ->
+    case ((SpeedTest.mk'speed_test_cb
+             (SpeedTest.main4
+              `cast` (Sym (NTCo:IO <()>)
+                      :: (State# RealWorld
+                          -> (# State# RealWorld, () #))
+                           ~#
+                         IO ())))
+          `cast` (NTCo:IO <SpeedTest.C'speed_test_cb>
+                  :: IO SpeedTest.C'speed_test_cb
+                       ~#
+                     (State# RealWorld
+                      -> (# State# RealWorld,
+                            SpeedTest.C'speed_test_cb #))))
+           eta_Xq
+    of _ { (# new_s_aDG, a2_aDH #) ->
+    case a2_aDH of _ { FunPtr ds1_dBX ->
+    case {__pkg_ccall_GC main speed_test Addr#
+                                -> State# RealWorld
+                                -> (# State# RealWorld #)}_dC0
+           ds1_dBX new_s_aDG
+    of _ { (# ds2_dBY #) ->
+    ((Control.Concurrent.Async.withAsync
+        @ ()
+        @ ()
+        (SpeedTest.main3
+         `cast` (Sym (NTCo:IO <()>)
+                 :: (State# RealWorld
+                     -> (# State# RealWorld, () #))
+                      ~#
+                    IO ()))
+        (SpeedTest.main2
+         `cast` (<Control.Concurrent.Async.Async ()>
+                 -> Sym (NTCo:IO <()>)
+                 :: (Control.Concurrent.Async.Async ()
+                     -> State# RealWorld
+                     -> (# State# RealWorld, () #))
+                      ~#
+                    (Control.Concurrent.Async.Async () -> IO ()))))
+     `cast` (NTCo:IO <()>
+             :: IO ()
+                  ~#
+                (State# RealWorld
+                 -> (# State# RealWorld, () #))))
+      ds2_dBY
+    }
+    }
+    }
+
+SpeedTest.main :: IO ()
+[GblId,
+ Arity=1,
+
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Arity=0, Value=True,
+         ConLike=True, Cheap=True, Expandable=True,
+         Guidance=ALWAYS_IF(unsat_ok=True,boring_ok=True)}]
+SpeedTest.main =
+  SpeedTest.main1
+  `cast` (Sym (NTCo:IO <()>)
+          :: (State# RealWorld
+              -> (# State# RealWorld, () #))
+               ~#
+             IO ())
+
+SpeedTest.main5
+  :: State# RealWorld
+     -> (# State# RealWorld, () #)
+[GblId,
+ Arity=1,
+
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Arity=1, Value=True,
+         ConLike=True, Cheap=True, Expandable=True,
+         Guidance=IF_ARGS [0] 30 0}]
+SpeedTest.main5 =
+  \ (eta_Xt :: State# RealWorld) ->
+    runMainIO1
+      @ ()
+      (SpeedTest.main1
+       `cast` (Sym (NTCo:IO <()>)
+               :: (State# RealWorld
+                   -> (# State# RealWorld, () #))
+                    ~#
+                  IO ()))
+      eta_Xt
+
+:main :: IO ()
+[GblId,
+ Arity=1,
+
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Arity=0, Value=True,
+         ConLike=True, Cheap=True, Expandable=True,
+         Guidance=ALWAYS_IF(unsat_ok=True,boring_ok=True)}]
+:main =
+  SpeedTest.main5
+  `cast` (Sym (NTCo:IO <()>)
+          :: (State# RealWorld
+              -> (# State# RealWorld, () #))
+               ~#
+             IO ())
+
+==================== Asm code ====================
+.data
+.align 3
+.align 0
+.globl ___stginit_SpeedTest
+___stginit_SpeedTest:
+.globl ___stginit_ZCMain
+___stginit_ZCMain:
+.data
+.align 3
+.align 0
+_r1zS_closure:
+	.quad	_r1zS_info
+.const
+.align 3
+.align 0
+_c1BC_str:
+	.byte	0
+.text
+.align 3
+_s1Bm_info_dsp:
+	.quad	0
+	.quad	32
+_s1Bm_info:
+Lc1BF:
+	addq $16,%r12
+	cmpq 144(%r13),%r12
+	ja Lc1BJ
+	movq %rbx,%rax
+	movl $1,%edi
+	movq %rax,%rsi
+	movq _SpeedTest_dC2@GOTPCREL(%rip),%rdx
+	leaq _c1BC_str(%rip),%rcx
+	subq $8,%rsp
+	movl $0,%eax
+	call _createAdjustor
+	addq $8,%rsp
+	movq %rax,%rcx
+	leaq _base_GHCziPtr_FunPtr_con_info(%rip),%rax
+	movq %rax,-8(%r12)
+	movq %rcx,0(%r12)
+	leaq -7(%r12),%rbx
+	addq $8,%rbp
+	jmp *0(%rbp)
+Lc1BJ:
+	movq $16,192(%r13)
+Lc1BH:
+	movq $255,64(%r13)
+	jmp *_stg_gc_ut@GOTPCREL(%rip)
+	.long  _s1Bm_info - _s1Bm_info_dsp
+.text
+.align 3
+_r1zS_info_dsp:
+	.quad	8589934597
+	.quad	0
+	.quad	15
+_r1zS_info:
+Lc1BP:
+	leaq -8(%rbp),%rax
+	cmpq %r15,%rax
+	jb Lc1BR
+	movq %r14,%rbx
+	leaq _s1Bm_info(%rip),%rax
+	movq %rax,-8(%rbp)
+	addq $-8,%rbp
+	jmp _stg_makeStablePtrzh
+Lc1BR:
+	leaq _r1zS_closure(%rip),%rbx
+	jmp *-8(%r13)
+	.long  _r1zS_info - _r1zS_info_dsp
+.data
+.align 3
+.align 0
+.globl _SpeedTest_mkzqspeedzutestzucb_closure
+_SpeedTest_mkzqspeedzutestzucb_closure:
+	.quad	_SpeedTest_mkzqspeedzutestzucb_info
+.text
+.align 3
+_SpeedTest_mkzqspeedzutestzucb_info_dsp:
+	.quad	8589934597
+	.quad	0
+	.quad	15
+.globl _SpeedTest_mkzqspeedzutestzucb_info
+_SpeedTest_mkzqspeedzutestzucb_info:
+Lc1C0:
+	jmp _r1zS_info
+	.long  _SpeedTest_mkzqspeedzutestzucb_info - _SpeedTest_mkzqspeedzutestzucb_info_dsp
+.data
+.align 3
+.align 0
+_r1zT_closure:
+	.quad	_r1zT_info
+.text
+.align 3
+_s1Bi_info_dsp:
+	.quad	0
+	.quad	32
+_s1Bi_info:
+Lc1Ce:
+	leaq _ghczmprim_GHCziTuple_Z0T_closure(%rip),%rax
+	leaq 1(%rax),%rbx
+	addq $8,%rbp
+	jmp *0(%rbp)
+	.long  _s1Bi_info - _s1Bi_info_dsp
+.text
+.align 3
+_s1Bj_info_dsp:
+	.quad	0
+	.quad	32
+_s1Bj_info:
+Lc1Ci:
+	movq 7(%rbx),%rax
+	movq %rax,64(%rsp)
+	leaq _s1Bi_info(%rip),%rax
+	movq %rax,0(%rbp)
+	movq 160(%r13),%rax
+	movq 24(%rax),%rax
+	movq %rbp,16(%rax)
+	leaq 8(%r12),%rcx
+	movq 176(%r13),%rax
+	movq %rcx,8(%rax)
+	movq %r13,%rdi
+	xorl %esi,%esi
+	subq $8,%rsp
+	movl $0,%eax
+	call _suspendThread
+	addq $8,%rsp
+	movq %rax,72(%rsp)
+	movq 64(%rsp),%rax
+	movq %rax,%rdi
+	subq $8,%rsp
+	movl $0,%eax
+	call _speed_test
+	addq $8,%rsp
+	movq 72(%rsp),%rax
+	movq %rax,%rdi
+	subq $8,%rsp
+	movl $0,%eax
+	call _resumeThread
+	addq $8,%rsp
+	movq %rax,%r13
+	movq 160(%r13),%rax
+	movq 24(%rax),%rax
+	movq 16(%rax),%rbp
+	leaq 192(%rax),%r15
+	movq $0,192(%r13)
+	movq 176(%r13),%rax
+	movq 8(%rax),%rax
+	leaq -8(%rax),%r12
+	movq 176(%r13),%rax
+	movslq 48(%rax),%rax
+	shlq $12,%rax
+	decq %rax
+	movq 176(%r13),%rcx
+	movq (%rcx),%rcx
+	addq %rax,%rcx
+	movq %rcx,144(%r13)
+	jmp *0(%rbp)
+	.long  _s1Bj_info - _s1Bj_info_dsp
+.text
+.align 3
+_r1zT_info_dsp:
+	.quad	8589934597
+	.quad	0
+	.quad	15
+_r1zT_info:
+Lc1CO:
+	leaq -8(%rbp),%rax
+	cmpq %r15,%rax
+	jb Lc1CQ
+	movq %r14,%rbx
+	leaq _s1Bj_info(%rip),%rax
+	movq %rax,-8(%rbp)
+	addq $-8,%rbp
+	testq $7,%rbx
+	jne _s1Bj_info
+	jmp *(%rbx)
+Lc1CQ:
+	leaq _r1zT_closure(%rip),%rbx
+	jmp *-8(%r13)
+	.long  _r1zT_info - _r1zT_info_dsp
+.data
+.align 3
+.align 0
+.globl _SpeedTest_speedzutest_closure
+_SpeedTest_speedzutest_closure:
+	.quad	_SpeedTest_speedzutest_info
+.text
+.align 3
+_SpeedTest_speedzutest_info_dsp:
+	.quad	8589934597
+	.quad	0
+	.quad	15
+.globl _SpeedTest_speedzutest_info
+_SpeedTest_speedzutest_info:
+Lc1D2:
+	jmp _r1zT_info
+	.long  _SpeedTest_speedzutest_info - _SpeedTest_speedzutest_info_dsp
+.const_data
+.align 3
+.align 0
+_SpeedTest_main2_srt:
+	.quad	_SpeedTest_main2_closure
+	.quad	_asynczm2zi0zi1zi4_ControlziConcurrentziAsync_poll_closure
+.data
+.align 3
+.align 0
+.globl _SpeedTest_main2_closure
+_SpeedTest_main2_closure:
+	.quad	_SpeedTest_main2_info
+	.quad	0
+.text
+.align 3
+_s1Bp_info_dsp:
+	.quad	0
+	.quad	32
+_s1Bp_info:
+Lc1Dn:
+	movq %rbx,%rax
+	andq $7,%rax
+	cmpq $2,%rax
+	jae Lc1Do
+	movq 7(%rbx),%rbx
+	addq $8,%rbp
+	jmp _stg_raiseIOzh
+Lc1Do:
+	movq 6(%rbx),%rbx
+	addq $8,%rbp
+	jmp *0(%rbp)
+	.long  _s1Bp_info - _s1Bp_info_dsp
+.text
+.align 3
+_s1Bn_info_dsp:
+	.quad	_SpeedTest_main2_srt-(_s1Bn_info)+0
+	.quad	1
+	.quad	4294967328
+_s1Bn_info:
+Lc1Dw:
+	movq %rbx,%rax
+	andq $7,%rax
+	cmpq $2,%rax
+	jae Lc1Dx
+	movq 8(%rbp),%r14
+	addq $16,%rbp
+	jmp _SpeedTest_main2_info
+Lc1Dx:
+	movq 6(%rbx),%rbx
+	leaq _s1Bp_info(%rip),%rax
+	movq %rax,8(%rbp)
+	addq $8,%rbp
+	testq $7,%rbx
+	jne _s1Bp_info
+	jmp *(%rbx)
+	.long  _s1Bn_info - _s1Bn_info_dsp
+.text
+.align 3
+_s1Bo_info_dsp:
+	.quad	_SpeedTest_main2_srt-(_s1Bo_info)+0
+	.quad	1
+	.quad	4294967328
+_s1Bo_info:
+Lc1DH:
+	leaq _s1Bn_info(%rip),%rax
+	movq %rax,0(%rbp)
+	testq $7,%rbx
+	jne _s1Bn_info
+	jmp *(%rbx)
+	.long  _s1Bo_info - _s1Bo_info_dsp
+.text
+.align 3
+_SpeedTest_main2_info_dsp:
+	.quad	_SpeedTest_main2_srt-(_SpeedTest_main2_info)+0
+	.quad	8589934597
+	.quad	0
+	.quad	12884901903
+.globl _SpeedTest_main2_info
+_SpeedTest_main2_info:
+Lc1DO:
+	leaq -16(%rbp),%rax
+	cmpq %r15,%rax
+	jb Lc1DQ
+	movq %r14,-8(%rbp)
+	leaq _asynczm2zi0zi1zi4_ControlziConcurrentziAsync_poll_closure(%rip),%rbx
+	leaq _s1Bo_info(%rip),%rax
+	movq %rax,-16(%rbp)
+	addq $-16,%rbp
+	jmp _stg_ap_pv_fast
+Lc1DQ:
+	leaq _SpeedTest_main2_closure(%rip),%rbx
+	jmp *-8(%r13)
+	.long  _SpeedTest_main2_info - _SpeedTest_main2_info_dsp
+.data
+.align 3
+.align 0
+.globl _SpeedTest_main4_closure
+_SpeedTest_main4_closure:
+	.quad	_SpeedTest_main4_info
+.text
+.align 3
+_SpeedTest_main4_info_dsp:
+	.quad	4294967299
+	.quad	0
+	.quad	15
+.globl _SpeedTest_main4_info
+_SpeedTest_main4_info:
+Lc1DZ:
+	leaq _ghczmprim_GHCziTuple_Z0T_closure(%rip),%rax
+	leaq 1(%rax),%rbx
+	jmp *0(%rbp)
+	.long  _SpeedTest_main4_info - _SpeedTest_main4_info_dsp
+.data
+.align 3
+.align 0
+.globl _SpeedTest_main3_closure
+_SpeedTest_main3_closure:
+	.quad	_SpeedTest_main3_info
+.text
+.align 3
+_s1Bf_info_dsp:
+	.quad	0
+	.quad	32
+_s1Bf_info:
+Lc1Eh:
+	leaq _ghczmprim_GHCziTuple_Z0T_closure(%rip),%rax
+	leaq 1(%rax),%rbx
+	addq $8,%rbp
+	jmp *0(%rbp)
+	.long  _s1Bf_info - _s1Bf_info_dsp
+.text
+.align 3
+_s1Bg_info_dsp:
+	.quad	0
+	.quad	32
+_s1Bg_info:
+Lc1El:
+	movq 7(%rbx),%rax
+	movq %rax,64(%rsp)
+	leaq _s1Bf_info(%rip),%rax
+	movq %rax,0(%rbp)
+	movq 160(%r13),%rax
+	movq 24(%rax),%rax
+	movq %rbp,16(%rax)
+	leaq 8(%r12),%rcx
+	movq 176(%r13),%rax
+	movq %rcx,8(%rax)
+	movq %r13,%rdi
+	xorl %esi,%esi
+	subq $8,%rsp
+	movl $0,%eax
+	call _suspendThread
+	addq $8,%rsp
+	movq %rax,72(%rsp)
+	movq 64(%rsp),%rax
+	movq %rax,%rdi
+	subq $8,%rsp
+	movl $0,%eax
+	call _speed_test
+	addq $8,%rsp
+	movq 72(%rsp),%rax
+	movq %rax,%rdi
+	subq $8,%rsp
+	movl $0,%eax
+	call _resumeThread
+	addq $8,%rsp
+	movq %rax,%r13
+	movq 160(%r13),%rax
+	movq 24(%rax),%rax
+	movq 16(%rax),%rbp
+	leaq 192(%rax),%r15
+	movq $0,192(%r13)
+	movq 176(%r13),%rax
+	movq 8(%rax),%rax
+	leaq -8(%rax),%r12
+	movq 176(%r13),%rax
+	movslq 48(%rax),%rax
+	shlq $12,%rax
+	decq %rax
+	movq 176(%r13),%rcx
+	movq (%rcx),%rcx
+	addq %rax,%rcx
+	movq %rcx,144(%r13)
+	jmp *0(%rbp)
+	.long  _s1Bg_info - _s1Bg_info_dsp
+.text
+.align 3
+_s1Bh_info_dsp:
+	.quad	0
+	.quad	32
+_s1Bh_info:
+Lc1ER:
+	leaq _s1Bg_info(%rip),%rax
+	movq %rax,0(%rbp)
+	testq $7,%rbx
+	jne _s1Bg_info
+	jmp *(%rbx)
+	.long  _s1Bh_info - _s1Bh_info_dsp
+.text
+.align 3
+_SpeedTest_main3_info_dsp:
+	.quad	4294967299
+	.quad	0
+	.quad	15
+.globl _SpeedTest_main3_info
+_SpeedTest_main3_info:
+Lc1EY:
+	leaq -8(%rbp),%rax
+	cmpq %r15,%rax
+	jb Lc1F0
+	leaq _SpeedTest_main4_closure(%rip),%rax
+	leaq 1(%rax),%r14
+	leaq _s1Bh_info(%rip),%rax
+	movq %rax,-8(%rbp)
+	addq $-8,%rbp
+	jmp _SpeedTest_mkzqspeedzutestzucb_info
+Lc1F0:
+	leaq _SpeedTest_main3_closure(%rip),%rbx
+	jmp *-8(%r13)
+	.long  _SpeedTest_main3_info - _SpeedTest_main3_info_dsp
+.const_data
+.align 3
+.align 0
+_SpeedTest_main1_srt:
+	.quad	_SpeedTest_main2_closure
+	.quad	_asynczm2zi0zi1zi4_ControlziConcurrentziAsync_withAsync_closure
+.data
+.align 3
+.align 0
+.globl _SpeedTest_main1_closure
+_SpeedTest_main1_closure:
+	.quad	_SpeedTest_main1_info
+	.quad	0
+.text
+.align 3
+_s1Bc_info_dsp:
+	.quad	_SpeedTest_main1_srt-(_s1Bc_info)+0
+	.quad	0
+	.quad	12884901920
+_s1Bc_info:
+Lc1Fl:
+	leaq _asynczm2zi0zi1zi4_ControlziConcurrentziAsync_withAsync_closure(%rip),%rbx
+	leaq _SpeedTest_main3_closure(%rip),%rax
+	leaq 1(%rax),%r14
+	leaq _SpeedTest_main2_closure(%rip),%rax
+	leaq 2(%rax),%rsi
+	addq $8,%rbp
+	jmp _stg_ap_ppv_fast
+	.long  _s1Bc_info - _s1Bc_info_dsp
+.text
+.align 3
+_s1Bd_info_dsp:
+	.quad	_SpeedTest_main1_srt-(_s1Bd_info)+0
+	.quad	0
+	.quad	12884901920
+_s1Bd_info:
+Lc1Fq:
+	movq 7(%rbx),%rax
+	movq %rax,64(%rsp)
+	leaq _s1Bc_info(%rip),%rax
+	movq %rax,0(%rbp)
+	movq 160(%r13),%rax
+	movq 24(%rax),%rax
+	movq %rbp,16(%rax)
+	leaq 8(%r12),%rcx
+	movq 176(%r13),%rax
+	movq %rcx,8(%rax)
+	movq %r13,%rdi
+	xorl %esi,%esi
+	subq $8,%rsp
+	movl $0,%eax
+	call _suspendThread
+	addq $8,%rsp
+	movq %rax,72(%rsp)
+	movq 64(%rsp),%rax
+	movq %rax,%rdi
+	subq $8,%rsp
+	movl $0,%eax
+	call _speed_test
+	addq $8,%rsp
+	movq 72(%rsp),%rax
+	movq %rax,%rdi
+	subq $8,%rsp
+	movl $0,%eax
+	call _resumeThread
+	addq $8,%rsp
+	movq %rax,%r13
+	movq 160(%r13),%rax
+	movq 24(%rax),%rax
+	movq 16(%rax),%rbp
+	leaq 192(%rax),%r15
+	movq $0,192(%r13)
+	movq 176(%r13),%rax
+	movq 8(%rax),%rax
+	leaq -8(%rax),%r12
+	movq 176(%r13),%rax
+	movslq 48(%rax),%rax
+	shlq $12,%rax
+	decq %rax
+	movq 176(%r13),%rcx
+	movq (%rcx),%rcx
+	addq %rax,%rcx
+	movq %rcx,144(%r13)
+	jmp *0(%rbp)
+	.long  _s1Bd_info - _s1Bd_info_dsp
+.text
+.align 3
+_s1Be_info_dsp:
+	.quad	_SpeedTest_main1_srt-(_s1Be_info)+0
+	.quad	0
+	.quad	12884901920
+_s1Be_info:
+Lc1FW:
+	leaq _s1Bd_info(%rip),%rax
+	movq %rax,0(%rbp)
+	testq $7,%rbx
+	jne _s1Bd_info
+	jmp *(%rbx)
+	.long  _s1Be_info - _s1Be_info_dsp
+.text
+.align 3
+_SpeedTest_main1_info_dsp:
+	.quad	_SpeedTest_main1_srt-(_SpeedTest_main1_info)+0
+	.quad	4294967299
+	.quad	0
+	.quad	12884901903
+.globl _SpeedTest_main1_info
+_SpeedTest_main1_info:
+Lc1G3:
+	leaq -8(%rbp),%rax
+	cmpq %r15,%rax
+	jb Lc1G5
+	leaq _SpeedTest_main4_closure(%rip),%rax
+	leaq 1(%rax),%r14
+	leaq _s1Be_info(%rip),%rax
+	movq %rax,-8(%rbp)
+	addq $-8,%rbp
+	jmp _SpeedTest_mkzqspeedzutestzucb_info
+Lc1G5:
+	leaq _SpeedTest_main1_closure(%rip),%rbx
+	jmp *-8(%r13)
+	.long  _SpeedTest_main1_info - _SpeedTest_main1_info_dsp
+.const_data
+.align 3
+.align 0
+_SpeedTest_main_srt:
+	.quad	_SpeedTest_main1_closure
+.data
+.align 3
+.align 0
+.globl _SpeedTest_main_closure
+_SpeedTest_main_closure:
+	.quad	_SpeedTest_main_info
+	.quad	0
+.text
+.align 3
+_SpeedTest_main_info_dsp:
+	.quad	_SpeedTest_main_srt-(_SpeedTest_main_info)+0
+	.quad	4294967299
+	.quad	0
+	.quad	4294967311
+.globl _SpeedTest_main_info
+_SpeedTest_main_info:
+Lc1Gg:
+	jmp _SpeedTest_main1_info
+	.long  _SpeedTest_main_info - _SpeedTest_main_info_dsp
+.const_data
+.align 3
+.align 0
+_SpeedTest_main5_srt:
+	.quad	_base_GHCziTopHandler_runMainIO1_closure
+	.quad	_SpeedTest_main1_closure
+.data
+.align 3
+.align 0
+.globl _SpeedTest_main5_closure
+_SpeedTest_main5_closure:
+	.quad	_SpeedTest_main5_info
+	.quad	0
+.text
+.align 3
+_SpeedTest_main5_info_dsp:
+	.quad	_SpeedTest_main5_srt-(_SpeedTest_main5_info)+0
+	.quad	4294967299
+	.quad	0
+	.quad	12884901903
+.globl _SpeedTest_main5_info
+_SpeedTest_main5_info:
+Lc1Go:
+	leaq _SpeedTest_main1_closure(%rip),%rax
+	leaq 1(%rax),%r14
+	jmp _base_GHCziTopHandler_runMainIO1_info
+	.long  _SpeedTest_main5_info - _SpeedTest_main5_info_dsp
+.const_data
+.align 3
+.align 0
+_ZCMain_main_srt:
+	.quad	_SpeedTest_main5_closure
+.data
+.align 3
+.align 0
+.globl _ZCMain_main_closure
+_ZCMain_main_closure:
+	.quad	_ZCMain_main_info
+	.quad	0
+.text
+.align 3
+_ZCMain_main_info_dsp:
+	.quad	_ZCMain_main_srt-(_ZCMain_main_info)+0
+	.quad	4294967299
+	.quad	0
+	.quad	4294967311
+.globl _ZCMain_main_info
+_ZCMain_main_info:
+Lc1Gx:
+	jmp _SpeedTest_main5_info
+	.long  _ZCMain_main_info - _ZCMain_main_info_dsp
+
+Linking SpeedTest ...
+

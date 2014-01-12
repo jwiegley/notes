@@ -1,0 +1,20 @@
+diff --git a/gitlib-s3/Git/S3.hs b/gitlib-s3/Git/S3.hs
+index 3dfb0bd..804dc66 100644
+--- a/gitlib-s3/Git/S3.hs
++++ b/gitlib-s3/Git/S3.hs
+@@ -76,4 +76,5 @@ import           Foreign.StablePtr
+ import           Foreign.Storable
+ import           GHC.Generics
++import qualified GHC.Stats as Stats
+ import qualified Git
+ import           Git (SHA(..), shaToText)
+@@ -1210,4 +1211,8 @@ freeCallback be = do
+     free (castPtr be :: Ptr OdbS3Backend)
+ 
++    stats <- Stats.getGCStats
++    putStrLn $ "currentBytesUsed = " ++ show (Stats.currentBytesUsed stats)
++    putStrLn $ "currentBytesSlop = " ++ show (Stats.currentBytesSlop stats)
++
+ foreign export ccall "freeCallback"
+   freeCallback :: F'git_odb_backend_free_callback
+

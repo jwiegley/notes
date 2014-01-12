@@ -1,0 +1,5 @@
+2011/05/28 Sears
+    ; :Bonus:
+    Expenses:Home                          $1,728.96  ; washer and dryer
+    Expenses:Taxes:Sales                     $136.87
+    Liabilities:USAA:MasterCard           $-1,865.83

@@ -1,0 +1,30 @@
+diff --git a/dev-scripts/fpbuild/FP/Build/App.hs b/dev-scripts/fpbuild/FP/Build/App.hs
+index c56ec5b..285a8e4 100644
+--- a/dev-scripts/fpbuild/FP/Build/App.hs
++++ b/dev-scripts/fpbuild/FP/Build/App.hs
+@@ -9,6 +9,7 @@ module FP.Build.App
+     ) where
+ 
+ import qualified Data.ByteString.Base16 as B16
++import qualified Data.ByteString as B
+ import qualified Data.Yaml
+ import System.Environment (getArgs)
+ import Crypto.Conduit (hashFile)
+@@ -193,10 +194,10 @@ instance Data.Yaml.FromJSON FileHash
+ newtype Hash = Hash { _unHash :: SHA512 }
+     deriving (Generic, Show, Eq, Serialize)
+ instance Data.Yaml.ToJSON Hash where
+-    toJSON = Data.Yaml.toJSON . B16.encode . Data.Serialize.encode
++    toJSON = Data.Yaml.toJSON . B.unpack . B16.encode . Data.Serialize.encode
+ instance Data.Yaml.FromJSON Hash where
+     parseJSON o = do
+-        bs <- Data.Yaml.parseJSON o
++        bs <- B.pack <$> Data.Yaml.parseJSON o
+         case B16.decode bs of
+             (x, "") ->
+                 case Data.Serialize.decode x of
+	Modified   isolation-runner/FP/IsolationRunner/Jobs/Git.hs
+	Modified   isolation-runner/FP/IsolationRunner/Project.hs
+	Modified   isolation-runner/isolation-runner.cabal
+	Modified   sources.txt
+

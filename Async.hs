@@ -79,7 +79,6 @@ data BufferContext a = BufferContext
     , chunks       :: TChan FilePath
     , slotsFree    :: TVar (Maybe Int)
     , transferring :: TVar Bool
-    , overflowed   :: TVar Bool
     }
 
 -- | Like 'buffer', except that when the bounded queue is overflowed, the
@@ -100,7 +99,6 @@ bufferToFile memorySize fileMax tempDir input output = do
         <*> newTChanIO
         <*> newTVarIO fileMax
         <*> newTVarIO False
-        <*> newTVarIO False
     control $ \runInIO ->
         withAsync (runInIO $ sender context) $ \input' ->
         withAsync (runInIO $ recv context $$ output) $ \output' -> do
@@ -112,14 +110,13 @@ bufferToFile memorySize fileMax tempDir input output = do
             busy <- readTVar transferring
             check (not busy)
 
-            spilled <- readTVar overflowed
+            spilled <- overflowed
             written <- if spilled
                        then return False
                        else tryWriteTBChan chan (Just x)
             if written
                 then return $ return ()
                 else do
-                    writeTVar overflowed True
                     -- The TBChan is full, write spill-over to the chunks
                     -- queue in preparation for writing to disk.
                     written' <- tryWriteTBChan pending (Just x)
@@ -128,6 +125,12 @@ bufferToFile memorySize fileMax tempDir input output = do
                         else saveOverflow (Just x)
         liftIO $ atomically $ writeTBChan pending Nothing
       where
+        overflowed = do
+            pendingEmpty <- isEmptyTBChan pending
+            if pendingEmpty
+                then isEmptyTChan chunks
+                else return True
+
         saveOverflow x = do
             -- Empty the pending chan and return an action that writes the
             -- overflow to a disk file.
@@ -161,17 +164,13 @@ bufferToFile memorySize fileMax tempDir input output = do
                 Just mx -> return $ return mx
                 Nothing -> do
                     mpath <- tryReadTChan chunks
-                    action <- case mpath of
+                    case mpath of
                         Just path -> loadOverflow path
                         Nothing   -> do
                             mmx' <- tryReadTBChan pending
                             case mmx' of
                                 Nothing -> retry
                                 Just mx -> return $ return mx
-                    empty' <- isEmptyTBChan pending
-                    when empty' $
-                        writeTVar overflowed False
-                    return action
         case mx of
             Nothing -> return ()
             Just x  -> yield x >> recv context

@@ -27,8 +27,6 @@ import           Control.Monad.Loops
 import           Control.Monad.Trans.Class
 import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Resource
-import           Data.Binary (Binary)
-import qualified Data.ByteString.Lazy as BL
 import           Data.Conduit
 import qualified Data.Conduit.Binary as C
 import qualified Data.Conduit.Cereal as C
@@ -147,7 +145,8 @@ bufferToFile memorySize fileMax tempDir input output = do
                             (openTempFile tempDir "conduit.bin")
                             (\(path, h) -> hClose h >> removeFile path)
                         liftIO $ do
-                            BL.hPut h $ Cereal.encodeLazy xs
+                            C.sourceList xs $= C.conduitPut put
+                                $$ C.sinkHandle h
                             hClose h
                             atomically $ putTMVar filePath (path, key)
 

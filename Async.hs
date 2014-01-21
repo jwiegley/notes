@@ -153,14 +153,13 @@ bufferToFile memorySize fileMax tempDir input output = do
             case maction of
                 Just action -> return (action, False)
                 Nothing -> do
-                    xs <- exhaustPoll chan
+                    xs <- exhaust chan
                     isDone <- readTVar done
                     return (return xs, isDone)
         mapM_ yield =<< liftIO gather
         unless exit $ recv context
 
-    exhaustPoll chan = whileM (not <$> isEmptyTBChan chan) (readTBChan chan)
-    exhaust chan     = untilM (readTBChan chan) (isEmptyTBChan chan)
+    exhaust chan = whileM (not <$> isEmptyTBChan chan) (readTBChan chan)
 
 -- | Gather output values asynchronously from an action in the base monad and
 --   then yield them downstream.  This provides a means of working around the

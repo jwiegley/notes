@@ -141,11 +141,13 @@ bufferToFile memorySize fileMax tempDir input output = do
                 [] -> return $ return ()
                 _  -> do
                     modifyTVar slotsFree (fmap (+ (-len)))
-                    return $ void $ async $ do
-                        (path, h) <- openTempFile tempDir "restore.bin"
-                        BL.hPut h $ Bin.encode xs
-                        hClose h
-                        atomically $ putTMVar filePath path
+                    return $ do
+                        worker <- async $ do
+                            (path, h) <- openTempFile tempDir "restore.bin"
+                            BL.hPut h $ Bin.encode xs
+                            hClose h
+                            atomically $ putTMVar filePath path
+                        link worker
 
     recv BufferContext {..} = loop where
         loop = do

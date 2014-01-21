@@ -76,9 +76,8 @@ buffer size input output = do
 data BufferContext a = BufferContext
     { chan         :: TBChan (Maybe a)
     , pending      :: TBChan (Maybe a)
-    , chunks       :: TChan FilePath
+    , chunks       :: TChan (IO (Maybe a))
     , slotsFree    :: TVar (Maybe Int)
-    , transferring :: TVar Bool
     }
 
 -- | Like 'buffer', except that when the bounded queue is overflowed, the
@@ -98,7 +97,6 @@ bufferToFile memorySize fileMax tempDir input output = do
         <*> newTBChanIO memorySize
         <*> newTChanIO
         <*> newTVarIO fileMax
-        <*> newTVarIO False
     control $ \runInIO ->
         withAsync (runInIO $ sender context) $ \input' ->
         withAsync (runInIO $ recv context $$ output) $ \output' -> do
@@ -107,9 +105,6 @@ bufferToFile memorySize fileMax tempDir input output = do
   where
     sender BufferContext {..} = do
         input $$ awaitForever $ \x -> liftIO $ join $ atomically $ do
-            busy <- readTVar transferring
-            check (not busy)
-
             spilled <- overflowed
             written <- if spilled
                        then return False
@@ -141,31 +136,37 @@ bufferToFile memorySize fileMax tempDir input output = do
                 Just slots -> check (len < slots)
                 Nothing    -> return ()
             writeTBChan pending x
+            filePath <- newEmptyTMVar
+            writeTChan chunks $ do
+                path <- atomically $ takeTMVar filePath
+                bs <- BL.readFile path
+                let xs'  = Bin.decode bs
+                    len' = length xs'
+                _ <- evaluate len
+                removeFile path
+                atomically $ do
+                    mapM_ (writeTBChan chan) (drop 1 xs')
+                    modifyTVar slotsFree (fmap (+ len'))
+                    return $ head xs
             case xs of
                 [] -> return $ return ()
                 _  -> do
-                    writeTVar transferring True
-                    return $ do
+                    modifyTVar slotsFree (fmap (+ (-len)))
+                    return $ void $ async $ do
                         (path, h) <- openTempFile tempDir "chunks.bin"
                         BL.hPut h $ Bin.encode xs
                         hClose h
-                        atomically $ do
-                            writeTChan chunks path
-                            modifyTVar slotsFree (fmap (+ (-len)))
-                            writeTVar transferring False
+                        atomically $ putTMVar filePath path
 
     recv context@(BufferContext {..}) = do
         mx <- liftIO $ join $ atomically $ do
-            busy <- readTVar transferring
-            check (not busy)
-
             mmx <- tryReadTBChan chan
             case mmx of
                 Just mx -> return $ return mx
                 Nothing -> do
-                    mpath <- tryReadTChan chunks
-                    case mpath of
-                        Just path -> loadOverflow path
+                    maction <- tryReadTChan chunks
+                    case maction of
+                        Just action -> return action
                         Nothing   -> do
                             mmx' <- tryReadTBChan pending
                             case mmx' of
@@ -174,20 +175,6 @@ bufferToFile memorySize fileMax tempDir input output = do
         case mx of
             Nothing -> return ()
             Just x  -> yield x >> recv context
-      where
-        loadOverflow path = do
-            writeTVar transferring True
-            return $ do
-                bs <- BL.readFile path
-                let xs  = Bin.decode bs
-                    len = length xs
-                _ <- evaluate len
-                removeFile path
-                atomically $ do
-                    mapM_ (writeTBChan chan) (drop 1 xs)
-                    modifyTVar slotsFree (fmap (+ len))
-                    writeTVar transferring False
-                    return $ head xs
 
 -- | Gather output values asynchronously from an action in the base monad and
 --   then yield them downstream.  This provides a means of working around the

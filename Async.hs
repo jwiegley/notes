@@ -77,7 +77,7 @@ buffer size input output = do
 
 data BufferContext m a = BufferContext
     { chan      :: TBChan a
-    , restore   :: TChan (IO (Source m a))
+    , restore   :: TChan (Source m a)
     , slotsFree :: TVar (Maybe Int)
     , done      :: TVar Bool
     }
@@ -130,7 +130,7 @@ bufferToFile memorySize fileMax tempDir input output = do
             filePath <- newEmptyTMVar
             writeTChan restore $ do
                 (path, key) <- liftIO $ atomically $ takeTMVar filePath
-                return $ C.sourceFile path $= do
+                C.sourceFile path $= do
                     C.conduitGet Cereal.get
                     liftIO $ atomically $
                         modifyTVar slotsFree (fmap (+ len))
@@ -152,15 +152,15 @@ bufferToFile memorySize fileMax tempDir input output = do
 
     recv BufferContext {..} = loop where
         loop = do
-            (getSrc, exit) <- liftIO $ atomically $ do
+            (src, exit) <- liftIO $ atomically $ do
                 maction <- tryReadTChan restore
                 case maction of
                     Just action -> return (action, False)
                     Nothing -> do
                         xs <- exhaust chan
                         isDone <- readTVar done
-                        return (return (C.sourceList xs), isDone)
-            join $ liftIO getSrc
+                        return (C.sourceList xs, isDone)
+            src
             unless exit loop
 
     exhaust chan = whileM (not <$> isEmptyTBChan chan) (readTBChan chan)

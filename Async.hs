@@ -26,6 +26,7 @@ import           Control.Monad.IO.Class
 import           Control.Monad.Loops
 import           Control.Monad.Trans.Class
 import           Control.Monad.Trans.Control
+import           Control.Monad.Trans.Resource
 import           Data.Binary (Binary)
 import qualified Data.Binary as Bin
 import qualified Data.ByteString.Lazy as BL
@@ -88,7 +89,7 @@ data BufferContext a = BufferContext
 --
 --   Note that the maximum amount of memory consumed is equal to memorySize *
 --   3, so take this into account when picking a chunking size.
-bufferToFile :: (MonadBaseControl IO m, MonadIO m, Binary a)
+bufferToFile :: (MonadBaseControl IO m, MonadIO m, MonadResource m, Binary a)
              => Int              -- ^ Size of the bounded queue in memory
              -> Maybe Int        -- ^ Max elements to keep on disk at one time
              -> FilePath         -- ^ Directory to write temp files to
@@ -108,7 +109,7 @@ bufferToFile memorySize fileMax tempDir input output = do
             wait output'
   where
     sender BufferContext {..} = do
-        input $$ awaitForever $ \x -> liftIO $ join $ atomically $ do
+        input $$ awaitForever $ \x -> join $ liftIO $ atomically $ do
             written <- tryWriteTBChan chan x
             if written
                 then return $ return ()
@@ -128,12 +129,12 @@ bufferToFile memorySize fileMax tempDir input output = do
 
             filePath <- newEmptyTMVar
             writeTChan restore $ do
-                path <- atomically $ takeTMVar filePath
+                (path, key) <- atomically $ takeTMVar filePath
                 bs <- BL.readFile path
                 let xs'  = Bin.decode bs
                     len' = length xs'
                 _ <- evaluate len'
-                removeFile path
+                release key
                 atomically $ modifyTVar slotsFree (fmap (+ len'))
                 return xs'
 
@@ -142,12 +143,13 @@ bufferToFile memorySize fileMax tempDir input output = do
                 _  -> do
                     modifyTVar slotsFree (fmap (+ (-len)))
                     return $ do
-                        worker <- async $ do
-                            (path, h) <- openTempFile tempDir "restore.bin"
+                        (key, (path, h)) <-
+                            flip allocate (removeFile . fst) $
+                                openTempFile tempDir "conduit.bin"
+                        liftIO $ do
                             BL.hPut h $ Bin.encode xs
                             hClose h
-                            atomically $ putTMVar filePath path
-                        link worker
+                            atomically $ putTMVar filePath (path, key)
 
     recv BufferContext {..} = loop where
         loop = do
@@ -223,9 +225,9 @@ main = do
     replicateM_ 16 $ do
         results <- newTChanIO
         let input = [1 :: Int .. 1024]
-        bufferToFile 4 Nothing "/Users/johnw/Downloads/temp"
+        runResourceT $ bufferToFile 4 Nothing "/Users/johnw/Downloads/temp"
             (CL.sourceList input)
-            (CL.mapM_ (atomically . writeTChan results))
+            (CL.mapM_ (liftIO . atomically . writeTChan results))
         xs <- atomically $ untilM (readTChan results) (isEmptyTChan results)
         print $ xs == input
     end <- getCurrentTime
@@ -236,9 +238,9 @@ main = do
     replicateM_ 16 $ do
         results <- newTChanIO
         let input = [1 :: Int .. 1024]
-        bufferToFile 4 (Just 19) "/Users/johnw/Downloads/temp"
+        runResourceT $ bufferToFile 4 (Just 19) "/Users/johnw/Downloads/temp"
             (CL.sourceList input)
-            (CL.mapM_ (atomically . writeTChan results))
+            (CL.mapM_ (liftIO . atomically . writeTChan results))
         xs <- atomically $ untilM (readTChan results) (isEmptyTChan results)
         print $ xs == input
     end <- getCurrentTime

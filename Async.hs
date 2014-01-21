@@ -151,7 +151,7 @@ bufferToFile memorySize fileMax tempDir input output = do
         (gather, exit) <- liftIO $ atomically $ do
             maction <- tryReadTChan restore
             case maction of
-                Just action -> return (action, True)
+                Just action -> return (action, False)
                 Nothing -> do
                     xs <- exhaustPoll chan
                     isDone <- readTVar done

@@ -148,16 +148,16 @@ bufferToFile memorySize fileMax tempDir input output = do
                         atomically $ putTMVar filePath path
 
     recv context@(BufferContext {..}) = do
-        (gather, loop) <- liftIO $ atomically $ do
+        (gather, exit) <- liftIO $ atomically $ do
             maction <- tryReadTChan restore
             case maction of
                 Just action -> return (action, True)
                 Nothing -> do
                     xs <- exhaustPoll chan
-                    haveMore <- not <$> readTVar done
-                    return (return xs, haveMore)
+                    isDone <- readTVar done
+                    return (return xs, isDone)
         mapM_ yield =<< liftIO gather
-        when loop $ recv context
+        unless exit $ recv context
 
     exhaustPoll chan = whileM (not <$> isEmptyTBChan chan) (readTBChan chan)
     exhaust chan     = untilM (readTBChan chan) (isEmptyTBChan chan)

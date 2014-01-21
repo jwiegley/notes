@@ -21,7 +21,7 @@ import           Control.Concurrent.Async.Lifted
 import           Control.Concurrent.STM
 import           Control.Concurrent.STM.TBChan
 import           Control.Exception.Lifted
-import           Control.Monad
+import           Control.Monad hiding (forM_)
 import           Control.Monad.IO.Class
 import           Control.Monad.Loops
 import           Control.Monad.Trans.Class
@@ -31,7 +31,7 @@ import qualified Data.Binary as Bin
 import qualified Data.ByteString.Lazy as BL
 import           Data.Conduit
 import qualified Data.Conduit.List as CL
-import           Data.Maybe
+import           Data.Foldable (forM_)
 import           System.Directory (removeFile)
 import           System.IO
 
@@ -75,10 +75,10 @@ buffer size input output = do
 ($$&) = buffer 64
 
 data BufferContext a = BufferContext
-    { chan         :: TBChan (Maybe a)
-    , pending      :: TBChan (Maybe a)
-    , restore      :: TChan (IO [Maybe a])
-    , slotsFree    :: TVar (Maybe Int)
+    { chan      :: TBChan a
+    , restore   :: TChan (IO [a])
+    , slotsFree :: TVar (Maybe Int)
+    , done      :: TVar Bool
     }
 
 -- | Like 'buffer', except that when the bounded queue is overflowed, the
@@ -98,9 +98,9 @@ bufferToFile :: (MonadBaseControl IO m, MonadIO m, Binary a)
 bufferToFile memorySize fileMax tempDir input output = do
     context <- liftIO $ BufferContext
         <$> newTBChanIO memorySize
-        <*> newTBChanIO memorySize
         <*> newTChanIO
         <*> newTVarIO fileMax
+        <*> newTVarIO False
     control $ \runInIO ->
         withAsync (runInIO $ sender context) $ \input' ->
         withAsync (runInIO $ recv context $$ output) $ \output' -> do
@@ -109,37 +109,22 @@ bufferToFile memorySize fileMax tempDir input output = do
   where
     sender BufferContext {..} = do
         input $$ awaitForever $ \x -> liftIO $ join $ atomically $ do
-            spilled <- overflowed
-            written <- if spilled
-                       then return False
-                       else tryWriteTBChan chan (Just x)
+            written <- tryWriteTBChan chan x
             if written
                 then return $ return ()
                 else do
-                    -- The TBChan is full, write spill-over to the restore
-                    -- queue in preparation for writing to disk.
-                    written' <- tryWriteTBChan pending (Just x)
-                    if written'
-                        then return $ return ()
-                        else saveOverflow (Just x)
-        liftIO $ atomically $ writeTBChan pending Nothing
+                    action <- persistChan
+                    writeTBChan chan x
+                    return action
+        liftIO $ atomically $ writeTVar done True
       where
-        overflowed = do
-            pendingEmpty <- isEmptyTBChan pending
-            if pendingEmpty
-                then isEmptyTChan restore
-                else return True
-
-        saveOverflow x = do
+        persistChan = do
             -- Empty the pending chan and return an action that writes the
             -- overflow to a disk file.
-            xs <- exhaust pending
+            xs <- exhaust chan
             mslots <- readTVar slotsFree
             let len = length xs
-            case mslots of
-                Just slots -> check (len < slots)
-                Nothing    -> return ()
-            writeTBChan pending x
+            forM_ mslots $ \slots -> check (len < slots)
 
             filePath <- newEmptyTMVar
             writeTChan restore $ do
@@ -163,20 +148,16 @@ bufferToFile memorySize fileMax tempDir input output = do
                         atomically $ putTMVar filePath path
 
     recv context@(BufferContext {..}) = do
-        mxs <- liftIO $ join $ atomically $ do
-            mxs <- exhaustPoll chan
-            case mxs of
-                [] -> do
-                    maction <- tryReadTChan restore
-                    case maction of
-                        Just action -> return action
-                        Nothing -> do
-                            xs' <- exhaust pending
-                            return $ return xs'
-                _ -> return $ return mxs
-        mapM_ yield (catMaybes mxs)
-        unless (any isNothing mxs) $
-            recv context
+        (gather, loop) <- liftIO $ atomically $ do
+            maction <- tryReadTChan restore
+            case maction of
+                Just action -> return (action, True)
+                Nothing -> do
+                    xs <- exhaustPoll chan
+                    haveMore <- not <$> readTVar done
+                    return (return xs, haveMore)
+        mapM_ yield =<< liftIO gather
+        when loop $ recv context
 
     exhaustPoll chan = whileM (not <$> isEmptyTBChan chan) (readTBChan chan)
     exhaust chan     = untilM (readTBChan chan) (isEmptyTBChan chan)

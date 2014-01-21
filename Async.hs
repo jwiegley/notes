@@ -143,9 +143,9 @@ bufferToFile memorySize fileMax tempDir input output = do
                 _  -> do
                     modifyTVar slotsFree (fmap (+ (-len)))
                     return $ do
-                        (key, (path, h)) <-
-                            flip allocate (removeFile . fst) $
-                                openTempFile tempDir "conduit.bin"
+                        (key, (path, h)) <- allocate
+                            (openTempFile tempDir "conduit.bin")
+                            (\(path, h) -> hClose h >> removeFile path)
                         liftIO $ do
                             BL.hPut h $ Bin.encode xs
                             hClose h

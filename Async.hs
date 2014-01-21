@@ -28,11 +28,13 @@ import           Control.Monad.Trans.Class
 import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Resource
 import           Data.Binary (Binary)
-import qualified Data.Binary as Bin
 import qualified Data.ByteString.Lazy as BL
 import           Data.Conduit
-import qualified Data.Conduit.List as CL
+import qualified Data.Conduit.Binary as C
+import qualified Data.Conduit.Cereal as C
+import qualified Data.Conduit.List as C
 import           Data.Foldable (forM_)
+import           Data.Serialize as Cereal
 import           System.Directory (removeFile)
 import           System.IO
 
@@ -52,14 +54,14 @@ buffer size input output = do
     chan <- liftIO $ newTBQueueIO size
     control $ \runInIO ->
         withAsync (runInIO $ sender chan) $ \input' ->
-            withAsync (runInIO $ recv chan $$ output) $ \output' -> do
-                link2 input' output'
-                wait output'
+        withAsync (runInIO $ recv chan $$ output) $ \output' -> do
+            link2 input' output'
+            wait output'
   where
     send chan = liftIO . atomically . writeTBQueue chan
 
     sender chan = do
-        input $$ CL.mapM_ (send chan . Just)
+        input $$ C.mapM_ (send chan . Just)
         send chan Nothing
 
     recv chan = do
@@ -75,9 +77,9 @@ buffer size input output = do
       => Producer m a -> Consumer a m b -> m b
 ($$&) = buffer 64
 
-data BufferContext a = BufferContext
+data BufferContext m a = BufferContext
     { chan      :: TBChan a
-    , restore   :: TChan (IO [a])
+    , restore   :: TChan (IO (Source m a))
     , slotsFree :: TVar (Maybe Int)
     , done      :: TVar Bool
     }
@@ -89,7 +91,7 @@ data BufferContext a = BufferContext
 --
 --   Note that the maximum amount of memory consumed is equal to memorySize *
 --   3, so take this into account when picking a chunking size.
-bufferToFile :: (MonadBaseControl IO m, MonadIO m, MonadResource m, Binary a)
+bufferToFile :: (MonadBaseControl IO m, MonadIO m, MonadResource m, Serialize a)
              => Int              -- ^ Size of the bounded queue in memory
              -> Maybe Int        -- ^ Max elements to keep on disk at one time
              -> FilePath         -- ^ Directory to write temp files to
@@ -129,14 +131,12 @@ bufferToFile memorySize fileMax tempDir input output = do
 
             filePath <- newEmptyTMVar
             writeTChan restore $ do
-                (path, key) <- atomically $ takeTMVar filePath
-                bs <- BL.readFile path
-                let xs'  = Bin.decode bs
-                    len' = length xs'
-                _ <- evaluate len'
-                release key
-                atomically $ modifyTVar slotsFree (fmap (+ len'))
-                return xs'
+                (path, key) <- liftIO $ atomically $ takeTMVar filePath
+                return $ C.sourceFile path $= do
+                    C.conduitGet Cereal.get
+                    liftIO $ atomically $
+                        modifyTVar slotsFree (fmap (+ len))
+                    release key
 
             case xs of
                 [] -> return $ return ()
@@ -147,21 +147,21 @@ bufferToFile memorySize fileMax tempDir input output = do
                             (openTempFile tempDir "conduit.bin")
                             (\(path, h) -> hClose h >> removeFile path)
                         liftIO $ do
-                            BL.hPut h $ Bin.encode xs
+                            BL.hPut h $ Cereal.encodeLazy xs
                             hClose h
                             atomically $ putTMVar filePath (path, key)
 
     recv BufferContext {..} = loop where
         loop = do
-            (gather, exit) <- liftIO $ atomically $ do
+            (getSrc, exit) <- liftIO $ atomically $ do
                 maction <- tryReadTChan restore
                 case maction of
                     Just action -> return (action, False)
                     Nothing -> do
                         xs <- exhaust chan
                         isDone <- readTVar done
-                        return (return xs, isDone)
-            mapM_ yield =<< liftIO gather
+                        return (return (C.sourceList xs), isDone)
+            join $ liftIO getSrc
             unless exit loop
 
     exhaust chan = whileM (not <$> isEmptyTBChan chan) (readTBChan chan)
@@ -226,10 +226,13 @@ main = do
         results <- newTChanIO
         let input = [1 :: Int .. 1024]
         runResourceT $ bufferToFile 4 Nothing "/Users/johnw/Downloads/temp"
-            (CL.sourceList input)
-            (CL.mapM_ (liftIO . atomically . writeTChan results))
+            (C.sourceList input)
+            (C.mapM_ (liftIO . atomically . writeTChan results))
         xs <- atomically $ untilM (readTChan results) (isEmptyTChan results)
         print $ xs == input
+        unless (xs == input) $ do
+            print input
+            print xs
     end <- getCurrentTime
     print $ diffUTCTime end beg
 
@@ -239,9 +242,12 @@ main = do
         results <- newTChanIO
         let input = [1 :: Int .. 1024]
         runResourceT $ bufferToFile 4 (Just 19) "/Users/johnw/Downloads/temp"
-            (CL.sourceList input)
-            (CL.mapM_ (liftIO . atomically . writeTChan results))
+            (C.sourceList input)
+            (C.mapM_ (liftIO . atomically . writeTChan results))
         xs <- atomically $ untilM (readTChan results) (isEmptyTChan results)
         print $ xs == input
+        unless (xs == input) $ do
+            print input
+            print xs
     end <- getCurrentTime
     print $ diffUTCTime end beg

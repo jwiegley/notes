@@ -31,8 +31,9 @@ import qualified Data.Binary as Bin
 import qualified Data.ByteString.Lazy as BL
 import           Data.Conduit
 import qualified Data.Conduit.List as CL
-import           System.IO
+import           Data.Maybe
 import           System.Directory (removeFile)
+import           System.IO
 
 import           Data.Time
 
@@ -76,7 +77,7 @@ buffer size input output = do
 data BufferContext a = BufferContext
     { chan         :: TBChan (Maybe a)
     , pending      :: TBChan (Maybe a)
-    , restore      :: TChan (IO (Maybe a))
+    , restore      :: TChan (IO [Maybe a])
     , slotsFree    :: TVar (Maybe Int)
     }
 
@@ -84,6 +85,9 @@ data BufferContext a = BufferContext
 --   excess is cached in a local file so that consumption from upstream may
 --   continue.  When the queue becomes exhausted by yielding, it is filled
 --   from the cache until all elements have been yielded.
+--
+--   Note that the maximum amount of memory consumed is equal to memorySize *
+--   3, so take this into account when picking a chunking size.
 bufferToFile :: (MonadBaseControl IO m, MonadIO m, Binary a)
              => Int              -- ^ Size of the bounded queue in memory
              -> Maybe Int        -- ^ Max elements to keep on disk at one time
@@ -129,13 +133,14 @@ bufferToFile memorySize fileMax tempDir input output = do
         saveOverflow x = do
             -- Empty the pending chan and return an action that writes the
             -- overflow to a disk file.
-            xs <- untilM (readTBChan pending) (isEmptyTBChan pending)
+            xs <- exhaust pending
             mslots <- readTVar slotsFree
             let len = length xs
             case mslots of
                 Just slots -> check (len < slots)
                 Nothing    -> return ()
             writeTBChan pending x
+
             filePath <- newEmptyTMVar
             writeTChan restore $ do
                 path <- atomically $ takeTMVar filePath
@@ -144,10 +149,9 @@ bufferToFile memorySize fileMax tempDir input output = do
                     len' = length xs'
                 _ <- evaluate len'
                 removeFile path
-                atomically $ do
-                    mapM_ (writeTBChan chan) (drop 1 xs')
-                    modifyTVar slotsFree (fmap (+ len'))
-                    return $ head xs'
+                atomically $ modifyTVar slotsFree (fmap (+ len'))
+                return xs'
+
             case xs of
                 [] -> return $ return ()
                 _  -> do
@@ -159,22 +163,23 @@ bufferToFile memorySize fileMax tempDir input output = do
                         atomically $ putTMVar filePath path
 
     recv context@(BufferContext {..}) = do
-        mx <- liftIO $ join $ atomically $ do
-            mmx <- tryReadTBChan chan
-            case mmx of
-                Just mx -> return $ return mx
-                Nothing -> do
+        mxs <- liftIO $ join $ atomically $ do
+            mxs <- exhaustPoll chan
+            case mxs of
+                [] -> do
                     maction <- tryReadTChan restore
                     case maction of
                         Just action -> return action
-                        Nothing   -> do
-                            mmx' <- tryReadTBChan pending
-                            case mmx' of
-                                Nothing -> retry
-                                Just mx -> return $ return mx
-        case mx of
-            Nothing -> return ()
-            Just x  -> yield x >> recv context
+                        Nothing -> do
+                            xs' <- exhaust pending
+                            return $ return xs'
+                _ -> return $ return mxs
+        mapM_ yield (catMaybes mxs)
+        unless (any isNothing mxs) $
+            recv context
+
+    exhaustPoll chan = whileM (not <$> isEmptyTBChan chan) (readTBChan chan)
+    exhaust chan     = untilM (readTBChan chan) (isEmptyTBChan chan)
 
 -- | Gather output values asynchronously from an action in the base monad and
 --   then yield them downstream.  This provides a means of working around the

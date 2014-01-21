@@ -76,7 +76,7 @@ buffer size input output = do
 data BufferContext a = BufferContext
     { chan         :: TBChan (Maybe a)
     , pending      :: TBChan (Maybe a)
-    , chunks       :: TChan (IO (Maybe a))
+    , restore      :: TChan (IO (Maybe a))
     , slotsFree    :: TVar (Maybe Int)
     }
 
@@ -112,7 +112,7 @@ bufferToFile memorySize fileMax tempDir input output = do
             if written
                 then return $ return ()
                 else do
-                    -- The TBChan is full, write spill-over to the chunks
+                    -- The TBChan is full, write spill-over to the restore
                     -- queue in preparation for writing to disk.
                     written' <- tryWriteTBChan pending (Just x)
                     if written'
@@ -123,7 +123,7 @@ bufferToFile memorySize fileMax tempDir input output = do
         overflowed = do
             pendingEmpty <- isEmptyTBChan pending
             if pendingEmpty
-                then isEmptyTChan chunks
+                then isEmptyTChan restore
                 else return True
 
         saveOverflow x = do
@@ -137,23 +137,23 @@ bufferToFile memorySize fileMax tempDir input output = do
                 Nothing    -> return ()
             writeTBChan pending x
             filePath <- newEmptyTMVar
-            writeTChan chunks $ do
+            writeTChan restore $ do
                 path <- atomically $ takeTMVar filePath
                 bs <- BL.readFile path
                 let xs'  = Bin.decode bs
                     len' = length xs'
-                _ <- evaluate len
+                _ <- evaluate len'
                 removeFile path
                 atomically $ do
                     mapM_ (writeTBChan chan) (drop 1 xs')
                     modifyTVar slotsFree (fmap (+ len'))
-                    return $ head xs
+                    return $ head xs'
             case xs of
                 [] -> return $ return ()
                 _  -> do
                     modifyTVar slotsFree (fmap (+ (-len)))
                     return $ void $ async $ do
-                        (path, h) <- openTempFile tempDir "chunks.bin"
+                        (path, h) <- openTempFile tempDir "restore.bin"
                         BL.hPut h $ Bin.encode xs
                         hClose h
                         atomically $ putTMVar filePath path
@@ -164,7 +164,7 @@ bufferToFile memorySize fileMax tempDir input output = do
             case mmx of
                 Just mx -> return $ return mx
                 Nothing -> do
-                    maction <- tryReadTChan chunks
+                    maction <- tryReadTChan restore
                     case maction of
                         Just action -> return action
                         Nothing   -> do

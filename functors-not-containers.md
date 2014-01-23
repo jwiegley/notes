@@ -1,4 +1,4 @@
-Functors are not containers
+# Functors are not containers
 
 Recentlty I was reading Dr. Bartosz's interesting article on
 [Functors are Containers](http://bartoszmilewski.com/2014/01/14/functors-are-containers).
@@ -82,3 +82,8 @@ discussion because people sometimes call the objects of D functors (such as,
 `Maybe Int`), when they are not functors at all.  The type constructor `Maybe`
 can't contain anything any more than `F` in the above diagram "contains" what
 it is mapping.
+
+If I were to sum it all up, I'd say that `[]` is not a container, for example,
+but rather a maker of types (such as `[Int]`) whose inhabitants are
+containers.  But not even all functors make types whose inhabitants are
+containers!

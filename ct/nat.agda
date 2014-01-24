@@ -385,3 +385,12 @@ odd*odd≡both-odd : ∀ n m → ¬ (Even (n * m)) → ¬ (Even n) × ¬ (Even m
 odd*odd≡both-odd n m h =
     (λ x → h (even*n≡even' n m x)) ,
     (λ x → h (subst Even (lemma-*comm m n) (even*n≡even' m n x)))
+
+n+sucn-odd : ∀ n → ¬ (even (n + suc n))
+n+sucn-odd zero = λ z → z
+n+sucn-odd (suc zero) = λ z → z
+n+sucn-odd (suc (suc n)) = 
+    λ x → n+sucn-odd n
+        (even-sucsuc (n + (suc n))
+                     (subst even (sym (lemma-+sucgr (suc n) (suc n)))
+                            (subst even (sym (lemma-+sucgr n (suc (suc n)))) x)))

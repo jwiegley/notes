@@ -1,0 +1,15 @@
+tests/FP/FayAPI/Setup.hs:114:3:
+    Couldn't match expected type `CanFail t0' with actual type `IFiles'
+    Expected type: Returns (CanFail t0) -> command0
+      Actual type: Returns IFiles -> FayCommand
+    In the return type of a call of `GetIFilesFromURL'
+    In the second argument of `fayCommand', namely
+      `GetIFilesFromURL x_aadV'
+
+tests/FP/FayAPI/Setup.hs:114:3:
+    Couldn't match expected type `CanFail t0' with actual type `IFiles'
+    Expected type: Returns (CanFail t0) -> command0
+      Actual type: Returns IFiles -> FayCommand
+    In the return type of a call of `GetIFilesFromCode'
+    In the second argument of `fayCommand', namely
+      `GetIFilesFromCode x_aadS x_aadT x_aadU'

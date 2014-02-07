@@ -1,0 +1,32 @@
+newtype LgRepository m a = LgRepository
+    { lgRepositoryReaderT :: ReaderT Repository m a }
+    deriving (Functor, Applicative, Monad, MonadIO)
+
+instance (Monad m, MonadIO m, Applicative m)
+         => MonadBase IO (LgRepository m) where
+    liftBase = liftIO
+
+instance Monad m => MonadUnsafeIO (LgRepository m) where
+    unsafeLiftIO = return . unsafePerformIO
+
+instance Monad m => MonadThrow (LgRepository m) where
+    monadThrow = throw
+
+instance MonadTrans LgRepository where
+    lift = LgRepository . ReaderT . const
+
+instance MonadTransControl LgRepository where
+    newtype StT LgRepository a = StLgRepository
+        { unLgRepository :: StT (ReaderT Repository) a
+        }
+    liftWith = defaultLiftWith LgRepository
+                   lgRepositoryReaderT StLgRepository
+    restoreT = defaultRestoreT LgRepository unLgRepository
+
+instance (MonadIO m, MonadBaseControl IO m)
+         => MonadBaseControl IO (LgRepository m) where
+    newtype StM (LgRepository m) a = StMT
+        { unStMT :: ComposeSt LgRepository m a
+        }
+    liftBaseWith = defaultLiftBaseWith StMT
+    restoreM     = defaultRestoreM unStMT

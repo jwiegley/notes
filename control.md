@@ -22,8 +22,8 @@ main = do
     (x,y) <- runStateT f 0
     print $ "x = " ++ show x   -- x = "1"
     
-    (x',y') <- runStateT f y
-    print $ "x = " ++ show x''  -- x = "2"
+    (x2,y2) <- runStateT f y
+    print $ "x = " ++ show x2  -- x = "2"
 ```
 
 In this way, we interleave between `StateT Int IO` and `IO`, by completing the

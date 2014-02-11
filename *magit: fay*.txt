@@ -1,0 +1,43 @@
+diff --git a/src/Fay/Convert.hs b/src/Fay/Convert.hs
+index bdd5f10..6f546b6 100644
+--- a/src/Fay/Convert.hs
++++ b/src/Fay/Convert.hs
+@@ -62,7 +62,13 @@ showToFay = Show.reify >=> convert where
+ 
+     -- Numeric types (everything treated as a double)
+     Show.Neg{}     -> double <|> int
+-    Show.Integer{} -> int
++    Show.Integer{} -> fmap (Object . Map.fromList
++                                . (("instance","{Integer}") :)
++                                . (:[])
++                                . ("slot1",)
++                                . String
++                                . Text.pack
++                                . show) $ pInt value
+     Show.Float{}   -> double
+     Show.Ratio{}   -> double
+     where double = convertDouble value
+@@ -141,12 +147,19 @@ parseObject typ obj = listToMaybe (catMaybes choices) where
+   makeConstructor cons = do
+     name <- Map.lookup (Text.pack "instance") obj >>= parseString
+     guard (showConstr cons == name)
+-    if null fields
+-      then makeSimple obj cons
+-      else makeRecord obj cons fields
++    if name == "{Integer}"
++        then makeInteger obj
++        else if null fields
++             then makeSimple obj cons
++             else makeRecord obj cons fields
+ 
+       where fields = constrFields cons
+ 
++makeInteger :: Data a => HashMap Text Value -> Maybe a
++makeInteger obj = do
++    value <- Map.lookup "slot1" obj
++    readFromFay value
++
+ -- | Make a simple ADT constructor from an object: { "slot1": 1, "slot2": 2} -> Foo 1 2
+ makeSimple :: Data a => HashMap Text Value -> Constr -> Maybe a
+ makeSimple obj cons =
+

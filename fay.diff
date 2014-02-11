@@ -1,0 +1,34 @@
+diff --git a/src/Fay/Convert.hs b/src/Fay/Convert.hs
+index bdd5f10..b44fa3b 100644
+--- a/src/Fay/Convert.hs
++++ b/src/Fay/Convert.hs
+@@ -62,7 +62,10 @@ showToFay = Show.reify >=> convert where
+ 
+     -- Numeric types (everything treated as a double)
+     Show.Neg{}     -> double <|> int
+-    Show.Integer{} -> int
++    Show.Integer{} -> fmap (Object . Map.fromList
++                                . (("instance","Integer") :)
++                                . (:[]) . ("slot1",)
++                                . String . Text.pack . show) $ pInt value
+     Show.Float{}   -> double
+     Show.Ratio{}   -> double
+     where double = convertDouble value
+@@ -185,11 +188,11 @@ parseInt value = do
+ 
+ -- | Parse an integer.
+ parseInteger :: Value -> Maybe Integer
+-parseInteger value = do
+-  number <- parseNumber value
+-  case number of
+-    I n -> return n
+-    _ -> mzero
++parseInteger (Object obj) = do
++  name <- Map.lookup (Text.pack "instance") obj >>= parseString
++  guard (name == "Integer")
++  Map.lookup "slot1" obj >>= readFromFay >>= readMay
++parseInteger _ = mzero
+ 
+ -- | Parse a number.
+ parseNumber :: Value -> Maybe Number
+

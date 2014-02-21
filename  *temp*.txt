@@ -1,0 +1,13 @@
+I'm trying to build fpco in an Ubuntu virtual machine so that I can try a "full deployment environment" locally, rather than debugging on QA.
+
+I have wiped my local Cabal library, wiped my hsenv, and did a fresh clone of fpco. But whenever I try to build-all.sh, it fails building Cabal-ide-backend. For example:
+
+fpco:~/fpco/ide-backend/vendor/cabal/Cabal {(no branch)} $ cabal install
+Resolving dependencies...
+Failed to install Cabal-ide-backend-1.16.0.3.1
+cabal: Error: some packages failed to install:
+Cabal-ide-backend-1.16.0.3.1 failed during the configure step. The exception
+was:
+ExitFailure 127
+fpco:~/fpco/ide-backend/vendor/cabal/Cabal {(no branch)} [1] $ 
+Do you have any ideas what is going on?

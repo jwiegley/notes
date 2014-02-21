@@ -1,0 +1,7 @@
+Resolving dependencies...
+Failed to install Cabal-ide-backend-1.16.0.3.1
+cabal: Error: some packages failed to install:
+Cabal-ide-backend-1.16.0.3.1 failed during the configure step. The exception
+was:
+ExitFailure 127
+fpbuild: Build failed: ExitFailure 1

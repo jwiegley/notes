@@ -1,0 +1,23 @@
+@@ -111,12 +111,12 @@ helperProjectFileList = do
+         -- I don't think FileContentData fits in either NoContent or
+         -- ContentInDatabase, so you have to pull the contents of
+         -- every file.
+-        files <- when False
+-                      (void (select
+-                               (from (\file ->
+-                                       do where_ (file ^. Model.IdeFileProject .==. val pid)
+-                                          return (file ^. Model.IdeFileName
+-                                                 ,file ^. Model.IdeFileModuleExcluded)))))
++        _files <- when False $
++            void $ select $ from $ \file -> do
++                where_ ( file ^. Model.IdeFileProject .==. val pid )
++                return ( file ^. Model.IdeFileName
++                       , file ^. Model.IdeFileModuleExcluded
++                       )
+         files <- selectList [ IdeFileProject ==. pid ] []
+         forM files $ \(Entity _ IdeFile {..}) ->
+             return ProjectFile
+	Modified   isolation-runner/FP/IsolationRunner/Base.hs
+	Modified   isolation-runner/FP/IsolationRunner/Module/Files.hs
+	Modified   isolation-runner/FP/IsolationRunner/Project/Files.hs
+

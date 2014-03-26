@@ -56,8 +56,12 @@ runDbQuery (Query (Free (Lookup keys f))) kf = do
     let q = f $ Map.fromList $ map (\(Entity k v) -> (k,v)) xs
     runDbQuery (Query q) kf
 
-(@?) :: Ord k => (v -> a) -> k -> Query k v a
-f @? k = Query (Free (Lookup (Set.singleton k) (Pure . f . (Map.! k))))
+(@?) :: (Show k, Ord k) => (v -> a) -> k -> Query k v a
+f @? k = Query (Free (Lookup (Set.singleton k) (Pure . f . lookupOrElse k)))
+  where
+    lookupOrElse k' m = case Map.lookup k' m of
+        Nothing -> error $ "Failed to lookup key " ++ show k'
+        Just x  -> x
 
 main :: IO ()
 main = do

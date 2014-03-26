@@ -19,6 +19,9 @@ instance Functor (Lookup k v) where
 
 newtype Query k v a = Query (Free (Lookup k v) a) deriving Functor
 
+resolve :: Map k v -> Free (Lookup k v) a -> a
+resolve m = iter (\(Lookup _ f) -> f m)
+
 instance Ord k => Applicative (Query k v) where
     pure x = Query (Pure x)
     Query (Pure f) <*> Query (Pure x) = Query (Pure (f x))
@@ -27,14 +30,13 @@ instance Ord k => Applicative (Query k v) where
     Query (Pure f) <*> Query (Free (Lookup xk x)) =
         Query (Free (Lookup xk (fmap f . x)))
     Query (Free (Lookup fk f)) <*> Query (Free (Lookup xk x)) =
-        Query (Free (Lookup (fk <> xk)
-                     (\m -> fmap ($ iter (\(Lookup _ f') -> f' m) (x m)) (f m))))
+        Query (Free (Lookup (fk <> xk) (\m -> f m <*> x m)))
 
 class KeyValueStore (s :: * -> * -> *) (m :: * -> *) where
     runQuery :: Ord k => Query k v a -> s k v -> m a
 
 instance KeyValueStore Map Identity where
-    runQuery (Query x) m = return $ iter (\(Lookup _ f) -> f m) x
+    runQuery (Query x) m = return $ resolve m x
 
 (@?) :: Ord k => (v -> a) -> k -> Query k v a
 f @? k = Query (Free (Lookup (Set.singleton k) (Pure . f . (Map.! k))))

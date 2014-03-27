@@ -9,4 +9,6 @@ sinkFileThroughTemp path = do
         throwIO e
     liftIO $ do
         hClose h
-        renameFile name (fpToString path)
+        renameFile name (fpToString path) `onException`
+            runResourceT (sourceFile (fpFromString name) $$
+                 (sinkFile path :: Consumer ByteString (ResourceT IO) ()))

@@ -1,0 +1,8 @@
+FAILED to fsck Key {unKey = PersistInt64 24}: 
+Ran commands: 
+git --git-dir /var/folders/d9/7m3349ms1zd9pn01b4m5jtmr0000gn/T/check.73058/.git --work-tree /var/folders/d9/7m3349ms1zd9pn01b4m5jtmr0000gn/T/check.73058 update-ref refs/heads/master 108b94c67aa721bcbdaf9f36c22ff34b62739425
+
+Exception: error running: git --git-dir /var/folders/d9/7m3349ms1zd9pn01b4m5jtmr0000gn/T/check.73058/.git --work-tree /var/folders/d9/7m3349ms1zd9pn01b4m5jtmr0000gn/T/check.73058 update-ref refs/heads/master 108b94c67aa721bcbdaf9f36c22ff34b62739425
+exit status: 128
+stderr: error: Trying to write ref refs/heads/master with nonexistent object 108b94c67aa721bcbdaf9f36c22ff34b62739425
+fatal: Cannot update the ref 'refs/heads/master'.

@@ -1,0 +1,31 @@
+fpco:~/fpco/ide-backend/vendor/cabal/Cabal {(no branch)} $ cabal install -v -v -v
+Reading available packages...
+Choosing modular solver.
+Resolving dependencies...
+Ready to install Cabal-ide-backend-1.16.0.3.1
+Waiting for install task to finish...
+creating dist/setup
+./dist/setup/setup configure --verbose=2 --builddir=dist --ghc
+--prefix=/home/johnw/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/cabal
+--bindir=/home/johnw/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/cabal/bin
+--libdir=/home/johnw/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/cabal/lib
+--libsubdir=x86_64-linux-ghc-7.4.2.9/Cabal-ide-backend-1.16.0.3.1
+--libexecdir=/home/johnw/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/cabal/libexec
+--datadir=/home/johnw/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/cabal/share
+--datasubdir=x86_64-linux-ghc-7.4.2.9/Cabal-ide-backend-1.16.0.3.1
+--docdir=/home/johnw/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/cabal/share/doc/x86_64-linux-ghc-7.4.2.9/Cabal-ide-backend-1.16.0.3.1
+--htmldir=/home/johnw/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/cabal/share/doc/x86_64-linux-ghc-7.4.2.9/Cabal-ide-backend-1.16.0.3.1/html
+--haddockdir=/home/johnw/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/cabal/share/doc/x86_64-linux-ghc-7.4.2.9/Cabal-ide-backend-1.16.0.3.1/html
+--user --package-db=/home/johnw/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/ghc_pkg_db
+--package-db=/home/johnw/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/ghc_pkg_db
+--package-db=/home/johnw/fpco/.hsenvs/ghc-7.4.2.9/.hsenv/ghc/lib/ghc-7.4.2.9/package.conf.d
+--flags=base4 --flags=base3 --constraint=unix ==2.5.1.1 --constraint=process
+==1.1.0.1 --constraint=pretty ==1.1.1.0 --constraint=old-time ==1.1.0.0
+--constraint=filepath ==1.3.0.0 --constraint=directory ==1.1.0.2
+--constraint=containers ==0.4.2.1 --constraint=base ==4.5.1.0
+--constraint=array ==0.4.0.0 --disable-tests --disable-benchmarks
+Failed to install Cabal-ide-backend-1.16.0.3.1
+cabal: Error: some packages failed to install:
+Cabal-ide-backend-1.16.0.3.1 failed during the configure step. The exception
+was:
+ExitFailure 127

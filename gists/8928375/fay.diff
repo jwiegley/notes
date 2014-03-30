@@ -1,0 +1,67 @@
+diff --git a/origin/master:fpco-api/src/library/FP/API/Convert.hs b/HEAD:fpco-api/src/library/FP/API/Convert.hs
+index e9e096b..61d3087 100644
+--- a/origin/master:fpco-api/src/library/FP/API/Convert.hs
++++ b/HEAD:fpco-api/src/library/FP/API/Convert.hs
+@@ -22,6 +22,7 @@ import           Data.Function
+ import           Data.Generics.Aliases
+ import           Data.HashMap.Strict    (HashMap)
+ import qualified Data.HashMap.Strict    as Map
++import           Data.Int
+ import           Data.Maybe
+ import           Data.Text              (Text)
+ import qualified Data.Text              as Text
+@@ -62,7 +63,10 @@ showToFay' = Show.reify >=> convert where
+ 
+     -- Numeric types (everything treated as a double)
+     Show.Neg{}     -> double <|> int
+-    Show.Integer{} -> int
++    Show.Integer{} -> fmap (Object . Map.fromList
++                                . (("instance","Integer") :)
++                                . (:[]) . ("slot1",)
++                                . String . Text.pack . show) $ pInt value
+     Show.Float{}   -> double
+     Show.Ratio{}   -> double
+     where double = convertDouble value
+@@ -103,6 +107,7 @@ readFromFay' value =
+   `ext1R` parseArray value
+   `extR` parseDouble value
+   `extR` parseInt value
++  `extR` parseInt64 value
+   `extR` parseInteger value
+   `extR` parseBool value
+   `extR` parseString value
+@@ -175,21 +180,24 @@ parseDouble value = do
+     I n -> return (fromIntegral n)
+     D n -> return n
+ 
++parseIntegral :: (Read a, Integral a) => Value -> Maybe a
++parseIntegral (Object obj) = do
++  name <- Map.lookup (Text.pack "instance") obj >>= parseString
++  guard (name == "Integer")
++  Map.lookup "slot1" obj >>= readFromFay' >>= readMay
++parseIntegral _ = mzero
++
+ -- | Parse an int.
+ parseInt :: Value -> Maybe Int
+-parseInt value = do
+-  number <- parseNumber value
+-  case number of
+-    I n -> return (fromIntegral n)
+-    _ -> mzero
++parseInt = parseIntegral
++
++-- | Parse a 64-bit int.
++parseInt64 :: Value -> Maybe Int64
++parseInt64 = parseIntegral
+ 
+ -- | Parse an integer.
+ parseInteger :: Value -> Maybe Integer
+-parseInteger value = do
+-  number <- parseNumber value
+-  case number of
+-    I n -> return n
+-    _ -> mzero
++parseInteger = parseIntegral
+ 
+ -- | Parse a number.
+ parseNumber :: Value -> Maybe Number

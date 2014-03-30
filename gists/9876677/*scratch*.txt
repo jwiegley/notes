@@ -1,0 +1,17 @@
+Model: ATA WDC WD30EFRX-68A (scsi)
+Disk /dev/sda: 3001GB
+Sector size (logical/physical): 512B/4096B
+Partition Table: gpt
+
+Number  Start   End     Size    File system  Name  Flags
+ 1      1049kB  3001GB  3001GB  zfs          zfs
+ 9      3001GB  3001GB  8389kB
+
+Model: ATA WDC WD30EFRX-68E (scsi)
+Disk /dev/sdl: 2199GB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+
+Number  Start   End     Size    File system  Name  Flags
+ 1      1049kB  2199GB  2199GB  zfs          zfs
+ 9      2199GB  2199GB  8389kB

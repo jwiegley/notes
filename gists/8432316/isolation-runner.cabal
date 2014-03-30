@@ -1,0 +1,29 @@
+  if flag(dev)
+      cpp-options: -DDEVELOPMENT
+      hs-source-dirs: ../isolation-helper, ../model
+      exposed-modules:
+          -- from isolation-helper
+          FP.IsolationHelper
+          FP.IsolationHelper.Common
+          FP.IsolationHelper.Netstring
+          FP.IsolationHelper.Project
+          FP.IsolationHelper.Sample
+          FP.IsolationHelper.Server
+          FP.IsolationHelper.Types
+          FP.IsolationHelper.Main
+          -- from model
+          FP.FileName
+          FP.ModuleName
+          FP.OldModuleName
+          Model
+          Model.Types
+          Model.Types.ProjectSettings
+          Model.DeadTypes
+          Settings.Page
+      build-depends:
+          basic-prelude
+        , MissingH
+  else
+      build-depends:
+          model
+        , isolation-helper

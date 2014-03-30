@@ -1,0 +1,28 @@
+Mar-07 06:57:16.082035 [DEBUG] helperS3GetBucket (ThreadId 27,"/home/app/isolation-runner-work/projects/41/repo/.git") -- SUCCESS 0.131487s
+Mar-07 06:57:16.137768 [INFO] Downloading 11 objects from S3
+Mar-07 06:57:16.141778 [DEBUG] Downloading [S3]/git/project/41/0a5d527e8d1ea05e8c2987cefc800c837c38abe6 ==> /home/app/isolation-runner-work/projects/41/repo/.git/objects/0a/5d527e8d1ea05e8c2987cefc800c837c38abe6
+Mar-07 06:57:16.143238 [DEBUG] Downloading file source: FileName {unFileName = "http-conduit/test/CookieTest.hs"}
+Mar-07 06:57:16.176109 [DEBUG] helperS3GetObject (ThreadId 27,"/home/app/isolation-runner-work/projects/41/repo/.git") -- SUCCESS 0.033239s
+Mar-07 06:57:16.176717 [DEBUG] Downloading [S3]/git/project/41/92e2830990158361dec7690469f2cb8d317ae313 ==> /home/app/isolation-runner-work/projects/41/repo/.git/objects/92/e2830990158361dec7690469f2cb8d317ae313
+Mar-07 06:57:16.17925 [DEBUG] Downloading file source: FileName {unFileName = "sources.txt"}
+Mar-07 06:57:16.179585 [DEBUG] Downloading file from Git: 164fda2d5e5d874faa466e2096c6727384d2799c
+Mar-07 06:57:16.214502 [DEBUG] helperS3GetObject (ThreadId 27,"/home/app/isolation-runner-work/projects/41/repo/.git") -- SUCCESS 0.037405s
+Mar-07 06:57:16.215002 [DEBUG] Downloading [S3]/git/project/41/dc0440aef5f4911472aa953470b63052a2caf2b8 ==> /home/app/isolation-runner-work/projects/41/repo/.git/objects/dc/0440aef5f4911472aa953470b63052a2caf2b8
+Mar-07 06:57:16.241945 [DEBUG] helperS3GetObject (ThreadId 27,"/home/app/isolation-runner-work/projects/41/repo/.git") -- SUCCESS 0.026741s
+Mar-07 06:57:16.242421 [DEBUG] Downloading [S3]/git/project/41/pack-0b6563d20fe195376add462e5e9addd04eff6c16.idx ==> /home/app/isolation-runner-work/projects/41/repo/.git/objects/pack/pack-0b6563d20fe195376add462e5e9addd04eff6c16.idx
+Mar-07 06:57:16.30944 [DEBUG] helperS3GetObject (ThreadId 27,"/home/app/isolation-runner-work/projects/41/repo/.git") -- SUCCESS 0.066826s
+Mar-07 06:57:16.310065 [DEBUG] Downloading [S3]/git/project/41/pack-0b6563d20fe195376add462e5e9addd04eff6c16.pack ==> /home/app/isolation-runner-work/projects/41/repo/.git/objects/pack/pack-0b6563d20fe195376add462e5e9addd04eff6c16.pack
+Mar-07 06:57:16.407958 [DEBUG] helperS3GetObject (ThreadId 27,"/home/app/isolation-runner-work/projects/41/repo/.git") -- SUCCESS 0.097034s
+Mar-07 06:57:16.40872 [DEBUG] Downloading [S3]/git/project/41/pack-c348940f17aa3ce687e0bb12178eefdb6ccb391e.idx ==> /home/app/isolation-runner-work/projects/41/repo/.git/objects/pack/pack-c348940f17aa3ce687e0bb12178eefdb6ccb391e.idx
+Mar-07 06:57:16.457747 [DEBUG] helperS3GetObject (ThreadId 27,"/home/app/isolation-runner-work/projects/41/repo/.git") -- SUCCESS 0.048742s
+Mar-07 06:57:16.458313 [DEBUG] Downloading [S3]/git/project/41/pack-c348940f17aa3ce687e0bb12178eefdb6ccb391e.pack ==> /home/app/isolation-runner-work/projects/41/repo/.git/objects/pack/pack-c348940f17aa3ce687e0bb12178eefdb6ccb391e.pack
+Mar-07 06:57:16.550395 [DEBUG] helperS3GetObject (ThreadId 27,"/home/app/isolation-runner-work/projects/41/repo/.git") -- SUCCESS 0.091824s
+Mar-07 06:57:16.559776 [DEBUG] Downloading [S3]/git/project/41/pack-e457c7c0474379b89ca231f96045dab3a8ee3ea4.idx ==> /home/app/isolation-runner-work/projects/41/repo/.git/objects/pack/pack-e457c7c0474379b89ca231f96045dab3a8ee3ea4.idx
+Mar-07 06:57:16.598838 [DEBUG] helperS3GetObject (ThreadId 27,"/home/app/isolation-runner-work/projects/41/repo/.git") -- SUCCESS 0.038801s
+Mar-07 06:57:16.599267 [DEBUG] Downloading [S3]/git/project/41/pack-e457c7c0474379b89ca231f96045dab3a8ee3ea4.pack ==> /home/app/isolation-runner-work/projects/41/repo/.git/objects/pack/pack-e457c7c0474379b89ca231f96045dab3a8ee3ea4.pack
+Mar-07 06:57:16.659112 [DEBUG] helperS3GetObject (ThreadId 27,"/home/app/isolation-runner-work/projects/41/repo/.git") -- SUCCESS 0.059645s
+Mar-07 06:57:16.65967 [DEBUG] Downloading [S3]/git/project/41/pack-f9c3d68642cc45ecd566464e69a9808dda512079.idx ==> /home/app/isolation-runner-work/projects/41/repo/.git/objects/pack/pack-f9c3d68642cc45ecd566464e69a9808dda512079.idx
+Mar-07 06:57:16.72645 [DEBUG] helperS3GetObject (ThreadId 27,"/home/app/isolation-runner-work/projects/41/repo/.git") -- SUCCESS 0.066581s
+Mar-07 06:57:16.72692 [DEBUG] Downloading [S3]/git/project/41/pack-f9c3d68642cc45ecd566464e69a9808dda512079.pack ==> /home/app/isolation-runner-work/projects/41/repo/.git/objects/pack/pack-f9c3d68642cc45ecd566464e69a9808dda512079.pack
+Mar-07 06:57:16.813447 [DEBUG] helperS3GetObject (ThreadId 27,"/home/app/isolation-runner-work/projects/41/repo/.git") -- SUCCESS 0.086332s
+Mar-07 06:57:16.854312 [DEBUG] Downloading repository (ThreadId 27,"/home/app/isolation-runner-work/projects/41/repo/.git") -- SUCCESS 1.06066s

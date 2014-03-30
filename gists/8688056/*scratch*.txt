@@ -1,0 +1,14 @@
+Import.hs:72:11:
+    Exception when trying to run compile-time code:
+      Unable to compile Fay module "Training": GHCError "\nfay/FP/API/Types.hs:795:47:\n    Can't make a derived instance of `Ord PackageLink':\n      `Ord' is not a derivable class\n    In the data type declaration for `PackageLink'\n"
+      Code: fayFile "Training"
+    In a stmt of a 'do' block: $(fayFile "Training")
+    In the expression:
+      do { body';
+           $(widgetFile "console");
+           $(fayFile "Training") }
+    In the first argument of `return', namely
+      `(Just aside, 
+        do { body';
+             $(widgetFile "console");
+             $(fayFile "Training") })'

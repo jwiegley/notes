@@ -1,0 +1,7 @@
+-inDirectory :: (MonadBaseControl IO m, MonadIO m)
+-            => Prelude.FilePath -> m a -> m a
+-inDirectory dir f = bracket
+-    (liftIO getCurrentDirectory)
+-    (liftIO . setCurrentDirectory) $ const $
+-        liftIO (setCurrentDirectory dir) >> f
+-

@@ -1,0 +1,7 @@
+/usr/local/src/ghc-7.8.1/libraries/base/dist-install/build/Data/Typeable/Internal.hi
+Declaration for mkTyConApp
+Unfolding of Data.Typeable.Internal.mkTyConApp:
+  Failed to load interface for ‘GHC.Fingerprint’
+  There are files missing in the ‘base’ package,
+  try running 'ghc-pkg check'.
+  Use -v to see a list of the files searched for.

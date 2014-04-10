@@ -1,0 +1,38 @@
+{ cabal
+, attoparsec
+, bytestring ? null
+, lens
+, oldLocale ? null
+, optparseApplicative
+, shelly
+, text
+, time
+, timeRecurrence ? null
+, timeparsers ? null
+}:
+
+cabal.mkDerivation (self: {
+  pname = "hours";
+  version = "1.4.1";
+  src = ./.;
+  isLibrary = false;
+  isExecutable = true;
+  buildDepends = [
+    attoparsec
+    bytestring
+    lens
+    oldLocale
+    optparseApplicative
+    shelly
+    text
+    time
+    timeRecurrence
+    timeparsers
+  ];
+  meta = {
+    homepage = "https://github.com/jwiegley/hours";
+    description = "Compute remaining work hours for a given month";
+    license = self.stdenv.lib.licenses.bsd3;
+    platforms = self.ghc.meta.platforms;
+  };
+})

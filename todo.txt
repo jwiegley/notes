@@ -1,0 +1,59 @@
+** TODO Convert from Homebrew to Nix [0/9]                                                  :Net:
+SCHEDULED: <2014-04-10 Thu>
+- [ ] bup fails to install because lua fails
+  :OUTPUT:
+  gcc -shared -ldl -Wl,-soname,liblua.so.5.1 -o liblua.so.5.1.5 lapi.o lcode.o ldebug.o ldo.o ldump.o lfunc.o lgc.o llex.o lmem.o lobject.o lopcodes.o lparser.o lstate.o lstring.o ltable.o ltm.o lundump.o lvm.o lzio.o lauxlib.o lbaselib.o ldblib.o liolib.o lmathlib.o loslib.o ltablib.o lstrlib.o loadlib.o linit.o -lm
+  ld: unknown option: -soname
+  :END:
+- [ ] postgresql fails to install because uuid fails
+  :OUTPUT:
+  trying ftp://ftp.ossp.org/pkg/lib/uuid/uuid-1.6.2.tar.gz
+    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                   Dload  Upload   Total   Spent    Left  Speed
+    0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0
+  curl: (7) Failed to connect to ftp.ossp.org port 21: Connection refused
+  :END:
+- [ ] gnuplot fails to install because pango fails
+  :OUTPUT:
+  dyld: Library not loaded: libgraphite2.3.dylib
+    Referenced from: /private/var/folders/d9/7m3349ms1zd9pn01b4m5jtmr0000gn/T/nix-build-pango-1.32.5.drv-0/pango-1.32.5/pango/tmp-introspectamafaJ/.libs/PangoFT2-1.0
+    Reason: image not found
+  :END:
+- [ ] graphviz fails to install because pango fails
+- [ ] pinentry fails to install because pango fails
+- [ ] httrack fails to install
+  :OUTPUT:
+  trying http://mirror.httrack.com/httrack-3.47.27.tar.gz
+    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                   Dload  Upload   Total   Spent    Left  Speed
+    0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  curl: (22) The requested URL returned error: 404 Not Found
+  error: cannot download httrack-3.47.27.tar.gz from any mirror
+  :END:
+- [ ] multitail fails to install
+  :OUTPUT:
+  gcc -Wall -W utils.o mt.o error.o my_pty.o term.o scrollback.o help.o mem.o cv.o selbox.o stripstring.o color.o misc.o ui.o exec.o diff.o config.o cmdline.o globals.o history.o -lpanel -lncurses -lutil -lm -g -D_FORTIFY_SOURCE=2  -rdynamic -o multitail
+  gcc: error: unrecognized command line option '-rdynamic'
+  :END:
+- [ ] dovecot fails to install
+- [ ] Missing recipes [0/16]
+  - [ ] bmon
+  - [ ] clucene
+  - [ ] global
+  - [ ] gpg-agent
+  - [ ] iftop
+  - [ ] iperf
+  - [ ] leafnode
+  - [ ] mobile-shell
+  - [ ] mtr
+  - [ ] ninja
+  - [ ] pdnsd
+  - [ ] pigeonhole
+  - [ ] qemu
+  - [ ] socat
+  - [ ] tig
+  - [ ] watch
+:PROPERTIES:
+:ID:       D280894D-A4DF-4781-B9D4-9FCEAABF4E7E
+:CREATED:  [2014-04-10 Thu 12:59]
+:END:

@@ -1,0 +1,48 @@
+  6%] Building CXX object utils/TableGen/CMakeFiles/llvm-tblgen.dir/FixedLenDecoderEmitter.cpp.o
+building utils/TableGen/CMakeFiles/llvm-tblgen.dir/InstrInfoEmitter.cpp.o
+[  6%] Building CXX object utils/TableGen/CMakeFiles/llvm-tblgen.dir/InstrInfoEmitter.cpp.o
+building utils/TableGen/CMakeFiles/llvm-tblgen.dir/IntrinsicEmitter.cpp.o
+[  6%] Building CXX object utils/TableGen/CMakeFiles/llvm-tblgen.dir/IntrinsicEmitter.cpp.o
+building utils/TableGen/CMakeFiles/llvm-tblgen.dir/OptParserEmitter.cpp.o
+[  6%] Building CXX object utils/TableGen/CMakeFiles/llvm-tblgen.dir/OptParserEmitter.cpp.o
+building utils/TableGen/CMakeFiles/llvm-tblgen.dir/PseudoLoweringEmitter.cpp.o
+[  6%] Building CXX object utils/TableGen/CMakeFiles/llvm-tblgen.dir/PseudoLoweringEmitter.cpp.o
+building utils/TableGen/CMakeFiles/llvm-tblgen.dir/RegisterInfoEmitter.cpp.o
+[  6%] Building CXX object utils/TableGen/CMakeFiles/llvm-tblgen.dir/RegisterInfoEmitter.cpp.o
+building utils/TableGen/CMakeFiles/llvm-tblgen.dir/SetTheory.cpp.o
+[  6%] Building CXX object utils/TableGen/CMakeFiles/llvm-tblgen.dir/SetTheory.cpp.o
+building utils/TableGen/CMakeFiles/llvm-tblgen.dir/SubtargetEmitter.cpp.o
+[  6%] Building CXX object utils/TableGen/CMakeFiles/llvm-tblgen.dir/SubtargetEmitter.cpp.o
+building utils/TableGen/CMakeFiles/llvm-tblgen.dir/TGValueTypes.cpp.o
+[  7%] Building CXX object utils/TableGen/CMakeFiles/llvm-tblgen.dir/TGValueTypes.cpp.o
+building utils/TableGen/CMakeFiles/llvm-tblgen.dir/TableGen.cpp.o
+[  7%] Building CXX object utils/TableGen/CMakeFiles/llvm-tblgen.dir/TableGen.cpp.o
+building utils/TableGen/CMakeFiles/llvm-tblgen.dir/X86DisassemblerTables.cpp.o
+[  7%] Building CXX object utils/TableGen/CMakeFiles/llvm-tblgen.dir/X86DisassemblerTables.cpp.o
+building utils/TableGen/CMakeFiles/llvm-tblgen.dir/X86ModRMFilters.cpp.o
+[  7%] Building CXX object utils/TableGen/CMakeFiles/llvm-tblgen.dir/X86ModRMFilters.cpp.o
+building utils/TableGen/CMakeFiles/llvm-tblgen.dir/X86RecognizableInstr.cpp.o
+[  7%] Building CXX object utils/TableGen/CMakeFiles/llvm-tblgen.dir/X86RecognizableInstr.cpp.o
+building utils/TableGen/CMakeFiles/llvm-tblgen.dir/CTagsEmitter.cpp.o
+[  7%] Building CXX object utils/TableGen/CMakeFiles/llvm-tblgen.dir/CTagsEmitter.cpp.o
+building bin/llvm-tblgen
+Linking CXX executable ../../bin/llvm-tblgen
+0  0x10caa3f93  __assert_rtn + 144
+1  0x10cac9711  mach_o::relocatable::Parser<x86_64>::parse(mach_o::relocatable::ParserOptions const&) + 3213
+2  0x10caae902  mach_o::relocatable::Parser<x86_64>::parse(unsigned char const*, unsigned long long, char const*, long, ld::File::Ordinal, mach_o::relocatable::ParserOptions const&) + 374
+3  0x10cadbaec  archive::File<x86_64>::makeObjectFileForMember(archive::File<x86_64>::Entry const*) const + 752
+4  0x10cadb63e  archive::File<x86_64>::justInTimeforEachAtom(char const*, ld::File::AtomHandler&) const + 122
+5  0x10caf08e3  ld::tool::InputFiles::searchLibraries(char const*, bool, bool, bool, ld::File::AtomHandler&) const + 219
+6  0x10caf838c  ld::tool::Resolver::resolveUndefines() + 160
+7  0x10cafa4f5  ld::tool::Resolver::resolve() + 79
+8  0x10caa4af3  main + 679
+A linker snapshot was created at:
+	/tmp/llvm-tblgen-2014-03-10-185912.ld-snapshot
+ld: Assertion failed: (cfiStartsArray[i] != cfiStartsArray[i-1]), function parse, file /SourceCache/ld64/ld64-236.3/src/ld/parsers/macho_relocatable_file.cpp, line 1685.
+collect2: error: ld returned 1 exit status
+make[2]: *** [bin/llvm-tblgen] Error 1
+make[1]: *** [utils/TableGen/CMakeFiles/llvm-tblgen.dir/all] Error 2
+make: *** [all] Error 2
+builder for `/nix/store/cvfrl6h2ql8ml0x02ibblkjxmjlbdhws-llvm-3.4.drv' failed with exit code 2
+error: build of `/nix/store/cvfrl6h2ql8ml0x02ibblkjxmjlbdhws-llvm-3.4.drv' failed
+Hermes:~/src/ledger master [100] $ 

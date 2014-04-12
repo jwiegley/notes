@@ -1,0 +1,6 @@
+"/Users/johnw/.nix-profile/bin/ghc" -M -static  -H32m -O  -package-db libraries/bootstrapping.conf  -hide-all-packages -i -ighc/. -ighc/stage1/build -ighc/stage1/build/autogen -Ighc/stage1/build -Ighc/stage1/build/autogen     -optP-include -optPghc/stage1/build/autogen/cabal_macros.h -package array-0.4.0.1 -package base-4.6.0.1 -package bytestring-0.10.0.2 -package directory-1.2.0.1 -package filepath-1.3.0.1 -package ghc-7.8.2 -package process-1.1.0.2 -package unix-2.6.0.1 -Wall -XHaskell98 -XCPP -XPatternGuards -XNondecreasingIndentation   -no-user-package-db -rtsopts      -odir ghc/stage1/build -hidir ghc/stage1/build -stubdir ghc/stage1/build -dep-makefile ghc/stage1/build/.depend.haskell.tmp -dep-suffix "" -include-pkg-deps  ghc/./Main.hs
+<command line>: cannot satisfy -package ghc-7.8.2: 
+    ghc-7.8.2-inplace is unusable due to missing or recursive dependencies:
+      transformers-0.3.0.0-3006d6ea13a2c10770bffd4de7a96dc9
+    (use -v for more information)
+make[1]: *** [ghc/stage1/build/.depend.haskell] Error 1

@@ -1,0 +1,15 @@
+2014/04/16 Foo
+    Expenses:Foo                $100
+    Equity
+
+2014/04/16 Foo
+    Expenses:Foo                $100
+    Equity
+
+2014/04/16 Foo
+    Expenses:Foo                $100
+    Equity
+
+2014/04/16 Foo
+    Expenses:Foo                $100
+    Equity                           = $200

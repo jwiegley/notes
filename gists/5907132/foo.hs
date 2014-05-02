@@ -1,4 +1,4 @@
-module Main where
+module Foo where
 
 import Data.Functor
 

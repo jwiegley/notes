@@ -1,18 +1,17 @@
 { stdenv
 , parallel
 , perl
+, wget
+, ghc
 , haskellPackages
 }:
 
-stdenv.mkDerivation {
+stdenv.mkDerivation rec {
   name = "local-hoogle-1.0";
 
   src = ./.;
 
-  buildInputs = [
-    parallel
-    perl
-  ] ++ (with haskellPackages; [
+  packages = with haskellPackages; [
     hoogleFork
     rehoo
 
@@ -122,31 +121,51 @@ stdenv.mkDerivation {
     warp
     xmlLens
     yesod
-  ]);
+  ];
 
-  buildPhase = ''
+  buildInputs = [
+    parallel
+    perl
+    wget
+  ] ++ packages;
+
+  installPhase = ''
     HDIR=$out/share/hoogle
     
-    test -d $HDIR || mkdir -p $HDIR
+    mkdir -p $HDIR/doc
     cd $HDIR
     
+    export HOOGLE_DOC_PATH=$out/share/hoogle/doc
+
     function import_dbs() {
         find $1 -name '*.txt' \
             | parallel 'cp -p {} .; perl -i -pe "print \"\@url file://{//}/index.html\n\" if /^\@version/;" {/}; hoogle convert {/}'
     }
     
-    for i in "$buildDepends"; do
-        echo $i/share/doc
+    for i in $packages; do
         import_dbs $i/share/doc
+        cp -pR $i/share/doc/* $out/share/hoogle/doc
     done
     
+    cp -pR ${ghc.ghc763}/share/doc/ghc*/html/libraries/* $out/share/hoogle/doc
+
+    chmod 644 *.hoo *.txt
     hoogle data -d $HDIR --redownload -l $(echo *.txt | sed 's/\.txt//g')
     rehoo -j4 -c64 .
+
+    mkdir -p $out/bin
+    h=$out/bin/hoogle
+    echo "#!/bin/bash" > $h
+    echo "cmd=\$1" >> $h
+    echo "shift 1" >> $h
+    echo "export HOOGLE_DOC_PATH=$out/share/hoogle/doc" >> $h
+    echo "${haskellPackages.hoogleFork}/bin/hoogle \$cmd -d $out/share/hoogle \"\$@\"" >> $h
+    chmod 755 $h
   '';
 
   meta = {
-    homepage = "https://github.com/jwiegley/haskell-deps";
-    description = "My extended version of the Haskell Platform";
+    homepage = "https://github.com/jwiegley/local-hoogle";
+    description = "An expression for installing a fully local Hoogle";
     license = stdenv.lib.licenses.bsd3;
   };
 }

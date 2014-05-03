@@ -4,13 +4,12 @@
 , haskellPackages
 }:
 
-stdenv.mkDerivation (self: {
-  pname = "local-hoogle";
-  version = "1.0";
+stdenv.mkDerivation {
+  name = "local-hoogle-1.0";
 
   src = ./.;
 
-  buildDepends = [
+  buildInputs = [
     parallel
     perl
   ] ++ (with haskellPackages; [
@@ -125,8 +124,6 @@ stdenv.mkDerivation (self: {
     yesod
   ]);
 
-  buildTools = [ haskellPackages.cabalInstall_1_18_0_3 ];
-
   buildPhase = ''
     HDIR=$out/share/hoogle
     
@@ -150,7 +147,6 @@ stdenv.mkDerivation (self: {
   meta = {
     homepage = "https://github.com/jwiegley/haskell-deps";
     description = "My extended version of the Haskell Platform";
-    license = self.stdenv.lib.licenses.bsd3;
-    platforms = self.ghc.meta.platforms;
+    license = stdenv.lib.licenses.bsd3;
   };
-})
+}

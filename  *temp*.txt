@@ -1,0 +1,14 @@
+"inplace/bin/ghc-stage1" -hisuf p_hi -osuf  p_o -hcsuf p_hc -static -prof  -H32m -O    -package-name ghc-7.9.20140430 -hide-all-packages -i -icompiler/basicTypes -icompiler/cmm -icompiler/codeGen -icompiler/coreSyn -icompiler/deSugar -icompiler/ghci -icompiler/hsSyn -icompiler/iface -icompiler/llvmGen -icompiler/main -icompiler/nativeGen -icompiler/parser -icompiler/prelude -icompiler/profiling -icompiler/rename -icompiler/simplCore -icompiler/simplStg -icompiler/specialise -icompiler/stgSyn -icompiler/stranal -icompiler/typecheck -icompiler/types -icompiler/utils -icompiler/vectorise -icompiler/stage2/build -icompiler/stage2/build/autogen -Icompiler/stage2/build -Icompiler/stage2/build/autogen -Icompiler/. -Icompiler/parser -Icompiler/utils -Icompiler/../rts/dist/build -Icompiler/stage2   -optP-DGHCI -optP-include -optPcompiler/stage2/build/autogen/cabal_macros.h -package Cabal-1.20.0.0 -package array-0.5.0.0 -package base-4.7.1.0 -package bin-package-db-0.0.0.0 -package bytestring-0.10.4.0 -package containers-0.5.5.1 -package directory-1.2.1.0 -package filepath-1.3.0.2 -package hoopl-3.10.0.1 -package hpc-0.6.0.1 -package process-1.2.0.0 -package template-haskell-2.10.0.0 -package time-1.4.2 -package transformers-0.3.0.0 -package unix-2.7.0.1 -Wall -fno-warn-name-shadowing -XHaskell98 -XCPP -XMagicHash -XUnboxedTuples -XPatternGuards -XForeignFunctionInterface -XEmptyDataDecls -XTypeSynonymInstances -XMultiParamTypeClasses -XFlexibleInstances -XRankNTypes -XScopedTypeVariables -XDeriveDataTypeable -XBangPatterns -XNondecreasingIndentation -optc-DTHREADED_RTS -DGHCI_TABLES_NEXT_TO_CODE -DSTAGE=2 -O2  -no-user-package-db -rtsopts      -odir compiler/stage2/build -hidir compiler/stage2/build -stubdir compiler/stage2/build   -c compiler/parser/Parser.hs -o compiler/stage2/build/Parser.p_o -dyno compiler/stage2/build/Parser.dyn_o
+
+/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-ghc-7.9.20140430.drv-0/ghc43664_0/ghc43664_2.s:1087099:0:
+    Unknown pseudo-op: .bytd
+
+/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-ghc-7.9.20140430.drv-0/ghc43664_0/ghc43664_2.s:1087099:0:
+    Rest of line ignored. 1st junk character valued 48 (0).
+
+/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-ghc-7.9.20140430.drv-0/ghc43664_0/ghc43664_2.s:1087184:0:
+    Unknown pseudo-op: .bxte
+
+/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-ghc-7.9.20140430.drv-0/ghc43664_0/ghc43664_2.s:1087184:0:
+    Rest of line ignored. 1st junk character valued 48 (0).
+make[1]: *** [compiler/stage2/build/Parser.p_o] Error 1

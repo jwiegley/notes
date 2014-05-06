@@ -1,0 +1,21 @@
+################################################################################
+# Defaults                                                                     #
+################################################################################
+
+Host *
+  AddressFamily inet
+  CheckHostIP no
+  Ciphers aes128-cbc,aes192-cbc,aes256-cbc,cast128-cbc,blowfish-cbc,arcfour,3des-cbc
+  Compression no
+  ForwardX11 no
+  ForwardX11Trusted no
+  GSSAPIAuthentication no
+  GSSAPIKeyExchange no
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/id_dsa
+  IdentityFile ~/.ssh/id_rsa
+  NoHostAuthenticationForLocalhost yes
+  ServerAliveInterval 60
+  StrictHostKeyChecking no
+  TCPKeepAlive yes
+  UserKnownHostsFile ~/.ssh/known_hosts

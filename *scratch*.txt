@@ -1,0 +1,9 @@
+f a  =~  (a -> r) -> f r
+
+[a]  =~  (a -> r) -> [r]
+
+    [a]  =~  \f -> fmap f xs
+
+[a]  =~  (a -> r -> r) -> r -> r
+
+    [a]  =~  \f -> \r -> foldr f r xs

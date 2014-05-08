@@ -1,0 +1,34 @@
+; ;; Combined
+
+2011-02-01 * Buy 1 AAA for 10.00 GBP
+    Assets:Investments                 1 AAA {10.00 GBP}
+    Assets:Cash                              -10.00 GBP
+ 
+2011-03-07 * Sell one AAA with a gain
+    Assets:Cash                               12.00 GBP
+    Assets:Investments  -1 AAA {10.00 GBP} @@ 12.00 GBP
+    Income:Capital gains                      -2.00 GBP
+
+; ;; How Ledger sees this in terms of quantities only
+
+2011-02-01 * Buy 1 AAA for 10.00 GBP
+    Assets:Investments                            1 AAA
+    Assets:Cash                              -10.00 GBP
+ 
+2011-03-07 * Sell one AAA with a gain
+    Assets:Cash                               12.00 GBP
+    Assets:Investments                           -1 AAA
+    (Equity:Capital gains)                     2.00 GBP
+    Income:Capital gains                      -2.00 GBP
+
+;; How Ledger sees this in terms of costs only
+
+2011-02-01 * Buy 1 AAA for 10.00 GBP
+    Assets:Investments                        10.00 GBP
+    Assets:Cash                              -10.00 GBP
+ 
+2011-03-07 * Sell one AAA with a gain
+    Assets:Cash                               12.00 GBP
+    Assets:Investments                       -12.00 GBP
+    [Equity:Capital gains]                     2.00 GBP
+    Income:Capital gains                      -2.00 GBP

@@ -1,0 +1,2 @@
+runDb :: (MonadResource m, MonadLogger m) => SqlPersist m a -> IO a
+runDb query = runResourceT . runNoLogging T . withSqliteConn "dev.sqlite3" . runSqlConn $ query

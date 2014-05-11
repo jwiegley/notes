@@ -1,0 +1,31 @@
+diff --git a/pkgs/development/libraries/gmp/5.1.x.nix b/pkgs/development/libraries/gmp/5.1.x.nix
+index a25eabb..53d7f45 100644
+--- a/pkgs/development/libraries/gmp/5.1.x.nix
++++ b/pkgs/development/libraries/gmp/5.1.x.nix
+@@ -15,7 +15,8 @@ stdenv.mkDerivation rec {
+     # (x86), except on Solaris where some tests crash with "Memory fault".
+     # See <http://hydra.nixos.org/build/2760931>, for instance.
+     (stdenv.lib.optional (!stdenv.isSunOS) "--enable-fat")
+-    ++ (if cxx then [ "--enable-cxx" ] else [ "--disable-cxx" ])
++    ++ (if cxx then [ "--enable-cxx" "CPPFLAGS=-fexceptions" ]
++               else [ "--disable-cxx" ])
+     ++ (if stdenv.is64bit then [ "--with-pic" ] else []);
+ 
+   doCheck = true;
+	Modified   pkgs/development/libraries/ppl/default.nix
+diff --git a/pkgs/development/libraries/ppl/default.nix b/pkgs/development/libraries/ppl/default.nix
+index cbdb7b1..b96d6fb 100644
+--- a/pkgs/development/libraries/ppl/default.nix
++++ b/pkgs/development/libraries/ppl/default.nix
+@@ -13,7 +13,10 @@ stdenv.mkDerivation rec {
+   nativeBuildInputs = [ perl gnum4 ];
+   propagatedBuildInputs = [ gmpxx ];
+ 
+-  configureFlags = "--disable-watchdog";
++  configureFlags = [ 
++    "--disable-watchdog" "--disable-ppl_lcdd" "--disable-ppl_lpsol"
++    "--disable-ppl_pips" "CPPFLAGS=-fexceptions"
++  ];
+ 
+   patches = [ ./upstream-based.patch ];
+ 

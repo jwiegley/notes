@@ -8,18 +8,21 @@ import Control.Monad.IO.Class
 import Control.Monad.Trans.Class
 import Control.Monad.Trans.Control
 import Control.Monad.Trans.Maybe
-import Control.Monad.Loops
+import Control.Monad.Loops hiding (allM)
 import Data.Maybe
 import Data.Monoid
+import Control.Concurrent.STM (atomically)
+import Control.Lens (makeLenses)
+
+data Foo = Foo | Bar
 
 allM :: [IO Bool] -> IO Bool
 allM [] = return True
-allM (x:xs) = do
+allMx (x:xs) = do
     y <- x
     if y then allM xs else return False
-
-allM' :: [IO Bool] -> IO Bool
-allM' xs = firstM id xs
+    atomically $ return ()
+    untilM undefined undefined
 
 main :: IO ()
 main = undefined

@@ -1,0 +1,40 @@
+diff --git a/src/report.cc b/src/report.cc
+index 9756b60..6cf38c7 100644
+--- a/src/report.cc
++++ b/src/report.cc
+@@ -1218,6 +1218,7 @@ option_t<report_t> * report_t::lookup_option(const char * p)
+     break;
+   case 'q':
+     OPT(quantity);
++    else OPT(quantity_cost);
+     else OPT(quarterly);
+     break;
+   case 'r':
+diff --git a/src/report.h b/src/report.h
+index c500fb9..0e92a86 100644
+--- a/src/report.h
++++ b/src/report.h
+@@ -324,6 +324,7 @@ public:
+     HANDLER(pricedb_format_).report(out);
+     HANDLER(primary_date).report(out);
+     HANDLER(quantity).report(out);
++    HANDLER(quantity_cost).report(out);
+     HANDLER(quarterly).report(out);
+     HANDLER(raw).report(out);
+     HANDLER(real).report(out);
+@@ -754,6 +755,15 @@ public:
+         .on(whence, "market(display_total, value_date, exchange)");
+     });
+
++  OPTION_(report_t, quantity_cost, DO() {
++      OTHER(revalued).off();
++
++      OTHER(display_amount_)
++        .on(whence, "market(display_amount, value_date, exchange)");
++      OTHER(display_total_)
++        .on(whence, "market(display_total, value_date, exchange)");
++    });
++
+   OPTION(report_t, meta_);
+
+   OPTION_(report_t, monthly, DO() { // -M

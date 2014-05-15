@@ -1,0 +1,12 @@
+While parsing file "/Users/johnw/Downloads/foo.dat", line 15: 
+While balancing transaction from "/Users/johnw/Downloads/foo.dat", lines 13-15:
+> 2014/04/16 Foo
+>     Expenses:Foo                $100
+>     Equity                           = $200
+Unbalanced remainder is:
+                $600
+Amount to balance against:
+                $600
+Amount that was expected:
+                $-400
+Error: Transaction does not balance

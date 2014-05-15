@@ -1,0 +1,28 @@
+Making all in demos
+Making all in ppl_lcdd
+Making all in examples
+make[4]: Nothing to be done for `all'.
+g++ -DHAVE_CONFIG_H -I. -I../..  -I../.. -I../../src -I../../utils    -g -O2  -W -Wall -c -o ppl_lcdd.o ppl_lcdd.cc
+In file included from ppl_lcdd.cc:38:
+../../src/ppl.hh:28526:24: warning: unused variable 'max_dim' [-Wunused-variable]
+  const dimension_type max_dim = *(x.end());
+                       ^
+1 warning generated.
+/bin/bash ../../libtool  --tag=CXX   --mode=link g++  -g -O2  -W -Wall   -o ppl_lcdd ppl_lcdd.o ../../src/libppl.la ../../utils/libppl_utils.a -lgmpxx -lgmp
+libtool: link: g++ -g -O2 -W -Wall -o .libs/ppl_lcdd ppl_lcdd.o -Wl,-bind_at_load  ../../src/.libs/libppl.dylib ../../utils/libppl_utils.a -lgmpxx -lgmp
+Undefined symbols for architecture x86_64:
+  "operator<<(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, __mpq_struct const*)", referenced from:
+      (anonymous namespace)::write_polyhedron(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, Parma_Polyhedra_Library::C_Polyhedron const&, (anonymous namespace)::Representation) in ppl_lcdd.o
+  "operator<<(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, __mpz_struct const*)", referenced from:
+      (anonymous namespace)::write_polyhedron(std::__1::basic_ostream<char, std::__1::char_traits<char> >&, Parma_Polyhedra_Library::C_Polyhedron const&, (anonymous namespace)::Representation) in ppl_lcdd.o
+  "operator>>(std::__1::basic_istream<char, std::__1::char_traits<char> >&, __mpq_struct*)", referenced from:
+      (anonymous namespace)::read_coefficients(std::__1::basic_istream<char, std::__1::char_traits<char> >&, (anonymous namespace)::Number_Type, std::__1::vector<__gmp_expr<__mpz_struct [1], __mpz_struct [1]>, std::__1::allocator<__gmp_expr<__mpz_struct [1], __mpz_struct [1]> > >&, __gmp_expr<__mpz_struct [1], __mpz_struct [1]>&) in ppl_lcdd.o
+  "operator>>(std::__1::basic_istream<char, std::__1::char_traits<char> >&, __mpz_struct*)", referenced from:
+      (anonymous namespace)::read_coefficients(std::__1::basic_istream<char, std::__1::char_traits<char> >&, (anonymous namespace)::Number_Type, std::__1::vector<__gmp_expr<__mpz_struct [1], __mpz_struct [1]>, std::__1::allocator<__gmp_expr<__mpz_struct [1], __mpz_struct [1]> > >&, __gmp_expr<__mpz_struct [1], __mpz_struct [1]>&) in ppl_lcdd.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[4]: *** [ppl_lcdd] Error 1
+make[3]: *** [all-recursive] Error 1
+make[2]: *** [all-recursive] Error 1
+make[1]: *** [all-recursive] Error 1
+make: *** [all] Error 2

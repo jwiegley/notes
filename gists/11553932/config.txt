@@ -1,0 +1,6 @@
+Host haskell haskell.org new-www.haskell.org
+  User johnw
+  HostName new-www.haskell.org
+  IdentityFile ~/.ssh/id_haskell
+  Compression yes
+

@@ -1,0 +1,62 @@
+Configuring ghcjs-0.1.0...
+Flags chosen: disable-optimizer=False, compiler-only=False, boot=False
+Dependency Cabal -any: using Cabal-1.21.0.0
+Dependency HTTP -any: using HTTP-4000.2.15
+Dependency HUnit -any: using HUnit-1.2.5.2
+Dependency aeson -any: using aeson-0.7.0.6
+Dependency array -any: using array-0.5.0.0
+Dependency attoparsec -any: using attoparsec-0.11.3.4
+Dependency base -any: using base-4.7.0.0
+Dependency bin-package-db -any: using bin-package-db-0.0.0.0
+Dependency binary -any: using binary-0.7.1.0
+Dependency bytestring -any: using bytestring-0.10.4.0
+Dependency bzlib -any: using bzlib-0.5.0.4
+Dependency containers -any: using containers-0.5.5.1
+Dependency data-default -any: using data-default-0.5.3
+Dependency deepseq -any: using deepseq-1.3.0.2
+Dependency directory -any: using directory-1.2.1.0
+Dependency filepath -any: using filepath-1.3.0.2
+Dependency ghc -any: using ghc-7.8.2
+Dependency ghc-paths -any: using ghc-paths-0.1.0.9
+Dependency ghcjs -any: using ghcjs-0.1.0
+Dependency hashable -any: using hashable-1.2.2.0
+Dependency haskell-src-exts -any: using haskell-src-exts-1.15.0.1
+Dependency haskell-src-meta -any: using haskell-src-meta-0.6.0.7
+Dependency lens -any: using lens-4.1.2.1
+Dependency mtl -any: using mtl-2.1.3.1
+Dependency network -any: using network-2.5.0.0
+Dependency optparse-applicative -any: using optparse-applicative-0.9.0
+Dependency parallel -any: using parallel-3.2.0.4
+Dependency parsec -any: using parsec-3.1.5
+Dependency process -any: using process-1.2.0.0
+Dependency random -any: using random-1.0.1.1
+Dependency regex-posix -any: using regex-posix-0.95.2
+Dependency safe -any: using safe-0.3.4
+Dependency shelly -any: using shelly-1.5.3.2
+Dependency split -any: using split-0.2.2
+Dependency stringsearch -any: using stringsearch-0.3.6.5
+Dependency syb -any: using syb-0.4.1
+Dependency system-fileio -any: using system-fileio-0.3.13
+Dependency system-filepath -any: using system-filepath-0.4.10
+Dependency tar -any: using tar-0.4.0.1
+Dependency template-haskell -any: using template-haskell-2.9.0.0
+Dependency terminfo -any: using terminfo-0.4.0.0
+Dependency test-framework -any: using test-framework-0.8.0.3
+Dependency test-framework-hunit -any: using test-framework-hunit-0.3.0.1
+Dependency text -any: using text-1.1.1.2
+Dependency text-binary -any: using text-binary-0.1.0
+Dependency time -any: using time-1.4.2
+Dependency transformers -any: using transformers-0.3.0.0
+Dependency unix -any: using unix-2.7.0.1
+Dependency unordered-containers -any: using unordered-containers-0.2.4.0
+Dependency vector -any: using vector-0.10.9.2
+Dependency wl-pprint-text -any: using wl-pprint-text-1.1.0.2
+Dependency yaml -any: using yaml-0.8.8.3
+Dependency zlib -any: using zlib-0.5.4.1
+Warning: This package indirectly depends on multiple versions of the same
+package. This is highly likely to cause a compile failure.
+package ghc-7.8.2 requires Cabal-1.18.1.3
+package bin-package-db-0.0.0.0 requires Cabal-1.18.1.3
+package ghcjs-0.1.0 requires Cabal-1.21.0.0
+Using Cabal-1.21.0.0 compiled by ghc-7.8
+Using compiler: ghc-7.8.2

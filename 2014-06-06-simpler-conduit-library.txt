@@ -52,8 +52,8 @@ We can abstract our summing function into a sink that works on any source of
 integers:
 
 ``` haskell
-sumC :: (Num b, Monad m)
-     => (Int -> (b -> Int -> m Int) -> m Int) -> m Int
+sumC :: (Num a, Monad m)
+     => (a -> (a -> a -> m a) -> m a) -> m a
 sumC await = await 0 $ \x acc -> return $ acc + x
 ```
 
@@ -68,8 +68,8 @@ know what the state's type is.  That type is always chosen by caller, in this
 case `sumC`.  RankNTypes lets us express this condition using a `forall`:
 
 ``` haskell
-sumC :: (Num b, Monad m)
-     => (forall r. r -> (b -> r -> m r) -> m r) -> m Int
+sumC :: (Num a, Monad m)
+     => (forall r. r -> (a -> r -> m r) -> m r) -> m a
 sumC await = await 0 $ \x acc -> return $ acc + x
 ```
 
@@ -84,8 +84,8 @@ Restating the source and sink then, we have:
 ``` haskell
 sourceList :: Monad m => [a] -> (forall r. r -> (a -> r -> m r) -> m r)
 
-sumC :: (Num b, Monad m)
-     => (forall r. r -> (a -> r -> m r) -> m r) -> m Int
+sumC :: (Num a, Monad m)
+     => (forall r. r -> (a -> r -> m r) -> m r) -> m a
 ```
 
 These are both regular, higher-order functions, so we can build our pipeline
@@ -111,7 +111,7 @@ and never needs to know.  Now our example source and sink become:
 
 ``` haskell
 sourceList :: Monad m => [a] -> Source m a
-sumC :: (Num a, Monad m) => Source m a -> m Int
+sumC :: (Num a, Monad m) => Source m a -> m a
 ```
 
 Another pattern we'll start noticing pretty shortly is that every "sink" is a
@@ -136,7 +136,7 @@ start looking familiar to users of the regular conduit library:
 ``` haskell
 sourceList :: Monad m => [a] -> Source m a
 mapC :: Monad m => (a -> b) -> Conduit a m b
-sumC :: (Num a, Monad m) => Sink a m Int
+sumC :: (Num a, Monad m) => Sink a m a
 ```
 
 Conduit has special operators for connecting sources with sinks, and for
@@ -204,3 +204,18 @@ implement many of the combinators from the original conduit library.  Of
 course, it's not nearly as capable, but it's leaner, easier to understand the
 core types, and significantly faster in some situations (computation of simple
 pipelines over `Identity` on my machine were about 45% faster).
+
+## Consumers and producers
+
+One thing that conduit makes very easy to do is to abstract Sinks and Conduits
+as Consumers, and Sources and Conduits as Producers.  Based on our
+presentation above, such an abstraction is not possible.  However, we can
+regain some of the generality with a helper function: You can turn sinks into
+conduits by using a new combinator, `returnC`:
+
+``` haskell
+sinkList $ returnC $ sumC $ mapC (+1) $ sourceList [1..10]
+```
+
+Since conduits are mappings from sources to sources, you can already treat
+them as you would a source.

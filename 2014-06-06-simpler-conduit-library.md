@@ -76,53 +76,50 @@ sumC (sourceList [1..10])
 Notice how close this is to the non-streaming version `sum (id [1..10])`; and
 if we execute the pipeline using `runIdentity`, the two are identical.
 
-## Generalizing the types
+## Adding type synonyms
 
-Since the "fold closure" argument is cumbersome to restate, let's stick it
-into a type synonym:
+Since the "fold closure" argument is cumbersome to restate, let's restate it
+as a type synonym:
 
 ``` haskell
-type Source m a = forall r. r -> (r -> a -> m r) -> m r
+type Source m a r = r -> (r -> a -> m r) -> m r
 ```
-
-`Source` cannot know the result type of the fold (here given by `r`), since it
-can vary between sources in a pipeline.  (For more information on `forall`,
-see
-[this Wiki book](http://en.wikibooks.org/wiki/Haskell/Polymorphism#Higher_rank_types).)
-Without this genericity, we would not be able compose sources unless they
-happened to have identical fold result types.
 
 With this synonym, the example source and sink become:
 
 ``` haskell
-sourceList :: Monad m => [a] -> Source m a
-sumC :: (Num a, Monad m) => Source m a -> m a
+sourceList :: Monad m => [a] -> Source m a r
+sumC :: (Num a, Monad m) => Source m a a -> m a
 ```
 
 Another pattern we'll start noticing pretty shortly is that every "sink" is a
-fold from a Source type down to a result type.  We can capture this using yet
-another type synonym:
+fold from a Source down to its result type.  We can capture this using another
+type synonym:
 
 ``` haskell
-type Sink a m r = Source m a -> m r
+type Sink a m r = Source m a r -> m r
 ```
 
-It's not really necessary to do this, but it advertises to the reader that
-we're defining a sink.  Likewise, a "conduit" is always a mapping from one
-source to another:
+It's not really necessary, but it advertises to the reader that we're defining
+a sink.  Likewise, a "conduit" is always a mapping from one source to another
+where the result type is common:
 
 ``` haskell
-type Conduit a m b = Source m a -> Source m b
+type Conduit a m b r = Source m a r -> Source m b r
 ```
 
-With these type synonyms in place, the types of our sources and sinks should
-start looking familiar to users of the regular conduit library
+In cases where the result types must differ (for example, the `dropC` function
+in `simple-conduit`), we cannot use these type synonyms, but they are handy in
+the majority of cases.
+
+With these synonyms, the types of our sources and sinks should start looking
+familiar to users of the regular conduit library
 ([mapC](http://hackage.haskell.org/package/conduit-combinators-0.2.5.2/docs/Conduit.html#v:mapC)
-is from `conduit-combinators`):
+here is based on `conduit-combinators`):
 
 ``` haskell
-sourceList :: Monad m => [a] -> Source m a
-mapC :: Monad m => (a -> b) -> Conduit a m b
+sourceList :: Monad m => [a] -> Source m a r
+mapC :: Monad m => (a -> b) -> Conduit a m b r
 sumC :: (Num a, Monad m) => Sink a m a
 ```
 
@@ -132,16 +129,16 @@ functions to functions, but we can define them as synonyms easily enough:
 
 ``` haskell
 infixl 1 $=
-($=) :: Monad m => Source m a -> Conduit a m b -> Source m b
-l $= r = r l
+($=) :: a -> (a -> b) -> b
+($=) = flip ($)
 
 infixr 2 =$
-(=$) :: Monad m => Conduit a m b -> Sink b m r -> Sink a m r
-l =$ r = \await -> r (l await)
+(=$) :: (a -> b) -> (b -> c) -> a -> c
+(=$) = flip (.)
 
 infixr 0 $$
-($$) :: Monad m => Source m a -> Sink a m r -> m r
-r $$ l = r l
+($$) :: a -> (a -> b) -> b
+($$) = flip ($)
 ```
 
 We can now express the pipeline in three different ways:
@@ -171,16 +168,16 @@ for segments in the pipeline to abort processing early.  To encode this, we
 need some short-circuiting behavior, which sounds like a job for Either:
 
 ``` haskell
-type Source m a =
-    forall r. r -> (r -> a -> m (Either r r)) -> m (Either r r)
+type Source m a r =
+    r -> (r -> a -> m (Either r r)) -> m (Either r r)
 ```
 
 Once we start implementing sources and sinks, it will be much more convenient
 to use `EitherT` instead of returning an `Either` value:
 
 ``` haskell
-type Source m a =
-    forall r. r -> (r -> a -> EitherT r m r) -> EitherT r m r
+type Source m a r =
+    r -> (r -> a -> EitherT r m r) -> EitherT r m r
 ```
 
 This way the monadic action of `EitherT` provides the short-circuiting
@@ -196,9 +193,9 @@ pipelines over `Identity` on my machine were about 45% faster).
 
 One thing that conduit makes very easy to do is to abstract Sinks and Conduits
 as Consumers, and Sources and Conduits as Producers.  Based on our
-presentation above, such an abstraction is not possible.  However, we can
+presentation above such an abstraction is not possible.  However, we can
 regain some of the generality with a helper function: You can turn sinks into
-conduits by using a new combinator, `returnC`:
+conduits using a new combinator, `returnC`:
 
 ``` haskell
 sinkList $ returnC $ sumC $ mapC (+1) $ sourceList [1..10]
@@ -206,19 +203,3 @@ sinkList $ returnC $ sumC $ mapC (+1) $ sourceList [1..10]
 
 Since conduits are mappings from sources to sources, you can already treat
 them as you would a source.
-
-------------------------------------------------------------------------
-One thing to note is that the source providing the closure does not need to
-know the state's type.  We can express this using `forall`, so that our types
-generalize to:
-
-``` haskell
-sourceList :: Monad m
-           => [a] -> (forall r. r -> (r -> a -> m r) -> m r)
-
-sumC :: (Num a, Monad m)
-     => (forall r. r -> (r -> a -> m r) -> m r) -> m a
-```
-
-(For more information on why the `forall` is required here, see
-[this Wiki book](http://en.wikibooks.org/wiki/Haskell/Polymorphism#Higher_rank_types).)

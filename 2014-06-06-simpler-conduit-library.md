@@ -200,6 +200,3 @@ conduits using a new combinator, `returnC`:
 ``` haskell
 sinkList $ returnC $ sumC $ mapC (+1) $ sourceList [1..10]
 ```
-
-Since conduits are mappings from sources to sources, you can already treat
-them as you would a source.

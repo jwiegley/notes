@@ -1,5 +1,5 @@
 ---
-title: A simpler conduit library for streaming I/O in Haskell
+title: Simpler conduit library based on monadic folds
 description: desc here
 tags: haskell
 date: [2014-06-06 Fri 19:01]
@@ -10,6 +10,8 @@ Recently I was playing around with the core types in the `conduit` library
 (attempting to change leftovers so you could only unget values you had read),
 when I stumbled across a formulation of those types that lead to some
 interesting simplifications.
+
+<!--more-->
 
 Before I jump in, let's review what any effectful streaming library should aim
 to accomplish.  The basics are:
@@ -22,21 +24,22 @@ to accomplish.  The basics are:
   3. Allow processing to be composed nicely, forming a "pipeline" from the
      initial source to a final sink.
 
-  4. If would be nice if any part of the pipeline could decide when to
+  4. It would be nice if any part of the pipeline could decide when to
      terminate.
 
-What I discovered during my exploration is all these four can be captured by a
-simple, monadic fold, just like `foldM`. Let's look at the type of `foldM`:
+What I discovered during my exploration is that all four of these requirements
+can be captured using simple, monadic folds, like `foldM`. Here is the type of
+`foldM`:
 
 ``` haskell
 foldM :: Monad m => (a -> b -> m a) -> a -> [b] -> m a
 ```
 
-We can obtain a slightly easier to use function type, for what follows, by
+We can obtain a slightly easier to use function type for what follows by
 rearranging the arguments:
 
 ``` haskell
-sourceList :: Monad m => [b] -> a -> (b -> a -> m a) -> m a
+sourceList :: Monad m => [b] -> a -> (a -> b -> m a) -> m a
 ```
 
 This says that given a list of elements of type `b`, `sourceList` returns a
@@ -45,7 +48,7 @@ folding over every element of that list.  We might trivially sum lists of
 integers as follows:
 
 ``` haskell
-sourceList [1..10] 0 $ \x acc -> return $ acc + x
+sourceList [1..10] 0 $ \acc x -> return $ acc + x
 ```
 
 We can abstract our summing function into a sink that works on any source of
@@ -54,7 +57,7 @@ integers:
 ``` haskell
 sumC :: (Num a, Monad m)
      => (a -> (a -> a -> m a) -> m a) -> m a
-sumC await = await 0 $ \x acc -> return $ acc + x
+sumC await = await 0 $ \acc x -> return $ acc + x
 ```
 
 `sumC` is a higher-order function that takes a fold closure obtained from
@@ -69,8 +72,8 @@ case `sumC`.  RankNTypes lets us express this condition using a `forall`:
 
 ``` haskell
 sumC :: (Num a, Monad m)
-     => (forall r. r -> (a -> r -> m r) -> m r) -> m a
-sumC await = await 0 $ \x acc -> return $ acc + x
+     => (forall r. r -> (r -> a -> m r) -> m r) -> m a
+sumC await = await 0 $ \acc x -> return $ acc + x
 ```
 
 We can read this type is: `sumC` accepts a function that folds over any state
@@ -82,10 +85,11 @@ knowing which type it will pick.
 Restating the source and sink then, we have:
 
 ``` haskell
-sourceList :: Monad m => [a] -> (forall r. r -> (a -> r -> m r) -> m r)
+sourceList :: Monad m
+           => [a] -> (forall r. r -> (r -> a -> m r) -> m r)
 
 sumC :: (Num a, Monad m)
-     => (forall r. r -> (a -> r -> m r) -> m r) -> m a
+     => (forall r. r -> (r -> a -> m r) -> m r) -> m a
 ```
 
 These are both regular, higher-order functions, so we can build our pipeline
@@ -103,7 +107,7 @@ Since this "fold closure" type is a bit cumbersome to restate everywhere,
 let's stick it into a type synonym:
 
 ``` haskell
-type Source m a = forall r. r -> (a -> r -> m r) -> m r
+type Source m a = forall r. r -> (r -> a -> m r) -> m r
 ```
 
 Note how the `Source` knows nothing about the type of state used by the fold,
@@ -186,14 +190,16 @@ for segments in the pipeline to abort processing early.  To encode this, we
 need some short-circuiting behavior, which sounds like a job for Either:
 
 ``` haskell
-type Source m a = forall r. r -> (a -> r -> m (Either r r)) -> m (Either r r)
+type Source m a =
+    forall r. r -> (r -> a -> m (Either r r)) -> m (Either r r)
 ```
 
 Once we start implementing sources and sinks, it will be much more convenient
 to use `EitherT` instead of returning an `Either` value:
 
 ``` haskell
-type Source m a = forall r. r -> (a -> r -> EitherT r m r) -> EitherT r m r
+type Source m a =
+    forall r. r -> (r -> a -> EitherT r m r) -> EitherT r m r
 ```
 
 This way the monadic action of `EitherT` provides the short-circuiting

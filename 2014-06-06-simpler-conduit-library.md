@@ -35,8 +35,8 @@ can be captured using simple, monadic folds, like `foldM`. Here is the type of
 foldM :: Monad m => (a -> b -> m a) -> a -> [b] -> m a
 ```
 
-We can obtain a slightly easier to use function type for what follows by
-rearranging the arguments:
+We can obtain a slightly easier function type for our needs by reversing the
+arguments:
 
 ``` haskell
 sourceList :: Monad m => [b] -> a -> (a -> b -> m a) -> m a
@@ -61,57 +61,38 @@ sumC await = await 0 $ \acc x -> return $ acc + x
 ```
 
 `sumC` is a higher-order function that takes a fold closure obtained from
-`sourceList [1..10` above.  (I call the closure `await`, although it's
+`sourceList [1..10]` above.  (I call the closure `await`, although it's
 behavior is a lot closer to a folding-variant of the `awaitForever` function
-from `conduit`).  `await` wants a starting state, and a function to mutate
+from `conduit`).  `await` wants a starting state, and a function to fold
 that state over the incoming elements.
 
-One thing to note is that the source providing the closure does not need to
-know what the state's type is.  That type is always chosen by caller, in this
-case `sumC`.  RankNTypes lets us express this condition using a `forall`:
-
-``` haskell
-sumC :: (Num a, Monad m)
-     => (forall r. r -> (r -> a -> m r) -> m r) -> m a
-sumC await = await 0 $ \acc x -> return $ acc + x
-```
-
-We can read this type is: `sumC` accepts a function that folds over any state
-type -- and then uses that function to fold over an Int.  Without the
-`forall`, GHC complains that `r` cannot be unified with `Int`, because the
-caller of `sumC` determines the type in that case, and we have no way of
-knowing which type it will pick.
-
-Restating the source and sink then, we have:
-
-``` haskell
-sourceList :: Monad m
-           => [a] -> (forall r. r -> (r -> a -> m r) -> m r)
-
-sumC :: (Num a, Monad m)
-     => (forall r. r -> (r -> a -> m r) -> m r) -> m a
-```
-
-These are both regular, higher-order functions, so we can build our pipeline
+Both of these are regular, higher-order functions, so we can build a pipeline
 using nothing more than function application:
 
 ``` haskell
 sumC (sourceList [1..10])
 ```
 
-Notice how close this is to non-streaming version `sum (id [1..10])`.  And if
-we execute our pipeline using `runIdentity`, the two should be pretty much
-identical.
+Notice how close this is to the non-streaming version `sum (id [1..10])`; and
+if we execute the pipeline using `runIdentity`, the two are identical.
 
-Since this "fold closure" type is a bit cumbersome to restate everywhere,
-let's stick it into a type synonym:
+## Generalizing the types
+
+Since the "fold closure" argument is cumbersome to restate, let's stick it
+into a type synonym:
 
 ``` haskell
 type Source m a = forall r. r -> (r -> a -> m r) -> m r
 ```
 
-Note how the `Source` knows nothing about the type of state used by the fold,
-and never needs to know.  Now our example source and sink become:
+`Source` cannot know the result type of the fold (here given by `r`), since it
+can vary between sources in a pipeline.  (For more information on `forall`,
+see
+[this Wiki book](http://en.wikibooks.org/wiki/Haskell/Polymorphism#Higher_rank_types).)
+Without this genericity, we would not be able compose sources unless they
+happened to have identical fold result types.
+
+With this synonym, the example source and sink become:
 
 ``` haskell
 sourceList :: Monad m => [a] -> Source m a
@@ -135,7 +116,9 @@ type Conduit a m b = Source m a -> Source m b
 ```
 
 With these type synonyms in place, the types of our sources and sinks should
-start looking familiar to users of the regular conduit library:
+start looking familiar to users of the regular conduit library
+([mapC](http://hackage.haskell.org/package/conduit-combinators-0.2.5.2/docs/Conduit.html#v:mapC)
+is from `conduit-combinators`):
 
 ``` haskell
 sourceList :: Monad m => [a] -> Source m a
@@ -145,9 +128,7 @@ sumC :: (Num a, Monad m) => Sink a m a
 
 Conduit has special operators for connecting sources with sinks, and for
 mapping sources to sources.  We don't need them, since we're just applying
-functions to functions, but we can define them as synonyms easily enough.
-(Note that `flip ($)` and `.` cannot be used as you might expect in the first
-two definitions, due to the presence of Rank-2 functions):
+functions to functions, but we can define them as synonyms easily enough:
 
 ``` haskell
 infixl 1 $=
@@ -160,7 +141,7 @@ l =$ r = \await -> r (l await)
 
 infixr 0 $$
 ($$) :: Monad m => Source m a -> Sink a m r -> m r
-($$) = flip ($)
+r $$ l = r l
 ```
 
 We can now express the pipeline in three different ways:
@@ -225,3 +206,19 @@ sinkList $ returnC $ sumC $ mapC (+1) $ sourceList [1..10]
 
 Since conduits are mappings from sources to sources, you can already treat
 them as you would a source.
+
+------------------------------------------------------------------------
+One thing to note is that the source providing the closure does not need to
+know the state's type.  We can express this using `forall`, so that our types
+generalize to:
+
+``` haskell
+sourceList :: Monad m
+           => [a] -> (forall r. r -> (r -> a -> m r) -> m r)
+
+sumC :: (Num a, Monad m)
+     => (forall r. r -> (r -> a -> m r) -> m r) -> m a
+```
+
+(For more information on why the `forall` is required here, see
+[this Wiki book](http://en.wikibooks.org/wiki/Haskell/Polymorphism#Higher_rank_types).)

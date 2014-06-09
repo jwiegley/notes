@@ -1,0 +1,6 @@
+3.drv-9 $ ./texlive-bin-2013.20130729.30972/Work/texk/web2c/xetex
+dyld: Library not loaded: libgraphite2.3.dylib
+  Referenced from: /private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2013.drv-9/texlive-bin-2013.20130729.30972/Work/texk/web2c/.libs/xetex
+  Reason: image not found
+Trace/BPT trap: 5
+hermes:/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-201

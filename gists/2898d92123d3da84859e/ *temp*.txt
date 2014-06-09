@@ -1,0 +1,41 @@
+Configuring hoogle-4.2.32...
+Dependency Cabal >=1.8: using Cabal-1.14.0
+Dependency QuickCheck -any: using QuickCheck-2.7.3
+Dependency aeson >=0.6.1: using aeson-0.7.0.4
+Dependency array -any: using array-0.4.0.0
+Dependency base >4 && <5: using base-4.5.1.0
+Dependency binary -any: using binary-0.7.2.1
+Dependency blaze-builder >=0.2: using blaze-builder-0.3.3.2
+Dependency bytestring >=0.9: using bytestring-0.9.2.1
+Dependency case-insensitive >=0.2: using case-insensitive-1.2.0.0
+Dependency cmdargs >=0.7: using cmdargs-0.10.7
+Dependency conduit >=0.2: using conduit-1.1.3
+Dependency containers -any: using containers-0.4.2.1
+Dependency deepseq >=1.1: using deepseq-1.3.0.0
+Dependency directory -any: using directory-1.1.0.2
+Dependency filepath -any: using filepath-1.3.0.0
+Dependency haskell-src-exts >=1.14 && <1.16: using haskell-src-exts-1.15.0.1
+Dependency http-types >=0.7: using http-types-0.8.5
+Dependency old-locale -any: using old-locale-1.0.0.4
+Dependency parsec >=2.1: using parsec-3.1.5
+Dependency process -any: using process-1.1.0.1
+Dependency random -any: using random-1.0.1.1
+Dependency resourcet -any: using resourcet-1.1.2.2
+Dependency safe -any: using safe-0.3.4
+Dependency shake >=0.11: using shake-0.12
+Dependency tagsoup >=0.11: using tagsoup-0.13.1
+Dependency text >=0.11: using text-1.1.1.2
+Dependency time -any: using time-1.4
+Dependency transformers >=0.2: using transformers-0.3.0.0
+Dependency uniplate >=1.6: using uniplate-1.6.12
+Dependency unix -any: using unix-2.5.1.1
+Dependency vector >=0.9: using vector-0.10.9.2
+Dependency vector-algorithms >=0.6: using vector-algorithms-0.6.0.1
+Dependency wai >=1.1: using wai-2.1.0.3
+Dependency warp >=1.1: using warp-2.1.5.2
+Warning: This package indirectly depends on multiple versions of the same
+package. This is highly likely to cause a compile failure.
+package shake-0.12 requires binary-0.5.1.0
+package hoogle-4.2.32 requires binary-0.7.2.1
+Using Cabal-1.14.0 compiled by ghc-7.4
+Using compiler: ghc-7.4.2

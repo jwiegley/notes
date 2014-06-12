@@ -24,12 +24,8 @@ sourceGenerator f = f $ \gen -> source (go gen)
 
 test_ :: IO ()
 test_ = do
-    z <- flip evalStateT (100 :: Int) $ sinkList $ sourceGenerator $ \f -> do
+    z <- sinkList $ takeC 10 $ sourceGenerator $ \f -> do
         x <- f newGenerator
         y <- f newGenerator
-        cnt <- lift get
-        if cnt == 0
-            then abort
-            else lift $ modify pred
         return (x < y)
     print z

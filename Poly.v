@@ -35,13 +35,15 @@ Proof.
     simpl. rewrite IHx. reflexivity.  Qed.
 
 Definition lift_yoneda (F : Type -> Type) (f_dict : Functor F)
-  (X : Type) (a : F X) : Yoneda F X := Embed (fun k => fmap k a).
+  (X : Type) (a : F X) : Yoneda F X := Embed F X (fun _ f => fmap f a).
 
-Definition lower_yoneda (f : Type -> Type) (X : Type) (a : Yoneda f X) : f X :=
-  match a with | Y x => x X id end.
+Definition lower_yoneda (F : Type -> Type) (X : Type) (a : Yoneda F X) : F X :=
+  match a with | Embed x => x X id end.
 
-Theorem yoneda_lemma : forall (a : Type) (o : list a) (p : Yoneda list a),
-  is_iso (list a) (Yoneda list a) o p (lift_yoneda a) (lower_yoneda list a).
+Theorem yoneda_lemma : forall (F : Type -> Type) (f_dict : Functor F)
+  (X : Type) (o : F X) (p : Yoneda F X),
+    is_iso (F X) (Yoneda F X) o p
+      (lift_yoneda F f_dict X) (lower_yoneda F X).
 Proof.
   intros. unfold is_iso. unfold lift_yoneda. unfold lower_yoneda.
-  apply fst_functor_law.  Qed.
+  apply functor_law_1.  Qed.

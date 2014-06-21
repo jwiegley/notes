@@ -1,0 +1,151 @@
+Brower had a psychological motivation: "Mathematics as if other people
+mattered."
+
+We are all aware of the distinction between moments, and that time passes.
+This indicates a progressive understanding of events.
+
+Special cases:
+1. Mathematical objects, functions, spaces, algebras, etc.
+2. Proofs.
+
+Math as a social process has the following characteristic: Whenever you have a
+theorem, you indicate a proof.  It doesn't count as being true unless you have
+these two.
+
+Proofs are clearly alogrithms: they are step by step developments from the
+hypothesis to the goal.
+
+Inductive proofs give us a way to reason about infinite things (all natural
+numbers) in a finite way, using effectively "loops".
+
+So the idea is that proofs are mathematical ideas too, and that these are all
+general notions of the idea of "construction".
+
+When viewed as a social activity, stating that A is true can only mean that I
+know of a proof, M : A.
+
+In intuitionistic type theory, Per Marin-Lӧf took Brouwer's ideas and made
+them into a systematic development.
+
+ - Coq
+ - NuPRL
+ - Agda
+
+There are some other developments as well:
+
+ - HOL (set theory)
+ - HOL-light
+ - many others, based on other foundations (and not intuitionistic TT)
+
+Why type theory, and not set theory?
+
+ 1. Intrinsically computational.  Constructions are programs that can be run.
+
+ 2. Proof relevant mathematics.  What distinguishes type theory is where
+    proofs are mathematical objects.
+
+ 3. Axiomatic freedom of intuitionistic type theory.
+
+    - Open-ended: consistent with expansions of the theory.
+
+      + You can introduce "oracles".
+      + You can introduce "axioms" that constraint the interpretation of what
+        is a proof.
+
+    - Consistent with axioms that encompass classical set theory.  That is, it
+      doesn't contradict set theory.
+
+    - Univalence axiom.  More will be said about this a bit later.
+
+ 4. Integrates "logic" with "objects".
+
+    Usually you have FOL/HOL with some proposition φ that makes statements
+    about a set of objects.
+
+What is logic?
+
+Logic is the science of consequence relations, or entailment.
+
+    Γ { A true, ..., A true } ⊢ A true.
+
+These are certain structural properties.  In a way this seems a lot like
+implication, but it's not really.  It doesn't hold vacuously, for example.
+This is where the open-endedness comes into play.
+
+1. Reflexivity: If you assume A is true, then A is true.
+
+    Γ, A true ⊢ A true
+    ------------------
+          A true
+
+2. Transitivity, or the cut rule:
+
+    Γ ⊢ A true   Γ, A true ⊢ B true
+    -------------------------------
+               Γ ⊢ B true
+
+    (i.e., you can "cut out" the intermediate theorem)
+
+3. Weakening: You can add any theorem as a hypothesis to the context.
+
+        Γ ⊢ A true
+    ------------------
+    Γ, B true ⊢ A true
+
+4. Contraction: you don't need to state a theorem twice.
+
+    Γ A true, A true ⊢ B true
+    -------------------------
+        Γ, A true ⊢ B true
+
+5. Conjunction.
+
+    Γ ⊢ A true    Γ ⊢ B true
+    ------------------------ (∧I)
+         Γ ⊢ A ∧ B true
+
+6. Disjunction.
+
+         Γ ⊢ A ∨ B true
+    ------------------------ (∨E π₁)
+           Γ ⊢ A true
+
+         Γ ⊢ A ∨ B true
+    ------------------------ (∨E π₂)
+           Γ ⊢ B true
+
+Define A ≤ B iff A true ∧ B true
+
+1. Pre-order: refl, trans
+
+2. ∧ is a *meet* (glb)
+
+    A ∧ B ≤ A  A ∧ B ≤ B
+
+    C ≤ B  C ≤ B
+    ------------
+      C ≤ A ∧ B
+
+    The meet is the greatest among the lower bounds.
+
+    The universal property gives us the "best of all possible lower bounds".
+
+3. We can define truth to be some top element ⊤, where A ≤ ⊤.
+
+4. ∨ is a join (lub)
+
+   A ≤ A ∨ B  B ≤ A ∨ B
+
+   A ≤ C   B ≤ C
+   -------------
+     A ∨ B ≤ C
+
+5. False is the ⊥ or the least element.
+
+6. Distributivity of ∧, ∨.
+
+7. Exponentials: An equivalence between A ∧ ≤ B
+
+   A ∧ C → B
+   ---------
+     C ≤ Bᴬ

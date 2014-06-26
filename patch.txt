@@ -1,0 +1,182 @@
+diff --git a/pkgs/development/compilers/sbcl/bootstrap.nix b/pkgs/development/compilers/sbcl/bootstrap.nix
+new file mode 100644
+index 0000000..c3335ea
+--- /dev/null
++++ b/pkgs/development/compilers/sbcl/bootstrap.nix
+@@ -0,0 +1,31 @@
++{ stdenv, fetchurl }:
++
++stdenv.mkDerivation rec {
++  name    = "sbcl-bootstrap-${version}";
++  version = "1.1.8";
++
++  src = if stdenv.isDarwin
++    then fetchurl {
++      url = mirror://sourceforge/project/sbcl/sbcl/1.1.8/sbcl-1.1.8-x86-64-darwin-binary.tar.bz2;
++      sha256 = "006pr88053wclvbjfjdypnbiw8wymbzdzi7a6kbkpdfn4zf5943j";
++    }
++    else fetchurl {
++      url = mirror://sourceforge/project/sbcl/sbcl/1.1.8/sbcl-1.1.8-x86-64-linux-binary.tar.bz2;
++      sha256 = "0lh1jglxlfwk4cm6sgwk1jnb6ikhbrkx7p5aha2nbmkd6zl96prx";
++    };
++
++  installPhase = ''
++    ensureDir $out/bin
++    cp -p src/runtime/sbcl $out/bin
++    ensureDir $out/share/sbcl
++    cp -p output/sbcl.core $out/share/sbcl
++  '';
++
++  meta = {
++    description = "Lisp compiler";
++    homepage = "http://www.sbcl.org";
++    license = "bsd";
++    maintainers = [stdenv.lib.maintainers.raskin];
++    platforms = stdenv.lib.platforms.unix;
++  };
++}
+diff --git a/pkgs/development/compilers/sbcl/default.nix b/pkgs/development/compilers/sbcl/default.nix
+index e1de4c5..a620bed 100644
+--- a/pkgs/development/compilers/sbcl/default.nix
++++ b/pkgs/development/compilers/sbcl/default.nix
+@@ -1,36 +1,18 @@
+-a :  
+-let 
+-  fetchurl = a.fetchurl;
+-  s= # Generated upstream information
+-  rec {
+-    baseName="sbcl";
+-    version="1.2.0";
+-    name="${baseName}-${version}";
+-    hash="13k20sys1v4lvgis8cnbczww6zs93rw176vz07g4jx06418k53x2";
+-    url="mirror://sourceforge/project/sbcl/sbcl/1.2.0/sbcl-1.2.0-source.tar.bz2";
+-    sha256="13k20sys1v4lvgis8cnbczww6zs93rw176vz07g4jx06418k53x2";
+-  };
+-  buildInputs = with a; [
+-    clisp makeWrapper
+-  ];
+-in
+-rec {
+-  src = a.fetchUrlFromSrcInfo s;
++{ stdenv, fetchurl, sbclBootstrap, clisp}:
+ 
+-  inherit buildInputs;
+-  configureFlags = [];
++stdenv.mkDerivation rec {
++  name    = "sbcl-${version}";
++  version = "1.2.0";
+ 
+-  /* doConfigure should be removed if not needed */
+-  phaseNames = ["setVars" "doFixNewer" "doFixTests" "setVersion" "doPatch" "doBuild" "doInstall" "doWrap"];
++  src = fetchurl {
++    url    = mirror://sourceforge/project/sbcl/sbcl/1.2.0/sbcl-1.2.0-source.tar.bz2;
++    sha256 = "13k20sys1v4lvgis8cnbczww6zs93rw176vz07g4jx06418k53x2";
++  };
+ 
+-  setVars = a.fullDepEntry (''
+-    export INSTALL_ROOT=$out
+-    mkdir test-home
+-    export HOME=$PWD/test-home
+-  '') ["minInit"];
++  buildInputs = [ sbclBootstrap ] ++ stdenv.lib.optional stdenv.isLinux clisp;
+ 
+-  setVersion = a.fullDepEntry (''
+-    echo '"${s.version}.nixos"' > version.lisp-expr
++  patchPhase = ''
++    echo '"${version}.nixos"' > version.lisp-expr
+     echo "
+     (lambda (features)
+       (flet ((enable (x)
+@@ -38,14 +20,11 @@ rec {
+              (disable (x)
+                (setf features (remove x features))))
+         (enable :sb-thread))) " > customize-target-features.lisp
+-  '') ["minInit" "doUnpack"];
+ 
+-  /* SBCL checks whether files are up-to-date in many places.. Unfortunately, same timestamp 
+-     is not good enought
+-  */
+-  doFixNewer = a.fullDepEntry(''
+     pwd
+ 
++    # SBCL checks whether files are up-to-date in many places..
++    # Unfortunately, same timestamp is not good enough
+     sed -e 's@> x y@>= x y@' -i contrib/sb-aclrepl/repl.lisp
+     sed -e '/(date)/i((= date 2208988801) 2208988800)' -i contrib/asdf/asdf.lisp
+     sed -i src/cold/slam.lisp -e \
+@@ -56,13 +35,8 @@ rec {
+       '/date defaulted-fasl/a)'
+     sed -i src/code/target-load.lisp -e \
+       '/date defaulted-source/i(or (and (= 2208988801 (file-write-date defaulted-source-truename)) (= 2208988801 (file-write-date defaulted-fasl-truename)))'
+-  '') ["minInit" "doUnpack"];
+ 
+-  doWrap = a.fullDepEntry (''
+-    wrapProgram "$out/bin/sbcl" --set "SBCL_HOME" "$out/lib/sbcl"
+-  '') ["minInit" "addInputs"];
+-
+-  doFixTests = a.fullDepEntry (''
++    # Fix the tests
+     sed -e '/deftest pwent/inil' -i contrib/sb-posix/posix-tests.lisp
+     sed -e '/deftest grent/inil' -i contrib/sb-posix/posix-tests.lisp
+     sed -e '/deftest .*ent.non-existing/,+5d' -i contrib/sb-posix/posix-tests.lisp
+@@ -70,24 +44,31 @@ rec {
+ 
+     sed -e '5,$d' -i contrib/sb-bsd-sockets/tests.lisp
+     sed -e '5,$d' -i contrib/sb-simple-streams/*test*.lisp
+-  '') ["minInit" "doUnpack"];
++  '';
++
++  preBuild = ''
++    export INSTALL_ROOT=$out
++    ensureDir test-home
++    export HOME=$PWD/test-home
++  '';
+ 
+-  doBuild = a.fullDepEntry (''
+-    sh make.sh clisp
+-  '') ["minInit" "doUnpack" "addInputs"];
++  buildPhase = if stdenv.isLinux
++    then ''
++      sh make.sh --prefix=$out clisp
++    ''
++    else ''
++      sh make.sh --prefix=$out --xc-host='${sbclBootstrap}/bin/sbcl --core ${sbclBootstrap}/share/sbcl/sbcl.core --disable-debugger --no-userinit --no-sysinit'
++    '';
+ 
+-  doInstall = a.fullDepEntry (''
+-    sh install.sh
+-  '') ["doBuild" "minInit" "addInputs"];
++  installPhase = ''
++    INSTALL_ROOT=$out sh install.sh
++  '';
+ 
+-  inherit(s) name;
+-  inherit(s) version;
+   meta = {
+     description = "Lisp compiler";
+-    homepage = "http://www.sbcl.org";
+-    license = "bsd";
+-    maintainers = [a.lib.maintainers.raskin];
+-    platforms = with a.lib.platforms; all;
+-    inherit(s) version;
++    homepage = http://www.sbcl.org;
++    license = stdenv.lib.licenses.bsd3;
++    maintainers = [stdenv.lib.maintainers.raskin];
++    platforms = stdenv.lib.platforms.all;
+   };
+ }
+diff --git a/pkgs/top-level/all-packages.nix b/pkgs/top-level/all-packages.nix
+index e0955c4..eacde53 100644
+--- a/pkgs/top-level/all-packages.nix
++++ b/pkgs/top-level/all-packages.nix
+@@ -3291,8 +3291,8 @@ let
+ 
+   rust = callPackage ../development/compilers/rust {};
+ 
+-  sbcl = builderDefsPackage (import ../development/compilers/sbcl) {
+-    inherit makeWrapper;
++  sbclBootstrap = callPackage ../development/compilers/sbcl/bootstrap.nix {};
++  sbcl = callPackage ../development/compilers/sbcl {
+     clisp = clisp_2_44_1;
+   };
+ 

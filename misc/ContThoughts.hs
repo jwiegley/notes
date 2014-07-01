@@ -212,7 +212,7 @@ main = void $ flip runContT return $ do
         -- m <- control $ \runInIO -> do
         --     liftIO $ putStrLn "step 5.."
         --     m <- runInIO $ do
-        --          return "step 6.."
+b        --          return "step 6.."
         --          k "after step 5"
         --          return "step 7.."
         --     liftIO $ putStrLn "step 8.."

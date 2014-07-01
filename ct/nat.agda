@@ -94,6 +94,10 @@ lemma-+shuffle zero m o = refl
 lemma-+shuffle (suc n) m o =
     trans (cong suc (lemma-+shuffle n m o)) (lemma-+sucgr m (n + o))
 
+-- lemma-+distrib : ∀ n m o p → (n + m) + (o + p) ≡ (n + o) + (m + p)
+-- lemma-+distrib zero m o p = lemma-+shuffle m o p
+-- lemma-+distrib (suc n) m o p = cong suc (lemma-+distrib n m o p)
+
 lemma-+distrib : ∀ n m o p → (n + m) + (o + p) ≡ (n + o) + (m + p)
 lemma-+distrib zero m o p = lemma-+shuffle m o p
 lemma-+distrib (suc n) m o p = cong suc (lemma-+distrib n m o p)
@@ -389,7 +393,7 @@ odd*odd≡both-odd n m h =
 n+sucn-odd : ∀ n → ¬ (even (n + suc n))
 n+sucn-odd zero = λ z → z
 n+sucn-odd (suc zero) = λ z → z
-n+sucn-odd (suc (suc n)) = 
+n+sucn-odd (suc (suc n)) =
     λ x → n+sucn-odd n
         (even-sucsuc (n + (suc n))
                      (subst even (sym (lemma-+sucgr (suc n) (suc n)))

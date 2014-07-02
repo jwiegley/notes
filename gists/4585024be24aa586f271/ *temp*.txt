@@ -1,0 +1,37 @@
+data Generator s = Generator
+newtype Generatee s = Generatee Integer deriving (Eq, Ord)
+
+newGenerator :: Generator s
+newGenerator = Generator
+
+withGenerator :: (forall s. Generator s -> a) -> a
+withGenerator f = f newGenerator
+
+generate :: Generator s -> (Generator s, Generatee s)
+generate g = (g, Generatee 10)
+
+reduce :: Generatee s -> Integer
+reduce (Generatee num) = num
+
+sourceGenerator
+    :: Monad m
+    => ((forall s. Generator s -> Source m (Generatee s)) -> m (Generator s)
+        -> Source m a)
+    -> Source m a
+sourceGenerator f = f (\gen -> source (go gen)) (return newGenerator)
+  where
+    go start z yield = loop start z
+      where
+        loop gen r =
+            let (gen', g) = generate gen
+            in yield r g >>= loop gen'
+
+test_ :: IO ()
+test_ = do
+    z <- sinkList $ takeC 10 $ sourceGenerator $ \f mk -> do
+        gen <- lift mk
+        x <- f gen
+        gen' <- lift mk
+        y <- f gen'
+        return (x < y)
+    print z

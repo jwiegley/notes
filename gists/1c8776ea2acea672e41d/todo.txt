@@ -1,0 +1,596 @@
+******* Robert Harper's first lecture
+Brower had a psychological motivation: "Mathematics as if other people
+mattered."
+
+We are all aware of the distinction between moments, and that time passes.
+This indicates a progressive understanding of events.
+
+Special cases:
+1. Mathematical objects, functions, spaces, algebras, etc.
+2. Proofs.
+
+Math as a social process has the following characteristic: Whenever you have a
+theorem, you indicate a proof.  It doesn't count as being true unless you have
+these two.
+
+Proofs are clearly alogrithms: they are step by step developments from the
+hypothesis to the goal.
+
+Inductive proofs give us a way to reason about infinite things (all natural
+numbers) in a finite way, using effectively "loops".
+
+So the idea is that proofs are mathematical ideas too, and that these are all
+general notions of the idea of "construction".
+
+When viewed as a social activity, stating that A is true can only mean that I
+know of a proof, M : A.
+
+In intuitionistic type theory, Per Marin-Lӧf took Brouwer's ideas and made
+them into a systematic development.
+
+ - Coq
+ - NuPRL
+ - Agda
+
+There are some other developments as well:
+
+ - HOL (set theory)
+ - HOL-light
+ - many others, based on other foundations (and not intuitionistic TT)
+
+Why type theory, and not set theory?
+
+ 1. Intrinsically computational.  Constructions are programs that can be run.
+
+ 2. Proof relevant mathematics.  What distinguishes type theory is where
+    proofs are mathematical objects.
+
+ 3. Axiomatic freedom of intuitionistic type theory.
+
+    - Open-ended: consistent with expansions of the theory.
+
+      + You can introduce "oracles".
+      + You can introduce "axioms" that constraint the interpretation of what
+        is a proof.
+
+    - Consistent with axioms that encompass classical set theory.  That is, it
+      doesn't contradict set theory.
+
+    - Univalence axiom.  More will be said about this a bit later.
+
+ 4. Integrates "logic" with "objects".
+
+    Usually you have FOL/HOL with some proposition φ that makes statements
+    about a set of objects.
+
+What is logic?
+
+Logic is the science of consequence relations, or entailment.
+
+    Γ { A true, ..., A true } ⊢ A true.
+
+These are certain structural properties.  In a way this seems a lot like
+implication, but it's not really.  It doesn't hold vacuously, for example.
+This is where the open-endedness comes into play.
+
+1. Reflexivity: If you assume A is true, then A is true.
+
+    Γ, A true ⊢ A true
+    ------------------
+          A true
+
+2. Transitivity, or the cut rule:
+
+    Γ ⊢ A true   Γ, A true ⊢ B true
+    -------------------------------
+               Γ ⊢ B true
+
+    (i.e., you can "cut out" the intermediate theorem)
+
+3. Weakening: You can add any theorem as a hypothesis to the context.
+
+        Γ ⊢ A true
+    ------------------
+    Γ, B true ⊢ A true
+
+4. Contraction: you don't need to state a theorem twice.
+
+    Γ A true, A true ⊢ B true
+    -------------------------
+        Γ, A true ⊢ B true
+
+5. Conjunction.
+
+    Γ ⊢ A true    Γ ⊢ B true
+    ------------------------ (∧I)
+         Γ ⊢ A ∧ B true
+
+6. Disjunction.
+
+         Γ ⊢ A ∨ B true
+    ------------------------ (∨E π₁)
+           Γ ⊢ A true
+
+         Γ ⊢ A ∨ B true
+    ------------------------ (∨E π₂)
+           Γ ⊢ B true
+
+Define A ≤ B iff A true ∧ B true
+
+1. Pre-order: refl, trans
+
+2. ∧ is a *meet* (glb)
+
+    A ∧ B ≤ A  A ∧ B ≤ B
+
+    C ≤ B  C ≤ B
+    ------------
+      C ≤ A ∧ B
+
+    The meet is the greatest among the lower bounds.
+
+    The universal property gives us the "best of all possible lower bounds".
+
+3. We can define truth to be some top element ⊤, where A ≤ ⊤.
+
+4. ∨ is a join (lub)
+
+   A ≤ A ∨ B  B ≤ A ∨ B
+
+   A ≤ C   B ≤ C
+   -------------
+     A ∨ B ≤ C
+
+5. False is the ⊥ or the least element.
+
+6. Distributivity of ∧, ∨.
+
+7. Exponentials: An equivalence between A ∧ ≤ B
+
+   A ∧ C → B
+   ---------
+     C ≤ Bᴬ
+
+(Connection here to Heyting algebras, which are a special form of lattice).
+
+TODO Lattices
+TODO Heyting algebras
+
+Entailment with proof objects.  With reflexivity it's identity.  Transitivity
+is composition.
+
+A Heyting algebra is a degenerate something else, which is a closed cartesian
+bicategory.
+
+When are two objects equal?
+===========================
+
+"No entity without identity".  Whenever you talk about some kind of
+mathematical object, you have to define what it means to have two of them and
+then to say that they are the same objects.
+
+1. Definitional equality
+
+   Γ ⊢ M ≡ N : A
+
+   It is a perpetual problem that this is difficult to explain.  We're going
+   to say "equal by calculation".  It gives rise to a calculational dynamics
+   (generalized high school algebra).
+
+2. "Propositional" equality (aka "typical" equality).  This is a *very*
+   subtle distinction.
+
+   We go from A ≤ B, to f : A ≤ B, where f is the "reason why" A ≤ B, and
+   then we can just write f : A → B.  But then what about f = g : A → B?
+
+
+          C
+         /|\
+       f/h| \s
+       /  |  \
+       | A∧B |
+       |/   \|
+    fst/     \snd
+      A       B
+
+    The composition snd . h and s can be continuously deformed into one
+    another, as they are to be identified.
+
+    If h  : C → A ∧ B
+       h' : C → A ∧ B
+    Then
+       α : h = h'
+
+        fst ∘ h' =
+    st. fst ∘ h  = f
+    ----------------
+        snd ∘ h  = s
+        snd ∘ h'
+
+    The reason why (aka the evidence) M = N is the existence of an
+    identification between M and N.
+
+    (In conventional category theory we would say that h and h' are exactly
+    equal.  The difference with a propositional equality are slightly
+    different.)
+
+So what do we mean by equality?  This is going to be the major topic.
+
+    Γ ctxt
+    Γ ⊢ A prop
+    Γ ⊢ M : A
+
+    Γ ⊢ M ≡ N : A  (definitional equality)
+
+The perpective that I'm going to take is that it's a calculational dynamics.
+
+Gentezn's inversion principle gives rise to definitional equivalences.
+
+    Γ ⊢ fst ⟨M, N⟩ ≡ M : A
+    Γ ⊢ snd ⟨M, N⟩ ≡ N : A
+
+We will call these definitional or calculational things.
+
+Later we will see the uniqueness principles, or the canonicity principles,
+are going to be propositional equality (aka his "typical" equality).
+
+    Γ ⊢ ⟨fst M, snd N⟩ ≡ M : A ∧ B
+
+The problem is that these kinds of rules work sort of OK for the negatives
+(∧, ⊤, →), but not so OK for the positive (∨, ⊥, ...).
+
+I will be looking from inside of proof theory and looking at the structure of
+proofs from inside, so my perspective changes from that of proof theory;
+instead, I am working within the domain of type theory.
+
+When we have proof objects, we want to know when are they definitionally
+equal?  If there are objects, then where is the "data" for the ordinary
+mathematical objects?
+
+The fact, quite a few are already present!
+
+    Γ ⊢ A true    Γ ⊢ B true
+    ------------------------ (∧I)
+         Γ ⊢ A ∧ B true
+
+Turns into:
+
+    Γ ⊢ M : A    Γ ⊢ N : B
+    ------------------------
+       Γ ⊢ ⟨M, N⟩ : A × B
+
+Proofs as programs:
+
+    Prop         Type
+    -----        -----
+    ⊤       ⟷   1       (unit)
+    A ∧ B   ⟷   A × B   (product)
+    ⊥       ⟷   0       (void)
+    A ∨ B   ⟷   A + B   (sum)
+    A ⊃ B   ⟷   A → B   (functions)
+
+We are also going to introduce many more.  The things you think of as
+propositions are just particular types.  Props ⊆ types.  For example, Nat.
+All we can say right now is that "it exists".
+
+Brower's opinion is that logic should be derived from mathematics.  Proof is
+nothing more than a particular construction.  Because we're working
+constructively, we can recover all of the traditional methods of reasoning by
+introducing certain axioms.
+******* Robert Harper's second lecture
+Brower's program: constructions as a primary means of doing mathematics.
+
+  - Proofs of theorems are simply particular constructions.
+  - Computational/calculational interpretation.  A proof is an algorithm.
+
+Martin-Lӧf took Brower's program very seriously and implemented it, via the
+intuitionistic type theory.
+
+  - "Constructions" are classified by "types".
+  - Equality of constructions/objects.  You haven't pinned down a conception
+    of a set of objects until you can define what it means for some of these
+    objects to be considered as equal.
+
+Truth is identified with the existence of a proof.  How do you prove
+equations, and what are the structure of proofs?
+
+Simple Types (almost propositional types)
+------------
+
+    Γ ctxt   Xi : Ai , _ , xn : An
+    A type
+    Γ ⊢ M : A
+    Γ ⊢ M ≡ M′ : A   definitional equality
+                     (these are typically made without proof)
+    "equality by calculation"
+    "equality of SENSE"
+
+Contrast this with sort of deeper notions of equality.
+
+    "equality of REFERENCE"
+
+    This is easy to think of in terms of set, but not with higher structures.
+
+    ⊤   1    unit
+    ∧   A×B  product
+    ⊥   0    empty
+    ∨   A+B  sum
+    ⊃   A→B  function
+
+    For the sum:
+
+    Γ ⊢ M : A
+    ---------
+    Γ ⊢ M l(M) : A+B
+
+    Γ ⊢ M : B
+    ---------
+    Γ ⊢ M r(M) : A+B
+
+    Γ ⊢ M : A+ B
+    Γ, x : A ⊢ P : C
+    Γ, y : B ⊢ Q : C
+    -----------------
+    Γ : case (M; x.P; y.Q) : C
+
+    case (inl(M); x.P; y.Q) ≡ [M/x]P
+          inr(M)              [M/x]P
+
+    [M/X]N ≡ case (M; x.[inl(x)/Z]N; y.[inr(y)/Z]N
+
+    The Shannon expansion:
+    [M/Z]N ≡ if M then [tt/Z]N else [ff/Z]N
+
+Logic arises by a forgetfull process from constructions to truth.
+
+    xi : Ai , - , xn : An + M : A   ~>   M : Ai x ⟶ x An ⟶ A
+    -----------------------------
+                  Γ
+    This should be interpretable as effective computation.
+
+    Ai true , - , An true ⊢ A true  (entailment, structural)
+
+There are more types than we ordinarily consider to be propositions.
+
+Variables are pronouns (and we need an infinite supply of them).
+
+We cannot expect in general that A ∨ ⟶ A true generically in A.
+We cannot expect to find a term A : type ⊢ M : A + (A → O).
+
+A ∨ B = ((A + B) → 0) → 0
+
+Dependent types = Type-indexed families of types
+------------------------------------------------
+
+{Ai}i∈I
+
+E.g., n : ℕ ⊢ Vec(n) type     "{ Vec(n) } n ∈ ℕ"
+
+"Data/property/predicate/unary relation"
+
+E.g., n : ℕ ⊢ Prime(n) type
+     (n : ℕ ⊢ ___ : Prime(n) + ¬ Prime(n))
+
+E.g., m, n : ℕ ⊢ Id_ℕ (m, n)
+                 m =ℕ n
+
+ℕ forms a Set.  The only way that you can prove equality is by reflexivity,
+meaning that numbers are only ever equal to themselves, if it is a closed set
+of numbers.
+
+Families of types
+-----------------
+
+Γ ctxt                Xi : Ai , - , Xn : An
+Γ ⊢ A type   can have variables that refer to Γ
+Γ ⊢ M : A    family of elements
+             eg) x : A ⊢ refl_ℕ (x) : Id_ℕ (x, x)
+Γ ≡ Γ′
+Γ ⊢ A ≡ A′
+Γ ⊢ M ≡ M′ : A
+
+Structural properties
+---------------------
+
+Γ, x : A ⊢ B type    Γ ⊢ M : A
+------------------------------ (subst)
+        Γ ⊢ [M/x]B type
+
+Γ, x : A ⊢ B type    Γ ⊢ M ≡ M′ : A
+------------------------------ (finality)
+     Γ ⊢ [M/x]B ≡ [M′/x]B
+
+Γ ⊢ M : A    Γ ⊢ A ≡ B
+---------------------- (respect for def. eq of types)
+      Γ ⊢ M : B
+
+Vec (0 + x) ≡ Vec (x)
+Vec (x + 0) ‌≢ Vec (x)
+
+x : ℕ ⊢ (M) : Id_ℕ (x + 0, x)
+
+  this proof induces a conversion between these two types:
+
+    Vec (x + 0)  ⟷  Vec (x)
+        ^               ^
+        |               |
+        v               v
+      x + 0      ⟷     x
+
+  Families of types induce fibrations, and so they have a homotopy of type
+  families.
+
+What kinds of things can you do with type families?
+
+- Quantification "closure properties of families".  Given a family, I can form
+  another family in a particular way.
+
+    Σ, Π  ~  ∃, ∀
+
+    eg) ∃x : ℕ, Prime(x)
+    eg) ∀x y : ℕ ⊢ _ : Id_ℕ(x,y) ∨ ¬Id_ℕ(x,y)
+        This is saying that equalitional of ℕ is decidable, which implies
+        that ℕ forms a Set.
+
+- General product
+
+  A type  x : A ⊢ B type
+  ---------------------- (Π-F)
+      Π x : A.B types
+
+   x : A ⊢ Mₓ : Bₓ
+  ---------------- (Π-I)
+  λx.M : Πx : A.Bₓ
+
+  M : Π× : A Bₓ  N : A
+  --------------------- (Π-E)
+     M N : [N/x] B
+
+  Γ, x : A ⊢ Mₓ : Bₓ   Γ ⊢ N : A
+  ----------------------------- (Π-C)
+    (λx.M) N ≡ [N/x]M : [N/x]B
+
+  Notice: A → B ≡Δ Π _ : A.B
+
+A type   x : A ⊢ B type
+-----------------------
+       Σ x : A.B
+
+A type   x : A ⊢ B type
+------------------------- (Σ-F)
+        Σx: A.B
+
+Γ ⊢ M : A  Γ ⊢ N : [M/x]B
+------------------------- (Σ-I)  (Show me!)
+   Γ + ⟨M, N⟩ : Σx: A.B
+
+   Γ ⊢ M : Σ x : A.B
+------------------------ (Σ-E)
+Γ ⊢ fst(M) : A
+Γ ⊢ snd(M) : [fst(M)/x]B
+
+∀ x : A.  P x  You general think of A as data.
+But in type theory we make the identification  Π x : A.P x
+Programs do not operate on "data over there", but there is a unification of
+the system.
+
+∃ x : A.P x ≡Δ Σ x : A.P x
+
+"Constructive existence" means that the witness must be exhibited.  There
+must be a witness to demonstrate existence.
+
+∃ x : A.P x ≡Δ ¬ ¬ (Σ x : A.P x)    This is a weaker notion
+
+Theorem of Choice (A C∞)
+-----------------
+
+Πx : A, Σy : Bₓ, R(x,y) ⟶ Σf : (Πx : A.Bₓ), Πx : A.R(x,f(x))
+
+ΛF. ⟨f : Πx : A.Bₓ, g : Πx : A.R(x,f(x))⟩
+
+Identity/Identification/Python type
+-----------------------------------
+
+A type  M, N : A
+---------------- (Id-F)
+  Id_A (M, N)
+
+         M : A
+------------------------ (Id-I)
+refl_A (M) : Id_A (M, M)
+
+In Homotopy Type Theory, equality is a structure, not a property.  It is
+called a "weak ω-groupoid".
+******* Robert Harper's third lecture
+Dependent Types   Π Σ Id (ℕ +)
+                         W
+                  ∀ ∃       ∨
+
+- Constructive vs. classical logic
+
+- Proof relevance: structure rather than property
+  P : M ≡ₐ N   vs.  M ≡ₐ N true
+
+- Framework of dependency
+
+    Γ ctxt      Γ ≡ Γ′
+    Γ ⊢ A type  Γ ⊢ A ≡ A′
+    Γ ⊢ M : A   Γ ⊢ M ≡ M′ : A
+
+Sums in simple types
+--------------------
+
+        Γ, x:A ⊢ M:C [inl(X)]     Γ, z:A+B ⊢ C type
+        Γ, y:B ⊢ N:C [inr(X)]
+    -----------------------------------
+    Γ, z, A+B ⊢ case (x.M; y.N)(z):C_z
+
+    case (x.M; y.N)[inl(a)] ≡ [a/x]M
+                   [inr(b)] ≡ [b/y]N
+
+Identity Type
+-------------
+
+Aka, propositional equality or typical equality (aka identification or path
+type).
+
+    A type   M, N:A
+    ----------------- (Id_A-F)
+    Id_A (M, N) type
+
+              M:A
+    ------------------------ (Id_A-I)
+    refl_A (M):Id_A (M, M)
+
+    Γ, x:A, y:A ⊢ C_x,y type   ("binary relation on A")
+    Γ ⊢ M:A   N ⊢ M:A
+    Γ, u:A ⊢ P:C[u,u]
+    -------------------------------------------- (Id_A-E simplified)
+    Γ, z:Id_A (M, N) ⊢ S[x,y.C](u.P) (z):C [M,N]
+    S[x,y.C](u.P)(refl_A(M)) ≡ [M/u]P:C[M,M]
+
+The identity is the least reflexive relation.  What makes it the least
+reflexive relation is that it is contained in every reflexive relation.
+
+    Γ, x:A, y:A, z:Id_A (x,y) ⊢ C_x,y,z type
+    Γ ⊢ M:A   Γ ⊢ N:A
+    Γ, u:A ⊢ Q:C[u,u,refl_A(u)]
+    -------------------------------------------- (Id_A-E simplified)
+    Γ, p:Id_A (M, N) ⊢ J[x,y,z.C](u.Q)(p):[M,N,p/x,y,z]C
+ ⟶ J[x,y,z.C](u.Q)(refl_A(M)) ≡ [M/u]Q
+    S[x,y.C](u.Q)(p) ≡Δ J[x,y,_.C](u.Q)(p)
+
+Higher Groupoid Structure of Types
+----------------------------------
+
+Types are to be thought of as infinite dimensional spaces.
+
+Prop: Equality is symmetric.  Π x,y:A. Id_A (x,y) → Id_A (y,x)
+
+Pf: Path induction on Id_A (x,y)      x,y:A, p:Id_A (x,y)
+    What is the motitve for the induction?
+
+sym ≡Δ λxλyλp. (J[x',y'.Id_A(y',x')](u: A. refl_A(u))(p)):Id_A(y,x)
+                                           ------------
+                                          :Id_A (u,u)
+
+Notation: sym(a)(b)(p)
+          p⁻¹ inverse path
+
+Prop: equality is transitive
+
+there is a term  trans:Π x,y,z:A:Id_A(x,y) → Id_A(y,z) → Id_A(x,z)
+such that trans (a)(a)(c)(refl_A(a))(q) ≡ q.
+    (? trans(a)(b)(b)(p)(refl_A(b)) ≡ p ?)
+
+Pf: Π x,y:A. Id_A(x,y) → (Π z:A. Id_A(y,z) → Id_A(x,z)).
+
+trans := λxλyλp J[u,v,_. Π z:A. Id_A(v,z) → Id_A(u,z)](      )(p)
+
+    sts: w: A ⊢ λxλqλq : Π z:A. Id_A(w,z) → Id_A(w,z)
+                                ---------   ---------
+                                    q           q
+
+Pre-groupid structure has identity morphisms, the inverse for any morphism,
+and composition of morphisms.  Groupoid structure adds the left/right unit
+laws, composition of inverse law, and associativity laws.

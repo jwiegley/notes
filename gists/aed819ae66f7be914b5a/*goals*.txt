@@ -1,0 +1,41 @@
+1 subgoals, subgoal 1 (ID 12076)
+  
+  M : Type -> Type
+  N : Type -> Type
+  H : Monad M
+  H0 : Monad N
+  H1 : Monad (fun X : Type => M (N X))
+  H2 : Monad M
+  H3 : Monad N
+  H4 : Monad (fun X : Type => M (N X))
+  H5 : @MonadCompatible M N H2 H3 H4
+  A : Type
+  H6 : @eq (M (N (M (N (M (N A))))) -> M (N (M (N A))))
+         (@fmap (fun X : Type => M (N X))
+            (@is_functor (fun X : Type => M (N X))
+               (@is_applicative (fun X : Type => M (N X)) H4))
+            (M (N (M (N A)))) (M (N A)) (@mu (fun X : Type => M (N X)) H4 A))
+         (@fmap M (@is_functor M (@is_applicative M H2))
+            (N (M (N (M (N A))))) (N (M (N A)))
+            (@fmap N (@is_functor N (@is_applicative N H3)) 
+               (M (N (M (N A)))) (M (N A))
+               (@mu (fun X : Type => M (N X)) H4 A)))
+  ============================
+   @eq (M (M (N (M (N A)))) -> M (N A))
+     (@compose (M (M (N (M (N A))))) (M (M (N A))) 
+        (M (N A)) (@mu M H2 (N A))
+        (@fmap M (@is_functor M (@is_applicative M H2)) 
+           (M (N (M (N A)))) (M (N A)) (@mu (fun X : Type => M (N X)) H4 A)))
+     (@compose (M (M (N (M (N A))))) (M (N (M (N A)))) 
+        (M (N A)) (@mu (fun X : Type => M (N X)) H4 A)
+        (@compose (M (M (N (M (N A))))) (M (N (M (N (M (N A))))))
+           (M (N (M (N A))))
+           (@fmap (fun X : Type => M (N X))
+              (@is_functor (fun X : Type => M (N X))
+                 (@is_applicative (fun X : Type => M (N X)) H4))
+              (M (N (M (N A)))) (M (N A))
+              (@mu (fun X : Type => M (N X)) H4 A))
+           (@fmap M (@is_functor M (@is_applicative M H2)) 
+              (M (N (M (N A)))) (N (M (N (M (N A)))))
+              (@eta N (@is_applicative N H3) (M (N (M (N A))))))))
+

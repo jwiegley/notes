@@ -1,0 +1,315 @@
+crash:[johnw@hermes:~/crash/isa/code/IsaTests]$ make safe-sim-fast
+building safe-sim-fast
+env SAFESIM_TIMEOUT=600s SVNROOT=/Users/johnw/crash \
+	TARGET_NAME=safe-sim NUM_THREADS=7 bash map_tests.sh make_fast.sh
+started thread 1
+started thread 2
+started thread 3
+started thread 4
+started thread 5
+started thread 6
+started thread 7
+make[1]: Entering directory `/Users/johnw/Contracts/BAE/Projects/crash/isa/code/IsaTests'
+building safe-sim
+env SAFESIM_TIMEOUT=600s SVNROOT=/Users/johnw/crash \
+	bash map_tests.sh run_safe-sim_test.sh
+DCache_issue.asm:PASS (2 seconds)
+call3.asm:PASS (0 seconds)
+framePtr.asm:PASS (0 seconds)
+io_read_yield.asm:PASS (1 seconds)
+mvxx.asm:PASS (0 seconds)
+stream.asm:PASS (0 seconds)
+summation_gate.asm:PASS (1 seconds)
+trans_memory.asm:PASS (0 seconds)
+AllocTest.hs:PASS (4 seconds)
+ContainedpTest.hs:PASS (1 seconds)
+Cprmi.hs:PASS (0 seconds)
+Inp.hs:PASS (1 seconds)
+Mul.hs:PASS (0 seconds)
+OfflpInstructionPointerTest.hs:PASS (1 seconds)
+Or.hs:PASS (1 seconds)
+Rflct.hs:PASS (1 seconds)
+SimpleSwapt.hs:PASS (0 seconds)
+Sub.hs:PASS (1 seconds)
+isizepWithAlloc.hs:PASS (0 seconds)
+WebserverLib_Test.meld:PASS (48 seconds)
+mpint_test.meld:PASS (46 seconds)
+linear_list_test.meld:PASS (50 seconds)
+regrp_test.meld:PASS (63 seconds)
+tree_test.meld:PASS (47 seconds)
+deep_copy_test.meld:PASS (83 seconds)
+labeled_streams_test.meld:PASS (102 seconds)
+Simple1.meld:PASS (54 seconds)
+static_allocator_test.meld:PASS (22 seconds)
+
+All tests expected to pass passed.
+
+simulator: safe-sim
+
+Tests tried:28
+Tests passed:28
+Tests failed:0
+Percentage passed:100%
+make[1]: Leaving directory `/Users/johnw/Contracts/BAE/Projects/crash/isa/code/IsaTests'
+make[1]: Entering directory `/Users/johnw/Contracts/BAE/Projects/crash/isa/code/IsaTests'
+building safe-sim
+env SAFESIM_TIMEOUT=600s SVNROOT=/Users/johnw/crash \
+	bash map_tests.sh run_safe-sim_test.sh
+ag_err_test.asm:PASS (1 seconds)
+cpxx.asm:PASS (0 seconds)
+fwd_test.asm:PASS (0 seconds)
+io_write_branch.asm:PASS (1 seconds)
+nav_arith.asm:PASS (0 seconds)
+stream2.asm:PASS (0 seconds)
+summation_gate_recurse.asm:PASS (0 seconds)
+transaction_test.asm:PASS (1 seconds)
+AllocThreadPointer.hs:PASS (0 seconds)
+ContainedpTestFramPtr.hs:PASS (1 seconds)
+Cprr-Datapaths.hs:PASS (0 seconds)
+Int.hs:PASS (0 seconds)
+Mvmr.hs:PASS (1 seconds)
+OfflpLinearPointer.hs:PASS (1 seconds)
+PcTag.hs:PASS (0 seconds)
+SafeDemo.hs:PASS (1 seconds)
+StreamLib.hs:PASS (0 seconds)
+TempestAlloc.hs:PASS (1 seconds)
+DBTest.meld:PASS (91 seconds)
+alist_test.meld:PASS (58 seconds)
+prng_test.meld:PASS (45 seconds)
+list_test.meld:PASS (48 seconds)
+set_test.meld:PASS (48 seconds)
+util_test.meld:PASS (22 seconds)
+dynamic_streams_test.meld:PASS (103 seconds)
+lattice_ops_dclm_test.meld:PASS (56 seconds)
+pat_algebra.meld:PASS (387 seconds)
+stream_manager_test.meld:PASS (49 seconds)
+
+All tests expected to pass passed.
+
+simulator: safe-sim
+
+Tests tried:28
+Tests passed:28
+Tests failed:0
+Percentage passed:100%
+make[1]: Leaving directory `/Users/johnw/Contracts/BAE/Projects/crash/isa/code/IsaTests'
+make[1]: Entering directory `/Users/johnw/Contracts/BAE/Projects/crash/isa/code/IsaTests'
+building safe-sim
+env SAFESIM_TIMEOUT=600s SVNROOT=/Users/johnw/crash \
+	bash map_tests.sh run_safe-sim_test.sh
+arith.asm:PASS (1 seconds)
+endt.asm:PASS (0 seconds)
+gate.asm:PASS (0 seconds)
+io_write_yield.asm:PASS (1 seconds)
+nav_load_store.asm:PASS (0 seconds)
+stream3.asm:PASS (0 seconds)
+tags.asm:PASS (0 seconds)
+transaction_test_complex.asm:PASS (1 seconds)
+And.hs:PASS (1 seconds)
+Cpar.hs:PASS (1 seconds)
+Cpxx.hs:PASS (0 seconds)
+Isizep.hs:PASS (1 seconds)
+Mvmre.hs:PASS (0 seconds)
+OfflpThreadPointerTest.hs:PASS (1 seconds)
+Rcall.hs:PASS (0 seconds)
+ScheduleAdvanceTest.hs:PASS (1 seconds)
+Stream_stry.hs:PASS (1 seconds)
+Testgrp.hs:PASS (0 seconds)
+nim-lattice.meld:PASS (165 seconds)
+assert_test.meld:PASS (45 seconds)
+rsa_test.meld:PASS (450 seconds)
+logger_test.meld:PASS (34 seconds)
+shift_add_multiply_test.meld:PASS (35 seconds)
+allocator_test.meld:PASS (34 seconds)
+dynamic_thread_spawn_test.meld:PASS (78 seconds)
+loader_test.meld:PASS (134 seconds)
+pat_creation.meld:PASS (307 seconds)
+thread_death_test.meld:FAIL (43 seconds)
+
+All tests expected to pass passed.
+Expected (and got) failures:
+src-tests/os/thread_death/thread_death_test.meld
+
+simulator: safe-sim
+
+Tests tried:28
+Tests passed:27
+Tests failed:1
+Percentage passed:96%
+make[1]: Leaving directory `/Users/johnw/Contracts/BAE/Projects/crash/isa/code/IsaTests'
+make[1]: Entering directory `/Users/johnw/Contracts/BAE/Projects/crash/isa/code/IsaTests'
+building safe-sim
+env SAFESIM_TIMEOUT=600s SVNROOT=/Users/johnw/crash \
+	bash map_tests.sh run_safe-sim_test.sh
+bcall.asm:PASS (1 seconds)
+ep.asm:PASS (0 seconds)
+initial.asm:PASS (0 seconds)
+jump.asm:PASS (1 seconds)
+nav_stream.asm:PASS (0 seconds)
+streamIn.asm:PASS (0 seconds)
+tempest_demo0.asm:PASS (1 seconds)
+Acall.hs:PASS (0 seconds)
+Atotag.hs:PASS (1 seconds)
+Cphr.hs:PASS (1 seconds)
+FramPtrTest.hs:PASS (0 seconds)
+Jmp.hs:PASS (0 seconds)
+Mvrmi.hs:PASS (1 seconds)
+Offlpi.hs:PASS (0 seconds)
+Readtime.hs:PASS (1 seconds)
+Shl.hs:PASS (1 seconds)
+Stream_stwly.hs:PASS (0 seconds)
+Totag.hs:PASS (1 seconds)
+nim.meld:PASS (114 seconds)
+bima_test.meld:PASS (47 seconds)
+sha_test.meld:PASS (49 seconds)
+native_multiply_test.meld:PASS (45 seconds)
+simple_test.meld:PASS (44 seconds)
+allocator_internal_test.meld:PASS (62 seconds)
+exit_test.meld:PASS (96 seconds)
+memory_manager_test.meld:PASS (67 seconds)
+sumServer.meld:PASS (82 seconds)
+uart_test.meld:PASS (55 seconds)
+
+All tests expected to pass passed.
+
+simulator: safe-sim
+
+Tests tried:28
+Tests passed:28
+Tests failed:0
+Percentage passed:100%
+make[1]: Leaving directory `/Users/johnw/Contracts/BAE/Projects/crash/isa/code/IsaTests'
+make[1]: Entering directory `/Users/johnw/Contracts/BAE/Projects/crash/isa/code/IsaTests'
+building safe-sim
+env SAFESIM_TIMEOUT=600s SVNROOT=/Users/johnw/crash \
+	bash map_tests.sh run_safe-sim_test.sh
+bgcall.asm:PASS (1 seconds)
+faulty.asm:PASS (0 seconds)
+inspect.asm:PASS (0 seconds)
+livemask.asm:PASS (1 seconds)
+regrp.asm:PASS (0 seconds)
+streamLoop.asm:PASS (1 seconds)
+testgrp_simple.asm:PASS (0 seconds)
+Add.hs:PASS (1 seconds)
+BasepTest.hs:PASS (0 seconds)
+Cpio.hs:PASS (1 seconds)
+Givetime.hs:PASS (1 seconds)
+Lcall.hs:PASS (0 seconds)
+Mvrr-Datapaths.hs:PASS (1 seconds)
+Offp.hs:PASS (0 seconds)
+Recovertime.hs:PASS (1 seconds)
+Shr.hs:PASS (1 seconds)
+Stream_stwy.hs:PASS (0 seconds)
+XXrr.hs:PASS (1 seconds)
+sum_server_test.meld:Timed out (600 seconds)
+channel_test.meld:PASS (61 seconds)
+echo_server_test.meld:PASS (12 seconds)
+printf_test.meld:PASS (36 seconds)
+sorting_test.meld:PASS (35 seconds)
+allow_all_tmu_miss_handler_test.meld:PASS (3 seconds)
+fault_handler_test.meld:FAIL (9 seconds)
+memory_manager_as_heap_allocator_test.meld:PASS (35 seconds)
+tag_properties.meld:Timed out (600 seconds)
+
+UNEXPECTED FAILING TESTS:
+src-tests/integration/sum-server/sum_server_test.meld
+src-tests/os/pat/tag_properties/tag_properties.meld
+
+
+simulator: safe-sim
+
+Tests tried:27
+Tests passed:24
+Tests failed:3
+Percentage passed:88%
+make[1]: *** [safe-sim] Error 1
+make[1]: Leaving directory `/Users/johnw/Contracts/BAE/Projects/crash/isa/code/IsaTests'
+make[1]: Entering directory `/Users/johnw/Contracts/BAE/Projects/crash/isa/code/IsaTests'
+building safe-sim
+env SAFESIM_TIMEOUT=600s SVNROOT=/Users/johnw/crash \
+	bash map_tests.sh run_safe-sim_test.sh
+call.asm:PASS (1 seconds)
+fibonacci.asm:PASS (0 seconds)
+io_loopback.asm:FAIL (0 seconds)
+monitor_atom.asm:PASS (1 seconds)
+reset_test.asm:PASS (0 seconds)
+summation.asm:PASS (0 seconds)
+timer.asm:PASS (0 seconds)
+AllocGatePointer.hs:PASS (0 seconds)
+Clear.hs:PASS (1 seconds)
+Cpmr.hs:PASS (1 seconds)
+Ina.hs:PASS (0 seconds)
+Lcfp.hs:PASS (1 seconds)
+Not.hs:PASS (0 seconds)
+Offpi.hs:PASS (1 seconds)
+RegReg.hs:PASS (0 seconds)
+SimpleAdd.hs:PASS (1 seconds)
+Streamb.hs:PASS (0 seconds)
+Xor.hs:PASS (1 seconds)
+tag_demo.meld:Timed out (600 seconds)
+copy_val_test.meld:PASS (39 seconds)
+file_system_test.meld:PASS (18 seconds)
+printf_linear_test.meld:PASS (35 seconds)
+stack_test.meld:PASS (33 seconds)
+buddy_allocator_test.meld:PASS (40 seconds)
+gc_test.meld:PASS (33 seconds)
+DynamicPAT.meld:PASS (77 seconds)
+pat_server_test.meld:PASS (38 seconds)
+
+UNEXPECTED FAILING TESTS:
+src-tests/integration/tag_demo/tag_demo.meld
+
+
+simulator: safe-sim
+
+Tests tried:27
+Tests passed:25
+Tests failed:2
+Percentage passed:92%
+make[1]: *** [safe-sim] Error 1
+make[1]: Leaving directory `/Users/johnw/Contracts/BAE/Projects/crash/isa/code/IsaTests'
+make[1]: Entering directory `/Users/johnw/Contracts/BAE/Projects/crash/isa/code/IsaTests'
+building safe-sim
+env SAFESIM_TIMEOUT=600s SVNROOT=/Users/johnw/crash \
+	bash map_tests.sh run_safe-sim_test.sh
+call2.asm:PASS (1 seconds)
+forwarding.asm:PASS (0 seconds)
+io_read_branch.asm:PASS (0 seconds)
+monitor_instr.asm:PASS (1 seconds)
+simple_sum_server.asm:PASS (0 seconds)
+summation_gacall.asm:PASS (0 seconds)
+trans.asm:PASS (1 seconds)
+AllocSizedPointers.hs:PASS (1 seconds)
+Clearregs.hs:PASS (1 seconds)
+Cpmt.hs:PASS (0 seconds)
+Ingrp.hs:PASS (1 seconds)
+LotsOCprms.hs:PASS (64 seconds)
+OfflpBaseTest.hs:PASS (0 seconds)
+Offtpi.hs:PASS (1 seconds)
+ResCare.hs:PASS (0 seconds)
+SimpleRunt.hs:PASS (1 seconds)
+Stwlb.hs:PASS (0 seconds)
+isizepNoAlloc.hs:PASS (1 seconds)
+ArrayList_Test.meld:PASS (46 seconds)
+aes_test.meld:PASS (50 seconds)
+focus_test.meld:PASS (45 seconds)
+proxy_test.meld:PASS (96 seconds)
+string_test.meld:PASS (23 seconds)
+cw_top_test.meld:PASS (126 seconds)
+heap_allocator_service_test.meld:PASS (45 seconds)
+Lattice1.meld:PASS (86 seconds)
+stack_allocator_test.meld:PASS (42 seconds)
+
+All tests expected to pass passed.
+
+simulator: safe-sim
+
+Tests tried:27
+Tests passed:27
+Tests failed:0
+Percentage passed:100%
+make[1]: Leaving directory `/Users/johnw/Contracts/BAE/Projects/crash/isa/code/IsaTests'
+FAILING PIDS: 86551 86554
+make: *** [safe-sim-fast] Error 1
+
+crash:[johnw@hermes:~/crash/isa/code/IsaTests]$

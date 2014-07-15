@@ -1,0 +1,249 @@
+-*- mode: compilation; default-directory: "~/Contracts/BAE/Projects/crash/" -*-
+Compilation started at Tue Jul 15 15:25:47
+
+cd ~/Contracts/BAE/Projects/crash/ ; find . -name .hdevtools.sock -delete ; nix-build -A crashEnv --pure
+these derivations will be built:
+  /nix/store/1s0mbm321xnq9f8l7qsw8zq08w5acm08-haskell-safe-isa-ghc7.6.3-0.1.94.1.drv
+  /nix/store/553lml445wdab5diah1kkwwnl7wind3d-haskell-safe-isa-tests-ghc7.6.3-0.0.10.drv
+  /nix/store/5c4akqjlq3yc28f3iy30b5afxzsc263c-haskell-simple-pat-server-ghc7.6.3-0.2.2.drv
+  /nix/store/5l8dxv5f5hznx24sf0g27i9b9inqbywr-haskell-safe-sim-ghc7.6.3-0.3.39.drv
+  /nix/store/6qnybr4qm49hvdbrv9brq4n2w7v01kj5-haskell-safe-scripts-ghc7.6.3-0.0.15.2.drv
+  /nix/store/nibj2va63bhi26p670wjik07d1wjwrfy-haskell-safe-meld-lib-ghc7.6.3-0.0.5.1.drv
+  /nix/store/qblw7xrkf58jsaa5jdvasp7dp9cggibi-safe-meld-0.0.2.1.drv
+  /nix/store/qwph7kbffp3vai3q5i5jy8l67rwczd35-haskell-safe-lib-ghc7.6.3-0.0.31.drv
+  /nix/store/slkz75jl6r1yzaxkwjdg8rl0lkjbl5r1-env-crash.drv
+  /nix/store/xnxnnmn0wsb7l8fvyprgyl027ffci8bq-haskell-tempest-compiler-ghc7.6.3-1.0.0.drv
+building path(s) `/nix/store/wwm4l5y46mpxs3a6k98ixxvbdmxqzbhm-haskell-safe-isa-ghc7.6.3-0.1.94.1'
+[pbuilding /nix/store/wwm4l5y46mpxs3a6k98ixxvbdmxqzbhm-haskell-safe-isa-ghc7.6.3-0.1.94.1
+[punpacking sources
+[3punpacking source archive /nix/store/5b463dhi84x0qm8w0l90i3pll91q73yi-safe-isa
+[qsource root is safe-isa
+[q[ppatching sources
+[q[pconfiguring
+configure flags: --disable-split-objs --disable-library-profiling --disable-shared --enable-library-vanilla --disable-executable-dynamic --enable-tests 
+Configuring safe-isa-0.1.94.1...
+Dependency HUnit -any: using HUnit-1.2.5.2
+Dependency QuickCheck -any: using QuickCheck-2.7.5
+Dependency array -any: using array-0.4.0.1
+Dependency base ==4.*: using base-4.6.0.1
+Dependency bytestring -any: using bytestring-0.10.0.2
+Dependency containers ==0.5.*: using containers-0.5.0.0
+Dependency cpphs -any: using cpphs-1.18.5
+Dependency deepseq -any: using deepseq-1.3.0.1
+Dependency digest -any: using digest-0.0.1.2
+Dependency directory -any: using directory-1.2.0.1
+Dependency filepath -any: using filepath-1.3.0.1
+Dependency hashable ==1.2.*: using hashable-1.2.2.0
+Dependency lens >=3.9 && <3.11: using lens-3.10.2
+Dependency mtl ==2.1.2: using mtl-2.1.2
+Dependency parsec -any: using parsec-3.1.5
+Dependency polyparse ==1.9: using polyparse-1.9
+Dependency random -any: using random-1.0.1.1
+Dependency safe-isa -any: using safe-isa-0.1.94.1
+Dependency split >=0.2.1.2: using split-0.2.2
+Dependency transformers -any: using transformers-0.3.0.0
+Dependency vector -any: using vector-0.10.11.0
+Using Cabal-1.16.0 compiled by ghc-7.6
+Using compiler: ghc-7.6.3
+Using install prefix:
+/nix/store/wwm4l5y46mpxs3a6k98ixxvbdmxqzbhm-haskell-safe-isa-ghc7.6.3-0.1.94.1
+Binaries installed in:
+/nix/store/wwm4l5y46mpxs3a6k98ixxvbdmxqzbhm-haskell-safe-isa-ghc7.6.3-0.1.94.1/bin
+Libraries installed in:
+/nix/store/wwm4l5y46mpxs3a6k98ixxvbdmxqzbhm-haskell-safe-isa-ghc7.6.3-0.1.94.1/lib/ghc-7.6.3/safe-isa-0.1.94.1
+Private binaries installed in:
+/nix/store/wwm4l5y46mpxs3a6k98ixxvbdmxqzbhm-haskell-safe-isa-ghc7.6.3-0.1.94.1/libexec
+Data files installed in:
+/nix/store/wwm4l5y46mpxs3a6k98ixxvbdmxqzbhm-haskell-safe-isa-ghc7.6.3-0.1.94.1/share/safe-isa-0.1.94.1
+Documentation installed in:
+/nix/store/wwm4l5y46mpxs3a6k98ixxvbdmxqzbhm-haskell-safe-isa-ghc7.6.3-0.1.94.1/share/doc/safe-isa-0.1.94.1
+Using alex version 3.1.3 found on system at:
+/nix/store/g4ag2mfgpmyr9xps1h9xxrra5nlzaix2-alex-3.1.3/bin/alex
+Using ar found on system at:
+/nix/store/p14qjms2b4rfycvpmwxrrflxndxraah4-native-darwin-cctools-wrapper/bin/ar
+No c2hs found
+Using cpphs version 1.18.5 found on system at:
+/nix/store/2sbxsrbln72vipvvqwf14j85c7dh2asf-haskell-cpphs-ghc7.6.3-1.18.5/bin/cpphs
+No ffihugs found
+Using gcc version 4.8.3 found on system at:
+/nix/store/dlj7395zr2rg37qm0hqplf2znis8zjl8-gcc-wrapper-4.8.3/bin/gcc
+Using ghc version 7.6.3 found on system at:
+/nix/store/zzm98a9ipr2x5cyhvyqlrz1zym737k95-ghc-7.6.3-wrapper/bin/ghc
+Using ghc-pkg version 7.6.3 found on system at:
+/nix/store/zzm98a9ipr2x5cyhvyqlrz1zym737k95-ghc-7.6.3-wrapper/bin/ghc-pkg
+No greencard found
+Using haddock version 2.13.2 found on system at:
+/nix/store/ff3ggsbjbgwj2ari8n4x052dpkk2mzka-ghc-7.6.3/bin/haddock
+No happy found
+No hmake found
+Using hpc version 0.6 found on system at:
+/nix/store/zzm98a9ipr2x5cyhvyqlrz1zym737k95-ghc-7.6.3-wrapper/bin/hpc
+Using hsc2hs version 0.67 found on system at:
+/nix/store/zzm98a9ipr2x5cyhvyqlrz1zym737k95-ghc-7.6.3-wrapper/bin/hsc2hs
+Using hscolour version 1.20 found on system at:
+/nix/store/h94jwc82lvlmwcgygclcg0gsncxqwc8q-haskell-hscolour-ghc7.6.3-1.20.3/bin/HsColour
+No hugs found
+No jhc found
+Using ld found on system at:
+/nix/store/dlj7395zr2rg37qm0hqplf2znis8zjl8-gcc-wrapper-4.8.3/bin/ld
+No lhc found
+No lhc-pkg found
+No nhc98 found
+No pkg-config found
+Using ranlib found on system at:
+/nix/store/p14qjms2b4rfycvpmwxrrflxndxraah4-native-darwin-cctools-wrapper/bin/ranlib
+Using strip found on system at:
+/nix/store/p14qjms2b4rfycvpmwxrrflxndxraah4-native-darwin-cctools-wrapper/bin/strip
+Using tar found on system at:
+/nix/store/69zqxg4avnxdy2ws45mbih8yrcpaaxys-gnutar-1.27.1/bin/tar
+No uhc found
+[q[pbuilding
+Building safe-isa-0.1.94.1...
+Preprocessing library safe-isa-0.1.94.1...
+[ 1 of 36] Compiling Language.SAFE.Word128 ( Language/SAFE/Word128.hs, dist/build/Language/SAFE/Word128.o )
+
+Language/SAFE/Word128.hs:7:1: Warning:
+    The import of `Data.Typeable' is redundant
+      except perhaps to import instances from `Data.Typeable'
+    To import instances alone, use: import Data.Typeable()
+
+Language/SAFE/Word128.hs:9:1: Warning:
+    The import of `Data.Int' is redundant
+      except perhaps to import instances from `Data.Int'
+    To import instances alone, use: import Data.Int()
+
+Language/SAFE/Word128.hs:12:1: Warning:
+    The import of `Numeric' is redundant
+      except perhaps to import instances from `Numeric'
+    To import instances alone, use: import Numeric()
+
+Language/SAFE/Word128.hs:14:1: Warning:
+    The import of `Text.Printf' is redundant
+      except perhaps to import instances from `Text.Printf'
+    To import instances alone, use: import Text.Printf()
+
+Language/SAFE/Word128.hs:101:23: Warning:
+    Defined but not used: `ah'
+
+Language/SAFE/Word128.hs:101:26: Warning:
+    Defined but not used: `al'
+
+Language/SAFE/Word128.hs:101:38: Warning:
+    Defined but not used: `bh'
+
+Language/SAFE/Word128.hs:101:41: Warning:
+    Defined but not used: `bl'
+
+Language/SAFE/Word128.hs:170:10: Warning:
+    No explicit method or default declaration for `popCount'
+    In the instance declaration for `Bits (BigInt a)'
+
+Language/SAFE/Word128.hs:191:7: Warning:
+    Pattern match(es) are non-exhaustive
+    In an equation for `pred': Patterns not matched: _
+
+Language/SAFE/Word128.hs:192:7: Warning:
+    Pattern match(es) are non-exhaustive
+    In an equation for `succ': Patterns not matched: _
+[ 2 of 36] Compiling Language.SAFE.HostProgram ( Language/SAFE/HostProgram.hs, dist/build/Language/SAFE/HostProgram.o )
+[ 3 of 36] Compiling Language.SAFE.Parameters ( Language/SAFE/Parameters.hs, dist/build/Language/SAFE/Parameters.o )
+[ 4 of 36] Compiling Language.SAFE.HashFunctions ( Language/SAFE/HashFunctions.hs, dist/build/Language/SAFE/HashFunctions.o )
+[ 5 of 36] Compiling Language.SAFE.UndirectedGraph ( Language/SAFE/UndirectedGraph.hs, dist/build/Language/SAFE/UndirectedGraph.o )
+[ 6 of 36] Compiling Language.SAFE.SourceLocation ( Language/SAFE/SourceLocation.hs, dist/build/Language/SAFE/SourceLocation.o )
+[ 7 of 36] Compiling Language.SAFE.Config ( Language/SAFE/Config.hs, dist/build/Language/SAFE/Config.o )
+[ 8 of 36] Compiling Language.SAFE.Utils ( Language/SAFE/Utils.hs, dist/build/Language/SAFE/Utils.o )
+[ 9 of 36] Compiling Language.SAFE.Pointer ( Language/SAFE/Pointer.hs, dist/build/Language/SAFE/Pointer.o )
+[10 of 36] Compiling Language.SAFE.Parse.Common ( Language/SAFE/Parse/Common.hs, dist/build/Language/SAFE/Parse/Common.o )
+[11 of 36] Compiling Language.SAFE.ParseInstruction ( Language/SAFE/ParseInstruction.hs, dist/build/Language/SAFE/ParseInstruction.o )
+
+Language/SAFE/ParseInstruction.hs:58:19: Warning:
+    Defined but not used: `regParser'
+
+Language/SAFE/ParseInstruction.hs:63:19: Warning:
+    Defined but not used: `regParser'
+
+Language/SAFE/ParseInstruction.hs:67:19: Warning:
+    Defined but not used: `regParser'
+
+Language/SAFE/ParseInstruction.hs:68:19: Warning:
+    Defined but not used: `regParser'
+
+Language/SAFE/ParseInstruction.hs:69:19: Warning:
+    Defined but not used: `regParser'
+
+Language/SAFE/ParseInstruction.hs:81:19: Warning:
+    Defined but not used: `regParser'
+
+Language/SAFE/ParseInstruction.hs:82:19: Warning:
+    Defined but not used: `regParser'
+
+Language/SAFE/ParseInstruction.hs:89:18: Warning:
+    Defined but not used: `regParser'
+
+Language/SAFE/ParseInstruction.hs:102:18: Warning:
+    Defined but not used: `regParser'
+
+Language/SAFE/ParseInstruction.hs:114:21: Warning:
+    Defined but not used: `regParser'
+
+Language/SAFE/ParseInstruction.hs:124:22: Warning:
+    Defined but not used: `regParser'
+
+Language/SAFE/ParseInstruction.hs:147:25: Warning:
+    Defined but not used: `regParser'
+
+Language/SAFE/ParseInstruction.hs:148:23: Warning:
+    Defined but not used: `regParser'
+
+Language/SAFE/ParseInstruction.hs:151:20: Warning:
+    Defined but not used: `regParser'
+[12 of 36] Compiling Language.SAFE.Types ( Language/SAFE/Types.hs, dist/build/Language/SAFE/Types.o )
+
+Language/SAFE/Types.hs:51:1: Warning:
+    The qualified import of `Data.Vector.Generic.Base' is redundant
+      except perhaps to import instances from `Data.Vector.Generic.Base'
+    To import instances alone, use: import Data.Vector.Generic.Base()
+
+Language/SAFE/Types.hs:52:1: Warning:
+    The qualified import of `Data.Vector.Generic.Mutable' is redundant
+      except perhaps to import instances from `Data.Vector.Generic.Mutable'
+    To import instances alone, use: import Data.Vector.Generic.Mutable()
+
+Language/SAFE/Types.hs:53:1: Warning:
+    The qualified import of `Data.Vector.Unboxed' is redundant
+      except perhaps to import instances from `Data.Vector.Unboxed'
+    To import instances alone, use: import Data.Vector.Unboxed()
+
+Language/SAFE/Types.hs:54:1: Warning:
+    The qualified import of `Data.Vector.Unboxed.Mutable' is redundant
+      except perhaps to import instances from `Data.Vector.Unboxed.Mutable'
+    To import instances alone, use: import Data.Vector.Unboxed.Mutable()
+[13 of 36] Compiling Language.SAFE.ProgramsLabeled ( Language/SAFE/ProgramsLabeled.hs, dist/build/Language/SAFE/ProgramsLabeled.o )
+[14 of 36] Compiling Language.SAFE.SystemAuthority ( Language/SAFE/SystemAuthority.hs, dist/build/Language/SAFE/SystemAuthority.o )
+[15 of 36] Compiling Language.SAFE.Hardware ( Language/SAFE/Hardware.hs, dist/build/Language/SAFE/Hardware.o )
+[16 of 36] Compiling Language.SAFE.ProgramsLabeled.StripSourceDirectives ( Language/SAFE/ProgramsLabeled/StripSourceDirectives.hs, dist/build/Language/SAFE/ProgramsLabeled/StripSourceDirectives.o )
+[17 of 36] Compiling Language.SAFE.Disassembler ( Language/SAFE/Disassembler.hs, dist/build/Language/SAFE/Disassembler.o )
+[18 of 36] Compiling Language.SAFE.CPP.Symbols ( Language/SAFE/CPP/Symbols.hs, dist/build/Language/SAFE/CPP/Symbols.o )
+
+Language/SAFE/CPP/Symbols.hs:7:1: Warning:
+    The import of `ProgramData, codeAsm'
+    from module `Language.SAFE.ProgramsLabeled' is redundant
+[19 of 36] Compiling Language.SAFE.MRVector ( Language/SAFE/MRVector.hs, dist/build/Language/SAFE/MRVector.o )
+[20 of 36] Compiling Language.SAFE.CreateDC ( Language/SAFE/CreateDC.hs, dist/build/Language/SAFE/CreateDC.o )
+
+Language/SAFE/CreateDC.hs:236:33:
+    Couldn't match expected type `Int' with actual type `Integer'
+    In the first argument of `hash0', namely `encodedMVector'
+    In the second argument of `($)', namely `hash0 encodedMVector'
+    In the expression: fromIntegral $ hash0 encodedMVector
+
+Language/SAFE/CreateDC.hs:237:33:
+    Couldn't match expected type `Int' with actual type `Integer'
+    In the first argument of `hash1', namely `encodedMVector'
+    In the second argument of `($)', namely `hash1 encodedMVector'
+    In the expression: fromIntegral $ hash1 encodedMVector
+[q[qbuilder for `/nix/store/1s0mbm321xnq9f8l7qsw8zq08w5acm08-haskell-safe-isa-ghc7.6.3-0.1.94.1.drv' failed with exit code 1
+cannot build derivation `/nix/store/slkz75jl6r1yzaxkwjdg8rl0lkjbl5r1-env-crash.drv': 1 dependencies couldn't be built
+error: build of `/nix/store/slkz75jl6r1yzaxkwjdg8rl0lkjbl5r1-env-crash.drv' failed
+
+Compilation exited abnormally with code 1 at Tue Jul 15 15:26:12

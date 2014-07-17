@@ -1,0 +1,5 @@
+[root@titan:~]# zpool import -f tank
+cannot import 'tank': I/O error
+	Destroy and re-create the pool from
+	a backup source.
+

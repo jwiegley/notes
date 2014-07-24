@@ -1,0 +1,14 @@
+[68 of 87] Compiling Idris.ParseHelpers ( src/Idris/ParseHelpers.hs, dist/build/Idris/ParseHelpers.o )
+
+src/Idris/ParseHelpers.hs:370:47:
+    No instance for (Show IState) arising from a use of ‘position’
+    In the second argument of ‘liftM’, namely ‘position’
+    In the expression: liftM ((+ 1) . fromIntegral . column) position
+    In an equation for ‘indent’:
+        indent = liftM ((+ 1) . fromIntegral . column) position
+builder for `/nix/store/9z70aa4hcrkrfyzk32y226l9q34pd8h6-haskell-idris-ghc7.8.3-0.9.14-shared.drv' failed with exit code 1
+building path(s) `/nix/store/y9ns6fc653x03y554178rcfxqksycd9d-haskell-th-desugar-ghc7.8.3-1.4.2-profiling-shared'
+cannot build derivation `/nix/store/2p7bkln47czz0rd5z7nmgh100c5hcs0l-idris-wrapper.drv': 1 dependencies couldn't be built
+killing process 75215
+cannot build derivation `/nix/store/0bi1ivwr9l6i73hfsbjc907hxrm2gl96-env-ghc763-prof.drv': 1 dependencies couldn't be built
+error: build of `/nix/store/0bi1ivwr9l6i73hfsbjc907hxrm2gl96-env-ghc763-prof.drv' failed

@@ -1,0 +1,7 @@
+data Word128 = W128 {-# UNPACK #-} !Word64 {-# UNPACK #-} !Word64
+  deriving (Data, Typeable)
+
+instance Bits Word128 where
+      testBit (W128 h l) !i
+              | i >= 64   = testBit h (i - 64)
+              | otherwise = testBit l i

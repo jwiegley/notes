@@ -1,0 +1,45 @@
+1 focused subgoals (unfocused: 2)
+, subgoal 1 (ID 146)
+  
+  C : Category
+  D : Category
+  A : Functor C D
+  B : Functor C D
+  transport0 : ∀ X : C, A X ~{ D }~> B X
+  naturality0 : ∀ (X Y : C) (f : X ~{ C }~> Y),
+                fmap f ∘ transport0 X = transport0 Y ∘ fmap f
+  ============================
+   {|
+   transport := λ X : C, transport0 X ∘ id;
+   naturality := λ (X Y : C) (f0 : X ~{ C }~> Y),
+                 eq_ind_r
+                   (λ h : A X ~{ D }~> B Y, h = (transport0 Y ∘ id) ∘ fmap f0)
+                   (eq_ind_r
+                      (λ h : A X ~{ D }~> B Y,
+                       h ∘ id = (transport0 Y ∘ id) ∘ fmap f0)
+                      (eq_ind (transport0 Y ∘ (fmap f0 ∘ id))
+                         (λ h : A X ~{ D }~> B Y,
+                          h = (transport0 Y ∘ id) ∘ fmap f0)
+                         (eq_ind_r
+                            (λ h : A X ~{ D }~> A Y,
+                             transport0 Y ∘ h = (transport0 Y ∘ id) ∘ fmap f0)
+                            (eq_ind_r
+                               (λ h : A X ~{ D }~> B Y,
+                                h = (transport0 Y ∘ id) ∘ fmap f0) eq_refl
+                               (comp_assoc (A X) (A Y) 
+                                  (A Y) (B Y) (transport0 Y) id 
+                                  (fmap f0)))
+                            (eq_ind_r
+                               (λ h : A X ~{ D }~> A Y, h = id ∘ fmap f0)
+                               (eq_ind_r
+                                  (λ h : A X ~{ D }~> A Y, fmap f0 = h)
+                                  eq_refl
+                                  (left_identity (A X) (A Y) (fmap f0)))
+                               (right_identity (A X) (A Y) (fmap f0))))
+                         ((transport0 Y ∘ fmap f0) ∘ id)
+                         (comp_assoc (A X) (A X) (A Y) 
+                            (B Y) (transport0 Y) (fmap f0) id))
+                      (naturality0 X Y f0))
+                   (comp_assoc (A X) (A X) (B X) (B Y) 
+                      (fmap f0) (transport0 X) id) |} =
+   {| transport := transport0; naturality := naturality0 |}

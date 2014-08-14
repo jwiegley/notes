@@ -1,0 +1,5 @@
+nix-repl> :l /Users/johnw/src/nixpkgs/default.nix
+Added 3994 variables.
+
+nix-repl> stdenv.isDarwin
+true

@@ -1,0 +1,41 @@
+01:34:52 hermes:~/src/nixpkgs $ nix-env -i phantomjs
+installing `phantomjs-1.9.7-4'
+these derivations will be built:
+  /nix/store/0pc9zgr5gy390j640rmhmff0ah4qmi9d-config-chain-1.1.8.tgz.drv
+  /nix/store/10hwn2bln7zlacjrnw13kda6jklndzp7-inherits-1.0.0.tgz.drv
+  /nix/store/2hbbh2ymhnz0a1anyhq156075iqg4ynb-node-ini-1.1.0.drv
+  /nix/store/58djpjlysrmszdmr2glald0c5k8svrbm-mkdirp-0.3.5.tgz.drv
+  /nix/store/5s3rdl8s3nb6jx7q60nkyxakrls443r4-once-1.1.1.tgz.drv
+  /nix/store/6rsjrhjlqqkx2f9n2m6qyrhvdgpijn03-node-osenv-0.0.3.drv
+  /nix/store/79m9kvk1sxfrm6gkk0ih4lg8p7pdxn7m-rimraf-2.2.6.drv
+  /nix/store/7rgahqs7jklh4yidhzycdz6y1dv05m3x-node-inherits-1.0.0.drv
+  /nix/store/7wr9d9q9kplxgz7lyvgih207rk4f87h1-node-mkdirp-0.3.5.drv
+  /nix/store/886ampwh0yccpnsm56ly8b2sna1sqjyy-node-kew-0.1.7.drv
+  /nix/store/97bclj5jxlgdkzci0lbli3hmcjlhgmmg-node-proto-list-1.2.2.drv
+  /nix/store/9gjv1809sna4jmx3690l9r9n4smcz6qn-proto-list-1.2.2.tgz.drv
+  /nix/store/azmpcq6qnwi0f5vggx9xy8yn1bdkz9av-kew-0.1.7.tgz.drv
+  /nix/store/b8g1f5kxl6jlc6jksxfamfrx3sjnh67q-ncp-0.4.2.tgz.drv
+  /nix/store/bdsmqgr1w9qn7g7707zf4zpd88ib3j8y-semver-1.1.4.drv
+  /nix/store/c1fin5axrvfkjrd5jgi3k91p5inc2yyi-nopt-2.2.0.drv
+  /nix/store/c8ym0gjn6d8zbi76jkam1bjpz2jzjxrm-npmconf-0.0.24.tgz.drv
+  /nix/store/cf4n0f8j248kppvh39mj5k3hjzpnlfyh-node-adm-zip-0.2.1.drv
+  /nix/store/ci521c9nsbv5jyrfmx9bkdj5207b0i5v-which-1.0.5.tgz.drv
+  /nix/store/d86qqhwv69vc66h99yx1y5xp1gd151xd-phantomjs-1.9.7-4.tgz.drv
+  /nix/store/drl9cg6pvjyqc8qbg8pihjmmvc9bzxz3-nopt-2.2.0.tgz.drv
+  /nix/store/f3hhyil1m04a3h785z5gx57mwfcn8m9v-which-1.0.5.drv
+  /nix/store/habgpp5vkmkfa1k3bxpsb1fb1ymzkdmc-semver-1.1.4.tgz.drv
+  /nix/store/lmxal0hj7jh3asbixa02h0a99fbfsig4-osenv-0.0.3.tgz.drv
+  /nix/store/lziwj94713siikc81y5azb2g205n2nf0-ncp-0.4.2.drv
+  /nix/store/m5g4i71fxby39p9045ak4j204nq92rjz-node-once-1.1.1.drv
+  /nix/store/mjzrfqa9xirraqyxyfx80jkk0ljjw1sf-adm-zip-0.2.1.tgz.drv
+  /nix/store/ra5ymab62c34c06svgnv839xlpn8bsva-node-sources.drv
+  /nix/store/rydl4g2nb50dyvvx2n835kr57a1vgslk-phantomjs-1.9.7-4.drv
+  /nix/store/v18zd13fadamnn97i9svr0wv0009x0x0-abbrev-1.0.5.tgz.drv
+  /nix/store/vw0xjqnpwxxy2xkvyl765z2zn35x8ch1-node-config-chain-1.1.8.drv
+  /nix/store/x47ld356d2pdzr6xsw1iby1a06q8lgvk-rimraf-2.2.6.tgz.drv
+  /nix/store/xn7kj50vy1rdb6x3zb7w92w8z7mfkxna-node-abbrev-1.0.5.drv
+  /nix/store/xsdxhq0wdyi25s6ai40wym9lx9xfsm4p-node-npmconf-0.0.24.drv
+  /nix/store/zxfsqx37q7kf7l4pyv3vcfqrikh3b13z-ini-1.1.0.tgz.drv
+these paths will be fetched (8.89 MiB download, 9.20 MiB unpacked):
+  /nix/store/d2g4v4ydnxr7znxvpwa21xqdskb7rs50-phantomjs-1.9.7
+fetching path `/nix/store/d2g4v4ydnxr7znxvpwa21xqdskb7rs50-phantomjs-1.9.7'...

@@ -1,0 +1,26 @@
+Language.SAFE.Word128.$fBitsWord128_$ctestBit [InlPrag=INLINE[0]]
+  :: Language.SAFE.Word128.Word128 -> Int -> Bool
+[GblId,
+ Arity=2,
+
+ Unf=Unf{Src=Worker=Language.SAFE.Word128.$w$ctestBit, TopLvl=True,
+         Arity=2, Value=True, ConLike=True, WorkFree=True, Expandable=True,
+         Guidance=ALWAYS_IF(unsat_ok=True,boring_ok=False)
+         Tmpl= \ (w_s45N [Occ=Once!] :: Language.SAFE.Word128.Word128)
+                 (w2_s45S [Occ=Once!] :: Int) ->
+                 case w_s45N
+                 of _
+                 { Language.SAFE.Word128.W128 ww_s45P [Occ=Once]
+                                              ww1_s45Q [Occ=Once] ->
+                 case w2_s45S of _ { I# ww2_s45U [Occ=Once] ->
+                 Language.SAFE.Word128.$w$ctestBit ww_s45P ww1_s45Q ww2_s45U
+                 }
+                 }}]
+Language.SAFE.Word128.$fBitsWord128_$ctestBit =
+  \ (w_s45N :: Language.SAFE.Word128.Word128)
+    (w2_s45S :: Int) ->
+    case w_s45N of _ { Language.SAFE.Word128.W128 ww_s45P ww1_s45Q ->
+    case w2_s45S of _ { I# ww2_s45U ->
+    Language.SAFE.Word128.$w$ctestBit ww_s45P ww1_s45Q ww2_s45U
+    }
+    }

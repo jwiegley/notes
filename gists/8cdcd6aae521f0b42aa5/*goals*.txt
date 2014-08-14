@@ -1,0 +1,11 @@
+1 focused subgoals
+(unfocused: 0)
+, subgoal 1 (ID 117)
+  
+  X : Sets
+  Y : Sets
+  f : X ~{ Sets }~> Y
+  H : ∀ (Z : Sets) (g1 g2 : Y ~{ Sets }~> Z), g1 ∘ f = g2 ∘ f → g1 = g2
+  y : Y
+  ============================
+   ∃ x : X, f x = y

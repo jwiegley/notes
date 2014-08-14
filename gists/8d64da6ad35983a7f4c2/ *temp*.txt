@@ -1,0 +1,98 @@
+building xetexdir/image/libxetex_a-mfileio.o
+gcc -DHAVE_CONFIG_H -I. -I../../../texk/web2c -I./w2c  -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/texk -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/texk -I../../../texk/web2c/xetexdir -DU_HAVE_ATOMIC=1   -I/nix/store/zfz32l2jyl681qapk5imypkaacryr0vf-icu4c-52.1/include  -I/nix/store/sbihgkmjaxjgzg4yq0hpn0vb7kj6xb7h-freetype-2.5.3/include/freetype2 -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/libs/teckit/include -I/nix/store/85bipaa9l3rmhy220d5q06bnwikx2bmf-harfbuzz-0.9.33/include/harfbuzz  -I/nix/store/dhlninj961zdl8gw6vn2lj0c3dbh63hf-graphite2-1.2.4/include  -DPOPPLER_VERSION=\"0.26.3\" -I/nix/store/dfmm0rqyc72xiac1579afldzd6rjk8al-poppler-glib-0.26.3/include/poppler  -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/libs/libpng/include  -DXETEX_MAC    -g -O2 -MT xetexdir/image/libxetex_a-mfileio.o -MD -MP -MF xetexdir/image/.deps/libxetex_a-mfileio.Tpo -c -o xetexdir/image/libxetex_a-mfileio.o `test -f 'xetexdir/image/mfileio.c' || echo '../../../texk/web2c/'`xetexdir/image/mfileio.c
+mv -f xetexdir/image/.deps/libxetex_a-mfileio.Tpo xetexdir/image/.deps/libxetex_a-mfileio.Po
+building xetexdir/image/libxetex_a-numbers.o
+gcc -DHAVE_CONFIG_H -I. -I../../../texk/web2c -I./w2c  -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/texk -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/texk -I../../../texk/web2c/xetexdir -DU_HAVE_ATOMIC=1   -I/nix/store/zfz32l2jyl681qapk5imypkaacryr0vf-icu4c-52.1/include  -I/nix/store/sbihgkmjaxjgzg4yq0hpn0vb7kj6xb7h-freetype-2.5.3/include/freetype2 -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/libs/teckit/include -I/nix/store/85bipaa9l3rmhy220d5q06bnwikx2bmf-harfbuzz-0.9.33/include/harfbuzz  -I/nix/store/dhlninj961zdl8gw6vn2lj0c3dbh63hf-graphite2-1.2.4/include  -DPOPPLER_VERSION=\"0.26.3\" -I/nix/store/dfmm0rqyc72xiac1579afldzd6rjk8al-poppler-glib-0.26.3/include/poppler  -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/libs/libpng/include  -DXETEX_MAC    -g -O2 -MT xetexdir/image/libxetex_a-numbers.o -MD -MP -MF xetexdir/image/.deps/libxetex_a-numbers.Tpo -c -o xetexdir/image/libxetex_a-numbers.o `test -f 'xetexdir/image/numbers.c' || echo '../../../texk/web2c/'`xetexdir/image/numbers.c
+mv -f xetexdir/image/.deps/libxetex_a-numbers.Tpo xetexdir/image/.deps/libxetex_a-numbers.Po
+building xetexdir/image/libxetex_a-pngimage.o
+gcc -DHAVE_CONFIG_H -I. -I../../../texk/web2c -I./w2c  -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/texk -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/texk -I../../../texk/web2c/xetexdir -DU_HAVE_ATOMIC=1   -I/nix/store/zfz32l2jyl681qapk5imypkaacryr0vf-icu4c-52.1/include  -I/nix/store/sbihgkmjaxjgzg4yq0hpn0vb7kj6xb7h-freetype-2.5.3/include/freetype2 -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/libs/teckit/include -I/nix/store/85bipaa9l3rmhy220d5q06bnwikx2bmf-harfbuzz-0.9.33/include/harfbuzz  -I/nix/store/dhlninj961zdl8gw6vn2lj0c3dbh63hf-graphite2-1.2.4/include  -DPOPPLER_VERSION=\"0.26.3\" -I/nix/store/dfmm0rqyc72xiac1579afldzd6rjk8al-poppler-glib-0.26.3/include/poppler  -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/libs/libpng/include  -DXETEX_MAC    -g -O2 -MT xetexdir/image/libxetex_a-pngimage.o -MD -MP -MF xetexdir/image/.deps/libxetex_a-pngimage.Tpo -c -o xetexdir/image/libxetex_a-pngimage.o `test -f 'xetexdir/image/pngimage.c' || echo '../../../texk/web2c/'`xetexdir/image/pngimage.c
+mv -f xetexdir/image/.deps/libxetex_a-pngimage.Tpo xetexdir/image/.deps/libxetex_a-pngimage.Po
+building xetexdir/libxetex_a-XeTeXFontInst_Mac.o
+g++ -DHAVE_CONFIG_H -I. -I../../../texk/web2c -I./w2c  -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/texk -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/texk -I../../../texk/web2c/xetexdir -DU_HAVE_ATOMIC=1   -I/nix/store/zfz32l2jyl681qapk5imypkaacryr0vf-icu4c-52.1/include  -I/nix/store/sbihgkmjaxjgzg4yq0hpn0vb7kj6xb7h-freetype-2.5.3/include/freetype2 -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/libs/teckit/include -I/nix/store/85bipaa9l3rmhy220d5q06bnwikx2bmf-harfbuzz-0.9.33/include/harfbuzz  -I/nix/store/dhlninj961zdl8gw6vn2lj0c3dbh63hf-graphite2-1.2.4/include  -DPOPPLER_VERSION=\"0.26.3\" -I/nix/store/dfmm0rqyc72xiac1579afldzd6rjk8al-poppler-glib-0.26.3/include/poppler  -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/libs/libpng/include  -DXETEX_MAC    -g -O2 -MT xetexdir/libxetex_a-XeTeXFontInst_Mac.o -MD -MP -MF xetexdir/.deps/libxetex_a-XeTeXFontInst_Mac.Tpo -c -o xetexdir/libxetex_a-XeTeXFontInst_Mac.o `test -f 'xetexdir/XeTeXFontInst_Mac.cpp' || echo '../../../texk/web2c/'`xetexdir/XeTeXFontInst_Mac.cpp
+mv -f xetexdir/.deps/libxetex_a-XeTeXFontInst_Mac.Tpo xetexdir/.deps/libxetex_a-XeTeXFontInst_Mac.Po
+building xetexdir/libxetex_a-XeTeXFontMgr_Mac.o
+g++ -DHAVE_CONFIG_H -I. -I../../../texk/web2c -I./w2c  -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/texk -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/texk -I../../../texk/web2c/xetexdir -DU_HAVE_ATOMIC=1   -I/nix/store/zfz32l2jyl681qapk5imypkaacryr0vf-icu4c-52.1/include  -I/nix/store/sbihgkmjaxjgzg4yq0hpn0vb7kj6xb7h-freetype-2.5.3/include/freetype2 -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/libs/teckit/include -I/nix/store/85bipaa9l3rmhy220d5q06bnwikx2bmf-harfbuzz-0.9.33/include/harfbuzz  -I/nix/store/dhlninj961zdl8gw6vn2lj0c3dbh63hf-graphite2-1.2.4/include  -DPOPPLER_VERSION=\"0.26.3\" -I/nix/store/dfmm0rqyc72xiac1579afldzd6rjk8al-poppler-glib-0.26.3/include/poppler  -I/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/libs/libpng/include  -DXETEX_MAC    -g -O2 -MT xetexdir/libxetex_a-XeTeXFontMgr_Mac.o -MD -MP -MF xetexdir/.deps/libxetex_a-XeTeXFontMgr_Mac.Tpo -c -o xetexdir/libxetex_a-XeTeXFontMgr_Mac.o `test -f 'xetexdir/XeTeXFontMgr_Mac.mm' || echo '../../../texk/web2c/'`xetexdir/XeTeXFontMgr_Mac.mm
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSCharacterSet.h:8:0,
+                 from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h:15,
+                 from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h:12,
+                 from ../../../texk/web2c/xetexdir/XeTeXFontMgr_Mac.mm:44:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSString.h:384:39: warning: '@package' presently has the same effect as '@public' [enabled by default]
+ @interface NSSimpleCString : NSString {
+                                       ^
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h:10:0,
+                 from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h:12,
+                 from ../../../texk/web2c/xetexdir/XeTeXFontMgr_Mac.mm:44:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSArray.h:10:16: warning: 'NSIndexSet' has a field 'NSIndexSet::_indexSetFlags' whose type uses the anonymous namespace [enabled by default]
+ @class NSData, NSIndexSet, NSString, NSURL;
+                ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSArray.h:10:16: warning: 'NSIndexSet' has a field 'NSIndexSet::_internal' whose type uses the anonymous namespace [enabled by default]
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h:43:0,
+                 from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h:12,
+                 from ../../../texk/web2c/xetexdir/XeTeXFontMgr_Mac.mm:44:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSNotification.h:32:44: warning: '@package' presently has the same effect as '@public' [enabled by default]
+ @interface NSNotificationCenter : NSObject {
+                                            ^
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h:80:0,
+                 from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h:12,
+                 from ../../../texk/web2c/xetexdir/XeTeXFontMgr_Mac.mm:44:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLResponse.h:32:1: warning: '@package' presently has the same effect as '@public' [enabled by default]
+ {
+ ^
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h:80:0,
+                 from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h:12,
+                 from ../../../texk/web2c/xetexdir/XeTeXFontMgr_Mac.mm:44:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSURLResponse.h:126:1: warning: '@package' presently has the same effect as '@public' [enabled by default]
+ {
+ ^
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h:96:0,
+                 from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h:12,
+                 from ../../../texk/web2c/xetexdir/XeTeXFontMgr_Mac.mm:44:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSExpression.h:33:64: warning: '@package' presently has the same effect as '@public' [enabled by default]
+ @interface NSExpression : NSObject <NSSecureCoding, NSCopying> {
+                                                                ^
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h:152:0,
+                 from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h:12,
+                 from ../../../texk/web2c/xetexdir/XeTeXFontMgr_Mac.mm:44:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSScriptCommand.h:43:1: warning: 'NSScriptCommand' has a field 'NSScriptCommand::_flags' whose type uses the anonymous namespace [enabled by default]
+ }
+ ^
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include/Availability.h:148:0,
+                 from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/usr/include/stdio.h:65,
+                 from /private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/texk/kpathsea/c-std.h:34,
+                 from /private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/texk/kpathsea/config.h:88,
+                 from ../../../texk/web2c/w2c/config.h:22,
+                 from ../../../texk/web2c/xetexdir/XeTeXFontMgr_Mac.mm:37:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFAvailability.h:121:34: error: expected '}' before '__attribute__'
+ #define CF_AVAILABLE(_mac, _ios) __OSX_AVAILABLE_STARTING(__MAC_##_mac, __IPHONE_##_ios)
+                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSObjCRuntime.h:232:34: note: in expansion of macro 'CF_AVAILABLE'
+ #define NS_AVAILABLE(_mac, _ios) CF_AVAILABLE(_mac, _ios)
+                                  ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUserNotification.h:16:45: note: in expansion of macro 'NS_AVAILABLE'
+     NSUserNotificationActivationTypeReplied NS_AVAILABLE(10_9, NA) = 3
+                                             ^
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.h:161:0,
+                 from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h:12,
+                 from ../../../texk/web2c/xetexdir/XeTeXFontMgr_Mac.mm:44:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUserNotification.h:16:68: error: expected unqualified-id before '=' token
+     NSUserNotificationActivationTypeReplied NS_AVAILABLE(10_9, NA) = 3
+                                                                    ^
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSUserNotification.h:17:1: error: expected declaration before '}' token
+ } NS_ENUM_AVAILABLE(10_8, NA);
+ ^
+make[5]: *** [xetexdir/libxetex_a-XeTeXFontMgr_Mac.o] Error 1
+make[5]: Leaving directory `/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/texk/web2c'
+make[4]: *** [all-recursive] Error 1
+make[4]: Leaving directory `/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/texk/web2c'
+make[3]: *** [all] Error 2
+make[3]: Leaving directory `/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/texk/web2c'
+make[2]: *** [recurse] Error 1
+make[2]: Leaving directory `/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/texk'
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-texlive-core-2014.drv-1/texlive-bin-2014.20140528.34243/Work/texk'
+make: *** [all-recursive] Error 1
++ echo 2
+done (exit status 2) Mon Aug 11 17:24:52 UTC 2014
+builder for `/nix/store/4fh05r2zrhhh1d951x6yxh9wv0rjrwy6-texlive-core-2014.drv' failed with exit code 2
+error: build of `/nix/store/4fh05r2zrhhh1d951x6yxh9wv0rjrwy6-texlive-core-2014.drv' failed
+12:24:53 hermes:~/Products $

@@ -1,0 +1,57 @@
+23:36:26 hermes:~/src/nixpkgs $ nix-env -Q -j8 -k -u --leq --show-trace
+upgrading `pythonTools' to `pythonTools'
+upgrading `langTools' to `langTools'
+upgrading `publishTools' to `publishTools'
+upgrading `systemTools' to `systemTools'
+these derivations will be built:
+  /nix/store/09iy3g7xkm7nssa0w4k9bn0d3k9dzb9k-compcert-2.3pl2.drv
+  /nix/store/0mm8cphbcxdl8wy04vsxh0hm3mgxh83l-pythonTools.drv
+  /nix/store/0nzcpfvwqp6cy7zzqzrsxmfmg0c9apyb-x11env.drv
+  /nix/store/1x3gcspw9cfxqjf3f9d9z44dfq23apz1-coq-8.4pl4.drv
+  /nix/store/1ylh61qj0nldfk0scdv3qh21bymiizxv-gnuplot-4.6.5.drv
+  /nix/store/3cd8i1kw9rd0rsaw0zvld3phy3crq7rd-systemTools.drv
+  /nix/store/4hamzvchqdbza14h244d7cs01004zvas-texlive-latex-xcolor-2007.drv
+  /nix/store/4ifb883irh2swmppp8v5cc206d03jvss-isabelle-2013.drv
+  /nix/store/7qik97bn3gl3i1fs6i0rmafk4j9yv1xl-coq-8.5pre-fff9e2f7.drv
+  /nix/store/7raah48pyr0dhgd1asn5g1b0mcvc7hxa-texlive-cm-super-2009.drv
+  /nix/store/81widchyjplzd5wnllrvzcs390ksxd4l-lablgtk-2.16.0.drv
+  /nix/store/8d75gyj9sfrb4vbykzdvwbsv8kjqn6ps-gtksourceview-2.9.9.drv
+  /nix/store/8yp1xhx8976bx1v6067knkna0nzgwvgg-libgnomecanvas-2.30.3.drv
+  /nix/store/d8icapswwmj60sqafvamx7i66i40b366-camlp5_transitional-6.11.drv
+  /nix/store/dlzdhrzkzw9igv63mwf1skrjx94dnjjy-pango-1.32.5.drv
+  /nix/store/dqvax3jqpsfgg0wrv33hl8sa1a10fs1m-TeXLive-linkdir.drv
+  /nix/store/fq1s08lk8rnmd68b9c1dcdigfs9jszn7-ProofGeneral-4.3pre131011.drv
+  /nix/store/h9ynrj8bl9bnp9ib5lhz9inhlrwzdkwn-ocaml-4.01.0.drv
+  /nix/store/hf0il7hza4cylvf6lj0cph3s3cpvpihl-python-tkinter-2.7.8.drv
+  /nix/store/i9qss6292vlzp62ldi5yk7zmvlzg6icv-librsvg-2.36.4.drv
+  /nix/store/iasfccfryhmxf1ffsr5p8ynnqfmq86a8-TeXLive-linkdir.drv
+  /nix/store/ig46qrn9hqf9ad3s2x40f98avn697wd0-ocaml-findlib-1.4.1.drv
+  /nix/store/jr7z14qyvcwd01cwcz3d001i0r0rvha9-prooftree-0.12.drv
+  /nix/store/jxwi1fzrqidfc6ldnkijj4qxybfw5yfc-python-2.7.8-wrapper.drv
+  /nix/store/kbf2ga1780scy9a941pd8d11yq44ndrf-djvu2pdf-0.9.2.drv
+  /nix/store/kbnwkxxbbhgdcf6fd860map6ca9zapjd-langTools.drv
+  /nix/store/lff6gc2rcb64yvlyfiiwdc6xfild680d-publishTools.drv
+  /nix/store/m0syhgniczh8sc8q2jz7vy322l3x8rsk-libglade-2.6.4.drv
+  /nix/store/mbljyd7dkq28dl44fbnbswdxbdzkb1f8-texlive-pgf-2010.drv
+  /nix/store/mf4fwm1f5lg9vd8wv1lrbj7y9fjgl5kc-moderncv-1.5.1.drv
+  /nix/store/nk1w5121s1rz7r8jn14sl033kyak0haq-menhir-20130116.drv
+  /nix/store/qjvp2w05rhnx2mafnq0mag0k18qn6lgq-ghostscript-9.06.drv
+  /nix/store/qnm7ipb9dq3qw03zwr66yjnjrhjkkpcj-texlive-core-2014.drv
+  /nix/store/rf4nswihicjjfpc0p26zsb5562mn9ihb-moderntimeline-0.7.drv
+  /nix/store/sc41ijvf7hps41i07yw1cg730z835jwp-gtk+-2.24.24.drv
+  /nix/store/vsw6q7aqr9k36jw8k4wrv3m1nha7p9gj-djvulibre-3.5.25.3.drv
+  /nix/store/wv4vj34ckqp8hdygxkwrvrls9vh5hb5v-graphviz-2.36.0.drv
+  /nix/store/y9cyd54xgbw8na73bp6nzmgqgxaxlrjk-texlive-extra-2014.drv
+  /nix/store/z6vis8xqjidw0vg5pi2a9da1xyw19cz3-texlive-beamer-2013.drv
+building path(s) `/nix/store/zij2n53j5xzb3fifb49rx3i0c9iilr9i-python-tkinter-2.7.8'
+building path(s) `/nix/store/gszcl4xbjamxsycvjiy2wmbcrqs2g3wb-pango-1.32.5'
+building path(s) `/nix/store/p75kx49jb14pqz0rzf7g6ckk0fxdznch-x11env'
+building path(s) `/nix/store/0ipvis276a2x1gp75sfmrcjf1cgfjr48-ghostscript-9.06'
+building path(s) `/nix/store/2bk62cy9ibn506071k45g8v1m59qcsqx-ocaml-4.01.0'
+building path(s) `/nix/store/0w7sr3c2i5fnqszlfymab8h4f3s3fdrc-python-2.7.8-wrapper'
+building path(s) `/nix/store/vlhgnlpcrdkf1k1gs65fyhl1jrbdb0ml-pythonTools'
+building path(s) `/nix/store/9p7sp3m3j1zjvb4jqwvb02ias1ww44nj-gnuplot-4.6.5'
+building path(s) `/nix/store/zfanpjmsc35jflybrs7z8zbrfw5vg9yk-graphviz-2.36.0'
+building path(s) `/nix/store/pv4r107qibcf446mgqmriwr192cp9byg-librsvg-2.36.4'
+building path(s) `/nix/store/lj8rjxdipsxd1gb4hm7pjn15sycyqy5f-gtk+-2.24.24'
+;

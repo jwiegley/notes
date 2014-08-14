@@ -1,0 +1,46 @@
+Language.SAFE.Word128.$w$ctestBit
+  :: Word#
+     -> Word# -> Int# -> Bool
+[GblId,
+ Arity=3,
+
+ Unf=Unf{Src=<vanilla>, TopLvl=True, Arity=3, Value=True,
+         ConLike=True, WorkFree=True, Expandable=True,
+         Guidance=IF_ARGS [0 0 0] 111 60}]
+Language.SAFE.Word128.$w$ctestBit =
+  \ (ww_s45P :: Word#)
+    (ww1_s45Q :: Word#)
+    (ww2_s45U :: Int#) ->
+    case >=# ww2_s45U 64 of _ {
+      False ->
+        case eqWord#
+               (and#
+                  ww1_s45Q (uncheckedShiftL# (__word 1) ww2_s45U))
+               (__word 0)
+        of _ {
+          False -> True;
+          True -> False
+        };
+      True ->
+        let {
+          i#_a2h8 [Dmd=Just L] :: Int#
+
+          i#_a2h8 = -# ww2_s45U 64 } in
+        case >=# i#_a2h8 64 of _ {
+          False ->
+            case eqWord#
+                   (and#
+                      ww_s45P (uncheckedShiftL# (__word 1) i#_a2h8))
+                   (__word 0)
+            of _ {
+              False -> True;
+              True -> False
+            };
+          True ->
+            case eqWord# (and# ww_s45P (__word 0)) (__word 0)
+            of _ {
+              False -> True;
+              True -> False
+            }
+        }
+    }

@@ -1,0 +1,102 @@
+Toplevel input, characters 0-17:
+Error:
+Tactic failure: setoid rewrite failed: Unable to satisfy the rewriting constraints.
+Unable to satisfy the following constraints:
+UNDEFINED EVARS:
+ ?795==[C X Y Z X0 X1 |- CRelationClasses.crelation C] (internal placeholder)
+ ?796==[C X Y Z X0 X1 (do_subrelation:=CMorphisms.do_subrelation)
+         |- CMorphisms.Proper
+              (CMorphisms.respectful Isomorphism
+                 (CMorphisms.respectful ?795
+                    (CRelationClasses.flip CRelationClasses.arrow)))
+              Isomorphism] (internal placeholder)
+ ?797==[C X Y Z X0 X1 |- CMorphisms.ProperProxy ?795 Z]
+         (internal placeholder)UNIVERSES:
+ {Top.5811 Top.5810 Top.5809 Top.5808 Top.5807 Top.5806 Top.5805 Top.5804 Top.5803 Top.5802 Top.5801 Top.5800 Top.5799 Top.5798 Top.5797 Top.5796 Top.5795 Top.5794 Top.5793 Top.5792 Top.5773 Top.5772 Top.5771 Top.5770 Top.5769 Top.5768 Top.4617 Top.4616 Top.4615} |= Top.4617 < Top.4616
+                                                  Top.4617 < Top.5770
+                                                  Top.4617 < Top.5772
+                                                  Top.4617 < Top.5773
+                                                  Top.4617 < Top.5794
+                                                  Top.4617 < Top.5800
+                                                  Top.4617 < Top.5807
+                                                  Top.4615 <= Top.5793
+                                                  Top.4615 <= Top.5795
+                                                  Top.4615 <= Top.5800
+                                                  Top.4615 <= Top.5801
+                                                  Top.4615 <= Top.5807
+                                                  Top.4615 <= Top.5810
+                                                  Top.4617 <= Top.5798
+                                                  Top.4617 <= Top.5805
+                                                  Top.4617 <= Coq.Init.Logic.8
+                                                  Top.5770 <= Top.5771
+                                                  Top.5794 <= Top.5797
+                                                  Top.5795 <= Top.5796
+                                                  Top.5795 <= Top.5797
+                                                  Top.5798 <= Top.5796
+                                                  Top.5799 <= Top.5796
+                                                  Top.5800 <= Top.5803
+                                                  Top.5801 <= Top.5802
+                                                  Top.5801 <= Top.5803
+                                                  Top.5804 <= Top.5802
+                                                  Top.5805 <= Top.5802
+                                                  Top.5768 = Top.4617
+                                                  Top.5769 = Top.4617
+                                                  Top.5792 = Top.5799
+                                                  Top.5793 = Top.5795
+                                                  Top.5795 = Top.5810
+                                                  Top.5796 = Top.5804
+                                                  Top.5797 = Top.5800
+                                                  Top.5799 = Top.5811
+                                                  Top.5802 = Top.5808
+                                                  Top.5803 = Top.5807
+                                                  
+ALGEBRAIC UNIVERSES:{}
+UNDEFINED UNIVERSES:
+ Top.5811
+ Top.5810
+ Top.5809
+ Top.5808
+ Top.5807
+ Top.5806
+ Top.5805
+ Top.5804
+ Top.5803 := Top.5807
+ Top.5802 := Top.5808
+ Top.5801
+ Top.5800
+ Top.5799 := Top.5811
+ Top.5798
+ Top.5797 := Top.5800
+ Top.5796 := Top.5804
+ Top.5795 := Top.5810
+ Top.5794
+ Top.5793 := Top.5795
+ Top.5792 := Top.5799
+ Top.5773
+ Top.5772
+ Top.5771
+ Top.5770
+ Top.5769 := Top.4617
+ Top.5768 := Top.4617
+ Top.4617
+ Top.4616
+ Top.4615
+ Top.4614 := Top.4617
+ Top.4613 := Top.4616
+ Top.4612 := Top.4615
+ Top.4611 := Top.4617
+ Top.4610 := Top.4616
+ Top.4609 := Top.4615
+ Top.4608 := Top.4615
+ Top.4607 := Top.4616
+ Top.4606 := Top.4617
+ Top.4605 := Top.4615
+ Top.4604 := Top.4616
+ Top.4603 := Top.4617
+ Top.4602 := Top.4615
+ Top.4601 := Top.4616
+ Top.4600 := Top.4617
+ Top.4599 := Top.4615
+ Top.4598 := Top.4616
+ Top.4597 := Top.4617
+.

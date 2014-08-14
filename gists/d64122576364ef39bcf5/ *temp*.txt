@@ -1,0 +1,45 @@
+Building threadscope-0.2.4...
+Preprocessing executable 'threadscope' for threadscope-0.2.4...
+[ 1 of 35] Compiling Events.TestEvents ( Events/TestEvents.hs, dist/build/threadscope/threadscope-tmp/Events/TestEvents.o )
+[ 2 of 35] Compiling GUI.ViewerColours ( GUI/ViewerColours.hs, dist/build/threadscope/threadscope-tmp/GUI/ViewerColours.o )
+[ 3 of 35] Compiling GUI.Timeline.CairoDrawing ( GUI/Timeline/CairoDrawing.hs, dist/build/threadscope/threadscope-tmp/GUI/Timeline/CairoDrawing.o )
+[ 4 of 35] Compiling Events.EventDuration ( Events/EventDuration.hs, dist/build/threadscope/threadscope-tmp/Events/EventDuration.o )
+[ 5 of 35] Compiling Events.SparkStats ( Events/SparkStats.hs, dist/build/threadscope/threadscope-tmp/Events/SparkStats.o )
+[ 6 of 35] Compiling Events.SparkTree ( Events/SparkTree.hs, dist/build/threadscope/threadscope-tmp/Events/SparkTree.o )
+[ 7 of 35] Compiling Events.EventTree ( Events/EventTree.hs, dist/build/threadscope/threadscope-tmp/Events/EventTree.o )
+[ 8 of 35] Compiling GUI.Timeline.Render.Constants ( GUI/Timeline/Render/Constants.hs, dist/build/threadscope/threadscope-tmp/GUI/Timeline/Render/Constants.o )
+[ 9 of 35] Compiling GUI.GtkExtras    ( GUI/GtkExtras.hs, dist/build/threadscope/threadscope-tmp/GUI/GtkExtras.o )
+[10 of 35] Compiling GUI.ProgressView ( GUI/ProgressView.hs, dist/build/threadscope/threadscope-tmp/GUI/ProgressView.o )
+
+GUI/ProgressView.hs:92:15:
+    Could not deduce (System.Glib.UTFString.GlibString string0)
+      arising from a use of `labelNew'
+    from the context (WindowClass win)
+      bound by the type signature for
+                 new :: WindowClass win => win -> IO () -> IO ProgressView
+      at GUI/ProgressView.hs:79:8-57
+    The type variable `string0' is ambiguous
+    Possible fix: add a type signature that fixes these type variable(s)
+    Note: there are several potential instances:
+      instance System.Glib.UTFString.GlibString
+                 text-1.1.1.3:Data.Text.Internal.Text
+        -- Defined in `System.Glib.UTFString'
+      instance System.Glib.UTFString.GlibString [Char]
+        -- Defined in `System.Glib.UTFString'
+    In a stmt of a 'do' block: progText <- labelNew Nothing
+    In the expression:
+      do { win <- windowNew;
+           set win [containerBorderWidth := 10, windowTitle := "", ....];
+           progText <- labelNew Nothing;
+           set progText [miscXalign := 0, labelUseMarkup := True];
+           .... }
+    In an equation for `new':
+        new parent cancelAction
+          = do { win <- windowNew;
+                 set win [containerBorderWidth := 10, ....];
+                 progText <- labelNew Nothing;
+                 .... }
+builder for `/nix/store/3vdk9100c85y595jk5n3bszkch0g2yc0-threadscope-0.2.4.drv' failed with exit code 1
+cannot build derivation `/nix/store/jky0nn2njp9gcx06mav7q6g9wgszc3gk-env-ghc783.drv': 1 dependencies couldn't be built
+error: build of `/nix/store/jky0nn2njp9gcx06mav7q6g9wgszc3gk-env-ghc783.drv' failed
+00:10:48 hermes:~/dl $

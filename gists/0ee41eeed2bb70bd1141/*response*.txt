@@ -1,0 +1,6 @@
+Toplevel input, characters 7-15:
+Error: Impossible to unify
+ "∀ (X Y : C) (f : X ~{ C }~> Y),
+  fmap f ∘ transport0 X = transport0 Y ∘ fmap f" with
+ "∀ (X Y : C) (f0 : X ~{ C }~> Y),
+  fmap f0 ∘ (transport0 X ∘ id) = (transport0 Y ∘ id) ∘ fmap f0".

@@ -41,7 +41,7 @@ data Format :: [*] -> * where
     Str  :: Text -> Format xs -> Format xs
     Hole :: Show x => Path x xs -> Format xs -> Format (x ': xs)
 
-getElement :: Path x xs -> List ys -> x
+getElement :: Path x xs -> List xs -> x
 getElement Head (Cons y _)       = y
 getElement (Tail xs) (Cons _ ys) = getElement xs ys
 

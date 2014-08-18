@@ -8,7 +8,6 @@ module Printf where
 
 import Data.Monoid
 import Data.Text
-import Data.Type.Equality
 
 {-
 Every function of multiple arguments is isomorphic to its "uncurried" form of

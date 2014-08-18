@@ -30,18 +30,18 @@ means we only need a way to construct such a list.
 
 data List :: [*] -> * where
     Nil  :: List '[]
-    Cons :: x -> List xs -> List (x ': xs)
+    Cons :: Show x => x -> List xs -> List (x ': xs)
 
 data Path :: * -> [*] -> * where
     Head :: Path x (x ': xs)
-    Tail :: Path x xs -> Path x' (x' ': xs)
+    Tail :: Path x xs -> Path x (x' ': xs)
 
 data Format :: [*] -> * where
     End  :: Format xs
     Str  :: Text -> Format xs -> Format xs
-    Hole :: Path x xs -> Format xs -> Format (x ': xs)
+    Hole :: Show x => Path x xs -> Format xs -> Format (x ': xs)
 
-getElement :: Path x xs -> List ys -> y
+getElement :: Path x xs -> List ys -> x
 getElement Head (Cons y _)       = y
 getElement (Tail xs) (Cons _ ys) = getElement xs ys
 
@@ -53,7 +53,7 @@ printf (Hole p fmt) args =
 main :: IO ()
 main = print $
     printf (Str "Hello "
-            (Hole Head
-             (Hole (Tail Head)
+            (Hole (Head :: Path String '[String, Int])
+             (Hole (Tail (Head :: Path Int '[Int]) :: Path Int '[String, Int])
               (Str "!" End))))
         (Cons "John" (Cons 42 Nil))

@@ -1,0 +1,6 @@
+Function stratify_rec (A : Type) (lfs : list A) {measure largest_elem lfs} : Type.
+  ...
+with stratify_map xs := match xs with
+  | nil => ...
+  | head :: args => stratify_rec head :: stratify_map args
+Proof.

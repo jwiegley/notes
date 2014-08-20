@@ -1,14 +1,35 @@
+Require Import ssreflect ssrbool ssrfun eqtype ssrnat seq.
+Set Implicit Arguments.
+
+Require Import List.
+
+Lemma skip_hd A d :
+  forall (i : nat) (l : list A),
+    hd d (skipn i l) = nth i l d.
+Proof.
+  by elim=> [ [] | n IH []].
+Qed.
+
+Lemma skip_last A d :
+  forall (i : nat) (l : list A),
+    i < length l ->
+    last (skipn i l) d = last l d.
+Proof.
+  elim=> // n IH [|x [|y l]] // Hlt.
+  by rewrite IH.
+Qed.
+
 Require Export Coq.Lists.List.
 
-Lemma skip_hd:
-forall i: nat,
-forall A: Type,
-forall d: A,
-forall l: list A,
-hd d (skipn i l) = nth i l d.
-Proof.
-intros i A d; induction i; simpl; intros [|h l]; simpl; auto.
-Qed.
+(* Lemma skip_hd: *)
+(* forall i: nat, *)
+(* forall A: Type, *)
+(* forall d: A, *)
+(* forall l: list A, *)
+(* hd d (skipn i l) = nth i l d. *)
+(* Proof. *)
+(* intros i A d; induction i; simpl; intros [|h l]; simpl; auto. *)
+(* Qed. *)
 
 Fixpoint lt2 (m n : nat) : Prop :=
 match n with
@@ -16,13 +37,13 @@ match n with
 | S n => match m with O => True | S m => lt2 m n end
 end.
 
-Lemma lt_to_lt2 (m n : nat) : m < n -> lt2 m n.
-Proof.
-intros H; induction H.
-+ induction m; simpl; auto.
-+ revert IHle; clear; revert m; induction m0; intros [|x]; simpl; auto.
-intros [].
-Qed.
+(* Lemma lt_to_lt2 (m n : nat) : m < n -> lt2 m n. *)
+(* Proof. *)
+(* intros H; induction H. *)
+(* + induction m; simpl; auto. *)
+(* + revert IHle; clear; revert m; induction m0; intros [|x]; simpl; auto. *)
+(* intros []. *)
+(* Qed. *)
 
 Lemma big_enough : forall {X} n l,
   S n <= length l -> exists (x : X) xs, l = x :: xs.
@@ -33,7 +54,7 @@ Proof.
   eauto.
 Qed.
 
-Lemma skip_last: forall (i: nat) (A: Type) (d: A) (l: list A),
+Lemma skip_last': forall (i: nat) (A: Type) (d: A) (l: list A),
   i < length l -> last (skipn i l) d = last l d.
 Proof.
   intros i A d l.

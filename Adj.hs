@@ -1,5 +1,6 @@
 module Adj where
 
+import Control.Arrow
 import Data.Monoid
 
 type family MonoidElement (m :: *)
@@ -21,3 +22,10 @@ forget = undefined
 
 forget' :: (forall m. Monoid m => m) -> a
 forget' = undefined
+
+right :: ArrowChoice a => a b c -> a (Either d b) (Either d c)
+right f = arr mirror >>> left f >>> arr mirror
+  where
+    mirror :: Either x y -> Either y x
+    mirror (Left x) = Right x
+    mirror (Right y) = Left y

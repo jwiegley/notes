@@ -64,21 +64,17 @@ instance (Category a, Lattice l) => Category (FlowArrow l a) where
             , constraints = []
             }
     (FA c1 f1 t1) . (FA c2 f2 t2) =
-        FA { computation = c1 . c2
-           , flow = flowPar f1 f2
-           , constraints = t1 ++ t2
-           }
+        let (f, c) = flowSeq f1 f2
+        in FA { computation = c1 . c2
+              , flow = f
+              , constraints = t1 ++ t2 ++ c
+              }
 
 instance (Lattice l, Arrow a) => Arrow (FlowArrow l a) where
     arr f = FA { computation = arr f
                 , flow = Flat
                 , constraints = []
                 }
-    -- (FA c1 f1 t1) >>> (FA c2 f2 t2) =
-    --     let (f,c) = flowSeq f1 f2
-    --     in FA { computation = c1 >>> c2
-    --           , flow = f
-    --           , constraints = t1 ++ t2 ++ c }
     first (FA c f t) =
         FA { computation = first c
            , flow = f

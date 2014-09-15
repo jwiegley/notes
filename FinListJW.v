@@ -12,20 +12,6 @@ Fixpoint catMaybes {a : Set} (l : list (option a)) : list a :=
   | cons (Some x) xs => x :: catMaybes xs
   end.
 
-Lemma NoDup_catMaybes : forall {a : Set} (l : list a) (f : a -> option a),
-  NoDup l -> NoDup (catMaybes (map f l)).
-Proof.
-  induction l; intros; simpl. constructor.
-  destruct (f a0) eqn:Heqe.
-    inversion H; subst.
-    apply IHl with (f := f) in H3.
-    apply NoDup_cons.
-      
-    assumption.
-  apply IHl.
-  inversion H. assumption.
-Qed.
-
 Definition fin := Coq.Vectors.Fin.t.
 
 Definition fin_Sn_inv {n:nat} (P : fin (S n) -> Type)

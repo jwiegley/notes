@@ -5,13 +5,14 @@ Require Import Coq.Program.Equality.
 Require Import Coq.Program.Tactics.
 Require Import Coq.Structures.Orders.
 Require Import FunctionalExtensionality.
-(* Require Export Endo. *)
-(* Require Export Applicative. *)
-(* Require Export Monad. *)
+Require Export Endo.
+Require Export Applicative.
+Require Export Monad.
 Require Import Recdef.
 
 Open Scope program_scope.
 
+(*
 Definition compose_dep {A B C}
   (f : forall x : B, C x) (g : A -> B) (x : A) : C (g x) := f (g x).
 
@@ -67,6 +68,7 @@ Class DepMonad {A} (M : (A -> Type) -> Type) :=
   dep_join ∘ dep_fmap (fun _ => dep_fmap (fun _ => f)) =
   dep_fmap (fun _ => f) ∘ dep_join
 }.
+*)
 
 Section RState.
 
@@ -86,23 +88,21 @@ Arguments holds [before] [a] _.
 
 (** The [RState] monad requires that a given equivalence relation hold
     between state transitions. *)
-Inductive RState (a : s -> Type) : Type :=
-  | St : (forall st : s, StateP st a) -> RState a.
+Inductive RState (st : s) (a : s -> Type) : Type :=
+  | St : StateP st a -> RState st a.
 
-Arguments St [a] _.
+Arguments St st [a] _.
 
-Definition runRState {a : s -> Type} (v : RState a)
-  : forall st : s, StateP st a :=
-      match v with St f => fun st => f st end.
+Definition runRState (st : s) {a : s -> Type} (v : RState st a)
+  : StateP st a := match v with St f => f end.
 
-Definition RState_fmap (a b : s -> Type)
-  (f : forall st : s, a st -> b st) (x : RState a) : RState b :=
-  St (fun st =>
-        let sp := runRState x st in
-        {| after  := after sp
-         ; result := f (after sp) (result sp)
-         ; holds  := holds sp
-         |}).
+Definition RState_fmap (st : s) {a b : s -> Type}
+  (f : forall st, a st -> b st) (x : RState st a) : RState st b :=
+  St st (let sp := runRState st x in
+          {| after  := after sp
+           ; result := f (after sp) (result sp)
+           ; holds  := holds sp
+           |}).
 
 Hint Unfold RState_fmap.
 
@@ -124,8 +124,8 @@ Ltac RState_auto :=
 
 Obligation Tactic := RState_auto.
 
-Program Instance RState_Functor : DepFunctor RState := {
-    dep_fmap := RState_fmap
+Program Instance RState_Functor : Functor RState := {
+    fmap := RState_fmap
 }.
 
 Definition RState_pure (a : Type) (x : a) : RState (const a) :=

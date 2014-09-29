@@ -1,4 +1,4 @@
-Lemma amrvimias : forall t : Set -> Prop,
+Lemma marvimias : forall t : Set -> Prop,
   (exists x, t x) <-> (forall y : Prop, (forall x, t x -> y) -> y).
 Proof.
   split; intros.

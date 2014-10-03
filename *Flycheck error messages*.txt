@@ -1,0 +1,26 @@
+Use better pragmas
+Found:
+  {-# OPTIONS_GHC -cpp -fglasgow-exts  #-}
+Why not:
+  {-# LANGUAGE CPP, EnableExtension ForeignFunctionInterface,
+    EnableExtension UnliftedFFITypes, EnableExtension GADTs,
+    EnableExtension ImplicitParams,
+    EnableExtension ScopedTypeVariables, EnableExtension UnboxedTuples,
+    EnableExtension TypeSynonymInstances,
+    EnableExtension StandaloneDeriving,
+    EnableExtension DeriveDataTypeable,
+    EnableExtension FlexibleContexts,
+    EnableExtension FlexibleInstances,
+    EnableExtension ConstrainedClassMethods,
+    EnableExtension MultiParamTypeClasses,
+    EnableExtension FunctionalDependencies, EnableExtension MagicHash,
+    EnableExtension PolymorphicComponents,
+    EnableExtension ExistentialQuantification,
+    EnableExtension UnicodeSyntax, EnableExtension PostfixOperators,
+    EnableExtension PatternGuards, EnableExtension LiberalTypeSynonyms,
+    EnableExtension RankNTypes, EnableExtension ImpredicativeTypes,
+    EnableExtension TypeOperators, EnableExtension RecursiveDo,
+    EnableExtension ParallelListComp, EnableExtension EmptyDataDecls,
+    EnableExtension KindSignatures,
+    EnableExtension GeneralizedNewtypeDeriving,
+    EnableExtension TypeFamilies #-}

@@ -9,9 +9,7 @@ Lemma choose_fun_left :
 Proof.
   intros A n1 n2 F1 F2 i i_lt_n1.
   generalize dependent n2.
-  induction n1; simpl.
-    destruct n2. intros. omega.
-    intros. omega.
-  intros.
+  induction n1; simpl; intros.
+    destruct n2; omega.
   admit.
 Qed.

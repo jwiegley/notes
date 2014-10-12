@@ -1,0 +1,29 @@
+checking if cc supports -fno-rtti -fno-exceptions... yes
+checking for cc option to produce PIC... -fno-common -DPIC
+checking if cc PIC flag -fno-common -DPIC works... yes
+checking if cc static flag -static works... no
+checking if cc supports -c -o file.o... yes
+checking if cc supports -c -o file.o... (cached) yes
+checking whether the cc linker (/nix/store/cbnzy0c4i1zz0kqbx8yw3q0d4cysq07c-clang-wrapper-wrapper-3.3/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin13.4.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... yes
+checking whether to build static libraries... no
+checking for pkg-config... (cached) /nix/store/wwxcz4pp41k9110hia4kn261ddlyqh7h-pkg-config-0.28/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for flex... no
+checking for lex... no
+checking for bison... no
+checking for byacc... no
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for cpp... /usr/bin/cpp
+checking if /usr/bin/cpp requires -undef... /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cpp: line 99: xcrun: command not found
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cpp: line 99: xcrun: command not found
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cpp: line 99: xcrun: command not found
+configure: error: /usr/bin/cpp defines unix with or without -undef.  I don't know what to do.
+builder for ‘/nix/store/n056lbad87n6p67a6r985kp4rarw77s2-xorg-server-1.14.6.drv’ failed with exit code 1
+cannot build derivation ‘/nix/store/hc4lqhmh6gbk64qgrsjw9r43jypdxlns-xquartz.drv’: 1 dependencies couldn't be built
+error: build of ‘/nix/store/hc4lqhmh6gbk64qgrsjw9r43jypdxlns-xquartz.drv’ failed

@@ -1,0 +1,18 @@
+diff --git a/src/xact.cc b/src/xact.cc
+index 049a2da..576978f 100644
+--- a/src/xact.cc
++++ b/src/xact.cc
+@@ -700,7 +700,12 @@ void auto_xact_t::extend_xact(xact_base_t& xact, parse_context_t& context)
+               throw_(parse_error,
+                      _f("Transaction assertion failed: %1%") % pair.first);
+             else
+-              context.warning(_f("Transaction check failed: %1%") % pair.first);
++              context.warning
++                (_f("%1%\n%2%\nTransaction check failed: %3%") %
++                 item_context(xact, _("While extending transaction")) %
++                 item_context(*this,
++                              _("While applying automated transaction")) %
++                 pair.first);
+           }
+         }
+       }

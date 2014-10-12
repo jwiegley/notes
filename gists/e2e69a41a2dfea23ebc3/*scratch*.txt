@@ -1,0 +1,173 @@
+[root@titan:~]# ps axwww
+  PID TTY      STAT   TIME COMMAND
+    1 ?        Ss     0:01 systemd
+    2 ?        S      0:00 [kthreadd]
+    3 ?        S      0:00 [ksoftirqd/0]
+    5 ?        S<     0:00 [kworker/0:0H]
+    7 ?        S      0:00 [migration/0]
+    8 ?        S      0:00 [rcu_bh]
+    9 ?        S      0:26 [rcu_sched]
+   10 ?        S      0:00 [migration/1]
+   11 ?        S      0:00 [ksoftirqd/1]
+   13 ?        S<     0:00 [kworker/1:0H]
+   14 ?        S      0:00 [migration/2]
+   15 ?        S      0:00 [ksoftirqd/2]
+   17 ?        S<     0:00 [kworker/2:0H]
+   18 ?        S      0:00 [migration/3]
+   19 ?        S      0:00 [ksoftirqd/3]
+   21 ?        S<     0:00 [kworker/3:0H]
+   22 ?        S      0:00 [migration/4]
+   23 ?        S      0:00 [ksoftirqd/4]
+   25 ?        S<     0:00 [kworker/4:0H]
+   26 ?        S      0:00 [migration/5]
+   27 ?        S      0:00 [ksoftirqd/5]
+   29 ?        S<     0:00 [kworker/5:0H]
+   30 ?        S      0:00 [migration/6]
+   31 ?        S      0:00 [ksoftirqd/6]
+   33 ?        S<     0:00 [kworker/6:0H]
+   34 ?        S      0:00 [migration/7]
+   35 ?        S      0:00 [ksoftirqd/7]
+   37 ?        S<     0:00 [kworker/7:0H]
+   38 ?        S<     0:00 [khelper]
+   39 ?        S      0:00 [kdevtmpfs]
+   40 ?        S<     0:00 [netns]
+  125 ?        S<     0:00 [writeback]
+  128 ?        S<     0:00 [kintegrityd]
+  129 ?        S<     0:00 [bioset]
+  130 ?        S<     0:00 [crypto]
+  132 ?        S<     0:00 [kblockd]
+  299 ?        S      0:01 [kworker/0:1]
+  300 ?        S      0:01 [kworker/1:1]
+  301 ?        S      0:02 [kworker/2:1]
+  303 ?        S      0:00 [kworker/4:1]
+  304 ?        S      0:00 [kworker/5:1]
+  306 ?        S      0:00 [kworker/7:1]
+  421 ?        S      0:00 [khungtaskd]
+  428 ?        S      0:00 [kswapd0]
+  429 ?        SN     0:00 [ksmd]
+  495 ?        SN     0:00 [khugepaged]
+  496 ?        S      0:00 [fsnotify_mark]
+  506 ?        S<     0:00 [kthrotld]
+  546 ?        S<     0:00 [deferwq]
+  774 ?        S      0:00 [khubd]
+  782 ?        S<     0:00 [ata_sff]
+  806 ?        S      0:00 [scsi_eh_0]
+  816 ?        S<     0:00 [fw_event0]
+  952 ?        S      0:00 [scsi_eh_1]
+  955 ?        S      0:00 [scsi_eh_2]
+  966 ?        S      0:00 [scsi_eh_3]
+  969 ?        S      0:00 [scsi_eh_4]
+ 1048 ?        S<     0:00 [poll_0_status]
+ 1088 ?        S      0:01 [kworker/6:2]
+ 1097 ?        S<     0:00 [kworker/6:1H]
+ 1126 ?        S      0:03 [kworker/7:2]
+ 1157 ?        S<     0:00 [kworker/5:1H]
+ 1160 ?        S<     0:00 [kworker/3:1H]
+ 1161 ?        S<     0:00 [kworker/1:1H]
+ 1178 ?        S<     0:00 [kworker/7:1H]
+ 1189 ?        S<     0:00 [kworker/2:1H]
+ 1198 ?        S<     0:00 [kworker/0:1H]
+ 1207 ?        S      0:01 [kworker/5:2]
+ 1210 ?        S      0:00 [kworker/3:2]
+ 1211 ?        S      0:00 [kworker/2:2]
+ 1235 ?        S      0:00 [jbd2/sdm1-8]
+ 1236 ?        S<     0:00 [ext4-rsv-conver]
+ 1358 ?        Zs     0:00 [bash] <defunct>
+ 1535 ?        Ss     0:00 /nix/store/p79y7n3awskxl4affpvr8mp8aajb9z4f-systemd-212/lib/systemd/systemd-journald
+ 1548 ?        S<     0:00 [kvm-irqfd-clean]
+ 1556 ?        Ss     0:00 /nix/store/p79y7n3awskxl4affpvr8mp8aajb9z4f-systemd-212/lib/systemd/systemd-udevd
+ 1560 ?        SN     0:00 [spl_kmem_cache/]
+ 1561 ?        S<     0:00 [spl_system_task]
+ 1562 ?        S<     0:00 [spl_system_task]
+ 1563 ?        S<     0:00 [spl_system_task]
+ 1564 ?        S<     0:00 [spl_system_task]
+ 1565 ?        S<     0:00 [spl_system_task]
+ 1566 ?        S<     0:00 [spl_system_task]
+ 1567 ?        S<     0:00 [spl_system_task]
+ 1568 ?        S<     0:00 [spl_system_task]
+ 1587 ?        S      0:00 [kworker/3:3]
+ 1588 ?        S<     0:00 [arc_adapt]
+ 1589 ?        S<     0:00 [l2arc_feed]
+ 1590 ?        SN     0:00 [z_unmount/0]
+ 1591 ?        SN     0:00 [zvol/0]
+ 1592 ?        SN     0:00 [zvol/1]
+ 1593 ?        SN     0:00 [zvol/2]
+ 1594 ?        SN     0:00 [zvol/3]
+ 1595 ?        SN     0:00 [zvol/4]
+ 1596 ?        SN     0:00 [zvol/5]
+ 1597 ?        SN     0:00 [zvol/6]
+ 1598 ?        SN     0:00 [zvol/7]
+ 1599 ?        SN     0:00 [zvol/8]
+ 1600 ?        SN     0:00 [zvol/9]
+ 1601 ?        SN     0:00 [zvol/10]
+ 1602 ?        SN     0:00 [zvol/11]
+ 1603 ?        SN     0:00 [zvol/12]
+ 1604 ?        SN     0:00 [zvol/13]
+ 1605 ?        SN     0:00 [zvol/14]
+ 1606 ?        SN     0:00 [zvol/15]
+ 1607 ?        SN     0:00 [zvol/16]
+ 1608 ?        SN     0:00 [zvol/17]
+ 1609 ?        SN     0:00 [zvol/18]
+ 1610 ?        SN     0:00 [zvol/19]
+ 1611 ?        SN     0:00 [zvol/20]
+ 1612 ?        SN     0:00 [zvol/21]
+ 1613 ?        SN     0:00 [zvol/22]
+ 1614 ?        SN     0:00 [zvol/23]
+ 1615 ?        SN     0:00 [zvol/24]
+ 1616 ?        SN     0:00 [zvol/25]
+ 1617 ?        SN     0:00 [zvol/26]
+ 1618 ?        SN     0:00 [zvol/27]
+ 1619 ?        SN     0:00 [zvol/28]
+ 1620 ?        SN     0:00 [zvol/29]
+ 1621 ?        SN     0:00 [zvol/30]
+ 1622 ?        SN     0:00 [zvol/31]
+ 1637 ?        S<     0:00 [edac-poller]
+ 1644 ?        S<     0:00 [kworker/4:1H]
+ 1657 ?        S<     0:00 [ttm_swap]
+ 1711 ?        Ss     0:00 /nix/store/3phdf0zwxn5ia78s9q9qfpx7z891vcjp-smartmontools-6.2/sbin/smartd --no-fork
+ 1723 ?        Ss     0:00 /nix/store/lcm18kpmf38bmawj4kxglslxksdjar2z-samba-3.6.24/sbin/nmbd -F
+ 1724 ?        Ss     0:00 /nix/store/lcm18kpmf38bmawj4kxglslxksdjar2z-samba-3.6.24/sbin/smbd -F
+ 1725 ?        Ss     0:00 /nix/store/lcm18kpmf38bmawj4kxglslxksdjar2z-samba-3.6.24/sbin/winbindd -F
+ 1736 ?        Ss     0:00 /nix/store/cqi75r3fwl6n78h87bgivsn0lc93z8lg-rsync-3.1.0/bin/rsync --daemon --no-detach
+ 1737 ?        Ss     0:00 dhcpcd --quiet --config /nix/store/yi2d0xsyk8g71bv597vz14472ydy4qpm-dhcpcd.conf
+ 1749 ?        Ss     0:00 acpid --confdir /nix/store/krag40mmbidyq431p0zspgkfcnbiy7b7-acpi-events
+ 1756 ?        Ssl    0:00 /nix/store/92j8k15b4nr4bgrddcd38qcfhwjhl2sk-apcupsd-3.14.12/bin/apcupsd -b -f /nix/store/yqbd73s4754bac8v0g289s0h46wydal7-apcupsd.conf -d1
+ 1764 ?        S<     0:00 [bond0]
+ 1769 ?        Ss     0:00 /nix/store/lzfsa3pp8i0fbqx8nhgjypjzw9akzxyv-privoxy-3.0.21/sbin/privoxy --no-daemon --user privoxy /nix/store/z844ymy2b7azc49w3fb76ahng35d0ib7-privoxy.conf
+ 1771 ?        Ss     0:00 cron -n
+ 1777 ?        Ss     0:00 /nix/store/4i8skkh9k8jiayp6yiy1jk9gzbyxpyqh-openssh-6.6p1/sbin/sshd -f /nix/store/nkvvc62c6z4axjq2chp2qbr9a1kg527s-sshd_config
+ 1778 ?        Ssl    0:00 nscd -f /nix/store/jyaww75i9jac8rpjs3skjx519nqg0yy8-nscd.conf
+ 1791 ?        S      0:00 [kworker/4:2]
+ 1796 ?        Zs     0:00 [bash] <defunct>
+ 1800 tty1     Ss+    0:00 agetty --noclear --login-program /nix/store/gzr868gspawhic2pcamqms8xbpp06rm2-shadow-4.1.5.1/bin/login --keep-baud tty1 115200 38400 9600 linux
+ 1806 ?        Ss     0:00 ntpd -g -n -c /nix/store/02izw6mxdn7sirjy9n6m0zrb9bp3rn8j-ntp.conf -u ntp:nogroup -i /var/lib/ntp
+ 1807 ?        S      0:00 /nix/store/lcm18kpmf38bmawj4kxglslxksdjar2z-samba-3.6.24/sbin/smbd -F
+ 1814 ?        S      0:00 /nix/store/lcm18kpmf38bmawj4kxglslxksdjar2z-samba-3.6.24/sbin/winbindd -F
+ 1837 ?        Ss     0:00 /nix/store/p79y7n3awskxl4affpvr8mp8aajb9z4f-systemd-212/lib/systemd/systemd-logind
+ 1853 ?        Ss     0:00 /nix/store/7hx5skwkih8gydxcp73dr7acqkwpz0i7-dbus-tools-1.8.0/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation
+ 1935 ?        S      0:00 [kworker/1:3]
+ 1952 ?        Zs     0:00 [bash] <defunct>
+ 1969 ?        Ss     0:02 sshd: root@pts/0
+ 1971 ?        Ss     0:00 /nix/store/p79y7n3awskxl4affpvr8mp8aajb9z4f-systemd-212/lib/systemd/systemd --user
+ 1972 ?        S      0:00 (sd-pam
+ 1978 ?        Ss     0:00 /nix/store/4i8skkh9k8jiayp6yiy1jk9gzbyxpyqh-openssh-6.6p1/bin/ssh-agent -a /run/user/0/ssh-agent
+ 1979 pts/0    Ss     0:00 -bash
+ 1991 pts/0    S+     0:00 /nix/store/p0vd3ydvxplbpjffkpblwj5dahcmp9ri-bash-4.2-p45/bin/bash -e /nix/var/nix/profiles/per-user/root/channels/nixos/nixpkgs/nixos/modules/installer/tools/nixos-rebuild.sh switch --upgrade
+ 2017 ?        Ss     0:00 nix-daemon --daemon
+ 2138 pts/0    S+     0:02 nix-env -p /nix/var/nix/profiles/system -f <nixpkgs/nixos> --set -A system
+ 2139 ?        Rs    42:51 nix-daemon 2138
+ 2141 ?        S      2:07 /nix/store/l4sd8xf2q3x5xk5z8ji9dk3hxpb9v8sa-perl-5.16.3/bin/perl -w -I/nix/store/dmlk4n4vnybbbkdn2xzcjd027yp08iic-nix-1.7/li /nix/store/dmlk4n4vnybbbkdn2xzcjd027yp08iic-nix-1.7/libexec/nix/substituters/download-from-binary-cache.pl --query
+ 4498 ?        Zs     0:00 [bash] <defunct>
+ 7438 ?        S      0:00 [kworker/0:2]
+10596 ?        Zs     0:00 [bash] <defunct>
+18284 ?        S      0:00 [kworker/u16:1]
+18286 ?        S      0:00 [kworker/6:0]
+18301 ?        S      0:00 [kworker/u16:2]
+18309 ?        Rs     0:00 sshd: root@pts/1
+18311 pts/1    Ss     0:00 -bash
+18555 pts/1    R+     0:00 ps axwww
+23370 ?        Ss     0:00 bash -e /nix/store/9krlzvny65gdc8s7kpb6lkx8cd02c25b-default-builder.sh
+27116 ?        S      0:00 xargs -0 -r strip --enable-deterministic-archives -S
+27119 ?        S      0:00 strip --enable-deterministic-archives -S /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/gems/1.9.1/gems/rake-0.9.2.2/bin/rake /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/gems/1.9.1/gems/rdoc-3.9.5/bin/rdoc /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/gems/1.9.1/gems/rdoc-3.9.5/bin/ri /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/gems/1.9.1/specifications/minitest-2.5.1.gemspec /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/gems/1.9.1/specifications/json-1.5.5.gemspec /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/gems/1.9.1/specifications/bigdecimal-1.1.0.gemspec /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/gems/1.9.1/specifications/io-console-0.3.gemspec /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/gems/1.9.1/specifications/rake-0.9.2.2.gemspec /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/gems/1.9.1/specifications/rdoc-3.9.5.gemspec /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/source_index.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/remote_fetcher.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/mock_gem_ui.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/validator.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/version_option.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/format.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/gem_path_searcher.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/ssl_certs/ca-bundle.pem /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/old_format.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/gemcutter_utilities.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/spec_fetcher.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/text.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/requirement.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/deprecate.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/test_case.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/builder.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/psych_tree.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/gem_runner.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/path_support.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/ext/rake_builder.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/ext/builder.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/ext/ext_conf_builder.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/ext/configure_builder.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/dependency.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/ext.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/local_remote_options.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/package.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/exceptions.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/security.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nzri5-ruby-1.9.3-p484/lib/ruby/1.9.1/rubygems/package/tar_writer.rb /nix/store/hn7b7jwmbkipspzfkzkj2qcnvc7nz
+29084 ?        Zs     0:00 [bash] <defunct>
+30043 ?        Zs     0:00 [bash] <defunct>

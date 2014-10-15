@@ -1,0 +1,10 @@
+01:37:39 hermes:~/src/nixpkgs $ nix-env -q | egrep -v '(xquartz)' | sed 's/-[0-9].*//' | xargs nix-env --cores 4 -u --leq --dry-run --show-trace
+(dry run; not doing anything)
+error: while evaluating ‘callPackageWith’ at /Users/johnw/src/nixpkgs/lib/customisation.nix:95:35, called from /Users/johnw/src/nixpkgs/pkgs/top-level/all-packages.nix:4069:16:
+while evaluating ‘makeOverridable’ at /Users/johnw/src/nixpkgs/lib/customisation.nix:56:24, called from /Users/johnw/src/nixpkgs/lib/customisation.nix:97:5:
+while evaluating anonymous function at /Users/johnw/src/nixpkgs/pkgs/development/misc/avr-gcc-with-avr-libc/default.nix:1:1, called from /Users/johnw/src/nixpkgs/lib/customisation.nix:58:12:
+while evaluating ‘overrideGCC’ at /Users/johnw/src/nixpkgs/pkgs/stdenv/adapters.nix:11:25, called from /Users/johnw/src/nixpkgs/pkgs/top-level/all-packages.nix:4071:14:
+while evaluating ‘override’ at /Users/johnw/src/nixpkgs/lib/customisation.nix:61:22, called from /Users/johnw/src/nixpkgs/pkgs/stdenv/adapters.nix:11:30:
+while evaluating ‘makeOverridable’ at /Users/johnw/src/nixpkgs/lib/customisation.nix:56:24, called from /Users/johnw/src/nixpkgs/lib/customisation.nix:62:13:
+anonymous function at /Users/johnw/src/nixpkgs/pkgs/stdenv/generic/default.nix:3:1 called with unexpected argument ‘gcc’, at /Users/johnw/src/nixpkgs/lib/customisation.nix:58:12
+01:38:16 hermes:~/src/nixpkgs $

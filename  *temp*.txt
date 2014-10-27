@@ -1,0 +1,19 @@
+21:14:53 Johns-Mac:~/src/nixpkgs $ git diff --diff-filter=D --stat origin/master joelteon/master | less
+ nixos/doc/manual/release-notes/rl-1410.xml                 |  22 ----
+ nixos/modules/services/x11/desktop-managers/kde4_next.nix  | 163 -------------------------
+ pkgs/development/compilers/gambit/src-for-default.nix      |   9 --
+ pkgs/development/compilers/gambit/src-info-for-default.nix |   7 --
+ pkgs/development/libraries/boost/1.49.nix                  |  96 ---------------
+ pkgs/development/libraries/haskell/hakyll/deps.patch       |  20 ---
+ .../libraries/haskell/optparse-applicative/0.9.1.1.nix     |  25 ----
+ pkgs/development/libraries/haskell/vty/4.7.5.nix           |  29 -----
+ pkgs/development/libraries/haskell/vty/5.2.3.nix           |  34 ------
+ pkgs/development/libraries/haskell/yi-contrib/default.nix  |  22 ----
+ pkgs/games/chocolate-doom/master.nix                       |  24 ----
+ pkgs/os-specific/darwin/cctools-port/default.nix           |  64 ----------
+ .../darwin/cctools-port/ld-ignore-rpath-link.patch         |  16 ---
+ .../darwin/cctools-port/ld-rpath-nonfinal.patch            |  31 -----
+ pkgs/tools/graphics/dmtx/default.nix                       |  31 -----
+ pkgs/tools/networking/cjdns/builder.sh                     |   9 --
+ pkgs/tools/networking/cjdns/makekey.patch                  |  64 ----------
+ 17 files changed, 666 deletions(-)

@@ -1,0 +1,653 @@
+--- a/pkgs/applications/editors/emacs-24/at-fdcwd.patch
++++ /dev/null
+@@ -1,13 +0,0 @@
+-diff --git a/lib/careadlinkat.h b/lib/careadlinkat.h
+-index 5cdb813..7a272e8 100644
+---- a/lib/careadlinkat.h
+-+++ b/lib/careadlinkat.h
+-@@ -23,6 +23,8 @@
+- #include <fcntl.h>
+- #include <unistd.h>
+- 
+-+#define AT_FDCWD -2
+-+
+- struct allocator;
+- 
+- /* Assuming the current directory is FD, get the symbolic link value
+--- a/pkgs/applications/editors/emacs-24/default.nix
++++ b/pkgs/applications/editors/emacs-24/default.nix
+@@ -18,7 +18,7 @@ stdenv.mkDerivation rec {
+     sha256 = "1zflm6ac34s6v166p58ilxrxbxjm0q2wfc25f8y0mjml1lbr3qs7";
+   };
+ 
+-  patches = [ ./darwin-new-sections.patch ./at-fdcwd.patch ];
++  patches = [ ./darwin-new-sections.patch ];
+ 
+   buildInputs =
+     [ ncurses gconf libxml2 gnutls alsaLib pkgconfig texinfo ]
+--- a/pkgs/applications/version-management/git-and-tools/default.nix
++++ b/pkgs/applications/version-management/git-and-tools/default.nix
+@@ -75,7 +75,6 @@ rec {
+   hub = import ./hub {
+     inherit (rubyLibs) rake;
+     inherit stdenv fetchurl groff makeWrapper;
+-    git = gitBase;
+   };
+ 
+   gitFastExport = import ./fast-export {
+--- a/pkgs/applications/version-management/git-and-tools/hub/default.nix
++++ b/pkgs/applications/version-management/git-and-tools/hub/default.nix
+@@ -1,4 +1,4 @@
+-{ stdenv, fetchurl, git, groff, rake, makeWrapper }:
++{ stdenv, fetchurl, groff, rake, makeWrapper }:
+ 
+ stdenv.mkDerivation rec {
+   name = "hub-${version}";
+@@ -16,7 +16,7 @@ stdenv.mkDerivation rec {
+   '';
+ 
+   fixupPhase = ''
+-    wrapProgram $out/bin/hub --prefix PATH : ${groff}/bin --prefix PATH : ${git}/bin
++    wrapProgram $out/bin/hub --prefix PATH : ${groff}/bin
+   '';
+ 
+   meta = {
+--- a/pkgs/build-support/clang-wrapper/default.nix
++++ b/pkgs/build-support/clang-wrapper/default.nix
+@@ -67,6 +67,11 @@ stdenv.mkDerivation {
+        abort "don't know the name of the dynamic linker for this platform");
+   };
+ 
++  passthru = {
++    progname = "clang";
++    prognamexx = "clang++";
++  };
++
+   meta =
+     let clang_ = if clang != null then clang else {}; in
+     (if clang_ ? meta then removeAttrs clang.meta ["priority"] else {}) //
+--- a/pkgs/build-support/gcc-wrapper/default.nix
++++ b/pkgs/build-support/gcc-wrapper/default.nix
+@@ -56,6 +56,11 @@ stdenv.mkDerivation {
+     if builtins.isAttrs shell then (shell + shell.shellPath)
+     else shell;
+ 
++  passthru = {
++    progname = "gcc";
++    prognamexx = "g++";
++  };
++
+   crossAttrs = {
+     shell = shell.crossDrv + shell.crossDrv.shellPath;
+     libc = stdenv.ccCross.libc;
+--- a/pkgs/data/misc/tzdata/default.nix
++++ b/pkgs/data/misc/tzdata/default.nix
+@@ -34,5 +34,6 @@ stdenv.mkDerivation rec {
+   meta = {
+     homepage = http://www.iana.org/time-zones;
+     description = "Database of current and historical time zones";
++    platforms = stdenv.lib.platforms.all;
+   };
+ }
+--- a/pkgs/development/compilers/gcc/4.2-apple64/default.nix
++++ b/pkgs/development/compilers/gcc/4.2-apple64/default.nix
+@@ -4,7 +4,6 @@
+ , gmp ? null, mpfr ? null, bison ? null, flex ? null
+ }:
+ 
+-assert false;
+ assert stdenv.isDarwin;
+ assert langF77 -> gmp != null;
+ 
+--- a/pkgs/development/compilers/ghc/7.4.2-binary.nix
++++ b/pkgs/development/compilers/ghc/7.4.2-binary.nix
+@@ -62,8 +62,7 @@ stdenv.mkDerivation rec {
+      '' else "");
+ 
+   configurePhase = ''
+-    ./configure --prefix=$out --with-gmp-libraries=${gmp}/lib --with-gmp-includes=${gmp}/include \
+-      --with-clang
++    ./configure --prefix=$out --with-gmp-libraries=${gmp}/lib --with-gmp-includes=${gmp}/include
+   '';
+ 
+   # Stripping combined with patchelf breaks the executables (they die
+--- a/pkgs/development/compilers/ghc/7.8.3.nix
++++ b/pkgs/development/compilers/ghc/7.8.3.nix
+@@ -26,6 +26,8 @@ stdenv.mkDerivation rec {
+     export NIX_LDFLAGS="$NIX_LDFLAGS -rpath $out/lib/ghc-${version}"
+   '';
+ 
++  configureFlags = "--with-gcc=${stdenv.cc.progname}";
++
+   # required, because otherwise all symbols from HSffi.o are stripped, and
+   # that in turn causes GHCi to abort
+   stripDebugFlags = [ "-S" "--keep-file-symbols" ];
+--- a/pkgs/development/compilers/idris/wrapper.nix
++++ b/pkgs/development/compilers/idris/wrapper.nix
+@@ -1,4 +1,4 @@
+-{ stdenv, gmp, makeWrapper, runCommand, idris_plain, boehmgc}:
++{ gmp, makeWrapper, gcc, runCommand, idris_plain, boehmgc}:
+ 
+ runCommand "idris-wrapper" {} ''
+   source ${makeWrapper}/nix-support/setup-hook
+@@ -6,6 +6,6 @@ runCommand "idris-wrapper" {} ''
+   ln -s ${idris_plain}/bin/idris $out/bin
+       wrapProgram $out/bin/idris \
+         --suffix NIX_CFLAGS_COMPILE : '"-I${gmp}/include -L${gmp}/lib -L${boehmgc}/lib"' \
+-        --suffix PATH : ${stdenv.cc}/bin \
++        --suffix PATH : ${gcc}/bin \
+         --suffix PATH : ${idris_plain}/bin
+ ''
+--- a/pkgs/development/compilers/julia/0.3.1.nix
++++ b/pkgs/development/compilers/julia/0.3.1.nix
+@@ -7,7 +7,7 @@
+ assert stdenv.isLinux; 
+ 
+ let
+-  realGcc = stdenv.gcc.gcc;
++  realGcc = stdenv.cc.gcc;
+ in
+ stdenv.mkDerivation rec {
+   pname = "julia";
+@@ -110,7 +110,7 @@ stdenv.mkDerivation rec {
+ 
+     patchShebangs . contrib
+ 
+-    export PATH="$PATH:${stdenv.gcc.libc}/sbin"
++    export PATH="$PATH:${stdenv.cc.libc}/sbin"
+ 
+     # ldconfig doesn't seem to ever work on NixOS; system-wide ldconfig cache
+     # is probably not what we want anyway on non-NixOS
+--- a/pkgs/development/compilers/llvm/3.4/llvm.nix
++++ b/pkgs/development/compilers/llvm/3.4/llvm.nix
+@@ -65,5 +65,6 @@ in stdenv.mkDerivation rec {
+     license     = stdenv.lib.licenses.bsd3;
+     maintainers = with stdenv.lib.maintainers; [ shlevy lovek323 raskin viric ];
+     platforms   = stdenv.lib.platforms.all;
++    broken      = stdenv.isDarwin;
+   };
+ }
+--- a/pkgs/development/compilers/ocaml/4.01.0.nix
++++ b/pkgs/development/compilers/ocaml/4.01.0.nix
+@@ -26,8 +26,6 @@ stdenv.mkDerivation rec {
+     sha256 = "b1ca708994180236917ae79e17606da5bd334ca6acd6873a550027e1c0ec874a";
+   };
+ 
+-  patches = [ ./fix-clang-build-on-osx.diff ];
+-
+   prefixKey = "-prefix ";
+   configureFlags = ["-no-tk"] ++ optionals useX11 [ "-x11lib" x11lib
+                                                     "-x11include" x11inc ];
+--- a/pkgs/development/compilers/ocaml/fix-clang-build-on-osx.diff
++++ /dev/null
+@@ -1,20 +0,0 @@
+-diff --git a/configure b/configure
+-index d45e88f..25d872b 100755
+---- a/configure
+-+++ b/configure
+-@@ -322,7 +322,14 @@ case "$bytecc,$target" in
+-     bytecccompopts="-fno-defer-pop $gcc_warnings -DSHRINKED_GNUC"
+-     mathlib="";;
+-   *,*-*-darwin*)
+--    bytecccompopts="-fno-defer-pop $gcc_warnings"
+-+    # On recent version of OSX, gcc is a symlink to clang
+-+    if $bytecc --version | grep -q clang; then
+-+        # -fno-defer-pop is not supported by clang, and make recent
+-+        # versions of clang to fail
+-+        bytecccompopts="$gcc_warnings"
+-+    else
+-+        bytecccompopts="-fno-defer-pop $gcc_warnings"
+-+    fi
+-     mathlib=""
+-     mkexe="$mkexe -Wl,-no_compact_unwind"
+-     # Tell gcc that we can use 32-bit code addresses for threaded code
+--- a/pkgs/development/compilers/sbcl/1.2.0.nix
++++ b/pkgs/development/compilers/sbcl/1.2.0.nix
+@@ -47,9 +47,6 @@ stdenv.mkDerivation rec {
+ 
+     sed -e '5,$d' -i contrib/sb-bsd-sockets/tests.lisp
+     sed -e '5,$d' -i contrib/sb-simple-streams/*test*.lisp
+-
+-    # Use whatever `cc` the stdenv provides
+-    substituteInPlace src/runtime/Config.x86-64-darwin --replace gcc cc
+   '';
+ 
+   preBuild = ''
+--- a/pkgs/development/compilers/sbcl/default.nix
++++ b/pkgs/development/compilers/sbcl/default.nix
+@@ -47,9 +47,6 @@ stdenv.mkDerivation rec {
+ 
+     sed -e '5,$d' -i contrib/sb-bsd-sockets/tests.lisp
+     sed -e '5,$d' -i contrib/sb-simple-streams/*test*.lisp
+-
+-    # Use whatever `cc` the stdenv provides
+-    substituteInPlace src/runtime/Config.x86-64-darwin --replace gcc cc
+   '';
+ 
+   preBuild = ''
+--- a/pkgs/development/interpreters/guile/clang.patch
++++ /dev/null
+@@ -1,14 +0,0 @@
+-diff --git a/lib/stdint.in.h b/lib/stdint.in.h
+-index 889bca7..15d39b0 100644
+---- a/lib/stdint.in.h
+-+++ b/lib/stdint.in.h
+-@@ -74,7 +74,8 @@
+-      in <inttypes.h> would reinclude us, skipping our contents because
+-      _@GUARD_PREFIX@_STDINT_H is defined.
+-      The include_next requires a split double-inclusion guard.  */
+--# @INCLUDE_NEXT@ @NEXT_STDINT_H@
+-+# include <inttypes.h>
+-+// # @INCLUDE_NEXT@ @NEXT_STDINT_H@
+- #endif
+- 
+- #if ! defined _@GUARD_PREFIX@_STDINT_H && ! defined _GL_JUST_INCLUDE_SYSTEM_STDINT_H
+--- a/pkgs/development/interpreters/guile/default.nix
++++ b/pkgs/development/interpreters/guile/default.nix
+@@ -29,7 +29,7 @@
+ 
+   enableParallelBuilding = true;
+ 
+-  patches = [ ./disable-gc-sensitive-tests.patch ./eai_system.patch ./clang.patch ] ++
++  patches = [ ./disable-gc-sensitive-tests.patch ./eai_system.patch ] ++
+     (stdenv.lib.optional (coverageAnalysis != null) ./gcov-file-name.patch);
+ 
+   # Explicitly link against libgcc_s, to work around the infamous
+--- a/pkgs/development/interpreters/lua-5/5.1.nix
++++ b/pkgs/development/interpreters/lua-5/5.1.nix
+@@ -29,7 +29,7 @@ stdenv.mkDerivation rec {
+   configurePhase =
+     if stdenv.isDarwin
+     then ''
+-    makeFlagsArray=( INSTALL_TOP=$out INSTALL_MAN=$out/share/man/man1 PLAT=macosx CFLAGS="-DLUA_USE_LINUX -fno-common -O2" LDFLAGS="" CC="$CC" )
++    makeFlagsArray=( INSTALL_TOP=$out INSTALL_MAN=$out/share/man/man1 PLAT=macosx CFLAGS="-DLUA_USE_LINUX -fno-common -O2" LDFLAGS="" )
+     installFlagsArray=( TO_BIN="lua luac" TO_LIB="liblua.5.1.5.dylib" INSTALL_DATA='cp -d' )
+   '' else ''
+     makeFlagsArray=( INSTALL_TOP=$out INSTALL_MAN=$out/share/man/man1 PLAT=linux CFLAGS="-DLUA_USE_LINUX -O2 -fPIC" LDFLAGS="-fPIC" )
+--- a/pkgs/development/interpreters/luajit/default.nix
++++ b/pkgs/development/interpreters/luajit/default.nix
+@@ -14,8 +14,6 @@ stdenv.mkDerivation rec {
+   patchPhase = ''
+     substituteInPlace Makefile \
+       --replace /usr/local $out
+-
+-    substituteInPlace src/Makefile --replace gcc cc
+   '' + stdenv.lib.optionalString (stdenv.cc.libc != null)
+   ''
+     substituteInPlace Makefile \
+--- a/pkgs/development/libraries/boost/1.56.nix
++++ b/pkgs/development/libraries/boost/1.56.nix
+@@ -1,5 +1,5 @@
+ { stdenv, fetchurl, icu, expat, zlib, bzip2, python, fixDarwinDylibNames
+-, toolset ? if stdenv.isDarwin then "clang" else null
++, toolset ? null
+ , enableRelease ? true
+ , enableDebug ? false
+ , enableSingleThreaded ? false
+--- /dev/null
++++ b/pkgs/development/libraries/boost/boost-155-darwin-headerpad.patch
+@@ -0,0 +1,13 @@
++diff --git a/tools/build/v2/tools/darwin.jam b/tools/build/v2/tools/darwin.jam
++index 84ad488..f334b79 100644
++--- a/tools/build/v2/tools/darwin.jam
+++++ b/tools/build/v2/tools/darwin.jam
++@@ -577,7 +577,7 @@ rule link.dll ( targets * : sources * : properties * )
++ 
++ actions link.dll bind LIBRARIES
++ {
++-    "$(CONFIG_COMMAND)" -dynamiclib -Wl,-single_module -install_name "$(<:B)$(<:S)" -L"$(LINKPATH)" -o "$(<)" "$(>)" "$(LIBRARIES)" -l$(FINDLIBS-SA) -l$(FINDLIBS-ST) $(FRAMEWORK_PATH) -framework$(_)$(FRAMEWORK:D=:S=) $(OPTIONS) $(USER_OPTIONS)
+++    "$(CONFIG_COMMAND)" -headerpad_max_install_names -dynamiclib -Wl,-single_module -install_name "$(<:B)$(<:S)" -L"$(LINKPATH)" -o "$(<)" "$(>)" "$(LIBRARIES)" -l$(FINDLIBS-SA) -l$(FINDLIBS-ST) $(FRAMEWORK_PATH) -framework$(_)$(FRAMEWORK:D=:S=) $(OPTIONS) $(USER_OPTIONS)
++ }
++ 
++ # We use libtool instead of ar to support universal binary linking
+--- a/pkgs/development/libraries/glib/default.nix
++++ b/pkgs/development/libraries/glib/default.nix
+@@ -7,8 +7,6 @@
+ 
+ with stdenv.lib;
+ 
+-assert !stdenv.isDarwin -> stdenv.cc ? gcc;
+-
+ # TODO:
+ # * Add gio-module-fam
+ #     Problem: cyclic dependency on gamin
+@@ -71,6 +69,11 @@ stdenv.mkDerivation rec {
+   NIX_CFLAGS_COMPILE = optionalString stdenv.isDarwin " -lintl"
+     + optionalString stdenv.isSunOS " -DBSD_COMP";
+ 
++  preBuild = optionalString stdenv.isDarwin
++    ''
++      export MACOSX_DEPLOYMENT_TARGET=
++    '';
++
+   enableParallelBuilding = true;
+ 
+   inherit doCheck;
+--- a/pkgs/development/libraries/glibc/2.19/default.nix
++++ b/pkgs/development/libraries/glibc/2.19/default.nix
+@@ -8,8 +8,6 @@
+ , withGd ? false, gd ? null, libpng ? null
+ }:
+ 
+-assert stdenv.cc ? gcc;
+-
+ let
+   build = import ./common.nix;
+   cross = if gccCross != null then gccCross.target else null;
+--- a/pkgs/development/libraries/haskell/system-fileio/default.nix
++++ b/pkgs/development/libraries/haskell/system-fileio/default.nix
+@@ -11,7 +11,6 @@ cabal.mkDerivation (self: {
+   testDepends = [
+     chell systemFilepath temporary text time transformers
+   ];
+-  doCheck = false;
+   meta = {
+     homepage = "https://john-millikin.com/software/haskell-filesystem/";
+     description = "Consistent filesystem interaction across GHC versions";
+--- a/pkgs/development/libraries/haskell/warp/default.nix
++++ b/pkgs/development/libraries/haskell/warp/default.nix
+@@ -20,6 +20,7 @@ cabal.mkDerivation (self: {
+     simpleSendfile streamingCommons text time transformers unixCompat
+     void wai
+   ];
++  doCheck = false;
+   meta = {
+     homepage = "http://github.com/yesodweb/wai";
+     description = "A fast, light-weight web server for WAI applications";
+--- a/pkgs/development/libraries/haskell/yesod-core/default.nix
++++ b/pkgs/development/libraries/haskell/yesod-core/default.nix
+@@ -28,6 +28,7 @@ cabal.mkDerivation (self: {
+     liftedBase mwcRandom network pathPieces QuickCheck random resourcet
+     shakespeare streamingCommons text transformers wai waiExtra
+   ];
++  jailbreak = true;
+   meta = {
+     homepage = "http://www.yesodweb.com/";
+     description = "Creation of type-safe, RESTful web applications";
+--- a/pkgs/development/libraries/haskell/yesod-static/default.nix
++++ b/pkgs/development/libraries/haskell/yesod-static/default.nix
+@@ -27,6 +27,7 @@ cabal.mkDerivation (self: {
+     text transformers unixCompat unorderedContainers wai waiAppStatic
+     waiExtra yesodCore yesodTest
+   ];
++  doCheck = false;
+   meta = {
+     homepage = "http://www.yesodweb.com/";
+     description = "Static file serving subsite for Yesod Web Framework";
+--- a/pkgs/development/libraries/libdevil/default.nix
++++ b/pkgs/development/libraries/libdevil/default.nix
+@@ -16,15 +16,6 @@ stdenv.mkDerivation rec {
+ 
+   configureFlags = [ "--enable-ILU" "--enable-ILUT" ];
+ 
+-  preConfigure = ''
+-    sed -i 's, -std=gnu99,,g' configure
+-    sed -i 's,malloc.h,stdlib.h,g' src-ILU/ilur/ilur.c
+-  '';
+-
+-  postConfigure = ''
+-    sed -i '/RESTRICT_KEYWORD/d' include/IL/config.h
+-  '';
+-
+   patches =
+     [ ( fetchurl {
+         url = http://patch-tracker.debian.org/patch/series/dl/devil/1.7.8-6.1/03_CVE-2009-3994.diff;
+--- a/pkgs/development/libraries/libunistring/default.nix
++++ b/pkgs/development/libraries/libunistring/default.nix
+@@ -8,8 +8,6 @@ stdenv.mkDerivation (rec {
+     sha256 = "18q620269xzpw39dwvr9zpilnl2dkw5z5kz3mxaadnpv4k3kw3b1";
+   };
+ 
+-  patches = stdenv.lib.optional stdenv.isDarwin [ ./clang.patch ];
+-
+   propagatedBuildInputs =
+     stdenv.lib.optional ((! (stdenv ? glibc))
+                          || (stdenv ? cross &&
+--- a/pkgs/development/libraries/mpc/default.nix
++++ b/pkgs/development/libraries/mpc/default.nix
+@@ -10,8 +10,6 @@ stdenv.mkDerivation rec {
+ 
+   buildInputs = [ gmp mpfr ];
+ 
+-  CFLAGS = "-I${gmp}/include";
+-
+   doCheck = true;
+ 
+   meta = {
+--- a/pkgs/development/libraries/mpfr/default.nix
++++ b/pkgs/development/libraries/mpfr/default.nix
+@@ -10,8 +10,6 @@ stdenv.mkDerivation rec {
+ 
+   buildInputs = [ gmp ];
+ 
+-  CFLAGS = "-I${gmp}/include";
+-
+   configureFlags =
+     /* Work around a FreeBSD bug that otherwise leads to segfaults in the test suite:
+           http://hydra.bordeaux.inria.fr/build/34862
+--- a/pkgs/development/libraries/pcre/default.nix
++++ b/pkgs/development/libraries/pcre/default.nix
+@@ -12,11 +12,15 @@ stdenv.mkDerivation rec {
+     sha256 = "0nw66r92dr24vy9k4lw17bkv8x5nlzn6wx9hq4y2dvzgig3w2qd9";
+   };
+ 
++  # The compiler on Darwin crashes with an internal error while building the
++  # C++ interface. Disabling optimizations on that platform remedies the
++  # problem. In case we ever update the Darwin GCC version, the exception for
++  # that platform ought to be removed.
+   configureFlags = ''
+     --enable-jit
+     ${if unicodeSupport then "--enable-unicode-properties" else ""}
+     ${if !cplusplusSupport then "--disable-cpp" else ""}
+-  '';
++  '' + optionalString stdenv.isDarwin "CXXFLAGS=-O0";
+ 
+   doCheck = with stdenv; !(isCygwin || isFreeBSD);
+     # XXX: test failure on Cygwin
+--- a/pkgs/development/libraries/poppler/default.nix
++++ b/pkgs/development/libraries/poppler/default.nix
+@@ -30,9 +30,7 @@ let
+ 
+     nativeBuildInputs = [ pkgconfig cmake ] ++ libiconvOrEmpty ++ libintlOrEmpty;
+ 
+-    cmakeFlags = "-DENABLE_XPDF_HEADERS=ON -DENABLE_LIBCURL=ON -DENABLE_ZLIB=ON"
+-      # otherwise, cmake finds /Library/Frameworks/freetype.framework
+-      + stdenv.lib.optionalString stdenv.isDarwin " -DCMAKE_FIND_FRAMEWORK=NEVER";
++    cmakeFlags = "-DENABLE_XPDF_HEADERS=ON -DENABLE_LIBCURL=ON -DENABLE_ZLIB=ON";
+ 
+     patches = [ ./datadir_env.patch ./poppler-glib.patch ];
+ 
+--- a/pkgs/development/libraries/qt-4.x/4.8/default.nix
++++ b/pkgs/development/libraries/qt-4.x/4.8/default.nix
+@@ -78,6 +78,8 @@ stdenv.mkDerivation rec {
+       -translationdir $out/share/${name}/translations
+     "
+   '' + optionalString stdenv.isDarwin ''
++    export CXX=clang++
++    export CC=clang
+     sed -i 's/QMAKE_CC = gcc/QMAKE_CC = clang/' mkspecs/common/g++-base.conf
+     sed -i 's/QMAKE_CXX = g++/QMAKE_CXX = clang++/' mkspecs/common/g++-base.conf
+   '';
+--- a/pkgs/development/libraries/readline/6.2.nix
++++ b/pkgs/development/libraries/readline/6.2.nix
+@@ -14,7 +14,6 @@ stdenv.mkDerivation (rec {
+   patches =
+     [ ./link-against-ncurses.patch
+       ./no-arch_only.patch
+-      ./clang.patch
+     ]
+     ++
+     (let
+--- a/pkgs/development/libraries/readline/clang.patch
++++ /dev/null
+@@ -1,13 +0,0 @@
+-diff --git a/support/shobj-conf b/support/shobj-conf
+-index 5a63e80..4b2a741 100644
+---- support/shobj-conf
+-+++ support/shobj-conf
+-@@ -189,7 +189,7 @@ darwin*|macosx*)
+- 	darwin[789]*|darwin10*)	SHOBJ_LDFLAGS=''
+- 			SHLIB_XLDFLAGS='-dynamiclib -arch_only `/usr/bin/arch` -install_name $(libdir)/$@ -current_version $(SHLIB_MAJOR)$(SHLIB_MINOR) -compatibility_version $(SHLIB_MAJOR) -v'
+- 			;;
+--	*)		SHOBJ_LDFLAGS='-dynamic'
+-+	*)		SHOBJ_LDFLAGS='-dynamiclib'
+- 			SHLIB_XLDFLAGS='-arch_only `/usr/bin/arch` -install_name $(libdir)/$@ -current_version $(SHLIB_MAJOR)$(SHLIB_MINOR) -compatibility_version $(SHLIB_MAJOR) -v'
+- 			;;
+- 	esac
+--- a/pkgs/development/libraries/smpeg/default.nix
++++ b/pkgs/development/libraries/smpeg/default.nix
+@@ -1,4 +1,4 @@
+-{ stdenv, fetchsvn, SDL, autoconf, automake, libtool, gtk, m4, pkgconfig, mesa }:
++{ stdenv, fetchsvn, SDL, autoconf, automake, libtool, gtk, m4, pkgconfig, mesa, makeWrapper }:
+ 
+ stdenv.mkDerivation rec {
+   name = "smpeg-svn${version}";
+@@ -12,7 +12,9 @@ stdenv.mkDerivation rec {
+ 
+   enableParallelBuilding = true;
+ 
+-  buildInputs = [ SDL autoconf automake libtool gtk m4 pkgconfig mesa ];
++  buildInputs = [ SDL gtk mesa ];
++
++  nativeBuildInputs = [ autoconf automake libtool m4 pkgconfig makeWrapper ];
+ 
+   preConfigure = ''
+     touch NEWS AUTHORS ChangeLog
+@@ -26,6 +28,10 @@ stdenv.mkDerivation rec {
+     -e 's,"SDL_thread.h",<SDL/SDL_thread.h>,' \
+     -e 's,"SDL_types.h",<SDL/SDL_types.h>,' \
+       $out/include/smpeg/*.h
++
++    wrapProgram $out/bin/smpeg-config \
++      --prefix PATH ":" "${pkgconfig}/bin" \
++      --prefix PKG_CONFIG_PATH ":" "${SDL}/lib/pkgconfig"
+   '';
+ 
+   meta = {
+--- a/pkgs/development/python-modules/pycrypto/default.nix
++++ b/pkgs/development/python-modules/pycrypto/default.nix
+@@ -9,11 +9,6 @@ buildPythonPackage rec {
+     sha256 = "0g0ayql5b9mkjam8hym6zyg6bv77lbh66rv1fyvgqb17kfc1xkpj";
+   };
+ 
+-  preConfigure = ''
+-    sed -i 's,/usr/include,/no-such-dir,' configure
+-    sed -i "s!,'/usr/include/'!!" setup.py
+-  '';
+-
+   buildInputs = stdenv.lib.optional (!python.isPypy or false) gmp; # optional for pypy
+ 
+   doCheck = !(python.isPypy or stdenv.isDarwin); # error: AF_UNIX path too long
+--- a/pkgs/development/tools/misc/distcc/masq.nix
++++ b/pkgs/development/tools/misc/distcc/masq.nix
+@@ -3,10 +3,6 @@
+ stdenv.mkDerivation {
+   name = "distcc-masq-${gccRaw.name}";
+ 
+-  meta = {
+-    platforms = stdenv.lib.platforms.linux;
+-  };
+-
+   phases = [ "installPhase" ];
+   installPhase = ''
+     mkdir -p $out/bin
+--- a/pkgs/development/tools/misc/sloccount/default.nix
++++ b/pkgs/development/tools/misc/sloccount/default.nix
+@@ -31,7 +31,6 @@ stdenv.mkDerivation rec {
+ 
+   configurePhase = ''
+     sed -i "makefile" -"es|PREFIX[[:blank:]]*=.*$|PREFIX = $out|g"
+-    sed -i "makefile" -"es|gcc|$CC|g"
+   '';
+ 
+   doCheck = true;
+--- a/pkgs/development/tools/parsing/flex/2.5.39.nix
++++ b/pkgs/development/tools/parsing/flex/2.5.39.nix
+@@ -12,8 +12,9 @@ stdenv.mkDerivation {
+ 
+   propagatedNativeBuildInputs = [ m4 ];
+ 
+-  NIX_CFLAGS_LINK = stdenv.lib.optionalString stdenv.isDarwin
+-    "-undefined dynamic_lookup";
++  postConfigure = stdenv.lib.optionalString stdenv.isDarwin ''
++    sed -i Makefile -e 's/-no-undefined//;'
++  '';
+ 
+   crossAttrs = {
+     preConfigure = ''
+--- a/pkgs/games/megaglest/default.nix
++++ b/pkgs/games/megaglest/default.nix
+@@ -8,7 +8,7 @@ let
+     name = "megaglest-lib-env";
+     paths = [ SDL xlibs.libSM xlibs.libICE xlibs.libX11 xlibs.libXext
+       xercesc openal libvorbis lua libjpeg libpng curl fontconfig ftgl freetype
+-      stdenv.gcc.gcc glew mesa_glu mesa_drivers wxGTK ];
++      stdenv.cc.gcc glew mesa_glu mesa_drivers wxGTK ];
+   };
+   path-env = buildEnv {
+     name = "megaglest-path-env";
+--- a/pkgs/servers/http/nginx/default.nix
++++ b/pkgs/servers/http/nginx/default.nix
+@@ -112,7 +112,7 @@ stdenv.mkDerivation rec {
+     ++ optional (elem stdenv.system (with platforms; linux ++ freebsd)) "--with-file-aio";
+ 
+ 
+-  additionalFlags = optionalString stdenv.isDarwin "-Wno-error=deprecated-declarations -Wno-error=conditional-uninitialized";
++  additionalFlags = optionalString stdenv.isDarwin "-Wno-error=deprecated-declarations";
+ 
+   preConfigure = ''
+     export NIX_CFLAGS_COMPILE="$NIX_CFLAGS_COMPILE -I${libxml2}/include/libxml2 $additionalFlags"
+--- a/pkgs/servers/mail/dovecot/default.nix
++++ b/pkgs/servers/mail/dovecot/default.nix
+@@ -3,7 +3,7 @@
+ stdenv.mkDerivation rec {
+   name = "dovecot-2.1.17";
+ 
+-  buildInputs = [openssl bzip2 zlib openldap] ++ stdenv.lib.optionals stdenv.isLinux [pam inotifyTools];
++  buildInputs = [openssl pam bzip2 zlib inotifyTools openldap];
+ 
+   src = fetchurl {
+     url = "http://dovecot.org/releases/2.1/${name}.tar.gz";
+--- a/pkgs/servers/x11/xorg/overrides.nix
++++ b/pkgs/servers/x11/xorg/overrides.nix
+@@ -69,15 +69,12 @@ in
+   };
+ 
+   libX11 = attrs: attrs // {
+-    preConfigure = setMalloc0ReturnsNullCrossCompiling + ''
+-      sed 's,^as_dummy.*,as_dummy="\$PATH",' -i configure
+-    '';
++    preConfigure = setMalloc0ReturnsNullCrossCompiling;
+     postInstall =
+       ''
+         # Remove useless DocBook XML files.
+         rm -rf $out/share/doc
+       '';
+-    CPP = stdenv.lib.optionalString stdenv.isDarwin "clang -E -";
+   };
+ 
+   libXfont = attrs: attrs // {
+@@ -102,11 +99,8 @@ in
+   # Note: most of these are in Requires.private, so maybe builder.sh
+   # should propagate them automatically.
+   libXt = attrs: attrs // {
+-    preConfigure = setMalloc0ReturnsNullCrossCompiling + ''
+-      sed 's,^as_dummy.*,as_dummy="\$PATH",' -i configure
+-    '';
++    preConfigure = setMalloc0ReturnsNullCrossCompiling;
+     propagatedBuildInputs = [ xorg.libSM ];
+-    CPP = stdenv.lib.optionalString stdenv.isDarwin "clang -E -";
+   };
+ 
+   # See https://bugs.freedesktop.org/show_bug.cgi?id=47792
+--- a/pkgs/stdenv/adapters.nix
++++ b/pkgs/stdenv/adapters.nix
+@@ -8,7 +8,7 @@ rec {
+ 
+ 
+   # Override the compiler in stdenv for specific packages.
+-  overrideGCC = stdenv: gcc: stdenv.override { cc = gcc; };
++  overrideGCC = stdenv: cc: stdenv.override { inherit cc; };
+ 
+ 
+   # Add some arbitrary packages to buildInputs for specific packages.

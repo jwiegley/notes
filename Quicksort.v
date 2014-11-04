@@ -1,8 +1,8 @@
+Require Import Coq.Arith.Compare_dec.
+Require Import Coq.Lists.List.
 Require Import Coq.Program.Wf.
 Require Import Coq.Sorting.Permutation.
 Require Import Coq.Sorting.Sorted.
-Require Import Coq.Lists.List.
-Require Import Coq.Arith.Compare_dec.
 
 Import ListNotations.
 
@@ -20,19 +20,10 @@ Program Fixpoint quicksort (l:list nat) {measure (length l)}
     end
   end.
 Obligation 1. intuition. constructor. Qed.
-Obligation 2.
-  
-  induction xs.
-    inversion Heq_anonymous. auto.
-  simpl. apply Lt.lt_S.
-  apply IHxs.
-  inversion Heq_anonymous.
-  destruct (gtb x a) eqn:Heqe.
-    simpl in *. 
-    apply IHxs. 
- admit. Qed.
+Obligation 2. admit. Qed.
 Obligation 3. admit. Qed.
 Obligation 4. admit. Qed.
+Obligation 5. admit. Defined.
 
 (** Method 2. *)
 
@@ -63,6 +54,8 @@ Obligation 2.
   pose (partition_spec xs (gtb x) lhs rhs Heq_anonymous).
   simpl. unfold lt. intuition.
 Qed.
+Obligation 3. admit.
+Defined.
 
 Lemma quicksort_spec (sl : list nat) : forall l,
   quicksort' l = sl -> Permutation l sl /\ StronglySorted le sl.
@@ -72,7 +65,7 @@ Proof.
   - destruct sl. constructor.
     inversion H.
   - admit.
-  - destruct sl. constructor.
-    inversion H.
+  - admit.
+  - admit.
   - admit.
 Qed.

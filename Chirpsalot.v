@@ -39,4 +39,8 @@ Theorem fibonacci__fib_johnw : forall n,
 Proof.
   induction n as [| n'].
     reflexivity.
-  
+  simpl.
+  destruct n' eqn:Heqe. reflexivity.
+  rewrite IHn'. f_equal. simpl.
+  simpl in IHn'.
+  destruct n. reflexivity.

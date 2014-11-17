@@ -7,28 +7,7 @@ import Data.Functor.Identity
 import Data.Distributive
 import Data.Monoid
 import Data.Tuple (swap)
-
-class Codistributive f where
-    codistribute :: Applicative g => f (g a) -> g (f a)
-
-instance Codistributive Identity where
-    codistribute (Identity x) = fmap Identity x
-
-instance Codistributive Maybe where
-    codistribute Nothing = pure Nothing
-    codistribute (Just x) = fmap Just x
-
-instance Codistributive (Either e) where
-    codistribute (Left e) = pure (Left e)
-    codistribute (Right x) = fmap Right x
-
-instance Codistributive ((,) e) where
-    codistribute (e, x) = fmap ((,) e) x
-
-instance (Codistributive f, Functor f,
-          Codistributive h) => Codistributive (Compose f h) where
-    codistribute (Compose x) =
-        fmap Compose (codistribute (fmap codistribute x))
+import Data.Traversable
 
 -- instance (Monad f, Distributive f, Monad g, Functor g)
 --          => Monad (Compose f g) where
@@ -38,14 +17,26 @@ instance (Codistributive f, Functor f,
 --       let y = fmap distribute x in
 --       Compose $ fmap join (join y)
 
-instance (Monad f, Applicative f,
-          Monad g, Functor g, Codistributive g) => Monad (Compose f g) where
+-- instance (Monad f, Monad g, Traversable g) => Monad (Compose f g) where
+--   return x = Compose $ return (return x)
+--   Compose m >>= f = Compose $ do
+--       m' <- m
+--       let x = fmap (getCompose . f) m'
+--       m'' <- sequenceA x
+--       return $ join m''
+
+instance (Monad f, Applicative f, Monad g, Traversable g)
+         => Monad (Compose f g) where
   return x = Compose $ return (return x)
   Compose m >>= f = Compose $ do
-      m' <- m
-      let x = fmap (getCompose . f) m'
-      m'' <- codistribute x
-      return $ join m''
+      let x = liftM (fmap (getCompose . f)) m
+      liftM join (join (liftM sequenceA x))
+
+compose_join :: (Monad f, Applicative f, Monad g, Traversable g)
+             => Compose f g (Compose f g a) -> Compose f g a
+compose_join (Compose m) = Compose $
+    let x = fmap (fmap getCompose) m in
+    liftM join (join (liftM sequenceA x))
 
 type ReaderT e = Compose ((->) e)
 

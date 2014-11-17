@@ -1,3 +1,19 @@
+Inductive ProxyF a' a b' b (m : Type -> Type) p :=
+  | Request : a' -> (a  -> p) -> ProxyF a' a b' b m p
+  | Respond : b  -> (b' -> p) -> ProxyF a' a b' b m p
+  | M       : m p -> ProxyF a' a b' b m p.
+
+CoInductive Free (F : Type -> Type) (X : Type) : Type :=
+  | Return : X -> Free F X
+  | Join : F (Free F X) -> Free F X.
+
+Inductive Free (F : Type -> Type) (X : Type) : Type :=
+  | Return : X -> Free F X
+  | Join : forall (A : Set) (a : A) (B : A -> Set),
+             (B a -> Free F X) -> Free F X.
+
+(*------------------------------------------------------------------------*)
+
 Require Export Monad.
 
 Inductive Proxy a' a b' b (m : Type -> Type) r : Type :=

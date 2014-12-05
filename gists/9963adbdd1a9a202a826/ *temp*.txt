@@ -1,0 +1,12 @@
+module Compose where
+
+import Control.Monad
+import Data.Functor.Compose
+import Data.Distributive
+
+instance (Distributive f, Monad f, Monad g, Functor g) => Monad (Compose f g) where
+  return x = Compose $ return (return x)
+  Compose m >>= f =
+      let x = fmap (fmap (getCompose . f)) m in
+      let y = fmap distribute x in
+      Compose $ fmap join (join y)

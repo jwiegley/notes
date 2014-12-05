@@ -6,7 +6,7 @@
 
 4. nix-channel --remove nixpkgs
 
-5. cd ~/.nix-defexpr; rm -fr; ln -s ~/src/nixpkgs .
+5. cd ~/.nix-defexpr; rm -fr *; ln -s ~/src/nixpkgs .
 
 6. export NIX_PATH=$HOME/src:nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs
 

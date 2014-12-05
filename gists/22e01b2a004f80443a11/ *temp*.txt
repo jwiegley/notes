@@ -1,0 +1,8 @@
+14:36:53 Vulcan:~/src/nixpkgs $ nix-env -Q -j8 -k -u --leq --show-trace
+error: while evaluating ‘clangWrapSelf’ at "/Users/johnw/src/nixpkgs/pkgs/top-level/all-packages.nix":2926:19, called from "/Users/johnw/src/nixpkgs/pkgs/top-level/all-packages.nix":2924:15:
+while evaluating anonymous function at "/Users/johnw/src/nixpkgs/pkgs/build-support/gcc-wrapper/default.nix":8:1, called from "/Users/johnw/src/nixpkgs/pkgs/top-level/all-packages.nix":2926:26:
+while evaluating the attribute ‘clang’ at "/Users/johnw/src/nixpkgs/pkgs/development/compilers/llvm/3.4/default.nix":23:5:
+while evaluating ‘callPackageWith’ at "/Users/johnw/src/nixpkgs/lib/customisation.nix":97:35, called from "/Users/johnw/src/nixpkgs/pkgs/development/compilers/llvm/3.4/default.nix":23:13:
+while evaluating ‘makeOverridable’ at "/Users/johnw/src/nixpkgs/lib/customisation.nix":56:24, called from "/Users/johnw/src/nixpkgs/lib/customisation.nix":99:5:
+while evaluating anonymous function at "/Users/johnw/src/nixpkgs/pkgs/development/compilers/llvm/3.4/clang.nix":1:1, called from "/Users/johnw/src/nixpkgs/lib/customisation.nix":58:12:
+attribute ‘gcc.nativeTools’ missing, at "/Users/johnw/src/nixpkgs/pkgs/development/compilers/llvm/3.4/clang.nix":5:27

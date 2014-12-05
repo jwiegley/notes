@@ -1,0 +1,58 @@
+building /nix/store/x64abkdhzb9wvxcvl0j2gx4kawvc53ir-zlib-1.2.8
+unpacking sources
+unpacking source archive /nix/store/a048k7r603jq7sphp907zja27gpyzbx1-zlib-1.2.8.tar.gz
+source root is zlib-1.2.8
+patching sources
+configuring
+configure flags: --prefix=/nix/store/x64abkdhzb9wvxcvl0j2gx4kawvc53ir-zlib-1.2.8 --shared
+Checking for shared library support...
+Building shared library libz.1.2.8.dylib with clang.
+Checking for off64_t... No.
+Checking for fseeko... Yes.
+Checking for strerror... Yes.
+Checking for unistd.h... Yes.
+Checking for stdarg.h... Yes.
+Checking whether to use vs[n]printf() or s[n]printf()... using vs[n]printf().
+Checking for vsnprintf() in stdio.h... Yes.
+Checking for return value of vsnprintf()... Yes.
+Checking for attribute(visibility) support... Yes.
+building
+make flags: SHELL=/nix/store/gzbsgqdcd8p8jz3rrcv1mndk3lkq27in-bash-4.2-p51/bin/bash
+building example.o
+clang -O3  -DHAVE_HIDDEN -I. -c -o example.o test/example.c
+building adler32.o
+clang -O3  -DHAVE_HIDDEN   -c -o adler32.o adler32.c
+building crc32.o
+clang -O3  -DHAVE_HIDDEN   -c -o crc32.o crc32.c
+building deflate.o
+clang -O3  -DHAVE_HIDDEN   -c -o deflate.o deflate.c
+building infback.o
+clang -O3  -DHAVE_HIDDEN   -c -o infback.o infback.c
+building inffast.o
+clang -O3  -DHAVE_HIDDEN   -c -o inffast.o inffast.c
+building inflate.o
+clang -O3  -DHAVE_HIDDEN   -c -o inflate.o inflate.c
+building inftrees.o
+clang -O3  -DHAVE_HIDDEN   -c -o inftrees.o inftrees.c
+building trees.o
+clang -O3  -DHAVE_HIDDEN   -c -o trees.o trees.c
+building zutil.o
+clang -O3  -DHAVE_HIDDEN   -c -o zutil.o zutil.c
+building compress.o
+clang -O3  -DHAVE_HIDDEN   -c -o compress.o compress.c
+building uncompr.o
+clang -O3  -DHAVE_HIDDEN   -c -o uncompr.o uncompr.c
+building gzclose.o
+clang -O3  -DHAVE_HIDDEN   -c -o gzclose.o gzclose.c
+building gzlib.o
+clang -O3  -DHAVE_HIDDEN   -c -o gzlib.o gzlib.c
+building gzread.o
+clang -O3  -DHAVE_HIDDEN   -c -o gzread.o gzread.c
+building gzwrite.o
+clang -O3  -DHAVE_HIDDEN   -c -o gzwrite.o gzwrite.c
+building libz.a
+libtool -o libz.a adler32.o crc32.o deflate.o infback.o inffast.o inflate.o inftrees.o trees.o zutil
+building example
+clang -O3  -DHAVE_HIDDEN -o example example.o -L. libz.a
+building minigzip.o
+lines 1-57

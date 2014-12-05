@@ -1,0 +1,8 @@
+instance (Monad f, Applicative f,
+          Monad g, Traversable g) => Monad (Compose f g) where
+  return x = Compose $ return (return x)
+  Compose m >>= f = Compose $ do
+      m' <- m
+      let x = fmap (getCompose . f) m'
+      m'' <- sequenceA x
+      return $ join m''

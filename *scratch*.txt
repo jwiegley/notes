@@ -1,0 +1,13 @@
+1. curl https://nixos.org/nix/install | sh
+
+2. cd ~/src
+
+3. git clone git://github.com/joelteon/nixpkgs
+
+4. nix-channel --remove nixpkgs
+
+5. cd ~/.nix-defexpr; rm -fr; ln -s ~/src/nixpkgs .
+
+6. export NIX_PATH=$HOME/src:nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs
+
+7. nix-env -i nix

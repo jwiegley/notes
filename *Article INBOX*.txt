@@ -1,0 +1,16 @@
+    {-# LANGUAGE OverloadedStrings #-}
+
+    import Control.Monad (void)
+    import Control.Applicative
+    import Data.Attoparsec.Text
+    import Pipes.Attoparsec (parsed)
+    import qualified Pipes.Prelude as Pipes
+    import Pipes.Text.IO (fromHandle)
+    import System.IO
+
+    match :: Parser Bool
+    match = ("> " *> pure True <|> pure False)
+        <*  skipWhile (not . isEndOfLine) <* endOfLine
+
+    main = withFile "example.txt" ReadMode $ \h ->
+        Pipes.or (void (parsed match (fromHandle h)))

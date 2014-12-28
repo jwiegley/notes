@@ -1,0 +1,29 @@
+building unit-tests
+/nix/store/jk6130sfnnpnpd22bai77acbk93lmlm3-clang-wrapper-3.5.0/bin/clang  -g -O2   -o unit-tests  ../src/libunittest.a ../lib/libgnu.a -lnettle -lgnutls -lz  -lidn -lnettle -lgnutls -lz  -lidn
+Undefined symbols for architecture x86_64:
+  "_iconv", referenced from:
+      _do_conversion in libunittest.a(libunittest_a-iri.o)
+  "_iconv_close", referenced from:
+      _do_conversion in libunittest.a(libunittest_a-iri.o)
+  "_iconv_open", referenced from:
+      _do_conversion in libunittest.a(libunittest_a-iri.o)
+  "_libintl_bindtextdomain", referenced from:
+      _main in libunittest.a(libunittest_a-test.o)
+  "_libintl_gettext", referenced from:
+      _url_error in libunittest.a(libunittest_a-url.o)
+      _wgetrc_env_file_name in libunittest.a(libunittest_a-init.o)
+      _run_wgetrc in libunittest.a(libunittest_a-init.o)
+      _initialize in libunittest.a(libunittest_a-init.o)
+      _run_command in libunittest.a(libunittest_a-init.o)
+      _cmd_spec_restrict_file_names in libunittest.a(libunittest_a-init.o)
+      _cmd_boolean in libunittest.a(libunittest_a-init.o)
+      ...
+  "_libintl_ngettext", referenced from:
+      _print_broken_links in libunittest.a(libunittest_a-spider.o)
+      _warc_init in libunittest.a(libunittest_a-warc.o)
+  "_libintl_setlocale", referenced from:
+      _main in libunittest.a(libunittest_a-test.o)
+      _http_atotm in libunittest.a(libunittest_a-http.o)
+  "_libintl_textdomain", referenced from:
+      _main in libunittest.a(libunittest_a-test.o)
+ld: symbol(s) not found for architecture x86_64

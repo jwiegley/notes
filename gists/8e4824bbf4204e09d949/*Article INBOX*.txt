@@ -1,0 +1,11 @@
+Here are
+a few lines from the instructors version of the SF book that gives more
+context:
+
+    ===> PLEASE DO NOT DISTRIBUTE THE SOLUTIONS PUBLICLY <===
+
+    ... we ask that these be distributed only locally -- on paper, on a
+    password-protected webpage, etc. We've found that, if solutions
+    are too easily available, the temptation for students to peek at
+    them becomes irresistable, so we want to keep them from getting
+    into the wild as much as possible.

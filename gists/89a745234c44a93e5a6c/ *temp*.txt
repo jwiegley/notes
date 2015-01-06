@@ -1,0 +1,40 @@
+libtool: link: /nix/store/jk6130sfnnpnpd22bai77acbk93lmlm3-clang-wrapper-3.5.0/bin/clang -Wall -Wmissing-prototypes -Wpointer-arith -Wbad-function-cast -Wmissing-declarations -Wnested-externs -DINET6 -g -O2 -o .libs/asn1_gen asn1_gen.o  ./.libs/libasn1base.a ../../lib/vers/.libs/libvers.a ../../lib/roken/.libs/libroken.dylib -lresolv
+building install-build-headers
+ cp ./der.h ../../include/der.h
+ cp ./heim_asn1.h ../../include/heim_asn1.h
+ cp ./der-protos.h ../../include/der-protos.h
+ cp ./der-private.h ../../include/der-private.h
+ cp ./asn1-common.h ../../include/asn1-common.h
+ cp ./asn1_err.h ../../include/asn1_err.h
+ cp ./krb5_asn1.h ../../include/krb5_asn1.h
+ cp ./pkinit_asn1.h ../../include/pkinit_asn1.h
+ cp ./cms_asn1.h ../../include/cms_asn1.h
+ cp ./rfc2459_asn1.h ../../include/rfc2459_asn1.h
+ cp ./pkcs8_asn1.h ../../include/pkcs8_asn1.h
+ cp ./pkcs9_asn1.h ../../include/pkcs9_asn1.h
+ cp ./pkcs12_asn1.h ../../include/pkcs12_asn1.h
+ cp ./digest_asn1.h ../../include/digest_asn1.h
+ cp ./kx509_asn1.h ../../include/kx509_asn1.h
+ cp ./asn1-template.h ../../include/asn1-template.h
+make[3]: Leaving directory `/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-heimdal-1.5.3.drv-0/heimdal-1.5.3/lib/asn1'
+make[2]: Leaving directory `/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-heimdal-1.5.3.drv-0/heimdal-1.5.3/lib/asn1'
+Making all in ipc
+make[2]: Entering directory `/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-heimdal-1.5.3.drv-0/heimdal-1.5.3/lib/ipc'
+building heim_ipc.h
+mig -header heim_ipc.h -user heim_ipcUser.c -sheader heim_ipcServer.h -server heim_ipcServer.c -I. ./heim_ipc.defs
+/nix/store/9dfz6yphqy95ncy36cz2myjs84rny8ji-bash-4.3-p30/bin/bash: mig: command not found
+make[2]: *** [heim_ipc.h] Error 127
+make[2]: Leaving directory `/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-heimdal-1.5.3.drv-0/heimdal-1.5.3/lib/ipc'
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-heimdal-1.5.3.drv-0/heimdal-1.5.3/lib'
+make: *** [all-recursive] Error 1
+builder for ‘/nix/store/qh1hjwnhq189wkgza0127hn9fai4pq98-heimdal-1.5.3.drv’ failed with exit code 2
+cannot build derivation ‘/nix/store/77p1qgb3b0gi0dmcf4y30i92ahj0x2gb-cyrus-sasl-2.1.26.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/vq8ib3mkp0sp3qibcr6p8j15f85l5r07-serf-1.3.7.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/s11b52fppxnsv4qapa8g0mkvbk8zpr2n-mutt-1.5.23.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/3jqwby2zm41ny8n3vbjsf3nyyp3vsz6v-openldap-2.4.40.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/8azl0b34swpxm55ww494mn41d9cq9mjv-php-5.4.35.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/2yhia5a2scch4j451jb79yq18zh0y1mc-subversion-1.8.11.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/34jif3rm1y8zw88v734wcchcbh6wk13n-subversion-1.8.11.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/yhi5i2gq1rfhi054qlis491xg1y0b9db-arcanist-20140924.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/pjmyv1iirli1p5yyw4nkzmipsykd71q5-buildTools.drv’: 1 dependencies couldn't be built

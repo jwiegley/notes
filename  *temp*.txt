@@ -1,0 +1,18 @@
+Inductive BlockList : seq BlockData -> Prop :=
+  | BlockList_firstBlock b : startsAtOne b -> BlockList [:: b]
+  | BlockList_nextBlock b bs :
+      BlockList bs
+        -> let f op :=
+               if opCount bs == 0
+               then opId op == 1
+               else let isNext nop := opId op == (opId nop).+2 in
+                    lastOpPred isNext bs in
+           firstOpPred f [:: b]
+        -> BlockList (b :: bs).
+
+Definition mapBlockOps
+  (f : forall op : OpData opType,
+         { op' : OpData opType | opId op' == opId op })
+  `(xs : BlockList bs) : { bs' : seq BlockData | BlockList bs' }.
+Proof.
+  inversion xs.

@@ -1,0 +1,143 @@
+\documentclass{llncs}
+
+\usepackage{makeidx}  % allows for indexgeneration
+\usepackage[usenames,dvipsnames]{color}
+
+
+\newif\ifdraft\draftfalse  % draft = comments and half-baked bits
+% \newif\ifdraft\drafttrue  % draft = comments and half-baked bits
+
+% Comments
+\newcommand{\comment}[3]{\ifdraft\textcolor{#1}{[#2: #3]}\else\fi}
+\newcommand{\fixme}[1]{\comment{red}{FIXME}{#1}}
+\newcommand{\todo}[1]{\comment{red}{TO DO}{#1}}
+\newcommand{\gts}[1]{\comment{OliveGreen}{GTS}{#1}}
+
+% should be the last one
+\usepackage[%
+    %pdftex,%
+    %pdfpagelabels,%
+    %bookmarks=true,%
+    % pdfdisplaydoctitle=true,%
+    % pdflang=en-us,%
+    % pdfencoding=auto,%
+    % bookmarksnumbered=true,%
+]{hyperref}
+
+% % s/coq_eval/coqeval/
+% \excludecomment{coqeval}
+% % s/coq_example*/coqexamle/
+% % \excludecomment{coqexample}
+% \newenvironment{coqexample}%
+%    {\endgraf\noindent %
+%     \endgraf\verbatim}%
+%    {\endverbatim}
+
+\begin{document}
+
+\frontmatter          % for the preliminaries
+
+\pagestyle{headings}  % switches on printing of running heads
+
+\mainmatter
+
+\title{Register allocator requirements}
+
+\author{John Wiegley \and Gregory Sullivan}
+
+\institute{BAE Systems, Burlington MA 01803, USA}
+
+\maketitle
+
+\section{Register Allocation Algorithm and Correctness Properties}
+\label{sec:alg}
+
+The algorithm we implemented is fully documented in the original
+paper\cite{Wimmer:2005}.  We extend that documentation by presenting several
+requirements that were implicit in their presentation, but became necessarily
+explicit in the Coq formalization.  Each requirement stated below was encoded
+in either a type or a lemma, and proven during the course of development.
+
+\subsection{Use positions}
+\label{sec:usepos}
+
+When code is linearized for the purpose of register allocation, each position
+where a variable is used is termed a \emph{use position}.  There is also a
+boolean flag to indicate whether a register is required at this use position
+or not.
+
+\paragraph{Requirements}
+
+\begin{itemize}
+\item All use positions must be given odd addresses, so that ranges do not
+  extend to the next use position.
+\end{itemize}
+
+\subsection{Ranges}
+\label{sec:ranges}
+
+A list of use positions constitutes a range, from the beginning use position,
+to one beyond the last.  A range may also be extended so that its beginning
+and end fall outside its list of use positions.  This is done in order to
+provide explicit coverage of loop bodies, to avoid reloading registers each
+time the loop body is executed.
+
+\paragraph{Requirements}
+
+\begin{itemize}
+\item The list of use positions is ordered with respect to location.
+\item The list of use positions is unique with respect to location (no
+  recurring use positions).
+\item The beginning of a range is $\le$ its first use position location.
+\item The end of a range is $>$ its last use position location.
+\end{itemize}
+
+\subsection{Intervals}
+\label{sec:intervals}
+
+An ordered list of ranges constitutes an \emph{interval}.  In the majority of
+scenarios, intervals are equivalent to ranges, since only a single range is
+used.  However, adding the concept of intervals allows for \emph{lifetime
+  holes} between component ranges, that are otherwise allocated to the same
+register.
+
+\paragraph{Requirements}
+
+\begin{itemize}
+\item The list of ranges is ordered by the first use position in each range.
+\item The list of ranges is non-overlapping.
+\item The beginning of the interval corresponds to the beginning of its first
+  range.
+\item The end of the interval corresponds to the end of its last range.
+\end{itemize}
+
+\subsection{Scan state}
+\label{sec:scanstate}
+
+During the course of the algorithm, a position counter is iterated from the
+first code position to the last.  Six separate details are managed using a
+collection of lists:
+
+\begin{enumerate}
+\item A list of yet to be allocated intervals (unhandled intervals).
+\item A list of active intervals (those covering the current position, and
+  presently allocated).
+\item A list of inactive intervals (those having a lifetime hole covering the
+  current position).
+\item A list of handled intervals.
+\item A mapping from registers to active/inactive/handled intervals.
+\item A mapping from intervals (those not unhandled) to registers.
+\end{enumerate}
+
+\paragraph{Requirements}
+
+\begin{itemize}
+\item The list of unhandled intervals is ordered by start positions.
+\item The first 4 lists, taken as a set, must contain no recurring
+  intervals, and have no overlapping intervals.
+\item All register indices must be $<$ the maximum register index.
+\item The number of intervals in the active list be $<$ the maximum register
+  index.
+\end{itemize}
+
+\end{document}

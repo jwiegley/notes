@@ -1,0 +1,28 @@
+--- a/pkgs/development/haskell-modules/default.nix
++++ b/pkgs/development/haskell-modules/default.nix
+@@ -16,9 +16,9 @@ let
+     let
+ 
+       mkDerivation = pkgs.callPackage ./generic-builder.nix {
+-        inherit stdenv ghc;
++        inherit stdenv;
+         inherit (pkgs) fetchurl pkgconfig glibcLocales coreutils gnugrep gnused;
+-        inherit (self) jailbreak-cabal;
++        inherit (self) ghc jailbreak-cabal;
+         hscolour = overrideCabal self.hscolour (drv: {
+           isLibrary = false;
+           noHaddock = true;
+@@ -41,10 +41,12 @@ let
+     in
+       import ./hackage-packages.nix { inherit pkgs stdenv callPackage; } self // {
+ 
+-        inherit ghc mkDerivation callPackage;
++        inherit mkDerivation callPackage;
+ 
+         ghcWithPackages = pkgs: callPackage ./with-packages-wrapper.nix { packages = pkgs self; };
+ 
++        ghc = ghc // { withPackages = self.ghcWithPackages; };
++
+       };
+ 
+   compatLayer = if provideOldAttributeNames then import ./compat-layer.nix else (self: super: {});

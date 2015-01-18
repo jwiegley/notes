@@ -1,0 +1,5 @@
+Host www.haskell.org mail.haskell.org
+  User root
+  HostName  23.253.242.70
+  IdentityFile ~/.ssh/id_haskell 
+  Compression yes

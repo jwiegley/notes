@@ -3,7 +3,6 @@
 
 module Skolem where
 
-import Control.Applicative
 import Data.Functor.Identity
 
 newtype Foo s a = Foo { getFoo :: Identity a } deriving Monad

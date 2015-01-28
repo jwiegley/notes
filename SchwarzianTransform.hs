@@ -22,3 +22,5 @@ main = do
     (print =<<) $ (try :: IO a -> IO (Either SomeException a)) $ return $
         sortByKey' length [trace "1" [] :: [Int], trace "2" undefined, trace "3" []]
     putStrLn $ "main SchwarzianTransform.hs:24.."
+
+foo = foldr (\x rest -> x : dropWhile (== x) rest) [] [1,2,2,2,3,3,4]

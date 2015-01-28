@@ -1,27 +1,31 @@
 {-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
 module Skolem where
 
-import Data.Functor.Identity
+newtype Scope s a = Scope a
 
-newtype Foo s a = Foo { getFoo :: Identity a } deriving Monad
+instance Functor (Scope s) where
+    fmap f (Scope x) = Scope (f x)
 
-runFoo :: (forall s. Foo s a) -> a
-runFoo (Foo f) = runIdentity f
+instance Monad (Scope s) where
+    return = Scope
+    Scope m >>= f = f m
 
-data Handle s = Handle { getHandle :: Int }
+data Var s a = Var { getVar :: a } deriving Show
 
-makeHandle :: Int -> Foo s (Handle s)
-makeHandle = return . Handle
+runScope :: (forall s. Scope s a) -> a
+runScope (Scope x) = x
 
-readHandle :: Handle s -> Foo s Int
-readHandle = return . getHandle
+makeVar :: Int -> Scope s (Var s Int)
+makeVar = Scope . Var
+
+readVar :: Var s Int -> Scope s Int
+readVar = Scope . getVar
 
 main :: IO ()
 main = do
-    -- first block
-    let x = runFoo $ makeHandle 100
-    -- second block
-    let y = runFoo $ readHandle x
-    print y
+    print $ runScope $ do
+        x <- makeVar 100
+        readVar x
+    let x = runScope $ makeVar 100 :: Var s Int
+    print (getVar x)

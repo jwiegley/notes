@@ -1,0 +1,6 @@
+ghc: panic! (the 'impossible' happened)
+  (GHC version 7.6.3 for x86_64-apple-darwin):
+	cgLookupPanic (probably invalid Core; try -dcore-lint)
+    ww_s1m0M{v} [lid]
+    static binds for:
+    local binds for:

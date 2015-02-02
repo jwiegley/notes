@@ -1,0 +1,5 @@
+git init
+echo hello > world
+git add -A .
+git commit -m "Initial commit" --cleanup=verbatim
+git cat-file -p $(git rev-parse HEAD)

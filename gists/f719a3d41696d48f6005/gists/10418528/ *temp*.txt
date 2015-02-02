@@ -1,0 +1,21 @@
+Hermes:~/src/hours master [100] $ nix-env -i hours
+installing `hours-1.4.1'
+these derivations will be built:
+  /nix/store/zjvfg3jrwbiqflyd5l22xf0ppv14cpyd-hours-1.4.1.drv
+building path(s) `/nix/store/4dkan4djngmmz6a984x6gw1wmpzb8n15-hours-1.4.1'
+building /nix/store/4dkan4djngmmz6a984x6gw1wmpzb8n15-hours-1.4.1
+unpacking sources
+unpacking source archive /nix/store/rvjia240w9pd5f1rf5sk0qpmcfmrmbxx-hours
+source root is hours
+patching sources
+configuring
+[1 of 1] Compiling Main             ( Setup.hs, Setup.o )
+Linking Setup ...
+configure flags: --disable-split-objs --disable-library-profiling --disable-shared --enable-library-vanilla --disable-executable-dynamic --enable-tests 
+Configuring hours-1.4.1...
+Setup: At least the following dependencies are missing:
+time-recurrence >=0.9.1, timeparsers >=0.3.2
+building
+Setup: Run the 'configure' command first.
+builder for `/nix/store/zjvfg3jrwbiqflyd5l22xf0ppv14cpyd-hours-1.4.1.drv' failed with exit code 1
+error: build of `/nix/store/zjvfg3jrwbiqflyd5l22xf0ppv14cpyd-hours-1.4.1.drv' failed

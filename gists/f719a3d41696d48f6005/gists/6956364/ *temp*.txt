@@ -1,0 +1,5 @@
+lemma-+drop : ∀ n m o → o + n ≡ o + m → n ≡ m
+lemma-+drop .m m zero refl = refl
+lemma-+drop .m m (suc zero) refl = refl
+lemma-+drop zero m (suc (suc o)) ()
+lemma-+drop (suc n) m (suc (suc o)) ()

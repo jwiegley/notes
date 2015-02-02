@@ -1,0 +1,34 @@
+diff --git a/Main.hs b/Main.hs
+index d1c7295..12bc6b1 100755
+--- a/Main.hs
++++ b/Main.hs
+@@ -4,6 +4,7 @@ module Main where
+ 
+ import           Control.Lens
+ import           Control.Monad
++import           Control.Monad.Trans.Reader
+ import qualified Data.Attoparsec.ByteString as Atto
+ import qualified Data.ByteString.Char8 as B
+ import           Data.List
+@@ -127,15 +128,14 @@ options = Options
+                    <> value "")
+ 
+     <*> strOption (long "archive" <> help "Archival timelog" <> value "")
+-    <*> option (long "gratis" <> help "Hours given free each month" <> value 0)
++    <*> option auto (long "gratis" <> help "Hours given free each month" <> value 0)
+ 
+-    <*> option (long "moment" <> help "Set notion of the current moment"
++    <*> option
++          (ReadM $ asks $ fromJust . Atto.maybeResult .
++               Time.parseWithDefaultOptions Time.defaultLocalTime . B.pack)
++          (long "moment" <> help "Set notion of the current moment"
+            <> value (unsafePerformIO $
+-                          (zonedTimeToLocalTime <$>) getZonedTime)
+-                <> reader (ReadM . Right . fromJust .
+-                           Atto.maybeResult .
+-                           Time.parseWithDefaultOptions Time.defaultLocalTime .
+-                           B.pack))
++                     (zonedTimeToLocalTime <$>) getZonedTime))
+ 
+ main :: IO ()
+ main = execParser opts >>= doMain

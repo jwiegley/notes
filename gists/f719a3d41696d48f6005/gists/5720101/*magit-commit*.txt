@@ -1,0 +1,31 @@
+commit 3717ea7b32e303d220b9fb1d650b9be5a55cdeff (HEAD, refs/heads/master)
+Author: John Wiegley <johnw@fpcomplete.com>
+Date:   Thu Jun 6 03:21:03 2013 -0500
+
+    Added checkoutRef function for chrisdone
+
+	Modified   learning-site/Import/Project.hs
+diff --git a/learning-site/Import/Project.hs b/learning-site/Import/Project.hs
+index f4f4ccd..4800072 100644
+--- a/learning-site/Import/Project.hs
++++ b/learning-site/Import/Project.hs
+@@ -444,6 +444,17 @@ withTempRepo f =
+         Lg.closeLgRepository
+         (flip Lg.runLgRepository f)
+ 
++checkoutRef :: Entity Project
++            -> Text -- ^ reference name
++            -> Handler ()
++checkoutRef projent@(Entity pid Project {..}) rname = runDB $ do
++    mref <- do
++        Entity repoid _ <- getProjectRepo pid
++        getBy $ UniqueGitRef repoid rname
++    case mref of
++        Nothing  -> fail $ "Reference " ++ show rname ++ " not found"
++        Just ref -> resetProject projent $ gitRefCommit (entityVal ref)
++
+ -- | Resets the project to the given commit.
+ resetProject :: Entity Project
+              -> CommitSHA
+
+[back] 

@@ -1,0 +1,5 @@
+~/src/ledger $ ledger -f /tmp/bug.dat -V bal broker
+             $300.00  Assets:Brokerage
+            $-100.00  Equity:Unrealized Gains
+--------------------
+             $200.00

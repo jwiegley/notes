@@ -1,0 +1,37 @@
+define rfile() {
+  file { $title:
+    source => "puppet://puppet/vps$name",
+    ensure  => present
+  }
+}
+
+class rsnapshot {
+  package { rsnapshot: ensure => installed }
+
+  rfile { "/etc/rsnapshot.conf": }
+
+  cron { "rsnapshot-daily":
+    command => "/usr/bin/rsnapshot-wrapper -c /etc/rsnapshot.conf daily > /dev/null",
+    user => "root",
+    hour => "23",
+    minute => "50",
+    require => Rfile["/etc/rsnapshot.conf"],
+  }
+  cron { "rsnapshot-weekly":
+    command => "/usr/bin/rsnapshot -c /etc/rsnapshot.conf weekly",
+    user => "root",
+    hour => "23",
+    minute => "35",
+    weekday => "saturday",
+    require => Rfile["/etc/rsnapshot.conf"],
+  }
+  cron { "rsnapshot-monthly":
+    command => "/usr/bin/rsnapshot -c /etc/rsnapshot.conf monthly",
+    user => "root",
+    hour => "23",
+    minute => "20",
+    monthday => "1",
+    require => Rfile["/etc/rsnapshot.conf"],
+  }
+}
+

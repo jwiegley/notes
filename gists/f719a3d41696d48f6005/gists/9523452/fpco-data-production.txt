@@ -1,0 +1,13 @@
+FAILED to fsck Key {unKey = PersistInt64 4189}: 
+Ran commands: 
+git --git-dir /var/folders/d9/7m3349ms1zd9pn01b4m5jtmr0000gn/T/check.33905/.git --work-tree /var/folders/d9/7m3349ms1zd9pn01b4m5jtmr0000gn/T/check.33905 update-ref refs/heads/master c4273311693699bde2dc136b100fb1cd229187ad
+git --git-dir /var/folders/d9/7m3349ms1zd9pn01b4m5jtmr0000gn/T/check.33905/.git --work-tree /var/folders/d9/7m3349ms1zd9pn01b4m5jtmr0000gn/T/check.33905 symbolic-ref HEAD refs/heads/master
+git --git-dir /var/folders/d9/7m3349ms1zd9pn01b4m5jtmr0000gn/T/check.33905/.git --work-tree /var/folders/d9/7m3349ms1zd9pn01b4m5jtmr0000gn/T/check.33905 reset --hard c4273311693699bde2dc136b100fb1cd229187ad
+git --git-dir /var/folders/d9/7m3349ms1zd9pn01b4m5jtmr0000gn/T/check.33905/.git --work-tree /var/folders/d9/7m3349ms1zd9pn01b4m5jtmr0000gn/T/check.33905 fsck --full
+
+Exception: error running: git --git-dir /var/folders/d9/7m3349ms1zd9pn01b4m5jtmr0000gn/T/check.33905/.git --work-tree /var/folders/d9/7m3349ms1zd9pn01b4m5jtmr0000gn/T/check.33905 fsck --full
+exit status: 128
+stderr: error: unable to parse c5fa78456dbde5c0ffa05377925131501c0c794d header
+error: corrupt loose object 'c5fa78456dbde5c0ffa05377925131501c0c794d'
+fatal: loose object c5fa78456dbde5c0ffa05377925131501c0c794d (stored in /var/folders/d9/7m3349ms1zd9pn01b4m5jtmr0000gn/T/check.33905/.git/objects/c5/fa78456dbde5c0ffa05377925131501c0c794d) is corrupt
+

@@ -1,0 +1,5 @@
+sudo apt-get install build-essential libtool autoconf automake   \
+     texinfo python-dev zlib1g-dev libbz2-dev stow libgmp3-dev   \
+     bjam libboost1.35-dev libboost-regex1.35-dev                \
+     libboost-date-time1.35-dev libboost-filesystem1.35-dev
+

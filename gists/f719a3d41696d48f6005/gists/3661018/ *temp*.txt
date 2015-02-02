@@ -1,0 +1,39 @@
+VERALL SUMMARY for test run started at Thu Sep  6 14:54:28 CDT 2012
+    3402 total tests, which gave rise to
+   16613 test cases, of which
+       0 caused framework failures
+    3554 were skipped
+
+   12513 expected passes
+     367 had missing libraries
+     133 expected failures
+       0 unexpected passes
+      46 unexpected failures
+
+Unexpected failures:
+   ../../libraries/base/tests/Concurrent  ThreadDelay001 [bad stdout or stderr] (ghci)
+   ../../libraries/base/tests/IO          hGetBuf001 [bad exit code] (ghci)
+   ../../libraries/process/tests          1780 [bad exit code] (ghci)
+   ../../libraries/process/tests          process005 [bad exit code] (ghci)
+   ../../libraries/unix/tests             signals002 [bad exit code] (ghci)
+   ../../libraries/unix/tests             signals004 [bad exit code] (ghci,threaded1,threaded2,profthreaded)
+   ../../libraries/unix/tests/libposix    posix002 [bad stdout] (normal,hpc,optasm,threaded1,threaded2,dyn,optllvm)
+   ../../libraries/unix/tests/libposix    posix002 [bad stdout or stderr] (ghci)
+   codeGen/should_run                     cgrun071 [bad exit code] (normal,hpc,optasm,profasm,ghci,threaded1,threaded2,dyn,profthreaded,g1)
+   concurrent/should_run                  async001 [bad stdout or stderr] (ghci)
+   concurrent/should_run                  conc058 [bad stdout or stderr] (ghci)
+   concurrent/should_run                  conc070 [bad stdout or stderr] (ghci)
+   concurrent/should_run                  foreignInterruptible [bad exit code] (ghci)
+   driver/objc                            objc-hi [bad profile] (profthreaded)
+   driver/objc                            objc-hi [bad heap profile] (profasm)
+   driver/objc                            objcpp-hi [bad profile] (profthreaded)
+   driver/objc                            objcpp-hi [bad heap profile] (profasm)
+   ghci/should_run                        3171 [bad stdout] (normal)
+   perf/compiler                          T4801 [stat too good] (normal)
+   perf/compiler                          T6048 [stat not good enough] (optasm)
+   perf/compiler                          T783 [stat not good enough] (normal)
+   perf/haddock                           haddock.Cabal [stat not good enough] (normal)
+   perf/haddock                           haddock.base [stat not good enough] (normal)
+   perf/haddock                           haddock.compiler [stat not good enough] (normal)
+   rts                                    derefnull [bad profile] (profasm,profthreaded)
+   rts                                    divbyzero [bad profile] (profasm,profthreaded)

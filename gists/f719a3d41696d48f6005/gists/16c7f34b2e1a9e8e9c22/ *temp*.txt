@@ -1,0 +1,29 @@
+28 matches for "build.*failed" in buffer: build.log
+   1130:builder for ‘/nix/store/8j7barm20hwssji3dnzxi4byz3217qbj-unarj-2.63a.drv’ failed with exit code 2
+   1146:builder for ‘/nix/store/aq2fs9b3c8d6ci8rzfijy6mrbibd9ydc-figlet-2.2.5.drv’ failed with exit code 2
+   1574:builder for ‘/nix/store/n186l734pnk6qrp06gjass6c7jhzykyd-dar-2.4.11.drv’ failed with exit code 2
+   5689:builder for ‘/nix/store/xlr40frppyc9z8a97pv9l7vv1svzrgvy-gdb-7.8.drv’ failed with exit code 2
+   5913:builder for ‘/nix/store/lpzjmjh23a222aq5rss1ld0qy2x4z8rz-iperf-3.0.8.drv’ failed with exit code 2
+   6003:builder for ‘/nix/store/ifqcg73rh618vqw1pm9r82nvq6fl62zh-rustc-0.12.0.drv’ failed with exit code 1
+  85941:builder for ‘/nix/store/v0lcyzg3g8f3ma2qkqv0d95kywk4nqvr-sbcl-1.2.3.drv’ failed with exit code 137
+  87548:builder for ‘/nix/store/5jnvl51czi76z2ikhx3fcmglbscrzcqm-haskell-lens-ghc7.8.3-4.4.0.2-profiling-shared.drv’ failed with exit code 1
+  87906:builder for ‘/nix/store/hxan7pzzslv8dfgkd7nsw865pzsmig3g-haskell-compdata-ghc7.8.3-0.9-profiling-shared.drv’ failed with exit code 1
+  88481:builder for ‘/nix/store/hs4vg7aakx71alp60k08738p0x4ni0y7-nix-1.7.drv’ failed with exit code 2
+  88492:builder for ‘/nix/store/3zvnm600sgi9a344r7h9lyxlpdfzr8v5-emacs-r73.drv’ failed with exit code 1
+  88506:builder for ‘/nix/store/29v9f2wn6r324f0s208k01mymrgn618n-tlc-v3.1-r240.drv’ failed with exit code 1
+  89324:builder for ‘/nix/store/dk5vmhlrj4zkbkx0qp0pdhnr8c0v7zqh-clucene-core-2.3.3.4.drv’ failed with exit code 2
+ 120660:builder for ‘/nix/store/1zcch7l947ngmiidd8cr2qavkd40c47g-gcc-4.8.3.drv’ failed with exit code 2
+ 120890:builder for ‘/nix/store/n11wa0ffywfqqrhi4z2l9ml9mpyw9vld-xdm-1.1.11.drv’ failed with exit code 1
+ 124071:builder for ‘/nix/store/p83hhi5s00w6ycdppg2vpc4wl4l34xhf-xorg-server-1.14.6.drv’ failed with exit code 1
+ 124081:builder for ‘/nix/store/q83gyjdv76jv35izxapkhga4vv6813j4-libtiff-r198247.drv’ failed with exit code 1
+ 124131:builder for ‘/nix/store/g62ysqzgc3rk3r2v4rym7yd09dzfnm8n-ctags-r804.drv’ failed with exit code 1
+ 124215:builder for ‘/nix/store/i7d9m28gq3sz3a0qd9m45n8y7vdvkcnr-haskell-gnuidn-ghc7.8.3-0.2.1-shared.drv’ failed with exit code 1
+ 125599:builder for ‘/nix/store/413iaaw625rv17gwsh8l980vn23cfmah-linux-pam-1.1.8.drv’ failed with exit code 2
+ 125619:builder for ‘/nix/store/f9b2jm6q7zyqs5230di6aymvkhgclfgm-ghc-7.0.4-binary.drv’ failed with exit code 1
+ 136936:builder for ‘/nix/store/88lc45wcl8is9v9dcm79h3nrazf9if0m-haskell-units-ghc7.8.3-2.1-profiling-shared.drv’ failed with exit code 1
+ 143640:builder for ‘/nix/store/rkngc8gbiazm0rikzqj8f9avlr2ls49g-haskell-aeson-ghc7.8.3-0.8.0.2-profiling-shared.drv’ failed with exit code 1
+ 143824:builder for ‘/nix/store/wxsnkn69fbnsvf2s6nxmvyjcgsdfm3kz-haskell-parsers-ghc7.8.3-0.12.1.1-profiling-shared.drv’ failed with exit code 1
+ 144290:builder for ‘/nix/store/wqa5591dp5ah205hv88dsc3krc01ba67-fetchdarcs.drv’ failed with exit code 2
+ 144308:builder for ‘/nix/store/ddpy71cbrlq4v7290iv2iwlf49pccxwk-fetchdarcs.drv’ failed with exit code 2
+ 163376:builder for ‘/nix/store/v1md3b8v29ad28lydprylm2dqh2rfh0x-bup-0.25-rc1-107-96c6fa2.drv’ failed with exit code 1
+ 165271:error: build of ‘/nix/store/366nmqra54wvqz0jfhajrn98bwby8r1j-systemTools.drv’, ‘/nix/store/3wn0gzmdkrw86lix69pa9vqjd5fkjmjm-mailTools.drv’, ‘/nix/store/4l1ps7ij4pl8cwr6fjqqai0akya6g905-env-coqHEAD.drv’, ‘/nix/store/6w14zs5m9gsjxr7ckrhh9b3jnz36x68q-env-ghc783.drv’, ‘/nix/store/g143x2a02c8v8mnxwdvjfpci701j60hw-emacsTools.drv’, ‘/nix/store/h76wrcwddpr418wpan5fqb4lmjs2zqc2-gitTools.drv’, ‘/nix/store/jcgndcfncqpw9h66aqs7nsidqir2p6kd-buildTools.drv’, ‘/nix/store/kh0mg1dcjb9sh2rp640l4h0m88ap3hr3-env-ghc763.drv’, ‘/nix/store/li2qywhjznbfqinnm214m5ngvld9d7z1-env-ghc763-prof.drv’, ‘/nix/store/lr12f36z5h8wyz0nvdzlh9pnfwqil5rw-env-ghc783-prof.drv’, ‘/nix/store/m4d816x38g8qjjyzcj7pfvjz89d3cmis-publishTools.drv’, ‘/nix/store/mx86rzzgfd377b09wsdl02x5fz1sy02r-nix-repl-1.7-1734e8a.drv’, ‘/nix/store/pl7rll26mv5gpybfavwjl7pa7f884s2v-networkTools.drv’, ‘/nix/store/qqyq0icxylibf108297cjj1wr1y88qxy-coqTools.drv’, ‘/nix/store/sbqkrgxdnsv2yjxv5zv44bqnshdbi4pf-xquartz.drv’, ‘/nix/store/sq1kxxf39p3w7br5kz98c7m3v0z6vpd5-langTools.drv’ failed

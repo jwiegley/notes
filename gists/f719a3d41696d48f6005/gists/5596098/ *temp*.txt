@@ -1,0 +1,44 @@
+Test suite smoke: RUNNING...
+
+gitlib-fpco push tests
+To file://localhost/Volumes/Data/Home/Contracts/FPComplete/Projects/fpco/gitlib-fpco/fromXtoEmptyY_Trg.git
+ * [new branch]      master -> master
+  - push from repo X to empty Git repo Y
+Everything up-to-date
+  - push from repo X to matching repo Y
+To file://localhost/Volumes/Data/Home/Contracts/FPComplete/Projects/fpco/gitlib-fpco/fromXtoBehindY_Trg.git
+   19b58fd..89659ab  master -> master
+  - push from repo X to behind repo Y
+To file://localhost/Volumes/Data/Home/Contracts/FPComplete/Projects/fpco/gitlib-fpco/fromXtoAheadY_Trg.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'file://localhost/Volumes/Data/Home/Contracts/FPComplete/Projects/fpco/gitlib-fpco/fromXtoAheadY_Trg.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first merge the remote changes (e.g.,
+hint: 'git pull') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+  - push from repo X to ahead repo Y
+
+gitlib-fpco pull tests
+  - pull from repo X to empty Git repo Y
+  - pull from repo X to matching repo Y
+  - pull from repo X to behind repo Y, fast-forward
+  - pull from repo X to ahead repo Y, auto merge FAILED [1]
+  - pull from repo X to ahead repo Y, manual merge FAILED [2]
+  - covers all merge conflict cases FAILED [3]
+
+fpco specific tests
+  - clones repositories from GitHub to Libgit2
+
+1) gitlib-fpco pull tests pull from repo X to ahead repo Y, auto merge FAILED (uncaught exception)
+GitException (BackendError "Reference missing: MERGE_HEAD")
+
+2) gitlib-fpco pull tests pull from repo X to ahead repo Y, manual merge FAILED (uncaught exception)
+GitException (BackendError "Reference missing: MERGE_HEAD")
+
+3) gitlib-fpco pull tests covers all merge conflict cases FAILED (uncaught exception)
+GitException (BackendError "Reference missing: MERGE_HEAD")
+
+Finished in 4.5994 seconds
+11 examples, 3 failures
+Test suite smoke: FAIL

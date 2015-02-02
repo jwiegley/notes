@@ -1,0 +1,3 @@
+23:14:39 hermes:~/src/nixpkgs $ nix-env -Q -j8 -k -u --leq --show-traceerror: while evaluating `override' at /Users/johnw/src/nixpkgs/lib/customisation.nix:61:22, called from /Users/johnw/src/nixpkgs/pkgs/top-level/all-packages.nix:5678:12:
+while evaluating `makeOverridable' at /Users/johnw/src/nixpkgs/lib/customisation.nix:56:24, called from /Users/johnw/src/nixpkgs/lib/customisation.nix:62:13:
+anonymous function at /Users/johnw/src/nixpkgs/pkgs/development/libraries/mesa-darwin/default.nix:1:1 called with unexpected argument `grsecEnabled', at /Users/johnw/src/nixpkgs/lib/customisation.nix:58:12

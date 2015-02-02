@@ -1,0 +1,5 @@
+            eres <- liftBaseWith $ \run -> try $ run $ errors 7 0
+            case eres of
+                Left _ -> return ()
+                Right errs -> do
+                    errs' <- restoreM errs

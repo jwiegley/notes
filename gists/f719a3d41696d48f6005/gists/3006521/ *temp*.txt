@@ -1,0 +1,33 @@
+I see this:
+
+<forcer> ruediger: Why do you have a | there?
+<johnw> i.e., i want all message text to start in the screen column     [15:06]
+<ruediger> forcer: right no |
+<johnw> same screen column
+<bpalmer`> bitonic: you're more than doubling the amount of memory the buffer
+           consumes.
+<yates`> ruediger: oh? wow.
+<ruediger> yates`: find . -regex ".*\\.[ch]\\(++\\)"
+<cluck> johnw: erc-speedbar-browser ?
+<yates`> yes, i heard you the first time
+<johnw> no, not channel users
+<ruediger> bpalmer`: I use .h++ and .c++ but regex should interpret ++ as any
+           character
+<johnw> let me show you
+
+I want to see this:
+
+forcer    ruediger: Why do you have a | there?
+johnw     i.e., i want all message text to start in the screen column     [15:06]
+ruediger  forcer: right no |
+johnw     same screen column
+bpalmer`  bitonic: you're more than doubling the amount of memory the buffer
+          consumes.
+yates`    ruediger: oh? wow.
+ruediger  yates`: find . -regex ".*\\.[ch]\\(++\\)"
+cluck     johnw: erc-speedbar-browser ?
+yates`    yes, i heard you the first time
+johnw     no, not channel users
+ruediger  bpalmer`: I use .h++ and .c++ but regex should interpret ++ as any
+          character
+johnw     let me show you

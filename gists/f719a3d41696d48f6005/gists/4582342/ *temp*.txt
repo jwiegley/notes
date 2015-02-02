@@ -1,0 +1,13 @@
+[5 of 5] Compiling Control.Monad.Chronicle.Class ( Control/Monad/Chronicle/Class.hs, dist/build/Control/Monad/Chronicle/Class.o )
+
+Control/Monad/Chronicle/Class.hs:144:10:
+    Ambiguous constraint `Monoid w'
+      At least one of the forall'd type variables mentioned by the constraint
+      must be reachable from the type after the '=>'
+    In the instance declaration for `MonadChronicle c (LazyState.StateT s m)'
+
+Control/Monad/Chronicle/Class.hs:154:10:
+    Ambiguous constraint `Monoid w'
+      At least one of the forall'd type variables mentioned by the constraint
+      must be reachable from the type after the '=>'
+    In the instance declaration for `MonadChronicle c (StrictState.StateT s m)'

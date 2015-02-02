@@ -1,0 +1,30 @@
+A Profunctor:
+
+    φ : ᵆa ↛ ᵆb
+
+is a Functor:
+
+    φ : (ᵆb^op,ᵆa) → ᵇaᵈ6ᵉ5
+
+Let's say I use this functor to map two objects, one each from ᵆa and ᵆb, for
+example:
+
+    φ(ᵅ1,ᵅ0) : ᵄ3(ᵅ1′,ᵅ0)
+
+I can represent this with a product type, but with ᵅ1′ being in the opposite
+category to ᵆb.  Thus when I map a function over the ᵅ0 component, it is
+covariant; but over the ᵅ1′ it will be contravariant.
+
+So assume two morphisms:
+
+    ᵅ3 : ᵄe → ᵄf  (in ᵆb)
+    ᵅ4 : ᵆ5 → ᵆ6  (in ᵆa)
+
+The operation for mapping the "right" component, ᵅ0, is covariant:
+
+    rmap : (ᵄe → ᵄf) → ᵄ3(ᵅ1′,ᵄe) → ᵄ3(ᵅ1′,ᵄf)
+
+But the operation for mapping over the left component is contravariant,
+because it maps ᵅ4 from ᵆa into ᵆb^op:
+
+    lmap : (ᵆ5 → ᵆ6) → ᵄ3(ᵆ6,ᵅ0) → ᵄ3(ᵆ5,ᵅ0) 

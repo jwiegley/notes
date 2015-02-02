@@ -1,0 +1,5 @@
+src/library/FP/API/Convert.hs:8:31:
+    Module `Fay.Convert' does not export `encodeFay'
+
+src/library/FP/API/Convert.hs:8:42:
+    Module `Fay.Convert' does not export `decodeFay'

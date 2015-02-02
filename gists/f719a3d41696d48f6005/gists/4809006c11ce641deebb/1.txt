@@ -1,0 +1,6 @@
+Mathematics underlies many concepts in computing; this harmony is even
+stronger in the domain of functional programming, whose roots lies in the
+lambda calculus -- an idea originally developed as a foundation for
+mathematics itself.  In this workshop we will cover abstractions that are
+directly applicable to everyday programming, and investigate how math can
+bring clarity and soundness to the way we approach software design.

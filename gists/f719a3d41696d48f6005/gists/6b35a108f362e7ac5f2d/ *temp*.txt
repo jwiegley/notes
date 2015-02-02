@@ -1,0 +1,15 @@
+Hi Ryan, how are things in NYC?  Did you have to endure the juggernaut of
+customer complaints as you had feared, after that blackout?
+
+I had a _lot_ of fun there at NYC Hac, and part of the experience was staying
+there with you in your apartment.  I usually regard NYC as pretty hectic, but
+you provided a cozy and enjoyable place to rest my head.  Thank you so much
+for helping me out, you made the trip possible!
+
+I also wanted to ping you about the PostgreSQL stuff, it sounded quite
+interesting.  It doesn't have to be in great shape before you send it; I'll
+treat it as proprietary source code, and it will not leave my machine, or the
+encrypted volume I keep contract source code on.
+
+Talk with you soon,
+  John

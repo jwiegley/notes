@@ -1,0 +1,12 @@
+Vulcan ~/Products/ghc $ make
+===--- building phase 0
+make -r --no-print-directory -f ghc.mk phase=0 phase_0_builds
+make[1]: Nothing to be done for `phase_0_builds'.
+===--- building phase 1
+make -r --no-print-directory -f ghc.mk phase=1 phase_1_builds
+CROSS_COMPILE="" "inplace/bin/ghc-cabal" configure --with-ghc="/Volumes/tank/Data/Products/ghc/inplace/bin/ghc-stage1" --with-ghc-pkg="/Volumes/tank/Data/Products/ghc/inplace/bin/ghc-pkg" --flag in-ghc-tree --disable-library-vanilla --disable-library-profiling --disable-shared --disable-library-for-ghci --enable-library-for-ghci --with-hscolour="/Users/johnw/.cabal/bin/HsColour" --configure-option=CFLAGS=" -m64 -fno-stack-protector   " --configure-option=LDFLAGS=" -m64  " --configure-option=CPPFLAGS=" -m64  " --with-gcc="/usr/bin/gcc" --configure-option=--with-cc="/usr/bin/gcc" --with-ar="/usr/bin/ar" --with-ranlib="ranlib" --with-alex="/Users/johnw/.cabal/bin/alex" --with-happy="/Users/johnw/.cabal/bin/happy" -- dist utils/haddock
+Configuring haddock-2.11.0...
+ghc-cabal: At least the following dependencies are missing:
+base >=4.3 && <4.7
+make[1]: *** [utils/haddock/dist/package-data.mk] Error 1
+make: *** [all] Error 2

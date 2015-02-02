@@ -1,0 +1,6 @@
+Hermes /Applications $ file Chess.app/Contents/MacOS/Chess 
+Chess.app/Contents/MacOS/Chess: Mach-O universal binary with 4 architectures
+Chess.app/Contents/MacOS/Chess (for architecture ppc):  Mach-O executable ppc
+Chess.app/Contents/MacOS/Chess (for architecture ppc64):        Mach-O 64-bit executable ppc64
+Chess.app/Contents/MacOS/Chess (for architecture i386): Mach-O executable i386
+Chess.app/Contents/MacOS/Chess (for architecture x86_64):       Mach-O 64-bit executable x86_64

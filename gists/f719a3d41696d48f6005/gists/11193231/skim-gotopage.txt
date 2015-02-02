@@ -1,0 +1,12 @@
+on run argv
+    tell application "Skim"
+        activate
+        open (item 1 of argv)
+
+        if length of argv is greater than 1 then
+            tell front document
+                go to (item 2 of argv)
+            end tell
+        end if
+    end tell
+end run

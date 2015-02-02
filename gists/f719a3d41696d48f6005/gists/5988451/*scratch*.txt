@@ -1,0 +1,32 @@
+Sanity.hs:49:53:
+    No instance for (IsString Title)
+      arising from the literal `"status-tests"'
+    Possible fix: add an instance declaration for (IsString Title)
+    In the second argument of `Tutorial', namely `"status-tests"'
+    In the second argument of `($)', namely
+      `Tutorial
+         userKey
+         "status-tests"
+         (Textarea "")
+         (TutorialContent'
+          $ unlines
+              ["Sanity Tests Content", "```active haskell",
+               "main = putStrLn \"Hello Haskell!\"", "```", ....])
+         (TutorialConcurrentToken' 1)
+         Nothing
+         True
+         Nothing'
+    In a stmt of a 'do' block:
+      tutorialKey <- PG.insert
+                     $ Tutorial
+                         userKey
+                         "status-tests"
+                         (Textarea "")
+                         (TutorialContent'
+                          $ unlines
+                              ["Sanity Tests Content", "```active haskell",
+                               "main = putStrLn \"Hello Haskell!\"", "```", ....])
+                         (TutorialConcurrentToken' 1)
+                         Nothing
+                         True
+                         Nothing

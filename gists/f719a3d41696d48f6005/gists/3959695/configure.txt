@@ -1,0 +1,355 @@
+Vulcan /private/tmp/bitlbee-tpZZ/bitlbee-3.0.6 $ sh -x ./configure --prefix=/usr/local/Cellar/bitlbee/3.0.6 --debug=0 --ssl=openssl --pidfile=/usr/local/var/bitlbee/run/bitlbee.pid --config=/usr/local/var/bitlbee/lib/ --ipsocket=/usr/local/var/bitlbee/run/bitlbee.sock
++ prefix=/usr/local/
++ bindir='$prefix/bin/'
++ sbindir='$prefix/sbin/'
++ etcdir='$prefix/etc/bitlbee/'
++ mandir='$prefix/share/man/'
++ datadir='$prefix/share/bitlbee/'
++ config=/var/lib/bitlbee/
++ plugindir='$prefix/lib/bitlbee/'
++ includedir='$prefix/include/bitlbee/'
++ systemdsystemunitdir=
++ libevent=/usr/
++ pidfile=/var/run/bitlbee.pid
++ ipcsocket=
++ pcdir='$prefix/lib/pkgconfig'
++ systemlibdirs='/lib64 /usr/lib64 /usr/local/lib64 /lib /usr/lib /usr/local/lib'
++ msn=1
++ jabber=1
++ oscar=1
++ yahoo=1
++ twitter=1
++ purple=0
++ debug=0
++ strip=1
++ gcov=0
++ plugins=1
++ otr=0
++ skype=0
++ events=glib
++ ldap=0
++ ssl=auto
++ pie=1
+++ uname -s
++ arch=Darwin
+++ uname -m
++ cpu=x86_64
++ GLIB_MIN_VERSION=2.14
++ echo BitlBee configure
+BitlBee configure
++ '[' -n --prefix=/usr/local/Cellar/bitlbee/3.0.6 ']'
+++ expr X--prefix=/usr/local/Cellar/bitlbee/3.0.6 : 'X--\(.*=.*\)'
++ e=prefix=/usr/local/Cellar/bitlbee/3.0.6
++ '[' -z prefix=/usr/local/Cellar/bitlbee/3.0.6 ']'
++ eval prefix=/usr/local/Cellar/bitlbee/3.0.6
+++ prefix=/usr/local/Cellar/bitlbee/3.0.6
++ shift
++ '[' -n --debug=0 ']'
+++ expr X--debug=0 : 'X--\(.*=.*\)'
++ e=debug=0
++ '[' -z debug=0 ']'
++ eval debug=0
+++ debug=0
++ shift
++ '[' -n --ssl=openssl ']'
+++ expr X--ssl=openssl : 'X--\(.*=.*\)'
++ e=ssl=openssl
++ '[' -z ssl=openssl ']'
++ eval ssl=openssl
+++ ssl=openssl
++ shift
++ '[' -n --pidfile=/usr/local/var/bitlbee/run/bitlbee.pid ']'
+++ expr X--pidfile=/usr/local/var/bitlbee/run/bitlbee.pid : 'X--\(.*=.*\)'
++ e=pidfile=/usr/local/var/bitlbee/run/bitlbee.pid
++ '[' -z pidfile=/usr/local/var/bitlbee/run/bitlbee.pid ']'
++ eval pidfile=/usr/local/var/bitlbee/run/bitlbee.pid
+++ pidfile=/usr/local/var/bitlbee/run/bitlbee.pid
++ shift
++ '[' -n --config=/usr/local/var/bitlbee/lib/ ']'
+++ expr X--config=/usr/local/var/bitlbee/lib/ : 'X--\(.*=.*\)'
++ e=config=/usr/local/var/bitlbee/lib/
++ '[' -z config=/usr/local/var/bitlbee/lib/ ']'
++ eval config=/usr/local/var/bitlbee/lib/
+++ config=/usr/local/var/bitlbee/lib/
++ shift
++ '[' -n --ipsocket=/usr/local/var/bitlbee/run/bitlbee.sock ']'
+++ expr X--ipsocket=/usr/local/var/bitlbee/run/bitlbee.sock : 'X--\(.*=.*\)'
++ e=ipsocket=/usr/local/var/bitlbee/run/bitlbee.sock
++ '[' -z ipsocket=/usr/local/var/bitlbee/run/bitlbee.sock ']'
++ eval ipsocket=/usr/local/var/bitlbee/run/bitlbee.sock
+++ ipsocket=/usr/local/var/bitlbee/run/bitlbee.sock
++ shift
++ '[' -n '' ']'
+++ eval echo '$prefix/bin//'
++++ echo /usr/local/Cellar/bitlbee/3.0.6/bin//
+++ sed 's/\/\{1,\}/\//g'
++ bindir=/usr/local/Cellar/bitlbee/3.0.6/bin/
+++ eval echo '$prefix/sbin//'
++++ echo /usr/local/Cellar/bitlbee/3.0.6/sbin//
+++ sed 's/\/\{1,\}/\//g'
++ sbindir=/usr/local/Cellar/bitlbee/3.0.6/sbin/
+++ eval echo '$prefix/etc/bitlbee//'
++++ echo /usr/local/Cellar/bitlbee/3.0.6/etc/bitlbee//
+++ sed 's/\/\{1,\}/\//g'
++ etcdir=/usr/local/Cellar/bitlbee/3.0.6/etc/bitlbee/
+++ eval echo '$prefix/share/man//'
++++ echo /usr/local/Cellar/bitlbee/3.0.6/share/man//
+++ sed 's/\/\{1,\}/\//g'
++ mandir=/usr/local/Cellar/bitlbee/3.0.6/share/man/
+++ eval echo '$prefix/share/bitlbee//'
++++ echo /usr/local/Cellar/bitlbee/3.0.6/share/bitlbee//
+++ sed 's/\/\{1,\}/\//g'
++ datadir=/usr/local/Cellar/bitlbee/3.0.6/share/bitlbee/
+++ eval echo /usr/local/var/bitlbee/lib//
++++ echo /usr/local/var/bitlbee/lib//
+++ sed 's/\/\{1,\}/\//g'
++ config=/usr/local/var/bitlbee/lib/
+++ eval echo '$prefix/lib/bitlbee//'
++++ echo /usr/local/Cellar/bitlbee/3.0.6/lib/bitlbee//
+++ sed 's/\/\{1,\}/\//g'
++ plugindir=/usr/local/Cellar/bitlbee/3.0.6/lib/bitlbee/
+++ eval echo '$prefix/include/bitlbee//'
++++ echo /usr/local/Cellar/bitlbee/3.0.6/include/bitlbee//
+++ sed 's/\/\{1,\}/\//g'
++ includedir=/usr/local/Cellar/bitlbee/3.0.6/include/bitlbee/
+++ eval echo /usr//
++++ echo /usr//
+++ sed 's/\/\{1,\}/\//g'
++ libevent=/usr/
+++ eval echo /usr/local/var/bitlbee/run/bitlbee.pid
++++ echo /usr/local/var/bitlbee/run/bitlbee.pid
+++ sed 's/\/\{1,\}/\//g'
++ pidfile=/usr/local/var/bitlbee/run/bitlbee.pid
+++ eval echo ''
++++ echo
+++ sed 's/\/\{1,\}/\//g'
++ ipcsocket=
+++ eval echo '$prefix/lib/pkgconfig'
++++ echo /usr/local/Cellar/bitlbee/3.0.6/lib/pkgconfig
+++ sed 's/\/\{1,\}/\//g'
++ pcdir=/usr/local/Cellar/bitlbee/3.0.6/lib/pkgconfig
++ protocols_mods=
++ cat
++++ dirname ./configure
+++ cd .
+++ pwd
++ srcdir=/private/tmp/bitlbee-tpZZ/bitlbee-3.0.6
+++ pwd
++ currdir=/private/tmp/bitlbee-tpZZ/bitlbee-3.0.6
++ '[' /private/tmp/bitlbee-tpZZ/bitlbee-3.0.6 '!=' /private/tmp/bitlbee-tpZZ/bitlbee-3.0.6 ']'
++ srcdir=/private/tmp/bitlbee-tpZZ/bitlbee-3.0.6
++ cat
++ '[' -n '' ']'
++ '[' 0 = 1 ']'
++ '[' -z '' ']'
++ CFLAGS='-O2 -fno-strict-aliasing'
++ '[' 1 = 1 ']'
++ echo CFLAGS_BITLBEE=-fPIE
++ echo LDFLAGS_BITLBEE=-pie
++ echo CFLAGS=-O2 -fno-strict-aliasing
++ echo CFLAGS+=-I/private/tmp/bitlbee-tpZZ/bitlbee-3.0.6 -I/private/tmp/bitlbee-tpZZ/bitlbee-3.0.6/lib -I/private/tmp/bitlbee-tpZZ/bitlbee-3.0.6/protocols -I.
++ echo CFLAGS+=-DHAVE_CONFIG_H
++ '[' -n cc ']'
++ CC=cc
++ echo CC=cc
++ echo cc
++ grep -qw gcc
++ '[' -z /usr/bin/ld ']'
++ echo LD=/usr/bin/ld
++ '[' -z '' ']'
++ PKG_CONFIG=pkg-config
++ pkg-config --version
++ pkg-config glib-2.0
++ pkg-config glib-2.0 --atleast-version=2.14
++ cat
+++ pkg-config --libs glib-2.0 gmodule-2.0
+++ pkg-config --cflags glib-2.0 gmodule-2.0
++ '[' glib = libevent ']'
++ '[' glib = glib ']'
++ echo '#define EVENTS_GLIB'
++ echo EVENT_HANDLER=events_glib.o
++ RESOLV_TESTCODE='
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <arpa/nameser.h>
+#include <resolv.h> 
+
+int main()
+{
+	ns_initparse( NULL, 0, NULL );
+	ns_parserr( NULL, ns_s_an, 0, NULL );
+}
+'
++ '[' openssl = auto ']'
++ '[' openssl = gnutls ']'
++ '[' openssl = nss ']'
++ '[' openssl = sspi ']'
++ '[' openssl = openssl ']'
++ echo
+
++ echo 'No detection code exists for OpenSSL. Make sure that you have a complete'
+No detection code exists for OpenSSL. Make sure that you have a complete
++ echo 'install of OpenSSL (including devel/header files) before reporting'
+install of OpenSSL (including devel/header files) before reporting
++ echo 'compilation problems.'
+compilation problems.
++ echo
+
++ echo 'Also, keep in mind that the OpenSSL is, according to some people, not'
+Also, keep in mind that the OpenSSL is, according to some people, not
++ echo 'completely GPL-compatible. Using GnuTLS or NSS is recommended and better'
+completely GPL-compatible. Using GnuTLS or NSS is recommended and better
++ echo 'supported by us. However, on many BSD machines, OpenSSL can be considered'
+supported by us. However, on many BSD machines, OpenSSL can be considered
++ echo 'part of the operating system, which makes it GPL-compatible.'
+part of the operating system, which makes it GPL-compatible.
++ echo
+
++ echo 'For more info, see: http://www.openssl.org/support/faq.html#LEGAL2'
+For more info, see: http://www.openssl.org/support/faq.html#LEGAL2
++ echo '                    http://www.gnome.org/~markmc/openssl-and-the-gpl.html'
+                    http://www.gnome.org/~markmc/openssl-and-the-gpl.html
++ echo
+
++ echo 'Please note that distributing a BitlBee binary which links to OpenSSL is'
+Please note that distributing a BitlBee binary which links to OpenSSL is
++ echo 'probably illegal. If you want to create and distribute a binary BitlBee'
+probably illegal. If you want to create and distribute a binary BitlBee
++ echo 'package, you really should use GnuTLS or NSS instead.'
+package, you really should use GnuTLS or NSS instead.
++ echo
+
++ echo 'Also, the OpenSSL license requires us to say this:'
+Also, the OpenSSL license requires us to say this:
++ echo ' *    "This product includes software developed by the OpenSSL Project'
+ *    "This product includes software developed by the OpenSSL Project
++ echo ' *    for use in the OpenSSL Toolkit. (http://www.openssl.org/)"'
+ *    for use in the OpenSSL Toolkit. (http://www.openssl.org/)"
++ echo 'EFLAGS+=-lssl -lcrypto'
++ ret=1
++ '[' 1 = 0 ']'
++ echo SSL_CLIENT=ssl_openssl.o
++ detect_resolv_dynamic
++ case "$arch" in
++ LIBRESOLV=-lresolv
+++ mktemp /tmp/bitlbee-configure.XXXXXX
++ TMPFILE=/tmp/bitlbee-configure.cdCFmM
++ ret=1
++ echo '
+#include <sys/types.h>
+#include <netinet/in.h>
+#include <arpa/nameser.h>
+#include <resolv.h> 
+
+int main()
+{
+	ns_initparse( NULL, 0, NULL );
+	ns_parserr( NULL, ns_s_an, 0, NULL );
+}
+'
++ cc -o /tmp/bitlbee-configure.cdCFmM -x c - -lresolv
++ '[' 0 = 0 ']'
++ echo EFLAGS+=-lresolv
++ ret=0
++ rm -f /tmp/bitlbee-configure.cdCFmM
++ return 0
++ echo '#define HAVE_RESOLV_A'
++ STORAGES=xml
++ '[' 0 = auto ']'
++ '[' 0 = 0 ']'
++ echo '#undef WITH_LDAP'
++ for i in '$STORAGES'
++ STORAGE_OBJS=' storage_xml.o'
++ echo STORAGE_OBJS= storage_xml.o
++ '[' 1 = 0 ']'
++ '[' 0 = 1 ']'
++ '[' -n '' ']'
++ type strip
++ echo STRIP=strip
++ '[' -z '' ']'
++ pkg-config --exists systemd
++ '[' -n '' ']'
++ '[' 0 = 1 ']'
++ '[' 1 = 0 ']'
++ echo '#define WITH_PLUGINS'
++ otrprefix=
++ for i in / /usr /usr/local
++ '[' -f //lib/libotr.a ']'
++ for i in / /usr /usr/local
++ '[' -f /usr/lib/libotr.a ']'
++ for i in / /usr /usr/local
++ '[' -f /usr/local/lib/libotr.a ']'
++ otrprefix=/usr/local
++ break
++ '[' 0 = auto ']'
++ '[' 0 = 1 ']'
++ '[' 0 = plugin ']'
++ '[' 0 = 1 -o 0 = plugin ']'
++ '[' '!' -e doc/user-guide/help.txt ']'
++ echo
+
++ '[' -z '' -a -d .bzr ']'
++ '[' -n '' ']'
++ make helloworld
++ cat
++ protocols=
++ protoobjs=
++ '[' 0 = 0 ']'
++ echo '#undef WITH_PURPLE'
++ case "$CC" in
++ '[' 1 = 0 ']'
++ echo '#define WITH_MSN'
++ protocols='msn '
++ protoobjs='msn_mod.o '
++ '[' 1 = 0 ']'
++ echo '#define WITH_JABBER'
++ protocols='msn jabber '
++ protoobjs='msn_mod.o jabber_mod.o '
++ '[' 1 = 0 ']'
++ echo '#define WITH_OSCAR'
++ protocols='msn jabber oscar '
++ protoobjs='msn_mod.o jabber_mod.o oscar_mod.o '
++ '[' 1 = 0 ']'
++ echo '#define WITH_YAHOO'
++ protocols='msn jabber oscar yahoo '
++ protoobjs='msn_mod.o jabber_mod.o oscar_mod.o yahoo_mod.o '
++ '[' 1 = 0 ']'
++ echo '#define WITH_TWITTER'
++ protocols='msn jabber oscar yahoo twitter '
++ protoobjs='msn_mod.o jabber_mod.o oscar_mod.o yahoo_mod.o twitter_mod.o '
++ '[' 'msn jabber oscar yahoo twitter ' = 'PROTOCOLS = ' ']'
++ echo 'PROTOCOLS = msn jabber oscar yahoo twitter '
++ echo 'PROTOOBJS = msn_mod.o jabber_mod.o oscar_mod.o yahoo_mod.o twitter_mod.o '
++ echo Architecture: Darwin
+Architecture: Darwin
++ case "$arch" in
++ echo 'STRIP=\# skip strip'
++ '[' -n '' ']'
++ echo
+
++ echo 'Configuration done:'
+Configuration done:
++ '[' 0 = 1 ']'
++ echo '  Debugging disabled.'
+  Debugging disabled.
++ '[' 1 = 1 ']'
++ echo '  Building PIE executable'
+  Building PIE executable
++ '[' 1 = 1 ']'
++ echo '  Binary stripping enabled.'
+  Binary stripping enabled.
++ '[' 0 = 1 ']'
++ '[' 0 = plugin ']'
++ echo '  Off-the-Record (OTR) Messaging disabled.'
+  Off-the-Record (OTR) Messaging disabled.
++ '[' -n '' ']'
++ echo '  systemd disabled.'
+  systemd disabled.
++ echo '  Using event handler: glib'
+  Using event handler: glib
++ echo '  Using SSL library: openssl'
+  Using SSL library: openssl
++ '[' -n 'msn jabber oscar yahoo twitter ' ']'
++ echo '  Building with these protocols:' msn jabber oscar yahoo twitter
+  Building with these protocols: msn jabber oscar yahoo twitter
++ case "$protocols" in

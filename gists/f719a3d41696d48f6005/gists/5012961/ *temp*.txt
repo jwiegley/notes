@@ -1,0 +1,32 @@
+#!/bin/bash -xe
+
+export VERSION=7.4.2
+export LOGDIR=/tmp
+export SYNCOPTS="--testsuite --no-dph" # --nofib
+
+git checkout -b ghc-${VERSION} ghc-${VERSION}-release \
+    || echo "Branch ghc-7.4.2-release is already checked out"
+
+perl sync-all -r http://darcs.haskell.org/ $SYNCOPTS get \
+    || perl sync-all -r git://github.com/ghc $SYNCOPTS get
+
+perl sync-all -r http://darcs.haskell.org/ $SYNCOPTS \
+    checkout -b ghc-${VERSION} ghc-${VERSION}-release
+
+perl -pe 's/^#BuildFlavour = devel2/BuildFlavour = devel2/;' \
+    < mk/build.mk.sample > mk/build.mk
+
+#export PATH=/usr/local/bin:$HOME/.cabal/bin:$PATH
+#export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
+
+perl boot
+
+./configure --prefix=/usr/local/Cellar/ghc/HEAD
+make
+
+#(cd testsuite/tests ; make THREADS=64)
+(cd testsuite/tests ; make) \
+    > $LOGDIR/ghc-fulltest-$(date +'%y%m%d').log 2>&1
+
+#(cd nofib ; make boot ; make) \
+#    > $LOGDIR/ghc-nofib-$(date +'%y%m%d').log 2>&1

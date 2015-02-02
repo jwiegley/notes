@@ -1,0 +1,13 @@
+Found hole ‘_Left’ with type: t
+Where: ‘t’ is a rigid type variable bound by
+           the inferred type of foo :: t
+           at /var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/flycheck220671ur/Voided.hs:11:1
+Relevant bindings include
+  foo :: t
+    (bound at /var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/flycheck220671ur/Voided.hs:11:1)
+In the expression: _Left
+In a case alternative: Left _ -> _Left
+In the expression:
+  case undefined of {
+    Left _ -> _Left
+    Right _ -> undefined }

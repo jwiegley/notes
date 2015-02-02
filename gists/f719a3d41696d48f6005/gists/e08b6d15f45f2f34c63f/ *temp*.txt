@@ -1,0 +1,14 @@
+hermes:~/dl $ ledger -f foo.dat bal
+            2.00 GBP  Assets:Cash
+            2.00 GBP  Equity:Capital Gains
+           -2.00 GBP  Income:Capital gains
+--------------------
+            2.00 GBP
+hermes:~/dl $ ledger -f foo.dat -B bal
+                   0  Assets
+            2.00 GBP    Cash
+           -2.00 GBP    Investments
+            2.00 GBP  Equity:Capital Gains
+           -2.00 GBP  Income:Capital gains
+--------------------
+                   0

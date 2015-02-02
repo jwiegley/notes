@@ -1,0 +1,11 @@
+(let ((plist (expand-file-name "~/.MacOSX/environment.plist")))
+  (when (file-readable-p plist)
+    (let ((dict (cdr (assq 'dict (cdar (xml-parse-file plist))))))
+      (while dict
+        (when (and (listp (car dict)) (eq 'key (caar dict)))
+          (setenv (car (cddr (car dict)))
+                  (car (cddr (car (cddr dict))))))
+        (setq dict (cdr dict))))
+    (setq exec-path nil)
+    (dolist (path (nreverse (split-string (getenv "PATH") ":")))
+      (add-to-list 'exec-path path))))

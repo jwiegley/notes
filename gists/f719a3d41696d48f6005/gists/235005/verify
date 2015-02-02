@@ -1,0 +1,193 @@
+#!/bin/bash
+
+# verify, version 2.0
+#   by John Wiegley <johnw@newartisans.com>
+
+if [[ -z "$1" ]]; then
+    echo "usage: verify [OPTIONS] <FILE ...>"
+    echo "options:"
+    echo "  -v     be verbose about verification/checksum setting"
+    echo "  -s     only set checksums for files which don't have them"
+    echo "  -f     force setting the checksum even if file doesn't match"
+    exit 1
+fi
+
+export ATTRNAME=checksum-sha1
+
+export verbose=false
+export veryverbose=false
+export setonly=false
+export force=false
+
+while [[ "${1:0:1}" == "-" ]]; do
+    if [[ "$1" == "-v" ]]; then
+        export verbose=true
+        shift 1
+    elif [[ "$1" == "-vv" ]]; then
+        export verbose=true
+        export veryverbose=true
+        shift 1
+    elif [[ "$1" == "-s" ]]; then
+        export setonly=true
+        shift 1
+    elif [[ "$1" == "-f" ]]; then
+        export force=true
+        shift 1
+    else
+        break
+    fi
+done
+
+error=false
+
+function sha1() {
+    openssl sha1 "$1" | sed 's/.*= //'
+}
+
+function compare_checksum() 
+{
+    CHKSUM=$(xattr -p ${ATTRNAME} "$1" 2> /dev/null)
+
+    if [[ -z "$CHKSUM" ]]; then
+        if [[ $setonly == true ]]; then
+            echo -n "Setting:  $1..."
+
+            CURSUM=$(sha1 "$1")
+            xattr -w ${ATTRNAME} $CURSUM "$1"
+
+            case "$1" in
+                *.dmg|*.cdr|*.iso|*.sparseimage)
+                    hdiutil checksum -quiet -type SHA1 "$1" ;;
+            esac
+
+            echo "done"
+        elif [[ $veryverbose == true ]]; then
+            echo "SKIPPING: $1"
+        fi
+
+    elif [[ $setonly == false ]]; then
+        if [[ $verbose == true ]]; then echo -n "Checking: $1..."; fi
+        CURSUM=$(sha1 "$1")
+
+        if [[ $CURSUM != $CHKSUM ]]; then
+            if [[ $verbose == true ]]; then 
+                echo "FAILED"
+            else
+                echo "FAILED:   $1"
+            fi
+
+            if [[ $force == true ]]; then
+                echo -n "CHANGING: $1..."
+
+                xattr -w ${ATTRNAME} $CURSUM "$1"
+                case "$1" in
+                    *.dmg|*.cdr|*.iso|*.sparseimage)
+                        hdiutil checksum -quiet -type SHA1 "$1" ;;
+                esac
+
+                echo "done"
+            fi
+            return 1
+
+        elif [[ $verbose == true ]]; then
+            echo "done"
+        fi
+    fi
+    return 0
+}
+
+function is_archive_type()
+{
+    case "$1" in
+        *.zip)               return 0 ;;
+        *.bz2|*.tbz)         return 0 ;;
+        *.gz|*.tgz)          return 0 ;;
+        *.rar)               return 0 ;;
+        *.7z)                return 0 ;;
+        *.dmg|*.sparseimage) return 0 ;;
+    esac
+
+    return 1
+}
+
+function validate_file() 
+{
+    if [[ $setonly == true ]]; then
+        return 0
+    fi
+
+    case "$1" in
+        *.zip)
+            if [[ $veryverbose == true ]]; then
+                unzip -t "$1"
+            else
+                unzip -qqt "$1"
+            fi ;;
+
+        *.bz2|*.tbz)
+            if [[ $veryverbose == true ]]; then
+                bzip2 -tv "$1"
+            else
+                bzip2 -tq "$1"
+            fi ;;
+
+        *.gz|*.tgz)
+            if [[ $veryverbose == true ]]; then
+                gzip -tv "$1"
+            else
+                gzip -tq "$1"
+            fi ;;
+
+        *.rar)
+            if [[ $veryverbose == true ]]; then
+                unrar t "$1"
+            else
+                unrar t "$1" > /dev/null
+            fi ;;
+
+        *.7z)
+            if [[ $veryverbose == true ]]; then
+                7za t "$1"
+            else
+                7za t "$1" > /dev/null
+            fi ;;
+
+        *.dmg|*.sparseimage)
+            if [[ $veryverbose == true ]]; then
+                hdiutil verify "$1"
+            else
+                hdiutil verify -quiet "$1"
+            fi ;;
+    esac
+}
+
+for file in "$@"; do
+    name=$(basename "$file")
+
+    if [[ -f "$file" && \
+          "$name" != ".DS_Store" && "$name" != ".localized" ]]; then
+
+        if ! compare_checksum "$file"; then
+            error=true
+        fi
+
+        if is_archive_type "$file"; then
+            if [[ $verbose == true ]]; then echo -n "Testing:  $file..."; fi
+
+            if ! validate_file "$file"; then
+                if [[ $verbose == true ]]; then 
+                    echo "FAILED"
+                else
+                    echo "INVALID:  $file"
+                fi
+                error=true
+            elif [[ $verbose == true ]]; then 
+                echo "done"; 
+            fi
+        fi
+    fi
+done
+
+[[ $error == true ]] && exit 1
+
+exit 0

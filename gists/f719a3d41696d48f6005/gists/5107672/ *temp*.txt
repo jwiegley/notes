@@ -1,0 +1,18 @@
+    treeEntries t = go "" t
+      where
+        go fp t = liftIO $ withForeignPtr (lgTreeContents t) $ \tb -> do
+            bracket
+                (mk'git_treebuilder_filter_callback (callback fp))
+                freeHaskellFunPtr
+                (flip (c'git_treebuilder_filter tb) nullPtr)
+
+        callback fp te _ = do
+            cname <- c'git_tree_entry_name te
+            path  <- (fp </>) . F.decodeString <$> peekCString cname
+            entry <- entryToTreeEntry te
+            C.yield (path, entry)
+            case entry of
+                Git.TreeEntry tref -> return ()
+                    -- Git.resolveTree tref >>= go path
+                _ -> return ()
+            return 0

@@ -1,0 +1,17 @@
+	Modified   pkgs/build-support/clang-wrapper/builder.sh
+diff --git a/pkgs/build-support/clang-wrapper/builder.sh b/pkgs/build-support/clang-wrapper/builder.sh
+index c38e514..98a7f58 100644
+--- a/pkgs/build-support/clang-wrapper/builder.sh
++++ b/pkgs/build-support/clang-wrapper/builder.sh
+@@ -112,6 +112,11 @@ then
+     ln -sv clang $out/bin/cc
+ fi
+ 
++if mkClangWrapper $out/bin/clang $clangPath/clang
++then
++    ln -sv clang $out/bin/cpp
++fi
++
+ if mkClangWrapper $out/bin/clang++ $clangPath/clang++
+ then
+     ln -sv clang++ $out/bin/c++

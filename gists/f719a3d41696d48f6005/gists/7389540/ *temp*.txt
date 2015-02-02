@@ -1,0 +1,55 @@
+Hermes:~ $ curl -v https://ghc.haskell.org
+* About to connect() to ghc.haskell.org port 443 (#0)
+*   Trying 88.198.224.241...
+* connected
+* Connected to ghc.haskell.org (88.198.224.241) port 443 (#0)
+* SSLv3, TLS handshake, Client hello (1):
+* SSLv3, TLS handshake, Server hello (2):
+* SSLv3, TLS handshake, CERT (11):
+* SSLv3, TLS handshake, Server key exchange (12):
+* SSLv3, TLS handshake, Server finished (14):
+* SSLv3, TLS handshake, Client key exchange (16):
+* SSLv3, TLS change cipher, Client hello (1):
+* SSLv3, TLS handshake, Finished (20):
+* SSLv3, TLS change cipher, Client hello (1):
+* SSLv3, TLS handshake, Finished (20):
+* SSL connection using DHE-RSA-AES256-SHA
+* Server certificate:
+* 	 subject: OU=Domain Control Validated; CN=*.haskell.org
+* 	 start date: 2013-10-14 06:28:10 GMT
+* 	 expire date: 2014-10-15 06:28:10 GMT
+* 	 subjectAltName: ghc.haskell.org matched
+* 	 issuer: C=BE; O=GlobalSign nv-sa; CN=GlobalSign Domain Validation CA - G2
+* 	 SSL certificate verify ok.
+> GET / HTTP/1.1
+> User-Agent: curl/7.24.0 (x86_64-apple-darwin12.0) libcurl/7.24.0 OpenSSL/0.9.8x zlib/1.2.5
+> Host: ghc.haskell.org
+> Accept: */*
+> 
+< HTTP/1.1 200 OK
+< Date: Sat, 09 Nov 2013 20:21:16 GMT
+< Server: Apache/2.2.22 (Debian)
+< Last-Modified: Sun, 06 Oct 2013 13:07:21 GMT
+< ETag: "c041-1b4-4e81237427440"
+< Accept-Ranges: bytes
+< Content-Length: 436
+< Vary: Accept-Encoding
+< Content-Type: text/html
+< X-Pad: avoid browser bug
+< 
+<html>
+  <head>
+  <script type="text/javascript">
+  function redir() {
+    window.location = "http://www.haskell.org/ghc";
+  }
+  </script>
+  </head>
+  <body onload="setTimeout('redir()', 3000);">
+    <h1>You are being redirected to <a href="http://www.haskell.org/ghc">http://www.haskell.org/ghc</a></h1>
+
+    <h2>...unless you are quick, then you can jump directly to <a href="/trac/ghc">GHC Trac</a> instead...</h2>
+  </body>
+</html>
+* Connection #0 to host ghc.haskell.org left intact
+* Closing connection #0

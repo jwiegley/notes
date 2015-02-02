@@ -1,0 +1,7 @@
+struct date_specifier_t
+{
+  optional<date_t::year_type>        year;
+  optional<date_t::month_type>       mon;
+  optional<date_t::day_type>         day;
+  optional<date_t::day_of_week_type> wday;
+};

@@ -1,0 +1,9 @@
+Cache 'index tarball' updated. time: 19.67444s
+Cache 'index tarball' updated. time: 12.709417s
+Cache 'packages index page (by category)' updated. time: 19.947999s
+127.0.0.1 - [03/Oct/2013:17:17:03 +0000] "GET /00-index.tar.gz 1.1" 301 -1 "" "cabal-install/1.18.0.2"
+127.0.0.1 - [03/Oct/2013:17:17:03 +0000] "GET /packages/index.tar.gz 1.1" 200 -1 "" "cabal-install/1.18.0.2"
+HTTP request failed with: shutdown: invalid argument (Socket is not connected)
+127.0.0.1 - [03/Oct/2013:17:17:26 +0000] "GET /package/git-annex-4.20131002.tar.gz 1.1" 301 -1 "" "cabal-install/1.18.0.2"
+127.0.0.1 - [03/Oct/2013:17:17:26 +0000] "GET /package/git-annex-4.20131002/git-annex-4.20131002.tar.gz 1.1" 200 -1 "" "cabal-install/1.18.0.2"
+HTTP request failed with: shutdown: invalid argument (Socket is not connected)

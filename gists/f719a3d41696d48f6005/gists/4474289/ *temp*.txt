@@ -1,0 +1,46 @@
+Meow:stackage johnw$ git pull
+remote: Counting objects: 55, done.
+remote: Compressing objects: 100% (45/45), done.
+remote: Total 50 (delta 36), reused 19 (delta 5)
+Unpacking objects: 100% (50/50), done.
+From git://github.com/fpco/stackage
+   e12bd84..931093a  master     -> origin/master
+Updating e12bd84..931093a
+Fast-forward
+ README.md           |    3 +++
+ Stackage/Config.hs  |   10 +++++++++-
+ debian-bootstrap.sh |    4 ++--
+ 3 files changed, 14 insertions(+), 3 deletions(-)
+Meow:stackage johnw$ git submodule update --init --recursive
+Submodule 'haskell-platform' () registered for path 'haskell-platform'
+Meow:stackage johnw$ sync
+Meow:stackage johnw$ runghc app/stackage.hs build 
+Loading Haskell Platform
+Loading package database
+Narrowing package database
+Printing build plan to build-plan.log
+active-0.1.0.2 (Brent Yorgey <byorgey@gmail.com>) cannot use: 
+- semigroups-0.9 -- >=0.1 && <0.9
+
+adjunctions-3.0.0.1 (Edward Kmett <ekmett@gmail.com>) cannot use: 
+- distributive-0.3 -- >=0.2.2 && <0.3
+
+diagrams-core-0.6 (Brent Yorgey <byorgey@gmail.com>) cannot use: 
+- semigroups-0.9 -- >=0.3.4 && <0.9
+
+diagrams-lib-0.6 (Brent Yorgey <byorgey@gmail.com>) cannot use: 
+- semigroups-0.9 -- >=0.3.4 && <0.9
+
+dual-tree-0.1.0.0 (Brent Yorgey <byorgey@gmail.com>) cannot use: 
+- semigroups-0.9 -- ==0.8.*
+
+lens-3.7.2 (Brent Yorgey <byorgey@gmail.com>) cannot use: 
+- semigroups-0.9 -- >=0.8.4 && <0.9
+
+linear-0.4.2.1 (Edward Kmett <ekmett@gmail.com>) cannot use: 
+- distributive-0.3 -- >=0.2.2 && <0.3
+
+monoid-extras-0.2.2.1 (Brent Yorgey <byorgey@gmail.com>) cannot use: 
+- semigroups-0.9 -- ==0.8.*
+
+stackage.hs: Conflicting build plan, exiting

@@ -1,0 +1,7 @@
+(defun commit-after-save ()
+  (let ((file (file-name-nondirectory (buffer-file-name))))
+    (if (= 0 (shell-command
+	      (format "git add \"%s\" ; git commit -m \"changes to %s\""
+		      file file)))
+	(message "Committed changes to %s" file)
+      (message "NO changes saved for %s" file))))

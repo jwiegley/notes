@@ -1,0 +1,5 @@
+Hermes ~/src/ledger $ ledger bal -f drewr.dat checking\$      
+          $ 1,366.00  Assets:Checking
+Hermes ~/src/ledger $ ledger bal -f drewr.dat checking  
+          $ 1,466.00  Assets:Checking
+            $ 100.00  Assets:Checking:Business

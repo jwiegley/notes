@@ -1,0 +1,34 @@
+GIT: magit-git-string git describe --tags --dirty
+GIT: magit-git-string git rev-parse --show-toplevel
+GIT: magit-git-string git rev-parse --show-toplevel [3 times]
+GIT: magit-git-exit-code git update-index --refresh
+GIT: magit-git-string git symbolic-ref -q HEAD [2 times]
+GIT: magit-git-string git config branch.master.remote
+GIT: magit-git-string git config branch.master.merge
+GIT: magit-git-lines git config --get-all remote.magit.fetch
+GIT: magit-git-string git config --bool branch.master.rebase
+GIT: magit-git-string git config branch.master.remote
+GIT: magit-git-string git config remote.magit.url
+GIT: magit-git-string git rev-parse --verify HEAD
+GIT: magit-git-string git log -1 --pretty=format:%h %s HEAD
+GIT: magit-git-string git describe --long --tags
+GIT: magit-git-string git describe --contains HEAD
+GIT: magit-git-string git rev-parse --git-dir [7 times]
+GIT: magit-git-lines git stash list
+GIT: magit-git-lines git status --porcelain
+GIT: magit-git-string git rev-parse --git-dir [2 times]
+GIT: magit-cmd-insert-section: git diff-files
+GIT: magit-git-exit-code git log -1 HEAD
+GIT: magit-git-exit-code git diff --quiet --cached
+GIT: magit-git-string git symbolic-ref -q HEAD
+GIT: magit-git-string git config branch.master.remote
+GIT: magit-git-string git config branch.master.merge
+GIT: magit-git-lines git config --get-all remote.magit.fetch
+GIT: magit-cmd-insert-section: git log --format=format:%h %s HEAD..refs/remotes/magit/master
+GIT: magit-git-string git config core.abbrev
+GIT: magit-git-string git symbolic-ref -q HEAD
+GIT: magit-git-string git config branch.master.remote
+GIT: magit-git-string git config branch.master.merge
+GIT: magit-git-lines git config --get-all remote.magit.fetch
+GIT: magit-cmd-insert-section: git log --format=format:%h %s refs/remotes/magit/master..HEAD
+GIT: magit-git-string git config core.abbrev

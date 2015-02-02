@@ -1,0 +1,12 @@
+** NOTE Edward's comment about free monads
+A free monad is left adjoint to the forgetful functor that takes monads to
+functors, so given a functor homomorphism (natural transformation) you get a
+monad homomorphism when you use the 'free' functor to map it.
+:PROPERTIES:
+:ID:       18935966-EB0D-4188-9BF0-174FF4F68293
+:CREATED:  [2014-06-12 Thu 15:08]
+:Date:     Wed, 4 Jun 2014 18:09:06 +0000
+:Message:  [[message://D68671AB9422084C8E5EF1162C776D5F31AAE399@GLDMS85001.goldlnk.rootlnka.net][FW: VPN Token for John Wiegley]]
+:Author:   "Clifford, Kathleen (US SSA)" <kathleen.clifford@baesystems.com>
+:END:
+define-haskell-checkers

@@ -1,0 +1,13 @@
+projectResolved :: Text -- ^ URL
+                -> Entity Project
+                -> Handler (Either Text GitResolvedResult)
+projectResolved "" _ = return $ Left "No URL provided"
+projectResolved url projent@(Entity pid Project {..}) = do
+    (modules,dataFiles) <- runDB $ do
+        ms <- mapM entityVal
+                  =<< (selectList [ModuleProject ==. pid] []
+                       :: YesodDB App [Entity Module])
+        dfs <- mapM entityVal
+                   =<< (selectList [DataFileProject ==. pid] []
+                        :: YesodDB App [Entity DataFile])
+        return (ms, dfs)

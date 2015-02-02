@@ -1,0 +1,277 @@
+# Respond Category
+
+    Define:
+    
+    respond
+        :: (Monad m)
+        =>  a -> Proxy x' x a' a m a'
+    respond a = Respond a Pure
+    
+    (/>/)
+        :: (Monad m)
+        => (a -> Proxy x' x b' b m a')
+        -> (b -> Proxy x' x c' c m b')
+        -> (a -> Proxy x' x c' c m a')
+    (fa />/ fb) a = fa a //> fb
+    
+    (//>)
+        :: (Monad m)
+        =>       Proxy x' x b' b m a'
+        -> (b -> Proxy x' x c' c m b')
+        ->       Proxy x' x c' c m a'
+    p //> fb = case p of
+        Request x' fx  -> Request x' (\x -> fx x //> fb)
+        Respond b  fb' -> fb b >>= \b' -> fb' b' //> fb
+        M          m   -> M (m >>= \p' -> return (p' //> fb)
+        Pure    a      -> Pure a
+
+## Right Identity Law
+
+    Goal: respond />/ fb = fb
+    
+    respond />/ fb
+    -- Definition of `(/>/)`
+    = \b -> respond b //> fb
+    -- Definition of `respond`
+    = \b -> Respond b Pure //> fb
+    -- Definition of `(//>)`
+    = \b -> fb b >>= \b' -> Pure b' //> fb
+    -- Definition of `(//>)`
+    = \b -> fb b >>= \b' -> Pure b'
+    -- Eta reduce
+    = \b -> fb b >>= Pure
+    -- Definition of `return` (in reverse)
+    = \b -> fb b >>= return
+    -- [Kleisli Category - Right Identity Law - Pointful]
+    = \b -> fb b
+    -- Eta reduce
+    = fb
+    -- Goal complete
+
+## Left Identity Law
+
+    Goal: fa />/ respond = fa
+        
+    fa />/ respond
+    -- Definition of '(/>/)'
+    = \a -> fa a //> respond
+    -- [Respond Category - Left Identity Law - Pointful]
+    = \a -> fa a
+    -- Eta reduce
+    = fa
+    -- Goal complete
+
+### Pointful
+    
+    Goal: "Pointful": p //> respond = p
+    
+    p //> respond
+    -- Definition of `(//>)`
+    = case p of
+        Request x' fx  -> Request x' (\x -> fx x //> respond)
+                        -- Coinduction: Reuse the premise
+                        = Request x' (\x -> fx x)
+                        -- Eta reduce
+                        = Request x' fx
+        Respond b  fb' -> respond b >>= \b' -> fb' b' //> respond
+                        -- Coinduction: Reuse the premise
+                        = respond b >>= \b' -> fb' b'
+                        -- Eta reduce
+                        = respond b >>= fb'
+                        -- Definition of `respond`
+                        = Respond b Pure >>= fb'
+                        -- Definition of `(>>=)`
+                        = Respond b (\b' -> Pure b' >>= fb')
+                        -- Definition of `return`, backwards
+                        = Respond b (\b' -> return b' >>= fb')
+                        -- [Kleisli Category - Left Identity Law - Pointful]
+                        = Respond b (\b' -> fb' b')
+                        -- Eta reduce
+                        = Respond b fb'
+        M          m   -> M (m >>= \p' -> return (p' //> respond))
+                        -- Coinduction: Reuse the premise
+                        = M (m >>= \p' -> return p')
+                        -- Eta reduce
+                        = M (m >>= return)
+                        -- [Kleisli Category - Right Identity Law - Pointful]
+                        = M m
+        Pure    a'      -> Pure a'
+    -- Clean up
+    = case p of
+        Request x' fx  -> Request x' fx
+        Respond b  fb' -> Respond b  fb'
+        M          m   -> M           m
+        Pure    a'     -> Pure    a'
+    -- case statement = id
+    = p
+    -- Goal complete
+
+## Associativity Law
+
+    Goal: (fa />/ fb) />/ fc = fa />/ (fb />/ fc)
+
+    (fa />/ fb) />/ fc
+    -- Definition of `(/>/)`
+    \a -> ((fa />/ fb) a) //> fc
+    -- Definition of `(/>/)`
+    \a -> (fa a //> fb) //> fc
+    -- [Respond Category - Associativity Law - Pointful]
+    \a -> fa a //> \b -> fb b //> fc
+    -- Definition of `(/>/)`, in reverse
+    \a -> fa a //> (fb />/ fc)
+    -- Definitoin of `(/>/)`, in reverse
+    fa />/ (fb />/ fc)
+    -- Goal complete
+    
+### Pointful
+
+    Goal: (p //> fb) //> fc = p //> \b -> fb b //> fc
+    
+    (p //> fb) //> fc
+    -- Definition of `(//>)`
+    = (case p of
+        Request x' fx  -> Request x' (\x -> fx x //> fb)
+        Respond b  fb' -> fb b >>= \b' -> fb' b' //> fb
+        M          m   -> M (m >>= \p' -> return (p' //> fb))
+        Pure    a'     -> Pure a' ) //> fc
+    -- Distribute over case statement
+    = case p of
+        Request x' fx  -> Request x' (\x -> fx x //> fb) //> fc
+                        -- Definition of `(//>)`
+                        = Request x' (\x -> (fx x //> fb) //> fc)
+                        -- Coinduction: Reuse the premise
+                        = Request x' (\x -> fx x //> \b -> fb b //> fc)
+                        -- Definition of `(//>)`, in reverse
+                        = Request x' fx //> \b -> fb //> fc
+        Respond b  fb' -> (fb b >>= \b' -> fb' b' //> fb) //> fc
+                        -- [Respond Category - Distributivity Law - Pointful]
+                        = (fb b //> fc) >>= \b' -> (fb' b' //> fb) //> fc
+                        -- Coinduction: Reuse the premise
+                        = (fb b //> fc) >>= \b' -> fb' b' //> \b -> fb b //> fc
+                        -- [Kleisli Category - Right Identity Law - Pointful], in reverse
+                        = ((fb b //> fc) >>= return) >>= \b' -> fb' b' //> \b -> fb b //> fc
+                        -- Definition of `return`
+                        = ((fb b //> fc) >>= Pure) >>= \b' -> fb' b' //> \b -> fb b //> fc
+                        -- Eta expand
+                        = ((fb b //> fc) >>= \r -> Pure r) >>= \b' -> fb' b' //> \b -> fb b //> fc
+                        -- Definition of `(//>)` in reverse
+                        = ((fb b //> fc) >>= \r -> Pure r //> \b -> fb b //> fc) >>= \b' -> fb' b' //> \b -> fb b //> fc
+                        -- Definition of `(//>)` in reverse
+                        = (Respond b Pure //> \b -> fb b //> fc) >>= \b' -> fb' b' //> \b -> fb b //> fc
+                        -- [Respond Category - Distributivity Law - Pointful], in reverse
+                        = (Respond b Pure >>= \b' -> fb' b') //> \b -> fb b //> fc
+                        -- Eta reduce
+                        = (Respond b Pure >>= fb') //> \b -> fb b //> fc
+                        -- Definition of `(>>=)`
+                        = Respond b (\b' -> Pure b' >>= fb') //> \b -> fb b //> fc
+                        -- Definition of `(>>=)`
+                        = Respond b (\b' -> fb' b') //> \b -> fb b //> fc
+                        -- Eta reduce
+                        = Respond b fb' //> \b -> fb b //> fc
+        M          m   -> M (m >>= \p' -> return (p' //> fb)) //> fc
+                        -- Definition of `(//>)`
+                        = M (m >>= \p' -> return ((p' //> fb) //> fc))
+                        -- Coinduction: Reuse the premise
+                        = M (m >>= \p' -> return (p' //> \b -> fb b //> fc))
+                        -- Definition of `(//>)`, in reverse
+                        = M m //> \b -> fb b //> fc
+        Pure    a'      = Pure a' //> fc
+                        -- Definition of `(//>)`
+                        = Pure a'
+                        -- Definition of `(//>)`, in reverse
+                        = Pure a' //> \b -> fb b //> fc
+    -- Clean up
+    = case p of
+        Request x' fx  -> Request x' fx  //> \b -> fb b //> fc
+        Respond b  fb' -> Respond b  fb' //> \b -> fb b //> fc
+        M          m   -> M          m   //> \b -> fb b //> fc
+        Pure       a'  -> Pure    a'     //> \b -> fb b //> fc
+    -- Factor from case statement
+    = (case p of
+        Request x' fx  -> Request x' fx
+        Respond b  fb' -> Respond b  fb'
+        M          m   -> M          m
+        Pure       a'  -> Pure    a' ) //> \b -> fb b //> fc
+    -- case statement = id
+    = p //> \b -> fb b //> fc
+    -- Goal complete
+
+## Distributivity Law
+
+    Goal: (k1 >=> k2) />/ fb = (k1 />/ fb) >=> (k2 />/ fb)
+    
+    (k1 >=> k2) />/ fb
+    -- Definition of `(/>/)`
+    = \a -> ((k1 >=> k2) a) //> fb
+    -- Definition of `(>=>)`
+    = \a -> (k1 a >>= k2) //> fb
+    -- [Respond Category - Distributivity Law - Pointful]
+    = \a -> (k1 a //> fb) >>= \r -> k2 r //> fb
+    -- Definition of `(/>/)`, in reverse
+    = \a -> (k1 />/ fb) a >>= \r -> k2 r //> fb
+    -- Definition of `(/>/)`, in reverse
+    = \a -> (k1 />/ fb) a >>= (k2 />/ fb)
+    -- Definition of `(>=>)`, in reverse
+    = (k1 />/ fb) >=> (k2 />/ fb)
+    -- Goal complete
+    
+### Pointful
+
+    Goal: (p >>= k) //> fb = (p //> fb) >>= \r -> k r //> fb
+    
+    (p >>= k) //> fb
+    -- Definition of `(>>=)`
+    = (case p of
+        Request x' fx  -> Request x' (\x  -> fx  x  >>= k)
+        Respond b  fb' -> Respond b  (\b' -> fb' b' >>= k)
+        M          m   -> M (m >>= \p' -> return (p' >>= k))
+        Pure    r      -> k r ) //> fb
+    -- Distribute over case statement
+    = case p of
+        Request x' fx  -> Request x' (\x -> fx x >>= k) //> fb
+                        -- Definition of `(//>)`
+                        = Request x' (\x -> (fx x >>= k) //> fb)
+                        -- Coinduction: Reuse the premise
+                        = Request x' (\x -> (fx x //> fb) >>= \r -> k r //> fb)
+                        -- Definition of `(>>=)`, in reverse
+                        = Request x' (\x -> (fx x //> fb)) >>= \r -> k r //> fb
+                        -- Definition of `(//>)`, in reverse
+                        = (Request x' fx //> fb) >>= \r -> k r //> fb
+        Respond b  fb' -> Respond b (\b' -> fb' b' >>= k) //> fb
+                        -- Definition of `(//>)`
+                        = fb b (\b' -> (fb' b' >>= k) //> fb)
+                        -- Coinduction: Reuse the premise
+                        = fb b >>= \b' -> (fb' b' //> fb) >>= \r -> k r //> fb
+                        -- [Kleisli Category - Associativity Law - Pointful]
+                        = (fb b >>= \b' -> fb' b' //> fb) >>= \r -> k r //> fb
+                        -- Definition of `(//>)`, in reverse
+                        = (Respond b fb' //> fb) >>= \r -> k r //> fb
+        M          m   -> M (m >>= \p' -> return (p >>= k)) //> fb
+                        -- Definition of `(//>)`
+                        = M (m >>= \p' -> return ((p >>= k) //> fb))
+                        -- Coinduction: Reuse the premise
+                        = M (m >>= \p' -> return ((p //> fb) >>= \r -> k r //> fb))
+                        -- Definition of `(>>=)`, in reverse
+                        = M (m >>= \p' -> return (p //> fb)) >>= \r -> k r //> fb
+                        -- Definition of `(//>)`, in reverse
+                        = (M m //> fb) >>= \r -> k r //> fb
+        Pure    r      -> k r //> fb
+                        -- Definition of `(>>=)`, in reverse
+                        = Pure r >>= \r -> k r //> fb
+                        -- Definition of `(//>)`, in reverse
+                        = (Pure r //> fb) >>= \r -> k r //> fb
+    -- Clean up
+    = case p of
+        Request x' fx  -> (Request x' fx  //> fb) >>= \r -> k r //> fb
+        Respond b  fb' -> (Respond b  fb' //> fb) >>= \r -> k r //> fb
+        M          m   -> (M          m   //> fb) >>= \r -> k r //> fb
+        Pure    r      -> (Pure    r      //> fb) >>= \r -> k r //> fb
+    -- Factor from case statement
+    = ((case p of
+        Request x' fx  -> Request x' fx
+        Respond b  fb' -> Respond b  fb'
+        M          m   -> M          m
+        Pure    r      -> Pure    r ) //> fb) >>= \r -> k r //> fb
+    -- case statement = id
+    = (p //> fb) >>= \r -> k r //> fb
+    -- Goal complete

@@ -1,0 +1,13 @@
+Vulcan:/usr/local/src/clucene/build master $ brew install --with-icu boost
+==> Downloading http://downloads.sourceforge.net/project/boost/boost/1.55.0/boost_1_55_0.tar.bz2
+########################################################################################### 100.0%
+==> ./bootstrap.sh --prefix=/usr/local/Cellar/boost/1.55.0 --libdir=/usr/local/Cellar/boost/1.55.0
+==> ./b2 --prefix=/usr/local/Cellar/boost/1.55.0 --libdir=/usr/local/Cellar/boost/1.55.0/lib -d2 -
+Warning: Could not link boost. Unlinking...
+Error: The `brew link` step did not complete successfully
+The formula built, but is not symlinked into /usr/local
+You can try again using `brew link boost'
+
+Possible conflicting files are:
+==> Summary
+ἷa  /usr/local/Cellar/boost/1.55.0: 10040 files, 520M, built in 15.6 minutes

@@ -1,0 +1,8 @@
+(let ((index 0))
+  (delete nil
+          (maplist (lambda (lst)
+                     (prog1
+                         (if (= 0 (% index 2))
+                             (cons (car lst) (cadr lst)))
+                       (incf index)))
+                   '(:hello "Hello" :world "World"))))

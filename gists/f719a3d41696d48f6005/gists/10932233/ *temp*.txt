@@ -1,0 +1,6 @@
+While parsing file "/Users/johnw/dl/foo.dat", line 15: 
+While parsing posting:
+  Equity                     $-100 = $200
+                                     ^^^^
+Error: Balance assertion off by $600 (expected to see $-300)
+   17ms  [INFO]  Ledger ended

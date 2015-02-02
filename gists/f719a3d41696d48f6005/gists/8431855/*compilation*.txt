@@ -1,0 +1,7 @@
+Linking dist/build/isolation-runner/isolation-runner ...
+Undefined symbols for architecture x86_64:
+  "_isolationzmrunnerzm0zi1zi0zi0_FPziInfoChunker_infoChunks_closure", referenced from:
+      _sTeo_info in libHSisolation-runner-0.1.0.0.a(Messages.o)
+      _isolationzmrunnerzm0zi1zi0zi0_HandlerziFayziIdeziMessages_getProjectMessages_srt in libHSisolation-runner-0.1.0.0.a(Messages.o)
+ld: symbol(s) not found for architecture x86_64
+collect2: ld returned 1 exit status

@@ -1,0 +1,36 @@
+[submodule "ct/categories"]
+	path = ct/categories
+	url = git://github.com/copumpkin/categories.git
+[submodule "ct/category-agda"]
+	path = ct/category-agda
+	url = git://github.com/konn/category-agda.git
+[submodule "ct/cats"]
+	path = ct/cats
+	url = git://gitorious.org/cats/cats.git
+[submodule "ct/coq-categories"]
+	path = ct/coq-categories
+	url = http://git.megacz.com/coq-categories.git
+[submodule "ct/mapoidcats"]
+	path = ct/mapoidcats
+	url = git://gitorious.org/cats/mapoidcats.git
+[submodule "ct/setoidcats"]
+	path = ct/setoidcats
+	url = git://gitorious.org/cats/setoidcats.git
+[submodule "ct/setoidfam"]
+	path = ct/setoidfam
+	url = git://gitorious.org/cats/setoidfam.git
+[submodule "concurrent"]
+	path = concurrent
+	url = git://github.com/jwiegley/concurrent.git
+[submodule "euler"]
+	path = euler
+	url = git://github.com/jwiegley/project-euler.git
+[submodule "functors"]
+	path = functors
+	url = git://github.com/jwiegley/functors.git
+[submodule "monad-base-control"]
+	path = monad-base-control
+	url = git://github.com/jwiegley/monad-base-control.git
+[submodule "sf"]
+	path = sf
+	url = git://github.com/jwiegley/foundations.git

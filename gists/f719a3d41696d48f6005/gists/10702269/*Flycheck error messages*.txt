@@ -1,0 +1,85 @@
+Couldn't match type `GHC.Generics.D1
+                           GHC.Generics.D1(,,,,)
+                           (GHC.Generics.C1
+                              GHC.Generics.C1_0(,,,,)
+                              ((GHC.Generics.S1 GHC.Generics.NoSelector (GHC.Generics.Rec0 [Int])
+                                GHC.Generics.:*: GHC.Generics.S1
+                                                   GHC.Generics.NoSelector
+                                                   (GHC.Generics.Rec0 [Double]))
+                               GHC.Generics.:*: (GHC.Generics.S1
+                                                   GHC.Generics.NoSelector (GHC.Generics.Rec0 ())
+                                                 GHC.Generics.:*: (GHC.Generics.S1
+                                                                     GHC.Generics.NoSelector
+                                                                     (GHC.Generics.Rec0 t0)
+                                                                   GHC.Generics.:*: GHC.Generics.S1
+                                                                                      GHC.Generics.NoSelector
+                                                                                      GHC.Generics.Par1))))
+                           [t1]
+                         -> f0 (GHC.Generics.D1
+                                  GHC.Generics.D1(,,,,)
+                                  (GHC.Generics.C1
+                                     GHC.Generics.C1_0(,,,,)
+                                     ((GHC.Generics.S1
+                                         GHC.Generics.NoSelector (GHC.Generics.Rec0 [Int])
+                                       GHC.Generics.:*: GHC.Generics.S1
+                                                          GHC.Generics.NoSelector
+                                                          (GHC.Generics.Rec0 [Double]))
+                                      GHC.Generics.:*: (GHC.Generics.S1
+                                                          GHC.Generics.NoSelector
+                                                          (GHC.Generics.Rec0 ())
+                                                        GHC.Generics.:*: (GHC.Generics.S1
+                                                                            GHC.Generics.NoSelector
+                                                                            (GHC.Generics.Rec0 t0)
+                                                                          GHC.Generics.:*: GHC.Generics.S1
+                                                                                             GHC.Generics.NoSelector
+                                                                                             GHC.Generics.Par1))))
+                                  [t1])'
+                  with `Maybe a0'
+    Expected type: [a0]
+                   -> GHC.Generics.D1
+                        GHC.Generics.D1(,,,,)
+                        (GHC.Generics.C1
+                           GHC.Generics.C1_0(,,,,)
+                           ((GHC.Generics.S1 GHC.Generics.NoSelector (GHC.Generics.Rec0 [Int])
+                             GHC.Generics.:*: GHC.Generics.S1
+                                                GHC.Generics.NoSelector
+                                                (GHC.Generics.Rec0 [Double]))
+                            GHC.Generics.:*: (GHC.Generics.S1
+                                                GHC.Generics.NoSelector (GHC.Generics.Rec0 ())
+                                              GHC.Generics.:*: (GHC.Generics.S1
+                                                                  GHC.Generics.NoSelector
+                                                                  (GHC.Generics.Rec0 t0)
+                                                                GHC.Generics.:*: GHC.Generics.S1
+                                                                                   GHC.Generics.NoSelector
+                                                                                   GHC.Generics.Par1))))
+                        [t1]
+                   -> f0 (GHC.Generics.D1
+                            GHC.Generics.D1(,,,,)
+                            (GHC.Generics.C1
+                               GHC.Generics.C1_0(,,,,)
+                               ((GHC.Generics.S1 GHC.Generics.NoSelector (GHC.Generics.Rec0 [Int])
+                                 GHC.Generics.:*: GHC.Generics.S1
+                                                    GHC.Generics.NoSelector
+                                                    (GHC.Generics.Rec0 [Double]))
+                                GHC.Generics.:*: (GHC.Generics.S1
+                                                    GHC.Generics.NoSelector (GHC.Generics.Rec0 ())
+                                                  GHC.Generics.:*: (GHC.Generics.S1
+                                                                      GHC.Generics.NoSelector
+                                                                      (GHC.Generics.Rec0 t0)
+                                                                    GHC.Generics.:*: GHC.Generics.S1
+                                                                                       GHC.Generics.NoSelector
+                                                                                       GHC.Generics.Par1))))
+                            [t1])
+      Actual type: [a0] -> Maybe a0
+    In the second argument of `traverse', namely `listToMaybe'
+    In the second argument of `($)', namely
+      `traverse
+         tinplate1
+         listToMaybe
+         ([1 :: Int], [2 :: Double], (), "Hello", ["Hello"])'
+    In the expression:
+      print
+      $ traverse
+          tinplate1
+          listToMaybe
+          ([1 :: Int], [2 :: Double], (), "Hello", ["Hello"])

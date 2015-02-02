@@ -1,0 +1,10 @@
+ByteCodeLink.lookupCE
+During interactive linking, GHCi couldn't find the following symbol:
+  fpcozmapizm1zi0zi5_FPziAPIziTypes_zdfPersistFieldSqlMergeModifyPairzuzdcsqlType_closure
+This may be due to you not asking GHCi to load extra object files,
+archives or DLLs needed by your current session.  Restart GHCi, specifying
+the missing library using the -L/path/to/object/dir and -lmissinglibname
+flags, or simply by naming the relevant files on the GHCi command line.
+Alternatively, this link failure might indicate a bug in GHCi.
+If you suspect the latter, please send a bug report to:
+  glasgow-haskell-bugs@haskell.org

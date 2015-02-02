@@ -1,0 +1,47 @@
+/bin/bash /nix/store/5axvnjjs5jbvbmm1pm543lkigjj49x09-apr-1.5.1/build-1/libtool --silent --mode=link clang  -g -O2      -L/nix/store/bh23jy5n82w3wk4snclsygl8rx1pv2z2-openssl-1.0.1j/lib -L/nix/store/vx34rpjb6pq5f2d2pb189k87svhk6gp1-db-5.3.28/lib -L/nix/store/p4xr67hbsa6wz8splwy9i6asf3h6kck0-expat-2.1.0/lib -release 1 -module -rpath /nix/store/98drl24p1ny0d9ryc20rwwlbx7cwqb0q-apr-util-1.5.4/lib/apr-util-1 -o crypto/apr_crypto_openssl.la crypto/apr_crypto_openssl.lo -L/nix/store/bh23jy5n82w3wk4snclsygl8rx1pv2z2-openssl-1.0.1j/lib  -lssl -lcrypto
+Undefined symbols for architecture x86_64:
+  "_apr_array_make", referenced from:
+      _crypto_make in apr_crypto_openssl.o
+  "_apr_array_push", referenced from:
+      _crypto_passphrase in apr_crypto_openssl.o
+  "_apr_crypto_clear", referenced from:
+      _crypto_passphrase in apr_crypto_openssl.o
+      _crypto_block_encrypt_init in apr_crypto_openssl.o
+      _crypto_block_encrypt in apr_crypto_openssl.o
+      _crypto_block_decrypt in apr_crypto_openssl.o
+  "_apr_hash_make", referenced from:
+      _crypto_make in apr_crypto_openssl.o
+  "_apr_hash_set", referenced from:
+      _crypto_make in apr_crypto_openssl.o
+  "_apr_palloc", referenced from:
+      _crypto_make in apr_crypto_openssl.o
+      _crypto_passphrase in apr_crypto_openssl.o
+      _crypto_block_encrypt_init in apr_crypto_openssl.o
+      _crypto_block_encrypt in apr_crypto_openssl.o
+      _crypto_block_decrypt_init in apr_crypto_openssl.o
+      _crypto_block_decrypt in apr_crypto_openssl.o
+  "_apr_pool_cleanup_null", referenced from:
+      _crypto_init in apr_crypto_openssl.o
+      _crypto_make in apr_crypto_openssl.o
+      _crypto_block_encrypt_init in apr_crypto_openssl.o
+      _crypto_block_decrypt_init in apr_crypto_openssl.o
+  "_apr_pool_cleanup_register", referenced from:
+      _crypto_init in apr_crypto_openssl.o
+      _crypto_make in apr_crypto_openssl.o
+      _crypto_block_encrypt_init in apr_crypto_openssl.o
+      _crypto_block_decrypt_init in apr_crypto_openssl.o
+  "_apr_tokenize_to_argv", referenced from:
+      _crypto_make in apr_crypto_openssl.o
+ld: symbol(s) not found for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make[1]: *** [crypto/apr_crypto_openssl.la] Error 1
+make: *** [all-recursive] Error 1
+builder for `/nix/store/y3szwah82njd161dk9zl6jq52a4wfyap-apr-util-1.5.4.drv' failed with exit code 2
+cannot build derivation `/nix/store/nwc8vlhqm7mw368jq3qbk2mh5ffs43a0-subversion-1.8.10.drv': 1 dependencies couldn't be built
+cannot build derivation `/nix/store/dk5ggh2jby8lf0765i5vpbvdbh9a7b7f-libcxxabi-r217324.drv': 1 dependencies couldn't be built
+cannot build derivation `/nix/store/9ifybqhvxdri3lw0sp5mzjijn4ldqzgh-libcxxabi-pre-217324.drv': 1 dependencies couldn't be built
+cannot build derivation `/nix/store/7bbh72fmzfy6w5cm3iwfdi6xg1aly91m-clang-wrapper-3.5.0.drv': 1 dependencies couldn't be built
+cannot build derivation `/nix/store/gb35ab6kwmk8kx0jbzankjym4w6zpnkw-stdenv-darwin-boot-3.drv': 1 dependencies couldn't be built
+cannot build derivation `/nix/store/g0w32aj5sfgg80yrnigchkjzhszlzl96-nix-1.8pre3861_bca6d35.drv': 1 dependencies couldn't be built
+error: build of `/nix/store/g0w32aj5sfgg80yrnigchkjzhszlzl96-nix-1.8pre3861_bca6d35.drv' failed
+00:12:06 Johns-Mac:~/src/nixpkgs $

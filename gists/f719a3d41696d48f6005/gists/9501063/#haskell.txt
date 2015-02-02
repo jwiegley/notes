@@ -1,0 +1,428 @@
+23:49 ERC> /mode #haskell +b
+23:49 *** Ban for away_!*@* on #haskell set by
+          copumpkin!~copumpkin@unaffiliated/copumpkin on 1394495917
+23:49 *** Ban for *!*@80.30.151.134 on #haskell set by
+          johnw!~johnw@c-69-245-200-160.hsd1.il.comcast.net on 1394495352
+23:49 *** Ban for *!*@80.30.151.134nil on #haskell set by
+          johnw!~johnw@c-69-245-200-160.hsd1.il.comcast.net on 1394495225
+23:49 *** Ban for *!~ircap@80.30.151.134nil on #haskell set by
+          johnw!~johnw@c-69-245-200-160.hsd1.il.comcast.net on 1394494993
+23:49 *** Ban for *!*ircap@90.174.1.* on #haskell set by
+          geekosaur!allbery@dreamshell.ttuttle.net on 1394349975
+23:49 *** Ban for *!*Welles@162.216.0.* on #haskell set by
+          geekosaur!allbery@dreamshell.ttuttle.net on 1394155792
+23:49 *** Ban for vote_vis_systemd!*@* on #haskell set by
+          geekosaur!allbery@dreamshell.ttuttle.net on 1394130510
+23:49 *** Ban for *!*@ool-457ca46c.dyn.optonline.net on #haskell set by
+          milfjord!~mauke@p3m/member/mauke on 1394130506
+23:49 *** Ban for ssj4mo!*@*$##fix_your_connection on #haskell set by
+          copumpkin!~copumpkin@unaffiliated/copumpkin on 1393741546
+23:49 *** Ban for $a:Schmeidth on #haskell set by milfjord!~mauke@p3m/member/mauke on
+          1393618663
+23:49 *** Ban for *!~ircap@14.Red-81-32-230.dynamicIP.rima-tde.net on #haskell set by
+          copumpkin!~copumpkin@unaffiliated/copumpkin on 1393050880
+23:49 *** Ban for *!*@75.115.64.76 on #haskell set by leguin.freenode.net on 1392944280
+23:49 *** Ban for *!~nodebot@117.220.247.56 on #haskell set by
+          edwardk!~edwardk@pdpc/supporter/professional/edwardk on 1392874482
+23:49 *** Ban for *!*remaxer@*.ip206.fastwebnet.it on #haskell set by
+          shachaf!~shachaf@unaffiliated/shachaf on 1392328220
+23:49 *** Ban for *!*@dhcp-225-161.eastdorm.uic.edu on #haskell set by
+          Cale!~Cale@CPEc8d3a35c2cdd-CM78cd8ec9750d.cpe.net.cable.rogers.com on
+          1392275666
+23:49 *** Ban for *!~AngryBeer@200.79.251.68nil on #haskell set by
+          johnw!~johnw@c-69-245-200-160.hsd1.il.comcast.net on 1392239640
+23:49 *** Ban for *!uid25435@gateway/web/irccloud.com/x-ikdtytgcrbnnarytnil on #haskell
+          set by johnw!~johnw@c-69-245-200-160.hsd1.il.comcast.net on 1392236941
+23:49 *** Ban for *!~CLIENTE04@187.153.59.178 on #haskell set by
+          copumpkin!~copumpkin@unaffiliated/copumpkin on 1392001331
+23:49 *** Ban for $a:roscareyes on #haskell set by monochrom!trebla@216.138.220.146 on
+          1391834141
+23:49 *** Ban for *!~smoke@pool-71-177-95-243.lsanca.fios.verizon.net on #haskell set by
+          edwardk!~edwardk@pdpc/supporter/professional/edwardk on 1391668023
+23:49 *** Ban for *!uid25044@gateway/web/irccloud.com/x-iabzwrutnxuxjlqg on #haskell set
+          by copumpkin!~copumpkin@unaffiliated/copumpkin on 1391665454
+23:49 *** Ban for *!~AngryBeer@110.208.139.5nil on #haskell set by
+          johnw!~johnw@c-69-245-200-160.hsd1.il.comcast.net on 1391148852
+23:49 *** Ban for *!*markovirc@67.43.244.* on #haskell set by
+          geekosaur!allbery@dreamshell.ttuttle.net on 1391013617
+23:49 *** Ban for boemekeld!*@*$##fix_your_connection on #haskell set by
+          shachaf!~shachaf@unaffiliated/shachaf on 1390935048
+23:49 *** Ban for *!*@83.247.106.212.dynamic.jazztel.es on #haskell set by
+          Cale!~Cale@CPEc8d3a35c2cdd-CM78cd8ec9750d.cpe.net.cable.rogers.com on
+          1390588448
+23:49 *** Ban for *!*ircap@*.Red-83-33-196.dynamicIP.rima-tde.net on #haskell set by
+          shachaf!~shachaf@unaffiliated/shachaf on 1389030238
+23:49 *** Ban for *!*AngryBeer@200.79.253.* on #haskell set by
+          geekosaur!allbery@dreamshell.ttuttle.net on 1388811001
+23:49 *** Ban for *!~AjoCeboll@200.79.253.35nil on #haskell set by
+          johnw!~johnw@c-69-245-200-160.hsd1.il.comcast.net on 1388275151
+23:49 *** Ban for *!*richard@*.dyn.embarqhsd.net on #haskell set by
+          shachaf!~shachaf@unaffiliated/shachaf on 1387488125
+23:49 *** Ban for $a:xfce-x64 on #haskell set by monochrom!monokrom@216.138.220.146 on
+          1387214110
+23:49 *** Ban for *!*worshipfu@*.wireless.uic.edu on #haskell set by
+          Saizan!~saizan@li265-65.members.linode.com on 1387003400
+23:49 *** Ban for mark44!*@* on #haskell set by geekosaur!allbery@dreamshell.ttuttle.net
+          on 1386973586
+23:49 *** Ban for *!*@*.Red-2-138-161.dynamicIP.rima-tde.net on #haskell set by
+          Cale!~Cale@CPEc8d3a35c2cdd-CM78cd8ec9750d.cpe.net.cable.rogers.com on
+          1386870851
+23:49 *** Ban for *!*@unaffiliated/nevzets on #haskell set by
+          shachaf!~shachaf@unaffiliated/shachaf on 1386291193
+23:49 *** Ban for *!*@178-75-174-227.bb.dnainternet.fi on #haskell set by
+          monochrom!monokrom@216.138.220.146 on 1386114986
+23:49 *** Ban for *!*pooperpoo@200.79.253.* on #haskell set by
+          geekosaur!allbery@dreamshell.ttuttle.net on 1385908524
+23:49 *** Ban for *!~martin@85-127-100-72.dynamic.xdsl-line.inode.at on #haskell set by
+          edwardk!~edwardk@pdpc/supporter/professional/edwardk on 1385806046
+23:49 *** Ban for *!*jimmyray@unaffiliated/stafford on #haskell set by
+          Saizan!~saizan@li265-65.members.linode.com on 1385689148
+23:49 *** Ban for *!~IceChat7@24.114.41.176 on #haskell set by
+          copumpkin!~copumpkin@unaffiliated/copumpkin on 1385260288
+23:49 *** Ban for $a:jimmyray on #haskell set by mauke!~mauke@p3m/member/mauke on
+          1385159238
+23:49 *** Ban for jimmyray!*@* on #haskell set by
+          geekosaur!allbery@dreamshell.ttuttle.net on 1385159162
+23:49 *** Ban for *!*ircap@*.Red-2-138-167.dynamicIP.rima-tde.net on #haskell set by
+          geekosaur!allbery@dreamshell.ttuttle.net on 1384918530
+23:49 *** Ban for *!*ircap@213.143.61.* on #haskell set by
+          geekosaur!allbery@dreamshell.ttuttle.net on 1384896941
+23:49 *** Ban for *!*fistinggr@200.79.253.* on #haskell set by
+          geekosaur!allbery@dreamshell.ttuttle.net on 1384813890
+23:49 *** Ban for *!~rapeseed@* on #haskell set by
+          dolio!~dolio@c-174-63-84-118.hsd1.ma.comcast.net on 1384055861
+23:49 *** Ban for *!*@c-98-213-119-60.hsd1.il.comcast.net on #haskell set by
+          Cale!~Cale@CPEc8d3a35c2cdd-CM78cd8ec9750d.cpe.net.cable.rogers.com on
+          1383953539
+23:49 *** Ban for $a:chare on #haskell set by elliott!~elliott@unaffiliated/elliott on
+          1383721383
+23:49 *** Ban for chare!*@* on #haskell set by elliott!~elliott@unaffiliated/elliott on
+          1383721375
+23:49 *** Ban for mrsolo!*@*$##fix_your_connection on #haskell set by
+          geekosaur!allbery@dreamshell.ttuttle.net on 1383494200
+23:49 *** Ban for *!*Zektor6@187.153.20.* on #haskell set by
+          geekosaur!allbery@dreamshell.ttuttle.net on 1383331268
+23:49 *** Ban for Halite*!*@* on #haskell set by elliott!~elliott@unaffiliated/elliott
+          on 1382924303
+23:49 *** Ban for *!*@185.25.84.* on #haskell set by
+          geekosaur!allbery@dreamshell.ttuttle.net on 1382918725
+23:49 *** Ban for *!*@185.25.84.104 on #haskell set by
+          Cale!~Cale@CPEc8d3a35c2cdd-CM78cd8ec9750d.cpe.net.cable.rogers.com on
+          1382866287
+23:49 *** Ban for *!~ircap@155.Red-2-138-166.dynamicIP.rima-tde.net on #haskell set by
+          edwardk!~edwardk@pdpc/supporter/professional/edwardk on 1382837767
+23:49 *** Ban for *!*iguano@166.48.42.* on #haskell set by
+          geekosaur!allbery@dreamshell.ttuttle.net on 1382712558
+23:49 *** Ban for *!*Zogatribe@*.skybroadband.com on #haskell set by
+          elliott!~elliott@unaffiliated/elliott on 1382645886
+23:49 *** Ban for *!*521c9b26@*.82.28.155.38 on #haskell set by
+          elliott!~elliott@unaffiliated/elliott on 1382089631
+23:49 *** Ban for *!*@37.98.192.145 on #haskell set by
+          monochrom!monokrom@toronto-hs-216-138-220-146.s-ip.magma.ca on 1381011419
+23:49 *** Ban for *!*RaceMatte@*.dl2music.com on #haskell set by
+          geekosaur!allbery@dreamshell.ttuttle.net on 1380212268
+23:49 *** Ban for *!*hejhekj@37.98.192.* on #haskell set by
+          elliott!~elliott@unaffiliated/elliott on 1380069186
+23:49 *** Ban for *!*@gateway/web/freenode/ip.194.219.45.56 on #haskell set by
+          monochrom!monokrom@toronto-hs-216-138-220-146.s-ip.magma.ca on 1380060597
+23:49 *** Ban for *!*c242af59@*.194.66.175.89 on #haskell set by
+          shachaf!~shachaf@unaffiliated/shachaf on 1379623404
+23:49 *** Ban for *!*ircap@*.Red-79-147-187.dynamicIP.rima-tde.net on #haskell set by
+          shachaf!~shachaf@unaffiliated/shachaf on 1379486374
+23:49 *** Ban for *!*@546AAAD8.cm-12-3c.dynamic.ziggo.nl on #haskell set by
+          monochrom!monokrom@toronto-hs-216-138-220-146.s-ip.magma.ca on 1378839237
+23:49 *** Ban for *!43d5da4a@gateway/web/freenode/ip.67.213.218.74 on #haskell set by
+          edwardk!~edwardk@pdpc/supporter/professional/edwardk on 1378612825
+23:49 *** Ban for spiridondon!*@* on #haskell set by
+          edwardk!~edwardk@pdpc/supporter/professional/edwardk on 1378434910
+23:49 *** Ban for $a:jdoles on #haskell set by elliott!elliott@unaffiliated/elliott on
+          1378129624
+23:49 *** Ban for *!~brad@199-255-209-167.anchorfree.com on #haskell set by
+          edwardk!~edwardk@pdpc/supporter/professional/edwardk on 1378070860
+23:49 *** Ban for chord!*@* on #haskell set by elliott!elliott@unaffiliated/elliott on
+          1377907830
+23:49 *** Ban for *!*322f530e@*.50.47.83.14 on #haskell set by
+          elliott!elliott@unaffiliated/elliott on 1377907825
+23:49 *** Ban for *!b115f95e@gateway/web/freenode/ip.177.21.249.94 on #haskell set by
+          edwardk!~edwardk@pdpc/supporter/professional/edwardk on 1377467812
+23:49 *** Ban for *!~Ipil@187.153.74.248 on #haskell set by
+          edwardk!~edwardk@pdpc/supporter/professional/edwardk on 1377112472
+23:49 *** Ban for $a:ChokoIt on #haskell set by mauke!~mauke@p3m/member/mauke on
+          1377034698
+23:49 *** Ban for *!*kjhkj@*.dsl.bell.ca on #haskell set by
+          shachaf!~shachaf@unaffiliated/shachaf on 1376684198
+23:49 *** Ban for *!*@122-62-237-10.jetstream.xtra.co.nz on #haskell set by
+          shachaf!~shachaf@unaffiliated/shachaf on 1376557215
+23:49 *** Ban for *!*dudlitee@*.jetstream.xtra.co.nz on #haskell set by
+          shachaf!~shachaf@unaffiliated/shachaf on 1376557134
+23:49 *** Ban for *!~Chris@122-59-82-97.jetstream.xtra.co.nz on #haskell set by
+          edwardk!~edwardk@pdpc/supporter/professional/edwardk on 1376557032
+23:49 *** Ban for $a:Xochipilli on #haskell set by elliott!elliott@unaffiliated/elliott
+          on 1376449940
+23:49 *** Ban for Xochipilli*!*@* on #haskell set by
+          elliott!elliott@unaffiliated/elliott on 1376449924
+23:49 *** Ban for *!*Xochipill@187.153.54.* on #haskell set by
+          elliott!elliott@unaffiliated/elliott on 1376436740
+23:49 *** Ban for $a:MakTa on #haskell set by mauke!~mauke@p3m/member/mauke on
+          1376201792
+23:49 *** Ban for *!*MakTa@187.153.35.* on #haskell set by
+          shachaf!~shachaf@unaffiliated/shachaf on 1376186891
+23:49 *** Ban for $a:mike4_ on #haskell set by
+          monochrom!monokrom@toronto-hs-216-138-220-146.s-ip.magma.ca on 1375382017
+23:49 *** Ban for *!*@c-24-10-24-153.hsd1.ca.comcast.net on #haskell set by
+          Cale!~Cale@CPEc8d3a35c2cdd-CM78cd8ec9750d.cpe.net.cable.rogers.com on
+          1374871302
+23:49 *** Ban for *!*@124-197-56-160.callplus.net.nz on #haskell set by
+          Igloo!~igloo@81.2.99.210 on 1374404438
+23:49 *** Ban for *!*ssjsj@* on #haskell set by elliott!elliott@unaffiliated/elliott on
+          1374100267
+23:49 *** Ban for *!*jswksl@* on #haskell set by elliott!elliott@unaffiliated/elliott on
+          1374098962
+23:49 *** Ban for leo_31*!*@* on #haskell set by elliott!elliott@unaffiliated/elliott on
+          1374098955
+23:49 *** Ban for hammond!*@* on #haskell set by elliott!elliott@unaffiliated/elliott on
+          1374005283
+23:49 *** Ban for $a:Portrait on #haskell set by elliott!elliott@unaffiliated/elliott on
+          1374005267
+23:49 *** Ban for *!*LLckfan@* on #haskell set by shachaf!~shachaf@unaffiliated/shachaf
+          on 1373953867
+23:49 *** Ban for $a:LLckfan on #haskell set by shachaf!~shachaf@unaffiliated/shachaf on
+          1373953828
+23:49 *** Ban for *!*@31.205.67.235 on #haskell set by
+          elliott!elliott@unaffiliated/elliott on 1373496853
+23:49 *** Ban for *!*Adium@*.dcc.fc.up.pt on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for neutrino!*@*$#haskell-ops on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for gerg*!*@*$#haskell-ops on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*@211.37.105.* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*wack@120.142.190.* on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*reggal@112.145.53.* on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*@109.255.44.234 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*magic@2a01:270:dd00:77ca:fadd:4ec6:ab67:* on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*krq@117.230.143.* on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*@*176.24.235.136 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!~IanMc@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*bb93a254@*.187.147.162.84 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for $a:mrBG on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!~elaineben@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*322f5788@*.50.47.87.136 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*@*69.142.86.58 on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!c1961afd@gateway/web/freenode/ip.193.150.26.253 on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*elaineben@78.164.217.* on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for $a:harrisonpartch on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@cpe-108-185-218-246.socal.res.rr.com on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:Ndit on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@162.sub-174-253-241.myvzw.com on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!322f5689@gateway/web/freenode/ip.50.47.86.137 on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:HaliteBird on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:Halite on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@176.96.167.187 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*b1693309@*.177.105.51.9 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!~Zol1ka@unaffiliated/zolk3ri on #haskell set by leguin.freenode.net
+          on 1373463060
+23:49 *** Ban for *!*@207-119-113-235.dyn.centurytel.net on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!xdccMule@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!~un_golan@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@202-180-112-138.callplus.net.nz on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@112.145.28.107 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!~nend@89.254.149.213 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!~trainengi@ip68-8-31-14.sd.sd.cox.net on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@static.61.198.47.78.clients.your-server.de on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@93.89.92.12 on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for progster!*@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!Nietzsches@you.want.to.fuck.with.us.to on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@2602:306:cd2c:320:d227:88ff:fe57:5a7c on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@128.204.196.111 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for $a:b0llo on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:BernieBankenberg on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*@gateway/web/freenode/ip.82.25.201.214 on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:sausage2 on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*sexy@90.148.63.* on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*@ip72-207-16-214.sd.sd.cox.net on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for pozic!*@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:MrDildeaux on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:fasta on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:lawful_evil on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@*.lab.im on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!Enjambre@rolls.fat.blunts.ws on #haskell set by leguin.freenode.net
+          on 1373463060
+23:49 *** Ban for *!*@*.sex0r.com on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:frendshipismagic on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for unsafeCoerce!*@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*rly@unaffiliated/rly on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for chocolaate-maan!*@* on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for banisterfiend!*@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for spanish_horse!*@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for kunwon*!*@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!~poutine@you.can.trust.this.trollbot.org on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:republican_devil on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*@unaffiliated/scheme on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for palomer!*@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*redocdam@unaffiliated/redocdam on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:gavino on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*gschuet*@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:azathoth99 on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@95.66.* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@*.evad.in on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for Smerdyakov!*@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for $r:*shitting* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for $r:*FAT*16* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for $r:IRSeekBot on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for $r:*Pennerg* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for $r:Jesus?Christ on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for $r:client-86-25-194-189* on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for $r:208.20.21.190 on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*Gast*@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for gio123!*@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*ggallin*@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*dsfasf@201.59.55.* on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*goodboy@93.99.16.* on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*kline@*.pool-118-172.dynamic.totbb.net on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*brasilnig@190.247.43.* on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*@110.77.212.85 on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*spamking@180.183.239.* on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*dsfsdfsdf@180.241.255.* on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*@118.99.80.48 on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!~dfgdfgdf@71-12-251-87.dhcp.slid.la.charter.com on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!~dfsgsdfgs@8.22.204.138 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!~dfgdfgdsf@pta27-1-88-178-25-84.fbx.proxad.net on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!~ffdgdfg@93.93.199.220 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for $a:StaffAlert on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*dffdfdf@*.143.broadband15.iol.cz on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*asdfgasdf@183.221.13.* on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*fdsvervsd@*.hsd1.nj.comcast.net on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@180.96.16.69 on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@178.32.172.65 on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!~Shuttlewo@115.239.249.12 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!~Shuttlewo@177.68.179.50 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*@gateway/web/freenode/ip.75.171.102.229 on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*Simplyy@*.as13285.net on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!~Doctor_DO@02df1fa2.bb.sky.com on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:chaotic_good on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@ip72-197-167-107.sd.sd.cox.net on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:Maiz_en_Heces on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!~Lajla@2001:0:5ef5:79fd:8cd:2beb:ae33:eb94 on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:VitamnP on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*cheissels@204.12.223.* on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for $a:NeonJesus on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:Reaga on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@gateway/web/freenode/ip.93.137.58.12 on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@24.69.197.34 on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for ownchooda!*@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for fujisan1!*@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*mylittle@183.160.111.128 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for $a:JohnBlack on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!~Lajla@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@static.134.225.9.5.clients.your-server.de on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*jhhhgfgh@hst-171-103.balticservers.com on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*Quix0te@unaffiliated/quix0te on #haskell set by leguin.freenode.net
+          on 1373463060
+23:49 *** Ban for Quix0te!*@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@178.22.51.87 on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!~JohnMurde@119.186.244.189 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!~IzaakBloo@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*322f5c1b@*.50.47.92.27 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!~khuram_la@182.177.55.184 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*@nl4x.mullvad.net on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for $a:plates on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@unaffiliated/octagonfly on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!~letalvis@222-152-142-161.jetstream.xtra.co.nz on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:Tau on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*bzed@5.102.200.* on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for $a:DonVitoCorleone on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*fqhtb@86.96.226.* on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*@86.96.226.14 on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:yxkvast on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for $a:Kihokki on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*generalma@185.16.123.* on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!rondon@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for stopm!*@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*327550b7@*.50.117.80.183 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!~NIGGER@* on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@gateway/web/freenode/ip.198.144.116.182 on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@204.14.79.61 on #haskell set by leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*@gateway/web/freenode/ip.50.117.80.189 on #haskell set by
+          leguin.freenode.net on 1373463060
+23:49 *** Ban for *!*451f67b8@*.69.31.103.184 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*cc0e4f3a@*.204.14.79.58 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Ban for *!*327550c5@*.50.117.80.197 on #haskell set by leguin.freenode.net on
+          1373463060
+23:49 *** Banlist of #haskell ends.
+ERC> 

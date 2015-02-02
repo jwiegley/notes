@@ -1,0 +1,11 @@
+1 subgoals, subgoal 1 (ID 1322)
+  
+  X : Type
+  n : nat
+  l : list X
+  H : length l <= S n
+  H0 : l = rev l
+  IHn : length l <= n -> pal X l
+  ============================
+   pal X l
+

@@ -1,0 +1,13 @@
+@c input: quick-example
+@smallexample
+2004/05/29 Book Store
+    Expenses:Books                                    $20.00
+    Expenses:Cards                                    $40.00
+    Expenses:Docs                                     $30.00
+    Liabilities:MasterCard
+@end smallexample
+
+@c smallexample: $LEDGER -f $quick-example reg book
+@smallexample
+04-May-29 Book Store            Expenses:Books               $20.00       $20.00
+@end smallexample

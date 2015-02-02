@@ -1,0 +1,32 @@
+src/Main.hs:46:44:
+    The function `defaultBuildSettings' is applied to two arguments,
+    but its type `GhcMajorVersion -> BuildSettings' has only one
+    In the expression: (defaultBuildSettings Nothing version)
+    In the expression:
+      (defaultBuildSettings Nothing version)
+        {extraArgs = \ stage
+                       -> case stage of {
+                            BSTools -> []
+                            BSBuild -> ...
+                            BSTest -> [] },
+         sandboxRoot = sandbox,
+         expectedFailuresBuild = Set.insert
+                                   (PackageName "postgresql-simple")
+                                 $ expectedFailuresBuild $ defaultBuildSettings Nothing version,
+         tarballDir = "../tarballs",
+         cabalFileDir = Just $ sandbox ++ "/cabal-files"}
+    In an equation for `fpBuildSettings':
+        fpBuildSettings sandbox docroot version
+          = (defaultBuildSettings Nothing version)
+              {extraArgs = \ stage
+                             -> case stage of {
+                                  BSTools -> ...
+                                  BSBuild -> ...
+                                  BSTest -> ... },
+               sandboxRoot = sandbox,
+               expectedFailuresBuild = Set.insert
+                                         (PackageName "postgresql-simple")
+                                       $ expectedFailuresBuild
+                                         $ defaultBuildSettings Nothing version,
+               tarballDir = "../tarballs",
+               cabalFileDir = Just $ sandbox ++ "/cabal-files"}

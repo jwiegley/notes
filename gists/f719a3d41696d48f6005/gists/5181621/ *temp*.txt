@@ -1,0 +1,12 @@
+-- | Status of a single running process.
+data ProcStatus =
+      PSReady                   -- it is queued and ready to be run
+      { psManager :: SessionManager
+      , psApproot :: Maybe Text
+      }
+    | PSCanceled SessionManager -- it was canceled before being run
+    | PSLoadFailed (Text, [SourceError])
+    | PSRunning ProcInfo        -- it is currently running!
+    | PSRunFailed Text
+    | PSKilled                  -- is was explicity killed after being run
+    | PSDone ProcInfo           -- it exited successfully

@@ -1,0 +1,54 @@
+cabal testVulcan:~/src/fpco/isolation-runner $ cabal test
+Running 1 test suites...
+Test suite test: RUNNING...
+
+FP.IsolationRunner
+  interactive
+    - works
+    - interrupt FAILED [1]
+    - invalid source
+    - missing main function FAILED [2]
+    - missing main module
+    - data files FAILED [3]
+    - output with no process
+    - interrupting a not-running process FAILED [4]
+    - stopping a process
+    - issue #221
+
+  caching
+    - works FAILED [5]
+    - times out
+
+  web
+    - starting a second process does not have approot race condition FAILED [6]
+
+FP.ProjectSettings
+  parseModule
+    - Foo.hs succeeds
+    - Foo/Bar.hs succeeds
+    - hello.hs fails
+    - hello.txt fails
+
+1) FP.IsolationRunner.interactive interrupt FAILED (uncaught exception)
+HttpException (InternalIOException recv: resource vanished (Connection reset by peer))
+
+2) FP.IsolationRunner.interactive missing main function FAILED (uncaught exception)
+HttpException (InternalIOException recv: resource vanished (Connection reset by peer))
+
+3) FP.IsolationRunner.interactive data files FAILED (uncaught exception)
+HttpException (InternalIOException recv: resource vanished (Connection reset by peer))
+
+4) FP.IsolationRunner.interactive interrupting a not-running process FAILED (uncaught exception)
+HttpException (InternalIOException recv: resource vanished (Connection reset by peer))
+
+5) FP.IsolationRunner.caching works FAILED (uncaught exception)
+HttpException (InternalIOException recv: resource vanished (Connection reset by peer))
+
+6) FP.IsolationRunner.web starting a second process does not have approot race condition FAILED (uncaught exception)
+HttpException (InternalIOException recv: resource vanished (Connection reset by peer))
+
+Finished in 2.9814 seconds
+17 examples, 6 failures
+Test suite test: FAIL
+Test suite logged to: dist/test/isolation-runner-0.1.0.0-test.log
+0 of 1 test suites (0 of 1 test cases) passed.

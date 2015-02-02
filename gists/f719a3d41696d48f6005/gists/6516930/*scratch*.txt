@@ -1,0 +1,27 @@
++ cabal install -j1 -v -v -v libxml-sax --extra-include-dirs=/usr/local/opt/libxml2/include --extra-lib-dirs=/usr/local/opt/libxml2/lib
+Reading available packages...
+Choosing modular solver.
+Resolving dependencies...
+Ready to install libxml-sax-0.7.4
+Waiting for install task to finish...
+Extracting
+/Users/jenkins/.cabal/packages/hackage.haskell.org/libxml-sax/0.7.4/libxml-sax-0.7.4.tar.gz
+to /var/folders/qg/0c73vqzj6yxbjtzy97c1fqnm0000gp/T/libxml-sax-0.7.4-50669...
+Updating libxml-sax.cabal with the latest revision from the index.
+Configuring libxml-sax-0.7.4...
+Dependency base ==4.6.0.1: using base-4.6.0.1
+Dependency bytestring ==0.10.0.2: using bytestring-0.10.0.2
+Dependency text ==0.11.3.1: using text-0.11.3.1
+Dependency xml-types ==0.3.4: using xml-types-0.3.4
+Warning: cannot determine version of
+/Volumes/tank/Data/Products/jenkins/workspace/git-annex/label/macosx/.hsenv/bin/pkg-config
+:
+""
+cabal: The program pkg-config version >=0.9.0 is required but the version of
+/Volumes/tank/Data/Products/jenkins/workspace/git-annex/label/macosx/.hsenv/bin/pkg-config
+could not be determined.
+Failed to install libxml-sax-0.7.4
+World file is already up to date.
+cabal: Error: some packages failed to install:
+libxml-sax-0.7.4 failed during the configure step. The exception was:
+ExitFailure 1

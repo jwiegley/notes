@@ -1,0 +1,26 @@
+these derivations will be built:
+  /nix/store/7hq7xwq7jv23h2i6zqmz2jas6qir7zzf-haskell-gtk-ghc7.6.3-0.13.0.0.drv
+  /nix/store/9y4g9a6gy0fpiypwlq1qn8ynhfqks8lq-threadscope-0.2.4.drv
+  /nix/store/idy158hl4x51vj0dcv1pckpqg08wdi45-env-ghc783.drv
+  /nix/store/j5fmzvbarycms4acx8wcvp1ka3rrs8nz-haskell-cairo-ghc7.6.3-0.13.0.0.drv
+  /nix/store/jczi8k2gjpdvw5m2r5n7h6nvc8h77r1c-haskell-glib-ghc7.6.3-0.13.0.0.drv
+  /nix/store/kfjc4357lixnmpamxrdqwdm4fzmv7gad-haskell-gio-ghc7.6.3-0.13.0.0.drv
+  /nix/store/ks42al2zgpnnbqz788a2674i4h6n724j-haskell-pango-ghc7.6.3-0.13.0.0.drv
+building path(s) `/nix/store/ck12aciy23h5zicfkvlhcywhdnibmll3-haskell-cairo-ghc7.6.3-0.13.0.0'
+building /nix/store/ck12aciy23h5zicfkvlhcywhdnibmll3-haskell-cairo-ghc7.6.3-0.13.0.0
+unpacking sources
+unpacking source archive /nix/store/yy1xl5kvnzyjs2f6w7rbskh2df1cqxzp-cairo-0.13.0.0.tar.gz
+source root is cairo-0.13.0.0
+patching sources
+configuring
+[1 of 2] Compiling SetupWrapper     ( SetupWrapper.hs, SetupWrapper.o )
+
+SetupWrapper.hs:12:39:
+    Module
+    `Distribution.Simple.Configure'
+    does not export
+    `configCompilerEx'
+builder for `/nix/store/j5fmzvbarycms4acx8wcvp1ka3rrs8nz-haskell-cairo-ghc7.6.3-0.13.0.0.drv' failed with exit code 1
+cannot build derivation `/nix/store/9y4g9a6gy0fpiypwlq1qn8ynhfqks8lq-threadscope-0.2.4.drv': 1 dependencies couldn't be built
+cannot build derivation `/nix/store/idy158hl4x51vj0dcv1pckpqg08wdi45-env-ghc783.drv': 1 dependencies couldn't be built
+error: build of `/nix/store/idy158hl4x51vj0dcv1pckpqg08wdi45-env-ghc783.drv' failed

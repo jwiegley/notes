@@ -1,0 +1,231 @@
+
+
+14:03 *** Topic for #haskell-infrastructure: current ad-hoc todo list:
+          https://gist.github.com/thoughtpolice/1d82269491cac39899da
+14:03 *** #haskell-infrastructure: topic set by
+          thoughtpolice!~a@unaffiliated/thoughtpolice, 2013-08-03 08:50:08
+14:03 *** Users on #haskell-infrastructure: Fuuzetsu Gracenotes_ Igloo acfoltzer bkolera
+          carter dcoutts edwardk hvr isomorphic johnw killy9999 lambdabot lispy merijn
+          mmaruseacph2 ocharles phaskell relrod relrod_znc sclv sclv_ shachaf
+          thoughtpolice zenzike
+14:04 *** #haskell-infrastructure modes: +cnt
+14:04 *** #haskell-infrastructure was created on 2010-11-10 09:42:19
+14:41 <relrod> going to link the haskell-infra/ansible repo to phabricator. Not moving
+          it to phabricator hosting for now, just linking it to the github one.
+14:56 <thoughtpolice> relrod: just saw, cool
+14:56 <thoughtpolice> D1
+14:56 <phaskell> D1: Add LICENSE and update README.md -
+          https://phabricator.haskell.org/D1
+14:57 <thoughtpolice> relrod: BTW, two things
+14:57 <thoughtpolice> relrod: check on phabricator.haskell.org - look at /opt/update.sh,
+          and /opt/phabricator/resources/chatbot/phaskell.json
+14:58 <thoughtpolice> those two files should be saved somewhere, perhaps in the repo
+14:58 <thoughtpolice> the first is a convenient update script, the second is the Chatbot
+          config
+14:58 <thoughtpolice> actually I think the second contains the phaskell pass...
+14:58 <relrod> hm ok
+14:59 <relrod> thoughtpolice: did you just run update.sh btw?
+14:59 <relrod> (is that why phaskell quit?)
+15:00 <thoughtpolice> yes
+15:00 <thoughtpolice> i was mostly testing it
+15:00 <thoughtpolice> that's also why there were a lot of joins/parts earlier
+15:00 <thoughtpolice> relrod: it's also convenient since 'phd start' doesn't start
+          Chatbot, we have to manually start that daemon
+15:00 <thoughtpolice> dunno if there's an option somewhere to fix that
+15:00 <relrod> thoughtpolice: I am trying to see how to make the UI all pretty like
+          secure.phabricator.com is now
+15:01 <relrod> it's all... light and pretty :P
+15:01 <thoughtpolice> i know!
+15:01 <thoughtpolice> i saw that
+15:01 <thoughtpolice> i wanted it too, that's why I updated :P
+15:02 <thoughtpolice> relrod: we should add an .arcconfig to the repo too, but i'll try
+          to do that this time
+15:02 <thoughtpolice> and submit it with arc, etc
+15:02 <thoughtpolice> relrod: i updated the arcanist nix expr, btw. i'll probably keep
+          that one and the phab deployment in sync
+15:02 <relrod> thoughtpolice: I was looking at how to do that (I didn't know if it was
+          still manual or if there was an arc command for it). I googled and that is how
+          I saw the new theme on s.p.c
+15:03 <thoughtpolice> ah
+15:03 <relrod> thoughtpolice: Ok...if I run the update then I'll submit a PR for the nix
+          expr then
+15:03 <relrod> since I don't have commit access there yet :(
+15:03 <thoughtpolice> *nod*
+15:04 <relrod> I sent a PR the other day to add purescript, but it hasn't been merged
+          yet
+15:04 <relrod> thoughtpolice: that is one thing I noticed about nixpkgs, they are slow
+          to merge things. Not sure if it's intentional (to give people time to test
+          things) or just not enough people to keep tabs on the PRs.
+15:05 <relrod> or a mix of the two
+15:05 <thoughtpolice> it's mostly #2 I think
+15:05 <thoughtpolice> there's no like dedicated reviewer cycle... i haven't merged
+          anything because i've been gone the past week
+15:05 * relrod nods
+15:07 <relrod> thoughtpolice: when do you plan on moving the wiki db over to mysql01?
+15:09 <thoughtpolice> not sure yet
+15:09 <thoughtpolice> one thing is that it will slow it down quite a lot, while the wiki
+          is still hosted on Rock
+15:09 <relrod> yeah, it might
+15:09 <thoughtpolice> because it'll be communicating from ~Germany to ~North Virginia
+15:09 * relrod nods
+15:10 <relrod> thoughtpolice: time for wiki01 at rackspace? :)
+15:11 <thoughtpolice> probably, yeah
+15:12 <thoughtpolice> oh snap, 'arc diff' in the nix pkg is slightly broken...
+15:13 * thoughtpolice tries to fix
+15:14 <relrod> thoughtpolice: I just added my ssh pubkey to all regions in rackspace. I
+          won't have time until late next week or so, but if you spin up a wiki01 box
+          with the specs you, want maybe next weekend I can ansible the wiki setup (sans
+          db password ... that should be interesting) and get that box set up
+15:14 <relrod> which reminds me
+15:15 <relrod> thoughtpolice: I'll be in CO on the 1st - 5th, so I won't be around as
+          much. I'll have internet most days but I'll be a bit busy doing Fedora stuff
+          ;)
+15:15 <relrod> s/you, want/you want,/
+15:16 <relrod> or tell me the specs you want and I can spin the box up when I get a
+          chance.
+15:17 <thoughtpolice> relrod: k
+15:17 <thoughtpolice> also, i just submitted D2
+15:17 <phaskell> D2: Add .arcconfig - https://phabricator.haskell.org/D2
+15:17 <thoughtpolice> relrod: `arc diff` will submit diffs to Diffusion for you
+15:19 <relrod> thoughtpolice: yep, used it
+15:19 <relrod> I think "arc land" will push things out correctly too
+15:20 <thoughtpolice> yeah
+15:20 <relrod> when a review is accepted
+15:21 <thoughtpolice> relrod: how do i accept D1? and also, is there a way to list open
+          pending reviews I need to look at from arc?
+15:21 <phaskell> D1: Add LICENSE and update README.md -
+          https://phabricator.haskell.org/D1
+15:23 <thoughtpolice> ah, I see, at the bottom
+15:23 <relrod> `arc list` will list pending, if you run it in a clone
+15:23 <thoughtpolice> that only lists your pending diffusion changes
+15:23 <thoughtpolice> not ones e.g. i need to review
+15:23 <thoughtpolice> or at least, 'arc list' does not list D1 for me, only D2, because
+          i submitted it
+15:23 <relrod> oh :(
+15:25 <thoughtpolice> relrod: OK, if you're using nixpkgs arc, probably want to update
+          to latest
+15:25 <thoughtpolice> I just fixed it
+15:25 * relrod uses arc from upstream git
+15:25 <relrod> which reminds me
+15:25 <relrod> thoughtpolice: what does "arc upgrade" do for you?
+15:25 <relrod> does it break your nixpkgs thing?
+15:26 <thoughtpolice> it probably doesn't work at all
+15:26 <thoughtpolice> the nix store is read only, so i doubt it can even do anything
+15:26 <thoughtpolice> the .git repo is stripped too
+15:26 <relrod> hah
+15:26 <thoughtpolice> but that's fine with me
+15:26 <thoughtpolice> relrod: but yeah, we should figure out how to get that nice new
+          theme :)
+15:27 * relrod is trying
+15:27 <relrod> I keep getting distracted ;P
+15:28 <thoughtpolice> relrod: nice, arc land works great :)
+15:28 <thoughtpolice> very convenient
+15:38 <thoughtpolice> relrod: the odd thing is i don't see anything recent in their git
+          repo for this change...
+15:38 <relrod> thoughtpolice: yeah, same... maybe ask #phabricator?
+15:44 <relrod> thoughtpolice: oh hang on
+15:45 <relrod> thoughtpolice: https://github.com/phacility/phabricator/tree/redesign
+15:45 <relrod> flip to that branch
+15:46 <thoughtpolice> relrod: ahhh, i see
+15:48 <relrod> thoughtpolice: I have to head out
+15:48 <relrod> back a bit later
+15:48 <thoughtpolice> k
+17:28 <thoughtpolice> johnw: boom
+          https://www.rackspace.com/blog/cloud-images-for-the-open-cloud-import-export-and-share-images/
+17:28 <thoughtpolice> http://www.rackspace.com/cloud/images/
+17:33 <johnw> thoughtpolice: linode's prices are very attractive for running a NixOS box
+          there
+17:33 <johnw> for $20 it beats what I'm getting for $15 at serveraxis
+17:33 <johnw> double the memory, quadruple the disk space
+17:33 <johnw> and Mark is running NixOS there!
+17:33 <thoughtpolice> yeah several people are doing it
+17:34 <johnw> i think I'll switch after the craziness of June
+17:34 <thoughtpolice> ocharles was as well i think
+18:40 <ocharles> I run NixOS there
+18:45 <johnw> ocharles: are the wiki instructions up-to-date?
+18:46 <ocharles> johnw: more or less, yea
+18:52 <relrod> hi
+18:55 <relrod> thoughtpolice: ping
+18:59 <relrod> thoughtpolice: I switched us to the redesign branch of phabricator - I
+          can't run update.sh because I don't know where you put the root mysql pw :P
+18:59 <relrod> but I updated it so it won't switch us back to master next time its run
+22:38 <thoughtpolice> relrod: nice
+22:44 <thoughtpolice> johnw: ping
+22:44 <johnw> I have answered your summons, lord
+22:45 <thoughtpolice> johnw: have you signed up for Phab yet? i don't think you have
+22:45 <johnw> no
+22:45 <johnw> phab hasn't entered my radar as yet
+22:45 <thoughtpolice> you should try it, me and relrod are starting to use it a bit to
+          organize stuff
+22:45 <thoughtpolice> I think it's quite good as an issue board for us to keep track of
+          things
+22:45 <johnw> i'll try it mid-June
+22:46 <johnw> tonight I want to get xetex building on Mac if I can, and to get postfix
+          running in a NixOS VM
+22:49 <thoughtpolice> ah, OK
+22:50 <thoughtpolice> i just filed a Phabricator task for NixOS on rackspace, actually
+          :)
+22:50 <thoughtpolice> phaskell: T4
+22:50 <phaskell> T4: Get a NixOS image on Rackspace - https://phabricator.haskell.org/T4
+22:52 <johnw> tasty
+22:53 <johnw> get me a cheap beta machine!
+22:58 <thoughtpolice> johnw: you can make one yourself! just use rackspace
+22:58 <thoughtpolice> 1) Create Ubuntu (or whatever VM)
+22:58 <thoughtpolice> 2) Install Nix
+22:59 <johnw> i mean, I want one to run my personal website on that cost <$20/month
+22:59 <thoughtpolice> 3) Build NixOS images on there, upload back to Rackspace
+22:59 <thoughtpolice> oh :)
+22:59 <johnw> having my own stuff on NixOS would drive me to learn it even beter
+22:59 <thoughtpolice> Hetzner is probably the cheapest host atm
+22:59 <thoughtpolice> you can get a Hetzner VQ9 or VQ12 for like $10 or $15 I think
+22:59 <johnw> linode
+22:59 <johnw> ah
+22:59 <johnw> and run NixOS on it?
+22:59 <thoughtpolice> Hetzner has direct sypport for NixOps
+22:59 <thoughtpolice> *support
+22:59 <thoughtpolice> so it can magically deploy for you
+23:00 <johnw> VQ12 has half the memory of the linode equivalent
+23:00 <thoughtpolice> I manage two machines with NixOps: bare-metal EX40 (32GB RAM, 2TB
+          HDD, 8 cores), and a VQ9
+23:03 <johnw> my goal is to move my web server and my file server to NixOS, and manage
+          them with NixOps, by the end of the summer
+23:06 <johnw> thoughtpolice: I've invited ryantrinkle
+23:06 <johnw> he has an interesting idea for us
+23:07 <ryantrinkle> so, johnw just told me that you guys are switching to nix
+23:07 <ryantrinkle> at skedge.me, we recently hired a guy to do nix devops full time
+23:07 <ryantrinkle> our whole backend stack is haskell-based
+23:07 <ryantrinkle> so i figured it might make sense to collaborate
+23:08 <johnw> he may have stepped away for a moment
+23:08 <johnw> but he's a late-nighter, so he'll be back
+23:08 <ryantrinkle> no problem
+23:09 <johnw> I think collaboration makes a lot of sense; what form did you have in
+          mind?
+23:09 <ryantrinkle> nothing, yet
+23:09 <ryantrinkle> we just started doing test deployments with nixops, so perhaps we
+          could help you guys out
+23:09 <ryantrinkle> (if we're at all ahead in that department)
+23:09 <johnw> so, we're using rackspace right now
+23:09 <johnw> and talking to them about getting backend support for rackspace into
+          NixOps
+23:09 <ryantrinkle> ah, we're all AWS-based
+23:09 <johnw> thoughtpolice: has been working on that code actually
+23:10 <ryantrinkle> cool
+23:10 <johnw> and rackspace apparently wants to get into Haskell much more
+23:10 <ryantrinkle> well, nixops seems quite good at cross-datacenter stuff
+23:10 <ryantrinkle> that's great
+23:10 <johnw> let me see if bitemyapp is on
+23:10 <ryantrinkle> how might they do that/
+23:10 <thoughtpolice> sorry i was filing tickets
+23:10 <thoughtpolice> see johnw, that's why you should just register for phab and at
+          least let me CC you on this stuff :P
+23:11 <johnw> bitemyapp lives near thoughtpolice, and has been talking with rackspace
+          about Haskell and Nix
+23:11 <johnw> thoughtpolice: phab URL again?
+23:11 <thoughtpolice> https://phabricator.haskell.org
+23:11 <thoughtpolice> bonus: Github/google/anything oauth if you want it easy
+23:11 <thoughtpolice> or not, whatever
+23:11 <johnw> I've invited in bitemyapp, he's on
+23:12 <bitemyapp> hullo hullo.
+23:12 <bitemyapp> does Done log this channel?
+23:12 <bitemyapp> so I can catch-up.
+ERC> 

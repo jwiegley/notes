@@ -1,0 +1,13 @@
+** TODO Add a "fixedrate COMMODITY AMOUNT" directive                                     :ATTACH:
+   - Note taken on [2009-11-24 Tue 22:32] \\
+     Russell also needs this for billing miles to the IRC based on rates-per-mile
+     determined for particular time periods.
+   - Note taken on [2009-11-24 Tue 22:07] \\
+     Javier is facing some of these issues: [[message://5d55d2dd-2222-484f-9fa4-295fda763ac6@d21g2000yqn.googlegroups.com][Re: Multicurrency and reg problem]].
+   Every use of COMMODITY within the range of transactions has a fixed cost, as
+   if the user had typed COMMODITY {= AMOUNT}.
+   :PROPERTIES:
+   :ID:       33DA4CB9-3C76-47F5-AA06-682192A37E48
+   :Attachments: IRC-fixed-rates-2009-11-24.txt
+   :END:
+   [2009-11-24 Tue 01:16]

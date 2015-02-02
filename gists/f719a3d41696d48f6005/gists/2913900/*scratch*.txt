@@ -1,0 +1,21 @@
+Program received signal EXC_BAD_ACCESS, Could not access memory.
+Reason: KERN_INVALID_ADDRESS at address: 0x00001fffebf7fd48
+0x0000000100259c1c in boost::noncopyable_::noncopyable::noncopyable (this=0x1fffebf7fd48) at noncopyable.hpp:24
+24	      noncopyable() {}
+(gdb) bt
+#0  0x0000000100259c1c in boost::noncopyable_::noncopyable::noncopyable (this=0x1fffebf7fd48) at noncopyable.hpp:24
+#1  0x0000000104dcc42f in boost::system::error_category::error_category (this=0x104e242c0) at error_code.hpp:182
+#2  0x0000000104e2220f in (anonymous namespace)::generic_error_category::generic_error_category (this=0x104e242c0) at libs/system/src/error_code.cpp:50
+#3  0x0000000104e221a5 in (anonymous namespace)::generic_error_category::generic_error_category (this=0x104e242c0) at libs/system/src/error_code.cpp:50
+#4  0x0000000104e22048 in boost::system::generic_category () at libs/system/src/error_code.cpp:424
+#5  0x0000000104e23239 in __cxx_global_var_init () at string:1531
+#6  0x0000000104e232b9 in global constructors keyed to a () at string:1531
+#7  0x00007fff5fc0fda6 in __dyld__ZN16ImageLoaderMachO18doModInitFunctionsERKN11ImageLoader11LinkContextE ()
+#8  0x00007fff5fc0faf2 in __dyld__ZN16ImageLoaderMachO16doInitializationERKN11ImageLoader11LinkContextE ()
+#9  0x00007fff5fc0d2e4 in __dyld__ZN11ImageLoader23recursiveInitializationERKNS_11LinkContextEjRNS_21InitializerTimingListE ()
+#10 0x00007fff5fc0d27d in __dyld__ZN11ImageLoader23recursiveInitializationERKNS_11LinkContextEjRNS_21InitializerTimingListE ()
+#11 0x00007fff5fc0d27d in __dyld__ZN11ImageLoader23recursiveInitializationERKNS_11LinkContextEjRNS_21InitializerTimingListE ()
+#12 0x00007fff5fc0e0b7 in __dyld__ZN11ImageLoader15runInitializersERKNS_11LinkContextERNS_21InitializerTimingListE ()
+#13 0x00007fff5fc034dd in __dyld__ZN4dyld24initializeMainExecutableEv ()
+#14 0x00007fff5fc0760b in __dyld__ZN4dyld5_mainEPK12macho_headermiPPKcS5_S5_ ()
+#15 0x00007fff5fc01059 in __dyld__dyld_start ()

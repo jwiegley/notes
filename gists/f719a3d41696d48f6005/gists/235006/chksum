@@ -1,0 +1,58 @@
+#!/bin/bash
+
+verbose=false
+setonly=false
+force=false
+flags=""
+
+while [[ "${1:0:1}" == "-" ]]; do
+    if [[ "$1" == "-v" ]]; then
+        verbose=true
+        flags="$flags -v"
+        shift 1
+    elif [[ "$1" == "-s" ]]; then
+        setonly=true
+        flags="$flags -s"
+        shift 1
+    elif [[ "$1" == "-f" ]]; then
+        force=true
+        flags="$flags -f"
+        shift 1
+    else
+        break
+    fi
+done
+
+for dir in "$@"; do
+    if [[ $setonly == true ]]; then
+        find "$dir" -type f \( \
+            -name '*.exe' -o -name '*.EXE' -o \
+            -name '*.msi' -o -name '*.MSI' -o \
+            -name '*.zip' -o -name '*.ZIP' -o \
+            -name '*.bz2' -o -name '*.tbz' -o \
+            -name '*.gz' -o -name '*.tgz' -o \
+            -name '*.rar' -o -name '*.RAR' -o \
+            -name '*.7z' -o -name '*.7Z' -o \
+            -name '*.z' -o -name '*.Z' -o \
+            -name '*.dmg' -o -name '*.sparseimage' -o \
+            -name '*.iso' -o -name '*.cdr' -o \
+            -name '*.uif' -o -name '*.UIF' -o \
+            -name '*.bin' -o -name '*.rpm' -o \
+            -name '*.jpg' -o -name '*.JPG' -o \
+            -name '*.jpeg' -o -name '*.JPEG' -o \
+            -name '*.gif' -o -name '*.GIF' -o \
+            -name '*.png' -o -name '*.PNG' -o \
+            -name '*.cr2' -o -name '*.crw' -o \
+            -name '*.tif' -o -name '*.TIF' -o \
+            -name '*.tiff' -o -name '*.TIFF' -o \
+            -name '*.mov' -o -name '*.avi' -o \
+            -name '*.wmv' -o -name '*.mp3' -o \
+            -name '*.m4a' -o -name '*.m4v' -o \
+            -name '*.mobi' -o -name '*.prc' -o \
+            -name '*.pdf' \
+            \) -a ! -name 'Thumbnail.jpg' -print0 | \
+                xargs -0 verify $flags
+    else
+        find "$dir" -type f -print0 | xargs -0 verify $flags
+    fi
+done

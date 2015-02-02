@@ -1,0 +1,25 @@
+no configure script, doing nothing
+building
+imake -DUseInstalled -I/nix/store/3mbr61inw7r7i012aj9nyywpj8jvqy51-imake-1.0.7/lib/X11/config
+In file included from Imakefile.c:14:
+In file included from /nix/store/3mbr61inw7r7i012aj9nyywpj8jvqy51-imake-1.0.7/lib/X11/config/Imake.tmpl:316:
+/nix/store/3mbr61inw7r7i012aj9nyywpj8jvqy51-imake-1.0.7/lib/X11/config/Imake.rules:1674:27: warning: empty character constant [-Winvalid-pp-token]
+        for flag in ${MAKEFLAGS} ''; do \                               @@\
+                                 ^
+In file included from Imakefile.c:14:
+/nix/store/3mbr61inw7r7i012aj9nyywpj8jvqy51-imake-1.0.7/lib/X11/config/Imake.tmpl:2144:10: fatal error: ' X11 .rules' file not found
+#include ProjectRulesFile
+         ^
+/nix/store/3mbr61inw7r7i012aj9nyywpj8jvqy51-imake-1.0.7/lib/X11/config/Imake.tmpl:2142:35: note: expanded from macro 'ProjectRulesFile'
+# define ProjectRulesFile       Concat3(<,TopLevelProject,.rules>)
+                                        ^
+/nix/store/3mbr61inw7r7i012aj9nyywpj8jvqy51-imake-1.0.7/lib/X11/config/Imake.rules:256:23: note: expanded from macro 'Concat3'
+#define Concat3(a,b,c)a/**/b/**/c
+                      ^
+1 warning and 1 error generated.
+imake: Exit code 1.
+  Stop.
+builder for ‘/nix/store/8jc71570lsxk4rsi10a2773cc430x354-transfig-3.2.4.drv’ failed with exit code 1
+cannot build derivation ‘/nix/store/qya83xi2np734nyp0zzcswwh52lbbvhb-libgcrypt-1.6.2.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/5w4bl1b4nb9lrdd9zy42ck0xypy468gv-gnupg-2.1.0.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/2idhqhkgd7sm729kzjcyy00cwsfbm4ms-systemTools.drv’: 1 dependencies couldn't be built

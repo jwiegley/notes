@@ -1,0 +1,5 @@
+     DYLD_LIBRARY_PATH=/usr/local/opt/libffi/lib                     \
+     PKG_CONFIG_PATH=/usr/local/opt/libffi/lib/pkgconfig             \
+         install -j1 libffi                                          \
+             --extra-include-dirs=/usr/local/opt/libffi/include      \
+             --extra-lib-dirs=/usr/local/opt/libffi/lib

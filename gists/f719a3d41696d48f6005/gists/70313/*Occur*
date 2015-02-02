@@ -1,0 +1,36 @@
+272 matches for "\<err" in buffer: proof.out
+    295:checking for a sed that does not truncate output... /home/nafai/Source/ledger/ledger/configure: line 5124: echo: write error: Broken pipe
+    694:configure: error: "Could not find boost_regex library (set CPPFLAGS and LDFLAGS?)"
+    748:checking for a sed that does not truncate output... /home/nafai/Source/ledger/ledger/configure: line 5124: echo: write error: Broken pipe
+   2090:/usr/bin/python: can't open file './test/python/UnitTests.py': [Errno 2] No such file or directory
+   2096:make[3]: *** [check-TESTS] Error 1
+   2098:make[2]: *** [check-am] Error 2
+   2100:make[1]: *** [check-recursive] Error 1
+   2102:make: *** [check] Error 2
+   2122:/usr/bin/python: can't open file './test/python/UnitTests.py': [Errno 2] No such file or directory
+   2128:make[3]: *** [check-TESTS] Error 1
+   2130:make[2]: *** [check-am] Error 2
+   2132:make[1]: *** [check-recursive] Error 1
+   2134:make: *** [check] Error 2
+   2175:/usr/bin/python: can't open file './test/python/UnitTests.py': [Errno 2] No such file or directory
+   2181:make[3]: *** [check-TESTS] Error 1
+   2183:make[2]: *** [check-am] Error 2
+   2185:make[1]: *** [check-recursive] Error 1
+   2187:make: *** [check] Error 2
+   3298:lib/cppunit/src/msvc6/testpluginrunner/res/errortype.bmp
+   3362:lib/cppunit/src/msvc6/testrunner/res/errortype.bmp
+   3598:checking for a sed that does not truncate output... /tmp/ledger/configure: line 5124: echo: write error: Broken pipe
+   3839:/usr/bin/texi2dvi: Running pdfetex --file-line-error </dev/null '
+   3844: file:line:error style messages enabled.
+   4099:Error: Problems running epstopdf. Check your TeX installation!
+   7420:/usr/bin/texi2dvi: Running etex --file-line-error './../doc/ledger.texi' ...
+   7422: file:line:error style messages enabled.
+   7443:/usr/bin/texi2dvi: Running etex --file-line-error './../doc/ledger.texi' ...
+   7445: file:line:error style messages enabled.
+   7734:libtool: install: error: relink `ledger.la' with the above command before installing it
+   7735:make[5]: *** [install-pyexecLTLIBRARIES] Error 1
+   7874:make[4]: *** [install-am] Error 2
+   7876:make[3]: *** [install-recursive] Error 1
+   7878:make[2]: *** [install] Error 2
+   7880:make[1]: *** [distcheck] Error 2
+   7882:make: *** [release-distcheck] Error 2

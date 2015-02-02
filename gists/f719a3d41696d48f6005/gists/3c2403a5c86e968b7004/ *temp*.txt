@@ -1,0 +1,31 @@
+OLD_PO_FILE_INPUT=yes msgfmt -v -o zh_CN.cp936.mo zh_CN.cp936.po
+1869 translated messages.
+1869 translated messages.
+1869 translated messages.
+1870 translated messages.
+1628 translated messages.
+1864 translated messages.
+1633 translated messages, 3 fuzzy translations.
+make[2]: Leaving directory `/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-macvim-7.4.355.drv-0/macvim-c18a61f9723565664ffc2eda9179e96c95860e25-src/src/po'
+make[2]: Entering directory `/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-macvim-7.4.355.drv-0/macvim-c18a61f9723565664ffc2eda9179e96c95860e25-src/src/po'
+make[2]: Nothing to be done for `converted'.
+make[2]: Leaving directory `/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-macvim-7.4.355.drv-0/macvim-c18a61f9723565664ffc2eda9179e96c95860e25-src/src/po'
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/AppKit.framework/Headers/AppKit.h:25,
+                 from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h:13,
+                 from os_macosx.m:24:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSClipView.h:22: warning: 'unused' attribute ignored
+In file included from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Headers/OpenGL.h:12,
+                 from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CVDisplayLink.h:27,
+                 from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/CoreVideo.framework/Headers/CoreVideo.h:25,
+                 from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/../Frameworks/CoreImage.framework/Headers/CIImage.h:9,
+                 from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/CIImage.h:1,
+                 from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/AppKit.framework/Headers/NSCIImageRep.h:10,
+                 from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/AppKit.framework/Headers/AppKit.h:44,
+                 from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h:13,
+                 from os_macosx.m:24:
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/OpenGL.framework/Headers/CGLIOSurface.h:16: error: redefinition of typedef 'IOSurfaceRef'
+/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/IOSurface.framework/Headers/IOSurfaceAPI.h:17: error: previous declaration of 'IOSurfaceRef' was here
+make[1]: *** [objects/os_macosx.o] Error 1
+make[1]: Leaving directory `/private/var/folders/8h/tky3qz1d63l05l5jp_nzwzjr0000gn/T/nix-build-macvim-7.4.355.drv-0/macvim-c18a61f9723565664ffc2eda9179e96c95860e25-src/src'
+make: *** [first] Error 2
+builder for ‘/nix/store/76b35zijbpdnrskpkjmxpyhkfswii804-macvim-7.4.355.drv’ failed with exit code 2

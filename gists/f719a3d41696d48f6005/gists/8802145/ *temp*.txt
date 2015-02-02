@@ -1,0 +1,25 @@
+work/Socket/Internal.o )
+[ 5 of 11] Compiling Network.Socket   ( dist/build/Network/Socket.hs, dist/build/Network/Socket.o )
+[ 6 of 11] Compiling Network.Socket.ByteString.MsgHdr ( dist/build/Network/Socket/ByteString/MsgHdr.hs, dist/build/Network/Socket/ByteString/MsgHdr.o )
+[ 7 of 11] Compiling Network.Socket.ByteString.Internal ( Network/Socket/ByteString/Internal.hs, dist/build/Network/Socket/ByteString/Internal.o )
+[ 8 of 11] Compiling Network.Socket.ByteString ( dist/build/Network/Socket/ByteString.hs, dist/build/Network/Socket/ByteString.o )
+[ 9 of 11] Compiling Network.Socket.ByteString.Lazy ( dist/build/Network/Socket/ByteString/Lazy.hs, dist/build/Network/Socket/ByteString/Lazy.o )
+[10 of 11] Compiling Network.BSD      ( dist/build/Network/BSD.hs, dist/build/Network/BSD.o )
+[11 of 11] Compiling Network          ( Network.hs, dist/build/Network.o )
+duplicate symbol _my_inet_ntoa in:
+    dist/build/cbits/ancilData.dyn_o
+    dist/build/cbits/HsNet.dyn_o
+duplicate symbol _hsnet_getnameinfo in:
+    dist/build/cbits/ancilData.dyn_o
+    dist/build/cbits/HsNet.dyn_o
+duplicate symbol _hsnet_getaddrinfo in:
+    dist/build/cbits/ancilData.dyn_o
+    dist/build/cbits/HsNet.dyn_o
+duplicate symbol _hsnet_freeaddrinfo in:
+    dist/build/cbits/ancilData.dyn_o
+    dist/build/cbits/HsNet.dyn_o
+ld: 4 duplicate symbols for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+
+Error during cabal-install bootstrap:
+Building the network package failed

@@ -1,0 +1,6 @@
+| jww comments     |  44 |
+| FIXME comments   |  23 |
+| fixme calls      |  44 |
+| runDB references | 111 |
+|------------------+-----|
+|                  | 222 |

@@ -1,0 +1,5 @@
+        foreach (Strings::iterator, i, drv.args) {
+            const char * joel = rewriteHashes(*i, rewritesToTmp).c_str();
+            std::cout << "Joel = " << joel << std::endl;
+            args.push_back(joel);
+        }

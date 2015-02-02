@@ -1,0 +1,38 @@
+-- | There are several ways to communicate with the sessions related to a
+--   project.  They are:
+--
+--   ['StartRunning'] You want the most recently compiled state of the project
+--   to beginning running.  If an 'irpRunningProcess' is currently running, it
+--   is stopped.  The 'irpLoadingProcess' then becomes the 'irpRunningProcess'
+--   and is started using 'SP.run'.  We then reload the project (as with
+--   'openProject') in a new 'irpLoadingProcess'.
+--
+--   ['InteractWithRunning'] You want to interact with a running process.  If
+--   no process is running, start the process as with 'StartProcess'.  Then,
+--   or if the process was already running, communicate with the
+--   'irpRunningProcess'.
+--
+--   ['InteractWithCurrentlyRunning'] You want to interact with a running
+--   process, but only if one is currently running.  If not, fail.
+--
+--   ['InteractWithLoading'] Interact with the current 'irpLoadingProcess'.
+--   There is always an 'irpLoadingProcess', although it may currently be in a
+--   compiling state, so the interaction will block until it is ready.
+
+data ProjectInteractionModes = StartRunning
+                             | InteractWithRunning
+                             | InteractWithCurrentlyRunning
+                             | InteractWithLoading
+                             deriving (Show, Eq, Enum)
+
+data IsolationRunnerProject = IsolationRunnerProject
+    { irpRunningProcess :: SP.SubProcess
+    , irpLoadingProcess :: SP.SubProcess
+    }
+
+data IsolationRunnerState = IsolationRunnerState
+    { irstSettings    :: IsolationRunnerSettings
+    , irstInteractive :: SP.SubProcess
+    , irstProjects    :: M.Map ProjectId IsolationRunnerProject
+    , irstNextPort    :: MVar Int
+    }

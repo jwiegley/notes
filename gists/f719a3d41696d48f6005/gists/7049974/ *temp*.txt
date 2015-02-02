@@ -1,0 +1,5 @@
+data _-Nat⟶_ {c₁ c₂ ℓ c₁′ c₂′ ℓ′ : Level}
+    {C : Category c₁ c₂ ℓ}
+    {D : Category c₁′ c₂′ ℓ′}
+    (A B : Functor C D) : Set c₁′ where
+    NatTrans : Category.Obj D → _-Nat⟶_ _ _

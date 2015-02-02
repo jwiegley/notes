@@ -1,0 +1,5 @@
+        catch (updateSession session upd (callback (eiNextProgress ei))
+               >> getSourceErrors session) $ \e ->
+            return [SourceError KindError (TextSpan "No location") $
+                    "Compilation was terminated\n\n" ++
+                        show (e :: SomeException)]

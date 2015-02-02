@@ -1,0 +1,5 @@
+  base = File.basename(file)
+  case base
+  when /\.s[dh]k$/i
+     ...
+  end

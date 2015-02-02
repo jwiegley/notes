@@ -1,0 +1,25 @@
+import Control.Monad.Instances
+
+class Functor w => Comonad w where
+  extract :: w a -> a
+  extend :: (w a -> b) -> w a -> w b
+
+instance Comonad ((,) e) where
+  extract = snd
+  extend f t@(e,_) = (e, f t)
+
+ask :: (e, a) -> e
+ask = fst
+
+local :: (e -> e) -> (e,a) -> (e,a)
+local f (e,a) = (f e,a)
+
+type Named a b = (a,b)
+type NamedInt = Named String Int
+
+foo :: NamedInt -> IO ()
+foo nint = do
+  print $ ask nint
+  print $ extract nint
+  print $ fmap (1+) nint
+  print $ local ("Name: "++) nint

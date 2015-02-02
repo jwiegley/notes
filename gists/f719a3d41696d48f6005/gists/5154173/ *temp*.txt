@@ -1,0 +1,10 @@
+merge :: (a -> a -> a) -> [a] -> [a] -> [a]
+merge f = loop
+ where
+  loop (x:xs) (y:ys) = (f x y) : loop xs ys
+  loop xs     []     = xs
+  loop []     ys     = ys
+
+instance Additive [] where
+  zero = []
+  liftU2 = merge

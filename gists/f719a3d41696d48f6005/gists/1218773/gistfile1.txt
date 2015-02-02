@@ -1,0 +1,15 @@
+(defun my-anything-apropos ()
+  (interactive)
+  (require 'anything-config)
+  (anything
+   :prompt "Info about: "
+   :candidate-number-limit 5
+   :sources '(anything-c-source-emacs-commands
+              anything-c-source-emacs-functions
+              anything-c-source-emacs-variables
+              anything-c-source-info-emacs
+              anything-c-source-info-elisp
+              anything-c-source-info-gnus
+              anything-c-source-info-org
+              anything-c-source-info-cl
+              anything-c-source-emacs-source-defun)))

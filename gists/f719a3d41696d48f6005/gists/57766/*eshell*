@@ -1,0 +1,4 @@
+276d8e0b30b35ede09c06f8f3392915263283e6a Allow visting of stashes.
+46e85df7b6eee721368fe1a5253283ab0231d6f0 Hack magit to work with Tramp.
+0c6172f180838e60da45a4f6f90e602ffb8639e8 Handle non-existent directories.
+09e9d0d4f4194e8bec1b852b864dd2c47f47919f Credit John.  Thanks!

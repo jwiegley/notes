@@ -1,0 +1,30 @@
+root@titan:~# zpool status -v tank
+  pool: tank
+ state: ONLINE
+status: The pool is formatted using a legacy on-disk format.  The pool can
+	still be used, but some features are unavailable.
+action: Upgrade the pool using 'zpool upgrade'.  Once this is done, the
+	pool will no longer be accessible on software that does not support
+	feature flags.
+  scan: scrub repaired 0 in 14h49m with 0 errors on Thu Nov 14 19:50:16 2013
+config:
+
+	NAME                                          STATE     READ WRITE CKSUM
+	tank                                          ONLINE       0     0     0
+	  mirror-0                                    ONLINE       0     0     0
+	    ata-WDC_WD30EFRX-68AX9N0_WD-WMC1T3312925  ONLINE       0     0     0
+	    ata-WDC_WD30EFRX-68AX9N0_WD-WMC1T2999057  ONLINE       0     0     0
+	  mirror-1                                    ONLINE       0     0     0
+	    ata-WDC_WD30EFRX-68AX9N0_WD-WMC1T3310080  ONLINE       0     0     0
+	    ata-WDC_WD30EFRX-68AX9N0_WD-WMC1T2920326  ONLINE       0     0     0
+	  mirror-2                                    ONLINE       0     0     0
+	    ata-ST32000542AS_5XW03KX1                 ONLINE       0     0     0
+	    ata-ST32000542AS_5XW1246K                 ONLINE       0     0     0
+	  mirror-3                                    ONLINE       0     0     0
+	    ata-ST32000542AS_5XW04ET2                 ONLINE       0     0     0
+	    ata-ST32000542AS_5XW11YBC                 ONLINE       0     0     0
+	  mirror-4                                    ONLINE       0     0     0
+	    ata-ST32000542AS_5XW13RXT                 ONLINE       0     0     0
+	    ata-ST32000542AS_5XW148YJ                 ONLINE       0     0     0
+
+errors: No known data errors

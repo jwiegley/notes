@@ -1,0 +1,45 @@
+[root@VO15218 hackage]# hackage-server -v run  
+hackage-server: Guessing public URI as http://VO15218.temp:8080  
+(you can override with the --base-uri= flag)  
+Initializing happstack-state...  
+Initialising features  
+Initialising core feature, start  
+Loaded PackagesState. time: 190.642194s  
+Cache 'index tarball' updated. time: 111.250674s  
+Initialising core feature, end  
+Initialising mirror feature, start  
+Initialising mirror feature, end  
+Initialising package-contents feature, start  
+Initialising package-contents feature, end  
+Initialising recentPackages feature, start  
+Cache 'recent uploads (html,rss)' updated. time: 1.637253s  
+Initialising recentPackages feature, end  
+Initialising distro feature, start  
+Initialising distro feature, end  
+Initialising documentation feature, start  
+Initialising documentation feature, end  
+Initialising documentation feature, start  
+Initialising documentation feature, end  
+Initialising download feature, start  
+Initialising download feature, end  
+Initialising versions feature, start  
+Initialising versions feature, end  
+Initialising search feature, start  
+Initialising search feature, end  
+Initialising package list feature, start  
+Initialising package list feature, end  
+Initialising platform feature, start  
+Initialising platform feature, end  
+Initialising html feature, start  
+Cache 'packages index page (by category)' updated. time: 143.675057s  
+Cache 'packages index page (by name)' initialised. time: 143.675361s  
+Initialising html feature, end  
+Running feature post-init hooks  
+Cache 'packages index page (by category)' updated. time: 164.333849s  
+Cache 'packages index page (by name)' updated. time: 13.477002s  
+Cache 'packages index page (by category)' updated. time: 139.94711s  
+Cache 'packages index page (by name)' updated. time: 93.298075s  
+Cache 'packages index page (by category)' updated. time: 172.498209s  
+Cache 'packages index page (by name)' updated. time: 5.876832s  
+Cache 'packages index page (by category)' updated. time: 220.772095s  
+Cache 'packages index page (by name)' updated. time: 52.046727s  

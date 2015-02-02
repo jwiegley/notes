@@ -1,0 +1,9 @@
+:load "Main.hs"
+[ 2 of 18] Compiling Distribution.Client.Types ( Distribution/Client/Types.hs, interpreted )
+
+Distribution/Client/Types.hs:115:36:
+    Class `Exception' used as a type
+    In the type `Exception'
+    In the data type declaration for `BuildFailure'
+Failed, modules loaded: Distribution.Client.BuildReports.Types.
+Prelude Distribution.Client.BuildReports.Types> 

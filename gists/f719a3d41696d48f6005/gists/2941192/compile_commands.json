@@ -1,0 +1,372 @@
+[
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -o CMakeFiles/ledger.dir/main.cc.o -c /Users/johnw/Projects/ledger/src/main.cc",
+  "file": "/Users/johnw/Projects/ledger/src/main.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -o CMakeFiles/ledger.dir/global.cc.o -c /Users/johnw/Projects/ledger/src/global.cc",
+  "file": "/Users/johnw/Projects/ledger/src/global.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/stats.cc.o -c /Users/johnw/Projects/ledger/src/stats.cc",
+  "file": "/Users/johnw/Projects/ledger/src/stats.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/generate.cc.o -c /Users/johnw/Projects/ledger/src/generate.cc",
+  "file": "/Users/johnw/Projects/ledger/src/generate.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/csv.cc.o -c /Users/johnw/Projects/ledger/src/csv.cc",
+  "file": "/Users/johnw/Projects/ledger/src/csv.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/convert.cc.o -c /Users/johnw/Projects/ledger/src/convert.cc",
+  "file": "/Users/johnw/Projects/ledger/src/convert.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/draft.cc.o -c /Users/johnw/Projects/ledger/src/draft.cc",
+  "file": "/Users/johnw/Projects/ledger/src/draft.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/emacs.cc.o -c /Users/johnw/Projects/ledger/src/emacs.cc",
+  "file": "/Users/johnw/Projects/ledger/src/emacs.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/org.cc.o -c /Users/johnw/Projects/ledger/src/org.cc",
+  "file": "/Users/johnw/Projects/ledger/src/org.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/ptree.cc.o -c /Users/johnw/Projects/ledger/src/ptree.cc",
+  "file": "/Users/johnw/Projects/ledger/src/ptree.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/print.cc.o -c /Users/johnw/Projects/ledger/src/print.cc",
+  "file": "/Users/johnw/Projects/ledger/src/print.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/output.cc.o -c /Users/johnw/Projects/ledger/src/output.cc",
+  "file": "/Users/johnw/Projects/ledger/src/output.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/precmd.cc.o -c /Users/johnw/Projects/ledger/src/precmd.cc",
+  "file": "/Users/johnw/Projects/ledger/src/precmd.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/chain.cc.o -c /Users/johnw/Projects/ledger/src/chain.cc",
+  "file": "/Users/johnw/Projects/ledger/src/chain.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/filters.cc.o -c /Users/johnw/Projects/ledger/src/filters.cc",
+  "file": "/Users/johnw/Projects/ledger/src/filters.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/report.cc.o -c /Users/johnw/Projects/ledger/src/report.cc",
+  "file": "/Users/johnw/Projects/ledger/src/report.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/views.cc.o -c /Users/johnw/Projects/ledger/src/views.cc",
+  "file": "/Users/johnw/Projects/ledger/src/views.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/select.cc.o -c /Users/johnw/Projects/ledger/src/select.cc",
+  "file": "/Users/johnw/Projects/ledger/src/select.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/session.cc.o -c /Users/johnw/Projects/ledger/src/session.cc",
+  "file": "/Users/johnw/Projects/ledger/src/session.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/option.cc.o -c /Users/johnw/Projects/ledger/src/option.cc",
+  "file": "/Users/johnw/Projects/ledger/src/option.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/lookup.cc.o -c /Users/johnw/Projects/ledger/src/lookup.cc",
+  "file": "/Users/johnw/Projects/ledger/src/lookup.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/compare.cc.o -c /Users/johnw/Projects/ledger/src/compare.cc",
+  "file": "/Users/johnw/Projects/ledger/src/compare.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/iterators.cc.o -c /Users/johnw/Projects/ledger/src/iterators.cc",
+  "file": "/Users/johnw/Projects/ledger/src/iterators.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/timelog.cc.o -c /Users/johnw/Projects/ledger/src/timelog.cc",
+  "file": "/Users/johnw/Projects/ledger/src/timelog.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/textual.cc.o -c /Users/johnw/Projects/ledger/src/textual.cc",
+  "file": "/Users/johnw/Projects/ledger/src/textual.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/temps.cc.o -c /Users/johnw/Projects/ledger/src/temps.cc",
+  "file": "/Users/johnw/Projects/ledger/src/temps.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/journal.cc.o -c /Users/johnw/Projects/ledger/src/journal.cc",
+  "file": "/Users/johnw/Projects/ledger/src/journal.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/archive.cc.o -c /Users/johnw/Projects/ledger/src/archive.cc",
+  "file": "/Users/johnw/Projects/ledger/src/archive.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/account.cc.o -c /Users/johnw/Projects/ledger/src/account.cc",
+  "file": "/Users/johnw/Projects/ledger/src/account.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/xact.cc.o -c /Users/johnw/Projects/ledger/src/xact.cc",
+  "file": "/Users/johnw/Projects/ledger/src/xact.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/post.cc.o -c /Users/johnw/Projects/ledger/src/post.cc",
+  "file": "/Users/johnw/Projects/ledger/src/post.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/item.cc.o -c /Users/johnw/Projects/ledger/src/item.cc",
+  "file": "/Users/johnw/Projects/ledger/src/item.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/format.cc.o -c /Users/johnw/Projects/ledger/src/format.cc",
+  "file": "/Users/johnw/Projects/ledger/src/format.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/query.cc.o -c /Users/johnw/Projects/ledger/src/query.cc",
+  "file": "/Users/johnw/Projects/ledger/src/query.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/scope.cc.o -c /Users/johnw/Projects/ledger/src/scope.cc",
+  "file": "/Users/johnw/Projects/ledger/src/scope.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/expr.cc.o -c /Users/johnw/Projects/ledger/src/expr.cc",
+  "file": "/Users/johnw/Projects/ledger/src/expr.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/op.cc.o -c /Users/johnw/Projects/ledger/src/op.cc",
+  "file": "/Users/johnw/Projects/ledger/src/op.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/parser.cc.o -c /Users/johnw/Projects/ledger/src/parser.cc",
+  "file": "/Users/johnw/Projects/ledger/src/parser.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/token.cc.o -c /Users/johnw/Projects/ledger/src/token.cc",
+  "file": "/Users/johnw/Projects/ledger/src/token.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/value.cc.o -c /Users/johnw/Projects/ledger/src/value.cc",
+  "file": "/Users/johnw/Projects/ledger/src/value.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/balance.cc.o -c /Users/johnw/Projects/ledger/src/balance.cc",
+  "file": "/Users/johnw/Projects/ledger/src/balance.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/quotes.cc.o -c /Users/johnw/Projects/ledger/src/quotes.cc",
+  "file": "/Users/johnw/Projects/ledger/src/quotes.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/history.cc.o -c /Users/johnw/Projects/ledger/src/history.cc",
+  "file": "/Users/johnw/Projects/ledger/src/history.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/pool.cc.o -c /Users/johnw/Projects/ledger/src/pool.cc",
+  "file": "/Users/johnw/Projects/ledger/src/pool.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/annotate.cc.o -c /Users/johnw/Projects/ledger/src/annotate.cc",
+  "file": "/Users/johnw/Projects/ledger/src/annotate.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/commodity.cc.o -c /Users/johnw/Projects/ledger/src/commodity.cc",
+  "file": "/Users/johnw/Projects/ledger/src/commodity.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/amount.cc.o -c /Users/johnw/Projects/ledger/src/amount.cc",
+  "file": "/Users/johnw/Projects/ledger/src/amount.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/stream.cc.o -c /Users/johnw/Projects/ledger/src/stream.cc",
+  "file": "/Users/johnw/Projects/ledger/src/stream.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/mask.cc.o -c /Users/johnw/Projects/ledger/src/mask.cc",
+  "file": "/Users/johnw/Projects/ledger/src/mask.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/times.cc.o -c /Users/johnw/Projects/ledger/src/times.cc",
+  "file": "/Users/johnw/Projects/ledger/src/times.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/error.cc.o -c /Users/johnw/Projects/ledger/src/error.cc",
+  "file": "/Users/johnw/Projects/ledger/src/error.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/utils.cc.o -c /Users/johnw/Projects/ledger/src/utils.cc",
+  "file": "/Users/johnw/Projects/ledger/src/utils.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/py_account.cc.o -c /Users/johnw/Projects/ledger/src/py_account.cc",
+  "file": "/Users/johnw/Projects/ledger/src/py_account.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/py_amount.cc.o -c /Users/johnw/Projects/ledger/src/py_amount.cc",
+  "file": "/Users/johnw/Projects/ledger/src/py_amount.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/py_balance.cc.o -c /Users/johnw/Projects/ledger/src/py_balance.cc",
+  "file": "/Users/johnw/Projects/ledger/src/py_balance.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/py_commodity.cc.o -c /Users/johnw/Projects/ledger/src/py_commodity.cc",
+  "file": "/Users/johnw/Projects/ledger/src/py_commodity.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/py_expr.cc.o -c /Users/johnw/Projects/ledger/src/py_expr.cc",
+  "file": "/Users/johnw/Projects/ledger/src/py_expr.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/py_format.cc.o -c /Users/johnw/Projects/ledger/src/py_format.cc",
+  "file": "/Users/johnw/Projects/ledger/src/py_format.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/py_item.cc.o -c /Users/johnw/Projects/ledger/src/py_item.cc",
+  "file": "/Users/johnw/Projects/ledger/src/py_item.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/py_journal.cc.o -c /Users/johnw/Projects/ledger/src/py_journal.cc",
+  "file": "/Users/johnw/Projects/ledger/src/py_journal.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/py_post.cc.o -c /Users/johnw/Projects/ledger/src/py_post.cc",
+  "file": "/Users/johnw/Projects/ledger/src/py_post.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/py_session.cc.o -c /Users/johnw/Projects/ledger/src/py_session.cc",
+  "file": "/Users/johnw/Projects/ledger/src/py_session.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/py_times.cc.o -c /Users/johnw/Projects/ledger/src/py_times.cc",
+  "file": "/Users/johnw/Projects/ledger/src/py_times.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/py_utils.cc.o -c /Users/johnw/Projects/ledger/src/py_utils.cc",
+  "file": "/Users/johnw/Projects/ledger/src/py_utils.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/py_value.cc.o -c /Users/johnw/Projects/ledger/src/py_value.cc",
+  "file": "/Users/johnw/Projects/ledger/src/py_value.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/py_xact.cc.o -c /Users/johnw/Projects/ledger/src/py_xact.cc",
+  "file": "/Users/johnw/Projects/ledger/src/py_xact.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/pyinterp.cc.o -c /Users/johnw/Projects/ledger/src/pyinterp.cc",
+  "file": "/Users/johnw/Projects/ledger/src/pyinterp.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -include /Volumes/Data/Products/ledger/debug/system.hh -o CMakeFiles/libledger.dir/pyledger.cc.o -c /Users/johnw/Projects/ledger/src/pyledger.cc",
+  "file": "/Users/johnw/Projects/ledger/src/pyledger.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/src",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug    -Weverything -Wno-padded -Wno-weak-vtables -Wno-exit-time-destructors -Wno-global-constructors -Wno-switch-enum -Wno-missing-prototypes -Wno-missing-noreturn -Wno-unused-parameter -Wno-c++98-compat -fno-limit-debug-info -o CMakeFiles/libledger.dir/__/lib/sha1.cpp.o -c /Users/johnw/Projects/ledger/lib/sha1.cpp",
+  "file": "/Users/johnw/Projects/ledger/lib/sha1.cpp"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/test/unit",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug -I/Users/johnw/Projects/ledger/src    -o CMakeFiles/MathTests.dir/t_amount.cc.o -c /Users/johnw/Projects/ledger/test/unit/t_amount.cc",
+  "file": "/Users/johnw/Projects/ledger/test/unit/t_amount.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/test/unit",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug -I/Users/johnw/Projects/ledger/src    -o CMakeFiles/MathTests.dir/t_commodity.cc.o -c /Users/johnw/Projects/ledger/test/unit/t_commodity.cc",
+  "file": "/Users/johnw/Projects/ledger/test/unit/t_commodity.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/test/unit",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug -I/Users/johnw/Projects/ledger/src    -o CMakeFiles/MathTests.dir/t_balance.cc.o -c /Users/johnw/Projects/ledger/test/unit/t_balance.cc",
+  "file": "/Users/johnw/Projects/ledger/test/unit/t_balance.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/test/unit",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug -I/Users/johnw/Projects/ledger/src    -o CMakeFiles/MathTests.dir/t_expr.cc.o -c /Users/johnw/Projects/ledger/test/unit/t_expr.cc",
+  "file": "/Users/johnw/Projects/ledger/test/unit/t_expr.cc"
+},
+{
+  "directory": "/Volumes/Data/Products/ledger/debug/test/unit",
+  "command": "/usr/local/stow/clang-3.1/bin/clang++    -Qunused-arguments -nostdlibinc -isystem /usr/local/include/c++/v1 -isystem /usr/include -stdlib=libc++ -Wl,/usr/local/lib/libc++.dylib -Wno-disabled-macro-expansion -g -isystem /System/Library/Frameworks/Python.framework/Headers -isystem /usr/local/include/boost-1_49 -I/usr/local/include -isystem /opt/local/include -I/Users/johnw/Projects/ledger/lib -I/Users/johnw/Projects/ledger/lib/utfcpp/source -I/Volumes/Data/Products/ledger/debug -I/Users/johnw/Projects/ledger/src    -o CMakeFiles/UtilTests.dir/t_times.cc.o -c /Users/johnw/Projects/ledger/test/unit/t_times.cc",
+  "file": "/Users/johnw/Projects/ledger/test/unit/t_times.cc"
+}
+]

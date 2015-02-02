@@ -1,0 +1,11 @@
+               capacity     operations    bandwidth
+pool         used  avail   read  write   read  write
+----------  -----  -----  -----  -----  -----  -----
+RAID         649G  2.09T     41    160  1.40M  11.3M
+RAID         649G  2.09T  2.37K      0   301M      0
+RAID         649G  2.09T  2.24K     24   284M   121K
+RAID         649G  2.09T  2.25K      0   286M      0
+RAID         649G  2.09T  2.22K     23   282M   170K
+RAID         649G  2.09T  2.08K     22   264M   115K
+RAID         649G  2.09T  2.16K     21   275M  85.4K
+RAID         649G  2.09T  2.13K     60   271M   550K

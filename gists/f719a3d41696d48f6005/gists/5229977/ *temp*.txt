@@ -1,0 +1,11 @@
+(use-package eval-expr
+  :bind ("M-:" . eval-expr)
+  :config
+  (progn
+    (setq eval-expr-print-function 'pp
+          eval-expr-print-level 20
+          eval-expr-print-length 100)
+
+    (defun eval-expr-minibuffer-setup ()
+      (set-syntax-table emacs-lisp-mode-syntax-table)
+      (paredit-mode))))

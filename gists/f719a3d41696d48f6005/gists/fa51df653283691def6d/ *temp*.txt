@@ -1,0 +1,6 @@
+hermes:~ $ nix-env -u --leq
+upgrading `texlive-full' to `texlive-full'
+building path(s) `/nix/store/g6y1iyk01wzlvkcmw7yfmnifh1jbvsz8-user-environment'
+collision between `/nix/store/z1nydf2mhr40kl9aiy2vys1a92pg0w68-networkTools/share/man/man3/threads.3.gz' and `/nix/store/24rlypwgcxnzf4as6qczg28wyix12jhj-TeXLive-linkdir/share/man/man3/threads.3.gz'; use `nix-env --set-flag priority NUMBER PKGNAME' to change the priority of one of the conflicting packages
+builder for `/nix/store/yxs5xwd4dl846ch0mcy8shahryw3vlvi-user-environment.drv' failed with exit code 2
+error: build of `/nix/store/yxs5xwd4dl846ch0mcy8shahryw3vlvi-user-environment.drv' failed

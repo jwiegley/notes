@@ -1,0 +1,31 @@
+Could not deduce (Control.Failure.Failure GitException m0)
+      arising from a use of `pushRef'
+    from the context (Repository r,
+                      MonadGit r,
+                      MonadGit m,
+                      MonadBaseControl IO m,
+                      Example (m ()))
+      bound by the type signature for
+                 smokeTestSpec :: (Repository r, MonadGit r, MonadGit m,
+                                   MonadBaseControl IO m, Example (m ())) =>
+                                  RepositoryFactory r m c -> Spec
+      at /Users/johnw/src/fpco/gitlib/gitlib-test/Git/flyparse-Smoke.hs:(62,1)-(310,49)
+    Possible fix:
+      add (Control.Failure.Failure GitException m0) to the context of
+        the type signature for
+          smokeTestSpec :: (Repository r, MonadGit r, MonadGit m,
+                            MonadBaseControl IO m, Example (m ())) =>
+                           RepositoryFactory r m c -> Spec
+      or add an instance declaration for
+         (Control.Failure.Failure GitException m0)
+    In the second argument of `($)', namely
+      `pushRef ref (Just "file:///tmp/gitlib/.git") "refs/heads/master"'
+    In a stmt of a 'do' block:
+      Cli.runCliRepository repo2
+      $ pushRef ref (Just "file:///tmp/gitlib/.git") "refs/heads/master"
+    In the expression:
+      do { repo2 <- Cli.openCliRepository
+                      (def {repoPath = "/tmp/gitlib/.git"});
+           Cli.runCliRepository repo2
+           $ pushRef
+               ref (Just "file:///tmp/gitlib/.git") "refs/heads/master" }

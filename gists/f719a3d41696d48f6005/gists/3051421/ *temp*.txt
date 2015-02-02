@@ -1,0 +1,53 @@
+require 'net/imap'
+require 'time'
+
+def get_field(imap, id, field)
+  msg = imap.fetch(id, "BODY[HEADER.FIELDS (#{field})]")[0]
+  return msg.attr["BODY[HEADER.FIELDS (#{field})]"]
+end
+
+def hardsort_mailbox(imap, name, modify)
+  puts "Sorting mailbox #{name}"
+
+  imap.select name
+
+  begin
+    msgs = {}
+    imap.search(["ALL"]).each do |id|
+      err  = nil
+      begin
+        # jww (2012-07-04): Do other validity checks here.  If there are any
+        # problems, set 'err' and throw.
+
+        err  = 'has a bad Date'
+        date = get_field(imap, id, "DATE").sub(/^Date: */, "")
+        msgs[id] = Time.rfc822(date) rescue Time.parse(date)
+      rescue
+        puts "#{id} #{err}, writing to #{name}-#{id}"
+  
+        File.open("#{name}-#{id}", 'w') do |f|
+          f.write imap.fetch(id, "RFC822")[0].attr["RFC822"]
+        end
+      end
+    end
+    sorted_msgs = msgs.sort_by { |k, v| v }.collect { |x| x[0] }
+  
+    if modify
+      imap.create(name + '-sorted')
+  
+      # If you use imap.copy(sorted_msgs..., they end up being copied in the
+      # exact same order
+      sorted_msgs.each { |id| imap.copy(id, name + '-sorted') }
+    end
+
+  ensure
+    imap.close
+  end
+end
+
+imap = Net::IMAP.new 'localhost', 9143
+begin
+  ARGV.each { |mbox| hardsort_mailbox imap, mbox, false }
+ensure
+  imap.disconnect
+end

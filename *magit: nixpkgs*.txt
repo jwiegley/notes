@@ -1,0 +1,28 @@
+diff --git a/pkgs/build-support/cabal/default.nix b/pkgs/build-support/cabal/default.nix
+index bf88a0d..835b809 100644
+--- a/pkgs/build-support/cabal/default.nix
++++ b/pkgs/build-support/cabal/default.nix
+@@ -1,7 +1,7 @@
+ # generic builder for Cabal packages
+ 
+ { stdenv, fetchurl, lib, pkgconfig, ghc, Cabal, jailbreakCabal, glibcLocales
+-, gnugrep, coreutils, hscolour, cpphs
++, gnugrep, coreutils, file, hscolour, cpphs
+ , enableLibraryProfiling ? false
+ , enableSharedLibraries ? false
+ , enableSharedExecutables ? false
+@@ -311,8 +311,12 @@ assert !enableStaticLibraries -> versionOlder "7.7" ghc.version;
+ 
+               ${optionalString (self.enableSharedExecutables && self.isExecutable && self.stdenv.isDarwin) ''
+                 for exe in "$out/bin/"* ; do
+-                  install_name_tool -add_rpath \
+-                    $out/lib/${ghc.ghc.name}/${self.pname}-${self.version} $exe
++                  if ${file}/bin/file "$exe" | grep -q script; then
++                    :           # do nothing
++                  else
++                    install_name_tool -add_rpath \
++                      $out/lib/${ghc.ghc.name}/${self.pname}-${self.version} $exe
++                  fi
+                 done
+               ''}
+ 

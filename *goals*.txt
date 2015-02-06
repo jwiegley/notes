@@ -1,0 +1,4 @@
+  Hsorted1 : StronglySorted (fun x y : UsePos => upos_lt x y) (ups rd1)
+  Hsorted2 : StronglySorted (fun x y : UsePos => upos_lt x y) (ups rd1)
+  ============================
+   Hsorted1 = Hsorted2

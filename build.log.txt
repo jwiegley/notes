@@ -1,7 +1,6 @@
 builder for ‘/nix/store/39j7hnaqx2qnd6n6pjc3nyz21k61q8yd-coq-ssreflect-1.5.drv’ failed with exit code 2
 cannot build derivation ‘/nix/store/5qfymjjm0lzi9id04g2yd38p8v87q6an-coq-mathcomp-1.5.drv’: 1 dependencies couldn't be built
 cannot build derivation ‘/nix/store/7kz15lkgz20g8awsaffnnpcnd91fxrq3-coq-coqeal-8.4-7522037d.drv’: 2 dependencies couldn't be built
-cannot build derivation ‘/nix/store/6afwqh2dd3lc1y102a382ls58lrcxla7-coqTools.drv’: 3 dependencies couldn't be built
 builder for ‘/nix/store/vf45vrc794rsnf4fczyf5d6bchfmaqkb-c2hs-0.22.1.drv’ failed with exit code 1
 cannot build derivation ‘/nix/store/wrgdnqmvb3nvmhshy1w9vb2rvisswmih-haskell-gnuidn-0.2.1.drv’: 1 dependencies couldn't be built
 cannot build derivation ‘/nix/store/h6v7xbrfzgrn4vvishh5axrmybgv5gq5-haskell-network-protocol-xmpp-0.4.6.drv’: 1 dependencies couldn't be built
@@ -24,7 +23,6 @@ builder for ‘/nix/store/y0klsj0gd4zlma13dvawp1m3nr7kdp58-libAppleWM-1.4.1.drv�
 cannot build derivation ‘/nix/store/q238jygrsnahzz9m4s3af94247aqxymz-quartz-wm-1.3.1.drv’: 1 dependencies couldn't be built
 builder for ‘/nix/store/6v5hf174sy39w8sdz3fx1zdxqi1ql813-lsof-4.87.drv’ failed with exit code 2
 cannot build derivation ‘/nix/store/gqh5lrgnnqvv5rn2qp3pwbwy6j87aqxq-git-annex-5.20150205.drv’: 3 dependencies couldn't be built
-cannot build derivation ‘/nix/store/82iypjcwna09an1qkhpxycqkkzsfwr4j-gitTools.drv’: 2 dependencies couldn't be built
 builder for ‘/nix/store/3i55l4lmd3jfyzf7smgwn9k27595g7h6-mesa-8.0.5.drv’ failed with exit code 2
 cannot build derivation ‘/nix/store/zjl6arg63vsrg2g5yh1rz46d81im4lxz-xdriinfo-1.0.4.drv’: 1 dependencies couldn't be built
 cannot build derivation ‘/nix/store/nb8awwdkb7rhj80jn8snzh8cnpj03s9w-xorg-server-1.14.6.drv’: 2 dependencies couldn't be built
@@ -35,16 +33,11 @@ cannot build derivation ‘/nix/store/y9r4s6racna62c1nxj1k9x6i6dd5ybv7-xquartz.d
 builder for ‘/nix/store/yz65b1f91bffk5y2qxwcgz4wsad4cp95-mosh-1.2.4.drv’ failed with exit code 2
 builder for ‘/nix/store/gpgprm3v6wrdrlazg9v5350alm9j9fcv-mysql-5.5.40.tar.gz.drv’ failed with exit code 1
 cannot build derivation ‘/nix/store/y4vk8wslbbh3g0pyic7g7xh7ai90by95-mysql-5.5.40.drv’: 1 dependencies couldn't be built
-cannot build derivation ‘/nix/store/zl6c6zv9xm9hdh5ri2yviymr5wvpfmgb-serviceTools.drv’: 1 dependencies couldn't be built
 builder for ‘/nix/store/csvyib2iy5fq5c501y5b2f2l4d7kjvma-php-5.4.37.drv’ failed with exit code 1
 cannot build derivation ‘/nix/store/pvaxpjvq1pkgn77yg76r39alg7y10c1a-arcanist-20150118.drv’: 1 dependencies couldn't be built
-cannot build derivation ‘/nix/store/xww8fs3kgdzfg0gq6k0i7gbflxi75d0z-networkTools.drv’: 3 dependencies couldn't be built
 builder for ‘/nix/store/5x11wh2p1yh3kirlxhxwxz2ascs1fs47-polyml-5.5.2.drv’ failed with exit code 2
 cannot build derivation ‘/nix/store/m0a9chzgj43gcxlw58i7ayvhc264f7ch-isabelle-2014.drv’: 1 dependencies couldn't be built
 builder for ‘/nix/store/bcfnrhm2ga6df3n1pldjbh4f5lmfgxfn-ruby-2.1.2-p353.drv’ failed with exit code 77
 cannot build derivation ‘/nix/store/gcr0a19vvmd2117ghlhb1i1fi497j35f-ruby-2.1.2-p353.drv’: 1 dependencies couldn't be built
-cannot build derivation ‘/nix/store/31naaf6ijmgms66xl5xnv19f076a4l16-rubyTools.drv’: 1 dependencies couldn't be built
 builder for ‘/nix/store/n7hda87ayidygzd1q366yhvw1zzbvplf-sbcl-1.2.8.drv’ failed with exit code 2
-cannot build derivation ‘/nix/store/13nmfk490l2ybkw1i5l6yjyv3bdhyir4-langTools.drv’: 3 dependencies couldn't be built
 builder for ‘/nix/store/h3ffn5d5mv3vasvzymdfdlxximlfamfy-screen-4.2.1.drv’ failed with exit code 2
-cannot build derivation ‘/nix/store/ygrc2d0cyr8p93w5r3dgr5q3fcniyvp5-systemTools.drv’: 2 dependencies couldn't be built

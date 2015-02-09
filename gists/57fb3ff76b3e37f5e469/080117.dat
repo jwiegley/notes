@@ -1,0 +1,8 @@
+2007/12/19 * HMS HOST DFW AIRPT Q63
+    ; CSV: 12/17/07,12/19/07,HMS HOST DFW AIRPT Q63,DALLAS FT WORTX,0544400B033MTP206,00000000000010.14
+    ; Imported: 2012/02/26
+    ; Location: DALLAS FT WORTX
+    ; Reference: 0544400B033MTP206
+    ; UUID: a5ac972a955ef1ee41aae0049b8fb6bacf40a603
+    Expenses:Food                             $10.14
+    Liabilities:NRL:MasterCard

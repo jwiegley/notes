@@ -1,0 +1,5 @@
+13:04:41 Vulcan:~ $ ledger -f /tmp/BAE.dat balance --time-report
+                                              14.12h  53AFC:2CAAB
+                                               44.9m  82400
+                                              40.82h  AI5B2:4CI
+--------------------------------------------------

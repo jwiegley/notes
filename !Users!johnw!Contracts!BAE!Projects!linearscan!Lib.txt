@@ -1,0 +1,13 @@
+Definition double_list_with_index_rect
+  {A : Type} {P : forall (n : nat) (l : seq A), n == size l -> Type}
+  (f_nil : P 0 [::] (eq_refl _))
+  (f_cons : forall (n : nat) (a : A) (l : seq A) (H : n == size l),
+              P n l H -> P n.+1 (a :: l) (eq_addn1 H)) :
+  forall (l : seq A), P (size l) l (eq_refl _).
+Proof.
+  elim=> [|y l0 IHl0] //=.
+  specialize (f_cons (size l0) y l0 (eq_refl _) IHl0).
+  have ->: eqxx (size l0).+1 = eq_addn1 (eqxx (size l0))
+    by exact: eq_irrelevance.
+  exact: f_cons.
+Defined.

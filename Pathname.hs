@@ -50,7 +50,7 @@ combinations of arguments as required by the structure of the Path category.
 Finally, we can easly render 'Either [RawFilePath] [RawFilePath]' paths by
 interpolating separators between segments, and additionally by prefixing a
 separator in the 'Left' case.
-"" -}
+-}
 
 data Pathname (k :: PathKind) where
     Empty   :: Pathname 'EmptyPath

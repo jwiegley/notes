@@ -37,12 +37,12 @@ Thus you cannot, using the structure of this category, turn an absolute path
 into a relative one, or combine two absolute directories (for no such endo-
 morphism exists).  Such operations require deconstructing the paths into their
 components and working in the freer category of those components (which, for
-the underyling path segments, could be the free monoid category of list of
-bytestrings, for example.
+the underyling path segments, could be the free monoid category of lists of
+bytestrings, for example).
 
 There is also a forgetful functor from the category of paths into Hask, by
 mapping each kinded path to the type 'Either [RawFilePath] [RawFilePath]',
-indicating either absolute or raw filepaths (with root being represented as
+indicating either absolute or relative filepaths (with root represented as
 'Left []', and the empty path as 'Right []').  This allows functions on paths
 to be fmap'd to functions on such sums of lists, but only for valid
 combinations of arguments as required by the structure of the Path category.

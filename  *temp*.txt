@@ -1,0 +1,12 @@
+11 matches for "failed with" in buffer: build.log
+    752:builder for ‘/nix/store/hxi3vc3jrn3rm1n7fv0aj405jrzsj26v-aria2-1.18.10.drv’ failed with exit code 2
+   1852:builder for ‘/nix/store/cvq1cv9xzr6kq2l2yfyy22fmv26cn4fr-c2hs-0.23.1.drv’ failed with exit code 1
+   1941:builder for ‘/nix/store/6v84j2ng9nj7q5fpv2n5ssmw1qmqar0j-haskell-hfsevents-0.1.5.drv’ failed with exit code 1
+   2100:builder for ‘/nix/store/1rxpkjd05f2wvpbr1a9ifszpk1kgfprj-libuv-1.2.0.drv’ failed with exit code 2
+   2382:builder for ‘/nix/store/s65cc4qi0ns5qwsf8inv64rz5wzswaa7-mosh-1.2.4.drv’ failed with exit code 2
+  11154:builder for ‘/nix/store/30lbim77pxicrirmd3jgfd3z82yjx20i-mysql-5.5.40.drv’ failed with exit code 2
+  11663:builder for ‘/nix/store/k1f7bs9nakckk7jya853c3n8qp630kyg-php-5.4.37.drv’ failed with exit code 1
+  12662:clang-3.5: error: linker command failed with exit code 1 (use -v to see invocation)
+  12668:builder for ‘/nix/store/21nn29l7kca050yyjbg0h12z3nsbmg1n-polyml-5.5.2.drv’ failed with exit code 2
+  12890:builder for ‘/nix/store/spj388xzkvyca733r7j5dqddlrx1fk5c-ruby-2.1.2-p353.drv’ failed with exit code 77
+  12945:builder for ‘/nix/store/510nxsnd3rbq023ri14v6sill79gcswm-xdriinfo-1.0.4.drv’ failed with exit code 1

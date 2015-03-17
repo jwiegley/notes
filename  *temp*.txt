@@ -1,0 +1,27 @@
+14:12:23 Vulcan:~/oss/nixpkgs/master $ nix-env -Q -j8 -k -u --leq -f . --show-trace
+upgrading ‘rxvt-unicode-9.20-with-perl-with-unicode3-with-plugins’ to ‘rxvt-unicode-9.20-with-perl-with-unicode3-with-plugins’
+upgrading ‘ratpoison-1.4.8’ to ‘ratpoison-1.4.8’
+upgrading ‘env-ghc763-prof’ to ‘env-ghc763-prof’
+upgrading ‘env-ghc784-prof’ to ‘env-ghc784-prof’
+upgrading ‘env-ghc763’ to ‘env-ghc763’
+upgrading ‘nix-repl-1.8-f924081’ to ‘nix-repl-1.8-f924081’
+upgrading ‘nix-prefetch-scripts’ to ‘nix-prefetch-scripts’
+upgrading ‘env-ghc784’ to ‘env-ghc784’
+upgrading ‘env-coqHEAD’ to ‘env-coqHEAD’
+upgrading ‘cabal2nix-1.73’ to ‘cabal2nix-1.73’
+upgrading ‘publishTools’ to ‘publishTools’
+upgrading ‘xquartz’ to ‘xquartz’
+upgrading ‘ledger-3.1.0.20141005’ to ‘ledger-3.1.0.20141005’
+upgrading ‘networkTools’ to ‘networkTools’
+error: while trying to find an upgrade for ‘gitTools’:
+while evaluating the attribute ‘paths’ of the derivation ‘gitTools’ at /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/pkgs/build-support/trivial-builders.nix:10:14:
+while evaluating the attribute ‘nativeBuildInputs’ of the derivation ‘git-annex-5.20150219’ at /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/pkgs/development/haskell-modules/generic-builder.nix:112:3:
+while evaluating the attribute ‘args’ of the derivation ‘gnupg1compat-0’ at /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/pkgs/tools/security/gnupg/1compat.nix:4:3:
+while evaluating the attribute ‘text’ of the derivation ‘gnupg1compat-builder’ at /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/pkgs/build-support/trivial-builders.nix:10:14:
+while evaluating the attribute ‘patchPhase’ of the derivation ‘gnupg-2.0.27’ at /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/pkgs/tools/security/gnupg/20.nix:9:3:
+while evaluating the attribute ‘nativeBuildInputs’ of the derivation ‘pcsclite-1.8.13’ at /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/pkgs/tools/security/pcsclite/default.nix:4:3:
+while evaluating the attribute ‘systemd’ at /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/pkgs/top-level/all-packages.nix:9311:3:
+while evaluating ‘callPackageWith’ at /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/lib/customisation.nix:104:35, called from /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/pkgs/top-level/all-packages.nix:9311:13:
+while evaluating ‘makeOverridable’ at /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/lib/customisation.nix:56:24, called from /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/lib/customisation.nix:106:5:
+while evaluating anonymous function at /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/pkgs/os-specific/linux/systemd/default.nix:1:1, called from /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/lib/customisation.nix:58:12:
+assertion failed at /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/pkgs/os-specific/linux/systemd/default.nix:8:1

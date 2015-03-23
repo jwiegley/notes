@@ -1,0 +1,10 @@
+    129 Michael Snoyman
+     93 Edward A. Kmett
+     88 Henning Thielemann
+     62 Don Stewart
+     58 Chris Done
+     55 Brendan Hay
+     54 Vincent Hanquez
+     43 John Millikin
+     38 Jeremy Shaw
+     38 James Cook

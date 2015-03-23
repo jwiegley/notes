@@ -1,0 +1,4 @@
+21:55:40 Vulcan:~/oss/nixpkgs/master $ nix-env -Q -j8 -k -u --leq -f . --show-trace
+error: while evaluating ‘overrideDerivation’ at /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/lib/customisation.nix:34:29, called from /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/pkgs/top-level/all-packages.nix:9317:23:
+while evaluating ‘addPassthru’ at /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/lib/customisation.nix:109:22, called from /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/lib/customisation.nix:37:8:
+value is null while a set was expected, at /Users/johnw/Contracts/OSS/Projects/nixpkgs/master/lib/customisation.nix:36:28

@@ -1,0 +1,19 @@
+building path(s) ‘/nix/store/xggwixcfqv3vkbk0z12qa383zsgadmyn-contacts-1.1a-3’
+unpacking sources
+unpacking source archive /nix/store/yi60vmr566d2jqq20hlixrsfwsc1nihq-4092a3c6615d7a22852a3bafc44e4aeeb698aa8f.tar.gz
+source root is contacts-4092a3c6615d7a22852a3bafc44e4aeeb698aa8f
+patching sources
+configuring
+no configure script, doing nothing
+building
+make flags: SHELL=/nix/store/rpizhyyi0xgrhvvnf1398wa5kjjpwv29-bash-4.3-p33/bin/bash
+building contacts
+/usr/bin/xcodebuild -configuration Deployment -target contacts
+xcode-select: error: tool 'xcodebuild' requires Xcode, but active developer directory '/Library/Developer/CommandLineTools' is a command line tools instance
+make: *** [contacts] Error 1
+builder for ‘/nix/store/bj0asdv28zfrq9pml6j546k6g5dagkg0-contacts-1.1a-3.drv’ failed with exit code 2
+building path(s) ‘/nix/store/rmzgf2fsairjkpfbqkh3kp5q3vp45rrs-emacs-24.3-mac-4.8’
+cannot build derivation ‘/nix/store/x415zkpxc1bh1cjr0xk4j100f0d0haf0-mailTools.drv’: 1 dependencies couldn't be built
+killing process 23822
+error: build of ‘/nix/store/x415zkpxc1bh1cjr0xk4j100f0d0haf0-mailTools.drv’ failed
+➜  master git:(master) ✗

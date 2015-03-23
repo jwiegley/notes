@@ -1,0 +1,13 @@
+12 matches for "failed with" in buffer: build.log
+    754:builder for ‘/nix/store/brn3nn5kzpfxp3y3cwmd78x9vyf6alxk-aria2-1.18.9.drv’ failed with exit code 2
+    768:builder for ‘/nix/store/9am1b3na2b99551mjcyb7xwa5p6sm01g-contacts-1.1a-3.drv’ failed with exit code 2
+   6312:builder for ‘/nix/store/9c89rcpjqp6ci6b2vzl9iwc8k442xsgk-emacs-24.3-mac-4.8.drv’ failed with exit code 2
+   6402:builder for ‘/nix/store/62sd42k9am4019nyckvsrpk3y3rx9ifz-haskell-hfsevents-0.1.5.drv’ failed with exit code 1
+   6691:builder for ‘/nix/store/yba0k8q82zc0zy45jpa2c9lnkqrdq9zj-mosh-1.2.4.drv’ failed with exit code 2
+  15463:builder for ‘/nix/store/r6a3nld2m10sbl32dvakccgzlhrd3dy7-mysql-5.5.40.drv’ failed with exit code 2
+ 191156:builder for ‘/nix/store/5k5pbscmpvgyy8xkzi33q3kg39d47gyl-nodejs-0.11.15.drv’ failed with exit code 2
+ 191665:builder for ‘/nix/store/v1h3vb1f03h4k9kz9a8isbv4l9dv3mw1-php-5.4.37.drv’ failed with exit code 1
+ 192664:clang-3.5: error: linker command failed with exit code 1 (use -v to see invocation)
+ 192670:builder for ‘/nix/store/rahkx4v6hx75z0awwkzazgn8cq2znd5j-polyml-5.5.2.drv’ failed with exit code 2
+ 192892:builder for ‘/nix/store/h837kipxf2im96xbq4cjxjjg59nfadlr-ruby-2.1.2-p353.drv’ failed with exit code 77
+ 192947:builder for ‘/nix/store/9r24qvc17vb62pgbfn9axx5f798hhpp2-xdriinfo-1.0.4.drv’ failed with exit code 1

@@ -1,0 +1,16 @@
+01:40:52 Vulcan:~/dl $ load-env-ghc784 ghc -o test test.hs
+env-ghc784 loaded
+[1 of 1] Compiling Main             ( test.hs, test.o )
+Linking test ...
+
+In file included from /var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/ghc54291_0/ghc54291_4.c:1:0:
+
+
+In file included from /nix/store/ibnxz3w5m919g1rprkh4jq64i6dr8qim-ghc-7.8.4/lib/ghc-7.8.4/include/Rts.h:30:0:
+
+
+/nix/store/ibnxz3w5m919g1rprkh4jq64i6dr8qim-ghc-7.8.4/lib/ghc-7.8.4/include/Stg.h:65:10:
+     fatal error: 'math.h' file not found
+#include <math.h>
+         ^
+1 error generated.

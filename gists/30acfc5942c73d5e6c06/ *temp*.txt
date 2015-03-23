@@ -1,0 +1,35 @@
+make[3]: Entering directory `/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-aria2-1.18.10.drv-0/aria2-1.18.10/src'
+building A2STR.lo
+  CXX      A2STR.lo
+building AbstractAuthResolver.lo
+  CXX      AbstractAuthResolver.lo
+building AbstractCommand.lo
+  CXX      AbstractCommand.lo
+In file included from AbstractCommand.cc:40:
+In file included from ./DownloadEngine.h:46:
+In file included from ./a2netcompat.h:85:
+./getaddrinfo.h:190:10: warning: 'EAI_NODATA' macro redefined [-Wmacro-redefined]
+# define EAI_NODATA       -5    /* No address associated with NAME.  */
+         ^
+/nix/store/ysm7r6hkbmsnh1jwc4q3f9r34ygdv2v8-Libsystem-1197.1.1/include/netdb.h:193:9: note: previous definition is here
+#define EAI_NODATA       7      /* no address associated with hostname */
+        ^
+In file included from AbstractCommand.cc:40:
+In file included from ./DownloadEngine.h:46:
+In file included from ./a2netcompat.h:85:
+./getaddrinfo.h:242:8: error: redefinition of 'addrinfo'
+struct addrinfo {
+       ^
+/nix/store/ysm7r6hkbmsnh1jwc4q3f9r34ygdv2v8-Libsystem-1197.1.1/include/netdb.h:147:8: note: previous definition is here
+struct addrinfo {
+       ^
+1 warning and 1 error generated.
+make[3]: *** [AbstractCommand.lo] Error 1
+make[3]: Leaving directory `/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-aria2-1.18.10.drv-0/aria2-1.18.10/src'
+make[2]: *** [all-recursive] Error 1
+make[2]: Leaving directory `/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-aria2-1.18.10.drv-0/aria2-1.18.10/src'
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-aria2-1.18.10.drv-0/aria2-1.18.10'
+make: *** [all] Error 2
+builder for ‘/nix/store/ipcv9vrgmds9nk8c58phl1rd5i5hi8cn-aria2-1.18.10.drv’ failed with exit code 2
+error: build of ‘/nix/store/ipcv9vrgmds9nk8c58phl1rd5i5hi8cn-aria2-1.18.10.drv’ failed

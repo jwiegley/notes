@@ -1,0 +1,24 @@
+clang -g -O2 -o .libs/praudit praudit.o  ../../libbsm/.libs/libbsm.dylib 
+creating praudit
+make[2]: Leaving directory `/private/var/folders/md/25ttgv213m5bg_9lr8m7k65r0000gn/T/nix-build-openbsm-1.1p2.drv-0/openbsm-1.1-p2/bin/praudit'
+Making all in audit
+make[2]: Entering directory `/private/var/folders/md/25ttgv213m5bg_9lr8m7k65r0000gn/T/nix-build-openbsm-1.1p2.drv-0/openbsm-1.1-p2/bin/audit'
+building auditd_controlUser.c
+user auditd_controlUser.c -header auditd_control.h -server /dev/null -sheader /dev/null ../../bin/auditd/auditd_control.defs
+/nix/store/c0cv3g5b91jwxd6hb7indskm733yib2w-bash-4.3-p33/bin/bash: user: command not found
+make[2]: [auditd_controlUser.c] Error 127 (ignored)
+building auditd_controlUser.o
+clang -DHAVE_CONFIG_H -I. -I../../config -I../.. -I../.. -I../../sys    -g -O2 -c auditd_controlUser.c
+clang-3.5: error: no such file or directory: 'auditd_controlUser.c'
+clang-3.5: error: no input files
+make[2]: *** [auditd_controlUser.o] Error 1
+make[2]: Leaving directory `/private/var/folders/md/25ttgv213m5bg_9lr8m7k65r0000gn/T/nix-build-openbsm-1.1p2.drv-0/openbsm-1.1-p2/bin/audit'
+make[1]: *** [all-recursive] Error 1
+make[1]: Leaving directory `/private/var/folders/md/25ttgv213m5bg_9lr8m7k65r0000gn/T/nix-build-openbsm-1.1p2.drv-0/openbsm-1.1-p2/bin'
+make: *** [all-recursive] Error 1
+builder for ‘/nix/store/6chw8h9khi072r48sca1pg3ffxd5dws7-openbsm-1.1p2.drv’ failed with exit code 2
+cannot build derivation ‘/nix/store/121n9h7wwhj7r8nxhkm6zy53y8fbwjhw-heimdal-1.5.3.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/bnlkppnhrmpnn6cms4a27xi68vbfi3zq-cyrus-sasl-2.1.26.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/3pd469x5ln06vn2jz8fh93vay1bk0pbq-serf-1.3.7.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/whl6p9plsljyg55hyx82y70dw5jds4ir-subversion-1.8.11.drv’: 1 dependencies couldn't be built
+error: build of ‘/nix/store/whl6p9plsljyg55hyx82y70dw5jds4ir-subversion-1.8.11.drv’ failed

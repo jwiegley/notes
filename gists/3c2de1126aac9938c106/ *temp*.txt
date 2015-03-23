@@ -1,0 +1,59 @@
+commit 25e1c6afc3be61c0efcc635a081fbddc9644bbae
+Author: Joel Taylor <me@joelt.io>
+Date:   Wed Mar 4 11:30:35 2015 -0800
+
+    build pythons
+
+commit eea78e554e03906524f87406bb3a17d5c5264029
+Author: Joel Taylor <me@joelt.io>
+Date:   Wed Mar 4 09:10:07 2015 -0800
+
+    fix reference in libuv
+
+commit 7640cfb37997461262d2d7a32f18f468a92321b3
+Author: Joel Taylor <me@joelt.io>
+Date:   Tue Mar 3 22:38:33 2015 -0800
+
+    add many darwin-specific dependencies
+
+commit 0866a397e2fd4a0f13d86f379997b09fb02138e1
+Author: Joel Taylor <me@joelt.io>
+Date:   Tue Mar 3 16:45:00 2015 -0800
+
+    add more darwin dependencies
+
+commit edbbce514ea50abe9169a225f08b017aeb5fefb4
+Author: Joel Taylor <me@joelt.io>
+Date:   Tue Mar 3 15:29:38 2015 -0800
+
+    add several darwin-specific deps
+
+commit c39e878385480cbf2d83c0f3b7ecf3b8dee8c552
+Author: Joel Taylor <me@joelt.io>
+Date:   Tue Mar 3 14:19:53 2015 -0800
+
+    fix tarball evaluation
+
+commit d9b8b820d5e91c469ee282a36f7131fe1d9fc3f0
+Author: Joel Taylor <me@joelt.io>
+Date:   Tue Mar 3 12:22:00 2015 -0800
+
+    cleanup after merge
+
+commit b38db168f37a8dd1f7ed1fa2a9cd264218a04da0
+Author: Eric Seidel <gridaphobe@gmail.com>
+Date:   Thu Feb 19 13:13:42 2015 -0800
+
+    more CC=cc to prevent retained references to bootstrap-tools
+
+commit 2c7620aa5a78a388b76eba6e6d91b60fb93a0f33
+Author: Eric Seidel <gridaphobe@gmail.com>
+Date:   Thu Feb 19 12:15:13 2015 -0800
+
+    prevent gmp from keeping a reference to darwin's bootstrap-tools
+
+commit a1b9ee8a7c8da8ea5aa2945c3a2fa7c1e63e6314
+Author: Eric Seidel <gridaphobe@gmail.com>
+Date:   Thu Feb 19 12:01:30 2015 -0800
+
+    fix libedit on darwin

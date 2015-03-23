@@ -1,0 +1,30 @@
+3 subgoals, subgoal 1 (ID 54554)
+  
+  rd1 : RangeDesc
+  rd2 : RangeDesc
+  Heqe : rend rd1 = rbeg rd2
+  rd' := {| rbeg := rbeg rd1; rend := rend rd2; ups := ups rd1 ++ ups rd2 |}
+      : RangeDesc
+  Hb : rbeg rd1 <= rbeg rd2
+  He : rend rd1 <= rend rd2
+  Hr1a : rbeg rd1 < rend rd1
+  u2 : UsePos
+  us2 : seq UsePos
+  Hr2a : all (useWithinRange (rbeg rd2) (rend rd2)) (u2 :: us2)
+  ============================
+   match [::] ++ u2 :: us2 with
+   | [::] => rbeg rd1 < rend rd2
+   | _ :: _ => all (useWithinRange (rbeg rd1) (rend rd2)) ([::] ++ u2 :: us2)
+   end = true
+
+subgoal 2 (ID 54401) is:
+ match (u1 :: us1) ++ [::] with
+ | [::] => rbeg rd1 < rend rd2
+ | _ :: _ => all (useWithinRange (rbeg rd1) (rend rd2)) ((u1 :: us1) ++ [::])
+ end = true
+subgoal 3 (ID 54414) is:
+ match (u1 :: us1) ++ u2 :: us2 with
+ | [::] => rbeg rd1 < rend rd2
+ | _ :: _ =>
+     all (useWithinRange (rbeg rd1) (rend rd2)) ((u1 :: us1) ++ u2 :: us2)
+ end = true

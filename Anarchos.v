@@ -7,26 +7,7 @@ Proof.
   destruct t1; destruct s.
   intro t2.
   destruct t2; destruct s.
-  assert ({x = x0} + {x <> x0}).
-    generalize dependent x0.
-    induction x.
-      destruct x0.
-        left.
-        reflexivity.
-      right.
-      auto.
-    destruct x0.
-      right.
-      auto.
-    intro H.
-    assert (x < 256).
-      abstract omega.
-    assert (x0 < 256).
-      abstract omega.
-    destruct (IHx H0 x0 H1).
-      left. auto.
-    right. auto.
-  destruct H.
+  destruct (Peano_dec.eq_nat_dec x x0).
     left.
     f_equal.
     revert l l0.

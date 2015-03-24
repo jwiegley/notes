@@ -1,3 +1,5 @@
+Require Import Coq.Arith.Peano_dec.
+
 Inductive T := R : {n | n < 256} -> T.
 
 Theorem T_eq_dec : forall (t1 t2 : T), {t1 = t2} + {t1 <> t2}.

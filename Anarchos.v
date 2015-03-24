@@ -1,5 +1,4 @@
 Require Omega.
-Require Import Coq.Arith.Compare.
 
 Inductive T := R : {n | n < 256} -> T.
 
@@ -20,10 +19,11 @@ Proof.
       right.
       auto.
     intro H.
-    assert (x < 256). omega.
-    assert (x0 < 256). omega.
-    specialize (IHx H0 x0 H1).
-    destruct IHx.
+    assert (x < 256).
+      abstract omega.
+    assert (x0 < 256).
+      abstract omega.
+    destruct (IHx H0 x0 H1).
       left. auto.
     right. auto.
   destruct H.

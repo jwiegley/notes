@@ -1,0 +1,13 @@
+Writing a reading a series of 8MB files
+
+Patriot 32GB
+write:        47.3
+read:    166-170
+
+Sandisk Extreme 32GB
+write:     44-48
+read:    113-115
+
+Corsair Vault 128GB
+write:     6-17
+read:    148-154

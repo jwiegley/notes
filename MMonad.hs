@@ -29,7 +29,7 @@ mbind m f = mjoin (mfmap f m)
 
 data Level = Low | Medium | High
 
-newtype Secure (l :: Level) a = Secure { getSecure :: a }
+newtype Secure (l :: k) a = Secure { getSecure :: a }
     deriving (Show, Functor)
 
 instance Applicative (Secure l) where
@@ -78,6 +78,19 @@ high = mpure 10
 
 low :: Secure 'Low Int
 low = declassify high
+
+-- Any type may be used to provide classification, so long as the join is
+-- defined in terms of the type-level monoid operations.
+
+-- data AltLevel = Lowest | Highest
+
+-- type instance MEmpty = 'Highest
+
+-- declassifyest :: Secure l a -> Secure 'Lowest a
+-- declassifyest = Secure . getSecure
+
+-- lowest :: Secure 'Lowest Int
+-- lowest = declassifyest (mpure 10)
 
 main :: IO ()
 main = print $ do

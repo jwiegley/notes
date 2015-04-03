@@ -2,6 +2,12 @@ Require Import List.
 
 Require String. Open Scope string_scope.
 
+Lemma possible : forall a, (forall r, (a -> r) -> r) -> a.
+Proof. intros; apply (X a); exact. Qed.
+
+Lemma impossible : forall a r, ((a -> r) -> r) -> a.
+Proof. intros. Abort.
+
 Ltac move_to_top x :=
   match reverse goal with
   | H : _ |- _ => try move x after H

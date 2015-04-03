@@ -3,13 +3,10 @@
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE NoImplicitPrelude #-}
 
 module MMonad where
 
-import qualified Control.Applicative as Ap
-import Prelude (Show, (.), ($), Int, IO, (+), print, error)
-import qualified Prelude
+import Control.Applicative
 
 type family MEmpty :: k
 type family MAppend (x :: k) (y :: k) :: k
@@ -17,15 +14,9 @@ type family MAppend (x :: k) (y :: k) :: k
 class MFunctor (m :: k -> * -> *) where
     mfmap :: (a -> b) -> m x a -> m x b
 
-(<$>) :: MFunctor m => (a -> b) -> m x a -> m x b
-(<$>) = mfmap
-
 class MFunctor m => MApplicative (m :: k -> * -> *) where
     mpure  :: a -> m MEmpty a
     mapply :: m x (a -> b) -> m y a -> m (MAppend x y) b
-
-(<*>) :: MApplicative m => m x (a -> b) -> m y a -> m (MAppend x y) b
-(<*>) = mapply
 
 class MApplicative m => MMonad (m :: k -> * -> *) where
     mjoin   :: m x (m y a) -> m (MAppend x y) a
@@ -36,26 +27,17 @@ mreturn = mpure
 mbind :: MMonad m => m x a -> (a -> m y b) -> m (MAppend x y) b
 mbind m f = mjoin (mfmap f m)
 
-(>>=) :: MMonad m => m x a -> (a -> m y b) -> m (MAppend x y) b
-(>>=) = mbind
-
-(>>) :: MMonad m => m x a -> m y b -> m (MAppend x y) b
-x >> y = x >>= Prelude.const y
-
-fail :: a
-fail = error "whoops"
-
 data Level = Low | Medium | High
 
 newtype Secure (l :: Level) a = Secure { getSecure :: a }
-    deriving (Show, Prelude.Functor)
+    deriving (Show, Functor)
 
-instance Ap.Applicative (Secure l) where
+instance Applicative (Secure l) where
     pure = Secure
     Secure f <*> Secure x = Secure (f x)
 
-instance Prelude.Monad (Secure l) where
-    return = Ap.pure
+instance Monad (Secure l) where
+    return = pure
     Secure m >>= f =
         let Secure x = f m in
         Secure x
@@ -92,13 +74,17 @@ declassify :: Secure l a -> Secure 'Low a
 declassify = Secure . getSecure
 
 high :: Secure 'High Int
-high = Secure 10
+high = mpure 10
 
 low :: Secure 'Low Int
 low = declassify high
 
 main :: IO ()
 main = print $ do
-    x <- declassify (mreturn (+1)) <*> high
+    let x :: Secure 'Low Int = declassify (mpure (+1)) <*> low
     -- If the 'High here is changed to 'Low, it is a type error
-    (+) <$> low <*> mpure x :: Secure 'High Int
+    (+) <$> high <*> x :: Secure 'High Int
+  where
+    (<$>) = mfmap
+    (<*>) = mapply
+    (>>=) = mbind

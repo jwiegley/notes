@@ -3,6 +3,9 @@
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE DeriveFunctor #-}
+{-# LANGUAGE NoMonomorphismRestriction #-}
 
 module MMonad where
 
@@ -20,6 +23,23 @@ class MFunctor m => MApplicative (m :: k -> * -> *) where
 
 class MApplicative m => MMonad (m :: k -> * -> *) where
     mjoin   :: m x (m y a) -> m (MAppend x y) a
+
+class PMonad (m :: (k -> *) -> k -> *) where
+    preturn :: forall x p. p x -> m p x
+    pextend :: forall p q. (forall x. p x -> m q x) ->
+                          (forall x. m p x -> m q x)
+
+data PAssign (a :: *) (k :: i) :: i -> * where
+  V :: a -> PAssign a k k
+
+type Atkey (m :: (k -> *) -> k -> *) i j a = m (PAssign a j) i
+
+angbind :: forall a m q j x. PMonad m
+        => (a -> m q j) -> m (PAssign a j) x -> m q x
+angbind f = pextend (\x -> case x of V a -> f a)
+
+ibind :: PMonad m => Atkey m i j a -> (a -> Atkey m j k b) -> Atkey m i k b
+ibind = flip angbind
 
 mreturn :: MMonad m => a -> m MEmpty a
 mreturn = mpure

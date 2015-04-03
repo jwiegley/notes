@@ -3,24 +3,64 @@
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE NoImplicitPrelude #-}
 
 module MMonad where
 
-import Control.Monad.Writer
+import qualified Control.Applicative as Ap
+import Prelude (Show, (.), ($), Int, IO, (+), print, error)
+import qualified Prelude
 
 type family MEmpty :: k
 type family MAppend (x :: k) (y :: k) :: k
 
-class MMonad (m :: k -> * -> *) where
-    mreturn :: a -> m MEmpty a
+class MFunctor (m :: k -> * -> *) where
+    mfmap :: (a -> b) -> m x a -> m x b
+
+(<$>) :: MFunctor m => (a -> b) -> m x a -> m x b
+(<$>) = mfmap
+
+class MFunctor m => MApplicative (m :: k -> * -> *) where
+    mpure  :: a -> m MEmpty a
+    mapply :: m x (a -> b) -> m y a -> m (MAppend x y) b
+
+(<*>) :: MApplicative m => m x (a -> b) -> m y a -> m (MAppend x y) b
+(<*>) = mapply
+
+class MApplicative m => MMonad (m :: k -> * -> *) where
     mjoin   :: m x (m y a) -> m (MAppend x y) a
+
+mreturn :: MMonad m => a -> m MEmpty a
+mreturn = mpure
+
+mbind :: MMonad m => m x a -> (a -> m y b) -> m (MAppend x y) b
+mbind m f = mjoin (mfmap f m)
+
+(>>=) :: MMonad m => m x a -> (a -> m y b) -> m (MAppend x y) b
+(>>=) = mbind
+
+(>>) :: MMonad m => m x a -> m y b -> m (MAppend x y) b
+x >> y = x >>= Prelude.const y
+
+fail :: a
+fail = error "whoops"
 
 data Level = Low | Medium | High
 
 newtype Secure (l :: Level) a = Secure { getSecure :: a }
-    deriving Show
+    deriving (Show, Prelude.Functor)
 
-type instance MEmpty = 'Low
+instance Ap.Applicative (Secure l) where
+    pure = Secure
+    Secure f <*> Secure x = Secure (f x)
+
+instance Prelude.Monad (Secure l) where
+    return = Ap.pure
+    Secure m >>= f =
+        let Secure x = f m in
+        Secure x
+
+type instance MEmpty = 'High
 
 -- Define the join of the security semi-lattice
 type instance MAppend 'Low    'Low    = 'Low
@@ -35,12 +75,19 @@ type instance MAppend 'High   'Medium = 'High
 
 type instance MAppend 'High 'High = 'High
 
--- Has no meaning at runtime
+-- These instances have no computational content; the purpose of the
+-- information flow analysis is that it happens at compile-time only.
+instance MFunctor Secure where
+    mfmap f (Secure x) = Secure (f x)
+
+instance MApplicative Secure where
+    mpure = Secure
+    mapply (Secure f) (Secure x) = Secure (f x)
+
 instance MMonad Secure where
-    mreturn = Secure
     mjoin (Secure (Secure x)) = Secure x
 
--- This function needs authentication before performing declassification
+-- TODO: Needs authentication before performing declassification
 declassify :: Secure l a -> Secure 'Low a
 declassify = Secure . getSecure
 
@@ -48,13 +95,10 @@ high :: Secure 'High Int
 high = Secure 10
 
 low :: Secure 'Low Int
-low = Secure 10
+low = declassify high
 
-low_in_high :: Secure 'High (Secure 'Low Int)
-low_in_high = Secure (Secure 10)
-
-main = do
-    print low_in_high
-    print (mjoin low_in_high :: Secure 'High Int)
-    print (declassify (mjoin low_in_high) :: Secure 'Low Int)
-    print (mjoin low_in_high :: Secure 'Low Int)
+main :: IO ()
+main = print $ do
+    x <- declassify (mreturn (+1)) <*> high
+    -- If the 'High here is changed to 'Low, it is a type error
+    (+) <$> low <*> mpure x :: Secure 'High Int

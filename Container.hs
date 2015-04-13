@@ -7,9 +7,11 @@
 
 module Container where
 
+import Control.Applicative
 import Control.Monad.State
 import Data.Void
 import GHC.TypeLits
+import qualified Data.List
 
 -- In a dependently typed language, a container's accessor function's input
 -- argument type is determined by its shape; in Haskell, we must use a GADT to
@@ -32,14 +34,14 @@ data Fin :: Nat -> * where
 --     Empty >> Input shape = Void, where shape = 0
 --     Cons  >> Input shape = Fin (succ shape), where shape = succ shape
 data ListS :: Nat -> * -> * -> * where
-    Empty :: (Void         -> a) -> ListS 0        Void           a
-    Cons  :: (Fin (n + 1) -> a) -> ListS (n + 1) (Fin (n + 1)) a
+    Empty :: ListS  0 Void a
+    Cons  :: Int -> (Fin (n + 1) -> a) -> ListS (n + 1) (Fin (n + 1)) a
 
 list0 :: [a] -> ListS 0 Void a
-list0 _ = Empty absurd
+list0 _ = Empty
 
 listn :: [a] -> ListS (n + 1) (Fin (n + 1)) a
-listn l = Cons (go l)
+listn l = Cons (length l) (go l)
   where
     go :: [a] -> Fin m -> a
     go []      _     = error "Invalid list index"
@@ -47,8 +49,36 @@ listn l = Cons (go l)
     go (_:xs) (FS i) = go xs i
 
 instance Functor (ListS s p) where
-    fmap f (Empty x) = Empty (fmap f x)
-    fmap f (Cons x)  = Cons (fmap f x)
+    fmap f Empty = Empty
+    fmap f (Cons n x)  = Cons n (fmap f x)
+
+instance Applicative (ListS s p) where
+    pure = Cons 1 . pure :: a -> ListS 1 (Fin 1) a
+    Empty <*> _ = Empty
+    _ <*> Empty = Empty
+    Cons nl f <*> Cons nr x =
+        Cons (nl * nr) $ \i -> f (i `div` nr) (x (i `mod` nr))
+
+instance Monad (ListS s p) where
+    return = pure
+    Empty >>= _ = Empty
+    Cons n k >>= f =
+        -- Call 'f' for each index, and conceptually concat the results
+        let (cnt,res) =
+                Data.List.foldl' (\(c,acc) i ->
+                                   case f i of
+                                       Empty -> (c,acc)
+                                       Cons m h -> (c+m,acc)) (0,[]) [0..n] in
+        -- A case cannot return results of variant types, even though the
+        -- return type (ListS s p a) is polymorphic. This is typically
+        -- overcome by switching to CPS argument passing, but we don't have
+        -- that option in >>=.
+        case cnt of
+            0 -> Empty :: forall a. ListS 0 Void a
+            -- use i to index into 'res', which should be a map of intervals
+            -- to functions accepting an index from 0 to the size of that
+            -- interval
+            m -> Cons m $ \i -> undefined
 
 -- State Container:
 --   Shape    : Set         := ()

@@ -1,6 +1,7 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE DataKinds #-}
+{-# LANGUAGE PolyKinds #-}
 {-# LANGUAGE KindSignatures #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE TypeOperators #-}
@@ -34,7 +35,7 @@ data Fin :: Nat -> * where
 --     Empty >> Input shape = Void, where shape = 0
 --     Cons  >> Input shape = Fin (succ shape), where shape = succ shape
 data ListS :: Nat -> * -> * -> * where
-    Empty :: ListS  0 Void a
+    Empty :: ListS 0 Void a
     Cons  :: Int -> (Fin (n + 1) -> a) -> ListS (n + 1) (Fin (n + 1)) a
 
 list0 :: [a] -> ListS 0 Void a
@@ -52,6 +53,7 @@ instance Functor (ListS s p) where
     fmap f Empty = Empty
     fmap f (Cons n x)  = Cons n (fmap f x)
 
+{-
 instance Applicative (ListS s p) where
     pure = Cons 1 . pure :: a -> ListS 1 (Fin 1) a
     Empty <*> _ = Empty
@@ -79,6 +81,7 @@ instance Monad (ListS s p) where
             -- to functions accepting an index from 0 to the size of that
             -- interval
             m -> Cons m $ \i -> undefined
+-}
 
 -- State Container:
 --   Shape    : Set         := ()
@@ -94,3 +97,19 @@ instance Functor (StateS s p) where
 
 state :: State s a -> StateS '() s a
 state k = HasState (evalState k)
+
+type family ArgType a :: *
+
+type instance ArgType (ListS 0 Void a) = Void
+type instance ArgType (ListS n (Fin n) a) = Fin n
+
+class Container (p :: * -> *) where
+    getter :: p a -> ArgType (p a) -> a
+
+instance Container (ListS s p) where
+    getter Empty _ = error "Empty list"
+    getter (Cons _ k) i = k i
+
+main :: IO ()
+main = do
+    print $ getter (listn ([1,2,3,4,5] :: [Int])) (FS (FS F1))

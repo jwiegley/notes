@@ -98,15 +98,13 @@ instance Functor (StateS s p) where
 state :: State s a -> StateS '() s a
 state k = HasState (evalState k)
 
-type family ArgType a :: *
-
-type instance ArgType (ListS 0 Void a) = Void
-type instance ArgType (ListS n (Fin n) a) = Fin n
-
 class Container (p :: * -> *) where
+    type ArgType a :: *
     getter :: p a -> ArgType (p a) -> a
 
 instance Container (ListS s p) where
+    type ArgType (ListS 0 Void a) = Void
+    type ArgType (ListS n (Fin n) a) = Fin n
     getter Empty _ = error "Empty list"
     getter (Cons _ k) i = k i
 

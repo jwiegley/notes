@@ -1,18 +1,15 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE DataKinds #-}
-{-# LANGUAGE PolyKinds #-}
 {-# LANGUAGE KindSignatures #-}
 {-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE TypeOperators #-}
 
 module Container where
 
-import Control.Applicative
 import Control.Monad.State
 import Data.Void
 import GHC.TypeLits
-import qualified Data.List
 
 -- In a dependently typed language, a container's accessor function's input
 -- argument type is determined by its shape; in Haskell, we must use a GADT to
@@ -50,8 +47,8 @@ listn l = Cons (length l) (go l)
     go (_:xs) (FS i) = go xs i
 
 instance Functor (ListS s p) where
-    fmap f Empty = Empty
-    fmap f (Cons n x)  = Cons n (fmap f x)
+    fmap _ Empty = Empty
+    fmap f (Cons n x) = Cons n (fmap f x)
 
 {-
 instance Applicative (ListS s p) where
@@ -109,5 +106,4 @@ instance Container (ListS s p) where
     getter (Cons _ k) i = k i
 
 main :: IO ()
-main = do
-    print $ getter (listn ([1,2,3,4,5] :: [Int])) (FS (FS F1))
+main = print $ getter (listn ([1,2,3,4,5] :: [Int])) (FS (FS F1))

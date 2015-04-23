@@ -1,0 +1,7 @@
+ghc784Env = pkgs.myEnvFun {
+  name = "ghc784";
+  buildInputs = [
+    (haskellngPackages.ghcWithPackages my-packages)
+    (hoogle-local my-packages haskellngPackages)
+  ];
+};

@@ -1,0 +1,11 @@
+16:41:15 Vulcan:~ $ nix-env -iA nixpkgs.ghc784Env --show-trace && load-env-ghc784 ghc -v
+replacing old ‘env-ghc784’
+installing ‘env-ghc784’
+these derivations will be built:
+  /nix/store/j4h6k7mxdl0skn9sr138whr4zbl973n9-ghc-7.8.4.drv
+  /nix/store/2q9anqmypnhxcfq5qyk9dllbm71w2rlc-env-ghc784.drv
+building path(s) ‘/nix/store/q3v4a1cgl78x80y74gzbjkc88d8bvg03-ghc-7.8.4’
+collision between `/nix/store/qbcbhd9bg0r338rcqp3nxnvy7716cl2y-haskell-trifecta-1.5.1.3/lib/ghc-7.8.4/trifecta-1.5.1.3/libHStrifecta-1.5.1.3-ghc7.8.4.dylib' and `/nix/store/4ihm9f5s09cw2y1py7pd0c7xc6lv4al6-haskell-trifecta-1.5.1.3/lib/ghc-7.8.4/trifecta-1.5.1.3/libHStrifecta-1.5.1.3-ghc7.8.4.dylib' at /nix/store/9z6d76pz8rr7gci2n3igh5dqi7ac5xqj-builder.pl line 72.
+builder for ‘/nix/store/j4h6k7mxdl0skn9sr138whr4zbl973n9-ghc-7.8.4.drv’ failed with exit code 2
+cannot build derivation ‘/nix/store/2q9anqmypnhxcfq5qyk9dllbm71w2rlc-env-ghc784.drv’: 1 dependencies couldn't be built
+error: build of ‘/nix/store/2q9anqmypnhxcfq5qyk9dllbm71w2rlc-env-ghc784.drv’ failed

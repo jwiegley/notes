@@ -1,0 +1,26 @@
+ * [new tag]         v1.60      -> v1.60
+ * [new tag]         v1.61      -> v1.61
+ * [new tag]         v1.62      -> v1.62
+ * [new tag]         v1.63      -> v1.63
+ * [new tag]         v1.64      -> v1.64
+ * [new tag]         v1.65      -> v1.65
+ * [new tag]         v1.66      -> v1.66
+ * [new tag]         v1.67      -> v1.67
+ * [new tag]         v1.68      -> v1.68
+ * [new tag]         v1.69      -> v1.69
+ * [new tag]         v1.7       -> v1.7
+ * [new tag]         v1.70      -> v1.70
+ * [new tag]         v1.71      -> v1.71
+ * [new tag]         v1.72      -> v1.72
+ * [new tag]         v1.8       -> v1.8
+ * [new tag]         v1.9       -> v1.9
+ * [new tag]         v20150423  -> v20150423
+Switched to a new branch 'fetchgit'
+git revision is 8cfe61c222bd2750ef29f991a2a3ee353444e458
+git human-readable version is v20150423
+Commit date is 2015-04-23 13:26:53 +0200
+Deleted remote branch origin/ebnf-parser-for-nix (was 06dd5bc).
+Deleted remote branch origin/flag-support (was 95a4568).
+Deleted remote branch origin/master (was 92f56ca).
+Deleted remote branch origin/wip (was 7bd4e13).
+output path ‘/nix/store/3rnl4xlxvxbb9v7rsr5261qkxvdmhr02-cabal2nix-8cfe61c’ should have r:sha256 hash ‘10g7ppcflg1sgkxg8cp90p0mfqyk1ly375hicrb5s58m5w8ij086’, instead has ‘07n5am1ca00291qaarvwgzbkhwqc4f4wwhffycwwxaq46by34l7b’

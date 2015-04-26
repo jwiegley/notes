@@ -1,0 +1,920 @@
+14:06:56 Vulcan:~/Products $ nix-build ~/oss/nixpkgs/master -k -A pkgs.haskellngPackages.git-annex
+these derivations will be built:
+  /nix/store/9vsfqhixrya3ks06m4ss6gw40jh28bi7-haskell-gnutls-0.1.5.drv
+  /nix/store/fkwxqz67lsw6csglfl5381j73ndbyccg-haskell-gsasl-0.3.5.drv
+  /nix/store/6j9v56d09sbnpczh27l0cpapq6p67rcs-haskell-network-protocol-xmpp-0.4.6.drv
+  /nix/store/ycgx1jvwdr52cnzbcw5h4k7h4im60lg4-3.patch.drv
+  /nix/store/d0fssdavlzspwjk2mbagxz94mqn9y76k-haskell-edit-distance-0.2.1.2.drv
+  /nix/store/m1w0yjhjn3fvmykhjpwapcp2lnqcm20z-haskell-feed-0.3.9.2.drv
+  /nix/store/pbdg23hqfq149kn97ll47ajyd72rv7mv-haskell-DAV-1.0.3.drv
+  /nix/store/q4raav5z45byag5a2nadvm6lh523d595-haskell-bencode-0.5.0.1.drv
+  /nix/store/rkvrhxkf634ck44k4w6ri4hg55dhnwxp-haskell-torrent-10000.0.0.drv
+  /nix/store/3w01hr11jic8nwdx8s7y07aaxbdg8j3s-git-annex-5.20150420.drv
+building path(s) ‘/nix/store/q9ilzfki733mhb30nk3yyc2s8rp0iz7v-haskell-DAV-1.0.3’
+setupCompilerEnvironmentPhase
+Build with /nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1.
+unpacking sources
+unpacking source archive /nix/store/am136qcsylzls5h3lmcb2pphcmyd9g4i-DAV-1.0.3.tar.gz
+source root is DAV-1.0.3
+patching sources
+compileBuildDriverPhase
+setupCompileFlags: -package-db=/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-haskell-DAV-1.0.3.drv-0/package.conf.d -j8 -threaded
+[1 of 1] Compiling Main             ( Setup.hs, /private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-haskell-DAV-1.0.3.drv-0/Main.o )
+Linking Setup ...
+configuring
+configureFlags: --verbose --prefix=/nix/store/q9ilzfki733mhb30nk3yyc2s8rp0iz7v-haskell-DAV-1.0.3 --libdir=$prefix/lib/$compiler --libsubdir=$pkgid --with-gcc=clang --package-db=/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-haskell-DAV-1.0.3.drv-0/package.conf.d --ghc-option=-optl=-Wl,-headerpad_max_install_names --ghc-option=-j8 --disable-split-objs --disable-library-profiling --enable-shared --enable-library-vanilla --enable-executable-dynamic --enable-tests
+Configuring DAV-1.0.3...
+Flags chosen: network-uri=True
+Dependency base >=4.5 && <5: using base-4.8.0.0
+Dependency bytestring -any: using bytestring-0.10.6.0
+Dependency case-insensitive >=0.4: using case-insensitive-1.2.0.4
+Dependency containers -any: using containers-0.5.6.2
+Dependency data-default -any: using data-default-0.5.3
+Dependency either >=4.3: using either-4.3.3.2
+Dependency errors -any: using errors-1.4.7
+Dependency exceptions -any: using exceptions-0.8.0.2
+Dependency http-client >=0.2: using http-client-0.4.11.1
+Dependency http-client-tls >=0.2: using http-client-tls-0.2.2
+Dependency http-types >=0.7: using http-types-0.8.6
+Dependency lens >=3.0: using lens-4.9.1
+Dependency mtl >=2.1: using mtl-2.2.1
+Dependency network >=2.6: using network-2.6.0.2
+Dependency network-uri >=2.6: using network-uri-2.6.0.1
+Dependency optparse-applicative >=0.10.0: using optparse-applicative-0.11.0.2
+Dependency transformers >=0.3: using transformers-0.4.2.0
+Dependency transformers-base -any: using transformers-base-0.4.4
+Dependency utf8-string -any: using utf8-string-0.3.8
+Dependency xml-conduit >=1.0 && <1.3: using xml-conduit-1.2.4
+Dependency xml-hamlet ==0.4.*: using xml-hamlet-0.4.0.10
+Using Cabal-1.22.2.0 compiled by ghc-7.10
+Using compiler: ghc-7.10.1
+Using install prefix:
+/nix/store/q9ilzfki733mhb30nk3yyc2s8rp0iz7v-haskell-DAV-1.0.3
+Binaries installed in:
+/nix/store/q9ilzfki733mhb30nk3yyc2s8rp0iz7v-haskell-DAV-1.0.3/bin
+Libraries installed in:
+/nix/store/q9ilzfki733mhb30nk3yyc2s8rp0iz7v-haskell-DAV-1.0.3/lib/ghc-7.10.1/DAV-1.0.3
+Private binaries installed in:
+/nix/store/q9ilzfki733mhb30nk3yyc2s8rp0iz7v-haskell-DAV-1.0.3/libexec
+Data files installed in:
+/nix/store/q9ilzfki733mhb30nk3yyc2s8rp0iz7v-haskell-DAV-1.0.3/share/x86_64-osx-ghc-7.10.1/DAV-1.0.3
+Documentation installed in:
+/nix/store/q9ilzfki733mhb30nk3yyc2s8rp0iz7v-haskell-DAV-1.0.3/share/doc/x86_64-osx-ghc-7.10.1/DAV-1.0.3
+Configuration files installed in:
+/nix/store/q9ilzfki733mhb30nk3yyc2s8rp0iz7v-haskell-DAV-1.0.3/etc
+No alex found
+Using ar found on system at:
+/nix/store/ip00ngw8i2xww506r65swcyfd2nqpxqw-cctools-port-862/bin/ar
+No c2hs found
+No cpphs found
+Using gcc version 4.2.1 given by user at:
+/nix/store/9k42mhsdwa11jfygvgik59bhg9pzsrhm-clang-wrapper-3.6.0/bin/clang
+Using ghc version 7.10.1 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/ghc
+Using ghc-pkg version 7.10.1 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/ghc-pkg
+No ghcjs found
+No ghcjs-pkg found
+No greencard found
+Using haddock version 2.16.0 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/haddock
+No happy found
+Using haskell-suite found on system at: haskell-suite-dummy-location
+Using haskell-suite-pkg found on system at: haskell-suite-pkg-dummy-location
+No hmake found
+Using hpc version 0.67 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/hpc
+Using hsc2hs version 0.67 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/hsc2hs
+Using hscolour version 1.22 found on system at:
+/nix/store/pmgn6b538wdrcibxlz137qkck77y6zsy-hscolour-1.22/bin/HsColour
+No jhc found
+Using ld found on system at:
+/nix/store/9k42mhsdwa11jfygvgik59bhg9pzsrhm-clang-wrapper-3.6.0/bin/ld
+No lhc found
+No lhc-pkg found
+No pkg-config found
+Using strip found on system at:
+/nix/store/ip00ngw8i2xww506r65swcyfd2nqpxqw-cctools-port-862/bin/strip
+Using tar found on system at:
+/nix/store/pn7ffaql4bfc5g7lalx7nc4d7h09r74j-gnutar-1.27.1/bin/tar
+No uhc found
+building
+Building DAV-1.0.3...
+Preprocessing library DAV-1.0.3...
+[1 of 2] Compiling Network.Protocol.HTTP.DAV.TH ( Network/Protocol/HTTP/DAV/TH.hs, dist/build/Network/Protocol/HTTP/DAV/TH.o )
+[2 of 2] Compiling Network.Protocol.HTTP.DAV ( Network/Protocol/HTTP/DAV.hs, dist/build/Network/Protocol/HTTP/DAV.o )
+
+Network/Protocol/HTTP/DAV.hs:92:95:
+    No instance for (GHC.Base.Alternative (DAVT m))
+      arising from the 'deriving' clause of a data type declaration
+    Possible fix:
+      use a standalone 'deriving instance' declaration,
+        so you can specify the instance context yourself
+    When deriving the instance for (MonadPlus (DAVT m))
+builder for ‘/nix/store/pbdg23hqfq149kn97ll47ajyd72rv7mv-haskell-DAV-1.0.3.drv’ failed with exit code 1
+building path(s) ‘/nix/store/jp91pfgnw88xqjgni8yqmgnc09j41q4w-3.patch’
+
+trying https://patch-diff.githubusercontent.com/raw/batterseapower/edit-distance/pull/3.patch
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   821    0   821    0     0   2822      0 --:--:-- --:--:-- --:--:--  2831
+output path ‘/nix/store/jp91pfgnw88xqjgni8yqmgnc09j41q4w-3.patch’ should have sha256 hash ‘013x9za47vr9jx0liwgi8cdh2h2882a87h5nqvr41xqipzxfiyw1’, instead has ‘0v47pa5ymh9f23bqpkdv3k7vnb6h3ssccdmjdylhs2ybarqzrcwh’
+building path(s) ‘/nix/store/whb2hhgbvrnhml001swzbmflizc53rqk-haskell-bencode-0.5.0.1’
+cannot build derivation ‘/nix/store/d0fssdavlzspwjk2mbagxz94mqn9y76k-haskell-edit-distance-0.2.1.2.drv’: 1 dependencies couldn't be built
+setupCompilerEnvironmentPhase
+Build with /nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1.
+unpacking sources
+unpacking source archive /nix/store/85fziqpwiak2xs5gcz3bifndcygx38hh-bencode-0.5.0.1.tar.gz
+source root is bencode-0.5.0.1
+patching sources
+compileBuildDriverPhase
+setupCompileFlags: -package-db=/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-haskell-bencode-0.5.0.1.drv-0/package.conf.d -j8 -threaded
+[1 of 1] Compiling Main             ( Setup.lhs, /private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-haskell-bencode-0.5.0.1.drv-0/Main.o )
+
+Setup.lhs:4:31: Warning:
+    In the use of ‘defaultUserHooks’
+    (imported from Distribution.Simple):
+    Deprecated: "Use simpleUserHooks or autoconfUserHooks, unless you need Cabal-1.2
+             compatibility in which case you must stick with defaultUserHooks"
+Linking Setup ...
+configuring
+configureFlags: --verbose --prefix=/nix/store/whb2hhgbvrnhml001swzbmflizc53rqk-haskell-bencode-0.5.0.1 --libdir=$prefix/lib/$compiler --libsubdir=$pkgid --with-gcc=clang --package-db=/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-haskell-bencode-0.5.0.1.drv-0/package.conf.d --ghc-option=-optl=-Wl,-headerpad_max_install_names --ghc-option=-j8 --disable-split-objs --disable-library-profiling --enable-shared --enable-library-vanilla --enable-executable-dynamic --enable-tests
+Warning: defaultUserHooks in Setup script is deprecated.
+Configuring bencode-0.5.0.1...
+Dependency base <5: using base-4.8.0.0
+Dependency binary -any: using binary-0.7.3.0
+Dependency bytestring -any: using bytestring-0.10.6.0
+Dependency containers -any: using containers-0.5.6.2
+Dependency parsec -any: using parsec-3.1.9
+Using Cabal-1.22.2.0 compiled by ghc-7.10
+Using compiler: ghc-7.10.1
+Using install prefix:
+/nix/store/whb2hhgbvrnhml001swzbmflizc53rqk-haskell-bencode-0.5.0.1
+Binaries installed in:
+/nix/store/whb2hhgbvrnhml001swzbmflizc53rqk-haskell-bencode-0.5.0.1/bin
+Libraries installed in:
+/nix/store/whb2hhgbvrnhml001swzbmflizc53rqk-haskell-bencode-0.5.0.1/lib/ghc-7.10.1/bencode-0.5.0.1
+Private binaries installed in:
+/nix/store/whb2hhgbvrnhml001swzbmflizc53rqk-haskell-bencode-0.5.0.1/libexec
+Data files installed in:
+/nix/store/whb2hhgbvrnhml001swzbmflizc53rqk-haskell-bencode-0.5.0.1/share/x86_64-osx-ghc-7.10.1/bencode-0.5.0.1
+Documentation installed in:
+/nix/store/whb2hhgbvrnhml001swzbmflizc53rqk-haskell-bencode-0.5.0.1/share/doc/x86_64-osx-ghc-7.10.1/bencode-0.5.0.1
+Configuration files installed in:
+/nix/store/whb2hhgbvrnhml001swzbmflizc53rqk-haskell-bencode-0.5.0.1/etc
+No alex found
+Using ar found on system at:
+/nix/store/ip00ngw8i2xww506r65swcyfd2nqpxqw-cctools-port-862/bin/ar
+No c2hs found
+No cpphs found
+Using gcc version 4.2.1 given by user at:
+/nix/store/9k42mhsdwa11jfygvgik59bhg9pzsrhm-clang-wrapper-3.6.0/bin/clang
+Using ghc version 7.10.1 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/ghc
+Using ghc-pkg version 7.10.1 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/ghc-pkg
+No ghcjs found
+No ghcjs-pkg found
+No greencard found
+Using haddock version 2.16.0 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/haddock
+No happy found
+Using haskell-suite found on system at: haskell-suite-dummy-location
+Using haskell-suite-pkg found on system at: haskell-suite-pkg-dummy-location
+No hmake found
+Using hpc version 0.67 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/hpc
+Using hsc2hs version 0.67 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/hsc2hs
+Using hscolour version 1.22 found on system at:
+/nix/store/pmgn6b538wdrcibxlz137qkck77y6zsy-hscolour-1.22/bin/HsColour
+No jhc found
+Using ld found on system at:
+/nix/store/9k42mhsdwa11jfygvgik59bhg9pzsrhm-clang-wrapper-3.6.0/bin/ld
+No lhc found
+No lhc-pkg found
+No pkg-config found
+Using strip found on system at:
+/nix/store/ip00ngw8i2xww506r65swcyfd2nqpxqw-cctools-port-862/bin/strip
+Using tar found on system at:
+/nix/store/pn7ffaql4bfc5g7lalx7nc4d7h09r74j-gnutar-1.27.1/bin/tar
+No uhc found
+building
+Building bencode-0.5.0.1...
+Preprocessing library bencode-0.5.0.1...
+[1 of 3] Compiling Data.BEncode.Lexer ( src/Data/BEncode/Lexer.hs, dist/build/Data/BEncode/Lexer.o )
+[2 of 3] Compiling Data.BEncode     ( src/Data/BEncode.hs, dist/build/Data/BEncode.o )
+
+src/Data/BEncode.hs:44:1: Warning: Tab character
+
+src/Data/BEncode.hs:45:1: Warning: Tab character
+
+src/Data/BEncode.hs:47:1: Warning: Tab character
+
+src/Data/BEncode.hs:112:1: Warning: Tab character
+
+src/Data/BEncode.hs:113:1: Warning: Tab character
+[3 of 3] Compiling Data.BEncode.Parser ( src/Data/BEncode/Parser.hs, dist/build/Data/BEncode/Parser.o )
+
+src/Data/BEncode/Parser.hs:35:10:
+    No instance for (GHC.Base.Alternative BParser)
+      arising from the superclasses of an instance declaration
+    In the instance declaration for ‘MonadPlus BParser’
+
+src/Data/BEncode/Parser.hs:49:10:
+    No instance for (Applicative BParser)
+      arising from the superclasses of an instance declaration
+    In the instance declaration for ‘Monad BParser’
+builder for ‘/nix/store/q4raav5z45byag5a2nadvm6lh523d595-haskell-bencode-0.5.0.1.drv’ failed with exit code 1
+building path(s) ‘/nix/store/nr7hnrfr7gj77yqxpjqqvh7akgmi1h00-haskell-feed-0.3.9.2’
+cannot build derivation ‘/nix/store/rkvrhxkf634ck44k4w6ri4hg55dhnwxp-haskell-torrent-10000.0.0.drv’: 1 dependencies couldn't be built
+setupCompilerEnvironmentPhase
+Build with /nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1.
+unpacking sources
+unpacking source archive /nix/store/hiw4g3y1zxccqzvaiafzm37fsqvyb39y-feed-0.3.9.2.tar.gz
+source root is feed-0.3.9.2
+patching sources
+Replace Cabal file with edited version from http://hackage.haskell.org/package/feed-0.3.9.2/revision/1.cabal.
+Run jailbreak-cabal to lift version restrictions on build inputs.
+compileBuildDriverPhase
+setupCompileFlags: -package-db=/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-haskell-feed-0.3.9.2.drv-0/package.conf.d -j8 -threaded
+[1 of 1] Compiling Main             ( Setup.hs, /private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-haskell-feed-0.3.9.2.drv-0/Main.o )
+Linking Setup ...
+configuring
+configureFlags: --verbose --prefix=/nix/store/nr7hnrfr7gj77yqxpjqqvh7akgmi1h00-haskell-feed-0.3.9.2 --libdir=$prefix/lib/$compiler --libsubdir=$pkgid --with-gcc=clang --package-db=/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-haskell-feed-0.3.9.2.drv-0/package.conf.d --ghc-option=-optl=-Wl,-headerpad_max_install_names --ghc-option=-j8 --disable-split-objs --disable-library-profiling --enable-shared --enable-library-vanilla --enable-executable-dynamic --enable-tests
+Configuring feed-0.3.9.2...
+Dependency base -any: using base-4.8.0.0
+Dependency old-locale -any: using old-locale-1.0.0.7
+Dependency old-time -any: using old-time-1.1.0.3
+Dependency time -any: using time-1.5.0.1
+Dependency utf8-string -any: using utf8-string-0.3.8
+Dependency xml -any: using xml-1.3.14
+Using Cabal-1.22.2.0 compiled by ghc-7.10
+Using compiler: ghc-7.10.1
+Using install prefix:
+/nix/store/nr7hnrfr7gj77yqxpjqqvh7akgmi1h00-haskell-feed-0.3.9.2
+Binaries installed in:
+/nix/store/nr7hnrfr7gj77yqxpjqqvh7akgmi1h00-haskell-feed-0.3.9.2/bin
+Libraries installed in:
+/nix/store/nr7hnrfr7gj77yqxpjqqvh7akgmi1h00-haskell-feed-0.3.9.2/lib/ghc-7.10.1/feed-0.3.9.2
+Private binaries installed in:
+/nix/store/nr7hnrfr7gj77yqxpjqqvh7akgmi1h00-haskell-feed-0.3.9.2/libexec
+Data files installed in:
+/nix/store/nr7hnrfr7gj77yqxpjqqvh7akgmi1h00-haskell-feed-0.3.9.2/share/x86_64-osx-ghc-7.10.1/feed-0.3.9.2
+Documentation installed in:
+/nix/store/nr7hnrfr7gj77yqxpjqqvh7akgmi1h00-haskell-feed-0.3.9.2/share/doc/x86_64-osx-ghc-7.10.1/feed-0.3.9.2
+Configuration files installed in:
+/nix/store/nr7hnrfr7gj77yqxpjqqvh7akgmi1h00-haskell-feed-0.3.9.2/etc
+No alex found
+Using ar found on system at:
+/nix/store/ip00ngw8i2xww506r65swcyfd2nqpxqw-cctools-port-862/bin/ar
+No c2hs found
+No cpphs found
+Using gcc version 4.2.1 given by user at:
+/nix/store/9k42mhsdwa11jfygvgik59bhg9pzsrhm-clang-wrapper-3.6.0/bin/clang
+Using ghc version 7.10.1 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/ghc
+Using ghc-pkg version 7.10.1 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/ghc-pkg
+No ghcjs found
+No ghcjs-pkg found
+No greencard found
+Using haddock version 2.16.0 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/haddock
+No happy found
+Using haskell-suite found on system at: haskell-suite-dummy-location
+Using haskell-suite-pkg found on system at: haskell-suite-pkg-dummy-location
+No hmake found
+Using hpc version 0.67 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/hpc
+Using hsc2hs version 0.67 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/hsc2hs
+Using hscolour version 1.22 found on system at:
+/nix/store/pmgn6b538wdrcibxlz137qkck77y6zsy-hscolour-1.22/bin/HsColour
+No jhc found
+Using ld found on system at:
+/nix/store/9k42mhsdwa11jfygvgik59bhg9pzsrhm-clang-wrapper-3.6.0/bin/ld
+No lhc found
+No lhc-pkg found
+No pkg-config found
+Using strip found on system at:
+/nix/store/ip00ngw8i2xww506r65swcyfd2nqpxqw-cctools-port-862/bin/strip
+Using tar found on system at:
+/nix/store/pn7ffaql4bfc5g7lalx7nc4d7h09r74j-gnutar-1.27.1/bin/tar
+No uhc found
+building
+Building feed-0.3.9.2...
+Preprocessing library feed-0.3.9.2...
+[ 1 of 22] Compiling Text.Atom.Feed.Link ( Text/Atom/Feed/Link.hs, dist/build/Text/Atom/Feed/Link.o )
+[ 2 of 22] Compiling Text.Atom.Feed   ( Text/Atom/Feed.hs, dist/build/Text/Atom/Feed.o )
+[ 3 of 22] Compiling Text.Atom.Feed.Export ( Text/Atom/Feed/Export.hs, dist/build/Text/Atom/Feed/Export.o )
+
+Text/Atom/Feed/Export.hs:137:1: Warning: Tab character
+
+Text/Atom/Feed/Export.hs:138:1: Warning: Tab character
+
+Text/Atom/Feed/Export.hs:178:1: Warning: Tab character
+
+Text/Atom/Feed/Export.hs:221:1: Warning: Tab character
+
+Text/Atom/Feed/Export.hs:222:1: Warning: Tab character
+
+Text/Atom/Feed/Export.hs:223:1: Warning: Tab character
+
+Text/Atom/Feed/Export.hs:224:1: Warning: Tab character
+
+Text/Atom/Feed/Export.hs:225:1: Warning: Tab character
+
+Text/Atom/Feed/Export.hs:226:1: Warning: Tab character
+
+Text/Atom/Feed/Export.hs:227:1: Warning: Tab character
+
+Text/Atom/Feed/Export.hs:232:1: Warning: Tab character
+[ 4 of 22] Compiling Text.Atom.Feed.Import ( Text/Atom/Feed/Import.hs, dist/build/Text/Atom/Feed/Import.o )
+
+Text/Atom/Feed/Import.hs:89:4: Warning: Tab character
+
+Text/Atom/Feed/Import.hs:92:4: Warning: Tab character
+
+Text/Atom/Feed/Import.hs:185:4: Warning: Tab character
+
+Text/Atom/Feed/Import.hs:217:4: Warning: Tab character
+[ 5 of 22] Compiling Text.Atom.Feed.Validate ( Text/Atom/Feed/Validate.hs, dist/build/Text/Atom/Feed/Validate.o )
+
+Text/Atom/Feed/Validate.hs:69:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:70:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:71:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:72:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:98:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:99:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:100:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:101:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:112:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:113:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:114:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:116:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:117:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:118:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:119:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:182:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:189:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:197:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:201:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:206:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:207:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:232:1: Warning: Tab character
+
+Text/Atom/Feed/Validate.hs:233:1: Warning: Tab character
+[ 6 of 22] Compiling Text.Atom.Pub    ( Text/Atom/Pub.hs, dist/build/Text/Atom/Pub.o )
+[ 7 of 22] Compiling Text.Atom.Pub.Export ( Text/Atom/Pub/Export.hs, dist/build/Text/Atom/Pub/Export.o )
+
+Text/Atom/Pub/Export.hs:55:1: Warning: Tab character
+
+Text/Atom/Pub/Export.hs:56:1: Warning: Tab character
+
+Text/Atom/Pub/Export.hs:62:1: Warning: Tab character
+
+Text/Atom/Pub/Export.hs:63:1: Warning: Tab character
+
+Text/Atom/Pub/Export.hs:64:1: Warning: Tab character
+
+Text/Atom/Pub/Export.hs:65:1: Warning: Tab character
+
+Text/Atom/Pub/Export.hs:71:1: Warning: Tab character
+
+Text/Atom/Pub/Export.hs:72:1: Warning: Tab character
+
+Text/Atom/Pub/Export.hs:73:1: Warning: Tab character
+
+Text/Atom/Pub/Export.hs:74:1: Warning: Tab character
+
+Text/Atom/Pub/Export.hs:75:1: Warning: Tab character
+
+Text/Atom/Pub/Export.hs:83:1: Warning: Tab character
+
+Text/Atom/Pub/Export.hs:84:1: Warning: Tab character
+
+Text/Atom/Pub/Export.hs:85:1: Warning: Tab character
+[ 8 of 22] Compiling Text.DublinCore.Types ( Text/DublinCore/Types.hs, dist/build/Text/DublinCore/Types.o )
+[ 9 of 22] Compiling Text.RSS1.Syntax ( Text/RSS1/Syntax.hs, dist/build/Text/RSS1/Syntax.o )
+[10 of 22] Compiling Text.RSS1.Utils  ( Text/RSS1/Utils.hs, dist/build/Text/RSS1/Utils.o )
+
+Text/RSS1/Utils.hs:103:1: Warning: Tab character
+
+Text/RSS1/Utils.hs:104:1: Warning: Tab character
+
+Text/RSS1/Utils.hs:105:1: Warning: Tab character
+
+Text/RSS1/Utils.hs:106:1: Warning: Tab character
+[11 of 22] Compiling Text.RSS1.Import ( Text/RSS1/Import.hs, dist/build/Text/RSS1/Import.o )
+
+Text/RSS1/Import.hs:129:1: Warning: Tab character
+
+Text/RSS1/Import.hs:138:1: Warning: Tab character
+
+Text/RSS1/Import.hs:149:1: Warning: Tab character
+[12 of 22] Compiling Text.RSS1.Export ( Text/RSS1/Export.hs, dist/build/Text/RSS1/Export.o )
+[13 of 22] Compiling Text.RSS.Syntax  ( Text/RSS/Syntax.hs, dist/build/Text/RSS/Syntax.o )
+[14 of 22] Compiling Text.RSS.Import  ( Text/RSS/Import.hs, dist/build/Text/RSS/Import.o )
+[15 of 22] Compiling Text.RSS.Export  ( Text/RSS/Export.hs, dist/build/Text/RSS/Export.o )
+
+Text/RSS/Export.hs:95:1: Warning: Tab character
+
+Text/RSS/Export.hs:102:1: Warning: Tab character
+
+Text/RSS/Export.hs:103:1: Warning: Tab character
+
+Text/RSS/Export.hs:110:1: Warning: Tab character
+
+Text/RSS/Export.hs:111:1: Warning: Tab character
+
+Text/RSS/Export.hs:133:1: Warning: Tab character
+
+Text/RSS/Export.hs:134:1: Warning: Tab character
+
+Text/RSS/Export.hs:135:1: Warning: Tab character
+
+Text/RSS/Export.hs:136:1: Warning: Tab character
+
+Text/RSS/Export.hs:137:1: Warning: Tab character
+
+Text/RSS/Export.hs:167:2: Warning: Tab character
+
+Text/RSS/Export.hs:168:1: Warning: Tab character
+[16 of 22] Compiling Text.Feed.Types  ( Text/Feed/Types.hs, dist/build/Text/Feed/Types.o )
+[17 of 22] Compiling Text.Feed.Import ( Text/Feed/Import.hs, dist/build/Text/Feed/Import.o )
+
+Text/Feed/Import.hs:20:1: Warning: Tab character
+
+Text/Feed/Import.hs:21:1: Warning: Tab character
+
+Text/Feed/Import.hs:22:1: Warning: Tab character
+[18 of 22] Compiling Text.Feed.Export ( Text/Feed/Export.hs, dist/build/Text/Feed/Export.o )
+[19 of 22] Compiling Text.Feed.Util   ( Text/Feed/Util.hs, dist/build/Text/Feed/Util.o )
+[20 of 22] Compiling Text.Feed.Query  ( Text/Feed/Query.hs, dist/build/Text/Feed/Query.o )
+
+Text/Feed/Query.hs:275:51:
+    Couldn't match expected type ‘time-1.5.0.1:Data.Time.Format.Locale.TimeLocale’
+                with actual type ‘System.Locale.TimeLocale’
+    NB: ‘time-1.5.0.1:Data.Time.Format.Locale.TimeLocale’
+          is defined in ‘Data.Time.Format.Locale’ in package ‘time-1.5.0.1’
+        ‘System.Locale.TimeLocale’
+          is defined in ‘System.Locale’ in package ‘old-locale-1.0.0.7’
+    In the first argument of ‘parseTime’, namely ‘defaultTimeLocale’
+    In the expression: parseTime defaultTimeLocale fmt ds
+[21 of 22] Compiling Text.Feed.Constructor ( Text/Feed/Constructor.hs, dist/build/Text/Feed/Constructor.o )
+
+Text/Feed/Constructor.hs:131:5: Warning:
+    Pattern match(es) are non-exhaustive
+    In a case alternative: Patterns not matched: XMLFeed _
+[22 of 22] Compiling Text.Feed.Translate ( Text/Feed/Translate.hs, dist/build/Text/Feed/Translate.o )
+builder for ‘/nix/store/m1w0yjhjn3fvmykhjpwapcp2lnqcm20z-haskell-feed-0.3.9.2.drv’ failed with exit code 1
+building path(s) ‘/nix/store/qag2wgpljhjrinrzk914f8dpnp9vcp3g-haskell-gnutls-0.1.5’
+setupCompilerEnvironmentPhase
+Build with /nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1.
+unpacking sources
+unpacking source archive /nix/store/28jwhf1s7qq6wsirma3xpjgsk2cf4px3-gnutls-0.1.5.tar.gz
+source root is gnutls-0.1.5
+patching sources
+compileBuildDriverPhase
+setupCompileFlags: -package-db=/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-haskell-gnutls-0.1.5.drv-0/package.conf.d -j8 -threaded
+[1 of 1] Compiling Main             ( Setup.hs, /private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-haskell-gnutls-0.1.5.drv-0/Main.o )
+Linking Setup ...
+configuring
+configureFlags: --verbose --prefix=/nix/store/qag2wgpljhjrinrzk914f8dpnp9vcp3g-haskell-gnutls-0.1.5 --libdir=$prefix/lib/$compiler --libsubdir=$pkgid --with-gcc=clang --package-db=/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-haskell-gnutls-0.1.5.drv-0/package.conf.d --ghc-option=-optl=-Wl,-headerpad_max_install_names --ghc-option=-j8 --disable-split-objs --disable-library-profiling --enable-shared --enable-library-vanilla --enable-executable-dynamic --enable-tests --extra-include-dirs=/nix/store/6zg619cm7bxphh7c7aw5ddcnysi63s67-gnutls-3.3.14/include --extra-lib-dirs=/nix/store/6zg619cm7bxphh7c7aw5ddcnysi63s67-gnutls-3.3.14/lib --extra-include-dirs=/nix/store/01b6kn24qaxcpb5w1g6ap9h1wadzzz5h-nettle-2.7.1/include --extra-lib-dirs=/nix/store/01b6kn24qaxcpb5w1g6ap9h1wadzzz5h-nettle-2.7.1/lib --extra-include-dirs=/nix/store/7yvjmsd8cmyhccbzygf8kshg33kvr9cq-gmp-5.1.3/include --extra-lib-dirs=/nix/store/7yvjmsd8cmyhccbzygf8kshg33kvr9cq-gmp-5.1.3/lib --extra-include-dirs=/nix/store/ssbwil85715yis0zkd2bqzlvgbj5lbn1-libtasn1-3.6/include --extra-lib-dirs=/nix/store/ssbwil85715yis0zkd2bqzlvgbj5lbn1-libtasn1-3.6/lib
+Configuring gnutls-0.1.5...
+Dependency base >=4.0 && <5.0: using base-4.8.0.0
+Dependency bytestring >=0.9: using bytestring-0.10.6.0
+Dependency monads-tf ==0.1.*: using monads-tf-0.1.0.2
+Dependency transformers >=0.2: using transformers-0.4.2.0
+Dependency gnutls -any: using version 3.3.14
+Using Cabal-1.22.2.0 compiled by ghc-7.10
+Using compiler: ghc-7.10.1
+Using install prefix:
+/nix/store/qag2wgpljhjrinrzk914f8dpnp9vcp3g-haskell-gnutls-0.1.5
+Binaries installed in:
+/nix/store/qag2wgpljhjrinrzk914f8dpnp9vcp3g-haskell-gnutls-0.1.5/bin
+Libraries installed in:
+/nix/store/qag2wgpljhjrinrzk914f8dpnp9vcp3g-haskell-gnutls-0.1.5/lib/ghc-7.10.1/gnutls-0.1.5
+Private binaries installed in:
+/nix/store/qag2wgpljhjrinrzk914f8dpnp9vcp3g-haskell-gnutls-0.1.5/libexec
+Data files installed in:
+/nix/store/qag2wgpljhjrinrzk914f8dpnp9vcp3g-haskell-gnutls-0.1.5/share/x86_64-osx-ghc-7.10.1/gnutls-0.1.5
+Documentation installed in:
+/nix/store/qag2wgpljhjrinrzk914f8dpnp9vcp3g-haskell-gnutls-0.1.5/share/doc/x86_64-osx-ghc-7.10.1/gnutls-0.1.5
+Configuration files installed in:
+/nix/store/qag2wgpljhjrinrzk914f8dpnp9vcp3g-haskell-gnutls-0.1.5/etc
+No alex found
+Using ar found on system at:
+/nix/store/ip00ngw8i2xww506r65swcyfd2nqpxqw-cctools-port-862/bin/ar
+No c2hs found
+No cpphs found
+Using gcc version 4.2.1 given by user at:
+/nix/store/9k42mhsdwa11jfygvgik59bhg9pzsrhm-clang-wrapper-3.6.0/bin/clang
+Using ghc version 7.10.1 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/ghc
+Using ghc-pkg version 7.10.1 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/ghc-pkg
+No ghcjs found
+No ghcjs-pkg found
+No greencard found
+Using haddock version 2.16.0 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/haddock
+No happy found
+Using haskell-suite found on system at: haskell-suite-dummy-location
+Using haskell-suite-pkg found on system at: haskell-suite-pkg-dummy-location
+No hmake found
+Using hpc version 0.67 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/hpc
+Using hsc2hs version 0.67 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/hsc2hs
+Using hscolour version 1.22 found on system at:
+/nix/store/pmgn6b538wdrcibxlz137qkck77y6zsy-hscolour-1.22/bin/HsColour
+No jhc found
+Using ld found on system at:
+/nix/store/9k42mhsdwa11jfygvgik59bhg9pzsrhm-clang-wrapper-3.6.0/bin/ld
+No lhc found
+No lhc-pkg found
+Using pkg-config version 0.28 found on system at:
+/nix/store/92sj68bfypihzs3g0r7920dvc4206g3r-pkg-config-0.28/bin/pkg-config
+Using strip found on system at:
+/nix/store/ip00ngw8i2xww506r65swcyfd2nqpxqw-cctools-port-862/bin/strip
+Using tar found on system at:
+/nix/store/pn7ffaql4bfc5g7lalx7nc4d7h09r74j-gnutar-1.27.1/bin/tar
+No uhc found
+building
+Building gnutls-0.1.5...
+Preprocessing library gnutls-0.1.5...
+[1 of 3] Compiling Network.Protocol.TLS.GNU.Foreign ( lib/Network/Protocol/TLS/GNU/Foreign.hs, dist/build/Network/Protocol/TLS/GNU/Foreign.o )
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:26:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:29:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:32:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:35:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:38:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:41:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:44:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:47:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:50:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:53:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:56:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:59:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:62:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:65:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:68:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:71:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:74:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:77:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:80:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:83:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:86:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:89:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:105:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:108:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:111:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:114:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:117:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:124:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:127:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:130:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:133:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:140:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:143:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:146:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:149:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:152:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:155:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:162:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:165:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:168:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:171:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:174:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:181:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:184:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:187:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:190:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:193:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:196:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:199:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:206:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:209:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:216:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:219:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:222:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:225:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:228:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:231:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:234:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:243:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:246:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:249:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:256:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:257:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:258:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:259:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:260:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:261:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:262:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:265:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:268:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:271:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:274:1: Warning:
+    Tab character
+
+lib/Network/Protocol/TLS/GNU/Foreign.hs:277:1: Warning:
+    Tab character
+[2 of 3] Compiling Network.Protocol.TLS.GNU.ErrorT ( lib/Network/Protocol/TLS/GNU/ErrorT.hs, dist/build/Network/Protocol/TLS/GNU/ErrorT.o )
+
+lib/Network/Protocol/TLS/GNU/ErrorT.hs:38:10:
+    Could not deduce (Applicative (ErrorT e m))
+      arising from the superclasses of an instance declaration
+    from the context (Monad m)
+      bound by the instance declaration
+      at lib/Network/Protocol/TLS/GNU/ErrorT.hs:38:10-38
+    In the instance declaration for ‘Monad (ErrorT e m)’
+
+lib/Network/Protocol/TLS/GNU/ErrorT.hs:46:10:
+    Could not deduce (Applicative (ErrorT e m))
+      arising from the superclasses of an instance declaration
+    from the context (Monad m)
+      bound by the instance declaration
+      at lib/Network/Protocol/TLS/GNU/ErrorT.hs:46:10-45
+    In the instance declaration for ‘E.MonadError (ErrorT e m)’
+
+lib/Network/Protocol/TLS/GNU/ErrorT.hs:58:10:
+    Could not deduce (Applicative (ErrorT e m))
+      arising from the superclasses of an instance declaration
+    from the context (R.MonadReader m)
+      bound by the instance declaration
+      at lib/Network/Protocol/TLS/GNU/ErrorT.hs:58:10-54
+    In the instance declaration for ‘R.MonadReader (ErrorT e m)’
+
+lib/Network/Protocol/TLS/GNU/ErrorT.hs:63:10:
+    Could not deduce (Applicative (ErrorT e m))
+      arising from the superclasses of an instance declaration
+    from the context (MonadIO m)
+      bound by the instance declaration
+      at lib/Network/Protocol/TLS/GNU/ErrorT.hs:63:10-42
+    In the instance declaration for ‘MonadIO (ErrorT e m)’
+builder for ‘/nix/store/9vsfqhixrya3ks06m4ss6gw40jh28bi7-haskell-gnutls-0.1.5.drv’ failed with exit code 1
+building path(s) ‘/nix/store/hnnmjrw6w0bmd852mm23c4a4lsl4djqp-haskell-gsasl-0.3.5’
+setupCompilerEnvironmentPhase
+Build with /nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1.
+unpacking sources
+unpacking source archive /nix/store/30jgvpx69vhj0clqs8cgqscr7lnmjlrr-gsasl-0.3.5.tar.gz
+source root is gsasl-0.3.5
+patching sources
+compileBuildDriverPhase
+setupCompileFlags: -package-db=/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-haskell-gsasl-0.3.5.drv-0/package.conf.d -j8 -threaded
+[1 of 1] Compiling Main             ( Setup.hs, /private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-haskell-gsasl-0.3.5.drv-0/Main.o )
+Linking Setup ...
+configuring
+configureFlags: --verbose --prefix=/nix/store/hnnmjrw6w0bmd852mm23c4a4lsl4djqp-haskell-gsasl-0.3.5 --libdir=$prefix/lib/$compiler --libsubdir=$pkgid --with-gcc=clang --package-db=/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-haskell-gsasl-0.3.5.drv-0/package.conf.d --ghc-option=-optl=-Wl,-headerpad_max_install_names --ghc-option=-j8 --disable-split-objs --disable-library-profiling --enable-shared --enable-library-vanilla --enable-executable-dynamic --enable-tests --extra-include-dirs=/nix/store/h201q94z6w5f19gf2xhmsynl2asrha8q-gsasl-1.8.0/include --extra-lib-dirs=/nix/store/h201q94z6w5f19gf2xhmsynl2asrha8q-gsasl-1.8.0/lib
+Configuring gsasl-0.3.5...
+Dependency base >=4.0 && <5.0: using base-4.8.0.0
+Dependency bytestring >=0.9: using bytestring-0.10.6.0
+Dependency transformers >=0.2: using transformers-0.4.2.0
+Dependency libgsasl >=1.1: using version 1.8.0
+Using Cabal-1.22.2.0 compiled by ghc-7.10
+Using compiler: ghc-7.10.1
+Using install prefix:
+/nix/store/hnnmjrw6w0bmd852mm23c4a4lsl4djqp-haskell-gsasl-0.3.5
+Binaries installed in:
+/nix/store/hnnmjrw6w0bmd852mm23c4a4lsl4djqp-haskell-gsasl-0.3.5/bin
+Libraries installed in:
+/nix/store/hnnmjrw6w0bmd852mm23c4a4lsl4djqp-haskell-gsasl-0.3.5/lib/ghc-7.10.1/gsasl-0.3.5
+Private binaries installed in:
+/nix/store/hnnmjrw6w0bmd852mm23c4a4lsl4djqp-haskell-gsasl-0.3.5/libexec
+Data files installed in:
+/nix/store/hnnmjrw6w0bmd852mm23c4a4lsl4djqp-haskell-gsasl-0.3.5/share/x86_64-osx-ghc-7.10.1/gsasl-0.3.5
+Documentation installed in:
+/nix/store/hnnmjrw6w0bmd852mm23c4a4lsl4djqp-haskell-gsasl-0.3.5/share/doc/x86_64-osx-ghc-7.10.1/gsasl-0.3.5
+Configuration files installed in:
+/nix/store/hnnmjrw6w0bmd852mm23c4a4lsl4djqp-haskell-gsasl-0.3.5/etc
+No alex found
+Using ar found on system at:
+/nix/store/ip00ngw8i2xww506r65swcyfd2nqpxqw-cctools-port-862/bin/ar
+No c2hs found
+No cpphs found
+Using gcc version 4.2.1 given by user at:
+/nix/store/9k42mhsdwa11jfygvgik59bhg9pzsrhm-clang-wrapper-3.6.0/bin/clang
+Using ghc version 7.10.1 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/ghc
+Using ghc-pkg version 7.10.1 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/ghc-pkg
+No ghcjs found
+No ghcjs-pkg found
+No greencard found
+Using haddock version 2.16.0 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/haddock
+No happy found
+Using haskell-suite found on system at: haskell-suite-dummy-location
+Using haskell-suite-pkg found on system at: haskell-suite-pkg-dummy-location
+No hmake found
+Using hpc version 0.67 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/hpc
+Using hsc2hs version 0.67 found on system at:
+/nix/store/jlzqjzv88kzvn94prd8apskyljqigjjx-ghc-7.10.1/bin/hsc2hs
+Using hscolour version 1.22 found on system at:
+/nix/store/pmgn6b538wdrcibxlz137qkck77y6zsy-hscolour-1.22/bin/HsColour
+No jhc found
+Using ld found on system at:
+/nix/store/9k42mhsdwa11jfygvgik59bhg9pzsrhm-clang-wrapper-3.6.0/bin/ld
+No lhc found
+No lhc-pkg found
+Using pkg-config version 0.28 found on system at:
+/nix/store/92sj68bfypihzs3g0r7920dvc4206g3r-pkg-config-0.28/bin/pkg-config
+Using strip found on system at:
+/nix/store/ip00ngw8i2xww506r65swcyfd2nqpxqw-cctools-port-862/bin/strip
+Using tar found on system at:
+/nix/store/pn7ffaql4bfc5g7lalx7nc4d7h09r74j-gnutar-1.27.1/bin/tar
+No uhc found
+building
+Building gsasl-0.3.5...
+Preprocessing library gsasl-0.3.5...
+[1 of 1] Compiling Network.Protocol.SASL.GNU ( lib/Network/Protocol/SASL/GNU.hs, dist/build/Network/Protocol/SASL/GNU.o )
+
+lib/Network/Protocol/SASL/GNU.hs:145:10:
+    No instance for (Applicative SASL)
+      arising from the superclasses of an instance declaration
+    In the instance declaration for ‘Monad SASL’
+
+lib/Network/Protocol/SASL/GNU.hs:662:9:
+    No instance for (Applicative Session) arising from a use of ‘when’
+    In the expression: when (hookPtr == F.nullPtr)
+    In a stmt of a 'do' block:
+      when (hookPtr == F.nullPtr) $ throw NoCallback
+    In the expression:
+      do { ctx <- fmap F.castPtr getSessionContext;
+           hookPtr <- liftIO $ gsasl_callback_hook_get ctx;
+           when (hookPtr == F.nullPtr) $ throw NoCallback;
+           hook <- liftIO $ F.deRefStablePtr $ F.castPtrToStablePtr hookPtr;
+           .... }
+builder for ‘/nix/store/fkwxqz67lsw6csglfl5381j73ndbyccg-haskell-gsasl-0.3.5.drv’ failed with exit code 1
+cannot build derivation ‘/nix/store/6j9v56d09sbnpczh27l0cpapq6p67rcs-haskell-network-protocol-xmpp-0.4.6.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/3w01hr11jic8nwdx8s7y07aaxbdg8j3s-git-annex-5.20150420.drv’: 6 dependencies couldn't be built
+error: build of ‘/nix/store/3w01hr11jic8nwdx8s7y07aaxbdg8j3s-git-annex-5.20150420.drv’ failed

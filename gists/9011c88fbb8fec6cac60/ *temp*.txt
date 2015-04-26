@@ -1,0 +1,23 @@
+00:17:26 Vulcan:~/oss/nixpkgs/master $ nix-env -u --leq -f . --show-trace
+upgrading ‘env-ghc784’ to ‘env-ghc784’
+these derivations will be built:
+  /nix/store/kwd04iv2qvsjdzviak6k9rlk6q5pmv5m-cabal2nix-20150423.drv
+  /nix/store/26wnd1hhbi5q9wbbwplhy24vqilx5p02-env-ghc784.drv
+building path(s) ‘/nix/store/yghqpj7gyn8x897vhjfb9nnyry773ddm-cabal2nix-20150423’
+setupCompilerEnvironmentPhase
+Build with /nix/store/pfblw3fg4cab2rqi3gr65xd4k2ihr2jy-ghc-7.8.4.
+unpacking sources
+unpacking source archive /nix/store/rmnahf4wmmscpcy2vgrgpba121z1nsvc-cabal2nix-8cfe61c
+source root is cabal2nix-8cfe61c
+patching sources
+compileBuildDriverPhase
+setupCompileFlags: -package-db=/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-cabal2nix-20150423.drv-0/package.conf.d -j8
+[1 of 1] Compiling Main             ( Setup.lhs, /private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-cabal2nix-20150423.drv-0/Main.o )
+Linking Setup ...
+configuring
+configureFlags: --verbose --prefix=/nix/store/yghqpj7gyn8x897vhjfb9nnyry773ddm-cabal2nix-20150423 --libdir=$prefix/lib/$compiler --libsubdir=$pkgid --with-gcc=clang --package-db=/private/var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/nix-build-cabal2nix-20150423.drv-0/package.conf.d --ghc-option=-j8 --disable-split-objs --disable-library-profiling --disable-shared --enable-library-vanilla --disable-executable-dynamic --enable-tests --extra-lib-dirs=/nix/store/1vc0618n3lad5i8n3ah89341cpzh6a2j-git-2.3.5/lib
+Configuring cabal2nix-20150423...
+Setup: At least the following dependencies are missing:
+Cabal >=1.22.2, pretty >=1.1.2
+builder for ‘/nix/store/kwd04iv2qvsjdzviak6k9rlk6q5pmv5m-cabal2nix-20150423.drv’ failed with exit code 1
+cannot build derivation ‘/nix/store/26wnd1hhbi5q9wbbwplhy24vqilx5p02-env-ghc784.drv’: 1 dependencies couldn't be built

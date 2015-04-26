@@ -7,9 +7,11 @@
 
 module Container where
 
+import Control.Applicative
 import Control.Monad.State
 import Data.Void
 import GHC.TypeLits
+import Data.List
 
 -- In a dependently typed language, a container's accessor function's input
 -- argument type is determined by its shape; in Haskell, we must use a GADT to
@@ -20,45 +22,50 @@ import GHC.TypeLits
 -- interface is Functor, which is mostly all that can be done with containers
 -- in general.
 
-data Fin :: Nat -> * where
-    F1 :: Fin (n + 1)
-    FS :: Fin n -> Fin (n + 1)
+-- data Fin :: Nat -> * where
+--     F1 :: Fin (n + 1)
+--     FS :: Fin n -> Fin (n + 1)
+
+-- toFin :: Int -> Fin (n + 1)
+-- toFin 0 = F1
+-- toFin n = FS (toFin (n-1) :: Fin (n - 1 + 1))
+
+-- instance Num (Fin n)
+-- instance Eq (Fin n)
+-- instance Ord (Fin n)
+-- instance Real (Fin n)
+-- instance Enum (Fin n)
+-- instance Integral (Fin n)
 
 -- List Container:
---   Shape    : Set         := Nat
---   Input    : Shape -> Set := forall n : nat, Fin n
---   shape    : Shape
+--   Shape : Set := Nat
+--   Input : Shape -> Set := forall n : nat, Fin n
+--   shape : Shape
 --   accessor : Input shape -> a
 --     Empty >> Input shape = Void, where shape = 0
 --     Cons  >> Input shape = Fin (succ shape), where shape = succ shape
-data ListS :: Nat -> * -> * -> * where
-    Empty :: ListS 0 Void a
-    Cons  :: Int -> (Fin (n + 1) -> a) -> ListS (n + 1) (Fin (n + 1)) a
+data ListS :: * -> * -> * where
+    Empty :: ListS Void a
+    Cons  :: Int -> (Int -> a) -> ListS Int a
 
-list0 :: [a] -> ListS 0 Void a
+list0 :: [a] -> ListS Void a
 list0 _ = Empty
 
-listn :: [a] -> ListS (n + 1) (Fin (n + 1)) a
-listn l = Cons (length l) (go l)
-  where
-    go :: [a] -> Fin m -> a
-    go []      _     = error "Invalid list index"
-    go (x:_)   F1    = x
-    go (_:xs) (FS i) = go xs i
+listn :: [a] -> ListS Int a
+listn l = Cons (length l) (l !!)
 
-instance Functor (ListS s p) where
+instance Functor (ListS p) where
     fmap _ Empty = Empty
     fmap f (Cons n x) = Cons n (fmap f x)
 
-{-
-instance Applicative (ListS s p) where
-    pure = Cons 1 . pure :: a -> ListS 1 (Fin 1) a
+instance Applicative (ListS p) where
+    pure = undefined                    -- would require branching on p!
     Empty <*> _ = Empty
     _ <*> Empty = Empty
     Cons nl f <*> Cons nr x =
         Cons (nl * nr) $ \i -> f (i `div` nr) (x (i `mod` nr))
 
-instance Monad (ListS s p) where
+instance Monad (ListS p) where
     return = pure
     Empty >>= _ = Empty
     Cons n k >>= f =
@@ -73,37 +80,36 @@ instance Monad (ListS s p) where
         -- overcome by switching to CPS argument passing, but we don't have
         -- that option in >>=.
         case cnt of
-            0 -> Empty :: forall a. ListS 0 Void a
+            0 -> Empty
             -- use i to index into 'res', which should be a map of intervals
             -- to functions accepting an index from 0 to the size of that
             -- interval
             m -> Cons m $ \i -> undefined
--}
 
 -- State Container:
---   Shape    : Set         := ()
---   Input    : Shape -> Set := fun _ => s
---   shape    : Shape
+--   Shape : Set := ()
+--   Input : Shape -> Set := fun _ => s
+--   shape : Shape
 --   accessor : Input shape -> a
 --     HasState >> Input shape = s, where shape = ()
-data StateS :: () -> * -> * -> * where
-    HasState :: (s -> a) -> StateS '() s a
+data StateS :: * -> * -> * where
+    HasState :: (s -> a) -> StateS s a
 
-instance Functor (StateS s p) where
+instance Functor (StateS p) where
     fmap f (HasState x) = HasState (fmap f x)
 
-state :: State s a -> StateS '() s a
-state k = HasState (evalState k)
+state :: State s a -> StateS s a
+state = HasState . evalState
 
-class Container (p :: * -> *) where
-    type ArgType a :: *
-    getter :: p a -> ArgType (p a) -> a
+class Container (p :: * -> * -> *) where
+    getter :: p i a -> i -> a
 
-instance Container (ListS s p) where
-    type ArgType (ListS 0 Void a) = Void
-    type ArgType (ListS n (Fin n) a) = Fin n
+instance Container ListS where
     getter Empty _ = error "Empty list"
     getter (Cons _ k) i = k i
 
+instance Container StateS where
+    getter (HasState k) = k
+
 main :: IO ()
-main = print $ getter (listn ([1,2,3,4,5] :: [Int])) (FS (FS F1))
+main = print $ getter (listn ([1,2,3,4,5] :: [Int])) 2

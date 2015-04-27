@@ -1,0 +1,11 @@
+FAIL: pdftexdir/wprob.test
+FAIL: pdftexdir/pdftex.test
+FAIL: pdftexdir/pdfimage.test
+PASS: pdftexdir/ttf2afm.test
+FAIL: pdftexdir/pdftosrc.test
+FAIL: luatexdir/luatex.test
+FAIL: luatexdir/luaimage.test
+FAIL: luatexdir/luajittex.test
+FAIL: luatexdir/luajitimage.test
+FAIL: xetexdir/xetex-bug73.test
+FAIL: xetexdir/xetex.test

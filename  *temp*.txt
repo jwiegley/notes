@@ -1,0 +1,14 @@
+ghc784:[johnw@Vulcan:~/src/notes]$ ghc -main-is GhcIssues -o GhcIssues GhcIssues.hs
+Linking GhcIssues ...
+
+In file included from /var/folders/4j/br7bdhjx4b384_snb2087gt00000gn/T/ghc87453_0/ghc87453_2.c:1:0:
+
+
+In file included from /nix/store/pfblw3fg4cab2rqi3gr65xd4k2ihr2jy-ghc-7.8.4/lib/ghc-7.8.4/include/Rts.h:30:0:
+
+
+/nix/store/pfblw3fg4cab2rqi3gr65xd4k2ihr2jy-ghc-7.8.4/lib/ghc-7.8.4/include/Stg.h:65:10:
+     fatal error: 'math.h' file not found
+#include <math.h>
+         ^
+1 error generated.

@@ -1,0 +1,17 @@
+(defun collect-once (x)
+  (if (endp x)
+      nil
+      (let ((rest (collect-once (cdr x))))
+        (if (member (car x) rest)
+            rest
+            (cons (car x) rest)))))
+
+(defthm collect-once-member
+  (iff (member x (collect-once y))
+       (member x y)))
+
+(defthm main-theorem-1-about-collect-once
+  (subsetp (collect-once x) x))
+
+(defthm main-theorem-2-about-collect-once
+  (not (dupsp (collect-once x))))

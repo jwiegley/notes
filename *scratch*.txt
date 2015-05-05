@@ -1,0 +1,24 @@
+(defun rev2 (x)
+  (if (endp x)
+      nil
+      (append (rev2 (cdr x)) (list (car x)))))
+
+(defun dupsp (x)  ; does x contain duplicate elements?
+  (if (endp x)
+      nil
+      (if (member (car x) (cdr x))
+          t
+          (dupsp (cdr x)))))
+
+(defthm member-rev
+  (iff (member-equal x (rev2 y))
+       (member-equal x y)))
+
+(defthm dupsp-append
+  (iff (dupsp (append y (list x)))
+       (if (member-equal x y)
+           (dupsp (cons x y))
+           (dupsp y))))
+
+(defthm dupsp-rev
+  (equal (dupsp (rev2 x)) (dupsp x)))

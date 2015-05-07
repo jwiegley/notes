@@ -1,0 +1,24 @@
+Building tagged-0.8.0.1...
+Preprocessing library tagged-0.8.0.1...
+[1 of 4] Compiling Paths_tagged     ( dist/build/autogen/Paths_tagged.hs, dist/build/Paths_tagged.o )
+[2 of 4] Compiling Data.Proxy.TH    ( src/Data/Proxy/TH.hs, dist/build/Data/Proxy/TH.o )
+[3 of 4] Compiling Data.Proxy       ( old/Data/Proxy.hs, dist/build/Data/Proxy.o )
+[4 of 4] Compiling Data.Tagged      ( src/Data/Tagged.hs, dist/build/Data/Tagged.o )
+In-place registering tagged-0.8.0.1...
+running tests
+Package has no test suites.
+haddockPhase
+Running Haddock for tagged-0.8.0.1...
+Running hscolour for tagged-0.8.0.1...
+Preprocessing library tagged-0.8.0.1...
+Preprocessing library tagged-0.8.0.1...
+Warning: The documentation for the following packages are not installed. No
+links will be generated to these packages: rts-1.0
+
+<no location info>:
+    module `tagged-0.8.0.1:Main' is defined in multiple files: dist/build/tmp-43589/old/Data/Proxy.hs
+                                                               dist/build/tmp-43589/src/Data/Proxy/TH.hs
+                                                               dist/build/tmp-43589/src/Data/Tagged.hs
+builder for ‘/nix/store/7fnhpckxn0nyywjhnjnpzirb9f76wf51-haskell-tagged-0.8.0.1.drv’ failed with exit code 1
+cannot build derivation ‘/nix/store/iqz59dywd2jzw5a766h7wgqj2lzfzpn2-haskell-morphdb-0.1.0.0.drv’: 1 dependencies couldn't be built
+error: build of ‘/nix/store/iqz59dywd2jzw5a766h7wgqj2lzfzpn2-haskell-morphdb-0.1.0.0.drv’ failed

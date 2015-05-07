@@ -1,12 +1,19 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE ConstraintKinds #-}
 {-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE RankNTypes #-}
 
 module Feuer where
 
 import Data.Functor.Contravariant
 import Data.Semigroup
 import GHC.Exts (Constraint)
+
+alpha :: (d -> (forall x. c -> x)) -> c -> d -> r
+alpha f = flip f
+
+beta :: (forall x. c -> d -> x) -> d -> c -> r
+beta f = flip f
 
 -- A Contravariant Functor in x, but Invariant in y
 data Feuer x y where

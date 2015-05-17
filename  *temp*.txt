@@ -1,0 +1,24 @@
+"coqdep" -c -slash -I . -I tests -R ../src Bedrock "Util.v" > "Util.v.d" || ( RV=$?; rm -f "Util.v.d"; exit ${RV} )
+"coqdep" -c -slash -I . -I tests -R ../src Bedrock "Wrap.v" > "Wrap.v.d" || ( RV=$?; rm -f "Wrap.v.d"; exit ${RV} )
+"coqdep" -c -slash -I . -I tests -R ../src Bedrock "PreAutoSep.v" > "PreAutoSep.v.d" || ( RV=$?; rm -f "PreAutoSep.v.d"; exit ${RV} )
+"coqdep" -c -slash -I . -I tests -R ../src Bedrock "AutoSepExt.v" > "AutoSepExt.v.d" || ( RV=$?; rm -f "AutoSepExt.v.d"; exit ${RV} )
+"coqdep" -c -slash -I . -I tests -R ../src Bedrock "Conditional.v" > "Conditional.v.d" || ( RV=$?; rm -f "Conditional.v.d"; exit ${RV} )
+"coqc"  -q  -I . -I tests -R ../src Bedrock   Conditional
+"coqc"  -q  -I . -I tests -R ../src Bedrock   AutoSepExt
+File "/private/var/folders/j5/pbrfw0_j3xq4k4yzy4l2bk0r0000gn/T/nix-build-coq-bedrock-8.4-20140722.drv-0/bedrock/platform/Conditional.v", line 1, characters 0-28:
+Error: Cannot find library Bedrock.ILTac in loadpath
+File "/private/var/folders/j5/pbrfw0_j3xq4k4yzy4l2bk0r0000gn/T/nix-build-coq-bedrock-8.4-20140722.drv-0/bedrock/platform/AutoSepExt.v", line 1, characters 0-23:
+Error: Cannot find library Bedrock.ILTac in loadpath
+Makefile.coq:271: recipe for target 'Conditional.vo' failed
+make[1]: *** [Conditional.vo] Error 1
+make[1]: *** Waiting for unfinished jobs....
+Makefile.coq:271: recipe for target 'AutoSepExt.vo' failed
+make[1]: *** [AutoSepExt.vo] Error 1
+make[1]: Leaving directory '/private/var/folders/j5/pbrfw0_j3xq4k4yzy4l2bk0r0000gn/T/nix-build-coq-bedrock-8.4-20140722.drv-0/bedrock/platform'
+Makefile:30: recipe for target 'coq' failed
+make: *** [coq] Error 2
+make: Leaving directory '/private/var/folders/j5/pbrfw0_j3xq4k4yzy4l2bk0r0000gn/T/nix-build-coq-bedrock-8.4-20140722.drv-0/bedrock/platform'
+builder for ‘/nix/store/crhglbdl8ikvfjqv9q4p8zyvz3y3c7wv-coq-bedrock-8.4-20140722.drv’ failed with exit code 2
+cannot build derivation ‘/nix/store/9b2607x498b6jcf9ywys0z1mmhdd1237-coqTools.drv’: 1 dependencies couldn't be built
+error: build of ‘/nix/store/9b2607x498b6jcf9ywys0z1mmhdd1237-coqTools.drv’ failed
+06:16:01 Vulcan:~ $

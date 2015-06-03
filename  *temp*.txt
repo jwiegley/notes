@@ -1,0 +1,41 @@
+Lemma arkeet : forall (A : finType) (B : eqType) (f : A -> B),
+  size (enum A) > 0 -> injective f -> exists g, cancel f g.
+Proof.
+  move=> A B f Hsz Hinj.
+  eexists.
+  have H := mem_image Hinj.
+  move=> x.
+  specialize (H (fun x => x \in enum A) x).
+  elim: (enum A) => //= [y ys IHys] in H Hsz *.
+  case: ys => [|z zs] /= in IHys H Hsz *.
+    clear IHys.
+    move/imageP in H.
+    rewrite mem_seq1 in H.
+    case E: (x == y) in H *;
+    destruct H.
+      admit.
+    admit.
+  apply IHys => //.
+  move/imageP in H.
+  apply/imageP.
+  rewrite in_cons in H.
+  case E: (x \in [:: z & zs]) in H *.
+    rewrite orbT in H.
+    destruct H.
+    exists x0 => //.
+    by rewrite (Hinj x0 x).
+  rewrite orbF in H.
+  case X: (x == y) in H.
+    destruct H.
+    move=> Hneg.
+    destruct Hneg.
+    rewrite (Hinj x1 x) in H1.
+      by rewrite E in H1.
+    by symmetry.
+  move=> Hneg.
+  destruct Hneg.
+  destruct H.
+  rewrite (Hinj x0 x) in H0.
+    by rewrite E in H0.
+  by symmetry.
+Abort.

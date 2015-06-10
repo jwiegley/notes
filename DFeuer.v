@@ -3,10 +3,7 @@ Theorem arkeet :
 Proof.
   move=> H.
   have H0 : injective (fun _ : False => tt).
-    rewrite /injective.
-    move=> x1 x2 Heqe.
-    contradiction.
-  specialize (H False unit (fun (_ : False) => tt) H0).
-  destruct H.
+    by move=> *; contradiction.
+  destruct (H False unit (fun (_ : False) => tt) H0).
   exact/x/tt.
 Qed.

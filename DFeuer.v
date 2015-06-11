@@ -26,3 +26,46 @@ Qed.
 
 Theorem johnw : forall A B (f : A -> B) (g : B -> A), cancel f g -> injective f.
 Proof. move=> *; exact: can_inj. Qed.
+
+Theorem arkeet2 : forall (A : finType) (B : eqType) (f : A -> B),
+  inhabited A -> injective f -> exists g, cancel f g.
+Proof.
+  move=> A B f H1 H2.
+  destruct H1.
+  exists (fun x : B =>
+            match getBy (fun z => let: (p, s) := z in p == x)
+                        [seq (f a, a) | a in enum A] with
+            | None => X
+            | Some y => snd y
+            end).
+  move=> Y.
+  elim: (enum A) => [|z zs IHzs].
+    admit.
+  rewrite /getBy /= -/getBy.
+  rewrite /forFold /= -/forFold.
+  Set Printing All.
+  rewrite -foldl_cons.
+  destruct H1.
+  rewrite /cancel.
+  move=> x.
+  have H0 : injective (fun _ : False => tt).
+    by move=> *; contradiction.
+  destruct (H False unit (fun (_ : False) => tt) H0).
+  exact/x/tt.
+Qed.
+
+Definition uncons `(xs : seq a) : option (a * seq a) :=
+  match xs with
+    | nil => None
+    | cons x xs => Some (x, xs)
+  end.
+
+Fixpoint dapp {a} (xs ys : seq a) : seq a :=
+  match ys with
+  | nil => xs
+  | y :: ys => dapp (rcons xs y) ys
+  end.
+
+Notation "xs <++ ys" := (dapp xs ys) (at level 100).
+
+queueToList (xs <++ ys) = queueToList xs ++ queueToList ys

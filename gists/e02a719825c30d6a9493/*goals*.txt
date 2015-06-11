@@ -1,0 +1,9 @@
+1 subgoal, subgoal 1 (ID 710)
+  
+  T : Type
+  n : nat
+  l : Fin (S n) -> T
+  IHn : forall l : Fin n -> T,
+        list_svector (map l (` (gen_strong (Nat.le_refl n)))) ~= l
+  ============================
+   list_svector (map l (` (gen_strong (Nat.le_refl (S n))))) ~= l

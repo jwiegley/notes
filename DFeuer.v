@@ -1,5 +1,7 @@
-Require Import Ssreflect.ssreflect.
-Require Import Ssreflect.ssrfun.
+Require Import Hask.Prelude.
+Require Import Hask.Data.List.
+
+Generalizable All Variables.
 
 (* For any injective function f, if there exists a right-sided inverse g,
    g is a two-sided inverse for f. *)
@@ -14,21 +16,10 @@ Theorem arkeet :
   ~ (forall A B (f : A -> B), injective f -> exists g, cancel f g).
 Proof.
   move=> H.
-  have Ha : exists A B (f : A -> B) (Hinj : injective f),
-              forall (g : B -> A), ~ cancel f g.
-    exists False.
-    exists unit.
-    exists (fun (_ : False) => tt).
-    eexists.
-      rewrite /injective.
-      move=> x1 x2 Heqe.
-      contradiction.
-    move=> H0 g.
-    apply H0.
-    exact tt.
-  case: Ha => [? [? [? [Hinj H0]]]].
-  move: (H _ _ _ Hinj) => [g ?].
-  contradiction (H0 g).
+  have H0 : injective (fun _ : False => tt).
+    by move=> *; contradiction.
+  destruct (H False unit (fun (_ : False) => tt) H0).
+  exact/x/tt.
 Qed.
 
 (* Every function with a left-sided inverse is injective. *)

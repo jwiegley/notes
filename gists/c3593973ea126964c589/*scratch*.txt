@@ -1,0 +1,3 @@
+ .././install-sh -c -d '/nix/store/rlcrhkbnkd8pgqlbh0was2r3kybl4mci-curl-7.42.1/share/man/man1'
+ /nix/store/z6asad5pg85661vijjhc0274r76x7yk3-trivial-bootstrap-tools/bin/install -c -m 644 curl.1 curl-config.1 '/nix/store/rlcrhkbnkd8pgqlbh0was2r3kybl4mci-curl-7.42.1/share/man/man1'
+sed: -e: No such file or directory

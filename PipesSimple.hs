@@ -74,7 +74,8 @@ fromProxy5 (Proxy5 (CA p)) = M $ flip runContT (return . Pure) $
     p (CA $ \a' -> ContT $ return . Request a' . (M .),
        CA $ \b  -> ContT $ return . Respond b  . (M .))
 
--- Proxy is also a free monad over a request/respond term algebra
+-- Proxy is also a free monad over a request/respond term algebra that allows
+-- monadic effects
 --
 -- This was used in older versions of pipes, actually
 

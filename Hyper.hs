@@ -1,5 +1,6 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE TupleSections #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 
 module Hyper where
 
@@ -17,6 +18,9 @@ f # g = H (\k -> invoke f (g # k))
 
 self :: Hyper a a
 self = lift id
+
+navel :: Hyper a b
+navel = run (H $ join invoke)
 
 lift :: (a -> b) -> Hyper a b
 lift f = f << lift f
@@ -39,8 +43,9 @@ instance Profunctor Hyper where
     rmap f (H k) = H (f . k . lmap f)
 
 instance Arrow Hyper where
-    arr = lift
-    first (H _) = run (H $ join invoke)
+    arr          = lift
+    first (H f)  = go where go = H $ \(H k)  -> first (f . H . const) (k go)
+    second (H f) = go where go = H $ \(H k) -> second (f . H . const) (k go)
 
 instance Functor (Hyper a) where
     fmap = rmap
@@ -56,3 +61,13 @@ instance Functor (Hyper a) where
 fold :: [a] -> (a -> b -> c) -> c -> Hyper b c
 fold [] _ n     = base n
 fold (x:xs) c n = c x << fold xs c n
+
+project :: Hyper a b -> a -> b
+project q x = invoke q (base x)
+
+main :: IO ()
+main = do
+    let f = ((+5) :: Int -> Int)
+        g = ((\(x, y) -> (x+2,y+3)) :: (Int, Int) -> (Int,Int))
+    print $ project (lift f) 6
+    print $ project (first (lift f)) (6,6)

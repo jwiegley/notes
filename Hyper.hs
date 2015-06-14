@@ -43,9 +43,9 @@ instance Profunctor Hyper where
     rmap f (H k) = H (f . k . lmap f)
 
 instance Arrow Hyper where
-    arr          = lift
-    first (H f)  = go where go = H $ \(H k)  -> first (f . H . const) (k go)
-    second (H f) = go where go = H $ \(H k) -> second (f . H . const) (k go)
+    arr    = lift
+    first  = lift . first . project
+    second = lift . second . project
 
 instance Functor (Hyper a) where
     fmap = rmap

@@ -1,0 +1,12 @@
+Toplevel input, characters 0-4:
+Error: Illegal application: 
+The term "fun (A : Type@{Top.16671}) (A0 : Type@{Top.16670}) => A -> A0"
+of type
+ "Type@{Top.16671} -> Type@{Top.16670} -> Type@{max(Top.16670, Top.16671)}"
+cannot be applied to the terms
+ "b" : "Type@{Top.16145}"
+ "Proxy b' b b' b m r"
+   : "Type@{max(Set, Top.10+1, Top.11532, Top.16141, Top.16144, Top.16145)}"
+The 2nd term has type
+ "Type@{max(Set, Top.10+1, Top.11532, Top.16141, Top.16144, Top.16145)}"
+which should be coercible to "Type@{Top.16670}".

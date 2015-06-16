@@ -14,64 +14,6 @@ import           Pipes
 import           Pipes.Internal
 import qualified Pipes.Prelude as P
 
--- 'toProxy' and 'fromProxy' are isomorphic
-toProxy
-    :: Monad m
-    => (forall s.
-           (a' -> (a  -> s) -> s)
-        -> (b  -> (b' -> s) -> s)
-        -> (m s -> s)
-        -> (r -> s)
-        -> s)
-    -> Proxy a' a b' b m r
-toProxy p = p Request Respond M Pure
-
-fromProxy
-    :: Monad m
-    => Proxy a' a b' b m r
-    -> (a' -> (a  -> s) -> s)
-    -> (b  -> (b' -> s) -> s)
-    -> (m s -> s)
-    -> (r -> s)
-    -> s
-fromProxy p req res mon pur = go p
-  where
-    go p' = case p' of
-        Request a' fa  -> req a' (go . fa)
-        Respond b  fb' -> res b  (go . fb')
-        M       m      -> mon (liftM go m)
-        Pure    r      -> pur r
-
--- 'toProxyM' and 'fromProxyM' are functionally equivalent, but do not compose
--- to identity.
-toProxyM
-    :: Monad m
-    => (forall s.
-           (a' -> (a  -> m s) -> m s)
-        -> (b  -> (b' -> m s) -> m s)
-        -> (r -> m s)
-        -> m s)
-    -> Proxy a' a b' b m r
-toProxyM p = M $ p
-    (\a' fa  -> return $ Request a' (M . fa))
-    (\b  fb' -> return $ Respond b  (M . fb'))
-    (return . Pure)
-
-fromProxyM
-    :: Monad m
-    => Proxy a' a b' b m r
-    -> (a' -> (a  -> m s) -> m s)
-    -> (b  -> (b' -> m s) -> m s)
-    -> (r -> m s)
-    -> m s
-fromProxyM p req res pur = go p
-  where
-    go p' = case p' of
-        Request a' fa  -> req a' (go . fa)
-        Respond b  fb' -> res b  (go . fb')
-        M       m      -> m >>= go
-        Pure    r      -> pur r
-
 foldOver :: Monad m => Fold s a -> s -> Producer a m ()
 foldOver t x = each (x ^.. t)
 
@@ -130,3 +72,61 @@ examples = do
     runEffect $ each [(10, Left 'a'), (20, Right 'b'), (30, Left 'c')]
         >-> narrow (filtered (has (_2 . _Left . only 'a')) . _1)
         >-> Pipes.Lens.mapM_ (print :: Int -> IO ())
+
+-- 'toProxy' and 'fromProxy' are isomorphic
+toProxy
+    :: Monad m
+    => (forall s.
+           (a' -> (a  -> s) -> s)
+        -> (b  -> (b' -> s) -> s)
+        -> (m s -> s)
+        -> (r -> s)
+        -> s)
+    -> Proxy a' a b' b m r
+toProxy p = p Request Respond M Pure
+
+fromProxy
+    :: Monad m
+    => Proxy a' a b' b m r
+    -> (a' -> (a  -> s) -> s)
+    -> (b  -> (b' -> s) -> s)
+    -> (m s -> s)
+    -> (r -> s)
+    -> s
+fromProxy p req res mon pur = go p
+  where
+    go p' = case p' of
+        Request a' fa  -> req a' (go . fa)
+        Respond b  fb' -> res b  (go . fb')
+        M       m      -> mon (liftM go m)
+        Pure    r      -> pur r
+
+-- 'toProxyM' and 'fromProxyM' are functionally equivalent, but do not compose
+-- to identity.
+toProxyM
+    :: Monad m
+    => (forall s.
+           (a' -> (a  -> m s) -> m s)
+        -> (b  -> (b' -> m s) -> m s)
+        -> (r -> m s)
+        -> m s)
+    -> Proxy a' a b' b m r
+toProxyM p = M $ p
+    (\a' fa  -> return $ Request a' (M . fa))
+    (\b  fb' -> return $ Respond b  (M . fb'))
+    (return . Pure)
+
+fromProxyM
+    :: Monad m
+    => Proxy a' a b' b m r
+    -> (a' -> (a  -> m s) -> m s)
+    -> (b  -> (b' -> m s) -> m s)
+    -> (r -> m s)
+    -> m s
+fromProxyM p req res pur = go p
+  where
+    go p' = case p' of
+        Request a' fa  -> req a' (go . fa)
+        Respond b  fb' -> res b  (go . fb')
+        M       m      -> m >>= go
+        Pure    r      -> pur r

@@ -23,6 +23,15 @@ foldBy t = await >>= \x -> each (x ^.. t)
 narrow :: Monad m => Getting (First a) i a -> Pipe i a m ()
 narrow l = for cat $ traverse_ yield . preview l
 
+produce :: Monad m => Producer a m r -> Pipe x a m r
+produce = loop
+  where
+    loop p = do
+        eres <- lift $ next p
+        case eres of
+            Left r -> return r
+            Right (a, p') -> yield a >> loop p'
+
 foldMap :: (Monoid b, Monad m) => (a -> b) -> Producer a m () -> m b
 foldMap = F.purely P.fold . flip F.foldMap id
 

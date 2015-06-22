@@ -1,7 +1,5 @@
 {-# LANGUAGE RankNTypes #-}
-{-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TypeOperators #-}
-{-# LANGUAGE TypeSynonymInstances #-}
 
 module PipesSimple where
 
@@ -74,6 +72,7 @@ fromProxy5 (Proxy5 (CA p)) = M $ flip runContT (return . Pure) $
     p (CA $ \a' -> ContT $ return . Request a' . (M .),
        CA $ \b  -> ContT $ return . Respond b  . (M .))
 
+
 -- Proxy is also a free monad over a request/respond term algebra that allows
 -- monadic effects
 --
@@ -88,3 +87,11 @@ data ReqRes a' a b' b r
 newtype (f :.: g) a = C (f (g a))
 
 type Proxy6 a' a b' b m r = Free (m :.: ReqRes a' a b' b) r
+
+-- Or equivalently, using FreeT
+
+data FreeF f a b = FP a | FF (f b)
+
+newtype FreeT f m a = FT { runFT :: m (FreeF f a (FreeT f m a)) }
+
+type Proxy7 a' a b' b m r = FreeT (ReqRes a' a b' b) m r

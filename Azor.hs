@@ -1,6 +1,11 @@
+{-# LANGUAGE GADTs #-}
+
 module Azor where
 
 import Data.List
+
+data T where
+    T :: field a -> String -> T
 
 azorAhai :: (a -> a -> [a] -> [a]) -> [a] -> [a]
 azorAhai f elements = foldl' xs elements [0..length elements]

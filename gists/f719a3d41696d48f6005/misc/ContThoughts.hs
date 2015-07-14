@@ -114,7 +114,7 @@ implement this without ultimately looking at the definition from
 -}
 
 callCC :: ((a -> ContT r m b) -> ContT r m a) -> ContT r m a
-callCC f = ContT $ \h -> runContT (f $ \a -> ContT $ \_ -> h a) h
+callCC f = ContT $ \h -> runContT (f $ ContT . const . h) h
 
 --         f      hg
 -- label :: ContT ((ContT r m a -> m r) -> m r)
@@ -212,7 +212,7 @@ main = void $ flip runContT return $ do
         -- m <- control $ \runInIO -> do
         --     liftIO $ putStrLn "step 5.."
         --     m <- runInIO $ do
-b        --          return "step 6.."
+        --          return "step 6.."
         --          k "after step 5"
         --          return "step 7.."
         --     liftIO $ putStrLn "step 8.."

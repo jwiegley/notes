@@ -1,16 +1,28 @@
+{-# LANGUAGE PolyKinds #-}
 {-# LANGUAGE DeriveFunctor #-}
+{-# LANGUAGE DataKinds #-}
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE LambdaCase #-}
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE ViewPatterns #-}
-{-# LANGUAGE LambdaCase #-}
 
 module PipeCont where
 
 import           Control.Applicative
+import           Control.Exception.Lifted
 import           Control.Monad.IO.Class
+import           Control.Monad.Trans.Cont
+import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Free.Church
+import qualified Data.Conduit.Internal as C
 import qualified Data.Foldable as F
+import           Data.Functor
+import           Data.Void
+import           GHC.Prim
 import qualified Pipes as P
 import qualified Pipes.Internal as P
 import qualified Pipes.Prelude as P
@@ -22,6 +34,10 @@ data ProxyF a' a b' b f
 newtype Proxy a' a b' b m r = Proxy { runProxy :: FT (ProxyF a' a b' b) m r }
     deriving (Functor, Applicative, Monad, MonadIO,
               MonadFree (ProxyF a' a b' b))
+
+-- instance PipeLike (Proxy a' a b' b m) where
+--     type Repr (Proxy a' a b' b m) = Codensity m
+--     proxy req res = undefined
 
 toProxy :: Monad m => Proxy a' a b' b m r -> P.Proxy a' a b' b m r
 toProxy (Proxy (FT p)) = P.M $ p (return . P.Pure) $ \k -> \case
@@ -48,6 +64,63 @@ Proxy (FT f) >-> Proxy (FT g) = Proxy $ FT $ \pur fun ->
                     Request () fb  -> k (fb b)
                     Respond c  fc' -> fun k (Respond c fc')
             h (fb' ())
+
+newtype GProxy a b m r =
+    GProxy { runGProxy :: forall s.
+                         ((a -> m s) -> m s)
+                       -> (b -> m s -> m s)
+                       -> (r -> m s)
+                       -> m s }
+
+class Stream (p :: k) where
+    data StreamRepr p a b (m :: * -> *) r :: *
+    getStream :: Monad m => StreamRepr p a b m r -> GProxy a b m r
+    makeStream :: Monad m => GProxy a b m r -> StreamRepr p a b m r
+
+liftProxy :: Monad m => P.Proxy a' a () b m r -> GProxy a b m r
+liftProxy p = GProxy $ \req res pur -> case p of
+    P.Request _a' fa  -> req $ \a -> runGProxy (liftProxy (fa  a)) req res pur
+    P.Respond b   fb' -> res b (runGProxy (liftProxy (fb' ())) req res pur)
+    P.M       m      -> m >>= \p' -> runGProxy (liftProxy p') req res pur
+    P.Pure    r      -> pur r
+
+lowerProxy :: Monad m => GProxy a b m r -> P.Proxy () a () b m r
+lowerProxy (GProxy p) = P.M $ p req res (return . P.Pure)
+  where
+    req k = return $ P.Request () (P.M . k)
+    res b next = return $ P.Respond b (\_ -> P.M next)
+
+instance Stream P.Proxy where
+    newtype StreamRepr P.Proxy a b m r = ProxyStream (P.Proxy () a () b m r)
+    getStream (ProxyStream p) = liftProxy p
+    makeStream = ProxyStream . lowerProxy
+
+liftPipe :: MonadBaseControl IO m => C.Pipe l i o u m r -> GProxy i o m r
+liftPipe p = GProxy $ \req res pur -> case p of
+    C.HaveOutput c fin o ->
+        res o (runGProxy (liftPipe c) req res pur `finally` fin)
+    C.NeedInput k _h -> req $ \i -> runGProxy (liftPipe (k i)) req res pur
+    C.Done r         -> pur r
+    C.PipeM m        -> m >>= \c' -> runGProxy (liftPipe c') req res pur
+    C.Leftover c _l  -> runGProxy (liftPipe c) req res pur
+
+lowerPipe :: Monad m => GProxy i o m r -> C.Pipe Void i o Void m r
+lowerPipe (GProxy p) = C.PipeM $ p req res (return . C.Done)
+  where
+    req k = return $ C.NeedInput (C.PipeM . k) absurd
+    res b next = return $ C.HaveOutput (C.PipeM next) (return ()) b
+
+instance Stream C.Pipe where
+    newtype StreamRepr C.Pipe a b m r = ConduitStream (C.Pipe Void a b Void m r)
+    getStream (ConduitStream c) = undefined -- liftPipe c
+    makeStream = ConduitStream . lowerPipe
+
+(>-->) :: (MonadBaseControl IO m, Functor m, Stream pipe)
+       => StreamRepr pipe a b m r -> StreamRepr pipe b c m r
+       -> StreamRepr pipe a c m r
+f >--> g = makeStream $ GProxy $ \req res pur ->
+    runGProxy (getStream f) req
+        (\b next -> runGProxy (getStream g) (\k -> k b) res pur >> next) pur
 
 (<-<) :: Monad m
       => Proxy () b c' c m r -> Proxy a' a () b m r -> Proxy a' a c' c m r

@@ -25,13 +25,17 @@ import Data.Traversable
 --       m'' <- sequenceA x
 --       return $ join m''
 
-instance (Monad f, Applicative f, Monad g, Traversable g)
-         => Monad (Compose f g) where
-  return x = Compose $ return (return x)
-  Compose m >>= f = Compose $ do
-      let x = liftM (fmap (getCompose . f)) m
-      liftM join (join (liftM sequenceA x))
+instance (Distributive f, Monad f, Monad g) => Monad (Compose f g) where
+    return x = Compose $ return (return x)
+    Compose m >>= f = Compose $
+        join $ liftM ((liftM join . distribute) . liftM (getCompose . f)) m
 
+instance (Monad f, Monad g, Traversable g) => Monad (Compose f g) where
+  return x = Compose $ return (return x)
+  Compose m >>= f = Compose $
+      liftM join $ join $ liftM (sequenceA . fmap (getCompose . f)) m
+
+{-
 compose_join :: (Monad f, Applicative f, Monad g, Traversable g)
              => Compose f g (Compose f g a) -> Compose f g a
 compose_join (Compose m) = Compose $
@@ -150,3 +154,4 @@ test = do
 
 main :: IO ()
 main = print (runIdentity test)
+-}

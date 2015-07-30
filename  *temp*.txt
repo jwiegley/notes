@@ -1,0 +1,26 @@
+# zpool status
+  pool: tank
+ state: ONLINE
+  scan: scrub repaired 0 in 14h2m with 0 errors on Sat Jun 20 13:43:06 2015
+config:
+
+	NAME                                          STATE     READ WRITE CKSUM
+	tank                                          ONLINE       0     0     0
+	  mirror-0                                    ONLINE       0     0     0
+	    ata-ST3000DM001-1CH166_Z1F4BARW           ONLINE       0     0     0
+	    ata-WDC_WD30EFRX-68AX9N0_WD-WMC1T3312925  ONLINE       0     0     0
+	  mirror-1                                    ONLINE       0     0     0
+	    ata-WDC_WD30EFRX-68AX9N0_WD-WMC1T3310080  ONLINE       0     0     0
+	    ata-WDC_WD30EFRX-68AX9N0_WD-WMC1T2920326  ONLINE       0     0     0
+	  mirror-2                                    ONLINE       0     0     0
+	    ata-ST32000542AS_5XW1246K                 ONLINE       0     0     0
+	    ata-ST3000DM001-1ER166_Z5004V8B           ONLINE       0     0     0
+	  mirror-3                                    ONLINE       0     0     0
+	    ata-ST3000DM001-1CH166_Z1F4B95C           ONLINE       0     0     0
+	    ata-WDC_WD30EFRX-68AX9N0_WD-WMC1T2999057  ONLINE       0     0     0
+	  mirror-4                                    ONLINE       0     0     0
+	    ata-ST32000542AS_5XW13RXT                 ONLINE       0     0     0
+	    ata-ST3000DM001-1ER166_Z5004TVT           ONLINE       0     0     0
+	  mirror-5                                    ONLINE       0     0     0
+	    ata-WDC_WD30EFRX-68EUZN0_WD-WMC4N0434075  ONLINE       0     0     0
+	    ata-WDC_WD30EFRX-68EUZN0_WD-WMC4N0435061  ONLINE       0     0     0

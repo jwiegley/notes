@@ -1,0 +1,11 @@
+modified   pkgs/development/haskell-modules/generic-builder.nix
+@@ -5,7 +5,8 @@
+ { pname
+ , version, revision ? null
+ , sha256 ? null
+-, src ? fetchurl { url = "mirror://hackage/${pname}-${version}.tar.gz"; inherit sha256; }
++, src ? fetchurl { urls = ["file:///Volumes/Hackage/package/${pname}-${version}.tar.gz"
++                           "mirror://hackage/${pname}-${version}.tar.gz"]; inherit sha256; }
+ , buildDepends ? []
+ , buildTarget ? ""
+ , buildTools ? []

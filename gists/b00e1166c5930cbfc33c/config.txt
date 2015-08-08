@@ -1,0 +1,4 @@
+[remote "origin"]
+	url = git@github.com:ledger/ledger.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+	fetch = +refs/pull/*:refs/pull/origin/*

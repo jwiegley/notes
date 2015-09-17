@@ -1,12 +1,15 @@
-There are three widely used ways to install the Haskell toolchain (the GHC compiler and related tools) on supported
-platforms: Linux, Mac OS X, and Windows. For information on other platforms
-and methods, please see the link at the bottom of the page.
+There are three widely used ways to install the Haskell toolchain (the GHC
+compiler and related tools) on supported platforms: Linux, Mac OS X, and
+Windows. For information on other platforms and methods, please see the link
+at the bottom of the page.
 
 # Haskell Platform
 
 ## What it is
 
-The Haskell Platform is a self-contained all-in-one installer, providing binaries for the GHC compiler as well as other important related tools including cabal-install for fetching and building libraries, haddock for generating documentation for installed libraries, and 35 core and widely used libraries.
+The Haskell Platform is a self-contained, all-in-one installer. It provides
+binaries for the GHC Haskell compiler, as well as some important, related
+tools and several widely used libraries.
 
 ## How to get it
 
@@ -19,6 +22,8 @@ links below.
 
 ## Where to get help
 
+- There is a page describing more about
+  [what the Platform offers](https://www.haskell.org/platform/contents.html).
 - <a name="help" />For help learning Haskell itself, start with the
   [Documentation](https://www.haskell.org/documentation) page on the
   [Haskell Wiki](https://www.haskell.org/).
@@ -36,9 +41,11 @@ links below.
 
 ## What it is
 
-<a name="stack"></a>Stack is a cross-platform build tool for Haskell that handles the management of the toolchain (including the GHC compiler and MSYS2 on Windows), building and registering libraries, and more. Once downloaded, it has the capacity to
-download and install GHC and other core tools. Some of Stack's
-features are:
+<a name="stack"></a>Stack is a cross-platform build tool for Haskell that
+handles the management of the toolchain (including the GHC compiler and MSYS2
+on Windows), building and registering libraries, and more. Once downloaded, it
+has the capacity to download and install GHC and other core tools. Some of
+Stack's features are:
 
 - Project development is isolated within sandboxes, including automatic
   download of the right version of GHC for a given project.
@@ -79,7 +86,10 @@ For help with Haskell and GHC in general, see the links mentioned
 
 ## What it is
 
-Minimal installers provide only [GHC](https://www.haskell.org/ghc), [Cabal](https://www.haskell.org/cabal/), and for OS X and Windows, [Stack](https://github.com/commercialhaskell/stack). The libraries included are only those core libraries necessarily tied to the compiler.
+Minimal installers provide only [GHC](https://www.haskell.org/ghc),
+[Cabal](https://www.haskell.org/cabal/), and for OS X and Windows,
+[Stack](https://github.com/commercialhaskell/stack). The libraries included
+are only those core libraries necessarily tied to the compiler.
 
 ## How to get it
 
@@ -89,7 +99,8 @@ Minimal installers provide only [GHC](https://www.haskell.org/ghc), [Cabal](http
 
 ## Where to get help
 
-See the general help mentioned [above](#help), which covers the usage of GHC, as well as the Cabal and Stack tools.
+See the general help mentioned [above](#help), which covers the usage of GHC,
+as well as the Cabal and Stack tools.
 
 # Third party libraries
 

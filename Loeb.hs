@@ -8,7 +8,6 @@ import Control.Monad.Trans.Class
 import Control.Monad.Trans.Either
 import Control.Monad.Trans.Control
 import Data.List.NonEmpty as NE
-import Data.Function
 import Data.Functor.Identity
 import Data.Maybe
 import Data.Monoid
@@ -21,6 +20,20 @@ floeb f x = f x g where g y = f y g
 
 w_loeb :: Comonad w => w (w a -> a) -> w a
 w_loeb w = fix (flip extend w . flip extract)
+
+type Algebra f a = f a -> a
+
+fix :: (a -> a) -> a
+fix f = f (fix f)
+
+mu :: Functor f => (f a -> a) -> a
+mu phi = xs where xs = phi xs
+
+aloeb :: Functor f => Algebra f a -> a
+aloeb xs = undefined
+
+loeb' :: Functor f => f (f a -> a) -> f a
+loeb' = fmap aloeb
 
 main :: IO ()
 main = do

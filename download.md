@@ -22,7 +22,7 @@ links below.
 
 ## Where to get help
 
-- There is a page describing more about
+- You can find a comprehensive list of
   [what the Platform offers](https://www.haskell.org/platform/contents.html).
 - <a name="help" />For help learning Haskell itself, start with the
   [Documentation](https://www.haskell.org/documentation) page on the

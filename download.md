@@ -1,4 +1,4 @@
-There are three widely used ways to install the Haskell toolchain on supported
+There are three widely used ways to install the Haskell toolchain (the GHC compiler and related tools) on supported
 platforms: Linux, Mac OS X, and Windows. For information on other platforms
 and methods, please see the link at the bottom of the page.
 
@@ -6,18 +6,12 @@ and methods, please see the link at the bottom of the page.
 
 ## What it is
 
-The Haskell Platform is an all-in-one installer, designed for users who want
-to get started with Haskell quickly and easily. It does not require Internet
-access beyond downloading the installer, and so is ideal for academic and
-learning situations where only the standard libraries will be used.
-
-Note that future versions of the platform will include the [Stack](#stack)
-tool, mentioned below, which offers additional features for advanced users.
+The Haskell Platform is a self-contained all-in-one installer, providing binaries for the GHC compiler as well as other important related tools including cabal-install for fetching and building libraries, haddock for generating documentation for installed libraries, and 35 core and widely used libraries.
 
 ## How to get it
 
 The Platform is provided as a single installer, and can be downloaded at the
-links below. Note that it is only available on these supported platforms.
+links below.
 
 - [Linux](http://www.haskell.org/platform/linux.html)
 - [OS X](http://www.haskell.org/platform/mac.html)
@@ -42,9 +36,8 @@ links below. Note that it is only available on these supported platforms.
 
 ## What it is
 
-<a name="stack"></a>Stack is a cross-platform build tool for Haskell that is
-aimed at both new and experienced users of Haskell. Once downloaded, it will
-download and install GHC and several other core packages. Some of Stack's
+<a name="stack"></a>Stack is a cross-platform build tool for Haskell that handles the management of the toolchain (including the GHC compiler and MSYS2 on Windows), building and registering libraries, and more. Once downloaded, it has the capacity to
+download and install GHC and other core tools. Some of Stack's
 features are:
 
 - Project development is isolated within sandboxes, including automatic
@@ -54,18 +47,15 @@ features are:
   compatible.
 - It can optionally use Docker to produce standalone deployments.
 
-If you wish to to deploy Haskell in environments that know little about the
-Haskell ecosystem, Stack can help to reduce unwanted inertia.
-
 ## How to get it
 
 There is a [GitHub Wiki page](https://github.com/commercialhaskell/stack/wiki/Downloads)
 that describes how to download Stack on various platforms, though the main
 three are repeated here:
 
-- [Linux](https://github.com/commercialhaskell/stack/wiki/Downloads#linux)
-- [OS X](https://github.com/commercialhaskell/stack/releases/latest)
-- [Windows](https://github.com/commercialhaskell/stack/releases/latest)
+- [Linux](https://github.com/commercialhaskell/stack/wiki/Downloads#ubuntu)
+- [OS X](https://github.com/commercialhaskell/stack/wiki/Downloads#os-x)
+- [Windows](https://github.com/commercialhaskell/stack/wiki/Downloads#windows)
 
 ## Where to get help
 
@@ -85,19 +75,11 @@ For help with Haskell and GHC in general, see the links mentioned
   [\#haskell-stack IRC channel](irc://irc.freenode.net/haskell-stack) on the
   Freenode IRC network.
 
-<!--
-- Stack is supported by the consulting company, FP Complete, who may be
-  [contacted directly](https://www.fpcomplete.com/business/about/contact-us/)
-  if you have specific or custom needs.
--->
-
 # Minimal installers
 
 ## What it is
 
-Other advanced users may want only [GHC](https://www.haskell.org/ghc) and the
-standard package installer, [Cabal](https://www.haskell.org/cabal/). This is
-not the recommended path for those completely new to Haskell.
+Minimal installers provide only [GHC](https://www.haskell.org/ghc), [Cabal](https://www.haskell.org/cabal/), and for OS X and Windows, [Stack](https://github.com/commercialhaskell/stack). The libraries included are only those core libraries necessarily tied to the compiler.
 
 ## How to get it
 
@@ -105,16 +87,9 @@ not the recommended path for those completely new to Haskell.
 - [OS X](https://www.haskell.org/downloads/osx)
 - [Windows](https://www.haskell.org/downloads/windows)
 
-Packages are managed with the Cabal package system built into GHC (and other
-compilers). For specific details, see the
-[Cabal User Guide](https://www.haskell.org/cabal/users-guide/), and the
-section below on [Third Party Libraries](#thirdparty).
-
 ## Where to get help
 
-See the general help mentioned [above](#help), and also the
-  [\#hackage IRC channel](irc://irc.freenode.net/hackage) on the Freenode IRC
-  network, which is the default package server used by Cabal.
+See the general help mentioned [above](#help), which covers the usage of GHC, as well as the Cabal and Stack tools.
 
 # Third party libraries
 

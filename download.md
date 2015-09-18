@@ -7,7 +7,7 @@ and Windows). Supported offerings are:
 - [GHC+Cabal minimal installers](#minimal)
 
 For information on other platforms and methods, please see the section on
-[third party options](#other).
+[third party installers](#other).
 
 # Haskell Platform
 

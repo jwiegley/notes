@@ -1,15 +1,21 @@
 There are three widely used ways to install the Haskell toolchain (the GHC
-compiler and related tools) on supported platforms: Linux, Mac OS X, and
-Windows. For information on other platforms and methods, please see the link
-at the bottom of the page.
+compiler and related tools) on supported platforms (currently Linux, Mac OS X,
+and Windows). Supported offerings are:
+
+- [Haskell Platform](#platform)
+- [Stack](#stack)
+- [GHC+Cabal minimal installers](#minimal)
+
+For information on other platforms and methods, please see the section on
+[third party options](#other).
 
 # Haskell Platform
 
 ## What it is
 
-The Haskell Platform is a self-contained, all-in-one installer. It provides
-binaries for the GHC Haskell compiler, as well as some important, related
-tools and several widely used libraries.
+<a name="platform"></a>The Haskell Platform is a self-contained, all-in-one
+installer. It provides binaries for the GHC Haskell compiler, as well as some
+important, related tools and several widely used libraries.
 
 ## How to get it
 
@@ -86,10 +92,11 @@ For help with Haskell and GHC in general, see the links mentioned
 
 ## What it is
 
-Minimal installers provide only [GHC](https://www.haskell.org/ghc),
-[Cabal](https://www.haskell.org/cabal/), and for OS X and Windows,
-[Stack](https://github.com/commercialhaskell/stack). The libraries included
-are only those core libraries necessarily tied to the compiler.
+<a name="minimal"></a>Minimal installers provide only
+[GHC](https://www.haskell.org/ghc), [Cabal](https://www.haskell.org/cabal/),
+and for OS X and Windows, [Stack](https://github.com/commercialhaskell/stack).
+The libraries included are only those core libraries necessarily tied to the
+compiler.
 
 ## How to get it
 
@@ -118,5 +125,6 @@ on the downloads page. -->
 jumps to could be on the Wiki to make editing and updates easier for others.
 -->
 
-For other platforms, or building from source, or using distribution package
-managers such as on Debian or Nix, there are even more ways to get GHC...
+<a name="other"></a>For other platforms, or building from source, or using
+distribution package managers such as on Debian or Nix, there are even more
+ways to get GHC...

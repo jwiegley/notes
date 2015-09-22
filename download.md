@@ -71,14 +71,16 @@ Windows), building and registering libraries, and more.
 
 ## How to get it
 
-There is a
-[GitHub Wiki page](https://github.com/commercialhaskell/stack/wiki/Downloads)
-that describes how to download Stack on various platforms, although the main
+The [install and upgrade page](https://github.com/commercialhaskell/stack/blob/master/doc/install_and_upgrade.md)
+describes how to download Stack on various platforms, although the main
 three are repeated here:
 
-- [Linux](https://github.com/commercialhaskell/stack/wiki/Downloads#ubuntu)
-- [OS X](https://github.com/commercialhaskell/stack/wiki/Downloads#os-x)
-- [Windows](https://github.com/commercialhaskell/stack/wiki/Downloads#windows)
+- [Ubuntu Linux](https://github.com/commercialhaskell/stack/blob/master/doc/install_and_upgrade.md#ubuntu)
+- [OS X](https://github.com/commercialhaskell/stack/blob/master/doc/install_and_upgrade.md#os-x)
+- [Windows](https://github.com/commercialhaskell/stack/blob/master/doc/install_and_upgrade.md#windows)
+
+Instructions for other Linux distributions, including Debian, Fedora, Red Hat,
+Nix OS, and Arch Linux, are also available.
 
 ## Where to get help
 
@@ -98,6 +100,8 @@ For help with Haskell and GHC in general, see the links mentioned
 - There is a dedicated
   [\#haskell-stack IRC channel](irc://irc.freenode.net/haskell-stack) on the
   Freenode IRC network.
+- The [StackOverflow haskell-stack tag](http://stackoverflow.com/questions/tagged/haskell-stack)
+  has many stack-specific questions and answers.
 
 # Minimal installers
 
@@ -116,8 +120,8 @@ Windows.
 ## How to get it
 
 - [Linux](https://www.haskell.org/downloads/linux)
-- [OS X](https://ghcformacosx.github.io/)
-- [Windows](https://github.com/fpco/minghc)
+- [OS X](https://ghcformacosx.github.io/) (via GHC for Mac OS X)
+- [Windows](https://github.com/fpco/minghc) (via MinGHC)
 
 ## Where to get help
 

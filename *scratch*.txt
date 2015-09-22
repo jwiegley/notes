@@ -1,0 +1,6 @@
+(defthm mset_xs_cons
+  (implies (and (notEqual i (acl2::ill-formed-key))
+                x (good-map xs))
+           (in (cons i x) (mset i x xs)))
+  :hints (("Goal" :in-theory (enable mset acl2::map->acl2 acl2::acl2->map good-map)
+                  :expand ((acl2::ifmp xs)))))

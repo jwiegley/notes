@@ -1,9 +1,11 @@
 There are three widely used ways to install the Haskell toolchain on supported
 platforms. Currently these are:
 
-- [Haskell Platform](#platform)
-- [Stack](#stack)
-- [GHC+Cabal minimal installers](#minimal)
+- [Haskell Platform](#platform): A self-contained, all-in-one installer
+- [Stack](#stack): A cross-platform build tool for Haskell that handles
+  management of the toolchain
+- [GHC+Cabal minimal installers](#minimal): Provides only GHC and Cabal (and
+  on Windows and OS X, also Stack)
 
 For information on other platforms and methods, please see the section on
 [third party installers](#other).
@@ -19,8 +21,10 @@ programs against a core set of useful libraries.
 ## What you get
 
 - The [Glasgow Haskell Compiler](https://www.haskell.org/ghc) 
-- The [Cabal build system](https://www.haskell.org/cabal/), which can also
-  install other packages from [Hackage](https://hackage.haskell.org/)
+- The [Cabal build system](https://www.haskell.org/cabal/), which can install
+  new packages, and by default fetches from
+  [Hackage](https://hackage.haskell.org/), the central Haskell package
+  repository.
 - Support for profiling and code coverage analysis
 - 35 core & widely-used [packages](https://www.haskell.org/platform/contents.html)
 
@@ -65,8 +69,8 @@ Windows), building and registering libraries, and more.
 - Project development is isolated within sandboxes, including automatic
   download of the right version of GHC for a given project.
 - It manages all Haskell-related dependencies, ensuring reproducible builds.
-- It uses a curated set of packages by default, that are known to be mutually
-  compatible.
+- It fetches from a curated repository of packages by default, known to be
+  mutually compatible.
 - It can optionally use Docker to produce standalone deployments.
 
 ## How to get it
@@ -107,10 +111,10 @@ For help with Haskell and GHC in general, see the links mentioned
 
 ## What it is
 
-<a name="minimal"></a>Minimal installers provide only
+<a name="minimal"></a> Minimal installers provide only
 [GHC](https://www.haskell.org/ghc) and [Cabal](https://www.haskell.org/cabal/)
-on Linux and OS X, and [Stack](https://github.com/commercialhaskell/stack) on
-Windows.
+on Linux, and on Windows and OS X provide GHC, Cabal, and
+[Stack](https://github.com/commercialhaskell/stack).
 
 ## What you get
 

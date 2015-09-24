@@ -1,0 +1,14 @@
+At the following link, you'll find a draft version of the new Haskell download
+page for comment:
+
+    https://gist.github.com/jwiegley/153d968ddfc9046ee4c9
+
+I'd like to solicit any suggested edits before it goes live on the haskell.org
+website next week. Primarily, I'd like to invite discussion on the order of
+presentation, and if it should be different from: HP, Stack, Minimal.
+
+Also note that it is planned that the HP and Stack options will soon be
+merged, so this version is not intended to last forever.
+
+Thank you,
+  John Wiegley

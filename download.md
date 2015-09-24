@@ -4,7 +4,7 @@ platforms. Currently these are:
 - [Haskell Platform](#platform): A self-contained, all-in-one installer
 - [Stack](#stack): A cross-platform build tool for Haskell that handles
   management of the toolchain
-- [GHC+Cabal minimal installers](#minimal): Provides only GHC and Cabal (and
+- [Minimal installers](#minimal): Provides only GHC and Cabal (and
   on Windows and OS X, also Stack)
 
 For information on other platforms and methods, please see the section on
@@ -69,8 +69,8 @@ Windows), building and registering libraries, and more.
 - Project development is isolated within sandboxes, including automatic
   download of the right version of GHC for a given project.
 - It manages all Haskell-related dependencies, ensuring reproducible builds.
-- It fetches from a curated repository of packages by default, known to be
-  mutually compatible.
+- It fetches from a curated repository of over a thousand packages by default,
+  known to be mutually compatible.
 - It can optionally use Docker to produce standalone deployments.
 
 ## How to get it

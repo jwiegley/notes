@@ -1,0 +1,48 @@
+(defthm heap_mset_at_end
+  (implies (and (HeapMemoryp heap)
+                (natp nextAddr)
+                value)
+           (equal (heap->alist (mset nextAddr value heap) nextAddr)
+                  (heap->alist heap nextAddr)))
+  :hints (("Goal" :induct (acl2::dec-induct nextAddr)
+                  )))
+
+------------------------------------------------------------------------
+The key checkpoint goals, below, may help you to debug this failure.
+See :DOC failure and see :DOC set-checkpoint-summary-limit.
+---
+
+*** Key checkpoint at the top level: ***
+
+Goal
+(IMPLIES (AND (HEAPMEMORYP HEAP)
+              (NATP NEXTADDR)
+              VALUE)
+         (EQUAL (HEAP->ALIST (MSET NEXTADDR VALUE HEAP)
+                             NEXTADDR)
+                (HEAP->ALIST HEAP NEXTADDR)))
+
+*** Key checkpoints under a top-level induction ***
+
+Subgoal *1/2.2'
+(IMPLIES (AND (NOT (ZP NEXTADDR))
+              (EQUAL (HEAP->ALIST (MSET (+ -1 NEXTADDR) VALUE HEAP)
+                                  (+ -1 NEXTADDR))
+                     (HEAP->ALIST HEAP (+ -1 NEXTADDR)))
+              (HEAPMEMORYP HEAP)
+              VALUE (MGET (+ -1 NEXTADDR) HEAP))
+         (EQUAL (HEAP->ALIST (MSET NEXTADDR VALUE HEAP)
+                             (+ -1 NEXTADDR))
+                (HEAP->ALIST HEAP (+ -1 NEXTADDR))))
+
+Subgoal *1/2.1
+(IMPLIES (AND (NOT (ZP NEXTADDR))
+              (EQUAL (HEAP->ALIST (MSET (+ -1 NEXTADDR) VALUE HEAP)
+                                  (+ -1 NEXTADDR))
+                     (HEAP->ALIST HEAP (+ -1 NEXTADDR)))
+              (HEAPMEMORYP HEAP)
+              VALUE (NOT (MGET (+ -1 NEXTADDR) HEAP)))
+         (EQUAL (HEAP->ALIST (MSET NEXTADDR VALUE HEAP)
+                             (+ -1 NEXTADDR))
+                (HEAP->ALIST HEAP (+ -1 NEXTADDR))))
+

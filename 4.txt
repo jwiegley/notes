@@ -1,0 +1,31 @@
+To: Michael Snoyman <michael@fpcomplete.com>
+Cc: haskell-community@haskell.org
+Subject: Re: [Haskell-community] Request for comment: New haskell.org download page
+Gcc: list.haskell.community
+Organization: New Artisans LLC
+From: John Wiegley <johnw@newartisans.com>
+--text follows this line--
+>>>>> Michael Snoyman <michael@fpcomplete.com> writes:
+
+> With this approach, I think we can give very concrete advice to new users,
+> collapse the download options down significantly, and streamline the
+> community efforts on installers substantially. In the short term: we keep a
+> link to the HP at the bottom of the page, explaining that it ships with more
+> packages than minimal installers, and that in some cases it can be difficult
+> to upgrade those packages.
+
+> As a side note, this is not terribly different from what I proposed
+> originally in my pull request[2].
+
+I think that in the interests of time, I'm going to close this discussion now
+(thanks for all who sent second round votes by e-mail), and will go with the
+following order, to be published by Monday:
+
+    Minimal, Stack, HP
+
+We can open follow-on discussions after that to tweak the page with whatever
+clarifications or simplifications we feel are necessary.  The only remaining
+edits to be applied are the clarifications from Mathieu, and to finish out the
+bottom of the page (the third-party stuff).
+
+John

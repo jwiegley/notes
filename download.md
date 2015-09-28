@@ -1,11 +1,25 @@
 There are three widely used ways to install the Haskell toolchain on supported
 platforms. Currently these are:
 
-- [Haskell Platform](#platform): A self-contained, all-in-one installer
-- [Stack](#stack): A cross-platform build tool for Haskell that handles
-  management of the toolchain
-- [Minimal installers](#minimal): Provides only GHC and Cabal (and
-  on Windows and OS X, also Stack)
+- [Minimal installers](#minimal): Just GHC (the compiler) and Cabal (a package
+  install and build tool) are installed globally on your system, using your
+  system's package manager.
+
+- [Stack](#stack): Installs the `stack` command globally: a project-centric
+  build tool to automatically download and manage Haskell dependencies on a
+  project-by-project basis.
+
+- [Haskell Platform](#platform): Installs GHC, Cabal, and some other tools,
+  along with a starter set of libraries in a global location on your system.
+
+These options make different choices as to what elements are installed
+*globally* across your system and which ones are maintained in
+project-specific environments. Global installations allow sharing across users
+and projects, but at the cost of potentially inflexible dependency coupling
+between separate projects. Sandboxes are usually suggested to avoid this
+coupling. This is possible with both Minimal and the Platform -- although the
+latter can run into trouble with conflicts against the globally installed
+platform packages -- while it is the fundamental operating mode for Stack.
 
 For information on other platforms and methods, please see the section on
 [third party installers](#other).

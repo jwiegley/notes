@@ -7,7 +7,7 @@ Subject: Inviting others to join us on -community
 Gcc: list.haskell.community
 Organization: New Artisans LLC
 From: John Wiegley <johnw@newartisans.com>
-Date: Mon, 28 Sep 2015 13:12:52 -0700
+Date: Mon, 28 Sep 2015 14:33:24 -0700
 --text follows this line--
 >>>>> Christopher Allen <cma@bitemyapp.com> writes:
 
@@ -23,12 +23,11 @@ made significant progress at broadening the field of collaboration between
 several principle contributors in the community.
 
 We (the committee) are going to continue this process in the future: of using
--community to discuss issues on a broader scale, and myself acting as a sort
-of "secretary" between the committee and the community, to ensure everything
-is heard and recorded, and nothing is ignored.
+-community to discuss issues on a broader scale, with myself continuing to act
+as a sort of "secretary" to ensure that the community-wide discussion is heard
+by the committee and recorded, and nothing is ignored.
 
-Whatever issue people have to discuss, feel free to bring them up here! and
-invite others to do so who may have felt in the past that they didn't have a
-platform for their concerns.
+Whatever issues people have to discuss, feel free to bring them up here! and
+invite others to do so who have any ideas or knowledge to contribute.
 
 John

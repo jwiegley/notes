@@ -1,0 +1,27 @@
+10:14:50 Vulcan:/nix/store $ nix-env -q
+buildTools
+cabal2nix-20150903
+coreutils-8.24
+emacsTools
+env-agda
+env-coq84
+env-coq85
+env-ghc7102
+env-ghc784
+gitTools
+langTools
+ledger-3.1.0.20141005
+mailTools
+networkTools
+nix-1.10
+nix-prefetch-scripts
+perlTools
+publishTools
+pythonTools
+ratpoison-1.4.8
+rubyTools
+serviceTools
+systemTools
+xauth-1.0.9
+xhost-1.0.7
+xquartz

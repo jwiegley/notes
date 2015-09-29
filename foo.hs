@@ -1,4 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE FunctionalDependencies #-}
+{-# LANGUAGE TupleSections #-}
 
 module Foo where
 
@@ -12,8 +15,7 @@ import Data.Monoid
 
 class Foo a b | a -> b
 
-foo :: (Foo a b, Foo a c) => a -> b -> c
-foo _ x = x
+newtype StateT s m a = StateT { runStateT :: s -> m (a, s) }
 
-main :: IO ()
-main = foo 10 20
+instance MonadTrans (StateT s) where
+    lift x = StateT $ \s -> (,s) <$> x

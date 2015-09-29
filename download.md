@@ -12,14 +12,16 @@ platforms. Currently these are:
 - [Haskell Platform](#platform): Installs GHC, Cabal, and some other tools,
   along with a starter set of libraries in a global location on your system.
 
-These options make different choices as to what elements are installed
-*globally* across your system and which ones are maintained in
-project-specific environments. Global installations allow sharing across users
-and projects, but at the cost of potentially inflexible dependency coupling
-between separate projects. Sandboxes are usually suggested to avoid this
-coupling. This is possible with both Minimal and the Platform -- although the
-latter can run into trouble with conflicts against the globally installed
-platform packages -- while it is the fundamental operating mode for Stack.
+These options make different choices as to what is installed globally on your
+system and what is maintained in project-specific environments. Global
+installations allow more sharing across users and projects, but at the cost of
+potential conflicts between projects. To avoid these conflicts, each option
+has a lightweight *sandboxing* feature that creates largely self-contained,
+per-project environments. With Minimal you can optionally sandbox the
+libraries, avoiding most conflicts. Stack sandboxes the compiler, tools and
+libraries, so avoids nearly all kinds of conflicts between projects. With
+Platform you can also optionally sandbox libraries, but not the globally
+installed platform libraries.
 
 For information on other platforms and methods, please see the section on
 [third party installers](#other).

@@ -26,49 +26,30 @@ installed platform libraries.
 For information on other platforms and methods, please see the section on
 [third party installers](#other).
 
-# Haskell Platform
+# Minimal installers
 
 ## What it is
 
-<a name="platform"></a>The Haskell Platform is a self-contained, all-in-one
-installer. After download, you will have everything necessary to build Haskell
-programs against a core set of useful libraries.
+<a name="minimal"></a> Minimal installers provide only
+[GHC](https://www.haskell.org/ghc) and [Cabal](https://www.haskell.org/cabal/)
+on Linux, and on Windows and OS X provide GHC, Cabal, and
+[Stack](https://github.com/commercialhaskell/stack).
 
 ## What you get
 
-- The [Glasgow Haskell Compiler](https://www.haskell.org/ghc) 
-- The [Cabal build system](https://www.haskell.org/cabal/), which can install
-  new packages, and by default fetches from
-  [Hackage](https://hackage.haskell.org/), the central Haskell package
-  repository.
-- Support for profiling and code coverage analysis
-- 35 core & widely-used [packages](https://www.haskell.org/platform/contents.html)
+- Only the core libraries necessary for each platform are included.
+- Cabal or Stack must be used to download packages after installation.
 
 ## How to get it
 
-The Platform is provided as a single installer, and can be downloaded at the
-links below.
-
-- [Linux](http://www.haskell.org/platform/linux.html)
-- [OS X](http://www.haskell.org/platform/mac.html)
-- [Windows](http://www.haskell.org/platform/windows.html)
+- [Linux](https://www.haskell.org/downloads/linux)
+- [OS X](https://ghcformacosx.github.io/) (via GHC for Mac OS X)
+- [Windows](https://github.com/fpco/minghc) (via MinGHC)
 
 ## Where to get help
 
-- You can find a comprehensive list of
-  [what the Platform offers](https://www.haskell.org/platform/contents.html).
-- <a name="help" />For help learning Haskell itself, start with the
-  [Documentation](https://www.haskell.org/documentation) page on the
-  [Haskell Wiki](https://www.haskell.org/).
-- If you need help with [GHC](https://www.haskell.org/ghc)---the Haskell
-  compiler included with the Platform---there is a comprehensive
-  [GHC User Manual](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/index.html).
-- For help using Cabal to download or create additional packages (see
-  [below](#thirdparty)), there is the
-  [Cabal User Guide](https://www.haskell.org/cabal/users-guide/).
-- Finally, you can ask questions of other Haskell users and experts on the
-  [\#haskell IRC channel](irc://irc.freenode.net/haskell) on the Freenode IRC
-  network.
+See the general help mentioned [above](#help), which covers the usage of GHC,
+as well as the Cabal and Stack tools.
 
 # Stack
 
@@ -123,30 +104,49 @@ For help with Haskell and GHC in general, see the links mentioned
 - The [StackOverflow haskell-stack tag](http://stackoverflow.com/questions/tagged/haskell-stack)
   has many stack-specific questions and answers.
 
-# Minimal installers
+# Haskell Platform
 
 ## What it is
 
-<a name="minimal"></a> Minimal installers provide only
-[GHC](https://www.haskell.org/ghc) and [Cabal](https://www.haskell.org/cabal/)
-on Linux, and on Windows and OS X provide GHC, Cabal, and
-[Stack](https://github.com/commercialhaskell/stack).
+<a name="platform"></a>The Haskell Platform is a self-contained, all-in-one
+installer. After download, you will have everything necessary to build Haskell
+programs against a core set of useful libraries.
 
 ## What you get
 
-- Only the core libraries necessary for each platform are included.
-- Cabal or Stack must be used to download packages after installation.
+- The [Glasgow Haskell Compiler](https://www.haskell.org/ghc) 
+- The [Cabal build system](https://www.haskell.org/cabal/), which can install
+  new packages, and by default fetches from
+  [Hackage](https://hackage.haskell.org/), the central Haskell package
+  repository.
+- Support for profiling and code coverage analysis
+- 35 core & widely-used [packages](https://www.haskell.org/platform/contents.html)
 
 ## How to get it
 
-- [Linux](https://www.haskell.org/downloads/linux)
-- [OS X](https://ghcformacosx.github.io/) (via GHC for Mac OS X)
-- [Windows](https://github.com/fpco/minghc) (via MinGHC)
+The Platform is provided as a single installer, and can be downloaded at the
+links below.
+
+- [Linux](http://www.haskell.org/platform/linux.html)
+- [OS X](http://www.haskell.org/platform/mac.html)
+- [Windows](http://www.haskell.org/platform/windows.html)
 
 ## Where to get help
 
-See the general help mentioned [above](#help), which covers the usage of GHC,
-as well as the Cabal and Stack tools.
+- You can find a comprehensive list of
+  [what the Platform offers](https://www.haskell.org/platform/contents.html).
+- <a name="help" />For help learning Haskell itself, start with the
+  [Documentation](https://www.haskell.org/documentation) page on the
+  [Haskell Wiki](https://www.haskell.org/).
+- If you need help with [GHC](https://www.haskell.org/ghc)---the Haskell
+  compiler included with the Platform---there is a comprehensive
+  [GHC User Manual](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/index.html).
+- For help using Cabal to download or create additional packages (see
+  [below](#thirdparty)), there is the
+  [Cabal User Guide](https://www.haskell.org/cabal/users-guide/).
+- Finally, you can ask questions of other Haskell users and experts on the
+  [\#haskell IRC channel](irc://irc.freenode.net/haskell) on the Freenode IRC
+  network.
 
 # Third party libraries
 

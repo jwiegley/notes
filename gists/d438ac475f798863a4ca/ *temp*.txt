@@ -1,0 +1,6 @@
+error: while evaluating the attribute ‘emacs24Macport_24_5’ at /Users/johnw/Contracts/OSS/Projects/nixpkgs/pkgs/top-level/all-packages.nix:11119:3:
+while evaluating ‘lowPrio’ at /Users/johnw/Contracts/OSS/Projects/nixpkgs/lib/meta.nix:48:13, called from /Users/johnw/Contracts/OSS/Projects/nixpkgs/pkgs/top-level/all-packages.nix:11119:25:
+while evaluating ‘addMetaAttrs’ at /Users/johnw/Contracts/OSS/Projects/nixpkgs/lib/meta.nix:16:28, called from /Users/johnw/Contracts/OSS/Projects/nixpkgs/lib/meta.nix:48:18:
+while evaluating ‘callPackageWith’ at /Users/johnw/Contracts/OSS/Projects/nixpkgs/lib/customisation.nix:93:35, called from /Users/johnw/Contracts/OSS/Projects/nixpkgs/pkgs/top-level/all-packages.nix:11119:34:
+while evaluating ‘makeOverridable’ at /Users/johnw/Contracts/OSS/Projects/nixpkgs/lib/customisation.nix:54:24, called from /Users/johnw/Contracts/OSS/Projects/nixpkgs/lib/customisation.nix:97:8:
+anonymous function at /Users/johnw/Contracts/OSS/Projects/nixpkgs/pkgs/applications/editors/emacs-24/macport-24.5.nix:1:1 called with unexpected argument ‘Carbon’, at /Users/johnw/Contracts/OSS/Projects/nixpkgs/lib/customisation.nix:56:12

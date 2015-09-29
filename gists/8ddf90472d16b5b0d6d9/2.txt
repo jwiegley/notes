@@ -1,0 +1,33 @@
+To: "haskell-community@haskell.org" <haskell-community@haskell.org>
+Cc: Christopher Allen <cma@bitemyapp.com>,
+	Simon Peyton Jones <simonpj@microsoft.com>,
+	Michael Snoyman <michael@fpcomplete.com>,
+	Gershom B. <gershomb@gmail.com>
+Subject: Inviting others to join us on -community
+Gcc: list.haskell.community
+Organization: New Artisans LLC
+From: John Wiegley <johnw@newartisans.com>
+Date: Mon, 28 Sep 2015 14:33:24 -0700
+--text follows this line--
+>>>>> Christopher Allen <cma@bitemyapp.com> writes:
+
+> I'm pleased with and encouraged by the conversation that was had. Thank you
+> John, looking forward to collaborating with you more in the future : )
+
+Thank you, Christopher, Michael, Simon, Gershom, and everyone else who
+participated these past weeks.
+
+I'm also happy with the progress we made -- but especially with how we made
+it. The technical details have unfolded at a maddeningly slow rate, but we
+made significant progress at broadening the field of collaboration between
+several principle contributors in the community.
+
+We (the committee) are going to continue this process in the future: of using
+-community to discuss issues on a broader scale, with myself continuing to act
+as a sort of "secretary" to ensure that the community-wide discussion is heard
+by the committee and recorded, and nothing is ignored.
+
+Whatever issues people have to discuss, feel free to bring them up here! and
+invite others to do so who have any ideas or knowledge to contribute.
+
+John

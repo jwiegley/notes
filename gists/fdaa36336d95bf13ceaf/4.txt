@@ -1,0 +1,39 @@
+As mentioned earlier, I've been working on a draft version of the new Haskell
+download page in consultation with Simon PJ, Michael Snoyman, and Gershom
+Bazerman. The goal has been twofold:
+
+  A) Add stack as an implicit option, and
+  B) add text to each option indicating clearly what it provides and where to
+     get further help, so users can understand the options and make an
+     informed choice.
+
+We've sought to keep the text factual, rather than imply that one option is
+"best" for any particular class of user, since opinions vary so widely on this
+point.
+
+At the following link, you'll find a draft version of the new page for
+comment:
+
+    https://gist.github.com/jwiegley/153d968ddfc9046ee4c9
+
+Hopefully it can go live on haskell.org next week, so please contribute your
+edits here, or by pull request. The goal is to explain each option so that
+people can make an informed decision.
+
+However, the order of presentation does imply that whatever comes first is
+"preferred" even if that is not the intent. The order currently given is HP,
+Stack, Minimal. Chris has already made a few points about changing this order,
+so let's continue that discussion and see where it leads us. There has also
+been a case made for putting Stack first.
+
+Bear in mind that this is (hopefully) only an interim state. The plan is to
+add Stack to the platform, and render the platform minimal, which will
+consolidate this page down to a single, recommended download path.
+
+At the bottom of the gist are incomplete sections on third party libraries and
+alternate installation approaches. These just haven't been written yet. The
+hope is to resolve the top content first and sort the rest out after. However,
+ideas for that content is most welcome too.
+
+Thank you,
+  John Wiegley

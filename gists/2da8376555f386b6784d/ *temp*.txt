@@ -1,0 +1,7 @@
+This is true in a categorical semantics where initial algebras and final 
+> coalbebras are distinct, like in a total language that gets its semantics from 
+> sets and total functions thereon. However, Haskell gets its semantics (modulo 
+> some potential weirdness in IO that people have been discussing lately) from 
+> categories of partial orders and monotone functions. It turns out that you can 
+> show that initial algebras and final coalgebras coincide in such a category, 
+> and so least and greatest fixed points are the same in Haskell

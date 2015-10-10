@@ -1,0 +1,125 @@
+11:34 <hackrilege> It would be great if there was a good non bare metal arm vm for
+          Haskell. GnurootDebien is down
+11:35 <johnw> ^elyse^: yeah, I hear you
+11:45 <EvanR> hackrilege: theres a bare metal arm vm for haskell?
+11:46 <hackrilege> Well halvm
+11:46 <hackrilege> Havlm
+11:47 <EvanR> which one
+11:47 <EvanR> halvm exists, looks like for cloud servers
+11:47 <hackrilege> The halvm sorry
+11:47 <EvanR> is there such a thing as haskell for embedded devices?
+11:48 <hackrilege> It's built on xen which is Bare metal
+11:48 <hackrilege> Evanr I have run Haskell on non rooted android but the tool I used is
+          depreciated
+11:49 <hackrilege> It wad gnuroot wheezy
+11:49 <hackrilege> It seems the Linux kernel eliminated the fact out being in arm was an
+          issue
+11:49 <hackrilege> Of
+11:50 <hackrilege> Cutting edge stuff I gather
+11:50 <hackrilege> I think hugs is on android
+11:51 <Copperis> I made a prime number test algorithm http://lpaste.net/142714 using
+          code from https://goo.gl/1JCPQP . I'm learning haskell and FP atm. Are there
+          any obvious places which could have been done more idiomatically or otherwise
+          better?
+11:51 <EvanR> meh android as "embedded"
+11:51 <hackrilege> The adk is the only way to produce a functioning program that ribs
+          outside an os emulator
+11:51 <hackrilege> Runs
+11:52 <EvanR> is Xen supported by embedded system chips?
+11:52 <Copperis> is there a way to generate a list of numbers from 5 to n with
+          increments of 6 without using recursion?
+11:52 <hackrilege> I'll try writing a c shared library and imprinting it to the adk soon
+11:52 <hackrilege> Yes xen works on arm
+11:52 <the_2nd> sortBy (comparing snd) how can I invert this?
+11:52 <EvanR> cool
+11:53 <hackrilege> But I don't know how to put xen on my phone, anyway it's not a
+          delivery adequate solution, must use aide
+11:53 <mniip> the_2nd, sort backwards you mean?
+11:54 <Gurkenglas> > [5,11..100] --Copperis
+11:54 <lambdabot>  [5,11,17,23,29,35,41,47,53,59,65,71,77,83,89,95]
+11:54 <hackrilege> You can't ask the users of your app to root their phone and install
+          halvm as their os!
+11:54 <EvanR> im less interested in phones as custom devices
+11:54 <EvanR> than *
+11:55 <Copperis> yup, thanks Gurkenglas 
+11:55 <hackrilege> The neurocyte project is abandoned I would like to review it but lack
+          the skill
+11:55 <the_2nd> mniip, yep
+11:55 <mniip> the_2nd, flip (comparing snd)
+11:55 <hackrilege> Custom embedded arm devices can use xen and halvm
+11:56 <hackrilege> As can your phone if you know how to get at the chips safely, which I
+          don't
+11:56 <hackrilege> Rooting, installing xen
+11:57 <mniip> the android OS and its runtime are pretty scary
+11:57 <mniip> because of being so monolithic
+11:57 <hackrilege> I think xen installation requires minimal Linux exists, so the first
+          part is installing Linux with bootable media storage device lie usb
+11:58 <hackrilege> Mniip. Once the hurdle is overcome to getting hello world through the
+          ffi and into a java project with all the reagent xml, then all the hard work
+          would be done
+11:58 <johnw> this is getting somewhat off-topic
+11:58 <mniip> hackrilege, that's unrelated
+11:58 <hackrilege> It could be easy intact to wrap a Haskell shared c library into a
+          generic main app
+11:59 <johnw> yay, on-topic!
+11:59 <hackrilege> !?
+11:59 <mniip> it would be hard to wrap haskell into a single program
+11:59 <hackrilege> Sorry for all those typos
+11:59 <EvanR> hackrilege: im sort of confused at the simultaneous assertions "xen is
+          bare metal" and "xen must be installed"
+11:59 <mniip> oh well, maybe not
+12:00 <mniip> I think they mean xen is ring 0
+12:00 <EvanR> so its an OS
+12:00 <mniip> sort of
+12:00 <mniip> it's a virtualizer
+12:01 <mniip> EvanR, it's not an OS because it doesn't do anything other than virtualize
+          other OSes
+12:02 <EvanR> what service does it offer, just multitasking of OSes?
+12:02 <johnw> this isn't the place to discuss OS virtualization, unless you're talking
+          about Haskell specifically
+12:02 *** There are 1528 users (1 ops) on the current channel
+12:03 <hackrilege> Evanr http://www.webhostingtalk.com/showthread.php?t=1198407
+12:03 <hackrilege> I think it use Linux but eventually ends up underneath it and takes
+          control of grub
+12:03 <johnw> hackrilege: please take this elsewhere
+12:04 <hackrilege> Event can you sick up for me here I was responding to your question
+12:04 <hackrilege> Regarding the installation of halvm
+12:05 <hackrilege> Evanr^
+12:05 <johnw> entering into a discussion (now 20+ messages) on a topic not related to
+          Haskell, is not on-topic for this channel
+12:05 <the_2nd> is sortBy raising or falling?
+12:05 <johnw> you can move to another channel if you want to hash this out
+12:05 <mniip> the_2nd, same as 'sort'
+12:05 <hackrilege> It's directly about running Haskell on embedded devices
+12:06 <johnw> it sounds like it's about Xen and Android and Linux and GRUB
+12:06 <johnw> anyway, please take it elsewhere
+12:06 <hackrilege> The question was is xen bare metal
+12:06 <the_2nd> mniip, which is?
+12:06 <hackrilege> I.a. Is the Haskell vm bare metal also
+12:07 <johnw> then please keep it about HalVM
+12:07 <mniip> interesting
+12:07 <mniip> the docs don't mention
+12:08 <mniip> the_2nd, judging by 'insert', it is ascending
+12:09 <hackrilege> In future I will respond to inform the questioner that os specific
+          Haskell considerations are of topic, and that no forum exists where discussion
+          with the reagent persons exists
+12:09 <hackrilege> Relevant
+12:10 <johnw> I don't mind talking about HalVM, but it was going places that had nothing
+          to do with Haskell, or where I couldn't see the connection.  And likely
+          neither could most of the other 1500+ people here.  This isn't anyone's social
+          channel, which is why we keep things on topic.
+12:10 <hackrilege> I wonder why the status of this keystones project is unaddressed
+12:10 <johnw> if you need to go into depth with someone else on a particular subject
+          like this, you can open a PRIVMSG with them
+12:11 <inad922> Hi
+12:12 <hackrilege> Installation specific posts were two out the max. If you would like
+          to publicly ridicule me I would invite you to open a private message, your
+          scorn has taken fat more discussion
+12:12 <inad922> If I define a type synonym via "type NewTypeName = stuff" how can I get
+          this defnition in the interpreter?
+12:12 <Pompeii> Hey guys; anyone have any experiences with git GUIs?  Wondering if Tower
+          is worth the money
+12:13 <johnw> hackrilege: there is no scorn, and I apologize if this has come across as
+          ridicule
+12:13 <johnw> I will resume this in privmsg
+12:14 <johnw> Pompeii: this channel is for discussions about Haskell

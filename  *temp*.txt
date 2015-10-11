@@ -1,0 +1,20 @@
+(defthm listof-member
+  (implies (and (PendingEventQueuep xs)
+                (natp index))
+           (maybeEventp (nth index xs))))
+
+;; -------------------------------------------
+;; select next possible
+;; 
+; take the nth item from the list (zero based, so zero is 1st
+; - for execution, expected to always take the first
+; - for proofs, with non-determinism and to explore all possible allowed event orderings
+; use a free variable (may cause state explosion)
+; returns a PendingEvent, or nil if the queue is empty or index > queue length
+(defunc getNextEvent (index possibleList)
+  :input-contract (and (natp index) (PendingEventQueuep possibleList))
+  :output-contract (maybeEventp (getNextEvent index possibleList))
+  :function-contract-hints (("goal" :induct (and (nth index possiblelist)
+                                                 (pendingeventqueuep possiblelist))))
+  (nth index possibleList)
+)

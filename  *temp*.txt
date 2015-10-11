@@ -1,0 +1,316 @@
+(acl2::begin-book t :ttags :all)
+
+(in-package "ACL2S")
+
+(defunc heap->alist (heap lim)
+  :input-contract (and (good-map heap) (natp lim))
+  :output-contract (alistp (heap->alist heap lim))
+  (if (> lim 0)
+      (let* ((idx (- lim 1))
+             (obj (mget idx heap)))
+        (if obj
+            (cons (cons idx obj)
+                  (heap->alist heap idx))
+          (heap->alist heap idx)))
+    nil))
+
+(local (include-book "std/basic/inductions" :dir :system))
+
+(defthm assoc-mset-same
+  (implies (and (good-map heap)
+                (natp addr)
+                (natp nextAddr)
+                (< addr nextAddr)
+                value)
+           (equal (assoc addr (heap->alist (mset addr value heap) nextAddr))
+                  (cons addr value)))
+  :hints (("Goal" :induct (acl2::dec-induct nextAddr))))
+
+(defun del (x lst)
+  (cond ((atom lst) nil)
+        ((equal x (car lst)) (cdr lst))
+        (t (cons (car lst) (del x (cdr lst))))))
+
+(defun mem (x lst)
+  (cond ((atom lst) nil)
+        ((equal x (car lst)) t)
+        (t (mem x (cdr lst)))))
+
+(defun perm (lst1 lst2)
+  (cond ((atom lst1) (atom lst2))
+        ((mem (car lst1) lst2)
+         (perm (cdr lst1) (del (car lst1) lst2)))
+        (t nil)))
+
+(defthm perm-reflexive
+  (perm x x))
+
+(defthm perm-cons
+  (implies (mem a x)
+           (equal (perm x (cons a y))
+                  (perm (del a x) y)))
+  :hints (("Goal" :induct (perm x y))))
+
+(defthm perm-symmetric
+  (implies (perm x y) (perm y x)))
+
+(defthm mem-del
+  (implies (mem a (del b x)) (mem a x)))
+
+(defthm perm-mem
+  (implies (and (perm x y)
+                (mem a x))
+           (mem a y)))
+
+(defthm mem-del2
+  (implies (and (mem a x)
+                (not (equal a b)))
+           (mem a (del b x))))
+
+(defthm comm-del
+  (equal (del a (del b x)) (del b (del a x))))
+
+(defthm perm-del
+  (implies (perm x y)
+           (perm (del a x) (del a y))))
+
+(defthm perm-transitive
+  (implies (and (perm x y) (perm y z)) (perm x z)))
+
+(defun how-many (e x)
+   (if (endp x) 0
+    (+ (if (equal e (first x)) 1 0)
+       (how-many e (rest x)))))
+
+
+(local
+ (defthm how-many-same-my-del-reduction
+   (implies (mem e x)
+            (equal (how-many e (del e x)) (1- (how-many e x))))))
+
+
+(local
+ (defthm how-many-diff-my-del-reduction
+   (implies (not (equal e f))
+            (equal (how-many e (del f y)) (how-many e y)))))
+
+
+(defthm perm-implies-how-many-equal
+   (implies (perm x y)
+            (equal (how-many e x) (how-many e y))))
+
+(defthmd perm-implies-how-many-equal-new
+   (implies (and (perm x y)
+                 (syntaxp (not (term-order x y))))
+            (equal (how-many e x) (how-many e y)))
+   :hints (("Goal" :by perm-implies-how-many-equal)))
+
+(defun falsifier-perm (x y)
+   (if (endp x)
+       (if (endp y) nil
+     (first y))
+     (if (not (equal (how-many (first x) x)
+             (how-many (first x) y)))
+     (first x)
+       (falsifier-perm (rest x) (del (first x) y)))))
+
+(defthm falsifier-witnesses-for-how-many-in-perm
+   (implies (equal (how-many (falsifier-perm x y) x)
+                   (how-many (falsifier-perm x y) y))
+            (perm x y)))
+
+(in-theory (disable falsifier-perm))
+
+(defequiv perm)
+
+(in-theory (e/d (perm-implies-how-many-equal-new) (perm-implies-how-many-equal)))
+
+(defthm how-many-append-reduction
+  (equal (how-many e (append x y))
+         (+ (how-many e x)
+            (how-many e y))))
+
+(defthm perm-len-reduction
+  (implies (perm x y)
+           (equal (len x)
+                  (len y)))
+  :rule-classes :forward-chaining)
+
+(in-theory (disable perm
+                    perm-reflexive
+                    perm-symmetric
+                    perm-transitive))
+
+(defcong perm perm (cons x y) 2)
+
+(defcong perm iff (mem x y) 2)
+
+(defthm atom-perm
+  (implies (not (consp x)) (perm x nil))
+  :rule-classes :forward-chaining
+  :hints (("Goal" :in-theory (enable perm))))
+
+(defun app (x y) (if (consp x) (cons (car x) (app (cdr x) y)) y))
+
+(defcong perm perm (app x y) 2)
+
+(defthm app-cons
+  (perm (app a (cons b c)) (cons b (app a c))))
+
+(defthm app-commutes
+  (perm (app a b) (app b a)))
+
+(defcong perm perm (app x y) 1
+  :hints (("Goal" :induct (app y x))))
+
+;(defthm rev-is-id (perm (rev x) x)
+;  :hints (("Goal" :in-theory (enable perm rev))))
+
+(defthm assoc-put
+  (implies (alistp xs)
+           (equal (assoc addr (put-assoc addr value xs))
+                  (cons addr value))))
+
+(defthm cons-assoc-rewrite
+  (implies (and (alistp y)
+                (assoc x y))
+           (equal (cons x (cdr (assoc x y)))
+                  (assoc x y))))
+
+(defun alist-cars (xs)
+  (cond ((atom xs) nil)
+        ((consp (car xs))
+         (cons (caar xs) (alist-cars (cdr xs))))
+        (t (alist-cars (cdr xs)))))
+
+(defthm perm-alist-cars-how-many
+  (implies (perm xs ys)
+           (equal (how-many e (alist-cars xs))
+                  (how-many e (alist-cars ys))))
+  :hints (("Goal" :in-theory (enable perm)))
+  :rule-classes :congruence)
+
+(defthm how-many-alist-cars-lt
+  (implies (consp e)
+           (<= (how-many e x)
+               (how-many (car e) (alist-cars x)))))
+
+(defcong perm perm (alist-cars x) 1)
+
+(defun alist-cdrs (xs)
+  (cond ((atom xs) nil)
+        ((consp (car xs))
+         (cons (cdar xs) (alist-cdrs (cdr xs))))
+        (t (alist-cdrs (cdr xs)))))
+
+(defthm perm-alist-cdrs-how-many
+  (implies (perm xs ys)
+           (equal (how-many e (alist-cdrs xs))
+                  (how-many e (alist-cdrs ys))))
+  :hints (("Goal" :in-theory (enable perm)))
+  :rule-classes :congruence)
+
+(defthm how-many-alist-cdrs-lt
+  (implies (consp e)
+           (<= (how-many e x)
+               (how-many (cdr e) (alist-cdrs x)))))
+
+(defcong perm perm (alist-cdrs x) 1)
+
+(defthm heap-cars-less-than
+  (implies (and (good-map heap)
+                (natp nextAddr)
+                (mem e (alist-cars (heap->alist heap nextAddr))))
+           (< e nextAddr)))
+
+(defun uniq (xs)
+  (if (atom xs)
+      t
+    (and (not (mem (car xs) (cdr xs)))
+         (uniq (cdr xs)))))
+
+(defthm perm-nil
+  (implies (perm nil xs)
+           (atom xs))
+  :hints (("Goal" :in-theory (enable perm))))
+
+(defcong perm equal (uniq x) 1
+  :hints (("Goal" :in-theory (enable perm))))
+
+(defthm uniq-perm-impl
+  (implies (and (uniq xs)
+                (perm xs ys))
+           (uniq ys))
+  :hints (("Goal" :in-theory (enable perm))))
+
+(defthm heap-alist-mem
+  (implies (and (good-map heap)
+                (natp addr)
+                (natp nextAddr)
+                (< addr nextAddr)
+                (mget addr heap))
+           (mem addr (alist-cars (heap->alist heap nextAddr))))
+  :hints (("Goal" :induct (acl2::dec-induct nextAddr))))
+
+(defthm heap-alist-limit
+  (implies (and (good-map heap)
+                (natp addr)
+                (natp nextAddr)
+                (>= addr nextAddr))
+           (not (mem addr (alist-cars (heap->alist heap nextAddr))))))
+
+(defthm heap-cars-uniq
+  (implies (and (good-map heap)
+                (natp nextAddr))
+           (uniq (alist-cars (heap->alist heap nextAddr)))))
+
+(defthm alist-mem
+  (implies (alistp xs)
+           (equal (mem addr (alist-cars xs))
+                  (not (equal (assoc addr xs) nil)))))
+
+(defthm mget-at-end
+  (implies (and (good-map heap)
+                (natp addr)
+                (natp nextAddr)
+                (>= addr nextAddr))
+           (equal (how-many (cons addr value) (heap->alist heap nextAddr)) 0)))
+
+(defthm mset-at-end
+  (implies (and (good-map heap)
+                (natp addr)
+                (natp i)
+                (>= i addr))
+           (equal (heap->alist (mset i value heap) addr)
+                  (heap->alist heap addr))))
+
+(defthm put-assoc-at-end
+  (implies (and (good-map heap)
+                (natp addr)
+                (natp i)
+                (>= i addr))
+           (equal (put-assoc i value (heap->alist heap addr))
+                  (append (heap->alist heap addr)
+                          (list (cons i value))))))
+
+(defthm addr-nextAddr-complex-nonequal
+  (implies (and (good-map heap)
+                (natp addr)
+                (natp nextAddr)
+                (< addr nextAddr)
+                value
+                (equal 0 (how-many (cons (+ -1 nextAddr)
+                                         (mget (+ -1 nextAddr)
+                                               (mset addr value heap)))
+                                   (put-assoc-equal addr value
+                                                    (heap->alist heap (+ -1 nextAddr))))))
+           (not (equal addr (1- nextAddr)))))
+
+(defthm mset-put-perm
+  (implies (and (good-map heap)
+                (natp addr)
+                (natp nextAddr)
+                (< addr nextAddr)
+                value)
+           (perm (heap->alist (mset addr value heap) nextAddr)
+                 (put-assoc addr value (heap->alist heap nextAddr)))))

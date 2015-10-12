@@ -1,0 +1,50 @@
+	Fri Oct  9 20:37 2015 Time and Allocation Profiling Report  (Final)
+
+	   Main +RTS -p -RTS
+
+	total time  =        4.63 secs   (4630 ticks @ 1000 us, 1 processor)
+	total alloc = 10,775,149,752 bytes  (excludes profiling overheads)
+
+COST CENTRE MODULE    %time %alloc
+
+levels      Main       36.9   38.3
+main.\      Main       26.8   13.0
+lzw         Main       14.2   19.8
+fmap        Main        7.5   11.2
+<*>         Main        6.5    4.8
+breakBox    Main        6.2   11.4
+breakBox.n  Main        0.8    1.1
+
+
+                                                             individual     inherited
+COST CENTRE        MODULE                  no.     entries  %time %alloc   %time %alloc
+
+MAIN               MAIN                     98           0    0.0    0.0   100.0  100.0
+ main              Main                    197           0    0.9    0.0    27.7   13.0
+  main.\           Main                    216      634102   26.8   13.0    26.8   13.0
+ CAF               Main                    195           0    0.0    0.0    72.3   87.0
+  haskell          Main                    214           1    0.0    0.0     0.0    0.0
+  main             Main                    196           1    0.0    0.0    72.3   87.0
+   main.img        Main                    201           1    0.0    0.0     0.0    0.0
+    grid           Main                    202           1    0.0    0.0     0.0    0.0
+   main.lvls       Main                    199           1    0.0    0.0    72.1   86.6
+    levels         Main                    200    21570706   36.9   38.3    72.1   86.6
+     lzw           Main                    213    24267035   14.2   19.8    14.2   19.8
+     toList        Main                    211     2396745    0.0    0.0     0.0    0.0
+     <*>           Main                    210     2396745    6.5    4.8    14.0   16.0
+      fmap         Main                    212           0    7.5   11.2     7.5   11.2
+     fmap          Main                    209     2396745    0.0    0.0     0.0    0.0
+     breakBox      Main                    203     2396745    6.2   11.4     7.0   12.5
+      breakBox.n   Main                    208     2396745    0.8    1.1     0.8    1.1
+       breakBox.b' Main                    215     3030846    0.0    0.0     0.0    0.0
+      width        Main                    207     2396745    0.0    0.0     0.0    0.0
+      height       Main                    206     2396745    0.0    0.0     0.0    0.0
+      left         Main                    205     7190235    0.0    0.0     0.0    0.0
+      top          Main                    204     7190235    0.0    0.0     0.0    0.0
+   main.stamps     Main                    198           1    0.2    0.3     0.2    0.3
+ CAF               GHC.Conc.Signal         177           0    0.0    0.0     0.0    0.0
+ CAF               GHC.IO.Encoding         161           0    0.0    0.0     0.0    0.0
+ CAF               GHC.IO.Encoding.Iconv   159           0    0.0    0.0     0.0    0.0
+ CAF               GHC.IO.Handle.FD        150           0    0.0    0.0     0.0    0.0
+ CAF               GHC.IO.Handle.Text      148           0    0.0    0.0     0.0    0.0
+ CAF               GHC.TopHandler          132           0    0.0    0.0     0.0    0.0

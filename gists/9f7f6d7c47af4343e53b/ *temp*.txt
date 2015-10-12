@@ -1,0 +1,12 @@
+12:51 <hackrilege> E.g. I don't know if this recursive datatype will outperform Date.Map
+          in a fold
+12:51 <johnw> ok, that's a very relevant question
+12:51 <hackrilege> Answer, it's impossible to even begin to understand how to think
+          about answering that, can you please benchmark it yourself
+12:51 <johnw> benchmarking is the best approach
+12:51 <hackrilege> Incorrect
+12:52 <johnw> why are you expecting #haskell to come up with an answer without you doing
+          the work?
+12:52 <hackrilege> It's a question about rationalizing
+12:52 <johnw> I'm ending this conversation now, hackrilege.  This is not going anywhere
+          and I have work to do.

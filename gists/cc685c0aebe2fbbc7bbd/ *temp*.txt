@@ -1,0 +1,11 @@
+(defun alist-cars (xs)
+  (cond ((atom xs) nil)
+        ((consp (car xs))
+         (cons (caar xs) (alist-cars (cdr xs))))
+        (t (alist-cars (cdr xs)))))
+
+(defthm perm-alist-cars
+  (implies (perm xs ys)
+           (perm (alist-cars xs)
+                 (alist-cars ys)))
+  :hints (("Goal" :in-theory (enable perm))))

@@ -1,0 +1,81 @@
+From: "John Wiegley" <johnw@newartisans.com>
+Subject: Re: IDE
+To: emacs-devel@gnu.org
+Date: Sat, 10 Oct 2015 11:31:13 -0700 (2 days, 11 hours, 6 minutes ago)
+Organization: New Artisans LLC
+Mail-Followup-To: emacs-devel@gnu.org
+
+>>>>> martin rudalics <rudalics@gmx.at> writes:
+
+> I never use side windows so I can't tell whether they still work. I have
+> written a frame-tabs.el package based on side windows but I don't use that
+> either. At the time I installed the side windows functions I also added a
+> texinfo section but Stefan later asked me to remove it. That info does not
+> reflect later changes to the code so it might be outdated. You have to live
+> with the doc-strings which should be fairly accurate.
+
+We should define what we want from a "more IDE" Emacs. For example, I do not
+want window-layout functionality. That's a presentation aspect of IDEs that's
+entirely separate from what I want from them.
+
+Right now we have a pretty nice infrastructure for things like indenting code.
+That is, there are standard keybindings (TAB, C-M-\), a standard per-buffer
+override variable (indent-line-function), a standard command
+(indent-according-to-mode), and ways for packages like Yasnippet to override
+the meaning of TAB without ruining functionality.
+
+I think that what an "IDE is" has little to do with what it looks like. Emacs
+being a better IDE, to me, means making IDE-like functionality a first-class
+citizen, as we do with indenting. This would provide a core for fancy display
+modules to build on top of.
+
+I also don't think core Emacs should *provide* this functionality, since
+that's impossible, given how many different languages and use cases there are.
+It's more about giving developers a common API to base their work on, so that
+we maximize collaboration between them.
+
+Here is a list of functionality I think should be first-class, structurally
+speaking (that is, an API will exist, but it may not do anything until a
+contributor implements the functionality for their language). The ones with
+a * mean areas where we're already succeeding to some degree:
+
+  * indentation (see above)
+    reformatting
+  * syntax highlighting (font-lock)
+    help at point
+    documentation lookup (sadly, fewer projects use Info these days)
+  ? completion
+    refactoring
+    semantic editing (for example, paredit)
+  * compilation (M-x compile)
+    live compilation (flymake/flycheck)
+  * REPL (comint)
+    running tests
+  * debugging (GUD)
+  * version control (VC)
+    profiling
+    code coverage
+    app interaction
+
+The reason I don't have a * next to completion, despite having so many things
+capable of doing it (company, auto-complete, ido, hippie-expand, helm, ivy,
+etc., etc.), is that there are too MANY ways to do it. This is where I think
+proper IDE support could help.
+
+If we have a single paradigm for "determining interesting details about the
+buffer, and near point", with the ability to refine the query based on what is
+need, optionally cache results, etc., then the competing libraries we have
+today could share functionality. The present day `all-completions` function is
+too spare to fit this bill, so it's less of an IDE feature in my book and more
+just a Lisp library function. For example, I've written nearly the same
+backend code for at least 4 different completion/lookup packages, and each
+time I wonder how we could do better here. The differences are so minimal.
+
+To reiterate: I think Emacs becomes more of an IDE when it provides the
+backbone of an IDE, and not when it looks like one. We have some pieces of
+that backbone already, which have avoided fragmentation in those areas, but we
+need more. A standardized way to do tooltips, popups, visual completion
+selection (or at least the structure), REPLs that interact with buffer
+contents, etc., would give us a foundation to move to the next step.
+
+John

@@ -1,0 +1,13 @@
+ .  10m <  order-update@a   Your Amazon.com order of "OWC ThunderBay 4 0GB 4-Bay..." has been canceled.
+ .  11m <. Eli Zaretskii    Re: An idea to mull over
+ .  30m <  Przemysław Woj   Re: Emacs rewrite in a maintainable language
+!*  15h <  Eli Zaretskii    Re: Making emacs-devel semi-moderated
+!* 1.9h <  Eli Zaretskii     \-> 
+!* 1.1d +  Adib Rowhani     RE: Friday's Lunch
+!* 1.1d <  -> John Wiegle   Shared from Twitter: [llvm-dev] RFC: Introducing an LLVM Community Code of Conduct
+!* 1.8d <  BAE Systems Be   2016 Annual Enrollment: Choose Well, Live Right.
+!* 1.9d *  Sabati, Navid    feast
+!* 1.8d <  Sabati, Navid     \-> 
+!* 1.8d <  Wiegley, John    FW: URGENT - AGING TRANSACTIONS IN CONCUR
+!* 1.9d <  Richard Stallm   SeaGL
+!* 1.9d <  Richard Stallm   Re: Boston

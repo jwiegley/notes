@@ -1,0 +1,61 @@
+15:43:34 Vulcan:~/oss/nixpkgs $ nix-env -j4 -Q -k -u --leq -f . --show-trace
+upgrading ‘perlTools’ to ‘perlTools’
+upgrading ‘publishTools’ to ‘publishTools’
+upgrading ‘langTools’ to ‘langTools’
+upgrading ‘xquartz’ to ‘xquartz’
+upgrading ‘xhost-1.0.7’ to ‘xhost-1.0.7’
+upgrading ‘xauth-1.0.9’ to ‘xauth-1.0.9’
+upgrading ‘systemTools’ to ‘systemTools’
+upgrading ‘serviceTools’ to ‘serviceTools’
+upgrading ‘rubyTools’ to ‘rubyTools’
+upgrading ‘ratpoison-1.4.8’ to ‘ratpoison-1.4.8’
+upgrading ‘pythonTools’ to ‘pythonTools’
+upgrading ‘nix-prefetch-scripts’ to ‘nix-prefetch-scripts’
+upgrading ‘networkTools’ to ‘networkTools’
+upgrading ‘mailTools’ to ‘mailTools’
+upgrading ‘ledger-3.1.0.20141005’ to ‘ledger-3.1.0.20141005’
+upgrading ‘gitTools’ to ‘gitTools’
+upgrading ‘env-ghc784’ to ‘env-ghc784’
+upgrading ‘env-ghc7102’ to ‘env-ghc7102’
+upgrading ‘env-coq85’ to ‘env-coq85’
+upgrading ‘env-coq84’ to ‘env-coq84’
+upgrading ‘env-agda’ to ‘env-agda’
+upgrading ‘emacsTools’ to ‘emacsTools’
+upgrading ‘coreutils-8.24’ to ‘coreutils-8.24’
+upgrading ‘cabal2nix-20150922’ to ‘cabal2nix-20150922’
+upgrading ‘buildTools’ to ‘buildTools’
+these derivations will be built:
+  /nix/store/3glmj17gyb17fvnq21hjkj2gcv25yfjl-SDL-1.2.15.drv
+  /nix/store/wjxkb4sn1n6wpc4nsc4k6zl2dgzwsinj-ffmpeg-2.7.2.drv
+  /nix/store/p1zx557dcbl4yk1b253mnpc2bky27m59-python2.7-youtube-dl-2015.10.06.2.drv
+  /nix/store/p4fyv254049grglzyib5kj5ykaa6ry2d-mosh-1.2.5.drv
+  /nix/store/4dbx103m66lnvsrm6l6i3p5v9px09ryj-networkTools.drv
+  /nix/store/4fsrsgm5i4dacqbmrl4vb0xiyc6zyxni-graphviz-2.38.0.drv
+  /nix/store/s2p3rda804yl8jv7facz9aak2bcln9qz-atlas-3.10.2.drv
+  /nix/store/jg0zp3s53c7h5knnay2lpp7r1ssbdiqj-liblapack-3.4.1.drv
+  /nix/store/zk2k2mh308j3hxlfdfglbayz4sydlkjx-csdp-6.1.1.drv
+  /nix/store/gqyp566g6sa5bvzcv76q17ihqq0qqs75-coq-8.4pl6.drv
+  /nix/store/nm1p6vx3p6y70w5a760awxns138ml3bi-coq-ssreflect-1.5-8.4.drv
+  /nix/store/9drlc25mvp6ysyglhl8d3456qc0rfww0-coq-mathcomp-1.5-8.4.drv
+  /nix/store/mmi8vpii8c2zqmlkwdqss703qjkgn72w-coq-8.5b2.drv
+  /nix/store/zwj0mgnpksfx0bhqg5aa3d72kq2fbq2z-coq-ssreflect-1.5-8.5.drv
+  /nix/store/qs0yycxaap8c19jl8rcdww3b4h9gisrp-coq-mathcomp-1.5-8.5.drv
+  /nix/store/asbqf852sacn02h4nc84bf9yykdi90js-env-coq85.drv
+  /nix/store/szzhabazarzwxdykd5kksz9yybbjjbfz-coq-QuickChick-8.4-20150605-b73a594.drv
+  /nix/store/rgjx8kpg6c9lgji20kagwn5yj9iw8rzc-env-coq84.drv
+  /nix/store/xdr37hqgpgg6zvfm3hsfv37k7xgcdnms-systemTools.drv
+building path(s) ‘/nix/store/gdds2yqmfjxzjbp6vc6h10pkpcbrxgw5-graphviz-2.38.0’
+building path(s) ‘/nix/store/4ia1hmi9lgdraypm593kngdh6s7h7nkq-mosh-1.2.5’
+building path(s) ‘/nix/store/3z7h0y3b5c34cw1gsm5k6254a07psdqs-SDL-1.2.15’, ‘/nix/store/518w7yhfrlqkjznc8wyx7mg8c96zzmc1-SDL-1.2.15-man’
+building path(s) ‘/nix/store/ci1plx42pv78i1ly3xn9bmdd9l5mw8mk-atlas-3.10.2’
+builder for ‘/nix/store/p4fyv254049grglzyib5kj5ykaa6ry2d-mosh-1.2.5.drv’ failed with exit code 2
+builder for ‘/nix/store/3glmj17gyb17fvnq21hjkj2gcv25yfjl-SDL-1.2.15.drv’ failed with exit code 2
+cannot build derivation ‘/nix/store/wjxkb4sn1n6wpc4nsc4k6zl2dgzwsinj-ffmpeg-2.7.2.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/p1zx557dcbl4yk1b253mnpc2bky27m59-python2.7-youtube-dl-2015.10.06.2.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/4dbx103m66lnvsrm6l6i3p5v9px09ryj-networkTools.drv’: 3 dependencies couldn't be built
+builder for ‘/nix/store/4fsrsgm5i4dacqbmrl4vb0xiyc6zyxni-graphviz-2.38.0.drv’ failed with exit code 2
+cannot build derivation ‘/nix/store/xdr37hqgpgg6zvfm3hsfv37k7xgcdnms-systemTools.drv’: 1 dependencies couldn't be built
+
+
+
+load: 2.27  cmd: nix-env 30982 waiting 5.90u 0.84s

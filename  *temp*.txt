@@ -1,0 +1,12 @@
+0:59:03 Vulcan:~/Products $ nix-store --verify --repair --check-contents
+reading the Nix store...
+checking path existence...
+checking hashes...
+^Ppath ‘/nix/store/2darg9awng2xcfi94k4imgq0xd1j2xf5-MacOS_SDK-10.9’ was modified! expected hash ‘272ef6d5d7fad08e57bb9e4c0b70a6ab38e855ac3170242e2ab46846f8cc3afd’, got ‘0565e12e80404624241489ba31ef4fa9e5c5da264c4b02771ae638629c7b4235’
+error: cannot repair path ‘/nix/store/2darg9awng2xcfi94k4imgq0xd1j2xf5-MacOS_SDK-10.9’
+path ‘/nix/store/3bmnsp72rrg193xhy16nv4ydnaj6n7nw-MacOS_SDK-10.9’ was modified! expected hash ‘83962b24012b7744ac9cd12ff574d97af9c737df5fc58f4269655f2afda76825’, got ‘62c966335dfff0614c8e45c9c61e35afcb85790f769d59680d8f959275b6ec51’
+error: cannot repair path ‘/nix/store/3bmnsp72rrg193xhy16nv4ydnaj6n7nw-MacOS_SDK-10.9’
+path ‘/nix/store/7hk3by04n7jy2mbn785ip3laz7vb67m4-c2hsc-0.7.0’ was modified! expected hash ‘3499213fd49bd8cbf19c503ed1226e8246e85cb2f2c7276d543371f263507855’, got ‘36b8c8ff8de26cc13c479fd8ff44fae30b00eb23b2fefb4850f2140f18419de5’
+error: cannot repair path ‘/nix/store/7hk3by04n7jy2mbn785ip3laz7vb67m4-c2hsc-0.7.0’
+path ‘/nix/store/lpf9snr3h0fxp5h7qfq2234ir60blpxw-bug-0.1.0.0’ was modified! expected hash ‘4665252210b4dd2f2d7d0bd42a18e21a4932a701dc7d23a1305f8bf3b7a0cd6d’, got ‘a39e09970a1e9adf264c8d14a254e02f9d6c5777448caedacb1f556f33bab5c8’
+error: cannot repair path ‘/nix/store/lpf9snr3h0fxp5h7qfq2234ir60blpxw-bug-0.1.0.0’

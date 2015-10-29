@@ -1,0 +1,29 @@
+10:58:29 Vulcan:~/Contracts/OSS/Projects/nixpkgs $ cd
+10:58:30 Vulcan:~ $ cd Products/
+10:58:31 Vulcan:~/Products $ nix-build ~/oss/nixpkgs -A auctex
+these derivations will be built:
+  /nix/store/ahz1zgz230m98ymjrpqqkj9ld4qv9i4h-auctex-11.88.drv
+building path(s) ‘/nix/store/xci69pn7x4skaapxvg00ms47nhdzya6m-auctex-11.88’
+unpacking sources
+unpacking source archive /nix/store/4xgsqmwlz25izdakizqm94547rfxk3mw-auctex-11.88.tar.gz
+source root is auctex-11.88
+patching sources
+configuring
+configure flags: --prefix=/nix/store/xci69pn7x4skaapxvg00ms47nhdzya6m-auctex-11.88 --with-lispdir=${out}/share/emacs/site-lisp --disable-preview
+checking for make... make
+checking whether make sets $(MAKE)... yes
+checking for a BSD-compatible install... /nix/store/7wp5lq3v2njqqvd9wx1028z80q83bn34-coreutils-8.24/bin/install -c
+checking for date in ChangeLog... 2014-10-29
+checking for release in ChangeLog... 11.88
+checking for date in ChangeLog... 2014-10-29
+checking for release in ChangeLog... 11.88
+checking for emacs... /nix/store/1w8x5k80wjvqgcmgvr3fhmcv2c6wlpxd-emacs-24.5-mac-5.11/bin/emacs
+checking if /nix/store/1w8x5k80wjvqgcmgvr3fhmcv2c6wlpxd-emacs-24.5-mac-5.11/bin/emacs is XEmacs... ./configure: line 2106: 54115 Trace/BPT trap: 5       "${EMACS}" -batch -no-site-file -eval "(let* ((x ${elisp})) (write-region (if (stringp x) x (prin1-to-string x)) nil \"${OUTPUT}\"))" 1>&5 2>&1
+cat: ./conftest-53942: No such file or directory
+configure: error: Unable to run /nix/store/1w8x5k80wjvqgcmgvr3fhmcv2c6wlpxd-emacs-24.5-mac-5.11/bin/emacs!  Aborting!
+builder for ‘/nix/store/ahz1zgz230m98ymjrpqqkj9ld4qv9i4h-auctex-11.88.drv’ failed with exit code 1
+error: build of ‘/nix/store/ahz1zgz230m98ymjrpqqkj9ld4qv9i4h-auctex-11.88.drv’ failed
+10:58:41 Vulcan:~/Products $
+
+
+

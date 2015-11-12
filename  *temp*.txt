@@ -1,0 +1,8 @@
+*** TODO use-package.el needs copyright assignments from all contributors
+:PROPERTIES:
+:ID:       ABEB2824-AD8C-4249-ADBE-1C9CDD3CD093
+:CREATED:  [2015-11-11 Wed 12:10]
+:Date:     Wed, 11 Nov 2015 15:04:25 -0500
+:Message:  [[message://CAFyQvY1iph5FwE7NGL=y4DU2+0up4r58htiyNGk7qVk-s+HbUw@mail.gmail.com][Re: use-package.el -> Emacs core]]
+:Author:   Kaushal Modi <kaushal.modi@gmail.com>
+:END:

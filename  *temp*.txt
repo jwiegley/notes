@@ -1,0 +1,8 @@
+foo :: ContT Int IO Int
+foo = do
+    x <- callCC $ \k -> do
+        y <- k 10
+        liftIO $ print (y :: Int)
+        return 40
+    liftIO $ print x
+    return 30

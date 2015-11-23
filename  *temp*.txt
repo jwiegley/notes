@@ -1,0 +1,32 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+I hereby declare that certain cl-lib symbols shall lose their cl- prefix,
+however when this will happen is yet to be determined.
+-----BEGIN PGP SIGNATURE-----
+Comment: GPGTools - http://gpgtools.org
+
+iQQcBAEBCgAGBQJWUzSRAAoJEEbEvRp6wUuirewf/1NWaYehJYudvDQvyvsB6Pze
+PZd5czG7wphw8ipudCwoK5TlNHmdE4ZofrcBRSAzHUK9Fgz95nh937LJG7yk6oP7
+3nyfw1FAu/Vz81Bm6alepsB6TyddHl3qulbeZ9rES7ImE6AmfHJS693+Q52fkIO7
+cxYfpFjNQjG+3L35twQ0AQ20nWU84EysuXLr3tYkvbPMSrpkvyjRdlb2ZhscZ9za
+n3LvLCCj8pBzdMBOHo57xs2r86/+z2nW2RMomvUyOE6fV2yPKf53g3x8P/4XscBZ
+/rZ8EFl/iGt+YJFgsXW2qQrblltLNrONVnQC2FDRfLT8WtEOUai378zOhY7Yud5I
+HBAYW4CTLIju7HX2a3XQrsn1awKSrHl8F8a80dsgSrbzzebk7b202fPI20M/iL+1
+d1WtKLs478AAs37z7422J8E5GYdTUjmw2UUqPrTuuYatxccUYKXxaXhqcBQQeguL
++FdzYCiIgiw5ac9LicOOo5RshoGZ+UpthS2MaodOesSvG6+AyOUSpIHd+rcVzb+E
+ZtisgFZgReVuw37tVX70g2lHTDCRHe61f+SLMKYB0vrNpoANzWYLd9GG624Jt98G
+C+TZK4nhEjQjVNzMem8qziS2sIV04/MYcIG49UYtlj4CAb7MOnxF6f8MxRAv0a7c
+93PBBSRvPep3OC9JAsFGXmnz2VsA4Y3Zs8OBq+8SeMqdM9e464j4Cp4mZqy7xz47
+u31u/lynjOEMUBYlbA/zpfacRuzTLoOA3+AViy/i9oid1Hj9LPZ09jnE0Kv56Ux7
+5dyMwZ2sdOiN841nOoz25ydcGwT9yJjKer51VZvz7FMjpS/spBOL8M0ntu1z9jlN
+lnZXWAW+Ygu9JbB0nL+wpxrbf4I3dbTd/z9sjBIi4kHTfut7e8fI4enONh2o8SgU
+Tu+bfeQ80QUHPv8IOuCWcdY3aSfMkwBPxF2NPk81B0iQKePYD8XF1EYK7a5nEcvW
+mntQd04sjgjP9nb+sHWfPXrVEOncCvZjQbhUdWCdmF4Wlx1q2gMIcqpWi43bGpFq
+aa/Ea60gIrHNpV/2YCZlja3misd20DlmWqOCkfJzboWrZJ6aaGSvOoTlKO7Wi364
+vddQ3j4UWpU2HJovme8yMQstvAS3AwOmvQT0R6IDj8Lj+jyOTJz4hzj7u9f0xGyj
+ncPsD1rNVRd/ssGU5aDslKtMt3ryfaB7311NnpDoyeXRZp72di5uvRsPJ8miG45X
+xxIy+8Sand0Rawt7QpLLPGIwmj/iZZfTkRBVNdp832HY5zjGpFhEGTNlyR7E61Mq
+4WQNJddwX5uWcEbAjBqvgAB7WeVMKmqyfsD7+u8cyo27pZl8FU43Ae2VrT5SZSs=
+=rAhH
+-----END PGP SIGNATURE-----

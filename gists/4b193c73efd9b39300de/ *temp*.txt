@@ -1,0 +1,7 @@
+foo' :: ContT Int IO Int
+foo' = do
+    y <- ($ 10) $ \x -> do
+        liftIO $ print x
+        return 30
+    liftIO $ print (y :: Int)
+    return 40

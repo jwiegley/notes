@@ -1,0 +1,115 @@
+-*- mode: compilation; default-directory: "~/dl/" -*-
+Compilation started at Wed Nov 18 11:22:43
+
+clang++ -I$HOME/.nix-profile/include -I$HOME/.nix-profile/include/c++/v1 -std=c++11 -o parser parser.cc
+In file included from parser.cc:3:
+In file included from include/boost/spirit/include/qi.hpp:16:
+In file included from include/boost/spirit/home/qi.hpp:20:
+In file included from include/boost/spirit/home/qi/nonterminal.hpp:14:
+include/boost/spirit/home/qi/nonterminal/rule.hpp:176:13: error: static_assert failed
+      "error_invalid_expression"
+            BOOST_SPIRIT_ASSERT_MATCH(qi::domain, Expr);
+            ^
+include/boost/spirit/home/support/assert_msg.hpp:35:9: note: expanded from macro
+      'BOOST_SPIRIT_ASSERT_MATCH'
+        BOOST_SPIRIT_ASSERT_MSG((                                             \
+        ^
+include/boost/spirit/home/support/assert_msg.hpp:27:9: note: expanded from macro
+      'BOOST_SPIRIT_ASSERT_MSG'
+        BOOST_STATIC_ASSERT_MSG(Cond, # Msg)
+        ^
+include/boost/static_assert.hpp:31:45: note: expanded from macro 'BOOST_STATIC_ASSERT_MSG'
+#     define BOOST_STATIC_ASSERT_MSG( ... ) static_assert(__VA_ARGS__)
+                                            ^
+include/boost/spirit/home/qi/nonterminal/rule.hpp:191:13: note: in instantiation of function
+      template specialization 'boost::spirit::qi::rule<std::__1::__wrap_iter<char *>, call_t (),
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal,
+      boost::proto::argsns_::term<boost::spirit::tag::char_code<boost::spirit::tag::space,
+      boost::spirit::char_encoding::ascii> >, 0>, boost::spirit::unused_type,
+      boost::spirit::unused_type>::define<mpl_::bool_<false>,
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right,
+      boost::proto::argsns_::list2<const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_left,
+      boost::proto::argsns_::list2<const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right,
+      boost::proto::argsns_::list2<const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right,
+      boost::proto::argsns_::list2<const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right,
+      boost::proto::argsns_::list2<const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right,
+      boost::proto::argsns_::list2<const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right,
+      boost::proto::argsns_::list2<const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right,
+      boost::proto::argsns_::list2<boost::spirit::qi::uint_parser<unsigned int, 16, 1, 16> &,
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal,
+      boost::proto::argsns_::term<const char &>, 0> >, 2> &, boost::spirit::qi::uint_parser<unsigned
+      int, 16, 1, 16> &>, 2> &, boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal,
+      boost::proto::argsns_::term<char const (&)[4]>, 0> >, 2> &,
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal,
+      boost::proto::argsns_::term<char const (&)[4]>, 0> >, 2> &,
+      boost::spirit::qi::uint_parser<unsigned int, 16, 1, 16> &>, 2> &,
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal,
+      boost::proto::argsns_::term<const char &>, 0> >, 2> &, const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::unary_plus,
+      boost::proto::argsns_::list1<const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::bitwise_or,
+      boost::proto::argsns_::list2<const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal,
+      boost::proto::argsns_::term<boost::spirit::tag::char_code<boost::spirit::tag::alnum,
+      boost::spirit::char_encoding::standard> >, 0> &, const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal,
+      boost::proto::argsns_::term<boost::spirit::terminal_ex<boost::spirit::tag::char_code<boost::spirit::tag::char_,
+      boost::spirit::char_encoding::standard>, boost::fusion::vector1<char> > >, 0> &>, 2> &>, 1>
+      &>, 2> &, boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal,
+      boost::proto::argsns_::term<const char &>, 0> >, 2> >' requested here
+            define<mpl::false_>(*this, expr, traits::matches<qi::domain, Expr>());
+            ^
+parser.cc:49:8: note: in instantiation of function template specialization
+      'boost::spirit::qi::rule<std::__1::__wrap_iter<char *>, call_t (),
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal,
+      boost::proto::argsns_::term<boost::spirit::tag::char_code<boost::spirit::tag::space,
+      boost::spirit::char_encoding::ascii> >, 0>, boost::spirit::unused_type,
+      boost::spirit::unused_type>::rule<boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right,
+      boost::proto::argsns_::list2<const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_left,
+      boost::proto::argsns_::list2<const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right,
+      boost::proto::argsns_::list2<const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right,
+      boost::proto::argsns_::list2<const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right,
+      boost::proto::argsns_::list2<const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right,
+      boost::proto::argsns_::list2<const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right,
+      boost::proto::argsns_::list2<const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::shift_right,
+      boost::proto::argsns_::list2<boost::spirit::qi::uint_parser<unsigned int, 16, 1, 16> &,
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal,
+      boost::proto::argsns_::term<const char &>, 0> >, 2> &, boost::spirit::qi::uint_parser<unsigned
+      int, 16, 1, 16> &>, 2> &, boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal,
+      boost::proto::argsns_::term<char const (&)[4]>, 0> >, 2> &,
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal,
+      boost::proto::argsns_::term<char const (&)[4]>, 0> >, 2> &,
+      boost::spirit::qi::uint_parser<unsigned int, 16, 1, 16> &>, 2> &,
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal,
+      boost::proto::argsns_::term<const char &>, 0> >, 2> &, const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::unary_plus,
+      boost::proto::argsns_::list1<const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::bitwise_or,
+      boost::proto::argsns_::list2<const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal,
+      boost::proto::argsns_::term<boost::spirit::tag::char_code<boost::spirit::tag::alnum,
+      boost::spirit::char_encoding::standard> >, 0> &, const
+      boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal,
+      boost::proto::argsns_::term<boost::spirit::terminal_ex<boost::spirit::tag::char_code<boost::spirit::tag::char_,
+      boost::spirit::char_encoding::standard>, boost::fusion::vector1<char> > >, 0> &>, 2> &>, 1>
+      &>, 2> &, boost::proto::exprns_::expr<boost::proto::tagns_::tag::terminal,
+      boost::proto::argsns_::term<const char &>, 0> >, 2> >' requested here
+    =  hex_word >> ':' >> hex_word
+       ^
+1 error generated.
+
+Compilation exited abnormally with code 1 at Wed Nov 18 11:22:46

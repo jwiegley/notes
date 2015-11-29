@@ -1,0 +1,14 @@
+(defun erc-cmd-KICKBANIP (nick &rest reason)
+  (setq reason (mapconcat #'identity reason " "))
+  (and (string= reason "")
+       (setq reason nil))
+  (erc-cmd-OPME)
+  (sleep-for 0 250)
+  (erc-cmd-BAN nick nil t)
+  (erc-send-command (format "KICK %s %s %s"
+                            (erc-default-target)
+                            nick
+                            (or reason
+                                "Kicked (kickbanip)")))
+  (sleep-for 0 250)
+  (erc-cmd-DEOPME))

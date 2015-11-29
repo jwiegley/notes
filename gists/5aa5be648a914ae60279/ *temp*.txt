@@ -1,0 +1,23 @@
+foo :: ContT Int IO Int
+foo = do
+    x <- callCC $ \k -> do
+        y <- k 10
+        _ <- liftIO $ print (y :: Int)
+        return 40
+    liftIO $ print x
+    return 30
+
+foo' :: ContT Int IO Int
+foo' = do
+    y <- ($ 10) $ \x -> do
+        liftIO $ print x
+        return 30
+    liftIO $ print (y :: Int)
+    return 40
+
+bar :: IO ()
+bar = do
+    x1 <- runContT foo  return
+    putStrLn $ "x1 = " ++ show x1
+    x2 <- runContT foo' return
+    putStrLn $ "x2 = " ++ show x2

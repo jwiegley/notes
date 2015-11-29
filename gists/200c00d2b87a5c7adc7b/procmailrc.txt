@@ -1,0 +1,131 @@
+# -*- nf-procmail -*-
+
+MAILHOME=$HOME/Messages
+MAILDIR=$MAILHOME/Maildir
+DEFAULT=mail.backup
+
+LOGFILE=$MAILHOME/logs/procmail.log
+LOGABSTRACT=no
+VERBOSE=no
+
+SHELL=/bin/bash
+SENDMAIL="/usr/sbin/sendmail -oi -t"
+DELIVER=/Users/johnw/bin/dovecot-lda
+SPAMASSASSIN=/Users/johnw/.nix-profile/bin/spamc
+FORMAIL=/usr/bin/formail
+DATE=/Users/johnw/.nix-profile/bin/date
+SED=/Users/johnw/.nix-profile/bin/sed
+TR=/Users/johnw/.nix-profile/bin/tr
+
+##############################################################################
+#
+# Extract interesting headers from the message
+#
+##############################################################################
+
+HDR_FIELDS="
+From:       `$FORMAIL -czxFrom:`
+To:         `$FORMAIL -czxTo:`
+Cc:         `$FORMAIL -czxCc:`
+Subject:    `$FORMAIL -czxSubject:`
+Date:       `$FORMAIL -czxDate:`
+List-Id:    `$FORMAIL -czxList-Id:`
+Message-Id: `$FORMAIL -czxMessage-Id:`
+Delivered:  at `$DATE +'%Y-%m-%d %H:%M:%S' | $TR -d '\n'`"
+
+##############################################################################
+#
+# Weed out mail with duplicate Message-Ids
+#
+##############################################################################
+
+:0 Whc: msgid.lock
+| $FORMAIL -D 65536 msgid.cache
+
+:0 aw
+| $DELIVER -e -m mail.dups
+
+##############################################################################
+#
+# GNUS must have unique message headers, generate one if it isn't there
+#
+##############################################################################
+
+:0 fhw
+| $FORMAIL -I "From " -a "From " -a Message-Id: -a "Subject: (none)" \
+    -a "Date: `$DATE +'%a, %d %b %Y %T %z' | $TR -d '\n'`"
+
+# ##############################################################################
+# #
+# # SpamAssassin rules
+# #
+# ##############################################################################
+# 
+# # The condition line ensures that only messages smaller than 250 kB (250 *
+# # 1024 = 256000 bytes) are processed by SpamAssassin. Most spam isn't bigger
+# # than a few k and working with big messages can bring SpamAssassin to its
+# # knees.
+# #
+# # The lock file ensures that only 1 spamassassin invocation happens at 1 time,
+# # to keep the load down.
+# :0 fw: spamassassin.lock
+# * < 256000
+# | $SPAMASSASSIN
+# 
+# # All mail with a virus is moved to mail.spam.virus
+# :0
+# * ^X-Spam-Virus: Yes
+# {
+#   LOG="${HDR_FIELDS} into mail.spam.virus
+# "
+#   :0 w
+#   | $DELIVER -e -m mail.spam.virus
+# }
+# 
+# # Mails with a score of 15 or higher are almost certainly spam (with 0.05%
+# # false positives according to rules/STATISTICS.txt). Let's put them in a
+# # different mbox. (This one is optional.)
+# :0
+# * ^X-Spam-Level: \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+# {
+#   LOG="${HDR_FIELDS} into mail.spam
+# "
+#   :0 w
+#   | $DELIVER -e -m mail.spam
+# }
+# 
+# # All mail tagged as spam (eg. with a score higher than the set threshold) is
+# # moved to "probably-spam".
+# :0
+# * ^X-Spam-Status: Yes
+# {
+#   LOG="${HDR_FIELDS} into mail.spam.maybe
+# "
+#   :0 w
+#   | $DELIVER -e -m mail.spam.maybe
+# }
+# 
+# # Work around procmail bug: any output on stderr will cause the "F" in "From"
+# # to be dropped.  This will re-add it.
+# :0
+# * ^^rom[ ]
+# {
+#   LOG="*** Dropped F off From_ header! Fixing up."
+#   
+#   :0 fhw
+#   | $SED -e '1s/^/F/'
+# }
+
+##############################################################################
+#
+# Deliver a copy of all mail to Dovecot, where it is filtered with Sieve
+#
+##############################################################################
+
+LOG="${HDR_FIELDS} via $DELIVER
+"
+
+:0 w
+| $DELIVER -e -m $1
+
+### .procmailrc ends here

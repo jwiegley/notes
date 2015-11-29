@@ -1,0 +1,33 @@
+21:34:50 Vulcan:~/Contracts/OSS/Projects/nixpkgs $ cd
+21:34:51 Vulcan:~ $ cd bae/seu
+21:34:52 Vulcan:~/bae/seu $ rm -fr result
+21:34:54 Vulcan:~/bae/seu $ nix-cabal-build
+these derivations will be built:
+  /nix/store/8zzrfzywfcgh5wyhvcaw53bb67mxvfi3-callgraph-0.2.0.drv
+building path(s) ‘/nix/store/flsv8hdbghzx69z9hhlavq3a4rx4wb7h-callgraph-0.2.0’
+dyld: Library not loaded: /usr/lib/libiconv.2.dylib
+  Referenced from: /nix/store/grsz1h933dj51dk9y1yzw0m6gnib6cnv-bash-4.3-p42/bin/bash
+  Reason: no suitable image found.  Did find:
+	/usr/lib/libiconv.2.dylib: stat() failed with errno=1
+	/usr/lib/libiconv.2.dylib: stat() failed with errno=1
+builder for ‘/nix/store/8zzrfzywfcgh5wyhvcaw53bb67mxvfi3-callgraph-0.2.0.drv’ failed due to signal 5 (Trace/BPT trap: 5)
+error: build of ‘/nix/store/8zzrfzywfcgh5wyhvcaw53bb67mxvfi3-callgraph-0.2.0.drv’ failed
+21:34:58 Vulcan:~/bae/seu $ /nix/store/grsz1h933dj51dk9y1yzw0m6gnib6cnv-bash-4.3-p42/bin/bash
+21:44:07 Vulcan:~/bae/seu $ sync
+22:24:49 Vulcan:~/bae/seu $ ^C
+22:24:59 Vulcan:~/bae/seu $ ^C
+22:25:00 Vulcan:~/bae/seu $ which nix-cabal-build
+/Users/johnw/bin/nix-cabal-build
+22:25:10 Vulcan:~/bae/seu $
+
+
+
+
+
+
+
+
+
+
+
+

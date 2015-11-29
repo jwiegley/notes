@@ -1,0 +1,44 @@
+Last login: Wed Oct 28 22:55:05 on ttys002
+11:17:08 Vulcan:~ $ cat /nix/store/kv7iddnxkwdp4lx827nx9zqn472p2hln-ProofGeneral-4.3pre150313.drv
+Derive([("out","/nix/store/gmqnn8k29v0szf4ghh2vjy8klmnfmi68-ProofGeneral-4.3pre150313","","")],[("/nix/store/5dn3c154rlyy8hxr7i64gap8a92ax334-emacs-24.5-mac-5.11.drv",["out"]),("/nix/store/cxf9bssqpgq21yjykri3899pn0k2zq79-perl-5.20.2.drv",["out"]),("/nix/store/i0rkqkjnc3afdg9hlqj8b8drwpqrp42v-which-2.21.drv",["out"]),("/nix/store/i12b6w9bac0s7ly9db2sv6rxkrms73h2-stdenv-darwin.drv",["out"]),("/nix/store/vcmybx9m22dqiyfrh8lp694pgs1vfkmz-texinfo-4.13a.drv",["out"]),("/nix/store/ypa5j31fzvyhc6dyqjdl0h5i8d4076db-bash-4.3-p42.drv",["out"]),("/nix/store/z7pycycwh17sx771h3lw82lhx8kgfvnh-ProofGeneral-4.3pre150313.tgz.drv",["out"])],["/nix/store/9krlzvny65gdc8s7kpb6lkx8cd02c25b-default-builder.sh","/nix/store/h9dkjbzcv4qfqcmfhyks2mrwpizpw410-pg.patch"],"x86_64-darwin","/nix/store/lqk1zn0p3b58x5fib175zi9nmz18r5g3-bash-4.3-p42/bin/bash",["-e","/nix/store/9krlzvny65gdc8s7kpb6lkx8cd02c25b-default-builder.sh"],[("__impureHostDeps","/System/Library/Frameworks/CoreFoundation.framework /usr/lib/libc++.1.dylib /usr/lib/libc++abi.dylib /usr/lib/libicucore.A.dylib /usr/lib/libz.1.dylib /usr/lib/libncurses.5.4.dylib /usr/lib/libSystem.dylib /usr/lib/libSystem.B.dylib /usr/lib/libobjc.A.dylib /usr/lib/libobjc.dylib /usr/lib/libauto.dylib /usr/lib/libc++abi.dylib /usr/lib/libc++.1.dylib /usr/lib/libDiagnosticMessagesClient.dylib /usr/lib/system /dev/zero /dev/random /dev/urandom /bin/sh"),("__propagatedImpureHostDeps",""),("buildInputs",""),("builder","/nix/store/lqk1zn0p3b58x5fib175zi9nmz18r5g3-bash-4.3-p42/bin/bash"),("installPhase","make install"),("name","ProofGeneral-4.3pre150313"),("nativeBuildInputs","/nix/store/1w8x5k80wjvqgcmgvr3fhmcv2c6wlpxd-emacs-24.5-mac-5.11 /nix/store/9pczbvy8rv0856rymkd3sh71gb84fcqy-texinfo-4.13a /nix/store/ykmj2ll3gwgx50y23avlxqjn5scxnxzc-perl-5.20.2 /nix/store/a39a0j1zir7fgydvqkx1r30yl9p4xw7v-which-2.21"),("out","/nix/store/gmqnn8k29v0szf4ghh2vjy8klmnfmi68-ProofGeneral-4.3pre150313"),("patches","/nix/store/h9dkjbzcv4qfqcmfhyks2mrwpizpw410-pg.patch"),("preBuild","make clean;\n"),("prePatch","sed -i \"Makefile\" \\\n          -e \"s|^\\(\\(DEST_\\)\\?PREFIX\\)=.*$|\\1=$out|g ; \\\n              s|/sbin/install-info|install-info|g\"\n\n\n      sed -i \"bin/proofgeneral\" -e's/which/type -p/g'\n\n      # @image{ProofGeneral} fails, so remove it.\n      sed -i '94d' doc/PG-adapting.texi\n      sed -i '96d' doc/ProofGeneral.texi\n"),("propagatedBuildInputs",""),("propagatedNativeBuildInputs",""),("sourceRoot","ProofGeneral-4.3pre150313"),("src","/nix/store/58nl00ncvrcqkmcfbmhl9b0c8qr635ig-ProofGeneral-4.3pre150313.tgz"),("stdenv","/nix/store/14l84j849p3v19drvbqg9yrihmpml49b-stdenv-darwin"),("system","x86_64-darwin")])11:17:09 Vulcan:~ $
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

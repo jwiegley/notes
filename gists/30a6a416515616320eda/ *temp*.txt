@@ -1,0 +1,6 @@
+After invoking the above
+sign/encrypt commands, it is possible to preview the raw article by
+using ‘C-u C-c RET P’ (‘mml-preview’).  Then you can verify that your
+long rant about what your ex-significant other or whomever actually did
+with that funny looking person at that strange party the other night,
+actually will be sent encrypted.

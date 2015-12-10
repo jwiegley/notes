@@ -1,0 +1,5 @@
+building path(s) ‘/nix/store/7zfs65pb5x0ys4198c9hvmkcb4qzwqyz-bootstrap-tools’
+dyld: Library not loaded: /nix/store/eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-Libsystem-1197.1.1/lib/libSystem.dylib
+  Referenced from: /nix/store/jgsqsxl1y3gpz54fs1n7bs2b76ygn33m-sh
+  Reason: no suitable image found.  Did find:
+	/usr/lib/libSystem.dylib: stat() failed with errno=1

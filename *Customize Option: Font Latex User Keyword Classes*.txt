@@ -1,0 +1,17 @@
+For help using this buffer, see [Easy Customization] in the [Emacs manual].
+
+                                         [ Search ]
+
+Operate on all settings in this buffer:
+[ Revert... ] [ Apply ] [ Apply and Save ]
+
+Hide Font Latex User Keyword Classes:
+[INS] [DEL] List:
+            Name: warning
+            Choice: [Value Menu] Keywords:
+            [INS] [DEL] Keyword: page
+            [INS]
+            Choice: [Value Menu] Face name: (sample) font-latex-warning-face
+            Type: [Value Menu] Command without arguments
+[INS]
+   [ State ]: SET for current session only.

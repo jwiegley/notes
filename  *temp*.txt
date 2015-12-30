@@ -1,0 +1,62 @@
+diff --git a/src/Firestone/Game.hs b/src/Firestone/Game.hs
+index 9272adb..8213459 100644
+--- a/src/Firestone/Game.hs
++++ b/src/Firestone/Game.hs
+@@ -47,15 +47,16 @@ Right x <-> _       = Right x
+ makeGame :: [Player] -> Int -> IdGenerator -> Game
+ makeGame ps turn idGen = execState start (Game ps turn idGen)
+
+-play :: (Monad m) => Game -> StateT Game m a -> m Game
+-play = flip execStateT
++play :: Game -> State Game a -> Game
++play = flip execState
+
+ playerInTurn :: MonadState Game m => m Player
+ playerInTurn = do
+     game <- get
+     return $ game^?!players.ix (game^.turn)
+
+-endTurn :: (MonadState Game m, Zoom (State Player) m Player Game) => m [Event]
++endTurn :: Zoom (State Player) (State Game) Player Game
++        => State Game [Event]
+ endTurn = do
+     playerCount <- uses players length
+     t <- turn <%= \x -> (x + 1) `mod` playerCount
+diff --git a/test/GameSpec.hs b/test/GameSpec.hs
+index eb7a709..3f09d79 100644
+--- a/test/GameSpec.hs
++++ b/test/GameSpec.hs
+@@ -27,7 +27,7 @@ spec = do
+             length (game^.players.ix 1.hand) `shouldBe` 4
+             length (game^.players.ix 0.deck.cards) `shouldBe` 2
+             length (game^.players.ix 1.deck.cards) `shouldBe` 2
+-            game2 <- play game $ replicateM 4 endTurn
++            let game2 = play game $ replicateM 4 endTurn
+             length (game2^.players.ix 0.hand) `shouldBe` 6
+             length (game2^.players.ix 1.hand) `shouldBe` 6
+             length (game2^.players.ix 0.deck.cards) `shouldBe` 0
+@@ -39,7 +39,7 @@ spec = do
+             length (game^.players.ix 1.deck.cards) `shouldBe` 0
+             game^?!players.ix 0.hero.health `shouldBe` 20
+             game^?!players.ix 1.hero.health `shouldBe` 20
+-            game2 <- play game $ replicateM 6 endTurn
++            let game2 = play game $ replicateM 6 endTurn
+             game2^?!players.ix 0.hero.health `shouldBe` 2
+             game2^?!players.ix 1.hero.health `shouldBe` 2
+
+@@ -59,7 +59,7 @@ spec = do
+             let p1 = game^?!players.ix 0
+             let p2 = game^?!players.ix 1
+             p1^.hero.health `shouldBe` 20
+-            game2 <- play game $ attack p1 (p1^?!activeMinions.ix 0.uuid) (p2^.hero.uuid)
++            let game2 = play game $ attack p1 (p1^?!activeMinions.ix 0.uuid) (p2^.hero.uuid)
+             game2^?!players.ix 1.hero.health `shouldBe` 18
+
+         it "can only attack on player's turn" $ do
+@@ -74,4 +74,4 @@ spec = do
+                     let p2m = p2^?!activeMinions.ix 0
+                     ca1 <- canAttack p1 p1m
+                     liftIO $ ca1 `shouldBe` True
+-            True `shouldBe` True
+\ No newline at end of file
++            True `shouldBe` True

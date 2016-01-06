@@ -1,0 +1,179 @@
+---
+title: Putting the 's' into the ST monad
+description: desc here
+tags: 
+date: [2015-01-22 Thu 17:21]
+category: Haskell
+---
+
+The ~ST~ monad can be quite useful, but is often misunderstood because of its
+use of a phantom type variable to guard leakage of ~STRef~ values.  In this
+article I look at how this safety works in practical terms, and talk about
+some uses for ~ST~.
+
+* A State of many types
+
+First of all, I assume the reader is somewhat familiar with the ~State~ monad,
+which lets us access or mutate a state variable of a given type:
+
+#+begin_src haskell
+State Int a
+#+end_src
+
+If we want to mutate several values of different types, we can use a tuple:
+
+#+begin_src haskell
+State (String, Int, Float) a
+#+end_src
+
+But what if we don't know what types our user may want to use in /their/
+stateful actions, which they will be composing with our actions?  That is, we
+want the mutable environment offered by ~State~, but without fixing which
+types will be modified.  This is where ~ST~ can help:
+
+#+begin_src haskell
+ST s a
+#+end_src
+
+Within the ~ST~ monad, we can create, read and write to ~STRef~ variables.
+These are a lot like local variables, because they are only visible to the
+~ST~ action which created them.  They also be of any type, exactly like
+~IORef~ variables, except that an ~IORef~ is a global value, accessible by any
+~IO~ action.
+
+* Scopes and variables
+
+But before we dig into the magic of this ~s~ type, let's create our own, much
+simpler version of ~ST~, one that is not even a monad.  I call it ~Scope~, and
+variables created within it have type ~Var~:
+
+#+begin_src haskell
+{-# LANGUAGE RankNTypes #-}
+
+module Scope where
+
+newtype Scope s a = Scope a
+
+data Var s a = Var { getVar :: a } deriving Show
+#+end_src
+
+Both of these types are tagged by a phantom type, but what does that do for
+us?  Mainly, it provides a way of relating a ~Var~ with a ~Scope~, if both
+share the same type for ~s~.  Here is how we might create a ~Var~ within a
+~Scope~:
+
+#+begin_src haskell
+makeVar :: Int -> Scope s (Var s Int)
+makeVar = Scope . Var
+#+end_src
+
+This ~makeVar~ function yields a ~Scope~ action that produces a ~Var~, related
+to that scope by its phantom variable.  It would make sense, then, that
+reading from such a ~Var~ also requires the types to match:
+
+#+begin_src haskell
+readVar :: Var s Int -> Scope s Int
+readVar = Scope . getVar
+#+end_src
+
+It is the phantom type ~s~ in both of these function types which ensures that
+variables created by one type of Scope are only read by that same type of
+Scope.  For example, a ~Var Float~ would only be accessible from a ~Scope
+Float~.  But the ~ST~ monad takes this one step further: Variables value
+created by a ~Scope s~ cannot by read by anyone but that /particular
+execution/ of ~Scope s~.  This is achieved by the function which executes the
+~Scope~:
+
+#+begin_src haskell
+runScope :: (forall s. Scope s a) -> a
+runScope (Scope x) = x
+#+end_src
+
+This is where ~RankNTypes~ comes into play.  The argument to this function
+must be a ~Scope~ whose ~s~ type variable is not fixed at any type.  If we
+pass in a ~Scope () Int~ action, we get an error that ~()~ does not match
+~s~.  Rather, we must pass in an action of type ~Scope s Int~, such that ~s~
+is a free type variable.
+
+If this sounds difficult, it's actually just what you get when you use
+do-notation:
+
+#+begin_src haskell
+main :: IO ()
+main = print $ runScope $ do
+    x <- makeVar 100
+    readVar x
+#+end_src
+
+The action represented by the due block has type ~Scope s Int~, or to be more
+specific, ~forall s. Scope s Int~, which is acceptable as an argument to the
+~runScope~ function.
+
+The ~forall s~ which is used for our action in the above code is called a
+[[http://stackoverflow.com/questions/12719435/what-are-skolems][skolem]], and has the special property that it can only unify with another
+~forall s~.  No other specific type can match this ~s~, which yields the
+derivative benefit that /no one but the action passed to ~runScope~ may use
+any of those variables created by that action/.
+
+Here is what happens if we try:
+
+#+begin_src haskell
+let x = runScope $ makeVar 100 :: Var s Int
+print (getVar x)
+#+end_src
+
+This gives the type error:
+
+#+begin_src output
+Couldn't match type ‘s1’ with ‘s2’
+      ‘s1’ is a rigid type variable bound by
+           an expression type signature: Var s1 Int
+           at /Users/johnw/src/notes/flycheck_Skolem.hs:30:13
+      ‘s2’ is a rigid type variable bound by
+           a type expected by the context: Scope s2 (Var s1 Int)
+           at /Users/johnw/src/notes/flycheck_Skolem.hs:30:13
+    Expected type: Scope s2 (Var s1 Int)
+      Actual type: Scope s2 (Var s2 Int)
+    In the second argument of ‘($)’, namely ‘makeVar 100’
+    In the expression: runScope $ makeVar 100 :: Var s Int
+#+end_src
+
+This is because the ~Var s Int~ you see above is using a different type for
+~s~.  It's not a polymorphic type, but a concrete type which is inferred by
+print (inference in this case picking an generated skolem named ~s2~).  And
+because the ~s2~ skolem is not the same type as the skolem generated by the
+call to ~runFoo~ (which in this case is ~s1~), our types fail to match and we
+get an error.
+
+This mechanism therefore provides a compile-time guarantee that all ~Var~
+variables produced by ~makeFoo~ remain local to the ~Scope~ that created
+them.
+
+* More compelling use case: vectors
+
+I mentioned above that ~ST~ can be used like a ~State~ monad over many types.
+While this is true, it is probably not the most common use case for ~ST~.  A
+much more practical use is the production of vectors by mutation.
+
+There are a few ways of producing a vector, which is a list of fixed length
+(and allocated to a contiguous block of memory by the ~vector~ package):
+
+ - Providing a list of values to populate the vector.
+ - Producing such a list by computation (for example, the number 0 repeated
+   100 times).
+ - Create an empty vector, and iteratively mutating it at various indices to
+   arrive at the final value.
+   
+When producing a vector by iterative mutation, two steps are required:
+
+ - First, create a mutable vector within a monad that allows for mutation.
+   Two such monads are supported by the vector package: ~IO~ and ~ST~.
+   
+ - Second, ~freeze~ the generated vector to produce an immutable value which
+   is returned from that monad.
+
+The advantage to using ~ST~ over ~IO~ to produce a vector by muted of
+generation, is that you are guaranteed by the types that nothing else will be
+taking place during that action.  ~IO~'s set of allowed side-effects is vastly
+larger than those required simply to produce vectors.  Conversely, an ~ST~
+action that yields a vector can do nothing else but produced that vector.

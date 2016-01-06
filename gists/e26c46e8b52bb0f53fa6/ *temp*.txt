@@ -1,0 +1,6 @@
+	/* If we reach here without going through the above initialization path then don't go through
+	 * with the teardown code path ( e.g. setjmp/longjmp ). Instead just exit this thread.
+	 */
+	if(self != pthread_self()) {
+		pthread_exit(PTHREAD_CANCELED);
+	}

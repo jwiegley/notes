@@ -1,0 +1,7 @@
+run :: Program -> State -> State
+run p = f
+  where 
+    f s = go s (fetch p s)
+
+    go s Nothing = s
+    go s (Just i) = f (eval s i)

@@ -1,0 +1,117 @@
+Head:     c8173f0 master Add Extra-source-files
+Upstream: 58ff3fb origin/master Merge pull request #28 from jwiegley/fix_quote_escaping
+Tag:      0.2.1
+
+Unstaged changes (2)
+modified   Nix/Eval.hs
+@@ -13,7 +13,7 @@ import           Data.Traversable as T
+ import           Nix.Types
+ import           Prelude hiding (mapM, sequence)
+ 
+-buildArgument :: Formals NValue -> NValue -> NValue
++buildArgument :: Formals (NValue m) -> NValue m -> NValue m
+ buildArgument paramSpec arg = either error (Fix . NVSet) $ case paramSpec of
+     FormalName name -> return $ Map.singleton name arg
+     FormalSet s Nothing -> lookupParamSet s
+@@ -28,10 +28,9 @@ buildArgument paramSpec arg = either error (Fix . NVSet) $ case paramSpec of
+         _               -> Left "Unexpected function environment"
+       _ -> error "Can't yet handle variadic param sets"
+ 
+-evalExpr :: NExpr -> NValue -> IO NValue
++evalExpr :: Monad m => NExpr -> NValue m -> m (NValue m)
+ evalExpr = cata phi
+   where
+-    phi :: NExprF (NValue -> IO NValue) -> NValue -> IO NValue
+     phi (NSym var) = \env -> case env of
+       Fix (NVSet s) -> maybe err return $ Map.lookup var s
+       _ -> error "invalid evaluation environment"
+@@ -95,22 +94,22 @@ evalExpr = cata phi
+         args <- traverse ($ env) a
+         return $ Fix $ NVFunction args b
+ 
+-evalString :: NValue -> NString (NValue -> IO NValue) -> IO Text
++evalString :: Monad m
++           => NValue m -> NString (NValue m -> m (NValue m)) -> m Text
+ evalString env (NString _ parts)
+   = Text.concat <$> mapM (runAntiquoted return (fmap valueText . ($ env))) parts
+-evalString env (NUri t) = return t
++evalString _env (NUri t) = return t
+ 
+-evalBinds :: Bool -> NValue -> [Binding (NValue -> IO NValue)] ->
+-  IO (Map.Map Text NValue)
++evalBinds :: Monad m => Bool -> NValue m -> [Binding (NValue m -> m (NValue m))] ->
++  m (Map.Map Text (NValue m))
+ evalBinds allowDynamic env xs = buildResult <$> sequence (concatMap go xs) where
+-  buildResult :: [([Text], NValue)] -> Map.Map Text NValue
++  buildResult :: [([Text], NValue m)] -> Map.Map Text (NValue m)
+   buildResult = foldl' insert Map.empty . map (first reverse) where
+     insert _ ([], _) = error "invalid selector with no components"
+     insert m (p:ps, v) = modifyPath ps (insertIfNotMember p v) where
+       alreadyDefinedErr = error $ "attribute " ++ attr ++ " already defined"
+       attr = show $ Text.intercalate "." $ reverse (p:ps)
+ 
+-      modifyPath :: [Text] -> (Map.Map Text NValue -> Map.Map Text NValue) -> Map.Map Text NValue
+       modifyPath [] f = f m
+       modifyPath (x:parts) f = modifyPath parts $ \m' -> case Map.lookup x m' of
+         Nothing                -> Map.singleton x $ g Map.empty
+@@ -123,10 +122,9 @@ evalBinds allowDynamic env xs = buildResult <$> sequence (concatMap go xs) where
+         | otherwise = alreadyDefinedErr
+ 
+   -- TODO: Inherit
+-  go :: Binding (NValue -> IO NValue) -> [IO ([Text], NValue)]
+   go (NamedVar x y) = [liftM2 (,) (evalSelector allowDynamic env x) (y env)]
+ 
+-  evalSelector :: Bool -> NValue -> NSelector (NValue -> IO NValue) -> IO [Text]
++  evalSelector :: Monad m => Bool -> NValue m -> NSelector (NValue m -> m (NValue m)) -> m [Text]
+   evalSelector dyn e = mapM evalKeyName where
+     evalKeyName (StaticKey k) = return k
+     evalKeyName (DynamicKey k)
+modified   Nix/Types.hs
+@@ -381,7 +381,7 @@ mkFunction params = Fix . NAbs params
+ 
+ -- | Shorthand for producing a binding of a name to an expression.
+ bindTo :: Text -> NExpr -> Binding NExpr
+-bindTo name val = NamedVar (mkSelector name) val
++bindTo = NamedVar . mkSelector
+ 
+ -- | Append a list of bindings to a set or let expression.
+ -- For example, adding `[a = 1, b = 2]` to `let c = 3; in 4` produces
+@@ -400,15 +400,15 @@ modifyFunctionBody f (Fix e) = case e of
+ 
+ -- | An 'NValue' is the most reduced form of an 'NExpr' after evaluation
+ -- is completed.
+-data NValueF r
++data NValueF m r
+     = NVConstant NAtom
+     | NVStr Text
+     | NVList [r]
+     | NVSet (Map Text r)
+-    | NVFunction (Formals r) (NValue -> IO r)
++    | NVFunction (Formals r) (NValue m -> m r)
+     deriving (Generic, Typeable, Functor)
+ 
+-instance Show f => Show (NValueF f) where
++instance Show f => Show (NValueF m f) where
+     showsPrec = flip go where
+       go (NVConstant atom) = showsCon1 "NVConstant" atom
+       go (NVStr      text) = showsCon1 "NVStr"      text
+@@ -419,9 +419,9 @@ instance Show f => Show (NValueF f) where
+       showsCon1 :: Show a => String -> a -> Int -> String -> String
+       showsCon1 con a d = showParen (d > 10) $ showString (con ++ " ") . showsPrec 11 a
+ 
+-type NValue = Fix NValueF
++type NValue m = Fix (NValueF m)
+ 
+-valueText :: NValue -> Text
++valueText :: Functor m => NValue m -> Text
+ valueText = cata phi where
+     phi (NVConstant a)   = atomText a
+     phi (NVStr t)        = t
+
+Unpulled commits (5)
+58ff3fb Merge pull request #28 from jwiegley/fix_quote_escaping
+a876d49 parseNixText function
+64a45f4 fix path pretty-printing
+f90bcc0 Merge pull request #27 from jwiegley/fix_quote_escaping
+892cad2 Correctly escape double quotes. Update nix files. Use quotes with reserved variable bindings
+

@@ -1,0 +1,9 @@
+C 1 BTC = 1000 mBTC
+
+2015/12/15 Sample 1
+    Assets:Coins                2.51 BTC
+    Equity:Opening Balances
+
+2015/12/15 Sample 2
+    Assets:Coins               2510 mBTC
+    Equity:Opening Balances

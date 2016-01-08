@@ -1,0 +1,299 @@
+{ pkgs }: {
+
+packageOverrides = super: let self = super.pkgs; in with self; rec {
+
+myHaskellPackages = self: super: with super.lib; {
+  newartisans = self.callPackage ~/doc/newartisans {
+    yuicompressor = pkgs.yuicompressor;
+  };
+};
+
+haskell7103Packages = super.haskell.packages.ghc7103.override {
+  overrides = myHaskellPackages;
+};
+
+ghc7103Env = pkgs.myEnvFun {
+  name = "ghc7103";
+  buildInputs = with haskell7103Packages; [
+    (haskell7103Packages.ghcWithPackages my-packages-7103)
+    (hoogle-local my-packages-7103 haskell7103Packages)
+
+    alex happy
+    cabal-install
+    ghc-core
+    ghc-mod
+    # hdevtools
+    hlint
+    simple-mirror
+    hasktags
+    # cabal-meta
+    # lambdabot djinn mueval
+    pointfree
+    idris
+    # threadscope
+    # timeplot splot
+    liquidhaskell
+  ];
+};
+
+my-packages-7103 = hp: with hp; [
+  # fixplate
+  # orgmode-parse
+  Boolean
+  # CC-delcont
+  HTTP
+  HUnit
+  IfElse
+  MemoTrie
+  MissingH
+  MonadCatchIO-transformers
+  QuickCheck
+  abstract-deque
+  abstract-par
+  adjunctions
+  aeson
+  # arithmoi
+  async
+  attempt
+  attoparsec
+  attoparsec-conduit
+  attoparsec-enumerator
+  base-unicode-symbols
+  base16-bytestring
+  base64-bytestring
+  basic-prelude
+  bifunctors
+  bindings-DSL
+  blaze-builder
+  blaze-builder-conduit
+  blaze-builder-enumerator
+  blaze-html
+  blaze-markup
+  blaze-textual
+  bool-extras
+  byteable
+  byteorder
+  bytes
+  bytestring-mmap
+  case-insensitive
+  cassava
+  categories
+  cereal
+  cereal-conduit
+  charset
+  chunked-data
+  classy-prelude
+  classy-prelude-conduit
+  cmdargs
+  comonad
+  comonad-transformers
+  compdata
+  composition
+  compressed
+  cond
+  conduit
+  conduit-combinators
+  conduit-extra
+  configurator
+  constraints
+  contravariant
+  convertible
+  cpphs
+  criterion
+  cryptohash
+  css-text
+  curl
+  data-checked
+  data-default
+  data-fin
+  data-fix
+  derive
+  distributive
+  dlist
+  dlist-instances
+  dns
+  doctest
+  # doctest-prop
+  either
+  enclosed-exceptions
+  errors
+  exceptions
+  exceptions
+  extensible-exceptions
+  failure
+  fast-logger
+  fgl
+  file-embed
+  filepath
+  fingertree
+  fmlist
+  foldl
+  folds
+  free
+  fsnotify
+  ghc-paths
+  # graphviz
+  groups
+  hamlet
+  hashable
+  hashtables
+  haskeline
+  haskell-lexer
+  haskell-src
+  haskell-src-exts
+  # haskell-src-meta
+  hfsevents
+  hoopl
+  hslogger
+  hspec
+  hspec-expectations
+  html
+  http-client
+  http-date
+  http-types
+  io-memoize
+  io-storage
+  io-streams
+  json
+  kan-extensions
+  keys
+  language-c
+  language-java
+  language-javascript
+  lattices
+  lens
+  lens-action
+  lens-aeson
+  lens-datetime
+  lens-family
+  lens-family-core
+  lifted-async
+  lifted-base
+  linear
+  # linearscan
+  # linearscan-hoopl
+  list-extras
+  list-t
+  logict
+  machines
+  mime-mail
+  mime-types
+  mmorph
+  monad-control
+  monad-coroutine
+  monad-loops
+  monad-par
+  monad-par-extras
+  monad-stm
+  monadloc
+  mono-traversable
+  monoid-extras
+  mtl
+  multimap
+  multirec
+  network
+  newtype
+  numbers
+  operational
+  optparse-applicative
+  pandoc
+  parallel
+  parallel-io
+  parsec
+  parsers
+  pipes
+  pipes-attoparsec
+  pipes-binary
+  pipes-bytestring
+  pipes-concurrency
+  pipes-extras
+  pipes-group
+  pipes-http
+  pipes-network
+  pipes-parse
+  pipes-safe
+  pipes-shell
+  pipes-text
+  pointed
+  posix-paths
+  postgresql-simple
+  pretty-show
+  profunctors
+  random
+  recursion-schemes
+  reducers
+  reflection
+  regex-applicative
+  regex-base
+  regex-compat
+  regex-posix
+  regular
+  resourcet
+  retry
+  # rex
+  safe
+  sbv
+  scalpel
+  scotty
+  semigroupoids
+  semigroups
+  shake
+  shakespeare
+  shelly
+  simple-reflect
+  # singletons
+  speculation
+  split
+  spoon
+  stm
+  stm-chans
+  stm-stats
+  streaming
+  streaming-bytestring
+  strict
+  stringsearch
+  strptime
+  syb
+  system-fileio
+  system-filepath
+  tagged
+  tar
+  tardis
+  tasty
+  tasty-hspec
+  tasty-hunit
+  tasty-quickcheck
+  tasty-smallcheck
+  temporary
+  text
+  text-format
+  these
+  thyme
+  time
+  time-recurrence
+  timeparsers
+  total
+  transformers
+  transformers-base
+  turtle
+  uniplate
+  # units
+  unix-compat
+  unordered-containers
+  uuid
+  vector
+  void
+  wai
+  warp
+  xhtml
+  yaml
+  zippers
+  zlib
+];
+
+};
+
+allowUnfree = true;
+allowBroken = true;
+
+}

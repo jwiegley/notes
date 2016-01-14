@@ -1,0 +1,35 @@
+    (* method: pop *)
+    {
+      unfold pop.
+      destruct r_o as [n v].
+      unfold VecAsList_AbsR in H0.
+      destruct_for_refine r_n; subst_evars.
+        destruct n.
+          simplify with monad laws; simpl.
+          rewrite H0.
+          refine pick eq.
+          simplify with monad laws; simpl.
+          reflexivity.
+        destruct v as [x' v']; simpl;
+        rewrite vec_seq_cons in H0.
+        discriminate.
+      destruct n.
+        destruct v.
+        simpl in H0.
+        discriminate.
+      destruct v as [x' v']; simpl;
+      simplify with monad laws; simpl.
+      rewrite vec_seq_cons in H0.
+      inversion H0.
+      rewrite H3.
+      refine pick eq.
+      simplify with monad laws; simpl.
+      instantiate
+        (1 := (fun (a : A) (l : seq A)
+                   (_ : (fun _ : seq A => Comp (seq A * option A)) l) =>
+                 ret (l, Some a))).
+      reflexivity.
+    }
+
+    finish_SharpeningADT_WithoutDelegation.
+  Defined.

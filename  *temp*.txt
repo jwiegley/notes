@@ -1,0 +1,11 @@
+   refine
+     (r_o' <- If 0 < n
+              Then {p : rep * option A |
+                   n = (projT1 p.1).+1 /\
+                   (forall (z : A) (H1 : p.2 = Some z),
+                    v =
+                    pop_obligation_1 (erefl (existT [eta Vec A] n v)) p H1
+                      (vcons z (projT2 p.1)))}
+              Else ret (existT [eta Vec A] n v, None);
+      r_n' <- {r_n0 : seq A | VecAsList_AbsR r_o'.1 r_n0};
+      ret (r_n', r_o'.2)) (H r_n)

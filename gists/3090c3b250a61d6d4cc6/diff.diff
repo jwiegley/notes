@@ -1,0 +1,64 @@
+--- old	2016-01-11 11:21:53.000000000 -0800
++++ new	2016-01-11 11:20:51.000000000 -0800
+@@ -152,7 +152,7 @@
+ checking for sys/resource.h... yes
+ checking for sys/utsname.h... yes
+ checking for pwd.h... yes
+-checking for utmp.h... yes
++checking for utmp.h... no
+ checking for util.h... yes
+ checking for sys/socket.h... yes
+ checking for stdlib.h... (cached) yes
+@@ -271,12 +271,12 @@
+ checking valgrind/valgrind.h presence... no
+ checking for valgrind/valgrind.h... no
+ checking for tzset... yes
+-checking for readlinkat... yes
++checking for readlinkat... no
+ checking for getdtablesize... yes
+-checking for faccessat... yes
++checking for faccessat... no
+ checking for fcntl... yes
+-checking for fdopendir... yes
+-checking for fstatat... yes
++checking for fdopendir... no
++checking for fstatat... no
+ checking for fsync... yes
+ checking for gettimeofday... yes
+ checking for nanotime... no
+@@ -390,14 +390,13 @@
+ checking for clock_settime... no
+ checking whether dup2 works... yes
+ checking for library containing backtrace_symbols_fd... none required
++checking for access... yes
+ checking whether fcntl handles F_DUPFD correctly... yes
+ checking whether fcntl understands F_DUPFD_CLOEXEC... yes
+ checking for fdatasync... yes
+-checking whether fdopendir is declared... yes
+-checking whether fdopendir works... yes
++checking whether fdopendir is declared... no
+ checking for __fpending... no
+ checking how to determine the number of pending output bytes on a stream... fp->_p - fp->_bf._base
+-checking whether fstatat (..., 0) works... yes
+ checking for getloadavg... yes
+ checking sys/loadavg.h usability... no
+ checking sys/loadavg.h presence... no
+@@ -464,6 +463,18 @@
+ checking for unsetenv... yes
+ checking for unsetenv() return type... int
+ checking whether unsetenv obeys POSIX... yes
++checking for euidaccess... no
++checking libgen.h usability... yes
++checking libgen.h presence... yes
++checking for libgen.h... yes
++checking for getgroups... yes
++checking for working getgroups... yes
++checking for library containing eaccess... no
++checking for eaccess... no
++checking for group_member... no
++checking for getgroups... (cached) yes
++checking for working getgroups... (cached) yes
++checking whether getgroups handles negative values... no
+ checking whether stat handles trailing slashes on directories... yes
+ checking whether stat handles trailing slashes on files... no
+ checking for __secure_getenv... no

@@ -1,0 +1,9 @@
+Goal forall (X : Type) (P : X -> Prop),
+  (exists x : X, P x -> False) <-> (forall x : X, P x) -> False.
+Proof.
+  split; intros.
+    destruct H.
+    apply H.
+    apply H0.
+  admit.                        (* nothing to do; I can't determine an 'x'. *)
+Qed.

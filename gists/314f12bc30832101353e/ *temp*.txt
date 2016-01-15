@@ -1,0 +1,6 @@
+hoogle-local = f: pkgs: with pkgs;
+  import ~/.nixpkgs/local.nix {
+    inherit stdenv hoogle rehoo ghc;
+    packages = f pkgs ++ [ cheapskate trifecta ];
+  };
+

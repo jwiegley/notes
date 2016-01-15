@@ -1,0 +1,26 @@
+--- /dev/fd/63	2016-01-11 13:04:14.186245000 -0800
++++ /dev/fd/62	2016-01-11 13:04:14.186534000 -0800
+@@ -1,12 +1,19 @@
+-	/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit (compatibility version 45.0.0, current version 1404.34.0)
++	/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit (compatibility version 45.0.0, current version 1348.17.0)
+ 	/System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices (compatibility version 1.0.0, current version 48.0.0)
+-	/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation (compatibility version 150.0.0, current version 1256.14.0)
+-	/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation (compatibility version 300.0.0, current version 1256.1.0)
++	/System/Library/Frameworks/Carbon.framework/Versions/A/Carbon (compatibility version 2.0.0, current version 157.0.0)
++	/System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa (compatibility version 1.0.0, current version 21.0.0)
++	/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation (compatibility version 150.0.0, current version 1153.18.0)
++	/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices (compatibility version 1.0.0, current version 62.0.0)
++	/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation (compatibility version 300.0.0, current version 1154.0.0)
+ 	/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit (compatibility version 1.0.0, current version 275.0.0)
++	/System/Library/Frameworks/OSAKit.framework/Versions/A/OSAKit (compatibility version 1.0.0, current version 102.0.0)
++	/System/Library/Frameworks/Quartz.framework/Versions/A/Quartz (compatibility version 1.0.0, current version 1.0.0)
++	/System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore (compatibility version 1.2.0, current version 1.10.0)
++	/System/Library/Frameworks/WebKit.framework/Versions/A/WebKit (compatibility version 1.0.0, current version 600.8.9)
+ 	/nix/store/703rz7v7m5ammjb3x3ik1v5svh5lj9qn-gnutls-3.4.6/lib/libgnutls.30.dylib (compatibility version 35.0.0, current version 35.0.0)
+ 	/nix/store/gmzglzhdgbjx80nizcxxyy5r8hp072d3-zlib-1.2.8/lib/libz.dylib (compatibility version 1.0.0, current version 1.2.8)
+ 	/nix/store/k8djcrp0gysxnmdjcf8mxhignlghrxzw-libxml2-2.9.2/lib/libxml2.2.dylib (compatibility version 12.0.0, current version 12.2.0)
+ 	/nix/store/kn1i9a6si3kskj25vsmv0ihh9rfgrdi4-Libsystem-1197.1.1/lib/libSystem.dylib (compatibility version 1.0.0, current version 1197.1.1)
+ 	/nix/store/p427bw6awm4rv8x3dph4za6gynp3062d-ncurses-5.9/lib/libncursesw.5.dylib (compatibility version 5.0.0, current version 5.0.0)
+ 	/usr/lib/libobjc.A.dylib (compatibility version 1.0.0, current version 228.0.0)
+-emacs24/result/Applications/Emacs.app/Contents/MacOS/Emacs:
++emacs24Macport/result/Applications/Emacs.app/Contents/MacOS/Emacs:

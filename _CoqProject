@@ -1,0 +1,3 @@
+-R ~/bae/rings/fiat/src Fiat
+-R ~/src/coq-haskell/src Hask
+./SetFunctor.v

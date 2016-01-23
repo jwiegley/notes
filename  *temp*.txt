@@ -1,0 +1,14 @@
+Inductive eq' : forall (A : Type), A -> A -> Prop :=
+  eq_refl' A : forall (x : A), eq' x x.
+
+Goal @eq nat 10 20 -> False.
+  intros.
+  inversion H.
+Qed.
+
+Goal @eq' nat 10 20 -> False.
+  intros.
+  try inversion H.
+  try destruct H; auto.
+  try intuition.
+Abort.

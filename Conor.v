@@ -1,4 +1,7 @@
+Require Export Hask.Ltac.
 Require Export Coq.Program.Equality.
+Require Export Coq.Unicode.Utf8.
+Require Export FunctionalExtensionality.
 Require Export Iso.
 Require Export Tuple.
 
@@ -41,7 +44,7 @@ Class Category {k} (cat : k → k → Type) := {
     compose : ∀ {a b c}, cat b c → cat a b → cat a c;
 
     id_left : ∀ {a} (f : cat a a), compose id f = f;
-    id_right : ∀ {a} (f : cat a a), compose f id = f;
+    id_right : ∀ {a} (f : cat a a), compose f id = f;     
     comp_assoc : ∀ {a b c d} (f : cat c d) (g : cat b c) (h : cat a b),
       compose f (compose g h) = compose (compose f g) h
 }.
@@ -64,11 +67,9 @@ Class PFunctor {I O} (F : (I → Type) → (O → Type)) := {
       pmap f :∘ pmap g = pmap (f :∘ g)
 }.
 
-Notation "pmap[ M ]  f" := (@pmap _ _ M _ _ _ f) (at level 28).
-Notation "pmap[ M N ]  f" :=
-  (@pmap _ _ (λ X, M (N X)) _ _ _ f) (at level 26).
-Notation "pmap[ M N O ]  f" :=
-  (@pmap _ _ (λ X, M (N (O X))) _ _ _ f) (at level 24).
+Notation "pmap[ M ]" := (@pmap _ _ M _ _ _) (at level 9).
+Notation "pmap[ M N ]" := (@pmap _ _ (λ X, M (N X)) _ _ _) (at level 9).
+Notation "pmap[ M N O ]" := (@pmap _ _ (λ X, M (N (O X))) _ _ _) (at level 9).
 
 Coercion pobj : PFunctor >-> Funclass.
 
@@ -203,10 +204,13 @@ Lemma path_pmap_compose : ∀ I (q r : I * I → Type)
   path_compose I r (path_pmap f z) (path_pmap f s) =
   path_pmap f (path_compose I q z s).
 Proof.
-  intros.
-  dependent induction z. auto.
-  dependent destruction s. auto.
-Admitted.
+  dependent induction z; auto.
+  dependent destruction s; auto.
+  simpl in *.
+  f_equal.
+  rewrite <- (IHz r f k).
+  f_equal.
+Qed.
 
 (** * PAssign *)
 
@@ -233,18 +237,6 @@ Obligation 2.
   inversion X0; subst.
   apply X. apply X1.
 Defined.
-Obligation 3.
-  unfold KeyIndex_Iso_obligation_1.
-  unfold KeyIndex_Iso_obligation_2.
-  unfold Basics.compose, Datatypes.id.
-  extensionality f.
-  extensionality x.
-  extensionality H.
-  inversion H; subst.
-  destruct H. simpl.
-  unfold eq_rect_r. simpl.
-  reflexivity.
-Qed.
 
 (** The following shows that a Path whose indices are fixed at unit is
     equivalent to a list. *)
@@ -267,6 +259,7 @@ Definition Path_to_list : ∀ {a}, Path (a ::= (tt, tt)) (tt, tt) → list a.
   apply IHX.
 Defined.
 
+(*
 Program Instance Path_List_Iso
   : ∀ a, list a ≅ Path (a ::= (tt, tt)) (tt, tt) := {
     to   := list_to_Path;
@@ -288,6 +281,7 @@ Obligation 2.
   dependent destruction g.
   reflexivity.
 Qed.
+*)
 
 (** * PMonad *)
 
@@ -411,14 +405,14 @@ Class IxFunctor {I O} (F : I → O → Type → Type) :=
 
 ; ixfun_identity : ∀ {I O X}, @ixmap I O _ _ (@id X) = id
 ; ixfun_composition : ∀ {I O X Y Z} (f : Y → Z) (g : X → Y),
-    ixmap f ∘ ixmap g = @ixmap I O _ _ (f ∘ g)
+    ixmap f \o ixmap g = @ixmap I O _ _ (f \o g)
 }.
 
 Notation "f <$$> g" := (ixmap f g) (at level 28, left associativity).
 
-Notation "ixmap[ M ]  f" := (@ixmap M _ _ _ f) (at level 28).
-Notation "ixmap[ M N ]  f" := (@ixmap (fun X => M (N X)) _ _ _ f) (at level 26).
-Notation "ixmap[ M N O ]  f" := (@ixmap (fun X => M (N (O X))) _ _ _ f) (at level 24).
+Notation "ixmap[ M ]" := (@ixmap M _ _ _) (at level 9).
+Notation "ixmap[ M N ]" := (@ixmap (fun X => M (N X)) _ _ _) (at level 9).
+Notation "ixmap[ M N O ]" := (@ixmap (fun X => M (N (O X))) _ _ _) (at level 9).
 
 Coercion ixobj : IxFunctor >-> Funclass.
 
@@ -452,7 +446,7 @@ Qed.
 
 Theorem ixfun_composition_x
   : forall {I O X Y Z} (f : Y -> Z) (g : X -> Y) (x : F I O X),
-  f <$$> (g <$$> x) = (f ∘ g) <$$> x.
+  f <$$> (g <$$> x) = (f \o g) <$$> x.
 Proof.
   intros.
   rewrite <- ixfun_composition.
@@ -486,7 +480,7 @@ Obligation 1.
 Qed.
 Obligation 2.
   destruct H. simpl in *.
-  unfold compose.
+  unfold comp.
   unfold pcompose in *.
   extensionality x.
   remember
@@ -535,8 +529,8 @@ Class IxApplicative {I} (F : I → I → Type → Type) :=
 ; ixapp_identity : ∀ {I X}, @ixap _ _ I _ _ (@ixpure I _ (@id X)) = id
 ; ixapp_composition
     : ∀ {I J K L X Y Z}
-             (u : F I J (Y → Z)) (v : F J K (X → Y)) (w : F K L X),
-    ixpure compose <**> u <**> v <**> w = u <**> (v <**> w)
+        (u : F I J (Y → Z)) (v : F J K (X → Y)) (w : F K L X),
+    ixpure comp <**> u <**> v <**> w = u <**> (v <**> w)
 ; ixapp_homomorphism : ∀ {I X Y} (x : X) (f : X → Y),
     ixpure f <**> ixpure x = @ixpure I _ (f x)
 ; ixapp_interchange : ∀ {I J X Y} (y : X) (u : F I J (X → Y)),
@@ -545,18 +539,18 @@ Class IxApplicative {I} (F : I → I → Type → Type) :=
 ; app_ixmap_unit : ∀ {I O X Y} (f : X → Y), ixap (ixpure f) = @ixmap _ _ _ _ I O _ _ f
 }.
 
-Notation "ixpure/ M" := (@ixpure M _ _) (at level 28).
-Notation "ixpure/ M N" := (@ixpure (fun X => M (N X)) _ _) (at level 26).
+Notation "ixpure[ M ]" := (@ixpure M _ _) (at level 9).
+Notation "ixpure[ M N ]" := (@ixpure (fun X => M (N X)) _ _) (at level 9).
 
-Notation "ixap[ M ]  f" := (@ixap M _ _ _ f) (at level 28).
-Notation "ixap[ M N ]  f" := (@ixap (fun X => M (N X)) _ _ _ f) (at level 26).
-Notation "ixap[ M N O ]  f" := (@ixap (fun X => M (N (O X))) _ _ _ f) (at level 24).
+Notation "ixap[ M ]" := (@ixap M _ _ _) (at level 9).
+Notation "ixap[ M N ]" := (@ixap (fun X => M (N X)) _ _ _) (at level 9).
+Notation "ixap[ M N O ]" := (@ixap (fun X => M (N (O X))) _ _ _) (at level 9).
 
 Notation "f <**> g" := (ixap f g) (at level 28, left associativity).
 
-Notation "[| f x y .. z |]" := (.. (f <$$> x <**> y) .. <**> z)
-    (at level 9, left associativity, f at level 9,
-     x at level 9, y at level 9, z at level 9).
+(* Notation "[| f x y .. z |]" := (.. (f <$$> x <**> y) .. <**> z) *)
+(*     (at level 9, left associativity, f at level 9, *)
+(*      x at level 9, y at level 9, z at level 9). *)
 
 Definition ixapp_merge {X Y Z W} (f : X → Y) (g : Z → W)
   (t : X * Z) : Y * W  :=
@@ -564,7 +558,7 @@ Definition ixapp_merge {X Y Z W} (f : X → Y) (g : Z → W)
 
 Definition ixapp_prod `{IxApplicative T F}
   {I J K X Y} (x : F I J X) (y : F J K Y)
-  : F I K (X * Y) := pair <$$> x <**> y.
+  : F I K (X * Y)%type := pair <$$> x <**> y.
 
 Notation "f *** g" := (ixapp_merge f g) (at level 28, left associativity).
 
@@ -581,11 +575,11 @@ Variables I : Type.
 Context `{@IxApplicative I F}.
 
 Theorem app_pmap_compose : ∀ I A B (f : A → B),
-  ixpure ∘ f = ixmap f ∘ @ixpure _ _ _ I _.
+  ixpure \o f = ixmap f \o @ixpure _ _ _ I _.
 Proof.
   intros.
   extensionality x.
-  unfold compose.
+  unfold comp.
   rewrite <- ixapp_homomorphism.
   rewrite app_ixmap_unit.
   reflexivity.
@@ -595,10 +589,10 @@ Theorem app_pmap_compose_x : ∀ J A B (f : A → B) (x : A),
   ixpure (f x) = ixmap f (@ixpure _ F _ J _ x).
 Proof.
   intros.
-  assert (ixpure (f x) = (@ixpure _ F _ J _ ∘ f) x).
-    unfold compose. reflexivity.
-  assert (ixmap f (ixpure x) = (ixmap f ∘ @ixpure _ _ _ J _) x).
-    unfold compose. reflexivity.
+  assert (ixpure (f x) = (@ixpure _ F _ J _ \o f) x).
+    unfold comp. reflexivity.
+  assert (ixmap f (ixpure x) = (ixmap f \o @ixpure _ _ _ J _) x).
+    unfold comp. reflexivity.
   rewrite H0. rewrite H1.
   rewrite app_pmap_compose.
   reflexivity.
@@ -628,7 +622,7 @@ Qed.
    http://www.haskell.org/haskellwiki/Typeclassopedia#IxApplicative
 *)
 Theorem ixapp_flip : ∀ {J K X Y} (x : F J K X) (f : X → Y),
-  ixpure f <**> x = ixpure (flip apply) <**> x <**> ixpure f.
+  ixpure f <**> x = ixpure (fun a b => b a) <**> x <**> ixpure f.
 Proof.
   intros.
   rewrite ixapp_interchange.
@@ -636,7 +630,7 @@ Proof.
   rewrite app_ixmap_unit.
   rewrite app_ixmap_unit.
   rewrite ixapp_homomorphism_2.
-  unfold compose.
+  unfold comp.
   rewrite app_ixmap_unit.
   reflexivity.
 Qed.
@@ -661,7 +655,7 @@ Proof.
   repeat (rewrite <- app_ixmap_unit).
   repeat (rewrite <- ixapp_composition).
   repeat (rewrite ixapp_homomorphism).
-  unfold uncurry, compose.
+  unfold uncurry, comp.
   reflexivity.
 Qed.
 
@@ -715,7 +709,7 @@ Qed.
     rewrite app_homomorphism.
     rewrite app_homomorphism.
     rewrite app_ixmap_unit.
-    unfold compose.
+    unfold comp.
     split.
       assert (pmap (fun x : A => (x, tt)) =
               (@from (F (A * unit)) (F A)
@@ -758,7 +752,7 @@ Proof.
   rewrite ixapp_interchange.
   rewrite app_ixmap_unit.
   rewrite ixfun_composition_x.
-  unfold compose.
+  unfold comp.
   reflexivity.
 Qed.
 
@@ -793,7 +787,7 @@ End IxApplicative.
 
 Program Instance Atkey_IxApplicative {I : Type} `{H : PMonad I F}
   : IxApplicative (Atkey F) := {
-  ixpure := fun _ _ x => pskip (V x)
+  ixpure := fun _ _ => pskip \o V
 }.
 Obligation 1.
   pose (@ibind I F H0 H I0 J K (X → Y) Y).
@@ -835,27 +829,74 @@ Obligation 2.
   apply (imonad_right_id0 (X ::= I0) (X ::= I0)).
   auto.
 Qed.
-Obligation 3. Admitted.
-Obligation 4. Admitted.
-Obligation 5. Admitted.
-Obligation 6. Admitted.
+Obligation 3.
+  unfold Atkey_IxApplicative_obligation_1; simpl.
+  unfold ibind, angbind.
+  rewrite imonad_left_id.
+  rewrite imonad_assoc.
+  rewrite imonad_assoc.
+  f_equal.
+  extensionality H1.
+  extensionality x.
+  destruct x.
+  unfold ireturn.
+  rewrite imonad_left_id.
+  rewrite imonad_assoc.
+  rewrite imonad_assoc.
+  f_equal.
+  extensionality x.
+  extensionality a.
+  destruct a.
+  rewrite imonad_left_id.
+  rewrite imonad_assoc.
+  f_equal.
+  extensionality H1.
+  extensionality x.
+  destruct x.
+  rewrite imonad_left_id.
+  reflexivity.
+Qed.
+Obligation 4.
+  unfold Atkey_IxApplicative_obligation_1; simpl.
+  unfold ibind, angbind.
+  rewrite imonad_left_id.
+  rewrite imonad_left_id.
+  reflexivity.
+Qed.
+Obligation 5.
+  unfold Atkey_IxApplicative_obligation_1; simpl.
+  unfold ibind, angbind.
+  rewrite imonad_left_id.
+  f_equal.
+  extensionality H1.
+  extensionality x.
+  destruct x.
+  rewrite imonad_left_id.
+  reflexivity.
+Qed.
+Obligation 6.
+  unfold Atkey_IxApplicative_obligation_1; simpl.
+  unfold ibind, ireturn, angbind.
+  extensionality x.
+  rewrite imonad_left_id.
+Admitted.
 
 Definition ixapp_unit `{IxApplicative _ F} : F unit unit unit := ixpure tt.
 
-Reserved Notation "m >>= f" (at level 25, left associativity).
+Reserved Notation "m >>>= f" (at level 25, left associativity).
 
 Class IxMonad {I} (M : I → I → Type → Type) :=
 { is_ixapplicative :> IxApplicative M
 
 ; ixbind : ∀ {I J K X Y}, M I J X → (X -> M J K Y) → M I K Y
-    where "m >>= f" := (ixbind m f)
+    where "m >>>= f" := (ixbind m f)
 
 ; ixmonad_left_id : ∀ {I O X Y} (f : X → M I O Y) (x : X),
-    ixpure x >>= f = f x
-; ixmonad_right_id : ∀ {I O X} (m : M I O X), m >>= ixpure = m
+    ixpure x >>>= f = f x
+; ixmonad_right_id : ∀ {I O X} (m : M I O X), m >>>= ixpure = m
 ; ixmonad_assoc : ∀ {I J K L X Y Z} (m : M I J X)
     (f : X → M J K Y) (g : Y → M K L Z),
-    (m >>= f) >>= g = m >>= (λ x, f x >>= g)
+    (m >>>= f) >>>= g = m >>>= (λ x, f x >>>= g)
 }.
 
 Program Instance Atkey_IxMonad {I : Type} `{H : PMonad I F}
@@ -1174,7 +1215,7 @@ Definition sor {I O} (x y : I ▷ O) : I ▷ O :=
   match y with {| Operations := P₂
                 ; Arities    := A₂
                 ; Sorts      := s₂ |} =>
-  {| Operations := λ x, P₁ x + P₂ x
+  {| Operations := λ x, (P₁ x + P₂ x)%type
 
    ; Arities := λ o op,
        match op with
@@ -1196,9 +1237,9 @@ Definition sor {I O} (x y : I ▷ O) : I ▷ O :=
 Definition sand {I O} (x y : I ▷ O) : I ▷ O.
   destruct x. destruct y.
   eapply
-    {| Operations := λ x, Operations0 x * Operations1 x
+    {| Operations := λ x, (Operations0 x * Operations1 x)%type
      ; Arities    := λ o op, let (op₁, op₂) := op in
-                             Arities0 o op₁ + Arities1 o op₂ |}.
+                             (Arities0 o op₁ + Arities1 o op₂)%type |}.
   Grab Existential Variables.
   intros.
   destruct op0.
@@ -1286,11 +1327,11 @@ Definition pget {I} {S : I → Type} {i} : PState S S i :=
 Definition pgets {I} {S T : I → Type} {i} (f : S :→ T) : PState S T i :=
   mkPState (fun s : S i => (f i s, s)).
 
-Definition pput {I} {S : I → Type} {i} (s : S i) : PState S (const unit) i :=
+Definition pput {I} {S : I → Type} {i} (s : S i) : PState S (fun _ => unit) i :=
   mkPState (fun _ : S i => (tt, s)).
 
 Definition pmodify {I} (S : I → Type) {i} (f : S :→ S)
-  : PState S (const unit) i :=
+  : PState S (fun _ => unit) i :=
   mkPState (fun s : S i => (tt, f i s)).
 
 Program Instance PState_PFunctor {I} (S : I → Type)

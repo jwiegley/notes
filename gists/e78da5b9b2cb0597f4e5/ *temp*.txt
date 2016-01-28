@@ -1,0 +1,22 @@
+Inductive eq' : forall (A : Type), A -> A -> Prop :=
+  eq_refl' A : forall (x : A), eq' A x x.
+
+Lemma should_be_true : forall A (x y : A), eq' A x y <-> x = y.
+Proof.
+  split; intros.
+    destruct H.
+    reflexivity.
+  rewrite H.
+  constructor.
+Qed.
+
+Goal @eq nat 10 20 -> False.
+  intros.
+  inversion H.
+Qed.
+
+Goal @eq' nat 10 20 -> False.
+  intros.
+  apply should_be_true in H.
+  inversion H.
+Qed.

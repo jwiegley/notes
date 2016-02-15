@@ -1,0 +1,37 @@
+    data FreeMonad t a = Return a | JoinLift (t (FreeMonad t a))
+
+Church-encoded, that is:
+    newtype FreeMonad t a = FreeMonad { forall r. (a -> r) -> (t r -> r) -> r }
+
+The last bit is Cont:
+    newtype FreeMonad t a = FreeMonad { forall r. (a -> r) -> Cont r (t r) }
+
+With composition:
+    newtype FreeMonad t a = FreeMonad { forall r. (a -> r) -> Compose (Cont r) t r }
+
+Yoneda tells us this is isomorphic to:
+    type FreeMonad t a = forall r. Compose (Cont r) t a
+
+Unrolling the composition:
+    type FreeMonad t a = forall r. Cont r (t a)
+
+Undoing the Cont:
+    type FreeMonad t a = forall r. (t a -> r) -> r
+
+Isomorphic to:
+    type FreeMonad t a = forall r. (t a -> r) -> Identity r
+
+Yoneda again:
+    type FreeMonad t a = Identity (t a)
+
+Undoing the Identity:
+    type FreeMonad t a = t a
+
+Also isomorphic to:
+    type FreeMonad t a = Condensity t a
+
+Or:
+    type FreeMonad t a = forall r. (a -> t r) -> t r
+
+Which brings us finally to:
+    type FreeMonad t a = forall r. ContT r t a

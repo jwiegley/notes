@@ -1,0 +1,15 @@
+Hey John, how are you doing?
+
+I wanted to give you a little update on the downloads page/Stack front: the
+downloads page currently links primarily to the minimal installers, which is
+contrary to what users voted on, and is not actively harmful
+
+The Stack team is receiving multiple bug reports due to the very out-of-date
+version of Stack present in the OS X minimal installer. This is wasting our
+time, and was the source of me commenting on Twitter
+
+I have no intention of getting dragged into another multi-week debate on this.
+But the only reasonable solution to this problem is to remove the minimal
+installers. I'd also say that removing the platform is the only logical move
+for that option, since it's clearly not catching up like it was claimed to be
+(still no Stack support, still has the harmful global databases, etc)

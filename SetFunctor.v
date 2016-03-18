@@ -7,15 +7,10 @@ Require Import mathcomp.ssreflect.path.
 
 Generalizable All Variables.
 
-Inductive Compare := Lt | Eq | Gt.
+Set Boolean Equality Schemes.
+Set Decidable Equality Schemes.
 
-Definition compare_eq (x y : Compare) :=
-  match x, y with
-  | Lt, Lt => True
-  | Eq, Eq => True
-  | Gt, Gt => True
-  | _,  _  => False
-  end.
+Inductive Compare := Lt | Eq | Gt.
 
 Class Ord (a : Type) := {
   compare : a -> a -> Compare

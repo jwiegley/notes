@@ -16,13 +16,14 @@ def download_gists(page):
     gists = json.load(u)
 
     for gist in gists:
-        call(['git', 
-              'subtree', 
-              'pull' if os.path.isdir('gists/' + gist['id']) else 'add',
-              '--prefix', 
-              'gists/' + gist['id'], 
-              gist['git_pull_url'], 
-              'master'])
+        if not os.path.isdir('gists/' + gist['id']):
+            call(['git', 
+                  'subtree', 
+                  'pull' if os.path.isdir('gists/' + gist['id']) else 'add',
+                  '--prefix', 
+                  'gists/' + gist['id'], 
+                  gist['git_pull_url'], 
+                  'master'])
 
 download_gists('1')
 download_gists('2')

@@ -1,0 +1,31 @@
+all: spv_test
+
+spv_test: spv
+	./result/bin/spv input.txt
+
+spv: SPV.hs					\
+	HString.hs				\
+	Main.hs					\
+	Setup.hs				\
+	spv.cabal
+	nix-build -E 'let pkgs = import <nixpkgs> {}; in pkgs.stdenv.lib.callPackageWith (pkgs // pkgs.profiledHaskell7102Packages) ./default.nix {}'
+
+SPV.hs: Makefile.coq				\
+	Distance.v				\
+	FiatExt.v				\
+	FoldComp.v				\
+	Notations.v				\
+	Q2R.v					\
+	SPV_fidl.v				\
+	SPV_haskell.v				\
+	SPV_impl.v				\
+	SPV_parser.v				\
+	SPV_spec.v				\
+	fixcode.pl
+	make -f Makefile.coq && perl -i fixcode.pl $@
+
+Makefile.coq: _CoqProject
+	coq_makefile -f $< -o $@
+
+clean:
+	rm -f *.glob *.v.d *.vo *.hi *.o Main result *.hp

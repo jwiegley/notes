@@ -1,0 +1,13 @@
+-R . Vignettes
+-R ../../coq-haskell/src Hask
+-R ../../fiat/src Fiat
+./Distance.v
+./Notations.v
+./FoldComp.v
+./FiatExt.v
+./SPV_fidl.v
+./SPV_spec.v
+./SPV_parser.v
+./SPV_monitor.v
+./SPV_impl.v
+./SPV_haskell.v

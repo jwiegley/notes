@@ -1,0 +1,72 @@
+Require Import Coq.Classes.Morphisms.
+Require Import Coq.Setoids.Setoid.
+Require Import FunctionalExtensionality.
+
+Definition comp {a b c} (f : b -> c) (g : a -> b) (x : a) : c := f (g x).
+Infix "∘" := comp (at level 50).
+
+Corollary f_comp {A B C} (f : B -> C) (g : A -> B) (z : A) :
+  f (g z) = (f ∘ g) z.
+Proof. reflexivity. Qed.
+
+Ltac exploit_identities :=
+  repeat (match goal with
+          | [ H : ?F ∘ ?G = id |- context[?F (?G ?X)] ] =>
+            rewrite (f_comp F), H; clear H
+          end; unfold id; simpl; auto).
+
+Definition isomorphic (X Y : Type) : Prop :=
+  exists (f : X -> Y) (g : Y -> X), f ∘ g = id /\ g ∘ f = id.
+Infix "≅" := isomorphic (at level 70).
+
+Program Instance Iso_Equivalence : Equivalence isomorphic.
+Obligation 1. intro x; do 2 exists id; firstorder. Qed.
+Obligation 2. firstorder. Qed.
+Obligation 3.
+  intros x y z H1 H2.
+  inversion H1 as [f0 H1']; clear H1.
+  inversion H1' as [f1 H]; clear H1'.
+  inversion H as [Hf01_id Hf10_id]; clear H.
+  inversion H2 as [g0 H2']; clear H2.
+  inversion H2' as [g1 H]; clear H2'.
+  inversion H as [Hg01_id Hg10_id]; clear H.
+  exists (g0 ∘ f0).
+  exists (f1 ∘ g1).
+  unfold comp.
+  split; extensionality w;
+  exploit_identities.
+Qed.
+
+Add Parametric Relation {A B : Type} : Type isomorphic
+  reflexivity  proved by (@Equivalence_Reflexive  _ _ Iso_Equivalence)
+  symmetry     proved by (@Equivalence_Symmetric  _ _ Iso_Equivalence)
+  transitivity proved by (@Equivalence_Transitive _ _ Iso_Equivalence)
+  as isomorphic_relation.
+
+Add Parametric Morphism {A} : (Basics.arrow A)
+  with signature (isomorphic ==> isomorphic)
+    as fun_ret_isomorphism.
+(* isomorphic inputs give isomorphic outputs *)
+Proof.
+  intros.
+  unfold Basics.arrow.
+  destruct H as [from_x].
+  destruct H as [to_x].
+  destruct H as [from_x0 to_x0].
+  unfold isomorphic.
+  exists (fun k a => from_x (k a)).
+  exists (fun k a => to_x (k a)).
+  unfold comp.
+  split;
+  extensionality k;
+  extensionality a;
+  exploit_identities.
+Qed.
+
+Lemma f_exp_iso : forall a b c, (b ≅ c) -> ((a -> b) ≅ (a -> c)).
+Proof.
+  intros.
+  (* exact (fun_ret_isomorphism _ _ _ H). *)
+  rewrite H.
+  reflexivity.
+Qed.

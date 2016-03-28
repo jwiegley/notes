@@ -8,4 +8,4 @@ newtype O a s  = O { runO :: a }
 newtype Ord_ a = Ord_ { compare_ :: a -> a -> Ordering }
 
 instance Reifies s (Ord_ a) => Ord (O a s) where
-    compare = reflect
+    compare x y = compare_ (reflect x) x y

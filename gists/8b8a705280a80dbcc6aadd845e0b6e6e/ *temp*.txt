@@ -1,0 +1,18 @@
+Definition lookup_total {B} : ∀ (m : list (nat * B)) a, In a (domain m) → 
+  {b | lookup a m = b}.
+Proof.
+  induction m; simpl; intros.
+    exists None.
+    reflexivity.
+  unfold lookup.
+  destruct a. simpl.
+  destruct (beq_nat a0 n) eqn:Heqe.
+    eexists.
+    reflexivity.
+  apply IHm.
+  intuition.
+  simpl in H0.
+  rewrite H0 in Heqe.
+  rewrite <- beq_nat_refl in Heqe.
+  discriminate.
+Defined.

@@ -1,0 +1,22 @@
+From: "John Wiegley" <johnw@newartisans.com>
+To: haskell-cafe@haskell.org, haskell@haskell.org,
+	haskell-community@haskell.org, committee@haskell.org
+Subject: ANN: New Haskell.org committee members
+Gcc: list.haskell.cafe
+Organization: New Artisans LLC
+--text follows this line--
+<#secure method=pgpmime mode=sign>
+The Haskell.org committee has selected new members following the March
+self-nomination period.
+
+The new (returning) member is:
+  * Gershom Bazerman
+
+Thank you to everyone who submitted a self-nomination.
+
+Note that if you have self-nominated in the past, but not been picked, please
+self-nominate again in the future.
+
+-- 
+John Wiegley                  GPG fingerprint = 4710 CF98 AF9B 327B B80F
+http://newartisans.com                          60E1 46C4 BD1A 7AC1 4BA2

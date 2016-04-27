@@ -1,0 +1,21 @@
+4 subgoals, subgoal 1 (ID 5270)
+  
+  Gamma : context
+  x : id
+  T : ty
+  t : tm
+  T2 : ty
+  T1 : ty
+  Ht : Gamma |- tabs x T t \in TProd T1 T2
+  S : ty
+  H : Gamma |- tabs x T t \in S
+  H0 : S <: TProd T1 T2
+  ============================
+   exists t1 t2 : tm, tabs x T t = tpair t1 t2
+
+subgoal 2 (ID 4966) is:
+ exists t1 t2 : tm, ttrue = tpair t1 t2
+subgoal 3 (ID 4969) is:
+ exists t1 t2 : tm, tfalse = tpair t1 t2
+subgoal 4 (ID 4975) is:
+ exists t1 t2 : tm, tunit = tpair t1 t2

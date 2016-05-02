@@ -20,7 +20,7 @@ instance (MonadBaseControl b m, Functor f)
     type StM (FreeT f m) a = StM m (FreeF f a (FreeT f m a))
     liftBaseWith f =
         FreeT $ fmap Pure $ liftBaseWith $ \runInBase ->
-            f $ \k -> runInBase $ runFreeT k
+            f $ \k -> runInBase (runFreeT k)
     restoreM = FreeT . restoreM
 
 data Pair a = Pair a a deriving Functor

@@ -1,0 +1,42 @@
+checking for X... no
+checking whether we are using the GNU C++ compiler... yes
+checking whether clang++ accepts -g... yes
+checking dependency style of clang++... gcc3
+checking what warning flags to pass to the C++ compiler... -Wimplicit -Wreturn-type -Wno-unknown-pragmas -Wno-write-strings
+checking how to run the C++ preprocessor... clang++ -E
+checking for ld used by clang++... /nix/store/pnv7v3jpc76kcfggx3dcv212l1j5ahfr-clang-wrapper-3.7.1/bin/ld
+checking if the linker (/nix/store/pnv7v3jpc76kcfggx3dcv212l1j5ahfr-clang-wrapper-3.7.1/bin/ld) is GNU ld... no
+checking whether the clang++ linker (/nix/store/pnv7v3jpc76kcfggx3dcv212l1j5ahfr-clang-wrapper-3.7.1/bin/ld) supports shared libraries... yes
+checking for clang++ option to produce PIC... -fno-common -DPIC
+checking if clang++ PIC flag -fno-common -DPIC works... yes
+checking if clang++ static flag -static works... no
+checking if clang++ supports -c -o file.o... yes
+checking if clang++ supports -c -o file.o... (cached) yes
+checking whether the clang++ linker (/nix/store/pnv7v3jpc76kcfggx3dcv212l1j5ahfr-clang-wrapper-3.7.1/bin/ld) supports shared libraries... yes
+checking dynamic linker characteristics... darwin14.5.0 dyld
+checking how to hardcode library paths into programs... immediate
+checking whether ln -s works... yes
+checking for TeX specific libraries to build... texk/kpathsea texk/ptexenc
+checking for pkg-config... pkg-config
+checking for freetype-config... freetype-config
+checking for icu-config... icu-config
+checking requested system `zlib' library... failed
+checking requested system `libpaper' library... failed
+checking requested system `freetype2' library... failed
+checking requested system `pixman' library... failed
+checking requested system `gmp' library... failed
+checking requested system `mpfr' library... failed
+checking requested system `poppler' library... failed
+checking requested system `xpdf' library... failed
+checking requested system `zziplib' library... failed
+checking requested system `graphite2' library... failed
+checking requested system `icu' library... failed
+checking requested system `harfbuzz' library... failed
+configure: error: some requested system libraries failed
++ echo 1
+done (exit status 1) Mon May 2 16:56:58 UTC 2016
+builder for ‘/nix/store/i38nvplfzd8w447h6vn4cx6gzym4s6vf-texlive-core-2014.drv’ failed with exit code 1
+cannot build derivation ‘/nix/store/9zvmqj27x7bzx7z20y827s365s4j12kl-TeXLive-linkdir.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/inbf4jcnnwlpgjz48lnwhviic0w50pbf-auctex-11.89.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/pkgwdifhcdzypn4bd7vn0lkryqj3ch9x-env-emacs24.drv’: 1 dependencies couldn't be built
+error: build of ‘/nix/store/pkgwdifhcdzypn4bd7vn0lkryqj3ch9x-env-emacs24.drv’ failed

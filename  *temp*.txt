@@ -1,0 +1,10 @@
+  Definition zip {X Y : Type} {n : nat} (lx : Vect X n) (ly : Vect Y n) : Vect (X*Y) n.
+  Proof.
+    destruct lx.
+      constructor.
+    induction ly.
+      constructor.
+    apply cons.
+    exact (x, x0).
+    exact IHly.
+  Defined.

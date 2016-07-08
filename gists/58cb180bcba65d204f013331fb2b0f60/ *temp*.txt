@@ -1,0 +1,11 @@
+  Require Import Coq.Program.Tactics.
+  Program Fixpoint zip {X Y : Type} {n : nat} (lx : Vect X n) (ly : Vect Y n) : Vect (X*Y) n :=
+    match lx in (Vect _ n0) return (Vect Y n0 -> Vect (X * Y) n0) with
+    | nil => fun _ : Vect Y 0 => nil
+    | @cons _ n0 h1 t1 =>
+      fun ly0 : Vect Y (S n0) =>
+        match ly0 in (Vect _ n1) return (S n0 = n1 -> Vect (X * Y) n1) with
+        | nil => fun H => False_rect _ _
+        | cons h2 t2 => fun H => rew H in cons (h1, h2) (zip t1 (rew <- eq_add_S _ _ H in t2))
+        end eq_refl
+    end ly.

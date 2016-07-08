@@ -10,6 +10,11 @@ data Of a b = Of a b deriving Functor
 
 newtype Mu f = Mu { runMu :: forall r. (f r -> r) -> r}
 
+(??) = flip
+
+foo :: Int -> [Int] -> Int
+foo z xs = foldr ?? z ?? xs $ \x rest -> rest
+
 muToStream :: Mu (Of a) -> [a]
 muToStream (Mu k) = k $ \(Of h t) -> h : t
 

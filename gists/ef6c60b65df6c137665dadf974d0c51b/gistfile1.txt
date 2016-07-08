@@ -1,0 +1,67 @@
+May  3 21:15:59 lion crsud[75]: crsud: Starting
+May  3 21:16:01 lion crsud[75]: crsud: Exiting.
+May  3 23:33:01 lion Installer[192]: @(#)PROGRAM:Install  PROJECT:Install-690
+May  3 23:33:01 lion Installer[192]: @(#)PROGRAM:Installer  PROJECT:Installer-538
+May  3 23:33:01 lion Installer[192]: Hardware: VMware7,1 @ 3.80 GHz, 4096 MB RAM
+May  3 23:33:01 lion Installer[192]: Running OS Build: Mac OS X 10.7.5 (11G63)
+May  3 23:33:01 lion Installer[192]: Env: PATH=/usr/bin:/bin:/usr/sbin:/sbin
+May  3 23:33:01 lion Installer[192]: Env: TMPDIR=/var/folders/57/b3dm9tcs5v752nctt95m7j640000gn/T/
+May  3 23:33:01 lion Installer[192]: Env: SHELL=/bin/bash
+May  3 23:33:01 lion Installer[192]: Env: HOME=/Users/johnw
+May  3 23:33:01 lion Installer[192]: Env: USER=johnw
+May  3 23:33:01 lion Installer[192]: Env: LOGNAME=johnw
+May  3 23:33:01 lion Installer[192]: Env: DISPLAY=/tmp/launch-wr9gwx/org.x:0
+May  3 23:33:01 lion Installer[192]: Env: SSH_AUTH_SOCK=/tmp/launch-IgLhgd/Listeners
+May  3 23:33:01 lion Installer[192]: Env: Apple_Ubiquity_Message=/tmp/launch-CFgzvi/Apple_Ubiquity_Message
+May  3 23:33:01 lion Installer[192]: Env: Apple_PubSub_Socket_Render=/tmp/launch-6tX0Xc/Render
+May  3 23:33:01 lion Installer[192]: Env: COMMAND_MODE=unix2003
+May  3 23:33:01 lion Installer[192]: Env: __CF_USER_TEXT_ENCODING=0x1F5:0:0
+May  3 23:33:01 lion Installer[192]: Haskell Platform 8.0.1  Installation Log
+May  3 23:33:01 lion Installer[192]: Opened from: /Users/johnw/Downloads/Haskell Platform 8.0.1 Full 64bit-signed-rc.pkg
+May  3 23:33:02 lion Installer[192]: Product archive /Users/johnw/Downloads/Haskell Platform 8.0.1 Full 64bit-signed-rc.pkg trustLevel=202
+May  3 23:33:06 lion Installer[192]: InstallerStatusNotifications plugin loaded
+May  3 23:33:08 lion Installer[192]: ================================================================================
+May  3 23:33:08 lion Installer[192]: User picked Standard Install
+May  3 23:33:08 lion Installer[192]: Choices selected for installation:
+May  3 23:33:08 lion Installer[192]: 	Install: "Haskell Platform 8.0.1"
+May  3 23:33:08 lion Installer[192]: 	Install: "(null)"
+May  3 23:33:08 lion Installer[192]: 		Haskell Platform 8.0.1 Full 64bit-signed-rc.pkg#GHC.pkg : GHC.pkg-ref : 20160422
+May  3 23:33:08 lion Installer[192]: 		Haskell Platform 8.0.1 Full 64bit-signed-rc.pkg#HaskellPlatform.pkg : Libraries.pkg-ref : 11
+May  3 23:33:08 lion Installer[192]: ================================================================================
+May  3 23:33:08 lion Installer[192]: It took 0.00 seconds to summarize the package selections.
+May  3 23:33:08 lion Installer[192]: -[IFDInstallController(Private) _buildInstallPlan]: location = file://localhost
+May  3 23:33:08 lion Installer[192]: -[IFDInstallController(Private) _buildInstallPlan]: file://localhost/Users/johnw/Downloads/Haskell%20Platform%208.0.1%20Full%2064bit-signed-rc.pkg#GHC.pkg
+May  3 23:33:08 lion Installer[192]: -[IFDInstallController(Private) _buildInstallPlan]: file://localhost/Users/johnw/Downloads/Haskell%20Platform%208.0.1%20Full%2064bit-signed-rc.pkg#HaskellPlatform.pkg
+May  3 23:33:08 lion Installer[192]: Set authorization level to root for session
+May  3 23:33:31 lion runner[211]: Administrator authorization granted.
+May  3 23:33:31 lion Installer[192]: Will use PK session
+May  3 23:33:31 lion Installer[192]: Starting installation:
+May  3 23:33:31 lion Installer[192]: Configuring volume "Macintosh HD"
+May  3 23:33:31 lion Installer[192]: Preparing disk for local booted install.
+May  3 23:33:31 lion Installer[192]: Free space on "Macintosh HD": 68.37 GB (68370059264 bytes).
+May  3 23:33:31 lion Installer[192]: Create temporary directory "/var/folders/57/b3dm9tcs5v752nctt95m7j640000gn/T//Install.192FQnXCT"
+May  3 23:33:31 lion Installer[192]: IFPKInstallElement (2 packages)
+May  3 23:33:31 lion Installer[192]: Using authorization level of root for IFPKInstallElement
+May  3 23:33:31 lion installd[214]: PackageKit: ----- Begin install -----
+May  3 23:33:31 lion installd[214]: PackageKit: request=PKInstallRequest <2 packages, destination=/>
+May  3 23:33:31 lion installd[214]: PackageKit: packages=(
+	    "PKLeopardPackage <file://localhost/Users/johnw/Downloads/Haskell%20Platform%208.0.1%20Full%2064bit-signed-rc.pkg#GHC.pkg>",
+	    "PKLeopardPackage <file://localhost/Users/johnw/Downloads/Haskell%20Platform%208.0.1%20Full%2064bit-signed-rc.pkg#HaskellPlatform.pkg>"
+	)
+May  3 23:33:33 lion installd[214]: PackageKit: Extracting file://localhost/Users/johnw/Downloads/Haskell%20Platform%208.0.1%20Full%2064bit-signed-rc.pkg#GHC.pkg (destination=/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/Cleanup At Startup/PKInstallSandbox-tmp/Root/Library/Frameworks, uid=0)
+May  3 23:34:49 lion installd[214]: PackageKit: Extracting file://localhost/Users/johnw/Downloads/Haskell%20Platform%208.0.1%20Full%2064bit-signed-rc.pkg#HaskellPlatform.pkg (destination=/var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/Cleanup At Startup/PKInstallSandbox-tmp/Root/Library/Haskell, uid=0)
+May  3 23:35:17 lion installd[214]: PackageKit: Shoving /var/folders/zz/zyxvpxvq6csfxvn_n0000000000000/Cleanup At Startup/PKInstallSandbox-tmp/Root (1 items) to /
+May  3 23:35:17 lion installd[214]: PackageKit: Executing script "./postinstall" in /private/tmp/PKInstallSandbox.6HuML6/Scripts/org.haskell.HaskellPlatform.Libraries.80-full.pkg.wrE1X5
+May  3 23:35:17 lion installd[214]: ./postinstall: Can't parse 8.0.0.20160421 as a GHC version
+May  3 23:35:17 lion installd[214]: ./postinstall: The file /Library/Haskell/doc/start.html does not exist.
+May  3 23:35:17 lion installd[214]: PackageKit: Install Failed: Error Domain=PKInstallErrorDomain Code=112 "An error occurred while running scripts from the package “Haskell Platform 8.0.1 Full 64bit-signed-rc.pkg”." UserInfo=0x7f8e72630390 {NSFilePath=./postinstall, NSURL=file://localhost/Users/johnw/Downloads/Haskell%20Platform%208.0.1%20Full%2064bit-signed-rc.pkg#HaskellPlatform.pkg, PKInstallPackageIdentifier=org.haskell.HaskellPlatform.Libraries.80-full.pkg, NSLocalizedDescription=An error occurred while running scripts from the package “Haskell Platform 8.0.1 Full 64bit-signed-rc.pkg”.} {
+	    NSFilePath = "./postinstall";
+	    NSLocalizedDescription = "An error occurred while running scripts from the package \U201cHaskell Platform 8.0.1 Full 64bit-signed-rc.pkg\U201d.";
+	    NSURL = "file://localhost/Users/johnw/Downloads/Haskell%20Platform%208.0.1%20Full%2064bit-signed-rc.pkg#HaskellPlatform.pkg";
+	    PKInstallPackageIdentifier = "org.haskell.HaskellPlatform.Libraries.80-full.pkg";
+	}
+May  3 23:35:17 lion Installer[192]: install:didFailWithError:Error Domain=PKInstallErrorDomain Code=112 "An error occurred while running scripts from the package “Haskell Platform 8.0.1 Full 64bit-signed-rc.pkg”." UserInfo=0x7f8bf48c6d60 {NSFilePath=./postinstall, NSURL=file://localhost/Users/johnw/Downloads/Haskell%20Platform%208.0.1%20Full%2064bit-signed-rc.pkg#HaskellPlatform.pkg, PKInstallPackageIdentifier=org.haskell.HaskellPlatform.Libraries.80-full.pkg, NSLocalizedDescription=An error occurred while running scripts from the package “Haskell Platform 8.0.1 Full 64bit-signed-rc.pkg”.}
+May  3 23:35:18 lion Installer[192]: Install failed: The Installer encountered an error that caused the installation to fail. Contact the software manufacturer for assistance.
+May  3 23:35:18 lion Installer[192]: IFDInstallController F3C4EF70 state = 7
+May  3 23:35:18 lion Installer[192]: Displaying 'Install Failed' UI.
+May  3 23:35:18 lion Installer[192]: 'Install Failed' UI displayed message:'The Installer encountered an error that caused the installation to fail. Contact the software manufacturer for assistance.'.

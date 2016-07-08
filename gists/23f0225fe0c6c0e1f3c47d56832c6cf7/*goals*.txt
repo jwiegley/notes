@@ -1,0 +1,14 @@
+1 subgoals, subgoal 1 (ID 18258)
+  
+  Gamma : context
+  T1 : ty
+  T2 : ty
+  s : tm
+  Ht : Gamma |- s \in TProd T1 T2
+  Hv : value s
+  S : ty
+  H : Gamma |- s \in S
+  H0 : S <: TProd T1 T2
+  ============================
+   exists t1 t2 : tm, s = tpair t1 t2
+

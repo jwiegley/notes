@@ -1,0 +1,8 @@
+You can use Lisp expressions to calculate parts of the replacement
+string.  To do this, write `\,' followed by the expression in the
+replacement string.  Each replacement calculates the value of the
+expression and converts it to text without quoting (if it's a string,
+this means using the string's contents), and uses it in the replacement
+string in place of the expression itself.  If the expression is a
+symbol, one space in the replacement string after the symbol name goes
+with the symbol name, so the value replaces them both.

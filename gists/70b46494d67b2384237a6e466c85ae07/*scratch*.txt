@@ -1,0 +1,23 @@
+The functional programming community is a place where people of many
+backgrounds may unite in a common interest. For this to happen, everyone must
+feel welcome, and that their unique positions are respected and encouraged. No
+matter what language, framework, or paradigm a person uses, LambdaConf should
+be a place for sharing ideas and pursuing the united goal of furthering
+functional computing.
+
+At the same time technical interests are to be respected, the individuals who
+express those interests must be as well. If there are perceived biases along
+lines of gender, age, nationality, or any other preference, it creates
+unnecessary division and promotes the comfort of one group against that of
+another.
+
+Inviting a speaker with outspoken opinions against the very character of other
+attendees sends a mixed message: That the freedoms of one person may be held
+above the rights of others, and that opinions are supported which actually
+denigrate other attendees.
+
+We ask that Curtis Yarvin's offer to speak at this year's conference be
+withdrawn, in order to send the message that his racial views are not
+insignificant compared to his technical views, and that the goal of a united
+atmosphere is impossible unless every attendee is respected, whether
+explicitly and implicitly.

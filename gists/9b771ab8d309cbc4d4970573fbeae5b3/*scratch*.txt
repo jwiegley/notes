@@ -1,0 +1,12 @@
+Variable X : Type.
+
+Definition nat := (X -> X) -> X -> X.
+
+Definition succ (n : nat) : nat :=
+  fun (f : X -> X) (x : X) => n X f (f x).
+
+Definition plus (n m : nat) : nat :=
+  fun (f : X -> X) (x : X) => (n X f) (m X f x).
+
+Definition plus' (n m : nat) : nat :=
+  fun (f : X -> X) (x : X) => (n nat succ m) X f x.

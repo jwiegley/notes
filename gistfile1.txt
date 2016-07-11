@@ -1,0 +1,1066 @@
+upgrading ‘publishTools’ to ‘publishTools’
+upgrading ‘ledger-3.1.0.20141005’ to ‘ledger-3.1.1’
+warning: dumping very large path (> 256 MiB); this may run out of memory
+upgrading ‘env-emacsHEADalt’ to ‘env-emacsHEADalt’
+upgrading ‘env-emacsHEAD’ to ‘env-emacsHEAD’
+upgrading ‘perlTools’ to ‘perlTools’
+upgrading ‘pythonTools’ to ‘pythonTools’
+upgrading ‘rubyTools’ to ‘rubyTools’
+upgrading ‘serviceTools’ to ‘serviceTools’
+upgrading ‘gitTools’ to ‘gitTools’
+upgrading ‘langTools’ to ‘langTools’
+upgrading ‘mailTools’ to ‘mailTools’
+upgrading ‘nix-prefetch-scripts’ to ‘nix-prefetch-scripts’
+upgrading ‘buildTools’ to ‘buildTools’
+upgrading ‘cabal2nix-20160406’ to ‘cabal2nix-20160613-10-g57dddc7’
+upgrading ‘coreutils-8.25’ to ‘coreutils-8.25’
+upgrading ‘env-agda’ to ‘env-agda’
+upgrading ‘env-coq85’ to ‘env-coq85’
+upgrading ‘env-ghc710’ to ‘env-ghc710’
+upgrading ‘env-coq84’ to ‘env-coq84’
+upgrading ‘networkTools’ to ‘networkTools’
+upgrading ‘systemTools’ to ‘systemTools’
+these derivations will be built:
+  /nix/store/jk3w2nvij6aw2c3psba0pq384xfgpgdh-512.patch.drv
+  /nix/store/nkwx7im0yaswi3p4zjmm4w2q9gs5mvf7-ghc-8.0.1.drv
+  /nix/store/mhkh6y5qm6f6ialg901jdwkki3l7y3f1-hscolour-1.24.1.drv
+  /nix/store/wdg0sbgi2g8g48d091fcyspvn3bjlkab-data-default-class-0.0.1.drv
+  /nix/store/8hkyyc967clx2rn0zlywcqz4zlvi23vd-data-default-instances-containers-0.0.1.drv
+  /nix/store/ch8kri41mli3vrbsp126vhm37ifbqim4-data-default-instances-base-0.1.0.drv
+  /nix/store/3f72yiaf4n3a41x69avlpj8n8gh7l2gb-primitive-0.6.1.0.drv
+  /nix/store/v72fgglq96s00hmvgvk9rmpp618cvjby-random-1.1.drv
+  /nix/store/0p3a69b1294djkpnlada8lavc0zj2hxa-tf-random-0.5.drv
+  /nix/store/77j1rig9ld78zr7rbvkplz4k419cwxkk-hostname-1.0.drv
+  /nix/store/5pv0c9q2pvz05cyj96ky9f1fsfv04w83-mtl-2.2.1.drv
+  /nix/store/1w0362d9hh4g0spq99k5qjjlswin28ln-regex-base-0.93.2.drv
+  /nix/store/8pxkr60hyw0hk2n8vfyf0l8dgrcnlf7s-regex-posix-0.95.2.drv
+  /nix/store/jdkb6qyha9kviav6sib33f9vip0q7z6f-old-locale-1.0.0.7.drv
+  /nix/store/zniqw8sl5icf447f7ckgvf60n7h23mc3-text-1.2.2.1.drv
+  /nix/store/kkkrz4bxfwdq7la5lhwgwgmbczii4qkp-xml-1.3.14.drv
+  /nix/store/kvnzbyj6g3dbd470g44wqlnm8b8yqw57-ansi-terminal-0.6.2.3.drv
+  /nix/store/rzlsjsn21byw5qqj7i8nqamnqvr6wj5f-ansi-wl-pprint-0.6.7.3.drv
+  /nix/store/c3ad5dvg33z7r2f0dr9wbx69zcki5ls5-test-framework-0.8.1.1.drv
+  /nix/store/0zhanl5s1n9pswrq9ldqwjy1a4qirg38-QuickCheck-2.8.2.drv
+  /nix/store/k8pfzgr5pg1b4mi0vxdjkgqpj6kqbg0h-dlist-0.7.1.2.drv
+  /nix/store/k60w9nfxw7d6nxh4dbks82nbzgy8qbsp-data-default-instances-dlist-0.0.1.drv
+  /nix/store/vqwil5zr9lqigv8fn9yx3a1fhj0wfkr3-data-default-instances-old-locale-0.0.1.drv
+  /nix/store/03j7r9zzvb8ym1iw1p7xx1vx6nnrppwf-data-default-0.6.0.drv
+  /nix/store/bkkz559c0hvh4d6ckb2m5im7w9z8y22l-parsec-3.1.11.drv
+  /nix/store/04ic8aq7dnzbcy9dps3d99qcnwrkxjgs-regex-tdfa-1.2.2.drv
+  /nix/store/1hap1gccvi66b8giq022vg9rjrjmi7hp-gobject-introspection-1.48.0.drv
+  /nix/store/9zzbsyfjlk2q25j0mkpj1x9n0v4g0j7q-gdk-pixbuf-2.34.0.drv
+  /nix/store/vwsjwawpv16zc3raq3gml5yiq920p0i5-atk-2.20.0.drv
+  /nix/store/ykli9k75i062zi31glh2pcy5p9ivk54m-pango-1.40.1.drv
+  /nix/store/69x1sz4zwghml96qgbl2v05rx3ijrnhs-gtk+-2.24.30.drv
+  /nix/store/4pah3plx8kz57addwhv7naiwijb44yf4-gtksourceview-2.10.5.drv
+  /nix/store/zn02iij3p78g0g31lrx6vsw0p3f4gr8h-libglade-2.6.4.drv
+  /nix/store/w3fv0i4hkhgbvzizmfcivbjv9gab9av1-libgnomecanvas-2.30.3.drv
+  /nix/store/ssxa9q0cacbrnabzgaxh3dzv3k4mmw6c-lablgtk-2.18.3.drv
+  /nix/store/06d8ldwb9kfcvjx9v6mihv9vl4w3bgzy-coq-8.4pl6.drv
+  /nix/store/ffi8hjy63m8agp0yagvj93jaqw973mhm-python2.7-virtualenv-13.1.2.drv
+  /nix/store/dvj1yji544nww864cg48w07qv85fgx9b-python2.7-py-1.4.31.drv
+  /nix/store/qdfjwsnsk9b4bvqms5ppssm7ch2xryi8-python2.7-pytest-2.9.2.drv
+  /nix/store/79dzm1d8dmbvn3n0dm9ji362vnzca060-python2.7-six-1.10.0.drv
+  /nix/store/84m6ccp7h8acd7cmd78w3asayj8s0lxl-python2.7-argparse-1.4.0.drv
+  /nix/store/4k0x8jhhrj1wllbip7dqdgn358bx7479-python2.7-pbr-1.8.1.drv
+  /nix/store/vfzf1qs5lcjf0675432wfq62dj0192fv-python2.7-linecache2-1.0.0.drv
+  /nix/store/iihydi9c731jpqackz635pm7kzhbfflv-python2.7-traceback2-1.4.0.drv
+  /nix/store/hvlgf3lwxbqdhm97j6l11p7vb3mllfdj-python2.7-unittest2-1.1.0.drv
+  /nix/store/25cvrv6zal6rqdkssv7ws1p5bcak0dg6-python2.7-funcsigs-0.4.drv
+  /nix/store/fmb4i4navmjs2vry8cg1m0pkh8z7yvrk-python2.7-mock-1.3.0.drv
+  /nix/store/ijbhrdx6ww33q2gjibjl8fkm2lk8xgab-python2.7-scripttest-1.3.drv
+  /nix/store/nv0ihapyz6hzcg29kh4jwlvq6yjkr8sj-python2.7-pretend-1.0.8.drv
+  /nix/store/f4w584ici0xhqg5rn5hnmjalh5fxksir-python2.7-pip-8.1.2.drv
+  /nix/store/07g1jm4v1ajfx089sgaf49fc2lqf845i-python2.7-setuptools_scm-1.10.1.drv
+  /nix/store/qhq3d5dzngdns6hvc0vpb3fq1kp8b2ah-HUnit-1.3.1.1.drv
+  /nix/store/5m796k63k1y4jn4b1fvf6g808wqp0z26-hspec-expectations-0.7.2.drv
+  /nix/store/8kc8pacnhzflaqcfr5frg6cdvkv6m0r6-setenv-0.1.1.3.drv
+  /nix/store/41b6fkfsj56mcrk5lhpy7af9yi9lfvkf-nanospec-0.2.1.drv
+  /nix/store/9f6y5i45kvfvd9p1d9ww4g60xz5s6dlc-transformers-compat-0.5.1.4.drv
+  /nix/store/fw5d4bsg0cqp3kjm0kv5i5hz3gdaza0n-stm-2.4.4.1.drv
+  /nix/store/2drfpa04jahmcghaslgf0hbzqpqn2ahc-exceptions-0.8.2.1.drv
+  /nix/store/bwn20sqpwjigc4y248391fzjzz76s0zz-temporary-1.2.0.4.drv
+  /nix/store/dv2791r2v086dmmwjj2a11s77l5q9p1d-silently-1.2.5.drv
+  /nix/store/k9cxs5ddbbh80lh1l7yk7r1bmzf392pg-quickcheck-io-0.1.2.drv
+  /nix/store/i00h6b4hdjp7zk64m4pxh24pid7gn8x9-extensible-exceptions-0.1.1.4.drv
+  /nix/store/xinpis1wrqgxijawk39rslwb81g3dm3q-test-framework-hunit-0.3.0.2.drv
+  /nix/store/xlidr46h8f2jd4l37v09vplhm1m5g1cn-async-2.1.0.drv
+  /nix/store/j15vnxz2lzbcpiq7p5npwh7lbwwmr136-hspec-meta-2.2.1.drv
+  /nix/store/2m1acm56myv1lpd5da1ppfrjqq2f7ya5-hspec-core-2.2.3.drv
+  /nix/store/8pzi91l5qrznq6jhvhwgbv1h8pajklf3-stringbuilder-0.5.0.drv
+  /nix/store/xxfp4jd24vm66jl8d8k3frnjgfk42zls-hspec-discover-2.2.3.drv
+  /nix/store/pa9ryarc69a5gz9mjwrdspy9iv5s1zlf-hspec-2.2.3.drv
+  /nix/store/09c7m3dlf1f0laif87abzmsn02d81d37-hspec-contrib-0.3.0.drv
+  /nix/store/0gcnw5413qs6jvvdi7lm6w85mb9x1zgq-python2.7-greenlet-0.4.7.drv
+  /nix/store/1r1nf4d6w06d90sd5ch4rsjmmfp9fwck-stringbuilder-0.5.0.drv
+  /nix/store/22qr0v1i35l2ni0m8kr518341n63zinw-with-location-0.1.0.drv
+  /nix/store/fv5pdiqvdnnjldakg5n933i7qiq9cm2c-base-compat-0.9.1.drv
+  /nix/store/rxdny12chcz5nzg8h4q5hgry58yhbwfp-ghc-paths-0.1.0.9.drv
+  /nix/store/ss4xl07vn9z3k49mdbng162zddw2wdif-syb-0.6.drv
+  /nix/store/b560jw8rb1gl77vap7vwyaayzps584f0-doctest-0.11.0.drv
+  /nix/store/3q302q9xb3lll6m2ys030iz9pjpjn4xm-semigroups-0.18.2.drv
+  /nix/store/vm9rxjyqhnqb06s0cjkk88id0hwnwc2i-tagged-0.8.4.drv
+  /nix/store/zz7fwidz4pjqsyivm05q6yh4p4fjj801-base-orphans-0.5.4.drv
+  /nix/store/444fqkkhhzrkhk7d0gdwbdvwlks7cm57-distributive-0.5.0.2.drv
+  /nix/store/b14a60wps0xxp9zmcypr7pr0glg4wp7b-parallel-3.2.1.0.drv
+  /nix/store/asvq6mzdzfpx4zrbizf50qa19yvywi42-test-framework-quickcheck2-0.3.0.3.drv
+  /nix/store/i8drc6szpyfdi5nzi352syf4zh2lhqvd-hashable-1.2.4.0.drv
+  /nix/store/bpc34ymrkgfzbv4k0a0ivnc4f5dg0bxa-void-0.7.1.drv
+  /nix/store/nxj6wdkvpiwsqbxx3xydjlmir0hjm6c3-StateVar-1.1.0.4.drv
+  /nix/store/i79j7cgsm8crfa1js16bsqc3vmq7ak28-contravariant-1.4.drv
+  /nix/store/ighbw7qn7byydbh5fc98xhqpqm2plmz8-comonad-5.drv
+  /nix/store/spyji0sax7865afrb15iddjs6hjq8vjc-bifunctors-5.3.drv
+  /nix/store/cw9q5m0dv8igcqnakag3lxkcf5iqd9x7-semigroupoids-5.1.drv
+  /nix/store/d1q4kkzyf7zlxpakjs06c3fxgmbka1vm-jailbreak-cabal-1.3.1.drv
+  /nix/store/gc2mzxz7jc1dhrr0z91hb8c9mrdz38ss-vector-0.11.0.0.drv
+  /nix/store/nl4xdmwni78j9n1hxxwkh82wnii2xx69-ChasingBottoms-1.3.1.drv
+  /nix/store/gg50cm0kzn478cyacrby7qjj811j69nz-unordered-containers-0.2.7.1.drv
+  /nix/store/jv18f6pfrhj9a098i2bc825k9grqwzbr-profunctors-5.2.drv
+  /nix/store/v7l4rvx92xaqc9ll4c1x8rhs6n48b0rz-reflection-2.1.2.drv
+  /nix/store/gz2wl4gnf69daxm5642fdcl5j3k8l6dh-prelude-extras-0.4.0.3.drv
+  /nix/store/wmn87p1r2wn55wzrk4sqjwq77nws61vc-free-4.12.4.drv
+  /nix/store/2axvsw6bsfbwj9458dfd7055j4hxk06a-adjunctions-4.3.drv
+  /nix/store/wkxjhw6hrpll8viyld5ndsbv8fsmjpdz-kan-extensions-5.0.1.drv
+  /nix/store/pidgphplh7m23x51h8wyc96wvj23mh6s-lens-4.14.drv
+  /nix/store/0kgghs978gffjh0asyqkgs648r9f5y60-language-nix-2.1.0.1.drv
+  /nix/store/0nl6s23jcwv7scdgvl7xn7s666c2w3wh-unbounded-delays-0.1.0.9.drv
+  /nix/store/pmp64h74zscwaryz000vdqg9rl3rmjlx-dovecot-2.2.24.drv
+  /nix/store/842igq363j5ya4rkpa434jydhsi6lk92-dovecot-pigeonhole-0.4.10.drv
+  /nix/store/0s5v1bk2zn3gdlv91kyqx4w72f975gdy-mailTools.drv
+  /nix/store/0sk4hi1wn13mczskm6kv9k40fb10sbqj-texmath-0.8.6.4.drv
+  /nix/store/0v4x6mj0yydbihka7gwqz02707b4yjp4-unix-compat-0.4.2.0.drv
+  /nix/store/0w7mmmk0q3wfd3jq8n6r38byjzxkvfqf-singletons-2.2.drv
+  /nix/store/w7ryy80cd4zil3nv11pvggn5c7jpy4qz-emacs-HEAD.drv
+  /nix/store/15pi4r85lc503g7zf0b8zfipjd2mrq6n-env-emacsHEADalt.drv
+  /nix/store/6li9j7b8xr6ib2i3ciiwbcgsbswbcsc7-old-time-1.1.0.3.drv
+  /nix/store/hfpx80xazyi33a7fz92a31vwxd2cwcvk-zlib-0.6.1.1.drv
+  /nix/store/xrygjpg6f57xvkf2v25vdcq93bggkvir-digest-0.0.1.2.drv
+  /nix/store/168nsb01yp7vin8g2k0mn0dk54n7kz2r-zip-archive-0.3.0.2.drv
+  /nix/store/x0qi8gsp3pdgws8ip9mnfz3ywdg0fkm4-linux-pam-1.2.1.drv
+  /nix/store/ml4cl2ihar4g5wmia7cvv2djial3y2nr-util-linux-2.28.drv
+  /nix/store/19gf13zyh1kgsa92glzwkz220hmczb6k-fuse-2.9.5.drv
+  /nix/store/cajw1kg9bki394dd9i7bhad9ii9cdcm0-gd-2.2.1.drv
+  /nix/store/i0q1h00ib98lh8m8a3d1k4k74dhkswkh-texlive-core-2014.drv
+  /nix/store/1chhy21zpldc79srgml2f9r3f5gzrgvv-texlive-latex-xcolor-2007.drv
+  /nix/store/1dpw67q4cj6fgby3jpq4qw64v2cjzzl8-byteable-0.1.1.drv
+  /nix/store/1vm8s160v68y21dy0axs6xkz1kllak2y-hierarchy-0.3.1.drv
+  /nix/store/1yxpyjav3sgwqnr1cr7xi5sxiqvzcfli-abstract-deque-0.3.drv
+  /nix/store/md6valx9vyzyv6g01wc0jrh3zwy5w6zc-pcre-light-0.4.0.4.drv
+  /nix/store/ksg7j95dbpjmwy1kid0z9wr6z38jxm4c-optparse-applicative-0.12.1.0.drv
+  /nix/store/r8qqk1m36q6z6jrcwnqip96qkym9b4hn-clock-0.7.2.drv
+  /nix/store/xhshn2vpw5bny848krk627c0vvsjrg8f-tasty-0.11.0.3.drv
+  /nix/store/w59f2aadgf2ksswnj24az077kjjr58fj-tasty-hunit-0.9.2.drv
+  /nix/store/fmfhwqvlw8hqbdaaahi8x6qa5rqlxns3-tasty-quickcheck-0.8.4.drv
+  /nix/store/kavmd7j96y23v3hbrc1pwqmc5qgmb7iw-memory-0.13.drv
+  /nix/store/yhvsmzvfng7rjbnqhn2pbaznzwyq2pvw-hourglass-0.2.10.drv
+  /nix/store/ql8kbyj0ynn9zzsi9v07k48fh8an1hg4-asn1-types-0.3.2.drv
+  /nix/store/ww8f342m7irvv2815kb7c1qx5gr6k2nh-asn1-encoding-0.9.4.drv
+  /nix/store/228lc01z5lp7114pyzczmx7azr2m16zv-asn1-parse-0.9.4.drv
+  /nix/store/l49kyzl8c4scna287199afhl0glrzhq2-logict-0.6.0.2.drv
+  /nix/store/9jcn68lldzpvynfjz6z1wa1nyrl3c5q8-smallcheck-1.1.1.drv
+  /nix/store/zzdzs1v8akqw87wkskka23kidz0x16mp-generic-deriving-1.10.5.drv
+  /nix/store/n9kqnp00bldnm67m5mbh6yyi2rzvn8lx-tasty-ant-xml-1.0.2.drv
+  /nix/store/v24j993jvxqaa4a7p789nz0k6bgyxwsc-tasty-smallcheck-0.8.1.drv
+  /nix/store/hrlx38x1m712y20pjq32wx1395fqgrdg-scientific-0.3.4.7.drv
+  /nix/store/25hi6jb0imllm8jxljhc39bmyhlixqvs-quickcheck-instances-0.3.12.drv
+  /nix/store/agdli944i3h8ck2w8yc1z0im2i1zciwm-Glob-0.7.8.drv
+  /nix/store/5mnr2p57jj8h4sdqxd27rh16cggas5dw-http-api-data-0.2.3.drv
+  /nix/store/yys4wdx5ixqafbqg3rw53x4xnfp211pq-persistent-2.5.drv
+  /nix/store/hbzymkid3ri44h4wrm7vb4nb4xx6ncbs-persistent-template-2.5.1.3.drv
+  /nix/store/2610fiaw0zih4k778yyynkxn6gqan3z6-persistent-sqlite-2.5.0.2.drv
+  /nix/store/281h3drsmpx48bky5150yjx36kkyv9n5-python2.7-coverage-4.0.1.drv
+  /nix/store/jsl9aqc8z7i6k5lknifgha9jsdixyjap-vector-algorithms-0.7.0.1.drv
+  /nix/store/cc4rpmkv20djgvmca2avblc2483x5dsm-mono-traversable-0.10.2.drv
+  /nix/store/2bidqb2ysvqxbb735m7bgg2cw0hbcr8m-mutable-containers-0.3.2.1.drv
+  /nix/store/vkbjqr0livp0zpvyj352mmgdks7px2sn-utf8-string-1.0.1.1.drv
+  /nix/store/7gr0fcffp3i21qdq6m2wahx6bfrvn7ky-blaze-builder-0.4.0.2.drv
+  /nix/store/s0qk8is1yc77wv72b8qj3mhbb5nr9xxd-blaze-markup-0.7.0.3.drv
+  /nix/store/6aifzklkncfjm81jkfy77wl5bxdr560j-blaze-html-0.8.1.1.drv
+  /nix/store/x7brgf8fycp4zz6yyi8qk0g639byspjw-Diff-0.3.4.drv
+  /nix/store/2q5dkh28f3gjhif6nkpxcnz5k0i2gqac-highlighting-kate-0.6.2.drv
+  /nix/store/iqxs08k781d4h367wvj4p7yqilypwmc6-case-insensitive-1.2.0.6.drv
+  /nix/store/2xfj260pxd4w3rlbb2ybf7sr8y8z6dzg-http-types-0.9.1.drv
+  /nix/store/ngr77w2rjqaxql7m9kpmqs705l5nvs01-coq-ssreflect-1.6-8.4.drv
+  /nix/store/2y0x9cqkjm5xa2w1ax6sv2w137d8b98y-coq-QuickChick-8.4-20150605-b73a594.drv
+  /nix/store/b3z1xg7m3ghzq5yk3qp8j05a0jsildj6-polyparse-1.12.drv
+  /nix/store/2z9l5bkgqshji9mqnrh6zz59pafhw1kg-cpphs-1.20.1.drv
+  /nix/store/3pqrwxfa83qn88jfa9vwdvv8v3gkbbxi-fail-4.9.0.0.drv
+  /nix/store/yj1lyi9kyfl8xlkx7lggy14kv6cpssd8-quickcheck-unicode-1.0.0.1.drv
+  /nix/store/ynysxmywqrckbs2dq1w20x88bvzps8ar-attoparsec-0.13.0.2.drv
+  /nix/store/fi1sdwy79bigqhd9xg0zvdwx0ivqgmwb-aeson-0.11.2.0.drv
+  /nix/store/gpfi96dyfw58424sm2vd08mmh5zc5w66-happy-1.19.5.drv
+  /nix/store/3v1qpb06rcbaw735d05hh108xc866vil-haskell-src-exts-1.17.1.drv
+  /nix/store/9f9diijym3v2arw72b16qc11prc4db3n-safe-0.3.9.drv
+  /nix/store/d5rlhkyfjl3dcai9qv7yz5j2v1wldyax-th-expand-syns-0.4.0.0.drv
+  /nix/store/wllnknwpwsl23qz9xsbrbbmsq4c1j4c1-th-reify-many-0.1.6.drv
+  /nix/store/z0ircmi1fyqk458a2y2g3xzw09rpqvmh-th-lift-0.7.6.drv
+  /nix/store/xr7m84nlmc6c5vw1wiczan3yg13i6bma-th-lift-instances-0.1.8.drv
+  /nix/store/zy82dp7jblcj5pg55p49sqdphk0527my-th-orphans-0.13.1.drv
+  /nix/store/jl68lqylqcjy1v9gpycwx2xvr48lnj72-haskell-src-meta-0.6.0.14.drv
+  /nix/store/3350hhimkdsnakip1xqaik85xlin6xyy-aeson-qq-0.8.1.drv
+  /nix/store/kr439hqh9hpjm3qwy9fl3vgdcy3f9fkw-http2-1.6.0.drv
+  /nix/store/837aqbbbdss1rqkqwnn36n0lpzlslwvi-warp-3.2.6.drv
+  /nix/store/364iz70xwd2ckiw9i8j6mm6w6s4j45m2-warp-tls-3.2.2.drv
+  /nix/store/8xy8228vpa5mxkbr08ksxsmm7rwn48gb-python2.7-pytest-runner-2.6.2.drv
+  /nix/store/3ba3c3fs6294ldx4430y953kkrargvaw-python2.7-path.py-8.1.2.drv
+  /nix/store/3q295yp8645agxm7g4vihzwdaf4ymx9i-python2.7-simplegeneric-0.8.1.drv
+  /nix/store/lygvlkngdzbkjixybpm8m14pk3nn96nw-preprocessor-tools-1.0.1.drv
+  /nix/store/3qz4a2c67xi106p7j5v2qqp9x13mf0a4-hsb2hs-0.3.1.drv
+  /nix/store/3y5qkksr8zfqlxyrpfppjikq3b3g4cix-gnuplot-5.0.3.drv
+  /nix/store/myj2ifkq2bavz7j280vj48cxys3w8pvd-yesod-core-1.4.22.drv
+  /nix/store/wqaq542mqsi26lybq9rpvq6sdx65mq33-yesod-persistent-1.4.0.5.drv
+  /nix/store/m6xjwpi5q59z8z5g868xgcjrkddfiim7-yesod-form-1.4.7.1.drv
+  /nix/store/74yq4a6f76dp2wxapyaj6421i8i0z7rv-yesod-auth-1.4.13.3.drv
+  /nix/store/79dmf9nqppbdziy38zmdwpj9cy2z1hsg-yesod-1.4.3.drv
+  /nix/store/axiln4yvrlbvlk1wny6chvxfkli3dpvz-yesod-default-1.2.0.drv
+  /nix/store/fzlz6sajj4rkx62wsxq1c7321cqidf0z-esqueleto-2.4.3.drv
+  /nix/store/xvvmdh69dixjz2ipzmsc7rvda71jw0sy-attr-2.4.47.drv
+  /nix/store/76xpzvq9vcchh1943i8gv820pnzidaim-python2.7-pyxattr-0.5.1.drv
+  /nix/store/6wsqb0nzsj2rdy1ijyn7d9nfkvwj0z4x-python2.7-backports.ssl_match_hostname-3.4.0.2.drv
+  /nix/store/c3f6z3advlax7l1lrz8yjas4bw3flxdm-python2.7-certifi-2015.11.20.1.drv
+  /nix/store/8vkr37lrlnx9hdhmwk4jk0caynrr5mcm-python2.7-tornado-4.2.1.drv
+  /nix/store/gxgr10v1yk8yc43yza281sihs953yi1s-python2.7-fuse-0.2.1.drv
+  /nix/store/avfxy5c0s4y2rszwdzhm845h3qq890lg-acl-2.2.52.drv
+  /nix/store/hmibbkgzr2f7sj9zzb9rqqn6if3iahk5-python2.7-pylibacl-0.5.1.drv
+  /nix/store/61dppgd8ps4p9r9w8hqzg7y7si27x1dy-filemanip-0.3.6.3.drv
+  /nix/store/9zak0nhp1yrpbz88yj8bynrf4zv97zlq-network-2.6.2.1.drv
+  /nix/store/dfkrz5c4db9d20aw8700xzvrmvrdsy4d-mime-types-0.1.0.7.drv
+  /nix/store/p3m9kddv2qf8nxp06nan9ac3z208hw2n-network-uri-2.6.1.0.drv
+  /nix/store/smbvv244d1y286valb3gkzqv196zbips-base64-bytestring-1.0.0.1.drv
+  /nix/store/w14pfbwwswsm1cfy101vvrrkxrir5df8-streaming-commons-0.1.15.5.drv
+  /nix/store/ygkisif6jr8k3mq2rb8cnvya3r2ldf4b-cookie-0.4.2.drv
+  /nix/store/7zaq1lsyfzm3wc7z4y44arjn0rxdajbq-http-client-0.4.30.drv
+  /nix/store/a0063h6zc7bq67np8aakf2jiml0xgri0-HTTP-4000.3.3.drv
+  /nix/store/c3nkjmxvxw2iv1q3l20apcmcjlzl06lw-pandoc-types-1.16.1.drv
+  /nix/store/dhx77gpnhn2xcjdbsm68z6ljaql8km9n-hslua-0.4.1.drv
+  /nix/store/irjsi9jfsnpbkz65qz9zw7ffamm0j4sq-JuicyPixels-3.2.7.2.drv
+  /nix/store/8c14mfl461a7bkjfxr06pfb3w8s6n944-transformers-base-0.4.4.drv
+  /nix/store/70nacny2h4a7v0r4wy49qnv54my59f3x-monad-control-1.0.1.0.drv
+  /nix/store/b7b43q1gcygfvb9rhdfxri8jishcfif2-lifted-base-0.2.3.6.drv
+  /nix/store/4lgjwgy1mzv9aqzg5dvi0rakvkil9dmx-enclosed-exceptions-1.0.2.drv
+  /nix/store/y3dnsk3jw87pqkd9nn9hs2c6l06ai9qi-logging-facade-0.1.1.drv
+  /nix/store/5ndnniipfvadb3z7j2wpmsxs707fk8ap-mockery-0.3.3.drv
+  /nix/store/rq1wwp8bjv9ann0j2izgb80jcvsyn7cn-mmorph-1.0.6.drv
+  /nix/store/hifsxwrlg6n8qir0l9v9ngscsq3lb68w-resourcet-1.1.7.4.drv
+  /nix/store/cdmk2dwndi9s1nwqsa51k5vgd4f0h4c7-conduit-1.2.6.6.drv
+  /nix/store/l1y6fhz8813fiwzdv02c950zcaz3v9br-yaml-0.8.18.drv
+  /nix/store/mjxqf883a2ghd7r6xz1qnnzkr6lkq34k-cmark-0.5.2.1.drv
+  /nix/store/ml3j8458rzvli71kmlqc3l80slgmywzk-tagsoup-0.13.10.drv
+  /nix/store/76nhp0wrvnngvg8r93vdzadg0r1m5g6y-split-0.2.3.1.drv
+  /nix/store/q6qikxsmajl4nic98lna39drv0pqqjwg-texmath-0.8.6.4.drv
+  /nix/store/5j4425llk9mlalrxr31ydcp0badvlxn8-cryptonite-0.17.drv
+  /nix/store/pr4skkgxaqwbd8pr1m661p1sdis13ifz-pem-0.2.2.drv
+  /nix/store/n0xjvph08lv8sqi03vh2gdd0c604i47v-x509-1.6.3.drv
+  /nix/store/zzbxd3dns13l38kpys0nhv8119s3vl5i-x509-store-1.6.1.drv
+  /nix/store/6231bbhcpcrmjvs6954zninhi0fqhkrc-x509-validation-1.6.3.drv
+  /nix/store/7p7wzgz3gl0965xkjsk33yaagp8ip9bm-cereal-0.5.2.0.drv
+  /nix/store/kmh9p72a4ng39v2nk9x09kcsq91jkgzp-tls-1.3.8.drv
+  /nix/store/mm9g0y5xa58c74pypsvnb4wdq9s894d9-x509-system-1.6.3.drv
+  /nix/store/p6h0bc0xab37vlk0qbs68055frj3cvd5-socks-0.5.5.drv
+  /nix/store/w8acg1rv1bhx6nl0m5hbrhmb9a7sszp3-connection-0.2.5.drv
+  /nix/store/q9d3s87jx30y18b7i107gzlydnba8yza-http-client-tls-0.2.4.1.drv
+  /nix/store/qw07g1y3aa88g4qdixh1f80g992n465b-haddock-library-1.4.2.drv
+  /nix/store/ya3rp376x79nkyk2fd53hqyk0812k6mk-SHA-1.6.4.2.drv
+  /nix/store/sayq0p55vvjqlc7ki4y6bxx95g9hly5w-pandoc-1.17.1.drv
+  /nix/store/gnqpvb42j8s9jl4jg4glqk37c5w1hzjn-bup-0.26.drv
+  /nix/store/g5jwhkxkaiwxlyhixdh08yahvc2n7cgp-pinentry-0.9.7.drv
+  /nix/store/m7z92v36l7a3q4y1xdxqwfpwqmg8ji5c-gnupg-2.1.13.drv
+  /nix/store/f5g0jzb2ccqy5gl4ifjv7yiqclyqgifp-hfsevents-0.1.6.drv
+  /nix/store/npx2yi984iw7a2rhcdqqmpvgs1b0r5ll-fsnotify-0.2.1.drv
+  /nix/store/a941k3kj73wlzs2krk359hjmy7agzzqm-wai-app-static-3.1.5.drv
+  /nix/store/rlj79c0500kz32s869hpcpfh4395klks-yesod-test-1.5.1.1.drv
+  /nix/store/sk8309i4an2qxhvlq35b57dqzn8ic0b1-yesod-static-1.5.0.3.drv
+  /nix/store/98zxvhckkffpspkxrsl3na57cqdkxf3k-git-annex-6.20160613.drv
+  /nix/store/xmy54f25ppr4an71bv7i36sn8hhay582-chunked-data-0.2.0.drv
+  /nix/store/8rrnx0s251jaqb3736c5zqzr79k7qq73-conduit-combinators-1.0.3.1.drv
+  /nix/store/jl1rfn3fq1hsd36vn3i1rx99dmb0cxn1-gitlib-3.1.1.drv
+  /nix/store/fixw33qar8qman1hf5ys9nhzamf602sx-gitlib-test-3.1.0.3.drv
+  /nix/store/zwsxj1wwbpcr7jspd3w6c70a8f3dxf1f-stm-conduit-3.0.0.drv
+  /nix/store/aj3vpr93pz64hl11plp4zpk0hfxc0aas-gitlib-libgit2-3.1.1.drv
+  /nix/store/q5kdyzh0wh5id4hffx5c125yn3v8nry4-git-monitor-3.1.1.5.drv
+  /nix/store/49bxv5sd2kiypiyyl1b30yf91qkkdp6b-gitTools.drv
+  /nix/store/sdlll3xyw849nd5snj41kffbx875zjxs-pango-0.13.3.0.drv
+  /nix/store/4d5z8h8nvhkwxkklbnw4hjhx39v3216i-gtk-0.14.5.drv
+  /nix/store/9b67z16jrw4fzgkvnqflbabx356yfc91-compcert-2.6.drv
+  /nix/store/4my773hmg8s51mhpah9p30h6h06w99jv-langTools.drv
+  /nix/store/4pymf497x8gbwhmsgyyw0hlpmbv1gqr9-context-2014.05.21.drv
+  /nix/store/5wz6ybiwjc6qfw3qpn4khl9h7hwg84dc-moderntimeline-0.9.drv
+  /nix/store/hkxkg2b6s7cm5kafylcal58hhqjbr721-texlive-beamer-2013.drv
+  /nix/store/q9c778ny3gxjgw80rmd46lwiijfhnyzi-texlive-cm-super-2009.drv
+  /nix/store/qvnfywz05c5p81c6bxpxwc5pbma3z2rx-texlive-extra-2014.drv
+  /nix/store/z076irxfs7dvgnl81w2dwh8xychka31v-moderncv-1.5.1.drv
+  /nix/store/54cvh0q4p3icnbgjclhzbh3jd4rpn582-TeXLive-linkdir.drv
+  /nix/store/56pfb8baazynya3l22rmxnlg7dmdym4m-timeplot-1.0.31.drv
+  /nix/store/57wsrqw37bj9qar1vvxr72q0p9ifgai9-python2.7-gnureadline-6.3.3.drv
+  /nix/store/5ig84105b23va13a795vghj3mn5glzaf-python2.7-gevent-1.0.2.drv
+  /nix/store/z6cysr9r3wp9iv282v2mx53y4b06v49z-texlive-bin-2015.drv
+  /nix/store/5vllrwl29x7nr93h2p67zfwj8pcan7si-texlive-combined-basic-2015.drv
+  /nix/store/a0bmlaplfxyi81cib9n5nmy5bl0g3l5a-abstract-par-0.3.3.drv
+  /nix/store/65rwjwsfcw72b9wd8pn28vdwki621mmx-monad-par-extras-0.3.3.drv
+  /nix/store/6sdx6sqhjpr1ydfa118wwz6kag0hywrj-python2.7-docutils-0.12.drv
+  /nix/store/72ygbn4ghxi4zghphxvidqmdlc3v48qc-mwc-random-0.13.4.0.drv
+  /nix/store/7a0rmqcsgmdkqgyqa5q0bswq4q84x3jr-python2.7-geventhttpclient-1.2.0.drv
+  /nix/store/wrrqbk4sa6f2z2fpw6marp1p2fin351r-language-haskell-extract-0.2.4.drv
+  /nix/store/8mdd6dnqphxv93ivhxdfj7afbq9kv2hm-test-framework-th-0.2.4.drv
+  /nix/store/ls8b88jc7q4y52kw6brrd3bf2q0l3wc8-coq-tlc-8.4.drv
+  /nix/store/rn6r0ild1jhpv6jrkpc5gv4vxir61xbw-coq-flocq-8.4-2.5.1.drv
+  /nix/store/rr1b91228gmlmgwm6chv6fw36djhf961-coq-ynot-8.4-ce1a9806.drv
+  /nix/store/y8sh8r8lcjlncig3n5wmy2h8fss2cbz5-coq-mathcomp-1.6-8.4.drv
+  /nix/store/z9lxh1pi7i5qhk1spzkvp4adczylaxa0-prooftree-0.12.drv
+  /nix/store/8py5axrhgjnqpnsffg9r8p1yzkl2qisd-env-coq84.drv
+  /nix/store/qb1fiyqn39wpc01487h1hc1xkacshaw6-aria2-1.24.0.drv
+  /nix/store/s4kvla0x5s2kzba8fk9i7qgy07fnzhsw-youtube-dl-2016.07.03.1.drv
+  /nix/store/96y6bdl8az7yrdnh9cqw0mlm52dfhm42-networkTools.drv
+  /nix/store/9b5wd28lsxk2da6hpvw2ldyl35psai6n-boost-1.55.0.drv
+  /nix/store/alrlvr3hgxanb9ypfb8n3rx8bw711i9s-coq-8.5pl1.drv
+  /nix/store/qaz2aiayfjljab0885p0iy5ir4l8krx2-coq-ssreflect-1.6-8.5.drv
+  /nix/store/9wf05j9qqki81nmva1h514z1jdvzql0i-coq-mathcomp-1.6-8.5.drv
+  /nix/store/a4pcgdgpijkp7g5kshv1ikr3krviwzz4-distribution-nixpkgs-1.0.0.1.drv
+  /nix/store/a7sjmfx4raxcj5xnd4gymrbg6csjsfrj-python2.7-pickleshare-0.5.drv
+  /nix/store/as89za996zzi6qh1wdflc81mhkii6vh7-pipes-files-0.1.1.drv
+  /nix/store/k3rgxdxj6niqzmjkdrir1dad7gilvxx6-python2.7-fastimport-0.9.4.drv
+  /nix/store/f6nr3kbkxl158b6njhakpsi3b5kxg4cx-python2.7-dulwich-0.10.1a.drv
+  /nix/store/nwkxl70vx364fazzkr29p49cjhg22wcj-python2.7-hg-git-0.8.5.drv
+  /nix/store/rg915wlvmh9aq8zdvflnvhvyzdprjlbx-mercurial-3.8.2.drv
+  /nix/store/r85fc8xhn3zrcp5zkzagf8q08wgs09bz-python2.7-Pygments-2.1.3.drv
+  /nix/store/y6mckxiah5y4gxnmx96m7ws76b2z11n1-global-6.5.4.drv
+  /nix/store/awir4qjlddiz1n3pps8v3377kw38dvs5-buildTools.drv
+  /nix/store/b3a203mh0raxz4qbav531x8gdag6cqrx-units-2.4.drv
+  /nix/store/vvslzv6s7d0irrx9iz71slj04qlv4mqj-bazaar-2.7.0.drv
+  /nix/store/bf5ybj6vlrlrzspvi5y3fz1lc0igzxi4-nix-prefetch-bzr.drv
+  /nix/store/qx4g8034vqih2rjqzf9ljl65pa2xcjl1-nodejs-4.4.6.drv
+  /nix/store/bnz84471ksmj8mrxv59dkl2j52j9pjjw-serviceTools.drv
+  /nix/store/cb4w6i5rlfc0b8hr3rbi9kqm5qaip1xi-threadscope-0.2.7.drv
+  /nix/store/gibbvmsj95j1h7kcs0mziwy4k1lwpkhl-python2.7-requests-2.9.1.drv
+  /nix/store/m4dlr0f0vqcy9vf576nq7hc15vlh25sz-python2.7-decorator-4.0.9.drv
+  /nix/store/mbj78pmgagx4rybppvbjl94vzzx9xvvb-python2.7-pexpect-3.3.drv
+  /nix/store/mhkp2icc694ch6s2vrw5iisv8l46q15l-python2.7-appnope-0.1.0.drv
+  /nix/store/xmiyr4hjrq3k2ygd8hsk1752826yx6m9-python2.7-nose-1.3.7.drv
+  /nix/store/xabpksri8rh3ag9r4qg1wqk10iygyrc9-python2.7-ipython_genutils-0.1.0.drv
+  /nix/store/yrrd3ms3by4lfqhh7390bpqgkn7v9bwm-python2.7-traitlets-4.2.1.drv
+  /nix/store/d5qjy55iwh80m26bqri8gvb04lff1vbk-python2.7-ipython-4.1.2.drv
+  /nix/store/j34rkjhq6kj6nsm040y3nz5755v3pgml-pandoc-1.17.1.drv
+  /nix/store/mdis83l6sqzd2frki5f8db2xiac7qhkw-graphviz-2.38.0.drv
+  /nix/store/f36ib41g5qy2mqr2pl8xb0kyl2kax37p-systemTools.drv
+  /nix/store/ihl38i4z155a73b8dvp24qpg3bn44rn9-pandoc-citeproc-0.10.drv
+  /nix/store/w4ikyg5n0nig750bz1rnz0sx0hl6k8hy-hakyll-4.8.3.2.drv
+  /nix/store/kqn2ypyagiyy17i98qsmz8ycix52bj6c-newartisans-1.0.0.drv
+  /nix/store/f4klmx2nmssnx7h8w9v165rsmgyxr6vy-publishTools.drv
+  /nix/store/fp8qy06nq57jd7wyd93ywrbrxbsl4ll2-ledger-3.1.1.drv
+  /nix/store/v1lk131np53m7m8pzwf4jb39ri569pic-tar-0.5.0.3.drv
+  /nix/store/i2l1avrd38y1gaymn68p8997bbahxhrq-hackage-db-1.22.drv
+  /nix/store/i4db7iy8k9dw6lkn2kkvbvw7hw52jv16-scotty-0.11.0.drv
+  /nix/store/i7magml4a6a88l68djl0vmy97p47mlcc-pythonTools.drv
+  /nix/store/xd7hfrg7na4hkjvkhyi61gah1ncvcz8v-classy-prelude-0.12.8.drv
+  /nix/store/icjv6kbny1qss0jfdzbm3wk3i2hgnpak-classy-prelude-conduit-0.12.8.drv
+  /nix/store/xp09abq83prwfgr8zyivxdvjwh2l9n25-hoogle-5.0.drv
+  /nix/store/iv8n0k6kzbggrpp3h14hnn9swkadxfiv-hoogle-local-0.1.drv
+  /nix/store/lgys7zg8p3yy8bixb7cl6wx645za4b12-env-coq85.drv
+  /nix/store/n4j1hmri8q1fwcsqa6j4q54xccalk2wj-auctex-11.89.drv
+  /nix/store/p2ca5cg0im1bgygnafr5nvam2zn0yjwg-monad-par-0.3.4.8.drv
+  /nix/store/qhv6zayh5cw2y7wpr2spwm7d4gr5nqsq-stackage-types-1.2.0.drv
+  /nix/store/y0pmmcbvrcii1s41ipdgx9ivpa2ksjxh-ghc-7.10.3.drv
+  /nix/store/qyy21kh6vvvy9mg471jngbv6mmhj9bx5-env-ghc710.drv
+  /nix/store/ragn6s0mjw1lqbmg8vgx2m31r01zaikc-nix-prefetch-hg.drv
+  /nix/store/rl08wf1g5k8kmlbw3j3f7p1ijnqs7jap-nix-prefetch-scripts.drv
+  /nix/store/rml77zjm2hhj604j6y3nr99rzg6aqi2z-cabal2nix-20160613-10-g57dddc7.drv
+  /nix/store/vl9q6zhhyhws7v9526p8b45gx9zkaphq-env-emacsHEAD.drv
+building path(s) ‘/nix/store/vxv8ykd8kax1vh3j5hljg86spk8f7mjj-aria2-1.24.0’
+building path(s) ‘/nix/store/d6bqfylr3r61qpnnvn0a69dkfirk2pzm-boost-1.55.0’, ‘/nix/store/hzj5w7yxb3vcpg1q43vv1r41lixz0hbs-boost-1.55.0-dev’
+building path(s) ‘/nix/store/rf5sd7vqr2hqz1lg0v49nnzi4w4hd38f-dovecot-2.2.24’
+building path(s) ‘/nix/store/3lip6vsclwryfgzdzcaff9agp6vk8d9h-emacs-HEAD’
+building path(s) ‘/nix/store/6f0732p8x9pi2fffvr3cmhip1dipqbml-nodejs-4.4.6’
+building path(s) ‘/nix/store/x5bq9yylkwv91r82xaz36ylhiqbicymd-python2.7-certifi-2015.11.20.1’
+building path(s) ‘/nix/store/hnspciyp8jxajy0na7pj64ipbrypf4f3-timeplot-1.0.31’
+building path(s) ‘/nix/store/vbjgi0kqiwf3zy5s4hv70ry4qhjc8lda-youtube-dl-2016.07.03.1’
+builder for ‘/nix/store/c3f6z3advlax7l1lrz8yjas4bw3flxdm-python2.7-certifi-2015.11.20.1.drv’ failed with exit code 1; last 10 log lines:
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 953, in run_commands
+      self.run_command(cmd)
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 972, in run_command
+      cmd_obj.run()
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 236, in run
+      self.write_record(self.bdist_dir, self.distinfo_dir)
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 448, in write_record
+      digest = hashlib.sha256(data).digest()
+  AttributeError: 'module' object has no attribute 'sha256'
+
+building path(s) ‘/nix/store/qgsxzrydz9vpzjh6yqbm8ymsbaccam7y-512.patch’
+builder for ‘/nix/store/s4kvla0x5s2kzba8fk9i7qgy07fnzhsw-youtube-dl-2016.07.03.1.drv’ failed with exit code 1; last 10 log lines:
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 953, in run_commands
+      self.run_command(cmd)
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 972, in run_command
+      cmd_obj.run()
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 236, in run
+      self.write_record(self.bdist_dir, self.distinfo_dir)
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 448, in write_record
+      digest = hashlib.sha256(data).digest()
+  AttributeError: 'module' object has no attribute 'sha256'
+
+building path(s) ‘/nix/store/j0cwjhqj63f0g5x073xgbw7yakjfd0d2-Glob-0.7.8’
+output path ‘/nix/store/qgsxzrydz9vpzjh6yqbm8ymsbaccam7y-512.patch’ has sha256 hash ‘1hp5r2cfz1qpj464qcm926v2aqvnaiikaylz8mm1r7fn2rcnh8sz’ when ‘17srxgbmsa786hv62kkm09g22clxyngs8vw4xq5vkr5wicpi3w5a’ was expected
+building path(s) ‘/nix/store/6jw6wvam1gm7nqql7105s6qsddvpf518-attr-2.4.47-dev’, ‘/nix/store/na86sgkwglqnq5w608bmi3wlr9iprnhp-attr-2.4.47’, ‘/nix/store/wwdgzwyq1zfccbxlwqxks9zbx3z6gk4r-attr-2.4.47-bin’, ‘/nix/store/z9idwhn53qmw9bwx56w4q4hpdxy94hyi-attr-2.4.47-doc’
+cannot build derivation ‘/nix/store/nkwx7im0yaswi3p4zjmm4w2q9gs5mvf7-ghc-8.0.1.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/mhkh6y5qm6f6ialg901jdwkki3l7y3f1-hscolour-1.24.1.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/d1q4kkzyf7zlxpakjs06c3fxgmbka1vm-jailbreak-cabal-1.3.1.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/qhq3d5dzngdns6hvc0vpb3fq1kp8b2ah-HUnit-1.3.1.1.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/a0bmlaplfxyi81cib9n5nmy5bl0g3l5a-abstract-par-0.3.3.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/kvnzbyj6g3dbd470g44wqlnm8b8yqw57-ansi-terminal-0.6.2.3.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/1dpw67q4cj6fgby3jpq4qw64v2cjzzl8-byteable-0.1.1.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/r8qqk1m36q6z6jrcwnqip96qkym9b4hn-clock-0.7.2.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/wdg0sbgi2g8g48d091fcyspvn3bjlkab-data-default-class-0.0.1.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/xrygjpg6f57xvkf2v25vdcq93bggkvir-digest-0.0.1.2.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/i00h6b4hdjp7zk64m4pxh24pid7gn8x9-extensible-exceptions-0.1.1.4.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/3pqrwxfa83qn88jfa9vwdvv8v3gkbbxi-fail-4.9.0.0.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/zzdzs1v8akqw87wkskka23kidz0x16mp-generic-deriving-1.10.5.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/rxdny12chcz5nzg8h4q5hgry58yhbwfp-ghc-paths-0.1.0.9.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/qw07g1y3aa88g4qdixh1f80g992n465b-haddock-library-1.4.2.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/77j1rig9ld78zr7rbvkplz4k419cwxkk-hostname-1.0.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/5pv0c9q2pvz05cyj96ky9f1fsfv04w83-mtl-2.2.1.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/41b6fkfsj56mcrk5lhpy7af9yi9lfvkf-nanospec-0.2.1.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/9zak0nhp1yrpbz88yj8bynrf4zv97zlq-network-2.6.2.1.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/jdkb6qyha9kviav6sib33f9vip0q7z6f-old-locale-1.0.0.7.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/b14a60wps0xxp9zmcypr7pr0glg4wp7b-parallel-3.2.1.0.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/md6valx9vyzyv6g01wc0jrh3zwy5w6zc-pcre-light-0.4.0.4.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/gz2wl4gnf69daxm5642fdcl5j3k8l6dh-prelude-extras-0.4.0.3.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/3f72yiaf4n3a41x69avlpj8n8gh7l2gb-primitive-0.6.1.0.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/v72fgglq96s00hmvgvk9rmpp618cvjby-random-1.1.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/v7l4rvx92xaqc9ll4c1x8rhs6n48b0rz-reflection-2.1.2.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/9f9diijym3v2arw72b16qc11prc4db3n-safe-0.3.9.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/3q302q9xb3lll6m2ys030iz9pjpjn4xm-semigroups-0.18.2.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/8kc8pacnhzflaqcfr5frg6cdvkv6m0r6-setenv-0.1.1.3.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/fw5d4bsg0cqp3kjm0kv5i5hz3gdaza0n-stm-2.4.4.1.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/8pzi91l5qrznq6jhvhwgbv1h8pajklf3-stringbuilder-0.5.0.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/ss4xl07vn9z3k49mdbng162zddw2wdif-syb-0.6.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/vm9rxjyqhnqb06s0cjkk88id0hwnwc2i-tagged-0.8.4.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/v1lk131np53m7m8pzwf4jb39ri569pic-tar-0.5.0.3.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/zniqw8sl5icf447f7ckgvf60n7h23mc3-text-1.2.2.1.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/z0ircmi1fyqk458a2y2g3xzw09rpqvmh-th-lift-0.7.6.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/9f6y5i45kvfvd9p1d9ww4g60xz5s6dlc-transformers-compat-0.5.1.4.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/0nl6s23jcwv7scdgvl7xn7s666c2w3wh-unbounded-delays-0.1.0.9.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/0v4x6mj0yydbihka7gwqz02707b4yjp4-unix-compat-0.4.2.0.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/vkbjqr0livp0zpvyj352mmgdks7px2sn-utf8-string-1.0.1.1.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/hfpx80xazyi33a7fz92a31vwxd2cwcvk-zlib-0.6.1.1.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/nxj6wdkvpiwsqbxx3xydjlmir0hjm6c3-StateVar-1.1.0.4.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/1yxpyjav3sgwqnr1cr7xi5sxiqvzcfli-abstract-deque-0.3.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/rzlsjsn21byw5qqj7i8nqamnqvr6wj5f-ansi-wl-pprint-0.6.7.3.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/mjxqf883a2ghd7r6xz1qnnzkr6lkq34k-cmark-0.5.2.1.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/ch8kri41mli3vrbsp126vhm37ifbqim4-data-default-instances-base-0.1.0.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/8hkyyc967clx2rn0zlywcqz4zlvi23vd-data-default-instances-containers-0.0.1.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/vqwil5zr9lqigv8fn9yx3a1fhj0wfkr3-data-default-instances-old-locale-0.0.1.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/2drfpa04jahmcghaslgf0hbzqpqn2ahc-exceptions-0.8.2.1.drv’: 5 dependencies couldn't be built
+cannot build derivation ‘/nix/store/61dppgd8ps4p9r9w8hqzg7y7si27x1dy-filemanip-0.3.6.3.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/i2l1avrd38y1gaymn68p8997bbahxhrq-hackage-db-1.22.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/gpfi96dyfw58424sm2vd08mmh5zc5w66-happy-1.19.5.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/5m796k63k1y4jn4b1fvf6g808wqp0z26-hspec-expectations-0.7.2.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/l49kyzl8c4scna287199afhl0glrzhq2-logict-0.6.0.2.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/dfkrz5c4db9d20aw8700xzvrmvrdsy4d-mime-types-0.1.0.7.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/rq1wwp8bjv9ann0j2izgb80jcvsyn7cn-mmorph-1.0.6.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/6li9j7b8xr6ib2i3ciiwbcgsbswbcsc7-old-time-1.1.0.3.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/bkkz559c0hvh4d6ckb2m5im7w9z8y22l-parsec-3.1.11.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/b3z1xg7m3ghzq5yk3qp8j05a0jsildj6-polyparse-1.12.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/1w0362d9hh4g0spq99k5qjjlswin28ln-regex-base-0.93.2.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/ml3j8458rzvli71kmlqc3l80slgmywzk-tagsoup-0.13.10.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/0p3a69b1294djkpnlada8lavc0zj2hxa-tf-random-0.5.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/d5rlhkyfjl3dcai9qv7yz5j2v1wldyax-th-expand-syns-0.4.0.0.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/8c14mfl461a7bkjfxr06pfb3w8s6n944-transformers-base-0.4.4.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/gc2mzxz7jc1dhrr0z91hb8c9mrdz38ss-vector-0.11.0.0.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/kkkrz4bxfwdq7la5lhwgwgmbczii4qkp-xml-1.3.14.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/irjsi9jfsnpbkz65qz9zw7ffamm0j4sq-JuicyPixels-3.2.7.2.drv’: 6 dependencies couldn't be built
+cannot build derivation ‘/nix/store/2z9l5bkgqshji9mqnrh6zz59pafhw1kg-cpphs-1.20.1.drv’: 5 dependencies couldn't be built
+cannot build derivation ‘/nix/store/70nacny2h4a7v0r4wy49qnv54my59f3x-monad-control-1.0.1.0.drv’: 5 dependencies couldn't be built
+cannot build derivation ‘/nix/store/72ygbn4ghxi4zghphxvidqmdlc3v48qc-mwc-random-0.13.4.0.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/ksg7j95dbpjmwy1kid0z9wr6z38jxm4c-optparse-applicative-0.12.1.0.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/lygvlkngdzbkjixybpm8m14pk3nn96nw-preprocessor-tools-1.0.1.drv’: 5 dependencies couldn't be built
+cannot build derivation ‘/nix/store/8pxkr60hyw0hk2n8vfyf0l8dgrcnlf7s-regex-posix-0.95.2.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/04ic8aq7dnzbcy9dps3d99qcnwrkxjgs-regex-tdfa-1.2.2.drv’: 5 dependencies couldn't be built
+cannot build derivation ‘/nix/store/9jcn68lldzpvynfjz6z1wa1nyrl3c5q8-smallcheck-1.1.1.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/bwn20sqpwjigc4y248391fzjzz76s0zz-temporary-1.2.0.4.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/wllnknwpwsl23qz9xsbrbbmsq4c1j4c1-th-reify-many-0.1.6.drv’: 5 dependencies couldn't be built
+cannot build derivation ‘/nix/store/168nsb01yp7vin8g2k0mn0dk54n7kz2r-zip-archive-0.3.0.2.drv’: 8 dependencies couldn't be built
+cannot build derivation ‘/nix/store/3v1qpb06rcbaw735d05hh108xc866vil-haskell-src-exts-1.17.1.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/3qz4a2c67xi106p7j5v2qqp9x13mf0a4-hsb2hs-0.3.1.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/wrrqbk4sa6f2z2fpw6marp1p2fin351r-language-haskell-extract-0.2.4.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/b7b43q1gcygfvb9rhdfxri8jishcfif2-lifted-base-0.2.3.6.drv’: 5 dependencies couldn't be built
+cannot build derivation ‘/nix/store/dv2791r2v086dmmwjj2a11s77l5q9p1d-silently-1.2.5.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/c3ad5dvg33z7r2f0dr9wbx69zcki5ls5-test-framework-0.8.1.1.drv’: 9 dependencies couldn't be built
+cannot build derivation ‘/nix/store/0zhanl5s1n9pswrq9ldqwjy1a4qirg38-QuickCheck-2.8.2.drv’: 5 dependencies couldn't be built
+cannot build derivation ‘/nix/store/xinpis1wrqgxijawk39rslwb81g3dm3q-test-framework-hunit-0.3.0.2.drv’: 5 dependencies couldn't be built
+cannot build derivation ‘/nix/store/8mdd6dnqphxv93ivhxdfj7afbq9kv2hm-test-framework-th-0.2.4.drv’: 6 dependencies couldn't be built
+cannot build derivation ‘/nix/store/nl4xdmwni78j9n1hxxwkh82wnii2xx69-ChasingBottoms-1.3.1.drv’: 6 dependencies couldn't be built
+cannot build derivation ‘/nix/store/xlidr46h8f2jd4l37v09vplhm1m5g1cn-async-2.1.0.drv’: 6 dependencies couldn't be built
+cannot build derivation ‘/nix/store/k8pfzgr5pg1b4mi0vxdjkgqpj6kqbg0h-dlist-0.7.1.2.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/k9cxs5ddbbh80lh1l7yk7r1bmzf392pg-quickcheck-io-0.1.2.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/yj1lyi9kyfl8xlkx7lggy14kv6cpssd8-quickcheck-unicode-1.0.0.1.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/76nhp0wrvnngvg8r93vdzadg0r1m5g6y-split-0.2.3.1.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/asvq6mzdzfpx4zrbizf50qa19yvywi42-test-framework-quickcheck2-0.3.0.3.drv’: 6 dependencies couldn't be built
+cannot build derivation ‘/nix/store/xr7m84nlmc6c5vw1wiczan3yg13i6bma-th-lift-instances-0.1.8.drv’: 6 dependencies couldn't be built
+cannot build derivation ‘/nix/store/x7brgf8fycp4zz6yyi8qk0g639byspjw-Diff-0.3.4.drv’: 5 dependencies couldn't be built
+cannot build derivation ‘/nix/store/ya3rp376x79nkyk2fd53hqyk0812k6mk-SHA-1.6.4.2.drv’: 5 dependencies couldn't be built
+cannot build derivation ‘/nix/store/smbvv244d1y286valb3gkzqv196zbips-base64-bytestring-1.0.0.1.drv’: 7 dependencies couldn't be built
+cannot build derivation ‘/nix/store/7gr0fcffp3i21qdq6m2wahx6bfrvn7ky-blaze-builder-0.4.0.2.drv’: 9 dependencies couldn't be built
+cannot build derivation ‘/nix/store/7p7wzgz3gl0965xkjsk33yaagp8ip9bm-cereal-0.5.2.0.drv’: 5 dependencies couldn't be built
+cannot build derivation ‘/nix/store/k60w9nfxw7d6nxh4dbks82nbzgy8qbsp-data-default-instances-dlist-0.0.1.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/i8drc6szpyfdi5nzi352syf4zh2lhqvd-hashable-1.2.4.0.drv’: 9 dependencies couldn't be built
+cannot build derivation ‘/nix/store/j15vnxz2lzbcpiq7p5npwh7lbwwmr136-hspec-meta-2.2.1.drv’: 10 dependencies couldn't be built
+cannot build derivation ‘/nix/store/p3m9kddv2qf8nxp06nan9ac3z208hw2n-network-uri-2.6.1.0.drv’: 7 dependencies couldn't be built
+cannot build derivation ‘/nix/store/xhshn2vpw5bny848krk627c0vvsjrg8f-tasty-0.11.0.3.drv’: 11 dependencies couldn't be built
+cannot build derivation ‘/nix/store/a0063h6zc7bq67np8aakf2jiml0xgri0-HTTP-4000.3.3.drv’: 6 dependencies couldn't be built
+cannot build derivation ‘/nix/store/s0qk8is1yc77wv72b8qj3mhbb5nr9xxd-blaze-markup-0.7.0.3.drv’: 9 dependencies couldn't be built
+cannot build derivation ‘/nix/store/iqxs08k781d4h367wvj4p7yqilypwmc6-case-insensitive-1.2.0.6.drv’: 7 dependencies couldn't be built
+cannot build derivation ‘/nix/store/03j7r9zzvb8ym1iw1p7xx1vx6nnrppwf-data-default-0.6.0.drv’: 7 dependencies couldn't be built
+cannot build derivation ‘/nix/store/2m1acm56myv1lpd5da1ppfrjqq2f7ya5-hspec-core-2.2.3.drv’: 13 dependencies couldn't be built
+cannot build derivation ‘/nix/store/xxfp4jd24vm66jl8d8k3frnjgfk42zls-hspec-discover-2.2.3.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/65rwjwsfcw72b9wd8pn28vdwki621mmx-monad-par-extras-0.3.3.drv’: 6 dependencies couldn't be built
+cannot build derivation ‘/nix/store/pr4skkgxaqwbd8pr1m661p1sdis13ifz-pem-0.2.2.drv’: 9 dependencies couldn't be built
+cannot build derivation ‘/nix/store/p6h0bc0xab37vlk0qbs68055frj3cvd5-socks-0.5.5.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/n9kqnp00bldnm67m5mbh6yyi2rzvn8lx-tasty-ant-xml-1.0.2.drv’: 8 dependencies couldn't be built
+cannot build derivation ‘/nix/store/w59f2aadgf2ksswnj24az077kjjr58fj-tasty-hunit-0.9.2.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/v24j993jvxqaa4a7p789nz0k6bgyxwsc-tasty-smallcheck-0.8.1.drv’: 6 dependencies couldn't be built
+cannot build derivation ‘/nix/store/gg50cm0kzn478cyacrby7qjj811j69nz-unordered-containers-0.2.7.1.drv’: 9 dependencies couldn't be built
+cannot build derivation ‘/nix/store/bpc34ymrkgfzbv4k0a0ivnc4f5dg0bxa-void-0.7.1.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/6aifzklkncfjm81jkfy77wl5bxdr560j-blaze-html-0.8.1.1.drv’: 10 dependencies couldn't be built
+cannot build derivation ‘/nix/store/i79j7cgsm8crfa1js16bsqc3vmq7ak28-contravariant-1.4.drv’: 6 dependencies couldn't be built
+cannot build derivation ‘/nix/store/pa9ryarc69a5gz9mjwrdspy9iv5s1zlf-hspec-2.2.3.drv’: 9 dependencies couldn't be built
+cannot build derivation ‘/nix/store/p2ca5cg0im1bgygnafr5nvam2zn0yjwg-monad-par-0.3.4.8.drv’: 14 dependencies couldn't be built
+cannot build derivation ‘/nix/store/fmfhwqvlw8hqbdaaahi8x6qa5rqlxns3-tasty-quickcheck-0.8.4.drv’: 7 dependencies couldn't be built
+cannot build derivation ‘/nix/store/fv5pdiqvdnnjldakg5n933i7qiq9cm2c-base-compat-0.9.1.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/zz7fwidz4pjqsyivm05q6yh4p4fjj801-base-orphans-0.5.4.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/ygkisif6jr8k3mq2rb8cnvya3r2ldf4b-cookie-0.4.2.drv’: 11 dependencies couldn't be built
+cannot build derivation ‘/nix/store/4lgjwgy1mzv9aqzg5dvi0rakvkil9dmx-enclosed-exceptions-1.0.2.drv’: 9 dependencies couldn't be built
+cannot build derivation ‘/nix/store/2q5dkh28f3gjhif6nkpxcnz5k0i2gqac-highlighting-kate-0.6.2.drv’: 8 dependencies couldn't be built
+cannot build derivation ‘/nix/store/yhvsmzvfng7rjbnqhn2pbaznzwyq2pvw-hourglass-0.2.10.drv’: 7 dependencies couldn't be built
+cannot build derivation ‘/nix/store/09c7m3dlf1f0laif87abzmsn02d81d37-hspec-contrib-0.3.0.drv’: 6 dependencies couldn't be built
+cannot build derivation ‘/nix/store/y3dnsk3jw87pqkd9nn9hs2c6l06ai9qi-logging-facade-0.1.1.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/kavmd7j96y23v3hbrc1pwqmc5qgmb7iw-memory-0.13.drv’: 5 dependencies couldn't be built
+cannot build derivation ‘/nix/store/hifsxwrlg6n8qir0l9v9ngscsq3lb68w-resourcet-1.1.7.4.drv’: 10 dependencies couldn't be built
+cannot build derivation ‘/nix/store/hrlx38x1m712y20pjq32wx1395fqgrdg-scientific-0.3.4.7.drv’: 12 dependencies couldn't be built
+cannot build derivation ‘/nix/store/w14pfbwwswsm1cfy101vvrrkxrir5df8-streaming-commons-0.1.15.5.drv’: 11 dependencies couldn't be built
+cannot build derivation ‘/nix/store/1r1nf4d6w06d90sd5ch4rsjmmfp9fwck-stringbuilder-0.5.0.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/zy82dp7jblcj5pg55p49sqdphk0527my-th-orphans-0.13.1.drv’: 7 dependencies couldn't be built
+cannot build derivation ‘/nix/store/22qr0v1i35l2ni0m8kr518341n63zinw-with-location-0.1.0.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/ql8kbyj0ynn9zzsi9v07k48fh8an1hg4-asn1-types-0.3.2.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/ynysxmywqrckbs2dq1w20x88bvzps8ar-attoparsec-0.13.0.2.drv’: 9 dependencies couldn't be built
+cannot build derivation ‘/nix/store/cdmk2dwndi9s1nwqsa51k5vgd4f0h4c7-conduit-1.2.6.6.drv’: 11 dependencies couldn't be built
+cannot build derivation ‘/nix/store/5j4425llk9mlalrxr31ydcp0badvlxn8-cryptonite-0.17.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/b560jw8rb1gl77vap7vwyaayzps584f0-doctest-0.11.0.drv’: 12 dependencies couldn't be built
+cannot build derivation ‘/nix/store/jl68lqylqcjy1v9gpycwx2xvr48lnj72-haskell-src-meta-0.6.0.14.drv’: 5 dependencies couldn't be built
+cannot build derivation ‘/nix/store/5ndnniipfvadb3z7j2wpmsxs707fk8ap-mockery-0.3.3.drv’: 6 dependencies couldn't be built
+cannot build derivation ‘/nix/store/25hi6jb0imllm8jxljhc39bmyhlixqvs-quickcheck-instances-0.3.12.drv’: 9 dependencies couldn't be built
+cannot build derivation ‘/nix/store/fi1sdwy79bigqhd9xg0zvdwx0ivqgmwb-aeson-0.11.2.0.drv’: 13 dependencies couldn't be built
+cannot build derivation ‘/nix/store/ww8f342m7irvv2815kb7c1qx5gr6k2nh-asn1-encoding-0.9.4.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/444fqkkhhzrkhk7d0gdwbdvwlks7cm57-distributive-0.5.0.2.drv’: 6 dependencies couldn't be built
+cannot build derivation ‘/nix/store/dhx77gpnhn2xcjdbsm68z6ljaql8km9n-hslua-0.4.1.drv’: 8 dependencies couldn't be built
+cannot build derivation ‘/nix/store/2xfj260pxd4w3rlbb2ybf7sr8y8z6dzg-http-types-0.9.1.drv’: 9 dependencies couldn't be built
+cannot build derivation ‘/nix/store/3350hhimkdsnakip1xqaik85xlin6xyy-aeson-qq-0.8.1.drv’: 11 dependencies couldn't be built
+cannot build derivation ‘/nix/store/228lc01z5lp7114pyzczmx7azr2m16zv-asn1-parse-0.9.4.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/ighbw7qn7byydbh5fc98xhqpqm2plmz8-comonad-5.drv’: 8 dependencies couldn't be built
+cannot build derivation ‘/nix/store/7zaq1lsyfzm3wc7z4y44arjn0rxdajbq-http-client-0.4.30.drv’: 15 dependencies couldn't be built
+cannot build derivation ‘/nix/store/c3nkjmxvxw2iv1q3l20apcmcjlzl06lw-pandoc-types-1.16.1.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/qhv6zayh5cw2y7wpr2spwm7d4gr5nqsq-stackage-types-1.2.0.drv’: 10 dependencies couldn't be built
+cannot build derivation ‘/nix/store/spyji0sax7865afrb15iddjs6hjq8vjc-bifunctors-5.3.drv’: 9 dependencies couldn't be built
+cannot build derivation ‘/nix/store/q6qikxsmajl4nic98lna39drv0pqqjwg-texmath-0.8.6.4.drv’: 11 dependencies couldn't be built
+cannot build derivation ‘/nix/store/n0xjvph08lv8sqi03vh2gdd0c604i47v-x509-1.6.3.drv’: 12 dependencies couldn't be built
+cannot build derivation ‘/nix/store/l1y6fhz8813fiwzdv02c950zcaz3v9br-yaml-0.8.18.drv’: 17 dependencies couldn't be built
+cannot build derivation ‘/nix/store/jv18f6pfrhj9a098i2bc825k9grqwzbr-profunctors-5.2.drv’: 8 dependencies couldn't be built
+cannot build derivation ‘/nix/store/cw9q5m0dv8igcqnakag3lxkcf5iqd9x7-semigroupoids-5.1.drv’: 11 dependencies couldn't be built
+cannot build derivation ‘/nix/store/zzbxd3dns13l38kpys0nhv8119s3vl5i-x509-store-1.6.1.drv’: 8 dependencies couldn't be built
+cannot build derivation ‘/nix/store/wmn87p1r2wn55wzrk4sqjwq77nws61vc-free-4.12.4.drv’: 12 dependencies couldn't be built
+cannot build derivation ‘/nix/store/mm9g0y5xa58c74pypsvnb4wdq9s894d9-x509-system-1.6.3.drv’: 6 dependencies couldn't be built
+cannot build derivation ‘/nix/store/6231bbhcpcrmjvs6954zninhi0fqhkrc-x509-validation-1.6.3.drv’: 13 dependencies couldn't be built
+cannot build derivation ‘/nix/store/2axvsw6bsfbwj9458dfd7055j4hxk06a-adjunctions-4.3.drv’: 13 dependencies couldn't be built
+cannot build derivation ‘/nix/store/kmh9p72a4ng39v2nk9x09kcsq91jkgzp-tls-1.3.8.drv’: 18 dependencies couldn't be built
+cannot build derivation ‘/nix/store/w8acg1rv1bhx6nl0m5hbrhmb9a7sszp3-connection-0.2.5.drv’: 11 dependencies couldn't be built
+cannot build derivation ‘/nix/store/wkxjhw6hrpll8viyld5ndsbv8fsmjpdz-kan-extensions-5.0.1.drv’: 10 dependencies couldn't be built
+cannot build derivation ‘/nix/store/q9d3s87jx30y18b7i107gzlydnba8yza-http-client-tls-0.2.4.1.drv’: 7 dependencies couldn't be built
+cannot build derivation ‘/nix/store/pidgphplh7m23x51h8wyc96wvj23mh6s-lens-4.14.drv’: 23 dependencies couldn't be built
+cannot build derivation ‘/nix/store/0kgghs978gffjh0asyqkgs648r9f5y60-language-nix-2.1.0.1.drv’: 6 dependencies couldn't be built
+cannot build derivation ‘/nix/store/sayq0p55vvjqlc7ki4y6bxx95g9hly5w-pandoc-1.17.1.drv’: 38 dependencies couldn't be built
+cannot build derivation ‘/nix/store/a4pcgdgpijkp7g5kshv1ikr3krviwzz4-distribution-nixpkgs-1.0.0.1.drv’: 9 dependencies couldn't be built
+builder for ‘/nix/store/agdli944i3h8ck2w8yc1z0im2i1zciwm-Glob-0.7.8.drv’ failed with exit code 1; last 10 log lines:
+  compileBuildDriverPhase
+  setupCompileFlags: -package-db=/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-Glob-0.7.8.drv-0/package.conf.d -j8 -threaded
+  [1 of 1] Compiling Main             ( Setup.hs, /private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-Glob-0.7.8.drv-0/Main.o )
+  Linking Setup ...
+  configuring
+  configureFlags: --verbose --prefix=/nix/store/j0cwjhqj63f0g5x073xgbw7yakjfd0d2-Glob-0.7.8 --libdir=$prefix/lib/$compiler --libsubdir=$pkgid --with-gcc=clang --package-db=/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-Glob-0.7.8.drv-0/package.conf.d --ghc-option=-optl=-Wl,-headerpad_max_install_names --disable-split-objs --disable-library-profiling --disable-executable-profiling --enable-shared --enable-library-vanilla --enable-executable-dynamic --disable-tests
+  Configuring Glob-0.7.8...
+  Setup: At least the following dependencies are missing:
+  semigroups ==0.18.*
+
+building path(s) ‘/nix/store/2bmh8bbpfyv9cq6fr5gpk4wgglx0afdz-bazaar-2.7.0’
+cannot build derivation ‘/nix/store/5mnr2p57jj8h4sdqxd27rh16cggas5dw-http-api-data-0.2.3.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/kr439hqh9hpjm3qwy9fl3vgdcy3f9fkw-http2-1.6.0.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/yys4wdx5ixqafbqg3rw53x4xnfp211pq-persistent-2.5.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/837aqbbbdss1rqkqwnn36n0lpzlslwvi-warp-3.2.6.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/hbzymkid3ri44h4wrm7vb4nb4xx6ncbs-persistent-template-2.5.1.3.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/i4db7iy8k9dw6lkn2kkvbvw7hw52jv16-scotty-0.11.0.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/a941k3kj73wlzs2krk359hjmy7agzzqm-wai-app-static-3.1.5.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/364iz70xwd2ckiw9i8j6mm6w6s4j45m2-warp-tls-3.2.2.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/myj2ifkq2bavz7j280vj48cxys3w8pvd-yesod-core-1.4.22.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/xp09abq83prwfgr8zyivxdvjwh2l9n25-hoogle-5.0.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/2610fiaw0zih4k778yyynkxn6gqan3z6-persistent-sqlite-2.5.0.2.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/axiln4yvrlbvlk1wny6chvxfkli3dpvz-yesod-default-1.2.0.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/fzlz6sajj4rkx62wsxq1c7321cqidf0z-esqueleto-2.4.3.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/wqaq542mqsi26lybq9rpvq6sdx65mq33-yesod-persistent-1.4.0.5.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/m6xjwpi5q59z8z5g868xgcjrkddfiim7-yesod-form-1.4.7.1.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/74yq4a6f76dp2wxapyaj6421i8i0z7rv-yesod-auth-1.4.13.3.drv’: 5 dependencies couldn't be built
+cannot build derivation ‘/nix/store/rlj79c0500kz32s869hpcpfh4395klks-yesod-test-1.5.1.1.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/79dmf9nqppbdziy38zmdwpj9cy2z1hsg-yesod-1.4.3.drv’: 5 dependencies couldn't be built
+cannot build derivation ‘/nix/store/sk8309i4an2qxhvlq35b57dqzn8ic0b1-yesod-static-1.5.0.3.drv’: 3 dependencies couldn't be built
+builder for ‘/nix/store/xvvmdh69dixjz2ipzmsc7rvda71jw0sy-attr-2.4.47.drv’ failed with exit code 2; last 10 log lines:
+  1 error generated.
+  ../include/buildrules:52: recipe for target 'libattr.lo' failed
+  make[2]: *** [libattr.lo] Error 1
+  make[2]: Leaving directory '/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-attr-2.4.47.drv-0/attr-2.4.47/libattr'
+  include/buildrules:35: recipe for target 'libattr' failed
+  make[1]: *** [libattr] Error 2
+  make[1]: Leaving directory '/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-attr-2.4.47.drv-0/attr-2.4.47'
+  Makefile:47: recipe for target 'default' failed
+  make: *** [default] Error 2
+
+cannot build derivation ‘/nix/store/avfxy5c0s4y2rszwdzhm845h3qq890lg-acl-2.2.52.drv’: 1 dependencies couldn't be built
+building path(s) ‘/nix/store/8d7dwiygacd7iskmhgrnr3qm1kl6xx7m-gd-2.2.1-dev’, ‘/nix/store/a85hml4n32j0h5xf0cc6yks2m6p8v5xh-gd-2.2.1-bin’, ‘/nix/store/s4h4flq3yha8bqf6lz929x0y545wjsxz-gd-2.2.1’
+cannot build derivation ‘/nix/store/76xpzvq9vcchh1943i8gv820pnzidaim-python2.7-pyxattr-0.5.1.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/hmibbkgzr2f7sj9zzb9rqqn6if3iahk5-python2.7-pylibacl-0.5.1.drv’: 1 dependencies couldn't be built
+builder for ‘/nix/store/56pfb8baazynya3l22rmxnlg7dmdym4m-timeplot-1.0.31.drv’ failed with exit code 1; last 10 log lines:
+      Not in scope: type constructor or class ‘ChartBackend’
+
+  Graphics/Rendering/Chart/Event.hs:82:36:
+      Not in scope: type constructor or class ‘ChartBackend’
+
+  Graphics/Rendering/Chart/Event.hs:88:56:
+      Not in scope: type constructor or class ‘ChartBackend’
+  [2 of 9] Compiling Tools.TimePlot.Incremental ( Tools/TimePlot/Incremental.hs, dist/build/tplot/tplot-tmp/Tools/TimePlot/Incremental.dyn_o )
+  [8 of 9] Compiling Paths_timeplot   ( dist/build/autogen/Paths_timeplot.hs, dist/build/tplot/tplot-tmp/Paths_timeplot.dyn_o )
+
+building path(s) ‘/nix/store/38npwgnmxdrn1p2gw0jraj2l0xn2yawh-gobject-introspection-1.48.0-dev’, ‘/nix/store/iz9igc8q0nacwy950x75wcrmadqp3ciy-gobject-introspection-1.48.0’
+builder for ‘/nix/store/qx4g8034vqih2rjqzf9ljl65pa2xcjl1-nodejs-4.4.6.drv’ failed with exit code 1; last 10 log lines:
+                   'v8_enable_gdbjit': 0,
+                   'v8_enable_i18n_support': 0,
+                   'v8_no_strict_aliasing': 1,
+                   'v8_optimized_debug': 0,
+                   'v8_random_seed': 0,
+                   'v8_use_snapshot': 'true',
+                   'want_separate_host_toolset': 0}}
+  creating  ./config.gypi
+  creating  ./config.mk
+
+building path(s) ‘/nix/store/b717g32m95h0va7yhbz0r6w8q49vylfw-hfsevents-0.1.6’
+cannot build derivation ‘/nix/store/bnz84471ksmj8mrxv59dkl2j52j9pjjw-serviceTools.drv’: 1 dependencies couldn't be built
+builder for ‘/nix/store/f5g0jzb2ccqy5gl4ifjv7yiqclyqgifp-hfsevents-0.1.6.drv’ failed with exit code 1; last 10 log lines:
+  compileBuildDriverPhase
+  setupCompileFlags: -package-db=/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-hfsevents-0.1.6.drv-0/package.conf.d -j8 -threaded
+  [1 of 1] Compiling Main             ( Setup.hs, /private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-hfsevents-0.1.6.drv-0/Main.o )
+  Linking Setup ...
+  configuring
+  configureFlags: --verbose --prefix=/nix/store/b717g32m95h0va7yhbz0r6w8q49vylfw-hfsevents-0.1.6 --libdir=$prefix/lib/$compiler --libsubdir=$pkgid --with-gcc=clang --package-db=/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-hfsevents-0.1.6.drv-0/package.conf.d --ghc-option=-optl=-Wl,-headerpad_max_install_names --ghc-option=-j8 --disable-split-objs --disable-library-profiling --disable-executable-profiling --enable-shared --enable-library-vanilla --enable-executable-dynamic --enable-tests
+  Configuring hfsevents-0.1.6...
+  Setup: At least the following dependencies are missing:
+  cereal >=0.3 && <0.6, mtl -any, text -any
+
+cannot build derivation ‘/nix/store/npx2yi984iw7a2rhcdqqmpvgs1b0r5ll-fsnotify-0.2.1.drv’: 1 dependencies couldn't be built
+building path(s) ‘/nix/store/lxsjmnq52i6y6j4vcmz1rgv9lh1a3zyr-hierarchy-0.3.1’
+builder for ‘/nix/store/1vm8s160v68y21dy0axs6xkz1kllak2y-hierarchy-0.3.1.drv’ failed with exit code 1; last 10 log lines:
+  compileBuildDriverPhase
+  setupCompileFlags: -package-db=/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-hierarchy-0.3.1.drv-0/package.conf.d -j8 -threaded
+  [1 of 1] Compiling Main             ( Setup.hs, /private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-hierarchy-0.3.1.drv-0/Main.o )
+  Linking Setup ...
+  configuring
+  configureFlags: --verbose --prefix=/nix/store/lxsjmnq52i6y6j4vcmz1rgv9lh1a3zyr-hierarchy-0.3.1 --libdir=$prefix/lib/$compiler --libsubdir=$pkgid --with-gcc=clang --package-db=/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-hierarchy-0.3.1.drv-0/package.conf.d --ghc-option=-optl=-Wl,-headerpad_max_install_names --disable-split-objs --disable-library-profiling --disable-executable-profiling --enable-shared --enable-library-vanilla --enable-executable-dynamic --enable-tests
+  Configuring hierarchy-0.3.1...
+  Setup: At least the following dependencies are missing:
+  transformers-compat >=0.3 && <0.5
+
+building path(s) ‘/nix/store/bmna6xv2s9largrv8bsfx6a6qjsha5cq-linux-pam-1.2.1-man’, ‘/nix/store/csm8nk7jk4w5hpidyp0srky7k4vzjj7d-linux-pam-1.2.1’, ‘/nix/store/y4z702p1iid52xzdl49vnwcxha98h261-linux-pam-1.2.1-doc’
+cannot build derivation ‘/nix/store/as89za996zzi6qh1wdflc81mhkii6vh7-pipes-files-0.1.1.drv’: 1 dependencies couldn't be built
+builder for ‘/nix/store/cajw1kg9bki394dd9i7bhad9ii9cdcm0-gd-2.2.1.drv’ failed with exit code 2; last 10 log lines:
+  clang-3.7: error: linker command failed with exit code 1 (use -v to see invocation)
+  Makefile:660: recipe for target 'libgd.la' failed
+  make[2]: *** [libgd.la] Error 1
+  make[2]: Leaving directory '/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-gd-2.2.1.drv-0/libgd-2.2.1/src'
+  Makefile:575: recipe for target 'all' failed
+  make[1]: *** [all] Error 2
+  make[1]: Leaving directory '/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-gd-2.2.1.drv-0/libgd-2.2.1/src'
+  Makefile:416: recipe for target 'all-recursive' failed
+  make: *** [all-recursive] Error 1
+
+building path(s) ‘/nix/store/50j5ig7zrlyfh8k1hgjn41k7mpcmk298-python2.7-appnope-0.1.0’
+cannot build derivation ‘/nix/store/z6cysr9r3wp9iv282v2mx53y4b06v49z-texlive-bin-2015.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/i0q1h00ib98lh8m8a3d1k4k74dhkswkh-texlive-core-2014.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/4pymf497x8gbwhmsgyyw0hlpmbv1gqr9-context-2014.05.21.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/z076irxfs7dvgnl81w2dwh8xychka31v-moderncv-1.5.1.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/5wz6ybiwjc6qfw3qpn4khl9h7hwg84dc-moderntimeline-0.9.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/q9c778ny3gxjgw80rmd46lwiijfhnyzi-texlive-cm-super-2009.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/5vllrwl29x7nr93h2p67zfwj8pcan7si-texlive-combined-basic-2015.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/qvnfywz05c5p81c6bxpxwc5pbma3z2rx-texlive-extra-2014.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/1chhy21zpldc79srgml2f9r3f5gzrgvv-texlive-latex-xcolor-2007.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/n4j1hmri8q1fwcsqa6j4q54xccalk2wj-auctex-11.89.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/hkxkg2b6s7cm5kafylcal58hhqjbr721-texlive-beamer-2013.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/54cvh0q4p3icnbgjclhzbh3jd4rpn582-TeXLive-linkdir.drv’: 8 dependencies couldn't be built
+builder for ‘/nix/store/mhkp2icc694ch6s2vrw5iisv8l46q15l-python2.7-appnope-0.1.0.drv’ failed with exit code 1; last 10 log lines:
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 953, in run_commands
+      self.run_command(cmd)
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 972, in run_command
+      cmd_obj.run()
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 236, in run
+      self.write_record(self.bdist_dir, self.distinfo_dir)
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 448, in write_record
+      digest = hashlib.sha256(data).digest()
+  AttributeError: 'module' object has no attribute 'sha256'
+
+building path(s) ‘/nix/store/6cgvznz23b1ma8ab9zkgr1zx8ivz30if-python2.7-argparse-1.4.0’
+builder for ‘/nix/store/84m6ccp7h8acd7cmd78w3asayj8s0lxl-python2.7-argparse-1.4.0.drv’ failed with exit code 1; last 10 log lines:
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 953, in run_commands
+      self.run_command(cmd)
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 972, in run_command
+      cmd_obj.run()
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 236, in run
+      self.write_record(self.bdist_dir, self.distinfo_dir)
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 448, in write_record
+      digest = hashlib.sha256(data).digest()
+  AttributeError: 'module' object has no attribute 'sha256'
+
+building path(s) ‘/nix/store/f7pszvdqvbnyg2hh1mcl0xi8wvlrm636-python2.7-backports.ssl_match_hostname-3.4.0.2’
+builder for ‘/nix/store/6wsqb0nzsj2rdy1ijyn7d9nfkvwj0z4x-python2.7-backports.ssl_match_hostname-3.4.0.2.drv’ failed with exit code 1; last 10 log lines:
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 953, in run_commands
+      self.run_command(cmd)
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 972, in run_command
+      cmd_obj.run()
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 236, in run
+      self.write_record(self.bdist_dir, self.distinfo_dir)
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 448, in write_record
+      digest = hashlib.sha256(data).digest()
+  AttributeError: 'module' object has no attribute 'sha256'
+
+building path(s) ‘/nix/store/hm0p274b4aq53bsrb16hzxvjwxv3z7d2-python2.7-decorator-4.0.9’
+cannot build derivation ‘/nix/store/8vkr37lrlnx9hdhmwk4jk0caynrr5mcm-python2.7-tornado-4.2.1.drv’: 2 dependencies couldn't be built
+builder for ‘/nix/store/m4dlr0f0vqcy9vf576nq7hc15vlh25sz-python2.7-decorator-4.0.9.drv’ failed with exit code 1; last 10 log lines:
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 953, in run_commands
+      self.run_command(cmd)
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 972, in run_command
+      cmd_obj.run()
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 236, in run
+      self.write_record(self.bdist_dir, self.distinfo_dir)
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 448, in write_record
+      digest = hashlib.sha256(data).digest()
+  AttributeError: 'module' object has no attribute 'sha256'
+
+building path(s) ‘/nix/store/df8zaw2pmw3hyv61p18f0jq2y6bp06i1-python2.7-docutils-0.12’
+builder for ‘/nix/store/6sdx6sqhjpr1ydfa118wwz6kag0hywrj-python2.7-docutils-0.12.drv’ failed with exit code 1; last 10 log lines:
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 953, in run_commands
+      self.run_command(cmd)
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 972, in run_command
+      cmd_obj.run()
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 236, in run
+      self.write_record(self.bdist_dir, self.distinfo_dir)
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 448, in write_record
+      digest = hashlib.sha256(data).digest()
+  AttributeError: 'module' object has no attribute 'sha256'
+
+cannot build derivation ‘/nix/store/r85fc8xhn3zrcp5zkzagf8q08wgs09bz-python2.7-Pygments-2.1.3.drv’: 1 dependencies couldn't be built
+building path(s) ‘/nix/store/9kwz52hnsl9mb39q4qjjy7l4jvb4fwfv-python2.7-fastimport-0.9.4’
+cannot build derivation ‘/nix/store/y6mckxiah5y4gxnmx96m7ws76b2z11n1-global-6.5.4.drv’: 1 dependencies couldn't be built
+builder for ‘/nix/store/k3rgxdxj6niqzmjkdrir1dad7gilvxx6-python2.7-fastimport-0.9.4.drv’ failed with exit code 1; last 10 log lines:
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 953, in run_commands
+      self.run_command(cmd)
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 972, in run_command
+      cmd_obj.run()
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 236, in run
+      self.write_record(self.bdist_dir, self.distinfo_dir)
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 448, in write_record
+      digest = hashlib.sha256(data).digest()
+  AttributeError: 'module' object has no attribute 'sha256'
+
+building path(s) ‘/nix/store/2w36h8wf6khfpkyslsw9d0c6lllqwvag-python2.7-gnureadline-6.3.3’
+builder for ‘/nix/store/x0qi8gsp3pdgws8ip9mnfz3ywdg0fkm4-linux-pam-1.2.1.drv’ failed with exit code 2; last 10 log lines:
+  1 error generated.
+  Makefile:566: recipe for target 'pam_audit.lo' failed
+  make[2]: *** [pam_audit.lo] Error 1
+  make[2]: Leaving directory '/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-linux-pam-1.2.1.drv-0/Linux-PAM-1.2.1/libpam'
+  Makefile:471: recipe for target 'all-recursive' failed
+  make[1]: *** [all-recursive] Error 1
+  make[1]: Leaving directory '/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-linux-pam-1.2.1.drv-0/Linux-PAM-1.2.1'
+  Makefile:402: recipe for target 'all' failed
+  make: *** [all] Error 2
+
+building path(s) ‘/nix/store/njbxhqd5crkab0lbfr7l4v52jmvdcvv1-python2.7-greenlet-0.4.7’
+cannot build derivation ‘/nix/store/ml4cl2ihar4g5wmia7cvv2djial3y2nr-util-linux-2.28.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/19gf13zyh1kgsa92glzwkz220hmczb6k-fuse-2.9.5.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/gxgr10v1yk8yc43yza281sihs953yi1s-python2.7-fuse-0.2.1.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/gnqpvb42j8s9jl4jg4glqk37c5w1hzjn-bup-0.26.drv’: 5 dependencies couldn't be built
+builder for ‘/nix/store/0gcnw5413qs6jvvdi7lm6w85mb9x1zgq-python2.7-greenlet-0.4.7.drv’ failed with exit code 1; last 10 log lines:
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/subprocess.py", line 1334, in _execute_child
+      child_exception = pickle.loads(data)
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/pickle.py", line 1388, in loads
+      return Unpickler(file).load()
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/pickle.py", line 864, in load
+      dispatch[key](self)
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/pickle.py", line 972, in load_string
+      raise ValueError, "insecure string pickle"
+  ValueError: insecure string pickle
+
+cannot build derivation ‘/nix/store/5ig84105b23va13a795vghj3mn5glzaf-python2.7-gevent-1.0.2.drv’: 1 dependencies couldn't be built
+building path(s) ‘/nix/store/5j6lbk3c5kzm0ric8l5pwvza2q322m2w-python2.7-pbr-1.8.1’
+cannot build derivation ‘/nix/store/7a0rmqcsgmdkqgyqa5q0bswq4q84x3jr-python2.7-geventhttpclient-1.2.0.drv’: 3 dependencies couldn't be built
+builder for ‘/nix/store/4k0x8jhhrj1wllbip7dqdgn358bx7479-python2.7-pbr-1.8.1.drv’ failed with exit code 1; last 10 log lines:
+      wrap_commands(kwargs)
+    File "/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-python2.7-pbr-1.8.1.drv-0/pbr-1.8.1/pbr/util.py", line 541, in wrap_commands
+      for cmd, _ in dist.get_command_list():
+    File "build/bdist.macosx-10.7-x86_64/egg/setuptools/dist.py", line 447, in get_command_list
+    File "build/bdist.macosx-10.7-x86_64/egg/pkg_resources/__init__.py", line 2375, in resolve
+    File "build/bdist.macosx-10.7-x86_64/egg/setuptools/command/upload_docs.py", line 11, in <module>
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/command/upload.py", line 11, in <module>
+      from hashlib import md5
+  ImportError: cannot import name md5
+
+cannot build derivation ‘/nix/store/vfzf1qs5lcjf0675432wfq62dj0192fv-python2.7-linecache2-1.0.0.drv’: 1 dependencies couldn't be built
+building path(s) ‘/nix/store/qmpnsl0n3x17wn8y8djlr56svhm0zwj3-python2.7-pexpect-3.3’
+cannot build derivation ‘/nix/store/iihydi9c731jpqackz635pm7kzhbfflv-python2.7-traceback2-1.4.0.drv’: 2 dependencies couldn't be built
+builder for ‘/nix/store/mbj78pmgagx4rybppvbjl94vzzx9xvvb-python2.7-pexpect-3.3.drv’ failed with exit code 1; last 10 log lines:
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 953, in run_commands
+      self.run_command(cmd)
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 972, in run_command
+      cmd_obj.run()
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 236, in run
+      self.write_record(self.bdist_dir, self.distinfo_dir)
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 448, in write_record
+      digest = hashlib.sha256(data).digest()
+  AttributeError: 'module' object has no attribute 'sha256'
+
+building path(s) ‘/nix/store/0nqq5x9x4drl1q1mfx9bl9b5l3gcv0c8-python2.7-pretend-1.0.8’
+builder for ‘/nix/store/nv0ihapyz6hzcg29kh4jwlvq6yjkr8sj-python2.7-pretend-1.0.8.drv’ failed with exit code 1; last 10 log lines:
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 953, in run_commands
+      self.run_command(cmd)
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 972, in run_command
+      cmd_obj.run()
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 236, in run
+      self.write_record(self.bdist_dir, self.distinfo_dir)
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 448, in write_record
+      digest = hashlib.sha256(data).digest()
+  AttributeError: 'module' object has no attribute 'sha256'
+
+building path(s) ‘/nix/store/yrg7dkglmnc1840kqb77sbd683wwzjds-python2.7-py-1.4.31’
+builder for ‘/nix/store/dvj1yji544nww864cg48w07qv85fgx9b-python2.7-py-1.4.31.drv’ failed with exit code 1; last 10 log lines:
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 953, in run_commands
+      self.run_command(cmd)
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 972, in run_command
+      cmd_obj.run()
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 236, in run
+      self.write_record(self.bdist_dir, self.distinfo_dir)
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 448, in write_record
+      digest = hashlib.sha256(data).digest()
+  AttributeError: 'module' object has no attribute 'sha256'
+
+cannot build derivation ‘/nix/store/qdfjwsnsk9b4bvqms5ppssm7ch2xryi8-python2.7-pytest-2.9.2.drv’: 1 dependencies couldn't be built
+building path(s) ‘/nix/store/y64kgmzp1h41ra44sfi43rz0ijdah5zi-python2.7-simplegeneric-0.8.1’
+cannot build derivation ‘/nix/store/gibbvmsj95j1h7kcs0mziwy4k1lwpkhl-python2.7-requests-2.9.1.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/ijbhrdx6ww33q2gjibjl8fkm2lk8xgab-python2.7-scripttest-1.3.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/79dzm1d8dmbvn3n0dm9ji362vnzca060-python2.7-six-1.10.0.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/hvlgf3lwxbqdhm97j6l11p7vb3mllfdj-python2.7-unittest2-1.1.0.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/25cvrv6zal6rqdkssv7ws1p5bcak0dg6-python2.7-funcsigs-0.4.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/fmb4i4navmjs2vry8cg1m0pkh8z7yvrk-python2.7-mock-1.3.0.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/281h3drsmpx48bky5150yjx36kkyv9n5-python2.7-coverage-4.0.1.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/f6nr3kbkxl158b6njhakpsi3b5kxg4cx-python2.7-dulwich-0.10.1a.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/nwkxl70vx364fazzkr29p49cjhg22wcj-python2.7-hg-git-0.8.5.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/xmiyr4hjrq3k2ygd8hsk1752826yx6m9-python2.7-nose-1.3.7.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/rg915wlvmh9aq8zdvflnvhvyzdprjlbx-mercurial-3.8.2.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/xabpksri8rh3ag9r4qg1wqk10iygyrc9-python2.7-ipython_genutils-0.1.0.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/awir4qjlddiz1n3pps8v3377kw38dvs5-buildTools.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/ragn6s0mjw1lqbmg8vgx2m31r01zaikc-nix-prefetch-hg.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/yrrd3ms3by4lfqhh7390bpqgkn7v9bwm-python2.7-traitlets-4.2.1.drv’: 4 dependencies couldn't be built
+builder for ‘/nix/store/3q295yp8645agxm7g4vihzwdaf4ymx9i-python2.7-simplegeneric-0.8.1.drv’ failed with exit code 1; last 10 log lines:
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 953, in run_commands
+      self.run_command(cmd)
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 972, in run_command
+      cmd_obj.run()
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 236, in run
+      self.write_record(self.bdist_dir, self.distinfo_dir)
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 448, in write_record
+      digest = hashlib.sha256(data).digest()
+  AttributeError: 'module' object has no attribute 'sha256'
+
+building path(s) ‘/nix/store/kf24rzrf38sqmr3zhgmv8r099cq351nv-python2.7-virtualenv-13.1.2’
+builder for ‘/nix/store/ffi8hjy63m8agp0yagvj93jaqw973mhm-python2.7-virtualenv-13.1.2.drv’ failed with exit code 1; last 10 log lines:
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 953, in run_commands
+      self.run_command(cmd)
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 972, in run_command
+      cmd_obj.run()
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 236, in run
+      self.write_record(self.bdist_dir, self.distinfo_dir)
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 448, in write_record
+      digest = hashlib.sha256(data).digest()
+  AttributeError: 'module' object has no attribute 'sha256'
+
+cannot build derivation ‘/nix/store/f4w584ici0xhqg5rn5hnmjalh5fxksir-python2.7-pip-8.1.2.drv’: 5 dependencies couldn't be built
+building path(s) ‘/nix/store/ridrx3r02w34lqk9bbgqfdgwrlb484xs-singletons-2.2’
+cannot build derivation ‘/nix/store/07g1jm4v1ajfx089sgaf49fc2lqf845i-python2.7-setuptools_scm-1.10.1.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/8xy8228vpa5mxkbr08ksxsmm7rwn48gb-python2.7-pytest-runner-2.6.2.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/3ba3c3fs6294ldx4430y953kkrargvaw-python2.7-path.py-8.1.2.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/a7sjmfx4raxcj5xnd4gymrbg6csjsfrj-python2.7-pickleshare-0.5.drv’: 1 dependencies couldn't be built
+builder for ‘/nix/store/57wsrqw37bj9qar1vvxr72q0p9ifgai9-python2.7-gnureadline-6.3.3.drv’ failed with exit code 1; last 10 log lines:
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 953, in run_commands
+      self.run_command(cmd)
+    File "/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11/lib/python2.7/distutils/dist.py", line 972, in run_command
+      cmd_obj.run()
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 236, in run
+      self.write_record(self.bdist_dir, self.distinfo_dir)
+    File "/nix/store/7sndixf9ky9dcp99g0mpi67ikjh12n1r-python-2.7.11-bootstrapped-pip-8.1.2/lib/python2.7/site-packages/wheel/bdist_wheel.py", line 448, in write_record
+      digest = hashlib.sha256(data).digest()
+  AttributeError: 'module' object has no attribute 'sha256'
+
+cannot build derivation ‘/nix/store/d5qjy55iwh80m26bqri8gvb04lff1vbk-python2.7-ipython-4.1.2.drv’: 11 dependencies couldn't be built
+building path(s) ‘/nix/store/wl40k2qrhkbjjl90a4bi44zpmpb751y6-texmath-0.8.6.4’
+cannot build derivation ‘/nix/store/i7magml4a6a88l68djl0vmy97p47mlcc-pythonTools.drv’: 3 dependencies couldn't be built
+builder for ‘/nix/store/1hap1gccvi66b8giq022vg9rjrjmi7hp-gobject-introspection-1.48.0.drv’ failed with exit code 2; last 10 log lines:
+  ValueError: insecure string pickle
+  Makefile:3488: recipe for target 'GLib-2.0.gir' failed
+  make[2]: *** [GLib-2.0.gir] Error 1
+  make[2]: Leaving directory '/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-gobject-introspection-1.48.0.drv-0/gobject-introspection-1.48.0'
+  Makefile:2778: recipe for target 'all-recursive' failed
+  make[1]: *** [all-recursive] Error 1
+  make[1]: Leaving directory '/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-gobject-introspection-1.48.0.drv-0/gobject-introspection-1.48.0'
+  Makefile:1557: recipe for target 'all' failed
+  make: *** [all] Error 2
+
+cannot build derivation ‘/nix/store/vwsjwawpv16zc3raq3gml5yiq920p0i5-atk-2.20.0.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/9zzbsyfjlk2q25j0mkpj1x9n0v4g0j7q-gdk-pixbuf-2.34.0.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/ykli9k75i062zi31glh2pcy5p9ivk54m-pango-1.40.1.drv’: 1 dependencies couldn't be built
+building path(s) ‘/nix/store/6vbi0kqig8nv5szq37climd2mxrqg10q-vector-algorithms-0.7.0.1’
+cannot build derivation ‘/nix/store/3y5qkksr8zfqlxyrpfppjikq3b3g4cix-gnuplot-5.0.3.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/mdis83l6sqzd2frki5f8db2xiac7qhkw-graphviz-2.38.0.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/69x1sz4zwghml96qgbl2v05rx3ijrnhs-gtk+-2.24.30.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/sdlll3xyw849nd5snj41kffbx875zjxs-pango-0.13.3.0.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/4d5z8h8nvhkwxkklbnw4hjhx39v3216i-gtk-0.14.5.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/4pah3plx8kz57addwhv7naiwijb44yf4-gtksourceview-2.10.5.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/zn02iij3p78g0g31lrx6vsw0p3f4gr8h-libglade-2.6.4.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/g5jwhkxkaiwxlyhixdh08yahvc2n7cgp-pinentry-0.9.7.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/m7z92v36l7a3q4y1xdxqwfpwqmg8ji5c-gnupg-2.1.13.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/w3fv0i4hkhgbvzizmfcivbjv9gab9av1-libgnomecanvas-2.30.3.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/cb4w6i5rlfc0b8hr3rbi9kqm5qaip1xi-threadscope-0.2.7.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/98zxvhckkffpspkxrsl3na57cqdkxf3k-git-annex-6.20160613.drv’: 14 dependencies couldn't be built
+cannot build derivation ‘/nix/store/ssxa9q0cacbrnabzgaxh3dzv3k4mmw6c-lablgtk-2.18.3.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/06d8ldwb9kfcvjx9v6mihv9vl4w3bgzy-coq-8.4pl6.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/alrlvr3hgxanb9ypfb8n3rx8bw711i9s-coq-8.5pl1.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/z9lxh1pi7i5qhk1spzkvp4adczylaxa0-prooftree-0.12.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/9b67z16jrw4fzgkvnqflbabx356yfc91-compcert-2.6.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/rn6r0ild1jhpv6jrkpc5gv4vxir61xbw-coq-flocq-8.4-2.5.1.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/ngr77w2rjqaxql7m9kpmqs705l5nvs01-coq-ssreflect-1.6-8.4.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/qaz2aiayfjljab0885p0iy5ir4l8krx2-coq-ssreflect-1.6-8.5.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/ls8b88jc7q4y52kw6brrd3bf2q0l3wc8-coq-tlc-8.4.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/rr1b91228gmlmgwm6chv6fw36djhf961-coq-ynot-8.4-ce1a9806.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/2y0x9cqkjm5xa2w1ax6sv2w137d8b98y-coq-QuickChick-8.4-20150605-b73a594.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/y8sh8r8lcjlncig3n5wmy2h8fss2cbz5-coq-mathcomp-1.6-8.4.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/9wf05j9qqki81nmva1h514z1jdvzql0i-coq-mathcomp-1.6-8.5.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/4my773hmg8s51mhpah9p30h6h06w99jv-langTools.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/8py5axrhgjnqpnsffg9r8p1yzkl2qisd-env-coq84.drv’: 8 dependencies couldn't be built
+cannot build derivation ‘/nix/store/lgys7zg8p3yy8bixb7cl6wx645za4b12-env-coq85.drv’: 3 dependencies couldn't be built
+builder for ‘/nix/store/0w7mmmk0q3wfd3jq8n6r38byjzxkvfqf-singletons-2.2.drv’ failed with exit code 1; last 10 log lines:
+  compileBuildDriverPhase
+  setupCompileFlags: -package-db=/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-singletons-2.2.drv-0/package.conf.d -j8 -threaded
+  [1 of 1] Compiling Main             ( Setup.hs, /private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-singletons-2.2.drv-0/Main.o )
+  Linking Setup ...
+  configuring
+  configureFlags: --verbose --prefix=/nix/store/ridrx3r02w34lqk9bbgqfdgwrlb484xs-singletons-2.2 --libdir=$prefix/lib/$compiler --libsubdir=$pkgid --with-gcc=clang --package-db=/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-singletons-2.2.drv-0/package.conf.d --ghc-option=-optl=-Wl,-headerpad_max_install_names --disable-split-objs --disable-library-profiling --disable-executable-profiling --enable-shared --enable-library-vanilla --enable-executable-dynamic --disable-tests
+  Configuring singletons-2.2...
+  Setup: At least the following dependencies are missing:
+  base >=4.9 && <5
+
+cannot build derivation ‘/nix/store/b3a203mh0raxz4qbav531x8gdag6cqrx-units-2.4.drv’: 1 dependencies couldn't be built
+builder for ‘/nix/store/0sk4hi1wn13mczskm6kv9k40fb10sbqj-texmath-0.8.6.4.drv’ failed with exit code 1; last 10 log lines:
+  compileBuildDriverPhase
+  setupCompileFlags: -package-db=/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-texmath-0.8.6.4.drv-0/package.conf.d -j8 -threaded
+  [1 of 1] Compiling Main             ( Setup.lhs, /private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-texmath-0.8.6.4.drv-0/Main.o )
+  Linking Setup ...
+  configuring
+  configureFlags: --verbose --prefix=/nix/store/wl40k2qrhkbjjl90a4bi44zpmpb751y6-texmath-0.8.6.4 --libdir=$prefix/lib/$compiler --libsubdir=$pkgid --with-gcc=clang --package-db=/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-texmath-0.8.6.4.drv-0/package.conf.d --ghc-option=-optl=-Wl,-headerpad_max_install_names --disable-split-objs --disable-library-profiling --disable-executable-profiling --enable-shared --enable-library-vanilla --enable-executable-dynamic --enable-tests
+  Configuring texmath-0.8.6.4...
+  Setup: At least the following dependencies are missing:
+  network-uri >=2.6
+
+cannot build derivation ‘/nix/store/j34rkjhq6kj6nsm040y3nz5755v3pgml-pandoc-1.17.1.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/ihl38i4z155a73b8dvp24qpg3bn44rn9-pandoc-citeproc-0.10.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/f36ib41g5qy2mqr2pl8xb0kyl2kax37p-systemTools.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/w4ikyg5n0nig750bz1rnz0sx0hl6k8hy-hakyll-4.8.3.2.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/kqn2ypyagiyy17i98qsmz8ycix52bj6c-newartisans-1.0.0.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/f4klmx2nmssnx7h8w9v165rsmgyxr6vy-publishTools.drv’: 2 dependencies couldn't be built
+builder for ‘/nix/store/jsl9aqc8z7i6k5lknifgha9jsdixyjap-vector-algorithms-0.7.0.1.drv’ failed with exit code 1; last 10 log lines:
+  compileBuildDriverPhase
+  setupCompileFlags: -package-db=/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-vector-algorithms-0.7.0.1.drv-0/package.conf.d -j8 -threaded
+  [1 of 1] Compiling Main             ( Setup.lhs, /private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-vector-algorithms-0.7.0.1.drv-0/Main.o )
+  Linking Setup ...
+  configuring
+  configureFlags: --verbose --prefix=/nix/store/6vbi0kqig8nv5szq37climd2mxrqg10q-vector-algorithms-0.7.0.1 --libdir=$prefix/lib/$compiler --libsubdir=$pkgid --with-gcc=clang --package-db=/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-vector-algorithms-0.7.0.1.drv-0/package.conf.d --ghc-option=-optl=-Wl,-headerpad_max_install_names --disable-split-objs --disable-library-profiling --disable-executable-profiling --enable-shared --enable-library-vanilla --enable-executable-dynamic --disable-tests
+  Configuring vector-algorithms-0.7.0.1...
+  Setup: At least the following dependencies are missing:
+  mtl -any, mwc-random -any
+
+cannot build derivation ‘/nix/store/cc4rpmkv20djgvmca2avblc2483x5dsm-mono-traversable-0.10.2.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/xmy54f25ppr4an71bv7i36sn8hhay582-chunked-data-0.2.0.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/2bidqb2ysvqxbb735m7bgg2cw0hbcr8m-mutable-containers-0.3.2.1.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/xd7hfrg7na4hkjvkhyi61gah1ncvcz8v-classy-prelude-0.12.8.drv’: 3 dependencies couldn't be built
+cannot build derivation ‘/nix/store/8rrnx0s251jaqb3736c5zqzr79k7qq73-conduit-combinators-1.0.3.1.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/icjv6kbny1qss0jfdzbm3wk3i2hgnpak-classy-prelude-conduit-0.12.8.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/jl1rfn3fq1hsd36vn3i1rx99dmb0cxn1-gitlib-3.1.1.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/zwsxj1wwbpcr7jspd3w6c70a8f3dxf1f-stm-conduit-3.0.0.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/y0pmmcbvrcii1s41ipdgx9ivpa2ksjxh-ghc-7.10.3.drv’: 18 dependencies couldn't be built
+cannot build derivation ‘/nix/store/fixw33qar8qman1hf5ys9nhzamf602sx-gitlib-test-3.1.0.3.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/iv8n0k6kzbggrpp3h14hnn9swkadxfiv-hoogle-local-0.1.drv’: 14 dependencies couldn't be built
+cannot build derivation ‘/nix/store/qyy21kh6vvvy9mg471jngbv6mmhj9bx5-env-ghc710.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/aj3vpr93pz64hl11plp4zpk0hfxc0aas-gitlib-libgit2-3.1.1.drv’: 4 dependencies couldn't be built
+cannot build derivation ‘/nix/store/q5kdyzh0wh5id4hffx5c125yn3v8nry4-git-monitor-3.1.1.5.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/49bxv5sd2kiypiyyl1b30yf91qkkdp6b-gitTools.drv’: 2 dependencies couldn't be built
+builder for ‘/nix/store/vvslzv6s7d0irrx9iz71slj04qlv4mqj-bazaar-2.7.0.drv’ failed with exit code 1; last 10 log lines:
+    File "/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-bazaar-2.7.0.drv-0/bzr-2.7.0/tools/generate_docs.py", line 42, in <module>
+      from bzrlib import (
+    File "/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-bazaar-2.7.0.drv-0/bzr-2.7.0/bzrlib/commands.py", line 53, in <module>
+      from bzrlib.plugin import disable_plugins, load_plugins
+    File "/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-bazaar-2.7.0.drv-0/bzr-2.7.0/bzrlib/plugin.py", line 37, in <module>
+      from bzrlib import osutils
+    File "/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-bazaar-2.7.0.drv-0/bzr-2.7.0/bzrlib/osutils.py", line 65, in <module>
+      from hashlib import (
+  ImportError: cannot import name md5
+
+cannot build derivation ‘/nix/store/bf5ybj6vlrlrzspvi5y3fz1lc0igzxi4-nix-prefetch-bzr.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/rl08wf1g5k8kmlbw3j3f7p1ijnqs7jap-nix-prefetch-scripts.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/rml77zjm2hhj604j6y3nr99rzg6aqi2z-cabal2nix-20160613-10-g57dddc7.drv’: 18 dependencies couldn't be built
+builder for ‘/nix/store/pmp64h74zscwaryz000vdqg9rl3rmjlx-dovecot-2.2.24.drv’ failed with exit code 2; last 10 log lines:
+  make[3]: Leaving directory '/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-dovecot-2.2.24.drv-0/dovecot-2.2.24/src/lib-ldap'
+  Makefile:489: recipe for target 'all-recursive' failed
+  make[2]: *** [all-recursive] Error 1
+  make[2]: Leaving directory '/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-dovecot-2.2.24.drv-0/dovecot-2.2.24/src'
+  Makefile:617: recipe for target 'all-recursive' failed
+  make[1]: *** [all-recursive] Error 1
+  make[1]: Leaving directory '/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-dovecot-2.2.24.drv-0/dovecot-2.2.24'
+  Makefile:461: recipe for target 'all' failed
+  make: *** [all] Error 2
+
+cannot build derivation ‘/nix/store/842igq363j5ya4rkpa434jydhsi6lk92-dovecot-pigeonhole-0.4.10.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/0s5v1bk2zn3gdlv91kyqx4w72f975gdy-mailTools.drv’: 2 dependencies couldn't be built
+builder for ‘/nix/store/9b5wd28lsxk2da6hpvw2ldyl35psai6n-boost-1.55.0.drv’ failed with exit code 1; last 10 log lines:
+  boost_static_assert_typedef_2040
+  ^
+  47 warnings generated.
+  clang-darwin.link.dll stage/lib/libboost_unit_test_framework.dylib
+  clang-darwin.compile.c++ bin.v2/libs/wave/build/clang-darwin-4.2.1/release/threading-multi/cpplexer/re2clex/cpp_re.o
+  clang-darwin.link.dll stage/lib/libboost_wave.dylib
+  ...failed updating 2 targets...
+  ...skipped 3 targets...
+  ...updated 549 targets...
+
+cannot build derivation ‘/nix/store/fp8qy06nq57jd7wyd93ywrbrxbsl4ll2-ledger-3.1.1.drv’: 1 dependencies couldn't be built
+builder for ‘/nix/store/qb1fiyqn39wpc01487h1hc1xkacshaw6-aria2-1.24.0.drv’ failed with exit code 2; last 10 log lines:
+  make[3]: Leaving directory '/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-aria2-1.24.0.drv-0/aria2-release-1.24.0-src/src'
+  Makefile:2404: recipe for target 'all-recursive' failed
+  make[2]: *** [all-recursive] Error 1
+  make[2]: Leaving directory '/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-aria2-1.24.0.drv-0/aria2-release-1.24.0-src/src'
+  Makefile:554: recipe for target 'all-recursive' failed
+  make[1]: *** [all-recursive] Error 1
+  make[1]: Leaving directory '/private/var/folders/c1/49wv07ys16jbhh4ry92dc8jm0000gn/T/nix-build-aria2-1.24.0.drv-0/aria2-release-1.24.0-src'
+  Makefile:465: recipe for target 'all' failed
+  make: *** [all] Error 2
+
+cannot build derivation ‘/nix/store/96y6bdl8az7yrdnh9cqw0mlm52dfhm42-networkTools.drv’: 2 dependencies couldn't be built
+cannot build derivation ‘/nix/store/vl9q6zhhyhws7v9526p8b45gx9zkaphq-env-emacsHEAD.drv’: 1 dependencies couldn't be built
+building path(s) ‘/nix/store/2flllsc697w728dqg4z7g7njjzxn30q7-env-emacsHEADalt’
+error: build of ‘/nix/store/0s5v1bk2zn3gdlv91kyqx4w72f975gdy-mailTools.drv’, ‘/nix/store/49bxv5sd2kiypiyyl1b30yf91qkkdp6b-gitTools.drv’, ‘/nix/store/4my773hmg8s51mhpah9p30h6h06w99jv-langTools.drv’, ‘/nix/store/8py5axrhgjnqpnsffg9r8p1yzkl2qisd-env-coq84.drv’, ‘/nix/store/96y6bdl8az7yrdnh9cqw0mlm52dfhm42-networkTools.drv’, ‘/nix/store/awir4qjlddiz1n3pps8v3377kw38dvs5-buildTools.drv’, ‘/nix/store/bnz84471ksmj8mrxv59dkl2j52j9pjjw-serviceTools.drv’, ‘/nix/store/f36ib41g5qy2mqr2pl8xb0kyl2kax37p-systemTools.drv’, ‘/nix/store/f4klmx2nmssnx7h8w9v165rsmgyxr6vy-publishTools.drv’, ‘/nix/store/fp8qy06nq57jd7wyd93ywrbrxbsl4ll2-ledger-3.1.1.drv’, ‘/nix/store/i7magml4a6a88l68djl0vmy97p47mlcc-pythonTools.drv’, ‘/nix/store/lgys7zg8p3yy8bixb7cl6wx645za4b12-env-coq85.drv’, ‘/nix/store/qyy21kh6vvvy9mg471jngbv6mmhj9bx5-env-ghc710.drv’, ‘/nix/store/rl08wf1g5k8kmlbw3j3f7p1ijnqs7jap-nix-prefetch-scripts.drv’, ‘/nix/store/rml77zjm2hhj604j6y3nr99rzg6aqi2z-cabal2nix-20160613-10-g57dddc7.drv’, ‘/nix/store/vl9q6zhhyhws7v9526p8b45gx9zkaphq-env-emacsHEAD.drv’ failed
+09:44:12 Vulcan:~/.nix-defexpr $

@@ -1,0 +1,23 @@
+10:55:34 Vulcan:~/.nixpkgs $ nix-env -q
+buildTools
+cabal2nix-20160406
+coreutils-8.25
+env-agda
+env-coq84
+env-coq85
+env-emacsHEAD
+env-emacsHEADalt
+env-ghc710
+gitTools
+langTools
+ledger-3.1.0.20141005
+mailTools
+networkTools
+nix-1.12pre1234_abcdef
+nix-prefetch-scripts
+perlTools
+publishTools
+pythonTools
+rubyTools
+serviceTools
+systemTools

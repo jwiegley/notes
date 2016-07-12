@@ -1,0 +1,17 @@
+# nix-store --fallback -r /nix/store/724jawspxm4ssy8f6aii0x1q2yjm6g8w-nix-1.11.2
+these paths will be fetched (1.20 MiB download, 4.14 MiB unpacked):
+  /nix/store/724jawspxm4ssy8f6aii0x1q2yjm6g8w-nix-1.11.2
+  /nix/store/kz62m6n59s6znrz0z4678z176sgqqhzl-sqlite-3.12.2
+  /nix/store/w23m1wf1zbghpfml7kjw49mz1x2lpvcq-perl-DBD-SQLite-1.48
+fetching path ‘/nix/store/kz62m6n59s6znrz0z4678z176sgqqhzl-sqlite-3.12.2’...
+
+*** Downloading ‘https://cache.nixos.org/nar/01yvx4xdq41ag1icxxhkyq1w8mnlbymxk7m5afpd8k0isalg8k1j.nar.xz’ to ‘/nix/store/kz62m6n59s6znrz0z4678z176sgqqhzl-sqlite-3.12.2’...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0curl: (22) The requested URL returned error: 500 Internal Server Error
+/nix/store/7jli3cxj5l11qwhsm3pcc6vkivv0dw1x-xz-5.0.7/bin/xz: (stdin): File format not recognized
+error: unexpected end-of-file
+download of ‘https://cache.nixos.org/nar/01yvx4xdq41ag1icxxhkyq1w8mnlbymxk7m5afpd8k0isalg8k1j.nar.xz’ failed: No such file or directory
+could not download ‘/nix/store/kz62m6n59s6znrz0z4678z176sgqqhzl-sqlite-3.12.2’ from any binary cache
+fetching path ‘/nix/store/kz62m6n59s6znrz0z4678z176sgqqhzl-sqlite-3.12.2’ failed with exit code 1
+error: build of ‘/nix/store/724jawspxm4ssy8f6aii0x1q2yjm6g8w-nix-1.11.2’ failed

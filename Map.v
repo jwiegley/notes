@@ -61,24 +61,28 @@ Qed.
    Then prove that if you have a surjection [X ↠ Y], then [Finite X -> Finite
    Y]. *)
 
+Definition Surjection {A B} (X : Ensemble A) (Y : Ensemble B) f :=
+  forall y : B, In _ Y y -> exists x : A, In _ X x /\ y = f x.
+
+Theorem Surjection_preserves_Finite : forall A X Y f,
+  Surjection X Y f -> Finite A X -> Finite A Y.
+Proof.
+  unfold Surjection; intros.
+  induction H0.
+    eapply Finite_downward_closed; eauto with sets; intros ??.
+    firstorder.
+  apply IHFinite; intros.
+  specialize (H y H2).
+  do 2 destruct H.
+  inversion H; subst; clear H.
+    exists x0.
+    intuition; subst.
+  inversion H4; subst; clear H4.
+Abort.
+
 Lemma Map_Finite : forall f `(_ : Finite _ r), Finite _ (Map f r).
 Proof.
   unfold Map, Lookup; intros.
-  inversion Finite0.
-    eapply Finite_downward_closed; eauto with sets.
-    intros ? H0; inversion H0; inversion H1.
-    inversion H2.
-  subst.
-  eapply Finite_downward_closed; eauto with sets.
-  intros ? H1; inversion H1; clear H1.
-  destruct H2.
-  destruct x, x0; simpl in *; subst.
-  inversion H1; subst; clear H1.
-    left.
-    admit.
-  inversion H2; subst; clear H2.
-  right.
-  admit.
-Admitted.
+Abort.
 
 End Map.

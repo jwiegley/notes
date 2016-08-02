@@ -72,17 +72,24 @@ Proof.
     eapply Finite_downward_closed; eauto with sets; intros ??.
     firstorder.
   apply IHFinite; intros.
-  specialize (H y H2).
-  do 2 destruct H.
-  inversion H; subst; clear H.
+  destruct (H _ H2), H3.
+  inversion H3; subst; clear H3.
     exists x0.
     intuition; subst.
-  inversion H4; subst; clear H4.
-Abort.
+  inversion H5; subst; clear H5.
+Admitted.
 
 Lemma Map_Finite : forall f `(_ : Finite _ r), Finite _ (Map f r).
 Proof.
-  unfold Map, Lookup; intros.
-Abort.
+  unfold Map; intros.
+  apply Surjection_preserves_Finite
+   with (X:=r) (f:=fun p => (fst p, f (fst p) (snd p))); trivial.
+  intros ??.
+  unfold Ensembles.In in H.
+  do 2 destruct H.
+  destruct y; simpl in *; subst.
+  exists (a, x); simpl.
+  intuition.
+Qed.
 
 End Map.

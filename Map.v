@@ -6,8 +6,7 @@ Require Export
 Require Import
   Coq.Classes.Morphisms
   Coq.Classes.RelationClasses
-  Coq.Setoids.Setoid
-  Here.Same_set.
+  Coq.Setoids.Setoid.
 
 Generalizable All Variables.
 
@@ -61,22 +60,31 @@ Qed.
    Then prove that if you have a surjection [X ↠ Y], then [Finite X -> Finite
    Y]. *)
 
-Definition Surjection {A B} (X : Ensemble A) (Y : Ensemble B) f :=
+Definition Surjective {A B} (X : Ensemble A) (Y : Ensemble B) f :=
   forall y : B, In _ Y y -> exists x : A, In _ X x /\ y = f x.
 
+Definition Injective {A B} (X : Ensemble A) (Y : Ensemble B) f :=
+  forall (x y : A), In _ X x -> In _ X y -> f x = f y
+    -> In _ Y (f x) /\ In _ Y (f y) /\ x = y.
+
 Theorem Surjection_preserves_Finite : forall A X Y f,
-  Surjection X Y f -> Finite A X -> Finite A Y.
+  Surjective X Y f -> Finite A X -> Finite A Y.
 Proof.
-  unfold Surjection; intros.
+  unfold Surjective; intros.
   induction H0.
     eapply Finite_downward_closed; eauto with sets; intros ??.
     firstorder.
+  elim (classic (In A0 Y (f x))); intro H'0; auto with sets.
+    destruct (H _ H'0) as [? [? ?]].
+    rewrite H3 in H'0.
+    admit.
   apply IHFinite; intros.
   destruct (H _ H2), H3.
   inversion H3; subst; clear H3.
     exists x0.
     intuition; subst.
   inversion H5; subst; clear H5.
+  contradiction.
 Admitted.
 
 Lemma Map_Finite : forall f `(_ : Finite _ r), Finite _ (Map f r).

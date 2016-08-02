@@ -1,0 +1,7 @@
+10:29:30 Vulcan:~ $ nix-store -qR /nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11
+/nix/store/i4k6jrnjql9cimy34hfx4mdc8br1mv1y-libc++abi-3.7.1
+/nix/store/mkz44p178mdx140mh1l0jimb74sm0n15-libc++-3.7.1
+/nix/store/fypybzfk9dx4mkl101q81ci38bg5kkmw-gmp-6.1.0
+/nix/store/pzc7h8z96vy9dwbpzx499kwr88m8shvf-coreutils-8.25
+/nix/store/s2yljrlkahzqvb0zsw86z8gnkwddpg0z-bash-4.3-p42
+/nix/store/mlsb03jx8hsjk1z1pg8gp3wgpxy1ndq9-python-2.7.11

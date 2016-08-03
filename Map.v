@@ -67,19 +67,56 @@ Definition Injective {A B} (X : Ensemble A) (Y : Ensemble B) f :=
   forall (x y : A), In _ X x -> In _ X y -> f x = f y
     -> In _ Y (f x) /\ In _ Y (f y) /\ x = y.
 
+Lemma split_set T (X : Ensemble T) x : In T X x
+  -> let X' := (Subtract _ X x) in
+     Same_set _ (Add _ X' x) X /\ ~ In _ X' x.
+Proof.
+  intro Hin.
+  split.
+  { split; [ apply add_soustr_1 | apply add_soustr_2 ]; assumption. }
+  { intro H'; apply Subtract_inv in H'; intuition congruence. }
+Qed.
+
+Program Instance Finite_Proper {A} :
+  Proper (Same_set A --> Basics.flip Basics.impl) (Finite A).
+Obligation 1.
+  unfold Basics.flip, Basics.impl.
+  intros ????.
+  eapply Finite_downward_closed; eauto with sets; intros ??.
+  apply H.
+  assumption.
+Qed.
+
+Lemma Finite_Subtract : forall T X x,
+  Finite T X -> Finite T (Subtract T X x).
+Proof.
+  intros.
+  eapply Finite_downward_closed; eauto with sets; intros ??.
+  inversion H0.
+  assumption.
+Qed.
+
 Theorem Surjection_preserves_Finite : forall A X Y f,
   Surjective X Y f -> Finite A X -> Finite A Y.
 Proof.
   unfold Surjective; intros.
-  induction H0.
+  generalize dependent Y.
+  induction H0; intros.
     eapply Finite_downward_closed; eauto with sets; intros ??.
     firstorder.
   elim (classic (In A0 Y (f x))); intro H'0; auto with sets.
-    destruct (H _ H'0) as [? [? ?]].
-    rewrite H3 in H'0.
+    destruct (split_set _ _ _ H'0); clear H'0.
+    rewrite <- H2; clear H2.
+    constructor; auto.
+    apply Finite_Subtract.
+    apply IHFinite; intros.
+    destruct (H1 _ H2) as [? [? ?]]; subst.
+    inversion H4; subst; clear H4.
+      eauto.
+    inversion H5; subst; clear H5.
     admit.
   apply IHFinite; intros.
-  destruct (H _ H2), H3.
+  destruct (H1 _ H2), H3.
   inversion H3; subst; clear H3.
     exists x0.
     intuition; subst.

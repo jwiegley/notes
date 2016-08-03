@@ -22,7 +22,7 @@ Definition Same (x y : Ensemble (A * B)) : Prop :=
 Definition Map (f : A -> B -> B) (r : Ensemble (A * B)) : Ensemble (A * B) :=
   fun p => exists b : B, Lookup (fst p) b r /\ snd p = f (fst p) b.
 
-Lemma Map_identity : forall r, Same r (Map (fun _ x => x) r).
+Lemma Map_left_identity : forall r, Same r (Map (fun _ x => x) r).
 Proof.
   unfold Map; split; intros.
     eexists b.
@@ -31,6 +31,17 @@ Proof.
   simpl in *.
   rewrite H0.
   assumption.
+Qed.
+
+Lemma Map_right_identity : forall r, Same (Map (fun _ x => x) r) r.
+Proof.
+  unfold Map; split; intros.
+    do 2 destruct H.
+    simpl in *.
+    rewrite H0.
+    assumption.
+  eexists b.
+  intuition.
 Qed.
 
 Lemma Map_composition : forall f g r,

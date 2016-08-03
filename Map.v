@@ -96,20 +96,6 @@ Proof.
   assumption.
 Qed.
 
-Theorem Surjective_Add : forall T (X Y : Ensemble T) f x,
-  Surjective (Add T X x) (Subtract T Y (f x)) f -> Surjective X Y f.
-Proof.
-  unfold Surjective; intros.
-  elim (classic (In T (Subtract T Y (f x)) y)); intro H'0; auto with sets.
-    destruct (H _ H'0) as [? [? ?]]; subst.
-    inversion H'0; clear H'0.
-    inversion H1; subst; clear H1.
-      exists x0; intuition.
-    inversion H4; subst; clear H4.
-    contradiction H3.
-    constructor.
-Abort.
-
 Theorem Surjective_Subtract : forall T (X Y : Ensemble T) f x,
   Surjective X Y f -> Surjective X (Subtract T Y (f x)) f.
 Proof.
@@ -119,6 +105,14 @@ Proof.
   exists x0; auto.
 Qed.
 
+Lemma Singleton_not_inv : forall (U : Type) (x y : U),
+  ~ In U (Singleton U x) y -> x <> y.
+Proof.
+  unfold not; intros; subst.
+  apply H.
+  constructor.
+Qed.
+
 Theorem Surjective_Intersection : forall T (X Y : Ensemble T) f x,
   Surjective X Y f
     -> Surjective (Intersection _ X (Complement _ (fun x2 => f x2 = f x)))
@@ -126,12 +120,14 @@ Theorem Surjective_Intersection : forall T (X Y : Ensemble T) f x,
 Proof.
   unfold Surjective; intros.
   inversion H0; clear H0.
-  exists x.
+  destruct (H _ H1) as [? [? ?]]; subst.
+  exists x0; intuition.
+  constructor; auto.
+  unfold Complement, Ensembles.In, not; intros.
+  apply H2.
+  rewrite H3.
   constructor.
-    constructor.
-    admit.
-    unfold Complement, Ensembles.In.
-Abort.
+Qed.
 
 Theorem Surjection_preserves_Finite : forall A X Y f,
   Surjective X Y f -> Finite A X -> Finite A Y.
@@ -141,6 +137,9 @@ Proof.
   induction H0; intros.
     eapply Finite_downward_closed; eauto with sets; intros ??.
     firstorder.
+  apply IHFinite.
+  apply Sub_Add_new in H.
+  apply Surjective_Intersection with (x:=x) in H1.
 Admitted.
 
 Lemma Map_Finite : forall f `(_ : Finite _ r), Finite _ (Map f r).

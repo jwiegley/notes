@@ -156,6 +156,13 @@ Lemma Finite_Add_Subtract : forall T (Y : Ensemble T) x,
 Proof.
   intros.
   eapply Finite_downward_closed; eauto with sets; intros ??.
+  (* Jason Gross: To avoid the axiom of choice, you'd need a stronger version
+     of [Finite], something like having a list of elements together with a
+     mapping of elements of the type to indices of the list such that if an
+     element of the type is in the subset, then it is equal to the element of
+     the list at the corresponding index. In this case, everything is
+     constructive, and you shouldn't need either ensemble-extensionality nor
+     decidable equality. *)
   elim (classic (x = x0)); intros.
     subst; right; constructor.
   left; constructor; auto.

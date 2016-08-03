@@ -106,7 +106,7 @@ Proof.
   assumption.
 Qed.
 
-Theorem Surjective_Subtract : forall T (X Y : Ensemble T) f x,
+Lemma Surjective_Subtract : forall T (X Y : Ensemble T) f x,
   Surjective X Y f -> Surjective X (Subtract T Y (f x)) f.
 Proof.
   unfold Surjective; intros.
@@ -123,7 +123,7 @@ Proof.
   constructor.
 Qed.
 
-Theorem Surjective_Intersection : forall T (X Y : Ensemble T) f x,
+Lemma Surjective_Intersection : forall T (X Y : Ensemble T) f x,
   Surjective X Y f
     -> Surjective (Intersection _ X (Complement _ (fun x2 => f x2 = f x)))
                   (Subtract _ Y (f x)) f.
@@ -169,7 +169,7 @@ Proof.
   constructor.
 Qed.
 
-Theorem Surjection_preserves_Finite : forall A X Y f,
+Lemma Surjection_preserves_Finite : forall A X Y f,
   Surjective X Y f -> Finite A X -> Finite A Y.
 Proof.
   intros.
@@ -188,7 +188,7 @@ Proof.
   constructor.
 Qed.
 
-Lemma Map_Finite : forall f `(_ : Finite _ r), Finite _ (Map f r).
+Theorem Map_Finite : forall f `(_ : Finite _ r), Finite _ (Map f r).
 Proof.
   unfold Map; intros.
   apply Surjection_preserves_Finite

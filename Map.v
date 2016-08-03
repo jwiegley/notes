@@ -221,4 +221,41 @@ Qed.
 
 Print Assumptions Map_Finite.
 
+Require Import Coq.Lists.List.
+
+Definition Finite0 {A} (X : Ensemble A) : Type :=
+  { xs : list A
+  & { f : A -> option nat
+    | forall x,
+        Ensembles.In A X x
+        <-> match f x with
+            | None => False
+            | Some i => nth_error xs i = Some x
+            end } }.
+
+Definition Finite1 {A} (X : Ensemble A) : Type :=
+  { xs : list A | Same_set A X (fun x => List.In x xs) }.
+
+Require Import Coq.Sorting.Permutation.
+
+Theorem Finite0_Finite1 : forall A (X : Ensemble A),
+  forall (x : Finite0 X) (y : Finite1 X),
+    Permutation (projT1 x) (proj1_sig y).
+Proof.
+  intros.
+  destruct x, y, s, s0; simpl.
+  generalize dependent x0.
+  induction x; intros.
+    destruct x0; simpl in *.
+      reflexivity.
+    specialize (i a).
+    destruct (x1 a);
+    unfold Included, Ensembles.In in *;
+    specialize (i0 a);
+    specialize (i1 a);
+    intuition;
+    apply nth_error_In in H2;
+    inversion H2.
+Abort.
+
 End Map.

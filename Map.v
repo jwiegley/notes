@@ -96,32 +96,51 @@ Proof.
   assumption.
 Qed.
 
+Theorem Surjective_Add : forall T (X Y : Ensemble T) f x,
+  Surjective (Add T X x) (Subtract T Y (f x)) f -> Surjective X Y f.
+Proof.
+  unfold Surjective; intros.
+  elim (classic (In T (Subtract T Y (f x)) y)); intro H'0; auto with sets.
+    destruct (H _ H'0) as [? [? ?]]; subst.
+    inversion H'0; clear H'0.
+    inversion H1; subst; clear H1.
+      exists x0; intuition.
+    inversion H4; subst; clear H4.
+    contradiction H3.
+    constructor.
+Abort.
+
+Theorem Surjective_Subtract : forall T (X Y : Ensemble T) f x,
+  Surjective X Y f -> Surjective X (Subtract T Y (f x)) f.
+Proof.
+  unfold Surjective; intros.
+  inversion H0; clear H0.
+  destruct (H _ H1) as [? [? ?]]; subst.
+  exists x0; auto.
+Qed.
+
+Theorem Surjective_Intersection : forall T (X Y : Ensemble T) f x,
+  Surjective X Y f
+    -> Surjective (Intersection _ X (Complement _ (fun x2 => f x2 = f x)))
+                  (Subtract _ Y (f x)) f.
+Proof.
+  unfold Surjective; intros.
+  inversion H0; clear H0.
+  exists x.
+  constructor.
+    constructor.
+    admit.
+    unfold Complement, Ensembles.In.
+Abort.
+
 Theorem Surjection_preserves_Finite : forall A X Y f,
   Surjective X Y f -> Finite A X -> Finite A Y.
 Proof.
-  unfold Surjective; intros.
+  intros.
   generalize dependent Y.
   induction H0; intros.
     eapply Finite_downward_closed; eauto with sets; intros ??.
     firstorder.
-  elim (classic (In A0 Y (f x))); intro H'0; auto with sets.
-    destruct (split_set _ _ _ H'0); clear H'0.
-    rewrite <- H2; clear H2.
-    constructor; auto.
-    apply Finite_Subtract.
-    apply IHFinite; intros.
-    destruct (H1 _ H2) as [? [? ?]]; subst.
-    inversion H4; subst; clear H4.
-      eauto.
-    inversion H5; subst; clear H5.
-    admit.
-  apply IHFinite; intros.
-  destruct (H1 _ H2), H3.
-  inversion H3; subst; clear H3.
-    exists x0.
-    intuition; subst.
-  inversion H5; subst; clear H5.
-  contradiction.
 Admitted.
 
 Lemma Map_Finite : forall f `(_ : Finite _ r), Finite _ (Map f r).

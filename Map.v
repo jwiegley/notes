@@ -63,6 +63,7 @@ Qed.
 Definition Surjective {A B} (X : Ensemble A) (Y : Ensemble B) f :=
   forall y : B, In _ Y y -> exists x : A, In _ X x /\ y = f x.
 
+(*
 Definition Injective {A B} (X : Ensemble A) (Y : Ensemble B) f :=
   forall (x y : A), In _ X x -> In _ X y -> f x = f y
     -> In _ Y (f x) /\ In _ Y (f y) /\ x = y.
@@ -93,6 +94,15 @@ Proof.
   intros.
   eapply Finite_downward_closed; eauto with sets; intros ??.
   inversion H0.
+  assumption.
+Qed.
+
+Lemma Finite_Subtract_r : forall T X x,
+  ~ In T X x -> Finite T (Subtract T X x) -> Finite T X .
+Proof.
+  intros.
+  apply Non_disjoint_union' in H.
+  rewrite H in H0.
   assumption.
 Qed.
 
@@ -128,6 +138,36 @@ Proof.
   rewrite H3.
   constructor.
 Qed.
+*)
+
+Lemma Finite_Add_Subtract : forall T (Y : Ensemble T) x,
+  Finite _ (Add T (Subtract T Y x) x) -> Finite _ Y.
+Proof.
+  intros.
+  eapply Finite_downward_closed; eauto with sets; intros ??.
+  elim (classic (x = x0)); intros.
+    subst; right; constructor.
+  left; constructor; auto.
+  unfold not; intros.
+  contradiction H1.
+  inversion H2.
+  reflexivity.
+Qed.
+
+Lemma Surjective_Add_Subtract : forall T X Y f x,
+  ~ In T X x
+    -> Surjective (Add T X x) Y f
+    -> Surjective X (Subtract T Y (f x)) f.
+Proof.
+  unfold Surjective; intros.
+  inversion H1.
+  destruct (H0 _ H2) as [? [? ?]]; subst; clear H0 H2.
+  inversion H4; subst; clear H4.
+    exists x0; intuition.
+  inversion H0; subst; clear H0.
+  contradiction H3.
+  constructor.
+Qed.
 
 Theorem Surjection_preserves_Finite : forall A X Y f,
   Surjective X Y f -> Finite A X -> Finite A Y.
@@ -137,10 +177,16 @@ Proof.
   induction H0; intros.
     eapply Finite_downward_closed; eauto with sets; intros ??.
     firstorder.
-  apply IHFinite.
-  apply Sub_Add_new in H.
-  apply Surjective_Intersection with (x:=x) in H1.
-Admitted.
+  apply Surjective_Add_Subtract in H1; auto.
+  specialize (IHFinite _ H1).
+  eapply Finite_Add_Subtract.
+  constructor.
+  exact IHFinite.
+  unfold not; intros.
+  inversion H2.
+  contradiction H4.
+  constructor.
+Qed.
 
 Lemma Map_Finite : forall f `(_ : Finite _ r), Finite _ (Map f r).
 Proof.
@@ -154,5 +200,7 @@ Proof.
   exists (a, x); simpl.
   intuition.
 Qed.
+
+Print Assumptions Map_Finite.
 
 End Map.

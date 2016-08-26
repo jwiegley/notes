@@ -1,0 +1,48 @@
+upgrading ‘pythonTools’ to ‘pythonTools’
+upgrading ‘env-coq84’ to ‘env-coq84’
+upgrading ‘buildTools’ to ‘buildTools’
+upgrading ‘coreutils-8.25’ to ‘coreutils-8.25’
+warning: dumping very large path (> 256 MiB); this may run out of memory
+upgrading ‘env-agda’ to ‘env-agda’
+upgrading ‘env-ghc710’ to ‘env-ghc710’
+upgrading ‘gitTools’ to ‘gitTools’
+upgrading ‘langTools’ to ‘langTools’
+upgrading ‘ledger-3.1.1.20160111’ to ‘ledger-3.1.1.20160111’
+upgrading ‘nix-prefetch-scripts’ to ‘nix-prefetch-scripts’
+upgrading ‘env-coq85’ to ‘env-coq85’
+upgrading ‘env-emacsHEAD’ to ‘env-emacsHEAD’
+upgrading ‘env-emacsHEADalt’ to ‘env-emacsHEADalt’
+upgrading ‘mailTools’ to ‘mailTools’
+upgrading ‘networkTools’ to ‘networkTools’
+upgrading ‘systemTools’ to ‘systemTools’
+upgrading ‘nix-1.11.2’ to ‘nix-1.11.2’
+these derivations will be built:
+  /nix/store/0j5k4aaw1q5h6kxy9c4z8zdq7551l19f-texmath-0.8.6.5.drv
+  /nix/store/2532m2drcvjzddj4gfzdywilbh6357sq-pandoc-1.17.1.drv
+  /nix/store/6a31d0m46mg25gvnrz8sy6r6mzncicy7-mueval-0.9.1.1.2.drv
+  /nix/store/brsww97bhn7l87g1138w0gxiflz8lvcn-dovecot-2.2.25.drv
+  /nix/store/gg3k8jxjj39wpfvc01xls395ghy0yf60-dovecot-pigeonhole-0.4.10.drv
+  /nix/store/8d54b03j1v9d898fykrajsm3jn8hmkfw-mailTools.drv
+  /nix/store/r6hrkaafwihm40qq7y2q6igky8ck853g-timeplot-1.0.31.drv
+  /nix/store/rmqb56mcv8g4f3al5ghg0lz6i0pmlgc5-ghc-mod-5.6.0.0.drv
+  /nix/store/f9r2lbj2n5ix8ww994b64yxm0lcn9071-env-ghc710.drv
+  /nix/store/mwc320gm4ag5z73ga5x5rf1nbzzrl4hy-systemTools.drv
+  /nix/store/q2glbw54ns9p5ybk2q36dhjclf58hhvj-ledger-3.1.1.20160111.drv
+building path(s) ‘/nix/store/95pkia04nvdl83vq6j2h75klw74cdyzl-ledger-3.1.1.20160111’
+building path(s) ‘/nix/store/rdg2br67n1lrr5qnsdcqnzjx5gf0rwb6-dovecot-2.2.25’
+building path(s) ‘/nix/store/cj2mm4xg42cpziclrjikplvak8598k11-ghc-mod-5.6.0.0’
+building path(s) ‘/nix/store/1i80awqpqgmwid1nqps1s28v2a8pipxx-mueval-0.9.1.1.2’
+building path(s) ‘/nix/store/r4fixr5kbz446m5211gjycnpq349xsah-timeplot-1.0.31’
+building path(s) ‘/nix/store/955409pl3pavs4yph2kgqz4db4cdn6cw-texmath-0.8.6.5’
+builder for ‘/nix/store/0j5k4aaw1q5h6kxy9c4z8zdq7551l19f-texmath-0.8.6.5.drv’ failed with exit code 1
+cannot build derivation ‘/nix/store/2532m2drcvjzddj4gfzdywilbh6357sq-pandoc-1.17.1.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/mwc320gm4ag5z73ga5x5rf1nbzzrl4hy-systemTools.drv’: 1 dependencies couldn't be built
+builder for ‘/nix/store/6a31d0m46mg25gvnrz8sy6r6mzncicy7-mueval-0.9.1.1.2.drv’ failed with exit code 1
+builder for ‘/nix/store/r6hrkaafwihm40qq7y2q6igky8ck853g-timeplot-1.0.31.drv’ failed with exit code 1
+builder for ‘/nix/store/rmqb56mcv8g4f3al5ghg0lz6i0pmlgc5-ghc-mod-5.6.0.0.drv’ failed with exit code 1
+cannot build derivation ‘/nix/store/f9r2lbj2n5ix8ww994b64yxm0lcn9071-env-ghc710.drv’: 3 dependencies couldn't be built
+builder for ‘/nix/store/q2glbw54ns9p5ybk2q36dhjclf58hhvj-ledger-3.1.1.20160111.drv’ failed with exit code 1
+builder for ‘/nix/store/brsww97bhn7l87g1138w0gxiflz8lvcn-dovecot-2.2.25.drv’ failed with exit code 2
+cannot build derivation ‘/nix/store/gg3k8jxjj39wpfvc01xls395ghy0yf60-dovecot-pigeonhole-0.4.10.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/8d54b03j1v9d898fykrajsm3jn8hmkfw-mailTools.drv’: 2 dependencies couldn't be built
+error: build of ‘/nix/store/8d54b03j1v9d898fykrajsm3jn8hmkfw-mailTools.drv’, ‘/nix/store/f9r2lbj2n5ix8ww994b64yxm0lcn9071-env-ghc710.drv’, ‘/nix/store/mwc320gm4ag5z73ga5x5rf1nbzzrl4hy-systemTools.drv’, ‘/nix/store/q2glbw54ns9p5ybk2q36dhjclf58hhvj-ledger-3.1.1.20160111.drv’ failed

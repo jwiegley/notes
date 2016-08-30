@@ -1,3 +1,7 @@
 -R ~/bae/rings/fiat/src Fiat
 -R ~/src/coq-haskell/src Hask
+-R . Here
+./Comp.v
+./Composition.v
 ./SetFunctor.v
+./Tactics.v

@@ -1,0 +1,149 @@
+Module
+Heap
+:= Functor (Mem:Memory)
+     Struct
+       Record MemoryBlock : Type := Build_MemoryBlock
+         { memSize : N;  memData : EMap N Mem.Word8 }
+       Definition MemoryBlock_rect :
+         forall P : MemoryBlock -> Type,
+         (forall (memSize : N) (memData : EMap N Mem.Word8),
+          P (Build_MemoryBlock memSize memData)) ->
+         forall m : MemoryBlock, P m.
+       Definition MemoryBlock_ind :
+         forall P : MemoryBlock -> Prop,
+         (forall (memSize : N) (memData : EMap N Mem.Word8),
+          P (Build_MemoryBlock memSize memData)) ->
+         forall m : MemoryBlock, P m.
+       Definition MemoryBlock_rec :
+         forall P : MemoryBlock -> Set,
+         (forall (memSize : N) (memData : EMap N Mem.Word8),
+          P (Build_MemoryBlock memSize memData)) ->
+         forall m : MemoryBlock, P m.
+       Definition memSize : MemoryBlock -> N.
+       Definition memData : MemoryBlock -> EMap N Mem.Word8.
+       Definition MemoryBlock_Same : MemoryBlock -> MemoryBlock -> Prop.
+       Parameter MemoryBlock_Proper_obligation_1 :
+         (eq ==> Same (B:=Mem.Word8) ==> MemoryBlock_Same)%signature
+           Build_MemoryBlock Build_MemoryBlock.
+       Definition MemoryBlock_Proper :
+         Proper (eq ==> Same (B:=Mem.Word8) ==> MemoryBlock_Same)
+           Build_MemoryBlock.
+       Definition KeepKeys :
+         (N -> Prop) -> EMap N Mem.Word8 -> EMap N Mem.Word8.
+       Definition ShiftKeys : N -> N -> EMap N Mem.Word8 -> EMap N Mem.Word8.
+       Definition FindFreeBlock : N -> EMap N MemoryBlock -> Comp N.
+       Definition FindBlock :
+         N -> EMap N MemoryBlock -> Comp (option MemoryBlock).
+       Definition FindBlockThatFits :
+         N -> N -> EMap N MemoryBlock -> Comp (option (N * MemoryBlock)).
+       Definition emptyS : String.string.
+       Definition allocS : String.string.
+       Definition reallocS : String.string.
+       Definition freeS : String.string.
+       Definition peekS : String.string.
+       Definition pokeS : String.string.
+       Definition memcpyS : String.string.
+       Definition memsetS : String.string.
+       Definition HeapSpec :
+         DecoratedADT
+           ADTsignature {
+                         Constructor emptyS : rep,
+                         Method allocS : rep * {len : N | 0 < len} -> rep * N,
+                         Method freeS : rep * N -> rep * (),
+                         Method reallocS : rep * N* 
+                         {len : N | 0 < len} -> rep * N,
+                         Method peekS : rep * N -> rep * Mem.Word8,
+                         Method pokeS : rep * N* Mem.Word8 -> rep * (),
+                         Method memcpyS : rep * N* N* N -> rep * (),
+                         Method memsetS : rep * N* N* Mem.Word8 -> rep * ()
+                          }.
+       Definition empty : Comp (Rep HeapSpec).
+       Definition alloc :
+         Rep HeapSpec -> {len : N | 0 < len} -> Comp (Rep HeapSpec * N).
+       Definition free : Rep HeapSpec -> N -> Comp (Rep HeapSpec * ()).
+       Definition realloc :
+         Rep HeapSpec -> N -> {len : N | 0 < len} -> Comp (Rep HeapSpec * N).
+       Definition peek :
+         Rep HeapSpec -> N -> Comp (Rep HeapSpec * Mem.Word8).
+       Definition poke :
+         Rep HeapSpec -> N -> Mem.Word8 -> Comp (Rep HeapSpec * ()).
+       Definition memcpy :
+         Rep HeapSpec -> N -> N -> N -> Comp (Rep HeapSpec * ()).
+       Definition memset :
+         Rep HeapSpec -> N -> N -> Mem.Word8 -> Comp (Rep HeapSpec * ()).
+       Parameter allocations_have_size :
+         forall r : Rep HeapSpec,
+         fromADT HeapSpec r ->
+         forall (addr : N) (blk : MemoryBlock),
+         Lookup addr blk r -> 0 < memSize blk.
+       Parameter allocations_correct_offsets :
+         forall r : Rep HeapSpec,
+         fromADT HeapSpec r ->
+         forall (addr : N) (blk : MemoryBlock),
+         Lookup addr blk r ->
+         All (fun (off : N) (_ : Mem.Word8) => off < memSize blk)
+           (memData blk).
+       Parameter allocations_unique :
+         forall r : Rep HeapSpec, fromADT HeapSpec r -> Functional r.
+       Parameter all_block_maps_are_unique :
+         forall r : Rep HeapSpec,
+         fromADT HeapSpec r ->
+         All (fun (_ : N) (blk : MemoryBlock) => Functional (memData blk)) r.
+       Parameter allocations_unique_r :
+         forall r : Rep HeapSpec,
+         fromADT HeapSpec r ->
+         forall (addr1 : N) (blk : MemoryBlock),
+         Lookup addr1 blk r ->
+         forall addr2 : N, ~ Member addr2 r -> addr1 <> addr2.
+       Parameter allocations_no_overlap :
+         forall r : Rep HeapSpec,
+         fromADT HeapSpec r ->
+         forall (addr1 : N) (blk1 : MemoryBlock),
+         Lookup addr1 blk1 r ->
+         forall (addr2 : N) (blk2 : MemoryBlock),
+         Lookup addr2 blk2 r ->
+         addr1 <> addr2 ->
+         ~ overlaps addr1 (memSize blk1) addr2 (memSize blk2).
+       Parameter find_partitions_a_singleton :
+         forall r : Rep HeapSpec,
+         fromADT HeapSpec r ->
+         forall (addr base : N) (blk : MemoryBlock),
+         Lookup base blk r ->
+         within base (memSize blk) addr ->
+         Same
+           (Filter
+              (fun (a : N) (b : MemoryBlock) => within a (memSize b) addr) r)
+           (Single base blk).
+       Parameter allocations_disjoint :
+         forall r : Rep HeapSpec,
+         fromADT HeapSpec r ->
+         forall (addr : N) (blk : MemoryBlock),
+         Lookup addr blk r ->
+         forall pos : N,
+         within addr (memSize blk) pos ->
+         forall (addr' : N) (blk' : MemoryBlock),
+         Lookup addr' blk' r ->
+         addr <> addr' -> ~ within addr' (memSize blk') pos.
+       Parameter heap_is_finite :
+         forall r : Rep HeapSpec,
+         fromADT HeapSpec r -> Finite (N * MemoryBlock) r.
+       Parameter added :
+         forall b e : N,
+         b <= e ->
+         Same_set N (fun x : N => b <= x < N.succ e)
+           (Add N (fun x : N => b <= x < e) e).
+       Parameter not_added :
+         forall b e : N,
+         ~ b <= e ->
+         Same_set N (fun x : N => b <= x < N.succ e)
+           (fun x : N => b <= x < e).
+       Parameter N_Finite :
+         forall b e : N, Finite N (fun x : N => b <= x < e).
+       Parameter all_blocks_are_finite :
+         forall r : Rep HeapSpec,
+         fromADT HeapSpec r ->
+         All
+           (fun (_ : N) (blk : MemoryBlock) =>
+            Finite (N * Mem.Word8) (memData blk)) r.
+     End
+

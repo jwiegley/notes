@@ -1,0 +1,62 @@
+Require Export Coq.Sets.Ensembles Coq.NArith.NArith.
+
+Generalizable All Variables.
+
+Module Type Memory.
+  Parameter Word8 : Type.
+  Parameter Zero  : Word8.
+End Memory.
+
+Module Heap (Mem : Memory).
+
+Record MemoryBlock := {
+  memSize : N;
+  memData : Ensemble (N * Mem.Word8)
+}.
+
+End Heap.
+
+Module HeapADT (Mem : Memory).
+
+Module Import H := Heap Mem.
+
+Theorem foo : { mem : MemoryBlock & mem = mem }.
+Proof.
+Admitted.
+
+End HeapADT.
+
+Require Import
+  Coq.FSets.FMapFacts
+  Coq.Structures.DecidableTypeEx.
+
+Module MemoryBlockC (Mem : Memory) (M : WSfun N_as_DT).
+
+Module A := HeapADT Mem.
+Import A.
+Import H.
+
+Module P := WProperties_fun N_as_DT M.
+Module F := P.F.
+
+End MemoryBlockC.
+
+Require Import
+  Coq.FSets.FMapAVL
+  Coq.Structures.OrderedTypeEx.
+
+Module HeapFMap (Mem : Memory).
+
+Module Import A := HeapADT Mem.
+Import H.
+
+Module M := FMapAVL.Make(N_as_OT).
+Module B := MemoryBlockC Mem M.
+Import B.A.
+
+Lemma bar : MemoryBlock.
+Proof.
+  exact (projT1 foo).
+Admitted.
+
+End HeapFMap.

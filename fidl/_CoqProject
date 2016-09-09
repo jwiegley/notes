@@ -1,0 +1,21 @@
+-R . FIDL
+-R ../coq-haskell/src Hask
+-R ../fiat/src Fiat
+./Comp.v
+./Composition.v
+./Composition2.v
+./DSL.v
+./DestructForRefine.v
+./Effect.v
+./EffectOld.v
+./Idris.v
+./Maybex.v
+./Monadx.v
+./Refinements.v
+./Sets.v
+./Specification.v
+./Specification2.v
+./Tactics.v
+./Tainted.v
+./Traversable.v
+./Vectors.v

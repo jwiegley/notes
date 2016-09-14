@@ -1,7 +1,24 @@
 Require Import Hask.Prelude.
 Require Import Hask.Data.List.
+Require Import Hask.Control.Applicative.
 
 Generalizable All Variables.
+
+Definition star_angle `{Applicative f} {a b} : f a -> f b -> f b :=
+  liftA2 (const id).
+
+Infix "*>" := star_angle (at level 42).
+
+Import ApplicativeLaws.
+
+Theorem dfeuer_20160914 (a b c : Type) `{ApplicativeLaws f} :
+  forall (k : a -> b) (u : f a) (v : f c),
+    fmap k u *> v = u *> v.
+Proof.
+  unfold star_angle, const, id, liftA2; intros; simpl.
+  rewrite fmap_comp_x.
+  reflexivity.
+Qed.
 
 (* For any injective function f, if there exists a right-sided inverse g,
    g is a two-sided inverse for f. *)

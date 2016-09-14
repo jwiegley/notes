@@ -15,9 +15,8 @@ Theorem dfeuer_20160914 (a b c : Type) `{ApplicativeLaws f} :
   forall (k : a -> b) (u : f a) (v : f c),
     fmap k u *> v = u *> v.
 Proof.
-  unfold star_angle, const, id, liftA2; intros; simpl.
-  rewrite fmap_comp_x.
-  reflexivity.
+  unfold star_angle, liftA2; intros.
+  rewrite fmap_comp_x; reflexivity.
 Qed.
 
 (* For any injective function f, if there exists a right-sided inverse g,

@@ -1,0 +1,1 @@
+Require Import Hask.Data.Foldable.

@@ -396,3 +396,43 @@ Proof.
   extensionality p.
   rewrite <- surjective_pairing; auto.
 Qed.
+
+Definition _bind `(p : Pipe a' a b' b r) `(f : r -> Pipe a' a b' b r') :
+  Pipe a' a b' b r'.
+Admitted.
+  (* {| segment := *)
+  (*      fun inc out => *)
+  (*        segment p inc *)
+  (*                (fun b i => *)
+  (*                   segment (f b) inc *)
+  (*                           (fun c j => *)
+  (*                              n <- { n | exists s, nth_smallest n s (i, j) }; *)
+  (*                                out c n)) *)
+  (*  ; proper := _ |}. *)
+
+(*
+p0 `_bind` f = go p0 where
+    go p = case p of
+        Request a' fa  -> Request a' (\a  -> go (fa  a ))
+        Respond b  fb' -> Respond b  (\b' -> go (fb' b'))
+        M          m   -> M (m >>= \p' -> return (go p'))
+        Pure    r      -> f r
+*)
+
+Definition next `(p : Producer a r) : Comp (r + (a * Producer a r)) :=
+  fun x =>
+    match x with
+    | inl x => forall inc out, segment p inc out x
+    | inr (a, next) => forall inc out, exists r,
+      segment next inc out r /\
+      segment p inc (fun y _ _ => a = y) r
+    end.
+
+Program Definition empty {a : Type} : Producer' a () := fun _ _ =>
+  {| segment := fun _ _ => ret tt
+   ; proper  := _ |}.
+Obligation 1. intros ??????; reflexivity. Qed.
+
+Definition each `(xs : list a) : Producer' a () := fun _ _ =>
+  List.fold_right (fun x p => _bind (yield x) (fun _ => p))
+                  (empty _ _) xs.

@@ -1,0 +1,203 @@
+-*- mode: compilation; default-directory: "~/src/parsec-free/Text/Parsec/" -*-
+Compilation started at Mon Oct 10 22:03:30
+
+(cd ~/bae/hsmedl ; load-env-ghc80 nix-shell --command "cabal install -j --force-reinstalls --enable-tests --only-dependencies && cabal configure --enable-tests && cabal build" && ./dist/build/test/test ~/bae/hsmedl/test/examples/basics/action_update.smedl)
+env-ghc80 loaded
+Some add-source dependencies have been modified. They will be reinstalled...
+Resolving dependencies...
+Warning: Note that reinstalls are always dangerous. Continuing anyway...
+Notice: installing into a sandbox located at
+/Users/johnw/Contracts/BAE/Projects/hsmedl/.cabal-sandbox
+Configuring parsec-free-3.1.11.5...
+Building parsec-free-3.1.11.5...
+Installed parsec-free-3.1.11.5
+Resolving dependencies...
+Configuring hsmedl-0.1.0.0...
+Building hsmedl-0.1.0.0...
+Preprocessing library hsmedl-0.1.0.0...
+[1 of 1] Compiling Smedl            ( Smedl.hs, dist/build/Smedl.o ) [Text.Parsec.Expr changed]
+Preprocessing test suite 'test' for hsmedl-0.1.0.0...
+[1 of 2] Compiling Arbitrary        ( test/Arbitrary.hs, dist/build/test/test-tmp/Arbitrary.o ) [Smedl changed]
+[2 of 2] Compiling Main             ( test/Main.hs, dist/build/test/test-tmp/Main.o ) [Smedl changed]
+Linking dist/build/test/test ...
+Parsing file: "/Users/johnw/bae/hsmedl/test/examples/basics/action_update.smedl"
+Contents:
+object ActUp
+    state
+        int bar;
+    events
+        imported foo(int);
+    scenarios
+        sc1:
+           Min1 -> foo(x) when bar == 1 { bar = x; } -> Min1
+
+
+object ActUp
+state
+  int bar;
+events
+  imported foo(int);
+scenarios
+  sc1:
+    Min1 -> foo(x) when bar == 1 { bar = x } -> Min1
+
+Result => ()
+
+label "object name"
+  reserved "object"
+  identifier => "ActUp"
+parserPlus
+  (reserved "identity")
+  return
+parserPlus
+  reserved "state"
+  label "var decls"
+    sepEndBy1
+      label "var decl"
+        label "type"
+          choice
+            reserved "int"
+        commaSep1
+          sepBy1
+            label "variable name"
+              identifier => "bar"
+            (string ",")
+      symbol ";"
+      (label "var decl")
+        (label "type")
+          (choice)
+            (reserved "int")
+            (reserved "pointer")
+            (label "type name")
+              (identifier)
+parserPlus
+  reserved "events"
+  sepEndBy1
+    label "event defs"
+      label "event definition kind"
+        choice
+          (reserved "internal")
+          reserved "imported"
+      label "error keyword"
+        parserPlus
+          (reserved "error")
+          return
+      commaSep1
+        sepBy1
+          label "event name"
+            identifier => "foo"
+          label "event params"
+            parens
+              between
+                string "("
+                commaSep
+                  sepBy
+                    label "type"
+                      choice
+                        reserved "int"
+                    (string ",")
+                string ")"
+          label "event definiton"
+            parserPlus
+              (reservedOp "=")
+              return
+          (string ",")
+    symbol ";"
+    (label "event defs")
+      (label "event definition kind")
+        (choice)
+          (reserved "internal")
+          (reserved "imported")
+          (reserved "exported")
+label "scenarios"
+  reserved "scenarios"
+  many1
+    label "scenario"
+      parserPlus
+        (reserved "atomic")
+        return
+      label "scenario name"
+        identifier => "sc1"
+      symbol ":"
+      label "traces"
+        many1
+          label "trace"
+            try
+              label "start state"
+                identifier => "Min1"
+              symbol "->"
+              many1
+                try
+                  label "possible event name"
+                    identifier => "foo"
+                  label "step"
+                    label "event instance"
+                      parserPlus
+                        parens
+                          between
+                            string "("
+                            commaSep
+                              sepBy
+                                label "event name"
+                                  identifier => "x"
+                                (string ",")
+                            string ")"
+                      parserPlus
+                        reserved "when"
+                        label "expr"
+                          label "buildExpressionParser"
+                    label "event actions"
+                      parserPlus
+                        parserPlus
+                          braces
+                            between
+                              string "{"
+                              sepBy1
+                                parserPlus
+                                  label "action"
+                                    choice
+                                      (reserved "raise")
+                                      label "state update action"
+                                        label "state var name"
+                                          identifier => "bar"
+                                        label "state update"
+                                          choice
+                                            (reservedOp "++")
+                                            (reservedOp "--")
+                                            reservedOp "="
+                                            label "expr"
+                                              label "buildExpressionParser"
+                                symbol ";"
+                                parserPlus
+                                  (label "action")
+                                    (choice)
+                                      (reserved "raise")
+                                      (label "state update action")
+                                        (label "state var name")
+                                          (identifier)
+                                  return
+                                (symbol ";")
+                              string "}"
+                    symbol "->"
+                (try)
+                  label "possible event name"
+                    identifier => "Min1"
+                  (parserFail "Event name 'Min1' did not match")
+              label "end state"
+                identifier => "Min1"
+              parserPlus
+                (reserved "else")
+                return
+          (label "trace")
+            (try)
+              (label "start state")
+                (identifier)
+    (label "scenario")
+      parserPlus
+        (reserved "atomic")
+        return
+      (label "scenario name")
+        (identifier)
+eof => ()
+
+Compilation finished at Mon Oct 10 22:03:50

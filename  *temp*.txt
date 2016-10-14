@@ -1,0 +1,40 @@
+/* CAFS */
+/* (HcNode CJhc.Prim.Prim.: [Left &("CJhc.Type.Basic.Char" 33),Left &("CJhc.Prim.Prim.[]")],1) */
+static const struct sCJhc_Prim_Prim_$x3a _c1 = {.a1 = (sptr_t)RAW_SET_UF('!'), .a2 = (sptr_t)SET_RAW_TAG(CJhc_Prim_Prim_$BE)};
+#define c1 (TO_SPTR_C(P_WHNF, (sptr_t)&_c1))
+/* (HcNode CJhc.Prim.Prim.: [Left &("CJhc.Type.Basic.Char" 100),Right 1],2) */
+static const struct sCJhc_Prim_Prim_$x3a _c2 = {.a1 = (sptr_t)RAW_SET_UF('d'), .a2 = c1};
+#define c2 (TO_SPTR_C(P_WHNF, (sptr_t)&_c2))
+/* (HcNode CJhc.Prim.Prim.: [Left &("CJhc.Type.Basic.Char" 108),Right 2],3) */
+static const struct sCJhc_Prim_Prim_$x3a _c3 = {.a1 = (sptr_t)RAW_SET_UF('l'), .a2 = c2};
+#define c3 (TO_SPTR_C(P_WHNF, (sptr_t)&_c3))
+/* (HcNode CJhc.Prim.Prim.: [Left &("CJhc.Type.Basic.Char" 114),Right 3],4) */
+static const struct sCJhc_Prim_Prim_$x3a _c4 = {.a1 = (sptr_t)RAW_SET_UF('r'), .a2 = c3};
+#define c4 (TO_SPTR_C(P_WHNF, (sptr_t)&_c4))
+/* (HcNode CJhc.Prim.Prim.: [Left &("CJhc.Type.Basic.Char" 111),Right 4],5) */
+static const struct sCJhc_Prim_Prim_$x3a _c5 = {.a1 = (sptr_t)RAW_SET_UF('o'), .a2 = c4};
+#define c5 (TO_SPTR_C(P_WHNF, (sptr_t)&_c5))
+/* (HcNode CJhc.Prim.Prim.: [Left &("CJhc.Type.Basic.Char" 119),Right 5],6) */
+static const struct sCJhc_Prim_Prim_$x3a _c6 = {.a1 = (sptr_t)RAW_SET_UF('w'), .a2 = c5};
+#define c6 (TO_SPTR_C(P_WHNF, (sptr_t)&_c6))
+/* (HcNode CJhc.Prim.Prim.: [Left &("CJhc.Type.Basic.Char" 32),Right 6],7) */
+static const struct sCJhc_Prim_Prim_$x3a _c7 = {.a1 = (sptr_t)RAW_SET_UF(' '), .a2 = c6};
+#define c7 (TO_SPTR_C(P_WHNF, (sptr_t)&_c7))
+/* (HcNode CJhc.Prim.Prim.: [Left &("CJhc.Type.Basic.Char" 44),Right 7],8) */
+static const struct sCJhc_Prim_Prim_$x3a _c8 = {.a1 = (sptr_t)RAW_SET_UF(','), .a2 = c7};
+#define c8 (TO_SPTR_C(P_WHNF, (sptr_t)&_c8))
+/* (HcNode CJhc.Prim.Prim.: [Left &("CJhc.Type.Basic.Char" 111),Right 8],9) */
+static const struct sCJhc_Prim_Prim_$x3a _c9 = {.a1 = (sptr_t)RAW_SET_UF('o'), .a2 = c8};
+#define c9 (TO_SPTR_C(P_WHNF, (sptr_t)&_c9))
+/* (HcNode CJhc.Prim.Prim.: [Left &("CJhc.Type.Basic.Char" 108),Right 9],10) */
+static const struct sCJhc_Prim_Prim_$x3a _c10 = {.a1 = (sptr_t)RAW_SET_UF('l'), .a2 = c9};
+#define c10 (TO_SPTR_C(P_WHNF, (sptr_t)&_c10))
+/* (HcNode CJhc.Prim.Prim.: [Left &("CJhc.Type.Basic.Char" 108),Right 10],11) */
+static const struct sCJhc_Prim_Prim_$x3a _c11 = {.a1 = (sptr_t)RAW_SET_UF('l'), .a2 = c10};
+#define c11 (TO_SPTR_C(P_WHNF, (sptr_t)&_c11))
+/* (HcNode CJhc.Prim.Prim.: [Left &("CJhc.Type.Basic.Char" 101),Right 11],12) */
+static const struct sCJhc_Prim_Prim_$x3a _c12 = {.a1 = (sptr_t)RAW_SET_UF('e'), .a2 = c11};
+#define c12 (TO_SPTR_C(P_WHNF, (sptr_t)&_c12))
+/* (HcNode CJhc.Prim.Prim.: [Left &("CJhc.Type.Basic.Char" 72),Right 12],13) */
+static const struct sCJhc_Prim_Prim_$x3a _c13 = {.a1 = (sptr_t)RAW_SET_UF('H'), .a2 = c12};
+#define c13 (TO_SPTR_C(P_WHNF, (sptr_t)&_c13))

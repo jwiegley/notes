@@ -1,0 +1,34 @@
+johnw@ubuntu:~/hoogle-local$ NIX_PATH=$HOME/.nix-defexpr nix-build --show-trace
+these derivations will be built:
+  /nix/store/6zv85xsvdmyrhprg4lag6nqzyvbr932y-ReadArgs-1.2.2.drv
+  /nix/store/sqvg9c19i7hv294rdi4asqrhirfb2nf0-basic-prelude-0.6.1.drv
+  /nix/store/kz6qibyb96bafvf2x7v21iwhxjqczjna-classy-prelude-1.0.0.2.drv
+  /nix/store/p08bac6y056g7hkiygghbjngk9iqmp83-total-1.0.4.drv
+  /nix/store/p6q662d9d46m9m8pxa4mc4n2s7bkff7m-time-recurrence-0.9.3.drv
+  /nix/store/f7v5cpzl9rmgvnyfl66513vbf7cyz2b4-hoogle-5.0.4.drv
+  /nix/store/xnwg3p2p8qh5hlqgh3i3rh4yvglmg5db-pipes-binary-0.4.1.drv
+  /nix/store/zcjzb52zv2klwqxavjpqrd281zr348hw-classy-prelude-conduit-1.0.0.drv
+  /nix/store/q4flld0w8mr2kasczvbvfbh0xbx8801r-hoogle-local-0.1.drv
+  /nix/store/5b2z57dlsq8zjsvz4rz1pb3cfkky79ah-ghc-8.0.1.drv
+  /nix/store/d6wgp4sl91zjr68b7rglhj2ylgdzszag-build.sh.drv
+building path(s) ‘/nix/store/n0b88l0v8a2yamx5wh6r4bv4fabx023v-ReadArgs-1.2.2’
+setupCompilerEnvironmentPhase
+Build with /nix/store/3cbf8fxmg5xpk81g47sigpm8797nwgwn-ghc-8.0.1.
+unpacking sources
+unpacking source archive /nix/store/30kn0ypxsbyx5bm51gh84bnb3xvkrc0v-ReadArgs-1.2.2.tar.gz
+source root is ReadArgs-1.2.2
+setting SOURCE_DATE_EPOCH to timestamp 1415914098 of file ReadArgs-1.2.2/Setup.hs
+patching sources
+compileBuildDriverPhase
+setupCompileFlags: -package-db=/tmp/nix-build-ReadArgs-1.2.2.drv-0/package.conf.d -j4 -threaded
+[1 of 1] Compiling Main             ( Setup.hs, /tmp/nix-build-ReadArgs-1.2.2.drv-0/Main.o )
+Linking Setup ...
+configuring
+configureFlags: --verbose --prefix=/nix/store/n0b88l0v8a2yamx5wh6r4bv4fabx023v-ReadArgs-1.2.2 --libdir=$prefix/lib/$compiler --libsubdir=$pkgid --with-gcc=gcc --package-db=/tmp/nix-build-ReadArgs-1.2.2.drv-0/package.conf.d --ghc-option=-optl=-Wl,-rpath=/nix/store/n0b88l0v8a2yamx5wh6r4bv4fabx023v-ReadArgs-1.2.2/lib/ghc-8.0.1/ReadArgs-1.2.2 --enable-split-objs --disable-library-profiling --disable-profiling --enable-shared --enable-library-vanilla --enable-executable-dynamic --enable-tests
+Configuring ReadArgs-1.2.2...
+Setup: Encountered missing dependencies:
+hspec >=1.3 && <2.1
+builder for ‘/nix/store/6zv85xsvdmyrhprg4lag6nqzyvbr932y-ReadArgs-1.2.2.drv’ failed with exit code 1
+cannot build derivation ‘/nix/store/5b2z57dlsq8zjsvz4rz1pb3cfkky79ah-ghc-8.0.1.drv’: 1 dependencies couldn't be built
+cannot build derivation ‘/nix/store/d6wgp4sl91zjr68b7rglhj2ylgdzszag-build.sh.drv’: 1 dependencies couldn't be built
+error: build of ‘/nix/store/d6wgp4sl91zjr68b7rglhj2ylgdzszag-build.sh.drv’ failed

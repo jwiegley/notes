@@ -1,0 +1,21 @@
+ghc80:[johnw@Vulcan:~/bae/rings/vignettes/fibonacci]$ jhc --main=Fibonacci.main -X cpp -C Fibonacci.hs -pjhc-1.0 -o Fibonacci.c
+jhc --main=Fibonacci.main -X cpp -C Fibonacci.hs -pjhc-1.0 -o Fibonacci.c
+jhc 0.8.2 (mydniquipepo-32)
+Finding Dependencies...
+Using Ho Cache: '/Users/johnw/.jhc/cache'
+Fibonacci               [Fibonacci.hs] <~/.jhc/cache/sl80pmc1gorl1i18jr1brqlt6o.ho>
+HString                 [./HString.hs] <~/.jhc/cache/84npaaaou2o49pk7kmdjqrumts.ho>
+Fresh: <~/.jhc/cache/84npaaaou2o49pk7kmdjqrumts.ho>
+Fresh: <~/.jhc/cache/sl80pmc1gorl1i18jr1brqlt6o.ho>
+Typechecking...
+Compiling...
+Collected Compilation...
+-- TypeAnalyzeMethods
+-- BoxifyProgram
+-- Boxy WorkWrap
+
+>>> Exception thrown
+Writing: Fibonacci.c_lint-before-Boxy WorkWrap.jhc_core
+Stack:
+transformProgram: Boxy WorkWrap
+jhc: slotTypes: error in Jhc.Prim.Prim.(,): Jhc@.Absurd.*::*

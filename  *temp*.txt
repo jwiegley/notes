@@ -1,0 +1,28 @@
+"inplace/bin/mkdirhier" ghc/stage2/build/tmp//.
+"inplace/bin/mkdirhier" utils/count_lines/dist//.
+"inplace/lib/bin/unlit"  utils/count_lines/count_lines.lprl utils/count_lines/dist/count_lines.prl
+"rm" -f utils/count_lines/dist/count_lines
+echo '#!/usr/bin/perl'                                  >> utils/count_lines/dist/count_lines
+echo '$TARGETPLATFORM  = "riscv64-unknown-linux";' >> utils/count_lines/dist/count_lines
+echo '$TABLES_NEXT_TO_CODE  = "YES";' >> utils/count_lines/dist/count_lines
+cat utils/count_lines/dist/count_lines.prl                                            >> utils/count_lines/dist/count_lines
+"cp" utils/count_lines/dist/count_lines inplace/bin/count_lines
+chmod +x inplace/bin/count_lines
+"inplace/bin/mkdirhier" utils/compare_sizes/dist-install/build/tmp//.
+"inplace/bin/mkdirhier" iserv/stage2/build/cbits//.
+"/opt/riscv/bin/riscv64-unknown-linux-gnu-gcc"  -fno-stack-protector -Wall   -Iiserv/stage2/build/autogen      -I'/opt/riscv/ghc-8.0.1/libraries/directory/include' -I'/opt/riscv/ghc-8.0.1/libraries/unix/include' -I'/opt/riscv/ghc-8.0.1/libraries/time/lib/include' -I'/opt/riscv/ghc-8.0.1/libraries/containers/include' -I'/opt/riscv/ghc-8.0.1/libraries/bytestring/include' -I'/opt/riscv/ghc-8.0.1/libraries/base/include' -I'/opt/riscv/ghc-8.0.1/libraries/integer-gmp/include' -I'/opt/riscv/ghc-8.0.1/rts/dist/build' -I'/opt/riscv/ghc-8.0.1/includes' -I'/opt/riscv/ghc-8.0.1/includes/dist-derivedconstants/header'   -Werror=unused-but-set-variable -Wno-error=inline     -c iserv/cbits/iservmain.c -o iserv/stage2/build/cbits/iservmain.o
+"inplace/bin/mkdirhier" iserv/stage2/build/tmp//.
+make[1]: *** No rule to make target 'libraries/ghci/dist-install/build/GHCi/Signals.p_hi', needed by 'iserv/stage2_p/build/Main.p_o'.
+make[1]: *** No rule to make target 'libraries/ghci/dist-install/build/GHCi/TH.p_hi', needed by 'iserv/stage2_p/build/Main.p_o'.
+"inplace/bin/mkdirhier" iserv/stage2_p/build/cbits//.
+"/opt/riscv/bin/riscv64-unknown-linux-gnu-gcc"  -fno-stack-protector -Wall   -Iiserv/stage2_p/build/autogen      -I'/opt/riscv/ghc-8.0.1/libraries/directory/include' -I'/opt/riscv/ghc-8.0.1/libraries/unix/include' -I'/opt/riscv/ghc-8.0.1/libraries/time/lib/include' -I'/opt/riscv/ghc-8.0.1/libraries/containers/include' -I'/opt/riscv/ghc-8.0.1/libraries/bytestring/include' -I'/opt/riscv/ghc-8.0.1/libraries/base/include' -I'/opt/riscv/ghc-8.0.1/libraries/integer-gmp/include' -I'/opt/riscv/ghc-8.0.1/rts/dist/build' -I'/opt/riscv/ghc-8.0.1/includes' -I'/opt/riscv/ghc-8.0.1/includes/dist-derivedconstants/header'   -Werror=unused-but-set-variable -Wno-error=inline     -c iserv/cbits/iservmain.c -o iserv/stage2_p/build/cbits/iservmain.p_o
+"inplace/bin/mkdirhier" iserv/stage2_p/build/tmp//.
+make[1]: *** No rule to make target 'libraries/ghci/dist-install/build/GHCi/Signals.dyn_hi', needed by 'iserv/stage2_dyn/build/Main.dyn_o'.
+make[1]: *** No rule to make target 'libraries/ghci/dist-install/build/GHCi/TH.dyn_hi', needed by 'iserv/stage2_dyn/build/Main.dyn_o'.
+"inplace/bin/mkdirhier" iserv/stage2_dyn/build/cbits//.
+"/opt/riscv/bin/riscv64-unknown-linux-gnu-gcc"  -fno-stack-protector -Wall   -Iiserv/stage2_dyn/build/autogen      -I'/opt/riscv/ghc-8.0.1/libraries/directory/include' -I'/opt/riscv/ghc-8.0.1/libraries/unix/include' -I'/opt/riscv/ghc-8.0.1/libraries/time/lib/include' -I'/opt/riscv/ghc-8.0.1/libraries/containers/include' -I'/opt/riscv/ghc-8.0.1/libraries/bytestring/include' -I'/opt/riscv/ghc-8.0.1/libraries/base/include' -I'/opt/riscv/ghc-8.0.1/libraries/integer-gmp/include' -I'/opt/riscv/ghc-8.0.1/rts/dist/build' -I'/opt/riscv/ghc-8.0.1/includes' -I'/opt/riscv/ghc-8.0.1/includes/dist-derivedconstants/header'   -Werror=unused-but-set-variable -Wno-error=inline     -c iserv/cbits/iservmain.c -o iserv/stage2_dyn/build/cbits/iservmain.dyn_o
+"inplace/bin/mkdirhier" iserv/stage2_dyn/build/tmp//.
+make[1]: Target 'all' not remade because of errors.
+Makefile:129: recipe for target 'all' failed
+make: *** [all] Error 2
+make: Target 'default' not remade because of errors.

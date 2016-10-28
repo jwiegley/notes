@@ -1,0 +1,251 @@
+--- a/compiler/nativeGen/AsmCodeGen.hs
++++ b/compiler/nativeGen/AsmCodeGen.hs
+@@ -178,6 +178,7 @@ nativeCodeGen dflags this_mod modLoc h us cmms
+       ArchAlpha     -> panic "nativeCodeGen: No NCG for Alpha"
+       ArchMipseb    -> panic "nativeCodeGen: No NCG for mipseb"
+       ArchMipsel    -> panic "nativeCodeGen: No NCG for mipsel"
++      ArchRISCV     -> panic "nativeCodeGen: No NCG for RISC-V"
+       ArchUnknown   -> panic "nativeCodeGen: No NCG for unknown arch"
+       ArchJavaScript-> panic "nativeCodeGen: No NCG for JavaScript"
+ 
+--- a/compiler/nativeGen/RegAlloc/Graph/TrivColorable.hs
++++ b/compiler/nativeGen/RegAlloc/Graph/TrivColorable.hs
+@@ -116,6 +116,7 @@ trivColorable platform virtualRegSqueeze realRegSqueeze RcInteger conflicts excl
+                             ArchAlpha     -> panic "trivColorable ArchAlpha"
+                             ArchMipseb    -> panic "trivColorable ArchMipseb"
+                             ArchMipsel    -> panic "trivColorable ArchMipsel"
++                            ArchRISCV     -> panic "trivColorable ArchRISCV"
+                             ArchJavaScript-> panic "trivColorable ArchJavaScript"
+                             ArchUnknown   -> panic "trivColorable ArchUnknown")
+         , count2        <- accSqueeze 0 cALLOCATABLE_REGS_INTEGER
+@@ -142,6 +143,7 @@ trivColorable platform virtualRegSqueeze realRegSqueeze RcFloat conflicts exclus
+                             ArchAlpha     -> panic "trivColorable ArchAlpha"
+                             ArchMipseb    -> panic "trivColorable ArchMipseb"
+                             ArchMipsel    -> panic "trivColorable ArchMipsel"
++                            ArchRISCV     -> panic "trivColorable ArchRISCV"
+                             ArchJavaScript-> panic "trivColorable ArchJavaScript"
+                             ArchUnknown   -> panic "trivColorable ArchUnknown")
+         , count2        <- accSqueeze 0 cALLOCATABLE_REGS_FLOAT
+@@ -168,6 +170,7 @@ trivColorable platform virtualRegSqueeze realRegSqueeze RcDouble conflicts exclu
+                             ArchAlpha     -> panic "trivColorable ArchAlpha"
+                             ArchMipseb    -> panic "trivColorable ArchMipseb"
+                             ArchMipsel    -> panic "trivColorable ArchMipsel"
++                            ArchRISCV     -> panic "trivColorable ArchRISCV"
+                             ArchJavaScript-> panic "trivColorable ArchJavaScript"
+                             ArchUnknown   -> panic "trivColorable ArchUnknown")
+         , count2        <- accSqueeze 0 cALLOCATABLE_REGS_DOUBLE
+@@ -194,6 +197,7 @@ trivColorable platform virtualRegSqueeze realRegSqueeze RcDoubleSSE conflicts ex
+                             ArchAlpha     -> panic "trivColorable ArchAlpha"
+                             ArchMipseb    -> panic "trivColorable ArchMipseb"
+                             ArchMipsel    -> panic "trivColorable ArchMipsel"
++                            ArchRISCV     -> panic "trivColorable ArchRISCV"
+                             ArchJavaScript-> panic "trivColorable ArchJavaScript"
+                             ArchUnknown   -> panic "trivColorable ArchUnknown")
+         , count2        <- accSqueeze 0 cALLOCATABLE_REGS_SSE
+--- a/compiler/nativeGen/RegAlloc/Linear/FreeRegs.hs
++++ b/compiler/nativeGen/RegAlloc/Linear/FreeRegs.hs
+@@ -81,6 +81,7 @@ maxSpillSlots dflags
+                 ArchAlpha     -> panic "maxSpillSlots ArchAlpha"
+                 ArchMipseb    -> panic "maxSpillSlots ArchMipseb"
+                 ArchMipsel    -> panic "maxSpillSlots ArchMipsel"
++                ArchRISCV     -> panic "maxSpillSlots ArchRISCV"
+                 ArchJavaScript-> panic "maxSpillSlots ArchJavaScript"
+                 ArchUnknown   -> panic "maxSpillSlots ArchUnknown"
+ 
+--- a/compiler/nativeGen/RegAlloc/Linear/Main.hs
++++ b/compiler/nativeGen/RegAlloc/Linear/Main.hs
+@@ -216,6 +216,7 @@ linearRegAlloc dflags entry_ids block_live sccs
+       ArchAlpha      -> panic "linearRegAlloc ArchAlpha"
+       ArchMipseb     -> panic "linearRegAlloc ArchMipseb"
+       ArchMipsel     -> panic "linearRegAlloc ArchMipsel"
++      ArchRISCV      -> panic "linearRegAlloc ArchRISCV"
+       ArchJavaScript -> panic "linearRegAlloc ArchJavaScript"
+       ArchUnknown    -> panic "linearRegAlloc ArchUnknown"
+  where
+--- a/compiler/nativeGen/TargetReg.hs
++++ b/compiler/nativeGen/TargetReg.hs
+@@ -50,6 +50,7 @@ targetVirtualRegSqueeze platform
+       ArchAlpha     -> panic "targetVirtualRegSqueeze ArchAlpha"
+       ArchMipseb    -> panic "targetVirtualRegSqueeze ArchMipseb"
+       ArchMipsel    -> panic "targetVirtualRegSqueeze ArchMipsel"
++      ArchRISCV     -> panic "targetVirtualRegSqueeze ArchRISCV"
+       ArchJavaScript-> panic "targetVirtualRegSqueeze ArchJavaScript"
+       ArchUnknown   -> panic "targetVirtualRegSqueeze ArchUnknown"
+ 
+@@ -68,6 +69,7 @@ targetRealRegSqueeze platform
+       ArchAlpha     -> panic "targetRealRegSqueeze ArchAlpha"
+       ArchMipseb    -> panic "targetRealRegSqueeze ArchMipseb"
+       ArchMipsel    -> panic "targetRealRegSqueeze ArchMipsel"
++      ArchRISCV     -> panic "targetRealRegSqueeze ArchRISCV"
+       ArchJavaScript-> panic "targetRealRegSqueeze ArchJavaScript"
+       ArchUnknown   -> panic "targetRealRegSqueeze ArchUnknown"
+ 
+@@ -85,6 +87,7 @@ targetClassOfRealReg platform
+       ArchAlpha     -> panic "targetClassOfRealReg ArchAlpha"
+       ArchMipseb    -> panic "targetClassOfRealReg ArchMipseb"
+       ArchMipsel    -> panic "targetClassOfRealReg ArchMipsel"
++      ArchRISCV     -> panic "targetClassOfRealReg ArchRISCV"
+       ArchJavaScript-> panic "targetClassOfRealReg ArchJavaScript"
+       ArchUnknown   -> panic "targetClassOfRealReg ArchUnknown"
+ 
+@@ -102,6 +105,7 @@ targetMkVirtualReg platform
+       ArchAlpha     -> panic "targetMkVirtualReg ArchAlpha"
+       ArchMipseb    -> panic "targetMkVirtualReg ArchMipseb"
+       ArchMipsel    -> panic "targetMkVirtualReg ArchMipsel"
++      ArchRISCV     -> panic "targetMkVirtualReg ArchRISCV"
+       ArchJavaScript-> panic "targetMkVirtualReg ArchJavaScript"
+       ArchUnknown   -> panic "targetMkVirtualReg ArchUnknown"
+ 
+@@ -119,6 +123,7 @@ targetRegDotColor platform
+       ArchAlpha     -> panic "targetRegDotColor ArchAlpha"
+       ArchMipseb    -> panic "targetRegDotColor ArchMipseb"
+       ArchMipsel    -> panic "targetRegDotColor ArchMipsel"
++      ArchRISCV     -> panic "targetRegDotColor ArchRISCV"
+       ArchJavaScript-> panic "targetRegDotColor ArchJavaScript"
+       ArchUnknown   -> panic "targetRegDotColor ArchUnknown"
+ 
+--- a/compiler/utils/Platform.hs
++++ b/compiler/utils/Platform.hs
+@@ -61,6 +61,7 @@ data Arch
+         | ArchAlpha
+         | ArchMipseb
+         | ArchMipsel
++        | ArchRISCV
+         | ArchJavaScript
+         deriving (Read, Show, Eq)
+ 
+--- a/configure
++++ b/configure
+@@ -3576,6 +3576,9 @@ case "$build_cpu" in
+   x86_64|amd64)
+     BuildArch="x86_64"
+     ;;
++  riscv64)
++    BuildArch="riscv64"
++    ;;
+   *)
+     echo "Unknown CPU $build_cpu"
+     exit 1
+@@ -3720,6 +3723,9 @@ case "$host_cpu" in
+   x86_64|amd64)
+     HostArch="x86_64"
+     ;;
++  riscv64)
++    HostArch="riscv64"
++    ;;
+   *)
+     echo "Unknown CPU $host_cpu"
+     exit 1
+@@ -3853,6 +3859,9 @@ case "$host_cpu" in
+   x86_64|amd64)
+     TargetArch="x86_64"
+     ;;
++  riscv64)
++    TargetArch="riscv64"
++    ;;
+   *)
+     echo "Unknown CPU $host_cpu"
+     exit 1
+@@ -3995,6 +4004,9 @@ case "$target_cpu" in
+   x86_64|amd64)
+     TargetArch="x86_64"
+     ;;
++  riscv64)
++    TargetArch="riscv64"
++    ;;
+   *)
+     echo "Unknown CPU $target_cpu"
+     exit 1
+@@ -8735,6 +8747,9 @@ rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
+         hppa|hppa1_1|ia64|m68k|rs6000|s390|s390x|sh4|vax)
+             test -z "$2" || eval "$2=ArchUnknown"
+             ;;
++        riscv64)
++            test -z "$2" || eval "$2=ArchRISCV"
++            ;;
+         *)
+             echo "Unknown arch $1"
+             exit 1
+--- a/ghc.mk
++++ b/ghc.mk
+@@ -433,7 +433,7 @@ else # CLEANING
+ PACKAGES_STAGE0 = binary Cabal/Cabal hpc ghc-boot-th ghc-boot hoopl transformers template-haskell
+ ifeq "$(Windows_Host)" "NO"
+ ifneq "$(HostOS_CPP)" "ios"
+-PACKAGES_STAGE0 += terminfo
++#PACKAGES_STAGE0 += terminfo
+ endif
+ endif
+ 
+@@ -472,7 +472,7 @@ endif
+ 
+ ifeq "$(Windows_Target)" "NO"
+ ifneq "$(TargetOS_CPP)" "ios"
+-PACKAGES_STAGE1 += terminfo
++#PACKAGES_STAGE1 += terminfo
+ endif
+ endif
+ PACKAGES_STAGE1 += haskeline
+--- a/utils/ghc-pkg/Main.hs
++++ b/utils/ghc-pkg/Main.hs
+@@ -69,10 +69,6 @@ import System.Posix hiding (fdToHandle)
+ import qualified System.Info(os)
+ #endif
+ 
+-#if !defined(mingw32_HOST_OS) && !defined(BOOTSTRAPPING)
+-import System.Console.Terminfo as Terminfo
+-#endif
+-
+ #ifdef mingw32_HOST_OS
+ # if defined(i386_HOST_ARCH)
+ #  define WINDOWS_CCONV stdcall
+@@ -1258,38 +1254,7 @@ listPackages verbosity my_flags mPackageName mModuleName = do
+ 
+   if simple_output then show_simple stack else do
+ 
+-#if defined(mingw32_HOST_OS) || defined(BOOTSTRAPPING)
+     mapM_ show_normal stack
+-#else
+-    let
+-       show_colour withF db@PackageDB{ packages = pkg_confs } =
+-           if null pkg_confs
+-           then termText (location db) <#> termText "\n    (no packages)\n"
+-           else
+-               mconcat $ map (<#> termText "\n") $
+-                           (termText (location db)
+-                            : map (termText "    " <#>) (map pp_pkg pkg_confs))
+-          where
+-                   pp_pkg p
+-                     | installedUnitId p `elem` broken = withF Red  doc
+-                     | exposed p                       = doc
+-                     | otherwise                       = withF Blue doc
+-                     where doc | verbosity >= Verbose
+-                               = termText (printf "%s (%s)" pkg (display (installedUnitId p)))
+-                               | otherwise
+-                               = termText pkg
+-                            where
+-                            pkg = display (sourcePackageId p)
+-
+-    is_tty <- hIsTerminalDevice stdout
+-    if not is_tty
+-       then mapM_ show_normal stack
+-       else do tty <- Terminfo.setupTermFromEnv
+-               case Terminfo.getCapability tty withForegroundColor of
+-                   Nothing -> mapM_ show_normal stack
+-                   Just w  -> runTermOutput tty $ mconcat $
+-                                                  map (show_colour w) stack
+-#endif
+ 
+ simplePackageList :: [Flag] -> [InstalledPackageInfo] -> IO ()
+ simplePackageList my_flags pkgs = do
+--- a/utils/ghc-pkg/ghc-pkg.cabal
++++ b/utils/ghc-pkg/ghc-pkg.cabal
+@@ -31,7 +31,6 @@ Executable ghc-pkg
+                    ghc-boot,
+                    bytestring
+     if !os(windows)
+-        Build-Depends: unix,
+-                       terminfo
++        Build-Depends: unix
+     if os(windows)
+         c-sources: CRT_noglob.c

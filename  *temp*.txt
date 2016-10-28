@@ -1,0 +1,15 @@
+Step 34 : RUN cd $RISCV/ghc-8.0.1 &&     ./configure --target=riscv64-unknown-linux-gnu --enable-unregisterised                 --enable-bfd-debug && make stage1
+ ---> Running in 8924348a5e5e
+checking for gfind... no
+checking for find... /usr/bin/find
+checking for sort... /usr/bin/sort
+checking for GHC Git commit id... given 4986837f8168cacf95c24fecc84d7b36c47f3c11
+checking for ghc... /usr/bin/ghc
+checking version of ghc... 7.10.3
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking target system type... riscv64-unknown-linux-gnu
+Build platform inferred as: x86_64-unknown-linux
+Host platform inferred as: x86_64-unknown-linux
+Unknown CPU riscv64
+The command '/bin/sh -c cd $RISCV/ghc-8.0.1 &&     ./configure --target=riscv64-unknown-linux-gnu --enable-unregisterised                 --enable-bfd-debug && make stage1' returned a non-zero code: 1

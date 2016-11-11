@@ -1,0 +1,72 @@
+root@a5dc82e2695a:/opt/riscv# spike -m128 -p1 +disk=root.bin.sqsh bbl linux-4.1.y/vmlinux
+              vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+                  vvvvvvvvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrr       vvvvvvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrrrrr      vvvvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrrrrrrr    vvvvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrrrrrrr    vvvvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrrrrrrr    vvvvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrrrrr      vvvvvvvvvvvvvvvvvvvvvv
+rrrrrrrrrrrrr       vvvvvvvvvvvvvvvvvvvvvv
+rr                vvvvvvvvvvvvvvvvvvvvvv
+rr            vvvvvvvvvvvvvvvvvvvvvvvv      rr
+rrrr      vvvvvvvvvvvvvvvvvvvvvvvvvv      rrrr
+rrrrrr      vvvvvvvvvvvvvvvvvvvvvv      rrrrrr
+rrrrrrrr      vvvvvvvvvvvvvvvvvv      rrrrrrrr
+rrrrrrrrrr      vvvvvvvvvvvvvv      rrrrrrrrrr
+rrrrrrrrrrrr      vvvvvvvvvv      rrrrrrrrrrrr
+rrrrrrrrrrrrrr      vvvvvv      rrrrrrrrrrrrrr
+rrrrrrrrrrrrrrrr      vv      rrrrrrrrrrrrrrrr
+rrrrrrrrrrrrrrrrrr          rrrrrrrrrrrrrrrrrr
+rrrrrrrrrrrrrrrrrrrr      rrrrrrrrrrrrrrrrrrrr
+rrrrrrrrrrrrrrrrrrrrrr  rrrrrrrrrrrrrrrrrrrrrr
+
+       INSTRUCTION SETS WANT TO BE FREE
+[    0.000000] Linux version 4.1.26-g592a151-dirty (root@87503d09d967) (gcc version 5.3.0 (GCC) ) #1 Thu Oct 27 20:54:27 UTC 2016
+[    0.000000] Available physical memory: 126MB
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x0000000000200000-0x0000000007ffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000000200000-0x0000000007ffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000000200000-0x0000000007ffffff]
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 31815
+[    0.000000] Kernel command line: root=/dev/htifblk0
+[    0.000000] PID hash table entries: 512 (order: 0, 4096 bytes)
+[    0.000000] Dentry cache hash table entries: 16384 (order: 5, 131072 bytes)
+[    0.000000] Inode-cache hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.000000] Sorting __ex_table...
+[    0.000000] Memory: 124356K/129024K available (1836K kernel code, 99K rwdata, 404K rodata, 64K init, 210K bss, 4668K reserved, 0K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] NR_IRQS:2
+[    0.000000] clocksource riscv_clocksource: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 191126044627 ns
+[    0.150000] Calibrating delay using timer specific routine.. 20.01 BogoMIPS (lpj=100050)
+[    0.150000] pid_max: default: 32768 minimum: 301
+[    0.150000] Mount-cache hash table entries: 512 (order: 0, 4096 bytes)
+[    0.150000] Mountpoint-cache hash table entries: 512 (order: 0, 4096 bytes)
+[    0.150000] devtmpfs: initialized
+[    0.150000] clocksource jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.150000] NET: Registered protocol family 16
+[    0.150000] Switched to clocksource riscv_clocksource
+[    0.150000] NET: Registered protocol family 2
+[    0.150000] TCP established hash table entries: 1024 (order: 1, 8192 bytes)
+[    0.150000] TCP bind hash table entries: 1024 (order: 1, 8192 bytes)
+[    0.150000] TCP: Hash tables configured (established 1024 bind 1024)
+[    0.150000] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    0.150000] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    0.150000] NET: Registered protocol family 1
+[    0.150000] futex hash table entries: 256 (order: 0, 6144 bytes)
+[    0.150000] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.150000] io scheduler noop registered
+[    0.150000] io scheduler cfq registered (default)
+[    0.150000] htifcon htif1: detected console
+[    0.150000] console [htifcon0] enabled
+[    0.150000] htifblk htif2: detected disk
+[    0.150000] htifblk htif2: added htifblk0
+[    0.150000] VFS: Mounted root (squashfs filesystem) readonly on device 254:0.
+[    0.160000] devtmpfs: mounted
+[    0.160000] Freeing unused kernel memory: 64K (ffffffff80000000 - ffffffff80010000)
+# bin/Hello
+Hello, world!
+
+#

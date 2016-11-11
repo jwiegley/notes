@@ -1,0 +1,20 @@
+rts/StgCRun.c: Assembler messages:
+
+rts/StgCRun.c:849:0: error:  Error: missing ']'
+
+rts/StgCRun.c:849:0: error:  Error: missing ']'
+
+rts/StgCRun.c:849:0: error:  Error: missing ']'
+
+rts/StgCRun.c:849:0: error:  Error: illegal operands `sd x2,[sp,'
+
+rts/StgCRun.c:850:0: error:
+     Error: illegal operands `sub sp,sp,16384'
+
+rts/StgCRun.c:856:0: error:
+     Error: illegal operands `add sp,sp,16384'
+
+rts/StgCRun.c:858:0: error:  Error: illegal operands `sd x2,[sp],'
+`riscv64-unknown-linux-gnu-gcc' failed in phase `Assembler'. (Exit code: 1)
+make[1]: *** [rts/dist/build/StgCRun.o] Error 1
+make[1]: *** Waiting for unfinished jobs....

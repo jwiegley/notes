@@ -1,0 +1,20 @@
+/usr/bin/install -c -m 755 utils/hp2ps/dist/build/tmp/riscv64-unknown-linux-gnu-hp2ps inplace/bin/riscv64-unknown-linux-gnu-hp2ps
+"inplace/bin/ghc-stage1" -static  -O0 -H64m -Wall  -Iincludes -Iincludes/dist -Iincludes/dist-derivedconstants/header -Iincludes/dist-ghcconstants/header -Irts -Irts/dist/build -DCOMPILING_RTS -this-unit-id rts -optc-DNOSMP -dcmm-lint      -i -irts -irts/dist/build -irts/dist/build/autogen -Irts/dist/build -Irts/dist/build/autogen           -O2     -c rts/StgStartup.cmm -o rts/dist/build/StgStartup.o
+
+<no location info>: error:
+    Warning: Couldn't figure out LLVM version!
+             Make sure you have installed LLVM 3.7
+
+<no location info>: error:
+    Warning: Couldn't figure out LLVM version!
+             Make sure you have installed LLVM 3.7
+ghc-stage1: panic! (the 'impossible' happened)
+  (GHC version 8.0.1 for riscv64-unknown-linux):
+	LlvmCodeGen.Ppr: Cross compiling without valid target info.
+
+Please report this as a GHC bug:  http://www.haskell.org/ghc/reportabug
+
+rts/ghc.mk:255: recipe for target 'rts/dist/build/StgStartup.o' failed
+make[1]: *** [rts/dist/build/StgStartup.o] Error 1
+Makefile:129: recipe for target 'all' failed
+make: *** [all] Error 2

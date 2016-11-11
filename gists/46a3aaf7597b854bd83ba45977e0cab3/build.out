@@ -1,0 +1,14 @@
+-- Installing: /nix/store/y1dgbwhccf6f0hh10xpa2qqp9vkz9bvc-ledger-3.1.1-20160906/include/ledger/unistring.h
+-- Installing: /nix/store/y1dgbwhccf6f0hh10xpa2qqp9vkz9bvc-ledger-3.1.1-20160906/include/ledger/utils.h
+-- Installing: /nix/store/y1dgbwhccf6f0hh10xpa2qqp9vkz9bvc-ledger-3.1.1-20160906/include/ledger/value.h
+-- Installing: /nix/store/y1dgbwhccf6f0hh10xpa2qqp9vkz9bvc-ledger-3.1.1-20160906/include/ledger/views.h
+-- Installing: /nix/store/y1dgbwhccf6f0hh10xpa2qqp9vkz9bvc-ledger-3.1.1-20160906/include/ledger/xact.h
+-- Installing: /nix/store/y1dgbwhccf6f0hh10xpa2qqp9vkz9bvc-ledger-3.1.1-20160906/include/ledger/strptime.h
+-- Installing: /nix/store/y1dgbwhccf6f0hh10xpa2qqp9vkz9bvc-ledger-3.1.1-20160906/include/ledger/system.hh
+-- Installing: /nix/store/y1dgbwhccf6f0hh10xpa2qqp9vkz9bvc-ledger-3.1.1-20160906/bin/ledger
+error: /nix/store/bjbjr7h2yzdf2wadnfdba7bbha0dkfdg-cctools-binutils-darwin/bin/install_name_tool: for: /nix/store/y1dgbwhccf6f0hh10xpa2qqp9vkz9bvc-ledger-3.1.1-20160906/bin/ledger (for architecture x86_64) option "-add_rpath /nix/store/y1dgbwhccf6f0hh10xpa2qqp9vkz9bvc-ledger-3.1.1-20160906/lib" would duplicate path, file already has LC_RPATH for: /nix/store/y1dgbwhccf6f0hh10xpa2qqp9vkz9bvc-ledger-3.1.1-20160906/lib
+-- Installing: /nix/store/y1dgbwhccf6f0hh10xpa2qqp9vkz9bvc-ledger-3.1.1-20160906/share/man/man1/ledger.1
+cp: missing destination file operand after '/nix/store/y1dgbwhccf6f0hh10xpa2qqp9vkz9bvc-ledger-3.1.1-20160906/share/emacs/site-lisp/'
+Try 'cp --help' for more information.
+builder for ‘/nix/store/8znqwq7z7brgvw1xnqx6l6ysy4vj32hk-ledger-3.1.1-20160906.drv’ failed with exit code 1
+error: build of ‘/nix/store/8znqwq7z7brgvw1xnqx6l6ysy4vj32hk-ledger-3.1.1-20160906.drv’ failed

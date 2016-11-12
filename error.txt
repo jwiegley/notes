@@ -1,0 +1,91 @@
+"inplace/bin/mkdirhier" rts/dist/build/eventlog//.
+"inplace/bin/mkdirhier" rts/dist/build/linker//.
+"inplace/bin/mkdirhier" rts/dist/build/posix//.
+"inplace/bin/ghc-stage1" -static  -O0 -H64m -Wall   -Iincludes -Iincludes/dist -Iincludes/dist-derivedconstants/header -Iincludes/dist-ghcconstants/header -Irts -Irts/dist/build -DCOMPILING_RTS -this-unit-id rts -optc-DNOSMP -dcmm-lint      -i -irts -irts/dist/build -Irts/dist/build -irts/dist/build/./autogen -Irts/dist/build/./autogen           -O2    -Wnoncanonical-monad-instances  -c rts/StgStartup.cmm -o rts/dist/build/StgStartup.o
+"inplace/bin/ghc-stage1" -static  -O0 -H64m -Wall   -Iincludes -Iincludes/dist -Iincludes/dist-derivedconstants/header -Iincludes/dist-ghcconstants/header -Irts -Irts/dist/build -DCOMPILING_RTS -this-unit-id rts -optc-DNOSMP -dcmm-lint      -i -irts -irts/dist/build -Irts/dist/build -irts/dist/build/./autogen -Irts/dist/build/./autogen           -O2    -Wnoncanonical-monad-instances  -c rts/PrimOps.cmm -o rts/dist/build/PrimOps.o
+You are using an unsupported version of LLVM!
+Currently only 3.8 is supported.
+We will try though...
+You are using an unsupported version of LLVM!
+Currently only 3.8 is supported.
+We will try though...
+llc: /opt/riscv/llvm/lib/Target/RISCV/RISCVISelLowering.cpp:923: bool (* llvm::RISCVTargetLowering::getCCAssignFn(llvm::TargetLowering::CallLoweringInfo&) const)(unsigned int, llvm::MVT, llvm::MVT, llvm::CCValAssign::LocInfo, llvm::ISD::ArgFlagsTy, llvm::CCState&): Assertion `!IsRV32' failed.
+#0 0x00000000015d0f12 (llc+0x15d0f12)
+#1 0x00000000015d12b1 (llc+0x15d12b1)
+#2 0x00000000015cf359 (llc+0x15cf359)
+#3 0x00000000015d0759 (llc+0x15d0759)
+#4 0x00002ac0fac953e0 __restore_rt (/lib/x86_64-linux-gnu/libpthread.so.0+0x113e0)
+#5 0x00002ac0fbba4428 gsignal (/lib/x86_64-linux-gnu/libc.so.6+0x35428)
+#6 0x00002ac0fbba602a abort (/lib/x86_64-linux-gnu/libc.so.6+0x3702a)
+#7 0x00002ac0fbb9cbd7 (/lib/x86_64-linux-gnu/libc.so.6+0x2dbd7)
+#8 0x00002ac0fbb9cc82 (/lib/x86_64-linux-gnu/libc.so.6+0x2dc82)
+#9 0x0000000000b51079 (llc+0xb51079)
+#10 0x0000000000b5128c (llc+0xb5128c)
+#11 0x0000000001344625 (llc+0x1344625)
+#12 0x000000000133968f (llc+0x133968f)
+#13 0x0000000001339e1c (llc+0x1339e1c)
+#14 0x000000000133c965 (llc+0x133c965)
+#15 0x00000000013171da (llc+0x13171da)
+#16 0x0000000001316bc1 (llc+0x1316bc1)
+#17 0x00000000013c1b6a (llc+0x13c1b6a)
+#18 0x00000000013c5e24 (llc+0x13c5e24)
+#19 0x00000000013c0a56 (llc+0x13c0a56)
+#20 0x0000000000b45aef (llc+0xb45aef)
+#21 0x0000000000db0e4a (llc+0xdb0e4a)
+#22 0x000000000115db5c (llc+0x115db5c)
+#23 0x000000000115dcf5 (llc+0x115dcf5)
+#24 0x000000000115e070 (llc+0x115e070)
+#25 0x000000000115e785 (llc+0x115e785)
+#26 0x000000000115e991 (llc+0x115e991)
+#27 0x0000000000b0884a (llc+0xb0884a)
+#28 0x0000000000b071e8 (llc+0xb071e8)
+#29 0x00002ac0fbb8f830 __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x20830)
+#30 0x0000000000b05509 (llc+0xb05509)
+Stack dump:
+0.	Program arguments: llc -O3 -relocation-model=static /tmp/ghc15971_0/ghc_6.bc -o /tmp/ghc15971_0/ghc_7.lm_s --enable-tbaa=true
+1.	Running pass 'Function Pass Manager' on module '/tmp/ghc15971_0/ghc_6.bc'.
+2.	Running pass 'RISCV DAG->DAG Pattern Instruction Selection' on function '@"stg_stop_thread_info$def"'
+`llc' failed in phase `LLVM Compiler'. (Exit code: -6)
+make[1]: *** [rts/dist/build/StgStartup.o] Error 1
+make[1]: *** Waiting for unfinished jobs....
+rts/ghc.mk:255: recipe for target 'rts/dist/build/StgStartup.o' failed
+ExpandIntegerResult #0: t40: i64 = FrameIndex<-12>
+
+Do not know how to expand the result of this operator!
+UNREACHABLE executed at /opt/riscv/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp:1293!
+#0 0x00000000015d0f12 (llc+0x15d0f12)
+#1 0x00000000015d12b1 (llc+0x15d12b1)
+#2 0x00000000015cf359 (llc+0x15cf359)
+#3 0x00000000015d0759 (llc+0x15d0759)
+#4 0x00002b4480e323e0 __restore_rt (/lib/x86_64-linux-gnu/libpthread.so.0+0x113e0)
+#5 0x00002b4481d41428 gsignal (/lib/x86_64-linux-gnu/libc.so.6+0x35428)
+#6 0x00002b4481d4302a abort (/lib/x86_64-linux-gnu/libc.so.6+0x3702a)
+#7 0x000000000156f616 (llc+0x156f616)
+#8 0x000000000150da17 (llc+0x150da17)
+#9 0x00000000014be219 (llc+0x14be219)
+#10 0x00000000014c3b28 (llc+0x14c3b28)
+#11 0x00000000013c255f (llc+0x13c255f)
+#12 0x00000000013c1bde (llc+0x13c1bde)
+#13 0x00000000013c5e24 (llc+0x13c5e24)
+#14 0x00000000013c0a56 (llc+0x13c0a56)
+#15 0x0000000000b45aef (llc+0xb45aef)
+#16 0x0000000000db0e4a (llc+0xdb0e4a)
+#17 0x000000000115db5c (llc+0x115db5c)
+#18 0x000000000115dcf5 (llc+0x115dcf5)
+#19 0x000000000115e070 (llc+0x115e070)
+#20 0x000000000115e785 (llc+0x115e785)
+#21 0x000000000115e991 (llc+0x115e991)
+#22 0x0000000000b0884a (llc+0xb0884a)
+#23 0x0000000000b071e8 (llc+0xb071e8)
+#24 0x00002b4481d2c830 __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x20830)
+#25 0x0000000000b05509 (llc+0xb05509)
+Stack dump:
+0.	Program arguments: llc -O3 -relocation-model=static /tmp/ghc15972_0/ghc_6.bc -o /tmp/ghc15972_0/ghc_7.lm_s --enable-tbaa=true
+1.	Running pass 'Function Pass Manager' on module '/tmp/ghc15972_0/ghc_6.bc'.
+2.	Running pass 'RISCV DAG->DAG Pattern Instruction Selection' on function '@"stg_newByteArrayzh$def"'
+`llc' failed in phase `LLVM Compiler'. (Exit code: -6)
+make[1]: *** [rts/dist/build/PrimOps.o] Error 1
+rts/ghc.mk:255: recipe for target 'rts/dist/build/PrimOps.o' failed
+make: *** [all] Error 2
+Makefile:122: recipe for target 'all' failed
+The command '/bin/sh -c ./configure --prefix=$RISCV --target=riscv64-unknown-linux-gnu                 --with-ffi-includes=/opt/riscv/lib/libffi-3.99999/include                 --with-ffi-libraries=/opt/riscv/lib --with-system-libffi &&     cp mk/build.mk.sample mk/build.mk &&     perl -i -pe 's/^#BuildFlavour = quick/BuildFlavour = quick/;' mk/build.mk &&     perl -i -pe 's/^HADDOCK_DOCS = YES/HADDOCK_DOCS = NO/;' mk/build.mk &&     perl -i -pe 's/DYNAMIC_GHC_PROGRAMS = YES/DYNAMIC_GHC_PROGRAMS = NO/;' mk/config.mk &&     make -j2' returned a non-zero code: 2

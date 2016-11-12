@@ -1,2 +1,2 @@
 make -f makefiles/homebrew.mk BUILD=build-py3 CMAKE_GENERATOR=Ninja PYTHON=ON PYTHON_CONFIG=python3-config PYTHON_VERSION=3 clean cmake
-ninja -c build-py3 ledger
+ninja -C build-py3 ledger

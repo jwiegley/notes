@@ -1,0 +1,36 @@
+root@8010781120c6:/opt/riscv/ghc# "inplace/bin/ghc-stage1" -static  -O0 -H64m -Wall   -Iincludes -Ii
+ncludes/dist -Iincludes/dist-derivedconstants/header -Iincludes/dist-ghcconstants/header -Irts -Irts/dist/build -DCOMPILING_RTS -this-unit-id rts -optc-DNOSMP -dcmm-lint      -i -irts -irts/dist/build -Irts/dist/build -irts/dist/build/./autogen -Irts/dist/build/./autogen           -O2    -Wnoncanonical-monad-instances  -c rts/StgStartup.cmm -o rts/dist/build/StgStartup.o -v3 -keep-llvm-files
+Glasgow Haskell Compiler, Version 8.1.20161111, stage 1 booted by GHC version 7.10.3
+Using binary package database: /opt/riscv/ghc/inplace/lib/package.conf.d/package.cache
+package flags []
+loading package database /opt/riscv/ghc/inplace/lib/package.conf.d
+wired-in package ghc-prim mapped to ghc-prim-0.5.0.0
+wired-in package integer-gmp mapped to integer-gmp-1.0.0.1
+wired-in package base mapped to base-4.9.0.0
+wired-in package rts mapped to rts
+wired-in package template-haskell mapped to template-haskell-2.11.0.0
+wired-in package ghc mapped to ghc-8.1
+wired-in package dph-seq not found.
+wired-in package dph-par not found.
+Hsc static flags:
+Created temporary directory: /tmp/ghc16490_0
+*** C Compiler:
+riscv64-unknown-linux-gnu-gcc -fno-stack-protector -DTABLES_NEXT_TO_CODE -DNOSMP -E -I includes -I includes/dist -I includes/dist-derivedconstants/header -I includes/dist-ghcconstants/header -I rts -I rts/dist/build -I rts/dist/build -I rts/dist/build/./autogen -I /opt/riscv/ghc/libraries/base/include -I /opt/riscv/ghc/libraries/integer-gmp/include -I /opt/riscv/ghc/rts/dist/build -I /opt/riscv/ghc/includes -I /opt/riscv/ghc/includes/dist-derivedconstants/header -I /opt/riscv/lib/libffi-3.99999/include -include /opt/riscv/ghc/includes/ghcversion.h -Dlinux_BUILD_OS -Dx86_64_BUILD_ARCH -Dlinux_HOST_OS -Driscv64_HOST_ARCH '-D__GLASGOW_HASKELL_LLVM__=309' '-D__GLASGOW_HASKELL_TH__=0' -include/tmp/ghc16490_0/ghc_2.h -x assembler-with-cpp rts/StgStartup.cmm -o /tmp/ghc16490_0/ghc_1.cmmcpp
+*** ParseCmm [/tmp/ghc16490_0/ghc_1.cmmcpp]:
+!!! ParseCmm [/tmp/ghc16490_0/ghc_1.cmmcpp]: finished in 0.00 milliseconds, allocated 2.002 megabytes
+*** LLVM CodeGen:
+*** LLVM CodeGen:
+Using LLVM version: (3,9)
+You are using an unsupported version of LLVM!
+Currently only 3.8 is supported.
+We will try though...
+*** Deleting temp files:
+Deleting: /tmp/ghc16490_0/ghc_4.c /tmp/ghc16490_0/ghc_3.rsp /tmp/ghc16490_0/ghc_2.h /tmp/ghc16490_0/ghc_1.cmmcpp
+Warning: deleting non-existent /tmp/ghc16490_0/ghc_4.c
+*** Deleting temp dirs:
+Deleting: /tmp/ghc16490_0
+ghc-stage1: panic! (the 'impossible' happened)
+  (GHC version 8.1.20161111 for riscv64-unknown-linux):
+	hscCompileCmmFile: no_mod
+
+Please report this as a GHC bug:  http://www.haskell.org/ghc/reportabug

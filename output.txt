@@ -1,36 +1,42 @@
 root@8010781120c6:/opt/riscv/ghc# "inplace/bin/ghc-stage1" -static  -O0 -H64m -Wall   -Iincludes -Ii
-ncludes/dist -Iincludes/dist-derivedconstants/header -Iincludes/dist-ghcconstants/header -Irts -Irts/dist/build -DCOMPILING_RTS -this-unit-id rts -optc-DNOSMP -dcmm-lint      -i -irts -irts/dist/build -Irts/dist/build -irts/dist/build/./autogen -Irts/dist/build/./autogen           -O2    -Wnoncanonical-monad-instances  -c rts/StgStartup.cmm -o rts/dist/build/StgStartup.o -v3 -keep-llvm-files
-Glasgow Haskell Compiler, Version 8.1.20161111, stage 1 booted by GHC version 7.10.3
-Using binary package database: /opt/riscv/ghc/inplace/lib/package.conf.d/package.cache
-package flags []
-loading package database /opt/riscv/ghc/inplace/lib/package.conf.d
-wired-in package ghc-prim mapped to ghc-prim-0.5.0.0
-wired-in package integer-gmp mapped to integer-gmp-1.0.0.1
-wired-in package base mapped to base-4.9.0.0
-wired-in package rts mapped to rts
-wired-in package template-haskell mapped to template-haskell-2.11.0.0
-wired-in package ghc mapped to ghc-8.1
-wired-in package dph-seq not found.
-wired-in package dph-par not found.
-Hsc static flags:
-Created temporary directory: /tmp/ghc16490_0
-*** C Compiler:
-riscv64-unknown-linux-gnu-gcc -fno-stack-protector -DTABLES_NEXT_TO_CODE -DNOSMP -E -I includes -I includes/dist -I includes/dist-derivedconstants/header -I includes/dist-ghcconstants/header -I rts -I rts/dist/build -I rts/dist/build -I rts/dist/build/./autogen -I /opt/riscv/ghc/libraries/base/include -I /opt/riscv/ghc/libraries/integer-gmp/include -I /opt/riscv/ghc/rts/dist/build -I /opt/riscv/ghc/includes -I /opt/riscv/ghc/includes/dist-derivedconstants/header -I /opt/riscv/lib/libffi-3.99999/include -include /opt/riscv/ghc/includes/ghcversion.h -Dlinux_BUILD_OS -Dx86_64_BUILD_ARCH -Dlinux_HOST_OS -Driscv64_HOST_ARCH '-D__GLASGOW_HASKELL_LLVM__=309' '-D__GLASGOW_HASKELL_TH__=0' -include/tmp/ghc16490_0/ghc_2.h -x assembler-with-cpp rts/StgStartup.cmm -o /tmp/ghc16490_0/ghc_1.cmmcpp
-*** ParseCmm [/tmp/ghc16490_0/ghc_1.cmmcpp]:
-!!! ParseCmm [/tmp/ghc16490_0/ghc_1.cmmcpp]: finished in 0.00 milliseconds, allocated 2.002 megabytes
-*** LLVM CodeGen:
-*** LLVM CodeGen:
-Using LLVM version: (3,9)
+ncludes/dist -Iincludes/dist-derivedconstants/header -Iincludes/dist-ghcconstants/header -Irts -Irts/dist/build -DCOMPILING_RTS -this-unit-id rts -optc-DNOSMP -dcmm-lint      -i -irts -irts/dist/build -Irts/dist/build -irts/dist/build/./autogen -Irts/dist/build/./autogen           -O2    -Wnoncanonical-monad-instances  -c rts/StgStartup.cmm -o rts/dist/build/StgStartup.o -v1 -keep-tmp-files -keep-llvm-files
 You are using an unsupported version of LLVM!
 Currently only 3.8 is supported.
 We will try though...
-*** Deleting temp files:
-Deleting: /tmp/ghc16490_0/ghc_4.c /tmp/ghc16490_0/ghc_3.rsp /tmp/ghc16490_0/ghc_2.h /tmp/ghc16490_0/ghc_1.cmmcpp
-Warning: deleting non-existent /tmp/ghc16490_0/ghc_4.c
-*** Deleting temp dirs:
-Deleting: /tmp/ghc16490_0
-ghc-stage1: panic! (the 'impossible' happened)
-  (GHC version 8.1.20161111 for riscv64-unknown-linux):
-	hscCompileCmmFile: no_mod
-
-Please report this as a GHC bug:  http://www.haskell.org/ghc/reportabug
+llc: /opt/riscv/llvm/lib/Target/RISCV/RISCVISelLowering.cpp:923: bool (* llvm::RISCVTargetLowering::getCCAssignFn(llvm::TargetLowering::CallLoweringInfo&) const)(unsigned int, llvm::MVT, llvm::MVT, llvm::CCValAssign::LocInfo, llvm::ISD::ArgFlagsTy, llvm::CCState&): Assertion `!IsRV32' failed.
+#0 0x00000000015d0f12 (llc+0x15d0f12)
+#1 0x00000000015d12b1 (llc+0x15d12b1)
+#2 0x00000000015cf359 (llc+0x15cf359)
+#3 0x00000000015d0759 (llc+0x15d0759)
+#4 0x00007f0df609b3e0 __restore_rt (/lib/x86_64-linux-gnu/libpthread.so.0+0x113e0)
+#5 0x00007f0df5028428 gsignal (/lib/x86_64-linux-gnu/libc.so.6+0x35428)
+#6 0x00007f0df502a02a abort (/lib/x86_64-linux-gnu/libc.so.6+0x3702a)
+#7 0x00007f0df5020bd7 (/lib/x86_64-linux-gnu/libc.so.6+0x2dbd7)
+#8 0x00007f0df5020c82 (/lib/x86_64-linux-gnu/libc.so.6+0x2dc82)
+#9 0x0000000000b51079 (llc+0xb51079)
+#10 0x0000000000b5128c (llc+0xb5128c)
+#11 0x0000000001344625 (llc+0x1344625)
+#12 0x000000000133968f (llc+0x133968f)
+#13 0x0000000001339e1c (llc+0x1339e1c)
+#14 0x000000000133c965 (llc+0x133c965)
+#15 0x00000000013171da (llc+0x13171da)
+#16 0x0000000001316bc1 (llc+0x1316bc1)
+#17 0x00000000013c1b6a (llc+0x13c1b6a)
+#18 0x00000000013c5e24 (llc+0x13c5e24)
+#19 0x00000000013c0a56 (llc+0x13c0a56)
+#20 0x0000000000b45aef (llc+0xb45aef)
+#21 0x0000000000db0e4a (llc+0xdb0e4a)
+#22 0x000000000115db5c (llc+0x115db5c)
+#23 0x000000000115dcf5 (llc+0x115dcf5)
+#24 0x000000000115e070 (llc+0x115e070)
+#25 0x000000000115e785 (llc+0x115e785)
+#26 0x000000000115e991 (llc+0x115e991)
+#27 0x0000000000b0884a (llc+0xb0884a)
+#28 0x0000000000b071e8 (llc+0xb071e8)
+#29 0x00007f0df5013830 __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x20830)
+#30 0x0000000000b05509 (llc+0xb05509)
+Stack dump:
+0.	Program arguments: llc -O3 -relocation-model=static /tmp/ghc16569_0/ghc_5.bc -o /tmp/ghc16569_0/ghc_6.lm_s --enable-tbaa=true
+1.	Running pass 'Function Pass Manager' on module '/tmp/ghc16569_0/ghc_5.bc'.
+2.	Running pass 'RISCV DAG->DAG Pattern Instruction Selection' on function '@"stg_stop_thread_info$def"'
+`llc' failed in phase `LLVM Compiler'. (Exit code: -6)

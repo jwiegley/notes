@@ -24,6 +24,8 @@ Proof.
     destruct H6; discriminate.
   - apply IHc with st st' st'0 SContinue SContinue in H4; eauto.
     destruct H4; subst.
+    pose proof (while_continue _ _ _ _ _ H8); subst.
+    pose proof (while_continue _ _ _ _ _ H16); subst.
     admit.
   - apply IHc with st st' st2 SContinue SBreak in H4; eauto.
     destruct H4; discriminate.

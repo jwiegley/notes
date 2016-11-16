@@ -23,9 +23,12 @@ Proof.
   - apply IHc1 with st st1 st'0 SBreak SContinue in H6; eauto.
     destruct H6; discriminate.
   - apply IHc with st st' st'0 SContinue SContinue in H4; eauto.
-    destruct H4; subst.
+    destruct H4; subst; clear H0 H3.
     pose proof (while_continue _ _ _ _ _ H8); subst.
     pose proof (while_continue _ _ _ _ _ H16); subst.
+    pose proof (E_WhileLoop_cont st st'0 st1 _ _ SContinue H11 H12 H8).
+    pose proof (E_WhileLoop_cont st st'0 st2 _ _ SContinue H11 H12 H16).
+    clear H8 H16 H12 st'0.
     admit.
   - apply IHc with st st' st2 SContinue SBreak in H4; eauto.
     destruct H4; discriminate.

@@ -1,0 +1,27 @@
+root@9e83add10e4e:/usr/local/src/xhtml# echo location/01-good-xml.html | bash -x rings-app-run.sh >
++ RINGS_APP_OUTDIR=/opt/rings/output
++ mkdir -p /opt/rings/output
++ '[' '!' -w /opt/rings/output ']'
++++ date -Iseconds
+++ mktemp --directory /opt/rings/output/2016-11-17T20:50:19+00:00.XXXXXX
++ outdir=/opt/rings/output/2016-11-17T20:50:19+00:00.nj7wGp
++ '[' '!' -w /opt/rings/output/2016-11-17T20:50:19+00:00.nj7wGp ']'
++ trap finish INT TERM EXIT
++ appout_file=/opt/rings/output/2016-11-17T20:50:19+00:00.nj7wGp/output.log
++ stdout_file=/opt/rings/output/2016-11-17T20:50:19+00:00.nj7wGp/stdout.log
++ stderr_file=/opt/rings/output/2016-11-17T20:50:19+00:00.nj7wGp/stderr.log
++ RINGS_APP_TESTDIR=/opt/rings/tests
++ read testname
++ testfile=/opt/rings/tests/location/01-good-xml.html
++ '[' '!' -r /opt/rings/tests/location/01-good-xml.html ']'
++ cd /opt/rings/output/2016-11-17T20:50:19+00:00.nj7wGp
++ echo 'OUTDIR: /opt/rings/output/2016-11-17T20:50:19+00:00.nj7wGp'
++ xhtml /opt/rings/tests/location/01-good-xml.html
+a socket error occurred
++ echo 'spv script finished'
++ finish
++ echo -n /opt/rings/output/2016-11-17T20:50:19+00:00.nj7wGp
+/opt/rings/output/2016-11-17T20:50:19+00:00.nj7wGproot@9e83add10e4e:/usr/local/src/xhtml# xhtml /opt/rings/tests/location/01-good-xml.html
+RESULT: htmlTrackCount
+RESULT: htmlTrackLength
+RESULT: htmlTrackDistance

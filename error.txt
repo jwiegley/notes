@@ -1,0 +1,26 @@
+clang -I/nix/store/vjkrzj0mjn8phszvdvw390gdc3q6wji5-libassuan-2.4.3-dev/include -I/nix/store/fyywayc9hsf57fzib27vh8hpzrhb7xkz-libgpg-error-1.24-dev/include -I/nix/store/fyywayc9hsf57fzib27vh8hpzrhb7xkz-libgpg-error-1.24-dev/include  -Wall -Wno-pointer-sign -Wpointer-arith  -g -O2   -o gpg-wks-client gpg_wks_client-gpg-wks-client.o gpg_wks_client-wks-util.o gpg_wks_client-wks-receive.o gpg_wks_client-rfc822parse.o gpg_wks_client-mime-parser.o gpg_wks_client-mime-maker.o gpg_wks_client-send-mail.o gpg_wks_client-call-dirmngr.o ../common/libcommon.a -L/nix/store/nfhj4zd5qfjvzdnr7asldlhzj5f7piy6-libassuan-2.4.3/lib -lassuan -L/nix/store/b8jpzcbxlhicq1smwjgrwncm55vlpygz-libgpg-error-1.24/lib -lgpg-error -L/nix/store/kab0rilj5g7vnlgcdj0943hv6ikm7bkw-libgcrypt-1.7.3/lib -lgcrypt -L/nix/store/b8jpzcbxlhicq1smwjgrwncm55vlpygz-libgpg-error-1.24/lib -lgpg-error -L/nix/store/b8jpzcbxlhicq1smwjgrwncm55vlpygz-libgpg-error-1.24/lib -lgpg-error -liconv
+Undefined symbols for architecture x86_64:
+  "_libintl_bind_textdomain_codeset", referenced from:
+      _i18n_switchto_utf8 in libcommon.a(libcommon_a-i18n.o)
+      _i18n_switchback in libcommon.a(libcommon_a-i18n.o)
+      _i18n_utf8 in libcommon.a(libcommon_a-i18n.o)
+  "_libintl_bindtextdomain", referenced from:
+      _i18n_init in libcommon.a(libcommon_a-i18n.o)
+      _i18n_localegettext in libcommon.a(libcommon_a-i18n.o)
+  "_libintl_gettext", referenced from:
+      _main in gpg_wks_client-gpg-wks-client.o
+      _wrong_args in gpg_wks_client-gpg-wks-client.o
+      _connect_dirmngr in gpg_wks_client-call-dirmngr.o
+      __init_common_subsystems in libcommon.a(libcommon_a-init.o)
+      _disable_core_dumps in libcommon.a(libcommon_a-sysutils.o)
+      _gnupg_rename_file in libcommon.a(libcommon_a-sysutils.o)
+      _i18n_utf8 in libcommon.a(libcommon_a-i18n.o)
+      ...
+  "_libintl_setlocale", referenced from:
+      _i18n_init in libcommon.a(libcommon_a-i18n.o)
+      _i18n_localegettext in libcommon.a(libcommon_a-i18n.o)
+      _send_pinentry_environment in libcommon.a(libcommon_a-asshelp.o)
+  "_libintl_textdomain", referenced from:
+      _i18n_init in libcommon.a(libcommon_a-i18n.o)
+ld: symbol(s) not found for architecture x86_64
+clang-3.7: error: linker command failed with exit code 1 (use -v to see invocation)

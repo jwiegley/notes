@@ -1,92 +1,42 @@
-root@router:/tmp/home/root# iptables -L -v -n
-Chain INPUT (policy DROP 160 packets, 7307 bytes)
- pkts bytes target     prot opt in     out     source               destination
-    2   168 ACCEPT     all  --  tun+   *       0.0.0.0/0            0.0.0.0/0
-    0     0 ACCEPT     all  --  tun11  *       0.0.0.0/0            0.0.0.0/0
- 1234 89989 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           state INVALID
- 227K   41M ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           state RELATED,ESTABLISHED
-   84  3752 shlimit    tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp dpt:22 state NEW
-98270   24M ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0
- 148K   30M ACCEPT     all  --  br0    *       0.0.0.0/0            0.0.0.0/0
-    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0           udp spt:67 dpt:68
-
-Chain FORWARD (policy DROP 0 packets, 0 bytes)
- pkts bytes target     prot opt in     out     source               destination
-    0     0 ACCEPT     all  --  *      tun+    0.0.0.0/0            0.0.0.0/0
-    0     0 ACCEPT     all  --  tun+   *       0.0.0.0/0            0.0.0.0/0
-    0     0 ACCEPT     all  --  tun11  *       0.0.0.0/0            0.0.0.0/0
-  44M   46G            all  --  *      *       0.0.0.0/0            0.0.0.0/0           account: network/netmask: 192.168.9.0/255.255.255.0 name: lan
-    0     0 ACCEPT     all  --  br0    br0     0.0.0.0/0            0.0.0.0/0
-12105  614K DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           state INVALID
-86721 5349K TCPMSS     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp flags:0x06/0x02 TCPMSS clamp to PMTU
-  29M   36G L7in       all  --  vlan2  *       0.0.0.0/0            0.0.0.0/0
-  44M   46G ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0           state RELATED,ESTABLISHED
-  762 88220 wanin      all  --  vlan2  *       0.0.0.0/0            0.0.0.0/0
-54037 3646K wanout     all  --  *      vlan2   0.0.0.0/0            0.0.0.0/0
-54037 3646K ACCEPT     all  --  br0    *       0.0.0.0/0            0.0.0.0/0
-   51  2652 upnp       all  --  vlan2  *       0.0.0.0/0            0.0.0.0/0
-
-Chain OUTPUT (policy ACCEPT 10888 packets, 3512K bytes)
- pkts bytes target     prot opt in     out     source               destination
-
-Chain L7in (1 references)
- pkts bytes target     prot opt in     out     source               destination
- 2286  250K RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           LAYER7 l7proto skypetoskype
-    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           LAYER7 l7proto youtube-2012
-    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           LAYER7 l7proto httpvideo
-  595  849K RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           LAYER7 l7proto flash
- 495K  136M RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           LAYER7 l7proto rtp
-    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           LAYER7 l7proto rtmp
-    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           LAYER7 l7proto shoutcast
-    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           LAYER7 l7proto rtmpt
-    0     0 RETURN     all  --  *      *       0.0.0.0/0            0.0.0.0/0           LAYER7 l7proto irc
-
-Chain shlimit (1 references)
- pkts bytes target     prot opt in     out     source               destination
-   84  3752            all  --  *      *       0.0.0.0/0            0.0.0.0/0           recent: SET name: shlimit side: source
-    0     0 DROP       all  --  *      *       0.0.0.0/0            0.0.0.0/0           recent: UPDATE seconds: 60 hit_count: 4 name: shlimit side: source
-
-Chain upnp (1 references)
- pkts bytes target     prot opt in     out     source               destination
-    1    52 ACCEPT     tcp  --  *      *       0.0.0.0/0            192.168.9.5         tcp dpt:4242
-    0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            192.168.9.5         udp dpt:16402
-
-Chain wanin (1 references)
- pkts bytes target     prot opt in     out     source               destination
-    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            192.168.9.28        tcp dpt:22
-   19  1156 ACCEPT     tcp  --  *      *       0.0.0.0/0            192.168.9.5         tcp dpt:61623
-  692 84412 ACCEPT     udp  --  *      *       0.0.0.0/0            192.168.9.5         udp dpt:61623
-
-Chain wanout (1 references)
- pkts bytes target     prot opt in     out     source               destination
-root@router:/tmp/home/root# iptables -t nat -L -v -n
-Chain PREROUTING (policy ACCEPT 4466 packets, 553K bytes)
- pkts bytes target     prot opt in     out     source               destination
- 7146  438K WANPREROUTING  all  --  *      *       0.0.0.0/0            76.234.69.149
-    0     0 DROP       all  --  vlan2  *       0.0.0.0/0            192.168.9.0/24
- 6636  385K upnp       all  --  *      *       0.0.0.0/0            76.234.69.149
-
-Chain POSTROUTING (policy ACCEPT 60 packets, 26706 bytes)
- pkts bytes target     prot opt in     out     source               destination
-    0     0 MASQUERADE  all  --  *      tun+    0.0.0.0/0            0.0.0.0/0
-    0     0 MASQUERADE  all  --  *      br0     10.8.0.0/24          0.0.0.0/0
-72125 5062K MASQUERADE  all  --  *      vlan2   0.0.0.0/0            0.0.0.0/0
- 2022  773K SNAT       all  --  *      br0     192.168.9.0/24       192.168.9.0/24      to:192.168.9.1
-
-Chain OUTPUT (policy ACCEPT 540 packets, 79754 bytes)
- pkts bytes target     prot opt in     out     source               destination
-
-Chain WANPREROUTING (1 references)
- pkts bytes target     prot opt in     out     source               destination
-  137 13116 DNAT       icmp --  *      *       0.0.0.0/0            0.0.0.0/0           to:192.168.9.1
-    0     0 DNAT       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp dpt:2022 to:192.168.9.28:22
-   19  1156 DNAT       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp dpt:61623 to:192.168.9.5
-  354 38344 DNAT       udp  --  *      *       0.0.0.0/0            0.0.0.0/0           udp dpt:61623 to:192.168.9.5
-
-Chain upnp (1 references)
- pkts bytes target     prot opt in     out     source               destination
-    1    52 DNAT       tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           tcp dpt:8889 to:192.168.9.5:4242
-    0     0 DNAT       udp  --  *      *       0.0.0.0/0            0.0.0.0/0           udp dpt:53477 to:192.168.9.5:16402
+[root@vps ~]# iptables-save
+# Generated by iptables-save v1.4.21 on Sun Nov 27 17:19:56 2016
+*filter
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [1440095:1025583457]
+-A INPUT -s 76.234.69.149/32 -p tcp -m state --state NEW -m multiport --dports 22,2376,8118 -j ACCEPT
+-A INPUT -i lo -j ACCEPT
+-A INPUT -i tun+ -j ACCEPT
+-A INPUT -p icmp -j ACCEPT
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+-A INPUT -p udp -m state --state NEW -m udp --dport 1194 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp -m multiport --dports 2143,5622,8307 -j REJECT --reject-with icmp-port-unreachable
+-A INPUT -p tcp -m state --state NEW -m tcp -m multiport --dports 1995,2034,6327 -j REJECT --reject-with icmp-port-unreachable
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 25 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 587 -j ACCEPT
+-A INPUT -p tcp -m state --state NEW -m tcp --dport 80 -j ACCEPT
+-A INPUT -m limit --limit 2/min -j LOG --log-prefix "IPTables-Input-Dropped: "
+-A INPUT -j REJECT --reject-with icmp-port-unreachable
+-A FORWARD -i tun+ -j ACCEPT
+-A FORWARD -o tun+ -j ACCEPT
+-A FORWARD -i docker0 -j ACCEPT
+-A FORWARD -o docker0 -j ACCEPT
+-A FORWARD -s 172.0.0.0/8 -j ACCEPT
+-A FORWARD -d 172.0.0.0/8 -j ACCEPT
+-A FORWARD -m limit --limit 2/min -j LOG --log-prefix "IPTables-Forward-Dropped: "
+-A FORWARD -j REJECT --reject-with icmp-port-unreachable
+COMMIT
+# Completed on Sun Nov 27 17:19:56 2016
+# Generated by iptables-save v1.4.21 on Sun Nov 27 17:19:56 2016
+*nat
+:PREROUTING ACCEPT [39331:2363158]
+:INPUT ACCEPT [34060:2086700]
+:OUTPUT ACCEPT [90349:5609421]
+:POSTROUTING ACCEPT [70482:4417401]
+-A POSTROUTING -s 10.8.0.0/24 -o eth0 -j MASQUERADE
+-A POSTROUTING -s 172.0.0.0/8 ! -o docker0 -j MASQUERADE
+COMMIT
+# Completed on Sun Nov 27 17:19:56 2016
 root@router:/tmp/home/root# netstat -nr
 Kernel IP routing table
 Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface

@@ -1,0 +1,64 @@
+[root@vps ~]# iptables -L -v -n
+Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+    4   256 ACCEPT     tcp  --  *      *       76.234.69.149        0.0.0.0/0            state NEW multiport dports 22,2376,8118
+ 366K  614M ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0
+    2   168 ACCEPT     all  --  tun+   *       0.0.0.0/0            0.0.0.0/0
+  391 30209 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0
+1577K 1910M ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+    1    70 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW udp dpt:1194
+    3   192 REJECT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp multiport dports 2143,5622,8307 reject-with icmp-port-unreachable
+    3   192 REJECT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp multiport dports 1995,2034,6327 reject-with icmp-port-unreachable
+ 1492 85046 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:25
+    3   140 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:587
+32495 1998K ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:80
+ 5300  270K LOG        all  --  *      *       0.0.0.0/0            0.0.0.0/0            limit: avg 2/min burst 5 LOG flags 0 level 4 prefix "IPTables-Input-Dropped: "
+ 7590  380K REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            reject-with icmp-port-unreachable
+
+Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+    0     0 ACCEPT     all  --  tun+   *       0.0.0.0/0            0.0.0.0/0
+    0     0 ACCEPT     all  --  *      tun+    0.0.0.0/0            0.0.0.0/0
+    0     0 ACCEPT     all  --  docker0 *       0.0.0.0/0            0.0.0.0/0
+    0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0
+    0     0 ACCEPT     all  --  *      *       172.0.0.0/8          0.0.0.0/0
+    0     0 ACCEPT     all  --  *      *       0.0.0.0/0            172.0.0.0/8
+    0     0 LOG        all  --  *      *       0.0.0.0/0            0.0.0.0/0            limit: avg 2/min burst 5 LOG flags 0 level 4 prefix "IPTables-Forward-Dropped: "
+    0     0 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            reject-with icmp-port-unreachable
+
+Chain OUTPUT (policy ACCEPT 1440K packets, 1025M bytes)
+ pkts bytes target     prot opt in     out     source               destination
+[root@vps ~]# iptables -t nat -L -v -n
+Chain PREROUTING (policy ACCEPT 39315 packets, 2362K bytes)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain INPUT (policy ACCEPT 34046 packets, 2086K bytes)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain OUTPUT (policy ACCEPT 90310 packets, 5607K bytes)
+ pkts bytes target     prot opt in     out     source               destination
+
+Chain POSTROUTING (policy ACCEPT 70453 packets, 4415K bytes)
+ pkts bytes target     prot opt in     out     source               destination
+    0     0 MASQUERADE  all  --  *      eth0    10.8.0.0/24          0.0.0.0/0
+19857 1191K MASQUERADE  all  --  *      !docker0  172.0.0.0/8          0.0.0.0/0
+[root@vps ~]# ip route get 192.168.9.1
+192.168.9.1 via 10.8.0.2 dev tun0  src 10.8.0.1
+    cache
+[root@vps ~]# netstat -nr
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags   MSS Window  irtt Iface
+0.0.0.0         208.82.102.84   0.0.0.0         UG        0 0          0 eth0
+10.8.0.0        0.0.0.0         255.255.255.0   U         0 0          0 tun0
+169.254.0.0     0.0.0.0         255.255.0.0     U         0 0          0 eth0
+172.17.0.0      0.0.0.0         255.255.0.0     U         0 0          0 docker0
+172.18.0.0      0.0.0.0         255.255.0.0     U         0 0          0 br-48e3b7aa1d99
+172.19.0.0      0.0.0.0         255.255.0.0     U         0 0          0 br-77ca4406c62e
+172.20.0.0      0.0.0.0         255.255.0.0     U         0 0          0 br-65d497aa5381
+172.21.0.0      0.0.0.0         255.255.0.0     U         0 0          0 br-3e6b8c8a4e0a
+172.22.0.0      0.0.0.0         255.255.0.0     U         0 0          0 br-a9d308b76935
+172.23.0.0      0.0.0.0         255.255.0.0     U         0 0          0 br-a618fcd0bca1
+172.24.0.0      0.0.0.0         255.255.0.0     U         0 0          0 br-a6c5b824160a
+192.168.9.0     10.8.0.2        255.255.255.0   UG        0 0          0 tun0
+208.82.102.84   0.0.0.0         255.255.255.255 UH        0 0          0 eth0
+[root@vps ~]#

@@ -1,0 +1,39 @@
+root@719d4783ad5f:/opt/riscv/ghc# "inplace/bin/ghc-stage1" -static  -O0 -H64m -Wall   -Iincludes -Iincludes/dist -Iincludes/dist-derivedconstants/header -Iincludes/dist-ghcconstants/header -Irts -Irts/dist/build -DCOMPILING_RTS -this-unit-id rts -optc-DNOSMP -dcmm-lint      -i -irts -irts/dist/build -Irts/dist/build -irts/dist/build/./autogen -Irts/dist/build/./autogen           -O2    -Wnoncanonical-monad-instances  -c rts/PrimOps.cmm -o rts/dist/build/PrimOps.o
+You are using an unsupported version of LLVM!
+Currently only 3.8 is supported.
+We will try though...
+ExpandIntegerResult #0: t40: i64 = FrameIndex<-12>
+
+Do not know how to expand the result of this operator!
+UNREACHABLE executed at /opt/riscv/llvm/lib/CodeGen/SelectionDAG/LegalizeIntegerTypes.cpp:1293!
+#0 0x00000000015d0f12 (llc+0x15d0f12)
+#1 0x00000000015d12b1 (llc+0x15d12b1)
+#2 0x00000000015cf359 (llc+0x15cf359)
+#3 0x00000000015d0759 (llc+0x15d0759)
+#4 0x00007ff7b49ac3e0 __restore_rt (/lib/x86_64-linux-gnu/libpthread.so.0+0x113e0)
+#5 0x00007ff7b3939428 gsignal (/lib/x86_64-linux-gnu/libc.so.6+0x35428)
+#6 0x00007ff7b393b02a abort (/lib/x86_64-linux-gnu/libc.so.6+0x3702a)
+#7 0x000000000156f616 (llc+0x156f616)
+#8 0x000000000150da17 (llc+0x150da17)
+#9 0x00000000014be219 (llc+0x14be219)
+#10 0x00000000014c3b28 (llc+0x14c3b28)
+#11 0x00000000013c255f (llc+0x13c255f)
+#12 0x00000000013c1bde (llc+0x13c1bde)
+#13 0x00000000013c5e24 (llc+0x13c5e24)
+#14 0x00000000013c0a56 (llc+0x13c0a56)
+#15 0x0000000000b45aef (llc+0xb45aef)
+#16 0x0000000000db0e4a (llc+0xdb0e4a)
+#17 0x000000000115db5c (llc+0x115db5c)
+#18 0x000000000115dcf5 (llc+0x115dcf5)
+#19 0x000000000115e070 (llc+0x115e070)
+#20 0x000000000115e785 (llc+0x115e785)
+#21 0x000000000115e991 (llc+0x115e991)
+#22 0x0000000000b0884a (llc+0xb0884a)
+#23 0x0000000000b071e8 (llc+0xb071e8)
+#24 0x00007ff7b3924830 __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x20830)
+#25 0x0000000000b05509 (llc+0xb05509)
+Stack dump:
+0.	Program arguments: llc -O3 -relocation-model=static /tmp/ghc16079_0/ghc_6.bc -o /tmp/ghc16079_0/ghc_7.lm_s --enable-tbaa=true
+1.	Running pass 'Function Pass Manager' on module '/tmp/ghc16079_0/ghc_6.bc'.
+2.	Running pass 'RISCV DAG->DAG Pattern Instruction Selection' on function '@"stg_newByteArrayzh$def"'
+`llc' failed in phase `LLVM Compiler'. (Exit code: -6)

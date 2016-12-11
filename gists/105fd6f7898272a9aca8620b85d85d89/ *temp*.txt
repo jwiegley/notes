@@ -1,0 +1,117 @@
+checking whether MADV_FREE is declared... no
+checking whether MADV_DONTNEED is declared... yes
+checking numa.h usability... no
+checking numa.h presence... no
+checking for numa.h... no
+checking numaif.h usability... no
+checking numaif.h presence... no
+checking for numaif.h... no
+configure: creating ./config.status
+config.status: creating mk/config.mk
+config.status: creating mk/install.mk
+config.status: creating mk/project.mk
+config.status: creating compiler/ghc.cabal
+config.status: creating ghc/ghc-bin.cabal
+config.status: creating utils/runghc/runghc.cabal
+config.status: creating libraries/ghc-boot/ghc-boot.cabal
+config.status: creating libraries/ghc-boot-th/ghc-boot-th.cabal
+config.status: creating libraries/ghci/ghci.cabal
+config.status: creating settings
+config.status: creating docs/users_guide/ghc_config.py
+config.status: creating docs/index.html
+config.status: creating libraries/prologue.txt
+config.status: creating distrib/configure.ac
+config.status: creating mk/config.h
+
+----------------------------------------------------------------------
+Configure completed successfully.
+
+   Building GHC version  : 8.1.20161030
+          Git commit id  : 6523bef042ee941ea963f36b54d3def78dd5cab2
+
+   Build platform        : x86_64-unknown-linux
+   Host platform         : x86_64-unknown-linux
+   Target platform       : riscv64-unknown-linux
+
+   Bootstrapping using   : /usr/bin/ghc
+      which is version   : 7.10.3
+
+   Using (for bootstrapping) : /usr/bin/gcc
+   Using gcc                 : riscv64-unknown-linux-gnu-gcc
+      which is version       : 5.3.0
+   Building a cross compiler : YES
+   Unregisterised            : NO
+   hs-cpp       : riscv64-unknown-linux-gnu-gcc
+   hs-cpp-flags : -E -undef -traditional
+   ld           : /opt/riscv/bin/riscv64-unknown-linux-gnu-ld
+   nm           : /opt/riscv/bin/riscv64-unknown-linux-gnu-nm
+   objdump      : /opt/riscv/bin/riscv64-unknown-linux-gnu-objdump
+   Happy        : /usr/bin/happy (1.19.5)
+   Alex         : /usr/bin/alex (3.1.6)
+   Perl         : /usr/bin/perl
+   sphinx-build :
+   xelatex      :
+
+   Using LLVM tools
+      llc   :
+      opt   :
+
+   HsColour was not found; documentation will not contain source links
+
+   Tools to build Sphinx HTML documentation available: NO
+   Tools to build Sphinx PDF documentation available: NO
+----------------------------------------------------------------------
+
+For a standard build of GHC (fully optimised with profiling), type (g)make.
+
+To make changes to the default build configuration, copy the file
+mk/build.mk.sample to mk/build.mk, and edit the settings in there.
+
+For more information on how to configure your GHC build, see
+   http://ghc.haskell.org/trac/ghc/wiki/Building
+
++ test -f mk/config.mk.old
++ cp -p mk/config.mk mk/config.mk.old
+touch -r mk/config.mk.old mk/config.mk
++ test -f mk/project.mk.old
++ cp -p mk/project.mk mk/project.mk.old
+touch -r mk/project.mk.old mk/project.mk
++ test -f compiler/ghc.cabal.old
++ cp -p compiler/ghc.cabal compiler/ghc.cabal.old
+touch -r compiler/ghc.cabal.old compiler/ghc.cabal
+===--- building phase 0
+make --no-print-directory -f ghc.mk phase=0 phase_0_builds
+utils/genprimopcode/ghc.mk:19: utils/genprimopcode/dist/package-data.mk: No such file or directory
+utils/deriveConstants/ghc.mk:19: utils/deriveConstants/dist/package-data.mk: No such file or directory
+utils/genapply/ghc.mk:23: utils/genapply/dist/package-data.mk: No such file or directory
+ghc.mk:740: libraries/ghc-prim/ghc.mk: No such file or directory
+ghc.mk:740: libraries/integer-gmp/ghc.mk: No such file or directory
+ghc.mk:740: libraries/base/ghc.mk: No such file or directory
+ghc.mk:740: libraries/filepath/ghc.mk: No such file or directory
+ghc.mk:740: libraries/array/ghc.mk: No such file or directory
+ghc.mk:740: libraries/deepseq/ghc.mk: No such file or directory
+ghc.mk:740: libraries/bytestring/ghc.mk: No such file or directory
+ghc.mk:740: libraries/containers/ghc.mk: No such file or directory
+ghc.mk:740: libraries/time/ghc.mk: No such file or directory
+ghc.mk:740: libraries/unix/ghc.mk: No such file or directory
+ghc.mk:740: libraries/directory/ghc.mk: No such file or directory
+ghc.mk:740: libraries/process/ghc.mk: No such file or directory
+ghc.mk:740: libraries/hpc/ghc.mk: No such file or directory
+ghc.mk:740: libraries/pretty/ghc.mk: No such file or directory
+ghc.mk:740: libraries/binary/ghc.mk: No such file or directory
+ghc.mk:740: libraries/Cabal/Cabal/ghc.mk: No such file or directory
+ghc.mk:740: libraries/ghc-boot-th/ghc.mk: No such file or directory
+ghc.mk:740: libraries/ghc-boot/ghc.mk: No such file or directory
+ghc.mk:740: libraries/template-haskell/ghc.mk: No such file or directory
+ghc.mk:740: libraries/hoopl/ghc.mk: No such file or directory
+ghc.mk:740: libraries/transformers/ghc.mk: No such file or directory
+ghc.mk:740: libraries/compact/ghc.mk: No such file or directory
+ghc.mk:740: libraries/terminfo/ghc.mk: No such file or directory
+ghc.mk:740: libraries/haskeline/ghc.mk: No such file or directory
+ghc.mk:740: libraries/ghci/ghc.mk: No such file or directory
+compiler/ghc.mk:579: compiler/stage1/package-data.mk: No such file or directory
+utils/hsc2hs/ghc.mk:15: utils/hsc2hs/dist/package-data.mk: No such file or directory
+utils/ghc-pkg/ghc.mk:60: utils/ghc-pkg/dist/package-data.mk: No such file or directory
+utils/dll-split/ghc.mk:23: utils/dll-split/dist-install/package-data.mk: No such file or directory
+utils/ghc-cabal/ghc.mk:90: *** ordering failure in utils/ghc-cabal (dist-install): ALL_STAGE1_v_LIBS is empty.  Stop.
+Makefile:122: recipe for target 'all' failed

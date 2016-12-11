@@ -1,0 +1,25 @@
+make -f makefiles/homebrew.mk BUILD=build-py3 CMAKE_GENERATOR=Ninja PYTHON=ON PYTHON_CONFIG=python3-config PYTHON_VERSION=3 clean cmake
+ninja -C build-py3 ledger
+ctest
+
+http://www.boost.org/users/uses_open.html
+http://www.boost.org/users/uses.html
+
+Martin's bugs
+
+- 
+- 
+- 
+
+Alexis' Python2 bugs
+
+- 
+- 
+- 
+
+Alexis' Python3 bugs
+
+- 
+- 
+- 
+

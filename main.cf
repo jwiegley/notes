@@ -1,0 +1,127 @@
+alias_database = hash:/etc/aliases
+alias_maps = hash:/etc/aliases, nis:mail.aliases
+command_directory = /usr/sbin
+daemon_directory = /usr/lib/postfix
+data_directory = /var/lib/postfix
+debug_peer_level = 2
+debugger_command = 
+html_directory = no
+inet_interfaces = all
+inet_protocols = all
+mail_owner = postfix
+mailq_path = /usr/bin/mailq
+manpage_directory = /usr/share/man
+newaliases_path = /usr/bin/newaliases
+queue_directory = /var/spool/postfix
+readme_directory = /usr/share/doc/postfix
+sample_directory = /usr/share/doc/postfix/examples
+sendmail_path = /usr/sbin/sendmail
+setgid_group = postdrop
+unknown_local_recipient_reject_code = 550
+
+##############################################################################
+
+mydestination = $myhostname, localhost.$mydomain, localhost
+mydomain = haskell.org
+myhostname = mail.haskell.org
+mynetworks =
+  127.0.0.0/8
+  23.253.242.0/24
+  10.208.192.0/19
+  [::1]/128
+  [2001:4800:7817:104::]/64
+  [fe80::]/64
+mynetworks_style = subnet
+relay_domains = $mydestination
+
+mail_spool_directory = /var/mail
+mailbox_command = 
+mailbox_size_limit = 51200000
+message_size_limit = 10240000
+
+milter_default_action = tempfail
+milter_protocol = 6
+
+postscreen_bare_newline_enable = no
+postscreen_bare_newline_ttl = 30d
+postscreen_greet_action = enforce
+postscreen_greet_banner = Haskell.org -- please wait
+disable_vrfy_command = no
+postscreen_disable_vrfy_command = yes
+double_bounce_sender = no-reply
+postscreen_forbidden_commands = VRFY, $smtpd_forbidden_commands
+postscreen_non_smtp_command_enable = no
+postscreen_pipelining_enable = no
+postscreen_pipelining_action = enforce
+postscreen_dnsbl_ttl = 1d
+postscreen_access_list = permit_mynetworks
+postscreen_greet_banner = 
+postscreen_blacklist_action = drop
+postscreen_dnsbl_threshold = 3
+postscreen_dnsbl_sites = 
+  zen.spamhaus.org*2
+  dnsbl.sorbs.net=127.0.0.[2..12],
+  dnsbl.dronebl.org=127.0.0.[1..30],
+  bl.spamcop.net
+  b.barracudacentral.org
+postscreen_dnsbl_action = enforce
+
+strict_rfc821_envelopes = yes
+unknown_address_reject_code = 554
+unknown_client_reject_code = 554
+unknown_hostname_reject_code = 554
+header_checks = pcre:/etc/postfix/header_checks
+
+smtp_use_tls = yes
+smtp_tls_policy_maps = hash:/etc/postfix/tls_policy
+
+smtpd_helo_required = yes
+smtpd_helo_restrictions = 
+  reject_invalid_hostname,
+  reject_invalid_helo_hostname,
+  reject_non_fqdn_helo_hostname,
+  reject_unknown_helo_hostname,
+  permit
+smtpd_client_restrictions = 
+  reject_unauth_destination
+smtpd_recipient_restrictions = 
+  reject_invalid_helo_hostname,
+  reject_invalid_hostname,
+  reject_non_fqdn_helo_hostname,
+  reject_non_fqdn_recipient,
+  reject_non_fqdn_sender,
+  reject_unauth_destination, 
+  reject_unauth_pipelining,
+  reject_unknown_recipient_domain, 
+  # reject_unknown_reverse_client_hostname, 
+  reject_unknown_sender_domain, 
+  check_client_access pcre:/etc/postfix/client_access,
+  check_recipient_access hash:/etc/postfix/denied_recipients,
+  check_policy_service unix:/var/spool/postfix/postgrey/socket,
+  permit
+smtpd_relay_restrictions = 
+  reject_unauth_destination
+
+smtpd_error_sleep_time = 5s
+smtpd_soft_error_limit = 10
+smtpd_hard_error_limit = 20
+smtpd_client_connection_count_limit = 10
+smtpd_client_connection_rate_limit = 60
+
+smtpd_sasl_auth_enable = no
+smtpd_sasl_local_domain =
+smtpd_sasl_security_options = noanonymous
+
+smtpd_sender_login_maps = hash:/etc/postfix/login_maps
+smtpd_sender_restrictions = 
+  reject_unknown_sender_domain,
+  reject_sender_login_mismatch
+
+smtpd_tls_CAfile = /etc/ssl/certs/haskell.org-ca.crt
+smtpd_tls_auth_only = yes
+smtpd_tls_cert_file = /etc/ssl/certs/haskell.org.crt
+smtpd_tls_key_file = /etc/ssl/private/haskell.org.key
+smtpd_tls_loglevel = 1
+smtpd_tls_security_level = may
+
+virtual_alias_maps = hash:/etc/postfix/virtual

@@ -1,0 +1,24 @@
+Dec 13 09:07:05 vps postfix/postscreen[32568]: CONNECT from [111.253.222.227]:44822 to [208.82.102.85]:25
+Dec 13 09:07:05 vps postfix/dnsblog[32571]: addr 111.253.222.227 listed by domain zen.spamhaus.org as 127.0.0.10
+Dec 13 09:07:05 vps postfix/dnsblog[32571]: addr 111.253.222.227 listed by domain zen.spamhaus.org as 127.0.0.4
+Dec 13 09:07:06 vps postfix/dnsblog[32572]: addr 111.253.222.227 listed by domain dnsbl.sorbs.net as 127.0.0.10
+Dec 13 09:07:08 vps postfix/postscreen[32568]: DNSBL rank 3 for [111.253.222.227]:44822
+Dec 13 09:07:10 vps postfix/postscreen[32568]: NOQUEUE: reject: RCPT from [111.253.222.227]:44822: 550 5.7.1 Service unavailable; client [111.253.222.227] blocked using zen.spamhaus.org; from=<alemaria@hinet.net>, to=<m27flxwm82.fsf@newartisans.com>, proto=SMTP, helo=<hinet.net>
+Dec 13 09:07:11 vps postfix/postscreen[32568]: HANGUP after 3 from [111.253.222.227]:44822 in tests after SMTP handshake
+Dec 13 09:07:11 vps postfix/postscreen[32568]: DISCONNECT [111.253.222.227]:44822
+Dec 13 09:10:59 vps postfix/postscreen[32667]: CONNECT from [184.74.137.170]:58747 to [208.82.102.85]:25
+Dec 13 09:10:59 vps postfix/dnsblog[32670]: addr 184.74.137.170 listed by domain zen.spamhaus.org as 127.0.0.3
+Dec 13 09:10:59 vps postfix/dnsblog[32670]: addr 184.74.137.170 listed by domain zen.spamhaus.org as 127.0.0.4
+Dec 13 09:10:59 vps postfix/dnsblog[32668]: addr 184.74.137.170 listed by domain b.barracudacentral.org as 127.0.0.2
+Dec 13 09:10:59 vps postfix/postscreen[32667]: DNSBL rank 3 for [184.74.137.170]:58747
+Dec 13 09:11:14 vps postfix/postscreen[32667]: NOQUEUE: reject: RCPT from [184.74.137.170]:58747: 550 5.7.1 Service unavailable; client [184.74.137.170] blocked using zen.spamhaus.org; from=<prednosta@biz.rr.com>, to=<m2wr2bv7ha.fsf@newartisans.com>, proto=SMTP, helo=<biz.rr.com>
+Dec 13 09:11:15 vps postfix/postscreen[32667]: HANGUP after 15 from [184.74.137.170]:58747 in tests after SMTP handshake
+Dec 13 09:11:15 vps postfix/postscreen[32667]: DISCONNECT [184.74.137.170]:58747
+Dec 13 09:15:07 vps postfix/postscreen[32732]: CONNECT from [162.210.173.240]:40103 to [208.82.102.85]:25
+Dec 13 09:15:07 vps postfix/dnsblog[32733]: addr 162.210.173.240 listed by domain zen.spamhaus.org as 127.0.0.3
+Dec 13 09:15:07 vps postfix/dnsblog[32733]: addr 162.210.173.240 listed by domain zen.spamhaus.org as 127.0.0.4
+Dec 13 09:15:07 vps postfix/dnsblog[32734]: addr 162.210.173.240 listed by domain bl.spamcop.net as 127.0.0.2
+Dec 13 09:15:07 vps postfix/postscreen[32732]: DNSBL rank 3 for [162.210.173.240]:40103
+Dec 13 09:15:08 vps postfix/postscreen[32732]: NOQUEUE: reject: RCPT from [162.210.173.240]:40103: 550 5.7.1 Service unavailable; client [162.210.173.240] blocked using zen.spamhaus.org; from=<rachel.hicklin@linegs.info>, to=<m2vb2wtbxd.fsf@newartisans.com>, proto=SMTP, helo=<linegs.info>
+Dec 13 09:15:09 vps postfix/postscreen[32732]: HANGUP after 1.7 from [162.210.173.240]:40103 in tests after SMTP handshake
+Dec 13 09:15:09 vps postfix/postscreen[32732]: DISCONNECT [162.210.173.240]:40103

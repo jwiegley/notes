@@ -1,0 +1,216 @@
+mail_owner = postfix
+setgid_group = postdrop
+
+command_directory = /usr/sbin
+daemon_directory = /usr/libexec/postfix
+data_directory = /var/lib/postfix
+manpage_directory = /usr/share/man
+queue_directory = /var/spool/postfix
+
+mailq_path = /usr/bin/mailq.postfix
+newaliases_path = /usr/bin/newaliases.postfix
+sendmail_path = /usr/sbin/sendmail.postfix
+
+##############################################################################
+
+# Before anything else, define who we are to the rest of the world.
+
+inet_interfaces = 208.82.102.85, 127.0.0.1
+inet_protocols = all
+myhostname = mail.johnwiegley.com
+mydestination =
+  mail.johnwiegley.com,
+  johnwiegley.com,
+  newartisans.com
+mynetworks =
+relay_domains =
+
+# Our first line of defense against spammers is postscreen, which checks for
+# many common problem signs. This is supported in master.cf with these lines:
+#
+#   smtp      inet  n       -       n       -       1       postscreen
+#   smtpd     pass  -       -       n       -       -       smtpd -o ...
+#   dnsblog   unix  -       -       n       -       0       dnsblog
+#   tlsproxy  unix  -       -       n       -       0       tlsproxy
+
+postscreen_greet_banner = New Artisans LLC -- please wait
+postscreen_greet_action = enforce
+
+postscreen_pipelining_enable = no
+postscreen_pipelining_action = enforce
+
+postscreen_non_smtp_command_enable = no
+postscreen_non_smtp_command_action = enforce
+
+postscreen_bare_newline_enable = no
+postscreen_bare_newline_action = enforce
+postscreen_bare_newline_ttl = 30d
+
+disable_vrfy_command = no
+postscreen_disable_vrfy_command = yes
+postscreen_forbidden_commands = VRFY, $smtpd_forbidden_commands
+
+postscreen_access_list = permit_mynetworks
+postscreen_blacklist_action = drop
+postscreen_dnsbl_action = enforce
+postscreen_dnsbl_ttl = 1d
+postscreen_dnsbl_threshold = 3
+postscreen_dnsbl_sites =
+  zen.spamhaus.org*2
+  dnsbl.sorbs.net=127.0.0.[2..12],
+  dnsbl.dronebl.org=127.0.0.[1..30],
+  bl.spamcop.net
+  b.barracudacentral.org
+
+# If anything gets past postcreen, it might be legitimate mail. We impose many
+# restrictions on the submitter at this point. Note the 'check_policy_service'
+# that uses postgrey. This will soft reject any mail from an unknown sender
+# the first time for 60 seconds, accepting it later if it is sent again --
+# since most spammers never attempt but once.
+
+smtpd_helo_required = yes
+smtpd_helo_restrictions =
+  reject_invalid_hostname,
+  reject_invalid_helo_hostname,
+  reject_non_fqdn_helo_hostname,
+  reject_unknown_helo_hostname,
+  permit
+smtpd_client_restrictions =
+  reject_unauth_destination
+smtpd_recipient_restrictions =
+  permit_sasl_authenticated,
+  reject_invalid_helo_hostname,
+  reject_invalid_hostname,
+  reject_non_fqdn_helo_hostname,
+  reject_non_fqdn_recipient,
+  reject_non_fqdn_sender,
+  reject_unauth_destination,
+  reject_unauth_pipelining,
+  reject_unknown_recipient_domain,
+  # reject_unknown_reverse_client_hostname,
+  reject_unknown_sender_domain,
+  check_client_access pcre:/etc/postfix/client_access,
+  check_recipient_access hash:/etc/postfix/denied_recipients,
+  check_policy_service unix:/var/spool/postfix/postgrey/socket,
+  permit
+smtpd_relay_restrictions =
+  reject_unauth_destination
+
+# If the mail reaches here, impose further limits on the sender.
+
+smtpd_error_sleep_time = 5s
+smtpd_soft_error_limit = 10
+smtpd_hard_error_limit = 20
+smtpd_client_connection_count_limit = 10
+smtpd_client_connection_rate_limit = 60
+
+# Apply any milters, for further mail checking. We are checking DKIM and
+# DMARC.
+
+milter_default_action = tempfail
+smtpd_milters = inet:localhost:8891, inet:localhost:8893
+non_smtpd_milters = inet:localhost:8891, inet:localhost:8893
+
+# Set some strictness settings. After the mail has been queued, perform header
+# checks (for example, checking headers added by SpamAssassin) to further
+# clear out junk mail.
+
+strict_rfc821_envelopes = yes
+unknown_address_reject_code = 554
+unknown_client_reject_code = 554
+unknown_hostname_reject_code = 554
+unknown_local_recipient_reject_code = 550
+header_checks = pcre:/etc/postfix/header_checks
+
+# Identify the mail addresses we receive for, and what their destinations are,
+# whether local or remote.
+
+alias_maps = hash:/etc/aliases
+alias_database = hash:/etc/aliases
+virtual_alias_maps = hash:/etc/postfix/virtual
+
+# If not destined for us, quickly reject any mail not from us
+
+smtpd_sender_login_maps = hash:/etc/postfix/login_maps
+smtpd_sender_restrictions =
+  reject_unknown_sender_domain,
+  reject_sender_login_mismatch
+
+# For truly local mail (going to a file), specify limits.
+
+mail_spool_directory = /var/spool/mail/
+mailbox_command =
+mailbox_size_limit = 1073741824
+message_size_limit = 52428800
+
+# For outbound mail from this server, use TLS when connecting to certain
+# destinations.
+
+smtp_use_tls = yes
+smtp_tls_policy_maps = hash:/etc/postfix/tls_policy
+
+# Also use rate limiting when sending to Gmail, since they have a tendency to
+# blacklist us if we send too often.
+
+transport_maps = pcre:/etc/postfix/transport
+
+smtp-gmail_destination_rate_delay = 12s
+smtp-gmail_destination_concurrency_limit = 1
+smtp-gmail_destination_recipient_limit = 2
+smtp-gmail_initial_destination_concurrency = 1
+
+# SMTPD TLS settings
+
+smtpd_tls_CAfile = /etc/pki/tls/certs/ca.crt
+smtpd_use_tls = yes
+smtpd_tls_auth_only = yes
+smtpd_tls_cert_file = /etc/pki/tls/certs/mail.johnwiegley.com.crt
+smtpd_tls_key_file = /etc/pki/tls/private/mail.johnwiegley.com.key
+smtpd_tls_loglevel = 1
+smtpd_tls_security_level = may
+
+# Mail Server DNS
+#
+# johnwiegley.com
+#
+# TXT mail.johnwiegley.com v=DMARC1 p=none fo=1 rua=mailto:jwiegley@gmail.comruf=mailto:jwiegley@gmail.com 86400
+# TXT johnwiegley.com v=DMARC1 p=none fo=1 rua=mailto:jwiegley@gmail.comruf=mailto:jwiegley@gmail.com 86400
+# TXT mail.johnwiegley.com google-site-verification=FAs6ff9vmjBZgw7A7D7IAnkLMEX5hT4SGSdlozMHeNc 86400
+# TXT mail.johnwiegley.com v=DKIM1 k=rsa p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCcZpTVz3AKFoxLXA6UrXkepXxzZTkLvYZdRmNnwlTPNLV+fHmmXz/el0jeOuCNHpOzdxnSLrz5piDkit8WMI5EGowWCV0g+IEvnAF23wIogbi2s6vtAeCcSDInXsg5gJQNj5R6iKmjQeYfzBazXwJs6/50tS8B5gRlNSyreiWyzQIDAQAB 86400
+# TXT default._domainkey.johnwiegley.com v=DKIM1 k=rsa p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCcZpTVz3AKFoxLXA6UrXkepXxzZTkLvYZdRmNnwlTPNLV+fHmmXz/el0jeOuCNHpOzdxnSLrz5piDkit8WMI5EGowWCV0g+IEvnAF23wIogbi2s6vtAeCcSDInXsg5gJQNj5R6iKmjQeYfzBazXwJs6/50tS8B5gRlNSyreiWyzQIDAQAB 86400
+# TXT mail._domainkey.johnwiegley.com =DKIM1 k=rsa p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCcZpTVz3AKFoxLXA6UrXkepXxzZTkLvYZdRmNnwlTPNLV+fHmmXz/el0jeOuCNHpOzdxnSLrz5piDkit8WMI5EGowWCV0g+IEvnAF23wIogbi2s6vtAeCcSDInXsg5gJQNj5R6iKmjQeYfzBazXwJs6/50tS8B5gRlNSyreiWyzQIDAQAB 86400
+# TXT mail v=DMARC1 p=none fo=1 rua=mailto:jwiegley@gmail.comruf=mailto:jwiegley@gmail.com 86400
+# TXT mail.johnwiegley.com v=spf1 a mx a:mail.johnwiegley.com include:_spf.google.com ip4:208.82.102.85 ~all 86400
+# SOA johnwiegley.com ns1.dnsptr.net dnsadmin.serveraxis.com 1 10800 3600 86400 3600 86400
+# NS johnwiegley.com ns2.dnsptr.net 86400
+# NS johnwiegley.com ns1.dnsptr.net 86400
+# MX johnwiegley.com mail.johnwiegley.com 86400 5
+# MX johnwiegley.com mail.johnwiegley.com 86400 10
+# CNAME www.johnwiegley.com johnwiegley.com 86400
+# AAAA johnwiegley.com 2607:f2e0:f:712::2 86400
+# AAAA mail.johnwiegley.com 2607:f2e0:f:712::2 86400
+# A mail.johnwiegley.com 208.82.102.85 86400
+# A johnwiegley.com 208.82.102.85 86400
+#
+# newartisans.com
+#
+# TXT google._domainkey.newartisans.com v=DKIM1 k=rsa p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCcZpTVz3AKFoxLXA6UrXkepXxzZTkLvYZdRmNnwlTPNLV+fHmmXz/el0jeOuCNHpOzdxnSLrz5piDkit8WMI5EGowWCV0g+IEvnAF23wIogbi2s6vtAeCcSDInXsg5gJQNj5R6iKmjQeYfzBazXwJs6/50tS8B5gRlNSyreiWyzQIDAQAB 86400
+# TXT default._domainkey.newartisans.com v=DKIM1 k=rsa p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCcZpTVz3AKFoxLXA6UrXkepXxzZTkLvYZdRmNnwlTPNLV+fHmmXz/el0jeOuCNHpOzdxnSLrz5piDkit8WMI5EGowWCV0g+IEvnAF23wIogbi2s6vtAeCcSDInXsg5gJQNj5R6iKmjQeYfzBazXwJs6/50tS8B5gRlNSyreiWyzQIDAQAB 86400
+# TXT newartisans.com google-site-verification=lAc7zvsKnx017J7VvTys76z-NPnMh74cC8RYYswmHl0 86400
+# TXT newartisans.com v=DKIM1 k=rsa p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCcZpTVz3AKFoxLXA6UrXkepXxzZTkLvYZdRmNnwlTPNLV+fHmmXz/el0jeOuCNHpOzdxnSLrz5piDkit8WMI5EGowWCV0g+IEvnAF23wIogbi2s6vtAeCcSDInXsg5gJQNj5R6iKmjQeYfzBazXwJs6/50tS8B5gRlNSyreiWyzQIDAQAB 86400
+# TXT newartisans.com v=spf1 a mx a:mail.johnwiegley.com include:_spf.google.com ip4:208.82.102.85 ~all 86400
+# TXT newartisans.com v=DMARC1 p=none fo=1 rua=mailto:jwiegley@gmail.comruf=mailto:jwiegley@gmail.com 86400
+# SOA newartisans.com ns1.dnsptr.net dnsadmin.serveraxis.com 1 10800 3600 86400 3600 86400
+# NS newartisans.com ns1.dnsptr.net 86400
+# NS newartisans.com ns2.dnsptr.net 86400
+# MX newartisans.com mail.johnwiegley.com 86400 5
+# MX newartisans.com mail.johnwiegley.com 86400 10
+# CNAME www.newartisans.com newartisans.com 86400
+# CNAME ftp.newartisans.com newartisans.com 86400
+# AAAA newartisans.com 2607:f2e0:f:712::2 86400
+# A newartisans.com 208.82.102.85 86400
+#
+# Reverse DNS
+#
+# 208.82.102.85 mail.johnwiegley.com 86400
+# 2607:f2e0:f:712::2 mail.johnwiegley.com 86400

@@ -20,8 +20,10 @@ b = do
     x <- atomically $ readTChan chan
     atomically $ writeTChan out (x*2)
   forever $ do
-    x <- liftIO $ atomically $ readTChan chan
-    yield x
+    x <- await
+    liftIO $ atomically $ writeTChan chan x
+    z <- liftIO $ atomically $ readTChan out
+    yield z
 
 c :: Consumer Int IO ()
 c = do

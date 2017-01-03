@@ -1,0 +1,8 @@
+Preprocessing executable 'rings-dashboard' for rings-dashboard-0.1.0.0...
+[ 1 of 22] Compiling Network.Docker.Containers.Restart ( src/Network/Docker/Containers/Restart.hs, dist/build/rings-dashboard/rings-dashboard-tmp/Network/Docker/Containers/Restart.dyn_o )
+[ 2 of 22] Compiling Data.Aeson.Extras ( src/Data/Aeson/Extras.hs, dist/build/rings-dashboard/rings-dashboard-tmp/Data/Aeson/Extras.dyn_o )
+[ 3 of 22] Compiling Rings.Options    ( src/Rings/Options.hs, dist/build/rings-dashboard/rings-dashboard-tmp/Rings/Options.dyn_o )
+[ 4 of 22] Compiling TextShow.Data.IntMap.Strict ( src/TextShow/Data/IntMap/Strict.hs, dist/build/rings-dashboard/rings-dashboard-tmp/TextShow/Data/IntMap/Strict.dyn_o )
+<command line>: can't load .so/.DLL for: /private/var/folders/ds/nt2q1_s57cqgt9g94_vmkjcw0000gn/T/nix-build-rings-dashboard-0.1.0.0.drv-0/rings-dashboard/dist/build/libHSrings-dashboard-0.1.0.0-5qPKDJbwupPKanHFlNpRJV-ghc8.0.1.dylib (dlopen(/private/var/folders/ds/nt2q1_s57cqgt9g94_vmkjcw0000gn/T/nix-build-rings-dashboard-0.1.0.0.drv-0/rings-dashboard/dist/build/libHSrings-dashboard-0.1.0.0-5qPKDJbwupPKanHFlNpRJV-ghc8.0.1.dylib, 5): no suitable image found.  Did find:
+	/private/var/folders/ds/nt2q1_s57cqgt9g94_vmkjcw0000gn/T/nix-build-rings-dashboard-0.1.0.0.drv-0/rings-dashboard/dist/build/libHSrings-dashboard-0.1.0.0-5qPKDJbwupPKanHFlNpRJV-ghc8.0.1.dylib: malformed mach-o: load commands size (33880) > 32768)
+builder for ‘/nix/store/yar1274aj96x9ri7bcrhsbw2z327whlf-rings-dashboard-0.1.0.0.drv’ failed with exit code 1

@@ -50,9 +50,9 @@ Definition bar (f : nat -> string) (g : list nat -> string) `{Monad m} :
 
 Definition phi `{Monad m} `(x : TeletypeF nat string (m r)) : m r :=
   match x with
-  | Get k => k 0
-  | GetMany k => k (fun s z f => z)
-  | Put b r => r
+  | Get k     => k 0
+  | GetMany k => k (fun _ z f => f 1 (f 0 z))
+  | Put b r   => r
   end.
 
 Definition eval {r} := iter (phi (r:=r)).

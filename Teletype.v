@@ -29,8 +29,7 @@ Definition Teletype a b := Free (TeletypeF a b).
 Definition foo (f : nat -> string) (g : list nat -> string) :
   Teletype nat string unit :=
   a <- liftF (Get id);
-  b <- liftF (GetMany (fun k =>
-          k (list nat) nil (fun (a : nat) rest => cons a rest)));
+  b <- liftF (GetMany (fun k => k _ nil (@cons _)));
   liftF (Put (f a) tt) ;;
   liftF (Put (g b) tt).
 
@@ -51,7 +50,9 @@ Definition bar (f : nat -> string) (g : list nat -> string) `{Monad m} :
 Definition phi `{Monad m} `(x : TeletypeF nat string (m r)) : m r :=
   match x with
   | Get k     => k 0
-  | GetMany k => k (fun _ z f => f 1 (f 0 z))
+  | GetMany k => k (fun _ z f =>
+                      x <- f 0 z;
+                      f 1 x)
   | Put b r   => r
   end.
 

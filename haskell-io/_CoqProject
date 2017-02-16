@@ -1,4 +1,0 @@
--R ../../fiat/src Fiat
--R ../../coq-haskell/src Hask
--R ../../fidl FIDL
-./HaskellIO.v

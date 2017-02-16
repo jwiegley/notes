@@ -1,4 +1,0 @@
--R ~/src/bytestring/fiat/src Fiat
--R ~/src/coq-haskell/src Hask
--R . Here
-./Teletype.v

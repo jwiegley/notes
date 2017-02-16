@@ -35,8 +35,8 @@ newtype StreamM m a r = StreamM { getStreamM :: Stream a m r }
 await :: (Monad m, Functor f) => StreamM m (Sum ((->) a) f) a
 await = StreamM (Step (InL return))
 
-awaitLift :: (Monad m, Functor f) => Stream f m b -> StreamM m (Sum ((->) a) f) b
-awaitLift = StreamM . S.maps InR
+teletype :: (Monad m, Functor f) => Stream f m b -> StreamM m (Sum ((->) a) f) b
+teletype = StreamM . S.maps InR
 
 type Teletype  a b   = Stream (TeletypeF a b (StreamM Identity)) Identity
 type TeletypeT a b m = Stream (TeletypeF a b (StreamM m)) m
@@ -90,12 +90,12 @@ foo = do
   a <- get
   put a
   getMany $ do
-      x <- Teletype.await
-      awaitLift $ put x
-      y <- Teletype.await
-      awaitLift $ put y
-      z <- Teletype.await
-      awaitLift $ put z
+      x <- await
+      teletype $ put x
+      y <- await
+      teletype $ put y
+      z <- await
+      teletype $ put z
   return ()
 
 main :: IO ()

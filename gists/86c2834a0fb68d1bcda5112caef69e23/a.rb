@@ -1,0 +1,1 @@
+(buffer-substring (point-min) (1- (point-max)))

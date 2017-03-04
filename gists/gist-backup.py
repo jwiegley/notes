@@ -1,29 +1,24 @@
 #!/usr/bin/env python2.7
-# Git clone all my gists
 
-import json
-import urllib
 from subprocess import call
-import urllib2
+import json
 import os
 import sys
+import urllib2
+
 USER = os.environ['USER'] or 'jwiegley'
 
 def download_gists(page):
-    req = urllib2.Request('https://api.github.com/users/' + USER + '/gists?page=' + page + '&per_page=100')
+    req = urllib2.Request('https://api.github.com/users/' + 
+                          USER + '/gists?page=' + page + '&per_page=100')
     req.add_header('Authorization', 'token ' + os.environ['TOKEN'])
-    u = urllib2.urlopen(req)
-    gists = json.load(u)
-
-    for gist in gists:
+    u = urllib2.urlopen(req, cafile='/Users/johnw/.nix-profile/etc/ssl/certs/ca-bundle.crt')
+    for gist in json.load(u):
         if not os.path.isdir('gists/' + gist['id']):
-            call(['git', 
-                  'subtree', 
+            call(['git', 'subtree', 
                   'pull' if os.path.isdir('gists/' + gist['id']) else 'add',
-                  '--prefix', 
-                  'gists/' + gist['id'], 
-                  gist['git_pull_url'], 
-                  'master'])
+                  '--prefix', 'gists/' + gist['id'], 
+                  gist['git_pull_url'], 'master'])
 
 download_gists('1')
 download_gists('2')

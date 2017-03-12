@@ -6,8 +6,7 @@ import Control.Monad.Free
 import Data.Functor.Identity
 import Data.Functor.Rep
 
-data CoyonedaR g f a where
-    Coyo :: Representable g => f (Rep g) -> g a -> CoyonedaR g f a
+data CoyonedaR g f a where Coyo :: Representable g => f (Rep g) -> g a -> CoyonedaR g f a
 
 instance Functor (CoyonedaR g f) where
     fmap f (Coyo gx h) = Coyo gx (fmap f h)

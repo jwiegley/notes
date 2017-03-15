@@ -4,7 +4,7 @@ Record MyRecord : Type := {
 }.
 
 Record CorrectRecord (r : MyRecord) : Prop := {
-  _ : field1 r + field2 r > 0
+  _ : field1 r + field2 r >= 0
 }.
 
 Inductive ConstructedRecord : MyRecord -> Prop :=
@@ -13,3 +13,12 @@ Inductive ConstructedRecord : MyRecord -> Prop :=
       ConstructedRecord {| field1 := field1 r + n; field2 := field2 r |}
   | AddToField2 : forall (r : MyRecord) (n : nat), n >= 0 ->
       ConstructedRecord {| field1 := field1 r; field2 := field2 r + n |}.
+
+Theorem CorrectFromConstructed :
+  forall r : MyRecord,
+    ConstructedRecord r -> CorrectRecord r.
+Proof.
+  intros.
+  Require Import Omega.
+  induction H; firstorder; omega.
+Qed.

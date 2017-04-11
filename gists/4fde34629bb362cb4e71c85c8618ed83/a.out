@@ -1,0 +1,32 @@
+-*- mode: compilation; default-directory: "~/src/categories/src/" -*-
+Compilation started at Thu Mar 30 12:01:32
+
+(cd ~/src/categories; cabal build)
+Building categories-0.1.0.0...
+Preprocessing executable 'categories' for categories-0.1.0.0...
+
+src/Categorical.hs:7:14: warning:
+    -XOverlappingInstances is deprecated: instead use per-instance pragmas OVERLAPPING/OVERLAPPABLE/OVERLAPS
+[1 of 2] Compiling Categorical      ( src/Categorical.hs, dist/build/categories/categories-tmp/Categorical.o )
+
+src/Categorical.hs:151:5: warning: [-Wunused-local-binds]
+    Defined but not used: ‘phi’
+ghc: panic! (the 'impossible' happened)
+  (GHC version 8.0.2 for x86_64-apple-darwin):
+	ccc - couldn't build dictionary for
+  . @ Gather @ (Prod (->) Int Int) @ Int @ (Int, Int) :: (Category
+                                                            Gather,
+                                                          Ok3
+                                                            Gather
+                                                            (Int, Int)
+                                                            (Prod (->) Int Int)
+                                                            Int) =>
+                                                         Gather (Prod (->) Int Int) Int
+                                                         -> Gather (Int, Int) (Prod (->) Int Int)
+                                                         -> Gather (Int, Int) Int:
+  free id types: [Category Gather]
+
+Please report this as a GHC bug:  http://www.haskell.org/ghc/reportabug
+
+
+Compilation exited abnormally with code 1 at Thu Mar 30 12:01:34

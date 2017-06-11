@@ -290,6 +290,32 @@ Local Obligation Tactic :=
 
 Set Transparent Obligations.
 
+Program Fixpoint leqb_fuel (p : Term * Term) (n : nat) : bool :=
+  match p, n with
+  | _, 0 => false
+
+  (* 1. If s = Var i and t = Var j, then s ≲ t holds iff i = j. *)
+  | (Var i, Var j), _ => Nat.eqb i j
+
+  (* 2. If s = Join s1 s2, then s ≲ t holds iff s1 ≲ t and s2 ≲ t. *)
+  | (Join s1 s2, t), S n => leqb_fuel (s1, t) n &&& leqb_fuel (s2, t) n
+
+  (* 3. If t = Meet t1 t2, then s ≲ t holds iff s ≲ t1 and s ≲ t2. *)
+  | (s, Meet t1 t2), S n => leqb_fuel (s, t1) n &&& leqb_fuel (s, t2) n
+
+  (* 4. If s = Var i and t = Join t1 t2, then s ≲ t holds iff s ≲ t1 or s ≲ t2. *)
+  | (Var i, Join t1 t2), S n => leqb_fuel (Var i, t1) n ||| leqb_fuel (Var i, t2) n
+
+  (* 5. If s = Meet s1 s2 and t = Var i, then s ≲ t holds iff s1 ≲ t or s2 ≲ t. *)
+  | (Meet s1 s2, Var i), S n => leqb_fuel (s1, Var i) n ||| leqb_fuel (s2, Var i) n
+
+  (* 6. If s = Meet s1 s2 and t = Join t1 t2, then s ≲ t holds iff s1 ≲ t or
+        s2 ≲ t or s ≲ t1 or s ≲ t2. *)
+  | (Meet s1 s2, Join t1 t2), S n =>
+    leqb_fuel (s1, Join t1 t2) n ||| leqb_fuel (s2, Join t1 t2) n |||
+    leqb_fuel (Meet s1 s2, t1) n ||| leqb_fuel (Meet s1 s2, t2) n
+  end.
+
 Program Fixpoint leqb (p : Term * Term) {wf R p} : bool :=
   match p with
   (* 1. If s = Var i and t = Var j, then s ≲ t holds iff i = j. *)
@@ -317,6 +343,10 @@ Next Obligation.
   apply wf_symprod;
   apply Subterm_wf.
 Defined.
+
+Example speed_testb :
+  leqb_fuel (Meet (Var 0) (Var 1), Join (Var 0) (Var 1)) 10 = true.
+Proof. reflexivity. Qed.
 
 (* Whitman's decision procedure. *)
 Program Fixpoint leq (p : Term * Term) {wf R p} :
@@ -358,16 +388,11 @@ Next Obligation. meets_and_joins leq. Defined.
 Next Obligation. meets_and_joins leq. Defined.
 Next Obligation. meets_and_joins leq. Defined.
 Next Obligation.
-  destruct (leq (s1, Join t1 t2)) as [[] o1]; simpl in *.
-    intros; simpl in *.
-    apply meet_prime; left; apply o1; reflexivity.
-  destruct (leq (s2, Join t1 t2)) as [[] o2]; simpl in *.
-    intros; simpl in *;
-    apply meet_prime; right; apply o2; reflexivity.
-  destruct (leq (Meet s1 s2, t1)) as [[] o3]; simpl in *.
-    intros; meets_and_joins leq.
-  destruct (leq (Meet s1 s2, t2)) as [[] o4]; simpl in *.
-    intros; meets_and_joins leq.
+  repeat destruct (leq (_, _)); simpl in *.
+  destruct x.  apply meet_prime; left;  apply o;  reflexivity.
+  destruct x0. apply meet_prime; right; apply o0; reflexivity.
+  destruct x1. apply join_prime; left;  apply o1; reflexivity.
+  destruct x2. apply join_prime; right; apply o2; reflexivity.
   discriminate.
 Defined.
 Next Obligation.
@@ -375,12 +400,69 @@ Next Obligation.
   apply Subterm_wf.
 Defined.
 
+(* Whitman's decision procedure. *)
+Program Fixpoint leq_fuel (p : Term * Term) (n : nat) {struct n} :
+  { b : bool | b = true -> Leq (fst p) (snd p) } :=
+  match p, n with
+  | _, 0 => exist _ false _
+
+  (* 1. If s = Var i and t = Var j, then s ≲ t holds iff i = j. *)
+  | (Var i, Var j), S n => nat_eq_bool i j
+
+  (* 2. If s = Join s1 s2, then s ≲ t holds iff s1 ≲ t and s2 ≲ t. *)
+  | (Join s1 s2, t), S n =>
+    exist _ (proj1_sig (leq_fuel (s1, t) n) &&& proj1_sig (leq_fuel (s2, t) n)) _
+
+  (* 3. If t = Meet t1 t2, then s ≲ t holds iff s ≲ t1 and s ≲ t2. *)
+  | (s, Meet t1 t2), S n =>
+    exist _ (proj1_sig (leq_fuel (s, t1) n) &&& proj1_sig (leq_fuel (s, t2) n)) _
+
+  (* 4. If s = Var i and t = Join t1 t2, then s ≲ t holds iff s ≲ t1 or s ≲ t2. *)
+  | (Var i, Join t1 t2), S n =>
+    exist _ (proj1_sig (leq_fuel (Var i, t1) n) ||| proj1_sig (leq_fuel (Var i, t2) n)) _
+
+  (* 5. If s = Meet s1 s2 and t = Var i, then s ≲ t holds iff s1 ≲ t or s2 ≲ t. *)
+  | (Meet s1 s2, Var i), S n =>
+    exist _ (proj1_sig (leq_fuel (s1, Var i) n) ||| proj1_sig (leq_fuel (s2, Var i) n)) _
+
+  (* 6. If s = Meet s1 s2 and t = Join t1 t2, then s ≲ t holds iff s1 ≲ t or
+        s2 ≲ t or s ≲ t1 or s ≲ t2. *)
+  | (Meet s1 s2, Join t1 t2), S n =>
+    exist _ (proj1_sig (leq_fuel (s1, Join t1 t2) n) |||
+             proj1_sig (leq_fuel (s2, Join t1 t2) n) |||
+             proj1_sig (leq_fuel (Meet s1 s2, t1) n) |||
+             proj1_sig (leq_fuel (Meet s1 s2, t2) n)) _
+  end.
+Next Obligation.
+  destruct (nat_eq_bool i j); simpl in *; subst.
+  rewrite y; reflexivity.
+Defined.
+Next Obligation. meets_and_joins leq. Defined.
+Next Obligation. meets_and_joins leq. Defined.
+Next Obligation. meets_and_joins leq. Defined.
+Next Obligation. meets_and_joins leq. Defined.
+Next Obligation.
+  repeat destruct (leq (_, _)); simpl in *.
+  destruct x.  apply meet_prime; left;  apply o;  reflexivity.
+  destruct x0. apply meet_prime; right; apply o0; reflexivity.
+  destruct x1. apply join_prime; left;  apply o1; reflexivity.
+  destruct x2. apply join_prime; right; apply o2; reflexivity.
+  discriminate.
+Defined.
+
+Example speed_test :
+  ` (leq_fuel (Meet (Var 0) (Var 1), Join (Var 0) (Var 1)) 10) = true.
+Proof. reflexivity. Qed.
+
 Notation "s ≲ t" := (leq (s, t)) (at level 30).
 
 Definition leq_correct {t u : Term} (Heq : ` (t ≲ u) = true) :
   forall env, 〚t〛env ≤ 〚u〛env := proj2_sig (leq (t, u)) Heq.
 
-(*
+Definition leq_fuel_correct (fuel : nat) {t u : Term}
+           (Heq : ` (leq_fuel (t, u) fuel) = true) :
+  forall env, 〚t〛env ≤ 〚u〛env := proj2_sig (leq_fuel (t, u) fuel) Heq.
+
 Definition leqb_correct (p : Term * Term) : proj1_sig (leq p) = leqb p.
 Proof.
   destruct p, t, t0.
@@ -396,7 +478,7 @@ Proof.
     induction n; simpl; try tauto.
       destruct n0; auto.
     destruct n0; auto.
-*)
+Abort.
 
 End Lattice.
 
@@ -478,18 +560,29 @@ Ltac reify :=
     change (〚r1〛env ≤ 〚r2〛env)
   end.
 
-Ltac lattice := reify; apply leq_correct; vm_compute.
+Ltac lattice_fuel n := reify; apply (leq_fuel_correct n); vm_compute; auto.
 
-Lemma sample_inequality `{LOSet A} : forall a b : A,
+Ltac lattice := lattice_fuel 100.
+
+Example sample_1 `{LOSet A} : forall a b : A,
+  a ≤ a ⊔ b.
+Proof. intros; lattice. Qed.
+
+Lemma running_example `{LOSet A} : forall a b : A,
   a ⊓ b ≤ a ⊔ b.
 Proof.
-  intros.
-  lattice.
-Abort.
+  intros a b.
+  rewrite meet_consistent.
+  rewrite meet_associative.
+  rewrite join_commutative.
+  rewrite meet_absorptive.
+  reflexivity.
+Qed.
+
+Lemma running_example' `{LOSet A} : forall a b : A,
+  a ⊓ b ≤ a ⊔ b.
+Proof. intros; lattice. Qed.
 
 Lemma median_inequality `{LOSet A} : forall x y z : A,
   (x ⊓ y) ⊔ (y ⊓ z) ⊔ (z ⊓ x) ≤ (x ⊔ y) ⊓ (y ⊔ z) ⊓ (z ⊔ x).
-Proof.
-  intros.
-  lattice.
-Abort.
+Proof. intros; lattice. Qed.

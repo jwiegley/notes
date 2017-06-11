@@ -450,9 +450,13 @@ Next Obligation.
   discriminate.
 Defined.
 
-Example speed_test :
+Example speed_test_fuel :
   ` (leq_fuel (Meet (Var 0) (Var 1), Join (Var 0) (Var 1)) 10) = true.
 Proof. reflexivity. Qed.
+
+Example speed_test :
+  ` (leq (Meet (Var 0) (Var 1), Join (Var 0) (Var 1))) = true.
+Proof. Fail reflexivity. Abort.
 
 Notation "s ≲ t" := (leq (s, t)) (at level 30).
 

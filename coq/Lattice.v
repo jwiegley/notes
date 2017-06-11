@@ -243,7 +243,7 @@ Proof.
   inversion H1; subst; clear H1;
   try (apply IHy1; constructor);
   try (apply IHy2; constructor).
-Qed.
+Defined.
 
 Reserved Notation "〚 t 〛 env" (at level 9).
 
@@ -289,64 +289,6 @@ Local Obligation Tactic :=
   program_simpl; try (constructor; constructor).
 
 Set Transparent Obligations.
-
-Program Fixpoint leqb_fuel (p : Term * Term) (n : nat) : bool :=
-  match p, n with
-  | _, 0 => false
-
-  (* 1. If s = Var i and t = Var j, then s ≲ t holds iff i = j. *)
-  | (Var i, Var j), _ => Nat.eqb i j
-
-  (* 2. If s = Join s1 s2, then s ≲ t holds iff s1 ≲ t and s2 ≲ t. *)
-  | (Join s1 s2, t), S n => leqb_fuel (s1, t) n &&& leqb_fuel (s2, t) n
-
-  (* 3. If t = Meet t1 t2, then s ≲ t holds iff s ≲ t1 and s ≲ t2. *)
-  | (s, Meet t1 t2), S n => leqb_fuel (s, t1) n &&& leqb_fuel (s, t2) n
-
-  (* 4. If s = Var i and t = Join t1 t2, then s ≲ t holds iff s ≲ t1 or s ≲ t2. *)
-  | (Var i, Join t1 t2), S n => leqb_fuel (Var i, t1) n ||| leqb_fuel (Var i, t2) n
-
-  (* 5. If s = Meet s1 s2 and t = Var i, then s ≲ t holds iff s1 ≲ t or s2 ≲ t. *)
-  | (Meet s1 s2, Var i), S n => leqb_fuel (s1, Var i) n ||| leqb_fuel (s2, Var i) n
-
-  (* 6. If s = Meet s1 s2 and t = Join t1 t2, then s ≲ t holds iff s1 ≲ t or
-        s2 ≲ t or s ≲ t1 or s ≲ t2. *)
-  | (Meet s1 s2, Join t1 t2), S n =>
-    leqb_fuel (s1, Join t1 t2) n ||| leqb_fuel (s2, Join t1 t2) n |||
-    leqb_fuel (Meet s1 s2, t1) n ||| leqb_fuel (Meet s1 s2, t2) n
-  end.
-
-Program Fixpoint leqb (p : Term * Term) {wf R p} : bool :=
-  match p with
-  (* 1. If s = Var i and t = Var j, then s ≲ t holds iff i = j. *)
-  | (Var i, Var j) => Nat.eqb i j
-
-  (* 2. If s = Join s1 s2, then s ≲ t holds iff s1 ≲ t and s2 ≲ t. *)
-  | (Join s1 s2, t) => leqb (s1, t) &&& leqb (s2, t)
-
-  (* 3. If t = Meet t1 t2, then s ≲ t holds iff s ≲ t1 and s ≲ t2. *)
-  | (s, Meet t1 t2) => leqb (s, t1) &&& leqb (s, t2)
-
-  (* 4. If s = Var i and t = Join t1 t2, then s ≲ t holds iff s ≲ t1 or s ≲ t2. *)
-  | (Var i, Join t1 t2) => leqb (Var i, t1) ||| leqb (Var i, t2)
-
-  (* 5. If s = Meet s1 s2 and t = Var i, then s ≲ t holds iff s1 ≲ t or s2 ≲ t. *)
-  | (Meet s1 s2, Var i) => leqb (s1, Var i) ||| leqb (s2, Var i)
-
-  (* 6. If s = Meet s1 s2 and t = Join t1 t2, then s ≲ t holds iff s1 ≲ t or
-        s2 ≲ t or s ≲ t1 or s ≲ t2. *)
-  | (Meet s1 s2, Join t1 t2) =>
-    leqb (s1, Join t1 t2) ||| leqb (s2, Join t1 t2) |||
-    leqb (Meet s1 s2, t1) ||| leqb (Meet s1 s2, t2)
-  end.
-Next Obligation.
-  apply wf_symprod;
-  apply Subterm_wf.
-Defined.
-
-Example speed_testb :
-  leqb_fuel (Meet (Var 0) (Var 1), Join (Var 0) (Var 1)) 10 = true.
-Proof. reflexivity. Qed.
 
 (* Whitman's decision procedure. *)
 Program Fixpoint leq (p : Term * Term) {wf R p} :
@@ -400,89 +342,14 @@ Next Obligation.
   apply Subterm_wf.
 Defined.
 
-(* Whitman's decision procedure. *)
-Program Fixpoint leq_fuel (p : Term * Term) (n : nat) {struct n} :
-  { b : bool | b = true -> Leq (fst p) (snd p) } :=
-  match p, n with
-  | _, 0 => exist _ false _
-
-  (* 1. If s = Var i and t = Var j, then s ≲ t holds iff i = j. *)
-  | (Var i, Var j), S n => nat_eq_bool i j
-
-  (* 2. If s = Join s1 s2, then s ≲ t holds iff s1 ≲ t and s2 ≲ t. *)
-  | (Join s1 s2, t), S n =>
-    exist _ (proj1_sig (leq_fuel (s1, t) n) &&& proj1_sig (leq_fuel (s2, t) n)) _
-
-  (* 3. If t = Meet t1 t2, then s ≲ t holds iff s ≲ t1 and s ≲ t2. *)
-  | (s, Meet t1 t2), S n =>
-    exist _ (proj1_sig (leq_fuel (s, t1) n) &&& proj1_sig (leq_fuel (s, t2) n)) _
-
-  (* 4. If s = Var i and t = Join t1 t2, then s ≲ t holds iff s ≲ t1 or s ≲ t2. *)
-  | (Var i, Join t1 t2), S n =>
-    exist _ (proj1_sig (leq_fuel (Var i, t1) n) ||| proj1_sig (leq_fuel (Var i, t2) n)) _
-
-  (* 5. If s = Meet s1 s2 and t = Var i, then s ≲ t holds iff s1 ≲ t or s2 ≲ t. *)
-  | (Meet s1 s2, Var i), S n =>
-    exist _ (proj1_sig (leq_fuel (s1, Var i) n) ||| proj1_sig (leq_fuel (s2, Var i) n)) _
-
-  (* 6. If s = Meet s1 s2 and t = Join t1 t2, then s ≲ t holds iff s1 ≲ t or
-        s2 ≲ t or s ≲ t1 or s ≲ t2. *)
-  | (Meet s1 s2, Join t1 t2), S n =>
-    exist _ (proj1_sig (leq_fuel (s1, Join t1 t2) n) |||
-             proj1_sig (leq_fuel (s2, Join t1 t2) n) |||
-             proj1_sig (leq_fuel (Meet s1 s2, t1) n) |||
-             proj1_sig (leq_fuel (Meet s1 s2, t2) n)) _
-  end.
-Next Obligation.
-  destruct (nat_eq_bool i j); simpl in *; subst.
-  rewrite y; reflexivity.
-Defined.
-Next Obligation. meets_and_joins leq. Defined.
-Next Obligation. meets_and_joins leq. Defined.
-Next Obligation. meets_and_joins leq. Defined.
-Next Obligation. meets_and_joins leq. Defined.
-Next Obligation.
-  repeat destruct (leq (_, _)); simpl in *.
-  destruct x.  apply meet_prime; left;  apply o;  reflexivity.
-  destruct x0. apply meet_prime; right; apply o0; reflexivity.
-  destruct x1. apply join_prime; left;  apply o1; reflexivity.
-  destruct x2. apply join_prime; right; apply o2; reflexivity.
-  discriminate.
-Defined.
-
-Example speed_test_fuel :
-  ` (leq_fuel (Meet (Var 0) (Var 1), Join (Var 0) (Var 1)) 10) = true.
-Proof. reflexivity. Qed.
-
 Example speed_test :
   ` (leq (Meet (Var 0) (Var 1), Join (Var 0) (Var 1))) = true.
-Proof. Fail reflexivity. Abort.
+Proof. reflexivity. Qed.
 
 Notation "s ≲ t" := (leq (s, t)) (at level 30).
 
 Definition leq_correct {t u : Term} (Heq : ` (t ≲ u) = true) :
   forall env, 〚t〛env ≤ 〚u〛env := proj2_sig (leq (t, u)) Heq.
-
-Definition leq_fuel_correct (fuel : nat) {t u : Term}
-           (Heq : ` (leq_fuel (t, u) fuel) = true) :
-  forall env, 〚t〛env ≤ 〚u〛env := proj2_sig (leq_fuel (t, u) fuel) Heq.
-
-Definition leqb_correct (p : Term * Term) : proj1_sig (leq p) = leqb p.
-Proof.
-  destruct p, t, t0.
-  - simpl.
-    destruct (nat_eq_bool n n0); simpl.
-    destruct x; subst.
-      vm_compute.
-      induction n0; simpl.
-        reflexivity.
-      apply IHn0.
-    vm_compute.
-    generalize dependent n0.
-    induction n; simpl; try tauto.
-      destruct n0; auto.
-    destruct n0; auto.
-Abort.
 
 End Lattice.
 
@@ -564,9 +431,7 @@ Ltac reify :=
     change (〚r1〛env ≤ 〚r2〛env)
   end.
 
-Ltac lattice_fuel n := reify; apply (leq_fuel_correct n); vm_compute; auto.
-
-Ltac lattice := lattice_fuel 100.
+Ltac lattice := reify; apply leq_correct; vm_compute; auto.
 
 Example sample_1 `{LOSet A} : forall a b : A,
   a ≤ a ⊔ b.

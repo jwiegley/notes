@@ -286,7 +286,9 @@ Ltac meets_and_joins leq :=
   end.
 
 Local Obligation Tactic :=
-  program_simpl; try (abstract (constructor; constructor)).
+  program_simpl; try (constructor; constructor).
+
+Set Transparent Obligations.
 
 Program Fixpoint leqb (p : Term * Term) {wf R p} : bool :=
   match p with
@@ -314,7 +316,7 @@ Program Fixpoint leqb (p : Term * Term) {wf R p} : bool :=
 Next Obligation.
   apply wf_symprod;
   apply Subterm_wf.
-Qed.
+Defined.
 
 (* Whitman's decision procedure. *)
 Program Fixpoint leq (p : Term * Term) {wf R p} :
@@ -350,11 +352,11 @@ Program Fixpoint leq (p : Term * Term) {wf R p} :
 Next Obligation.
   destruct (nat_eq_bool i j); simpl in *; subst.
   rewrite y; reflexivity.
-Qed.
-Next Obligation. meets_and_joins leq. Qed.
-Next Obligation. meets_and_joins leq. Qed.
-Next Obligation. meets_and_joins leq. Qed.
-Next Obligation. meets_and_joins leq. Qed.
+Defined.
+Next Obligation. meets_and_joins leq. Defined.
+Next Obligation. meets_and_joins leq. Defined.
+Next Obligation. meets_and_joins leq. Defined.
+Next Obligation. meets_and_joins leq. Defined.
 Next Obligation.
   destruct (leq (s1, Join t1 t2)) as [[] o1]; simpl in *.
     intros; simpl in *.
@@ -367,26 +369,34 @@ Next Obligation.
   destruct (leq (Meet s1 s2, t2)) as [[] o4]; simpl in *.
     intros; meets_and_joins leq.
   discriminate.
-Qed.
+Defined.
 Next Obligation.
   apply wf_symprod;
   apply Subterm_wf.
-Qed.
+Defined.
 
 Notation "s ≲ t" := (leq (s, t)) (at level 30).
 
 Definition leq_correct {t u : Term} (Heq : ` (t ≲ u) = true) :
   forall env, 〚t〛env ≤ 〚u〛env := proj2_sig (leq (t, u)) Heq.
 
-Corollary let_proj1_sig {B : Type} (P : B -> Prop) (e : {x : B | P x}) :
-  (let (x, _) := e in x) = proj1_sig e.
-Proof. reflexivity. Qed.
-
+(*
 Definition leqb_correct (p : Term * Term) : proj1_sig (leq p) = leqb p.
 Proof.
-  destruct p as [[] []]; simpl.
-  unfold leqb; simpl.
-Abort.
+  destruct p, t, t0.
+  - simpl.
+    destruct (nat_eq_bool n n0); simpl.
+    destruct x; subst.
+      vm_compute.
+      induction n0; simpl.
+        reflexivity.
+      apply IHn0.
+    vm_compute.
+    generalize dependent n0.
+    induction n; simpl; try tauto.
+      destruct n0; auto.
+    destruct n0; auto.
+*)
 
 End Lattice.
 

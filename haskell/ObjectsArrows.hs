@@ -43,7 +43,6 @@ makeArrows = fst . go
     composable this fs =
         [ ((f, g), succ this)
         | (((fcod, fdom), f), ((gcod, gdom), g)) <- [ (f, g) | f <- fs, g <- fs ]
-        , f /= g
         , gcod == fdom
         , gdom == g
         , gcod /= g
@@ -51,7 +50,7 @@ makeArrows = fst . go
         , fdom /= f
         , ((g, 0), g) `elem` fs
         , ((this, f), f) `elem` fs
-        , ((f, g), this) `notElem` fs]
+        ]
 
 arrowCount :: Int -> Integer
 arrowCount 0 = 0

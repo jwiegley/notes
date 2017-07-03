@@ -1,8 +1,7 @@
 module Main where
 
-import System.Environment (getArgs)
-
 import Data.List
+import System.Environment (getArgs)
 
 -- Given a count of objects in a category, such that for every object at index
 -- n : ℕ there is an arrow to it from every other object { m : ℕ | m < n },
@@ -56,7 +55,15 @@ makeArrows = fst . go
 
 arrowCount :: Int -> Integer
 arrowCount 0 = 0
-arrowCount n = fromIntegral n^2 + arrowCount (pred n)
+arrowCount n = fromIntegral n^(2 :: Integer) + arrowCount (pred n)
+
+-- The number of composable pairs for a category of N objects as described
+-- above is given by the centered triangular number:
+-- https://en.wikipedia.org/wiki/Centered_triangular_number
+
+prop_makeArrows_length :: Int -> Bool
+prop_makeArrows_length n =
+    length (makeArrows (n + 1)) == (3 * (n^(2 :: Integer)) + 3 * n + 2) `div` 2
 
 coqSyntax :: String -> [((Int, Int), Int)] -> String
 coqSyntax name pairs = concat

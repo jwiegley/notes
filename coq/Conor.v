@@ -44,7 +44,7 @@ Class Category {k} (cat : k → k → Type) := {
     compose : ∀ {a b c}, cat b c → cat a b → cat a c;
 
     id_left : ∀ {a} (f : cat a a), compose id f = f;
-    id_right : ∀ {a} (f : cat a a), compose f id = f;     
+    id_right : ∀ {a} (f : cat a a), compose f id = f;
     comp_assoc : ∀ {a b c d} (f : cat c d) (g : cat b c) (h : cat a b),
       compose f (compose g h) = compose (compose f g) h
 }.

@@ -7,18 +7,10 @@ CoInductive stream : Set :=
 
 CoFixpoint fib' (n m : nat) := Cons n (fib' m (n+m)).
 
-Fixpoint approx (s : stream) (n : nat) : list nat.
-Proof.
-  destruct n.
-    exact nil.
-  destruct s as [h t].
-  simpl in n.
-  pose proof (approx t n).
-  simpl in H.
-  exact (h :: H).
-Defined.
+Fixpoint approx (s : stream) (n : nat) : list nat :=
+  match s, n with
+  | _, 0 => nil
+  | Cons x xs, S n => cons x (approx xs n)
+  end.
 
-Eval hnf in (approx (fib' 1 1) 40).
-Eval hnf in (approx (fib' 1 (1 + 1)) 39).
-Eval hnf in (approx (fib' (1 + 1) (1 + (1 + 1))) 38).
-Eval hnf in (approx (fib' (1 + (1 + 1)) (1 + 1 + (1 + (1 + 1)))) 37).
+Eval simpl in (approx (fib' 1 1) 10).

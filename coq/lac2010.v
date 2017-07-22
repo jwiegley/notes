@@ -99,7 +99,7 @@ Defined.
 
 Lemma zr_fib : zr fib.
 cofix.
-rewrite zforce_eq; simpl zforce; 
+rewrite zforce_eq; simpl zforce;
  repeat constructor; apply zr_fib || apply zf_fib.
 Defined.
 
@@ -109,7 +109,7 @@ Fixpoint take n s : list Z :=
   match n, s with O, _ => nil | S p, a::w => (a::take p w)%list end.
 
 (* In coq-8.4pl3, this instance of "lazy" can be replaced with
-   "vm_compute" and the behavior is nice, but in coq-8.5beta2, 
+   "vm_compute" and the behavior is nice, but in coq-8.5beta2,
    it returns a large un-evaluated symbolic expression. *)
 Eval lazy in take 14 fib'.
 
@@ -122,7 +122,7 @@ Definition subzip x y :=
   of sub-zip-term is well-founded everywhere in the tree. *)
 CoInductive zw : zstream -> Prop :=
   cw1 : forall x s, zw s -> zw (cstr x s)
-| cw2 : forall s1 s2, 
+| cw2 : forall s1 s2,
   Acc subzip s1 -> Acc subzip s2 -> zw s1 -> zw s2 -> zw (zipPlus s1 s2).
 
 Lemma zw_fib : zw fib.

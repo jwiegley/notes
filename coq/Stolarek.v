@@ -12,13 +12,4 @@ CoFixpoint zipWith (f : nat -> nat -> nat) (a : stream)
 
 CoFixpoint tail (a : stream) := match a with Cons _ xs => xs end.
 
-CoFixpoint fibs :=
-  Cons 0 (Cons 1 (tail fibs)).
-
-CoFixpoint fibs :=
-  Cons 0 (Cons 1 (match fibs with
-  | Cons x xs =>
-      match xs with
-      | Cons y ys => Cons (x + y) xs
-      end
-  end)).
+CoFixpoint fibs := Cons 0 (Cons 1 (zipWith plus fibs (tail fibs))).

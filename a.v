@@ -32,7 +32,8 @@ Section Ex.
         (i o n : nat)
         (zz : CarrierA)
         `{uf_zero: MonUnit CarrierA}
-        (f u : SgOp CarrierA) :
+        (f u : SgOp CarrierA)
+        (f_mor : Proper (equiv ==> equiv ==> equiv) f) :
     Vfold_left_rev f uf_zero
                    (Vbuild
                       (λ (z : nat) (zi : z < n),
@@ -42,6 +43,10 @@ Section Ex.
                       (λ (z : nat) (zi : z < n),
                        A _ zz)).
   Proof.
+    unfold MonUnit, SgOp in *.
+    pose proof (@Vfold_left_rev_Vforall2 _ _ _ _ _ f_mor n).
+    pose proof (@Vbuild_proper n _ H).
+    Set Printing Implicit.
     setoid_rewrite Foo.
   Qed.
 

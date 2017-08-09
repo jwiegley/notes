@@ -1,5 +1,5 @@
 -- This file is from Conor McBride, and demonstrates that the Freer monad is
-   not isomorphic to the Free Monad in Agda's type theory.
+-- not isomorphic to the Free Monad in Agda's type theory.
 
 module NoYo where
 

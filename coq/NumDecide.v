@@ -140,14 +140,28 @@ Inductive formula :=
   | Top    : formula
   | Bottom : formula
   | Equal  : expr -> expr -> formula
+  | Le     : expr -> expr -> formula
+  | Lt     : expr -> expr -> formula
+  | Ge     : expr -> expr -> formula
+  | Gt     : expr -> expr -> formula
+  | Not    : formula -> formula
+  | And    : formula -> formula -> formula
+  | Or     : formula -> formula -> formula
   | Impl   : formula -> formula -> formula.
 
 Fixpoint subst_formula (t : formula) (v v' : term) : formula :=
   match t with
-  | Top => Top
-  | Bottom => Bottom
+  | Top       => Top
+  | Bottom    => Bottom
   | Equal x y => Equal (subst_expr x v v') (subst_expr y v v')
-  | Impl p q => Impl (subst_formula p v v') (subst_formula q v v')
+  | Le x y    => Le (subst_expr x v v') (subst_expr y v v')
+  | Lt x y    => Lt (subst_expr x v v') (subst_expr y v v')
+  | Ge x y    => Ge (subst_expr x v v') (subst_expr y v v')
+  | Gt x y    => Gt (subst_expr x v v') (subst_expr y v v')
+  | Not p     => Not (subst_formula p v v')
+  | And p q   => And (subst_formula p v v') (subst_formula q v v')
+  | Or p q    => Or (subst_formula p v v') (subst_formula q v v')
+  | Impl p q  => Impl (subst_formula p v v') (subst_formula q v v')
   end.
 
 Fixpoint subst_all_formula (x : formula) (xs : list (term * term)) : formula :=
@@ -182,6 +196,69 @@ Proof.
   rewrite IHdefs; reflexivity.
 Qed.
 
+Lemma subst_all_formula_Le defs : forall x y,
+  subst_all_formula (Le x y) defs =
+  Le (subst_all_expr x defs) (subst_all_expr y defs).
+Proof.
+  induction defs; simpl; intros; auto.
+  destruct a.
+  rewrite IHdefs; reflexivity.
+Qed.
+
+Lemma subst_all_formula_Lt defs : forall x y,
+  subst_all_formula (Lt x y) defs =
+  Lt (subst_all_expr x defs) (subst_all_expr y defs).
+Proof.
+  induction defs; simpl; intros; auto.
+  destruct a.
+  rewrite IHdefs; reflexivity.
+Qed.
+
+Lemma subst_all_formula_Ge defs : forall x y,
+  subst_all_formula (Ge x y) defs =
+  Ge (subst_all_expr x defs) (subst_all_expr y defs).
+Proof.
+  induction defs; simpl; intros; auto.
+  destruct a.
+  rewrite IHdefs; reflexivity.
+Qed.
+
+Lemma subst_all_formula_Gt defs : forall x y,
+  subst_all_formula (Gt x y) defs =
+  Gt (subst_all_expr x defs) (subst_all_expr y defs).
+Proof.
+  induction defs; simpl; intros; auto.
+  destruct a.
+  rewrite IHdefs; reflexivity.
+Qed.
+
+Lemma subst_all_formula_Not defs : forall p,
+  subst_all_formula (Not p) defs =
+  Not (subst_all_formula p defs).
+Proof.
+  induction defs; simpl; intros; auto.
+  destruct a.
+  rewrite IHdefs; reflexivity.
+Qed.
+
+Lemma subst_all_formula_And defs : forall p q,
+  subst_all_formula (And p q) defs =
+  And (subst_all_formula p defs) (subst_all_formula q defs).
+Proof.
+  induction defs; simpl; intros; auto.
+  destruct a.
+  rewrite IHdefs; reflexivity.
+Qed.
+
+Lemma subst_all_formula_Or defs : forall p q,
+  subst_all_formula (Or p q) defs =
+  Or (subst_all_formula p defs) (subst_all_formula q defs).
+Proof.
+  induction defs; simpl; intros; auto.
+  destruct a.
+  rewrite IHdefs; reflexivity.
+Qed.
+
 Lemma subst_all_formula_Impl defs : forall p q,
   subst_all_formula (Impl p q) defs =
   Impl (subst_all_formula p defs) (subst_all_formula q defs).
@@ -196,6 +273,13 @@ Fixpoint formula_denote env (t : formula) : Prop :=
   | Top       => True
   | Bottom    => False
   | Equal x y => expr_denote env x = expr_denote env y
+  | Le x y    => expr_denote env x <= expr_denote env y
+  | Lt x y    => expr_denote env x < expr_denote env y
+  | Ge x y    => expr_denote env x >= expr_denote env y
+  | Gt x y    => expr_denote env x > expr_denote env y
+  | Not p     => ~ formula_denote env p
+  | And p q   => formula_denote env p /\ formula_denote env q
+  | Or p q    => formula_denote env p \/ formula_denote env q
   | Impl p q  => formula_denote env p -> formula_denote env q
   end.
 
@@ -212,10 +296,17 @@ Fixpoint expr_size (t : expr) : nat :=
 
 Fixpoint formula_size (t : formula) : nat :=
   match t with
-  | Top => 1%nat
-  | Bottom => 1%nat
+  | Top       => 1%nat
+  | Bottom    => 1%nat
   | Equal x y => 1%nat + expr_size x + expr_size y
-  | Impl p q => formula_size p + formula_size q
+  | Le x y    => 1%nat + expr_size x + expr_size y
+  | Lt x y    => 1%nat + expr_size x + expr_size y
+  | Ge x y    => 1%nat + expr_size x + expr_size y
+  | Gt x y    => 1%nat + expr_size x + expr_size y
+  | Not p     => 1%nat + formula_size p
+  | And p q   => 1%nat + formula_size p + formula_size q
+  | Or p q    => 1%nat + formula_size p + formula_size q
+  | Impl p q  => 1%nat + formula_size p + formula_size q
   end.
 
 Lemma all_formulas_have_size t : (0 < formula_size t)%nat.
@@ -238,6 +329,17 @@ Proof.
   - rewrite subst_all_formula_Bottom; simpl; auto.
   - rewrite subst_all_formula_Equal; simpl; auto.
     rewrite !expr_size_subst_all_expr; auto.
+  - rewrite subst_all_formula_Le; simpl; auto.
+    rewrite !expr_size_subst_all_expr; auto.
+  - rewrite subst_all_formula_Lt; simpl; auto.
+    rewrite !expr_size_subst_all_expr; auto.
+  - rewrite subst_all_formula_Ge; simpl; auto.
+    rewrite !expr_size_subst_all_expr; auto.
+  - rewrite subst_all_formula_Gt; simpl; auto.
+    rewrite !expr_size_subst_all_expr; auto.
+  - rewrite subst_all_formula_Not; simpl; auto.
+  - rewrite subst_all_formula_And; simpl; auto.
+  - rewrite subst_all_formula_Or; simpl; auto.
   - rewrite subst_all_formula_Impl; simpl; auto.
 Qed.
 
@@ -323,54 +425,124 @@ Proof.
   - rewrite subst_all_formula_Bottom; simpl; auto.
   - rewrite subst_all_formula_Equal; simpl; intros.
     rewrite !expr_substitution_eq; auto.
+  - rewrite subst_all_formula_Le; simpl; intros.
+    rewrite !expr_substitution_eq; auto.
+  - rewrite subst_all_formula_Lt; simpl; intros.
+    rewrite !expr_substitution_eq; auto.
+  - rewrite subst_all_formula_Ge; simpl; intros.
+    rewrite !expr_substitution_eq; auto.
+  - rewrite subst_all_formula_Gt; simpl; intros.
+    rewrite !expr_substitution_eq; auto.
+  - rewrite subst_all_formula_Not; simpl; intros.
+    intuition; rewrite H0; auto.
+  - rewrite subst_all_formula_And; simpl; intros.
+    intuition; rewrite H0, H1; auto.
+  - rewrite subst_all_formula_Or; simpl; intros.
+    intuition; rewrite H0, H1; auto.
   - rewrite subst_all_formula_Impl; simpl; intros.
-    intuition.
-    rewrite H0, H1; auto.
+    intuition; rewrite H0, H1; auto.
 Qed.
 
 (**************************************************************************
  * Computational decision procedure for map membership
  *)
 
-Program Definition formula_forward (t : formula) env (hyp : formula)
+Program Fixpoint formula_forward (t : formula) env (hyp : formula)
         (cont : forall env' defs, [formula_denote env' (subst_all_formula t defs)]) :
   [formula_denote env hyp -> formula_denote env t] :=
   match hyp with
-  | Top => Reduce (cont env nil)
-  | Bottom => Yes
+  | Top       => Reduce (cont env nil)
+  | Bottom    => Yes
   | Equal x y => No             (* Benoit: TODO *)
-  | Impl _ _ => Reduce (cont env nil)
+  | Le x y    => No             (* Benoit: TODO *)
+  | Lt x y    => No             (* Benoit: TODO *)
+  | Ge x y    => No             (* Benoit: TODO *)
+  | Gt x y    => No             (* Benoit: TODO *)
+  | Not _     => Reduce (cont env nil)
+  | And p q   => formula_forward t env p cont ||
+                 formula_forward t env q cont
+  | Or p q    => formula_forward t env p cont &&
+                 formula_forward t env q cont
+  | Impl _ _  => Reduce (cont env nil)
   end.
-Next Obligation.
-  contradiction.
-Defined.
+Next Obligation. contradiction. Defined.
+Next Obligation. intuition. Defined.
 
-(* Benoit: TODO: This should be changed to fit your problem. *)
 Definition decision (env : environment) (m n : expr) : bool :=
-  Z.eqb (expr_denote env m) (expr_denote env n).
+  match m with
+  |
+    match Z.eqb (expr_denote env x) (expr_denote env y) with
+    | true    => Yes
+    | false   => No
+    end
 
 Program Fixpoint formula_backward (t : formula) env {measure (formula_size t)} :
   [formula_denote env t] :=
   match t with
-  | Top => Yes
-  | Bottom => No
-  | Equal x y => match decision env x y with
-                 | true => Yes
-                 | false => No
-                 end
-  | Impl p q =>
+  | Top       => Yes
+  | Bottom    => No
+  | Equal x y => decision env x y
+  | Le x y    =>
+    match Z.leb (expr_denote env x) (expr_denote env y) with
+    | true    => Yes
+    | false   => No
+    end
+  | Lt x y    =>
+    match Z.ltb (expr_denote env x) (expr_denote env y) with
+    | true    => Yes
+    | false   => No
+    end
+  | Ge x y    =>
+    match Z.geb (expr_denote env x) (expr_denote env y) with
+    | true    => Yes
+    | false   => No
+    end
+  | Gt x y    =>
+    match Z.gtb (expr_denote env x) (expr_denote env y) with
+    | true    => Yes
+    | false   => No
+    end
+  | Not p     =>
+    match formula_backward p env with
+    | Proved _ _ => No
+    | Uncertain _ => Yes
+    end
+  | And p q   => formula_backward p env && formula_backward q env
+  | Or p q    => formula_backward p env || formula_backward q env
+  | Impl p q  =>
     formula_forward q env p
       (fun env' defs' => formula_backward (subst_all_formula q defs') env')
   end.
 Next Obligation.
-  unfold decision in Heq_anonymous.
   symmetry in Heq_anonymous.
-  apply Z.eqb_eq in Heq_anonymous.
-  assumption.
+  now apply Z.eqb_eq in Heq_anonymous.
 Defined.
 Next Obligation.
+  symmetry in Heq_anonymous.
+  now apply Z.leb_le in Heq_anonymous.
+Defined.
+Next Obligation.
+  symmetry in Heq_anonymous.
+  now apply Z.ltb_lt in Heq_anonymous.
+Defined.
+Next Obligation.
+  symmetry in Heq_anonymous.
+  apply Z.geb_le in Heq_anonymous.
+  abstract omega.
+Defined.
+Next Obligation.
+  symmetry in Heq_anonymous.
+  apply Z.gtb_lt in Heq_anonymous.
+  abstract omega.
+Defined.
+Next Obligation. Admitted.
+Next Obligation. simpl; abstract omega. Defined.
+Next Obligation. simpl; abstract omega. Defined.
+Next Obligation. simpl; abstract omega. Defined.
+Next Obligation. simpl; abstract omega. Defined.
+Next Obligation.
   rewrite formula_size_subst_all_formula; simpl.
-  apply Nat.lt_add_pos_l, all_formulas_have_size.
+  abstract omega.
 Defined.
 
 Definition formula_tauto : forall env t, [formula_denote env t].
@@ -440,6 +612,26 @@ Ltac allVars xs e :=
   | ?P = ?Q =>
     let xs := allVars xs P in
     allVars xs Q
+  | ?P <= ?Q =>
+    let xs := allVars xs P in
+    allVars xs Q
+  | ?P < ?Q =>
+    let xs := allVars xs P in
+    allVars xs Q
+  | ?P >= ?Q =>
+    let xs := allVars xs P in
+    allVars xs Q
+  | ?P > ?Q =>
+    let xs := allVars xs P in
+    allVars xs Q
+  | ~ ?P =>
+    allVars xs P
+  | ?P /\ ?Q =>
+    let xs := allVars xs P in
+    allVars xs Q
+  | ?P \/ ?Q =>
+    let xs := allVars xs P in
+    allVars xs Q
   | ?P -> ?Q =>
     let xs := allVars xs P in
     allVars xs Q
@@ -486,6 +678,33 @@ Ltac reifyTerm env t :=
     let x := reifyExpr env X in
     let y := reifyExpr env Y in
     constr:(Equal x y)
+  | ?X <= ?Y =>
+    let x := reifyExpr env X in
+    let y := reifyExpr env Y in
+    constr:(Le x y)
+  | ?X < ?Y =>
+    let x := reifyExpr env X in
+    let y := reifyExpr env Y in
+    constr:(Lt x y)
+  | ?X >= ?Y =>
+    let x := reifyExpr env X in
+    let y := reifyExpr env Y in
+    constr:(Ge x y)
+  | ?X > ?Y =>
+    let x := reifyExpr env X in
+    let y := reifyExpr env Y in
+    constr:(Gt x y)
+  | ~ ?P =>
+    let p := reifyTerm env P in
+    constr:(Not p)
+  | ?P /\ ?Q =>
+    let p := reifyTerm env P in
+    let q := reifyTerm env Q in
+    constr:(And p q)
+  | ?P \/ ?Q =>
+    let p := reifyTerm env P in
+    let q := reifyTerm env Q in
+    constr:(Or p q)
   | ?P -> ?Q =>
     let p := reifyTerm env P in
     let q := reifyTerm env Q in
@@ -528,3 +747,24 @@ Ltac maths := reify; apply formula_sound; vm_compute; auto.
 Goal 2 * 3 = 3 * 2.
   maths.
 Qed.
+
+Goal 2 * 3 = 3 * 2 /\ 2 = 2.
+  maths.
+Qed.
+
+Goal forall x y z, x < y <= z.
+  intros.
+  maths.
+Qed.
+
+Lemma Mult_interval_correct_nonpos :
+  forall c d x y : Z,
+    x < 0 ->
+    c < y < d ->
+    x * d < x * y < x * c.
+Proof.
+  intros.
+  revert H0.
+  revert H.
+  compute [ Pos.succ ].
+Abort.

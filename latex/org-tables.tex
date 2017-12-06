@@ -1,0 +1,41 @@
+% BEGIN RECEIVE ORGTBL salesfigures
+\begin{tabular}{lrrr}
+\hline
+Month & Days & Nr sold & per day \\
+\hline
+Jan & 23 & 55 & 2.4 \\
+Feb & 21 & 16 & 0.8 \\
+March & 22 & 278 & 12.6 \\
+\hline
+\end{tabular}
+% END RECEIVE ORGTBL salesfigures
+
+#+ORGTBL: SEND salesfigures orgtbl-to-latex
+|-------+------+---------+---------|
+| Month | Days | Nr sold | per day |
+|-------+------+---------+---------|
+| Jan   |   23 |      55 |     2.4 |
+| Feb   |   21 |      16 |     0.8 |
+| March |   22 |     278 |    12.6 |
+|-------+------+---------+---------|
+#+TBLFM: $4=$3/$2;.1f
+
+
+\begin{tabular}{lrrr}
+Month & \multicolumn{1}{c}{Days} & Nr.\ sold & per day\\
+% BEGIN RECEIVE ORGTBL salesfigures
+Jan & 23 & 55 & 2.4 \\
+Feb & 21 & 16 & 0.8 \\
+March & 22 & 278 & 12.6 \\
+% END RECEIVE ORGTBL salesfigures
+\end{tabular}
+%
+\begin{comment}
+#+ORGTBL: SEND salesfigures orgtbl-to-latex :splice t :skip 2
+| Month | Days | Nr sold | per day |
+|-------+------+---------+---------|
+| Jan   |   23 |      55 |     2.4 |
+| Feb   |   21 |      16 |     0.8 |
+| March |   22 |     278 |    12.6 |
+#+TBLFM: $4=$3/$2;%.1f
+\end{comment}

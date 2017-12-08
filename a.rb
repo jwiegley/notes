@@ -1,0 +1,13 @@
+(defun transform-by-lines (f)
+  (goto-char (point-min))
+  (while (not (eobp))
+    (let* ((line-beg (line-beginning-position))
+           (line-end (line-end-position))
+           (line (buffer-substring line-beg line-end)))
+      (delete-region line-beg line-end)
+      (let ((result (funcall f line)))
+        (if (stringp result)
+            (progn
+              (insert result)
+              (forward-line))
+          (delete-char 1))))))

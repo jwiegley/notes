@@ -10,6 +10,9 @@ data Of a b = Of a b deriving Functor
 
 newtype Mu f = Mu { runMu :: forall r. (f r -> r) -> r}
 
+cataMu :: Functor f => (f a -> a) -> Mu f -> a
+cataMu k x = runMu x k
+
 (??) = flip
 
 foo :: Int -> [Int] -> Int
@@ -29,6 +32,9 @@ muFromList xs    = Mu $ \k -> k $ Compose $ case xs of
     (h:t) -> Just (Of h (runMu (muFromList t) k))
 
 data Nu f = forall x. Nu x (x -> f x)
+
+anaNu :: Functor f => (a -> f a) -> a -> Nu f
+anaNu k x = Nu x k
 
 nuToStream :: Nu (Of a) -> [a]
 nuToStream (Nu x fx) = go (fx x)

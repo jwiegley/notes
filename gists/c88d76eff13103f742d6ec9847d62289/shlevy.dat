@@ -1,0 +1,13 @@
+;; -*- mode: Ledger; -*-
+
+commodity $
+    format $1,000.00
+
+2018/01/01 Target
+    Expenses:Food                    ($2.95 * 19/20)
+    Expenses:Clothing                ($0.40 * 19/20)
+    ; With the following line commented, normal balance report rounds to cents
+    ; and --unround shows 1/4 of a cent left over. With it uncommented,
+    ; balance report rounds to 100ths of a cent
+    Income:Red Card Rounding              (-$0.0025)
+    Liabilities:Red Card                      -$3.18

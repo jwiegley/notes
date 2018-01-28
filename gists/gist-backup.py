@@ -12,7 +12,7 @@ def download_gists(page):
     req = urllib2.Request('https://api.github.com/users/' + 
                           USER + '/gists?page=' + page + '&per_page=100')
     req.add_header('Authorization', 'token ' + os.environ['TOKEN'])
-    u = urllib2.urlopen(req, cafile='/Users/johnw/.nix-profile/etc/ssl/certs/ca-bundle.crt')
+    u = urllib2.urlopen(req, cafile='/run/current-system/sw/etc/ssl/certs/ca-bundle.crt')
     for gist in json.load(u):
         if not os.path.isdir('gists/' + gist['id']):
             call(['git', 'subtree', 

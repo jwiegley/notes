@@ -1,0 +1,79 @@
+* Global definition
+
+#+RESULTS: uri
+: localhost:8023
+
+* Submit test data
+
+#+NAME: batch_id
+#+BEGIN_SRC sh :var uri=uri :results output
+set -ex
+
+TEST=../micromht/fusion-brass-branch/test/system/BFT-Only
+
+tar cCf "$TEST" /tmp/test-data.$$ .
+
+curl --header 'Content-Type: application/octet-stream' \
+     --data-binary "@/tmp/test-data.$$"                \
+     -s -w "\n" http://${uri}/batches
+
+/bin/rm -f /tmp/test-data.$$
+#+END_SRC
+
+#+RESULTS: batch_id
+: 6
+
+* Show list of batches
+
+#+BEGIN_SRC sh :var uri=uri :results output
+curl http://${uri}/batches | jq .
+#+END_SRC
+
+#+RESULTS:
+: [
+:   0,
+:   1,
+:   2,
+:   3,
+:   4,
+:   5,
+:   6
+: ]
+
+* Find datum id for output from the above batch
+
+#+NAME: datum_id
+#+BEGIN_SRC sh :var uri=uri :var batch_id=batch_id
+curl http://${uri}/batches/${batch_id}/output
+#+END_SRC
+
+#+RESULTS: datum_id
+: 4
+
+* Display table of contents for above output datum
+
+#+BEGIN_SRC sh :var uri=uri :var datum_id=datum_id :results output
+echo Table of contents for datum ${datum_id}:
+curl http://${uri}/data/${datum_id} | tar tvzf -
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+Table of contents for datum 4:
+drwx------ root/root         0 2018-01-10 22:56 ./
+-rw-r--r-- root/root         0 2018-01-10 22:56 ./stderr.log
+-rw-r--r-- root/root        14 2018-01-10 22:56 ./stdout.log
+-rw-r--r-- root/root    982716 2018-01-10 22:56 ./output.log
+#+end_example
+
+* First 100 lines from output log of above result
+
+#+BEGIN_SRC sh :var uri=uri :var datum_id=datum_id :results output
+curl http://${uri}/data/${datum_id} \
+    | tar xOvzf - ./output.log | head -100
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+... lots of output here ...
+#+end_example

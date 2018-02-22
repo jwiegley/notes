@@ -1,0 +1,62 @@
+* NOTE Installing macOS High Sierra
+- Image original hard drive
+- Install macOS from USB
+- Go through startup process, typical answers
+- Software Update
+- Install purchased Applications from App Store
+  - Xcode
+  - 1Password
+  - Bible Study
+  - Fantastical 2
+  - Slack
+  - WhatsApp
+  - xScope
+- Copy over Applications
+  - Battle.net.app
+  - DEVONagent.app
+  - DEVONthink Pro.app
+  - DataGraph.app
+  - DbVisualizer.app
+  - Diablo III
+  - Media Pro.app
+  - Microsoft Office 2011
+  - OmniGraffle.app
+  - OmniOutliner.app
+  - Protégé.app
+  - Skype.app
+  - Slate.app
+  - VMware Fusion.app
+- Remove unused apps from the Dock
+- Add commonly used apps to the Dock
+  - Terminal
+  - Disk Utility
+  - Activity Monitor
+  - Console
+- Accept to turn on unlocking with Apple Watch
+- Change computer name to "Hermes" (or whichever)
+- Enable showing volume in the menu bar
+- Configure keyboard modifiers keys for dasKeyboard
+- Enable SSH (Remote Login under the Sharing Preference)
+- Install Open ZFS for Mac
+- Fully enable iCloud
+- Change shell for johnw: chsh -s /bin/zsh johnw
+- Install and setup Nix
+  - Install Nix from nixos.org
+  - Run bootstrap.sh from nix-darwin
+  - Set NIX_PATH and PATH based on previous settings
+  - Run darwin-rebuild switch with most systemPackages disabled
+  - Kill nix-daemon
+  - Run home-manager switch
+  - Use nix copy to populate the store
+  - Re-enable systemPackages and also install environments
+- Copy over =/var/root/.ssh= so pushme can send files
+- Copy over personal data sets
+- Disable sleep in Energy Saver preferences
+- Add johnw to sudoers with NOPASSWD
+- Change desktop background to black
+- Change bottom left hot corner to sleep display (with shift)
+- Show percentage in the battery status icon
+- Show date in the date/time icon
+- Add keyboard layouts to Keybord preference pane: US and Persian
+- Disable most global keyboard shortcuts, but enable "invert colors"
+- Disable screen saver

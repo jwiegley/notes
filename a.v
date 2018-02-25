@@ -43,55 +43,6 @@ Inductive ReifiedArrow (dom : obj_idx) : obj_idx -> list arr_idx -> Type :=
         -> ReifiedArrow dom mid (g :: gs)
         -> ReifiedArrow dom cod (f :: g :: gs).
 
-Definition getArrList {dom cod} `(a : ReifiedArrow dom cod fs) :
-  list arr_idx := fs.
-Arguments getArrList {dom cod fs} a /.
-
-Equations getArrMorph {dom cod fs} (a : ReifiedArrow dom cod fs) :
-  objs dom ~{C}~> objs cod :=
-  getArrMorph IdentityArrow := id;
-  getArrMorph (SingleArrow f _) := f;
-  getArrMorph (ComposedArrow f g) := getArrMorph f ∘ getArrMorph g.
-
-Definition ReifiedArrowEx dom cod := ∃ fs, ReifiedArrow dom cod fs.
-
-(*
-Definition ReifiedArrow_comp {dom mid cod}
-           `(f : ReifiedArrow mid cod fs)
-           `(g : ReifiedArrow dom mid gs) :
-  ReifiedArrow dom cod (fs ++ gs).
-Proof.
-  generalize dependent cod.
-  induction g as [dom'|gf gm gc gf' gfs Hg grest]; intros.
-    rewrite app_nil_r.
-    exact f.
-  destruct f as [_|ff fm fc ff' ffs Hf frest].
-    simpl.
-    apply ComposedArrow with (f':=gf'); auto.
-  eapply ComposedArrow.
-*)
-
-(*
-Import EqNotations.
-
-Fixpoint ReifiedArrow_comp {dom mid cod}
-        `(f : ReifiedArrow mid cod fs)
-        `(g : ReifiedArrow dom mid gs) :
-  ReifiedArrow dom cod (match f, g with
-                        | IdentityArrow _, _ => gs
-                        | _, IdentityArrow _ => fs
-                        | _, _ => fs ++ gs
-                       end) :=
-  match f, g with
-  | IdentityArrow _, g => g
-  | f, IdentityArrow _ => rew app_nil_r _ in f
-  | ComposedArrow _ f m c f' fs Hf IHf,
-    ComposedArrow _ g m' c' g' gs Hg IHg =>
-    ComposedArrow _ f m c f' (fs ++ g :: gs) _
-                  (ReifiedArrow_comp IHf (ComposedArrow _ g m' c' g' gs Hg IHg))
-  end.
-*)
-
 Equations ReifiedArrow_comp {dom mid cod}
           `(f : ReifiedArrow mid cod (x :: xs))
           `(g : ReifiedArrow dom mid (y :: ys)) :
@@ -101,12 +52,48 @@ Equations ReifiedArrow_comp {dom mid cod}
   ReifiedArrow_comp (ComposedArrow f g) h :=
     ComposedArrow _ _ _ _ _ _ f (ReifiedArrow_comp g h).
 
+Definition getArrList {dom cod} `(a : ReifiedArrow dom cod fs) :
+  list arr_idx := fs.
+Arguments getArrList {dom cod fs} a /.
+
+Equations getArrMorph {dom cod} `(a : ReifiedArrow dom cod fs) :
+  objs dom ~{C}~> objs cod :=
+  getArrMorph IdentityArrow := id;
+  getArrMorph (SingleArrow f _) := f;
+  getArrMorph (ComposedArrow f g) := getArrMorph f ∘ getArrMorph g.
+
+Definition ReifiedArrow_size {dom cod} `(a : ReifiedArrow dom cod fs) : nat :=
+  length (getArrList a).
+
+(*
+Equations ReifiedArrow_getArrMorph_comp {dom mid cod}
+          `(f : ReifiedArrow mid cod (x :: xs))
+          `(g : ReifiedArrow dom mid (y :: ys)) :
+  getArrMorph (ReifiedArrow_comp f g) ≈ getArrMorph f ∘ getArrMorph g :=
+  ReifiedArrow_getArrMorph_comp f g by rec xs (MR lt (@length arr_idx)) :=
+  ReifiedArrow_getArrMorph_comp SingleArrow g := reflexivity _;
+  ReifiedArrow_getArrMorph_comp (ComposedArrow f f') g := _.
+Next Obligation.
+  rewrite ReifiedArrow_comp_equation_2.
+  rewrite !getArrMorph_equation_3.
+  rewrite ReifiedArrow_getArrMorph_comp; cat.
+  constructor.
+Admitted.
+*)
+
 Lemma ReifiedArrow_getArrMorph_comp {dom mid cod}
           `(f : ReifiedArrow mid cod (x :: xs))
           `(g : ReifiedArrow dom mid (y :: ys)) :
   getArrMorph (ReifiedArrow_comp f g) ≈ getArrMorph f ∘ getArrMorph g.
 Proof.
-Admitted.
+  dependent induction f; intros.
+    rewrite ReifiedArrow_comp_equation_1; cat.
+  rewrite ReifiedArrow_comp_equation_2.
+  rewrite !getArrMorph_equation_3.
+  rewrite IHf2; cat.
+Qed.
+
+Definition ReifiedArrowEx dom cod := ∃ fs, ReifiedArrow dom cod fs.
 
 Equations ReifiedArrow_comp_ex {dom mid cod}
           (f : ∃ xs, ReifiedArrow mid cod xs)
@@ -124,21 +111,18 @@ Lemma ReifiedArrow_comp_ex_comp {dom mid cod bs cs} f g :
     ≈ getArrMorph (cod:=cod) f ∘
       getArrMorph (dom:=dom) (cod:=mid) g.
 Proof.
-  simpl in *.
-  generalize dependent cod.
-  generalize dependent mid.
-  induction g; intros.
+  destruct g.
   - destruct f.
     + rewrite ReifiedArrow_comp_ex_equation_1; cat.
     + rewrite ReifiedArrow_comp_ex_equation_2; cat.
     + rewrite ReifiedArrow_comp_ex_equation_5; cat.
-  - destruct f0.
+  - destruct f.
     + rewrite ReifiedArrow_comp_ex_equation_1; cat.
     + rewrite ReifiedArrow_comp_ex_equation_3; cat.
     + rewrite ReifiedArrow_comp_ex_equation_6; cat.
       rewrite !getArrMorph_equation_3.
       rewrite ReifiedArrow_getArrMorph_comp; cat.
-  - destruct f0.
+  - destruct f.
     + rewrite ReifiedArrow_comp_ex_equation_1; cat.
     + rewrite ReifiedArrow_comp_ex_equation_4; cat.
     + rewrite ReifiedArrow_comp_ex_equation_7; cat.
@@ -155,63 +139,82 @@ Lemma ReifiedArrow_comp_ex_assoc {x y z w : obj_idx}
   getArrMorph `2
     (ReifiedArrow_comp_ex (ReifiedArrow_comp_ex (fs; f) (gs; g)) (hs; h)).
 Proof.
-Admitted.
-
-(*
-Lemma arrowsD_app_comp {dom mid cod f g f' g' fg'} :
-  f <> nil ->
-  g <> nil ->
-  arrowsD_work objs arrmap mid f = Some (cod; f') ->
-  arrowsD_work objs arrmap dom g = Some (mid; g') ->
-  arrowsD_work objs arrmap dom (f ++ g) = Some (cod; fg') ->
-  fg' = f' ∘ g'.
-Proof.
-  intros.
-  destruct f; [contradiction|].
-  destruct g; [contradiction|].
-Admitted.
-
-Lemma ReifiedArrow_nil {dom cod} `(a : ReifiedArrow dom cod fs) :
-  getArrList a = []
-    -> ∃ Heq : dom = cod,
-         getArrMorph a ≈ rew [fun cod => objs dom ~> objs cod] Heq
-                           in @id C (objs dom).
-Proof.
-  intros.
-  destruct a; simpl in *.
-    exists eq_refl.
-    reflexivity.
-  discriminate.
-Defined.
-
-Lemma ReifiedArrow_cons {dom cod} `(a : ReifiedArrow dom cod fs) x xs :
-  getArrList a = x :: xs
-    -> ∃ mid (f : ReifiedArrow mid cod [x])
-             (g : ReifiedArrow dom mid xs),
-         getArrList f = [x] ∧ getArrList g = xs.
-Proof.
-  intros.
-  destruct a; simpl in *.
-  rewrite H in e.
-  replace (x :: xs) with ([x] ++ xs) in e by reflexivity.
-  unfold arrowsD in e.
-  destruct_arrows.
-  destruct (arrowsD_compose objs arrmap Heqo), s, s, p, p.
-  destruct (Eq_eq_dec x0 cod); subst; [|discriminate].
-  exists x1.
-  unshelve eexists (mkArr [x] x2 _).
-    unfold arrowsD.
-    rewrite e1.
-    rewrite Pos_eq_dec_refl.
-    reflexivity.
-  unshelve eexists (mkArr xs x3 _).
-    unfold arrowsD.
-    rewrite e2.
-    rewrite Pos_eq_dec_refl.
-    reflexivity.
-  auto.
+  destruct h; intros.
+  - destruct g.
+    + rewrite ReifiedArrow_comp_ex_equation_1; cat.
+      destruct f.
+      * rewrite ReifiedArrow_comp_ex_equation_1; cat.
+      * rewrite ReifiedArrow_comp_ex_equation_2; cat.
+      * rewrite ReifiedArrow_comp_ex_equation_5; cat.
+    + rewrite ReifiedArrow_comp_ex_equation_2; cat.
+      destruct f.
+      * rewrite ReifiedArrow_comp_ex_equation_1; cat.
+      * rewrite ReifiedArrow_comp_ex_equation_3; cat.
+      * rewrite ReifiedArrow_comp_ex_equation_6; cat.
+    + rewrite ReifiedArrow_comp_ex_equation_5; cat.
+      destruct f.
+      * rewrite ReifiedArrow_comp_ex_equation_1; cat.
+      * rewrite ReifiedArrow_comp_ex_equation_4; cat.
+      * rewrite ReifiedArrow_comp_ex_equation_7; cat.
+  - destruct g.
+    + rewrite ReifiedArrow_comp_ex_equation_1; cat.
+      destruct f.
+      * rewrite ReifiedArrow_comp_ex_equation_1; cat.
+      * rewrite ReifiedArrow_comp_ex_equation_2; cat.
+      * rewrite ReifiedArrow_comp_ex_equation_5; cat.
+    + rewrite ReifiedArrow_comp_ex_equation_3; cat.
+      destruct f.
+      * rewrite ReifiedArrow_comp_ex_equation_1; cat.
+      * rewrite ReifiedArrow_comp_ex_equation_3; cat.
+      * rewrite !ReifiedArrow_comp_ex_equation_6.
+        rewrite !ReifiedArrow_comp_ex_equation_7.
+        rewrite !getArrMorph_equation_3.
+        comp_left.
+        rewrite !ReifiedArrow_getArrMorph_comp.
+        comp_left.
+        now rewrite !getArrMorph_equation_3.
+    + rewrite ReifiedArrow_comp_ex_equation_6; cat.
+      destruct f.
+      * rewrite ReifiedArrow_comp_ex_equation_1; cat.
+      * rewrite ReifiedArrow_comp_ex_equation_4; cat.
+      * rewrite !ReifiedArrow_comp_ex_equation_7.
+        rewrite !getArrMorph_equation_3.
+        comp_left.
+        rewrite !ReifiedArrow_getArrMorph_comp.
+        comp_left.
+        rewrite !getArrMorph_equation_3.
+        comp_left.
+        now rewrite !ReifiedArrow_getArrMorph_comp.
+  - destruct g.
+    + rewrite ReifiedArrow_comp_ex_equation_1; cat.
+      destruct f.
+      * rewrite ReifiedArrow_comp_ex_equation_1; cat.
+      * rewrite ReifiedArrow_comp_ex_equation_2; cat.
+      * rewrite ReifiedArrow_comp_ex_equation_5; cat.
+    + rewrite ReifiedArrow_comp_ex_equation_4; cat.
+      destruct f.
+      * rewrite ReifiedArrow_comp_ex_equation_1; cat.
+      * rewrite ReifiedArrow_comp_ex_equation_3; cat.
+      * rewrite !ReifiedArrow_comp_ex_equation_6.
+        rewrite !ReifiedArrow_comp_ex_equation_7.
+        rewrite !getArrMorph_equation_3.
+        comp_left.
+        rewrite !ReifiedArrow_getArrMorph_comp.
+        comp_left.
+        now rewrite !getArrMorph_equation_3.
+    + rewrite ReifiedArrow_comp_ex_equation_7; cat.
+      destruct f.
+      * rewrite ReifiedArrow_comp_ex_equation_1; cat.
+      * rewrite ReifiedArrow_comp_ex_equation_4; cat.
+      * rewrite !ReifiedArrow_comp_ex_equation_7.
+        rewrite !getArrMorph_equation_3.
+        comp_left.
+        rewrite !ReifiedArrow_getArrMorph_comp.
+        comp_left.
+        rewrite !getArrMorph_equation_3.
+        comp_left.
+        now rewrite !ReifiedArrow_getArrMorph_comp.
 Qed.
-*)
 
 Global Program Instance ReifiedArrow_Setoid dom cod :
   Setoid (ReifiedArrowEx dom cod) := {
@@ -225,21 +228,12 @@ Program Definition Reified : Category := {|
   id      := fun dom => ([]; IdentityArrow dom);
   compose := fun _ _ _ => ReifiedArrow_comp_ex
 |}.
-Next Obligation.
-  proper; simpl in *.
-  now rewrite !ReifiedArrow_comp_ex_comp, X, X0.
-Qed.
-Next Obligation.
-  rewrite ReifiedArrow_comp_ex_comp; cat.
-Qed.
-Next Obligation.
-  apply ReifiedArrow_comp_ex_assoc.
-Qed.
-Next Obligation.
-  symmetry.
-  apply Reified_obligation_4.
-Qed.
+Next Obligation. proper; now rewrite !ReifiedArrow_comp_ex_comp, X, X0. Qed.
+Next Obligation. rewrite ReifiedArrow_comp_ex_comp; cat. Qed.
+Next Obligation. apply ReifiedArrow_comp_ex_assoc. Qed.
+Next Obligation. symmetry; apply ReifiedArrow_comp_ex_assoc. Qed.
 
+(*
 Lemma ReifiedArrow_app {dom mid cod}
       (a : ReifiedArrow dom cod)
       (f : ReifiedArrow mid cod)
@@ -472,6 +466,7 @@ Proof.
   generalize dependent cod.
   induction f using @arr_rect; intros.
 Abort.
+*)
 
 End Categories.
 

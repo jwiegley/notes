@@ -1,0 +1,32 @@
+| Part           | Maker     | Model                          |   Price |
+|----------------+-----------+--------------------------------+---------|
+| Processor      | Intel     | Core i9-7980XE 18 Cores 4.4GHz | 1899.00 |
+| Memory         | G.SKILL   | Ripjaws 5 3000MZ DDR4 4x16GB   |  723.98 |
+| System Drive   | Samsung   | 960 Pro 1TB SSD M.2            |  608.99 |
+| Motherboard    | Asus      | PRIME X299 Deluxe              |  474.99 |
+| Video Card     | NVIDIA    | GeForce GTX 1060 6GB           |  425.00 |
+| Monitor        | Asus      | PB287Q 28" 3840x2160 Monitor   |  394.99 |
+| Data Drive     | WD        | Black 512GB SSD M.2            |  192.99 |
+| Power Supply   | EVGA      | SuperNOVA G3 - 750 Watt        |  122.99 |
+| Sound Card     | Creative  | Sound Blaster Z PCIe           |   94.94 |
+| Cooler         | Asetek    | Liquid Cooling 570LC           |   34.99 |
+| Optical Drive  | ASUS      | DVD Writer                     |   19.63 |
+| Networking     | Intel     | On-Board Ethernet              |       0 |
+|----------------+-----------+--------------------------------+---------|
+|                |           | Price for parts from Amazon    | 4992.49 |
+|----------------+-----------+--------------------------------+---------|
+| Chassis        | Falcon NW | Mach V                         | 2111.51 |
+|----------------+-----------+--------------------------------+---------|
+| Assem/Warranty | Falcon NW | Price for unit from Falcon     | 7104.00 |
+| Shipping       | UPS       | Ground                         |  147.71 |
+|----------------+-----------+--------------------------------+---------|
+|                |           |                                | 7251.71 |
+#+TBLFM: @14$4=vsum(@2$4..@13$4)::@15$4=@16$4 - @14$4::@18$4=@16$4 + @17$4
+
+> Don't buy the monitor from us as Amazon has a great price on it. We don't
+  price match and Amazon can't even provide graphics cards at the moment.
+
+> You can send us two parts for free and each additional two parts will add
+  $50 to the cost of the system. We won't accept: power supplies,
+  motherboards, or chassis. The other costs are the chassis, warranty and
+  overnight service which we provide for warranty repairs for the first year.

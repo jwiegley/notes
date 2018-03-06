@@ -49,11 +49,16 @@ Next Obligation.
 Defined.
 Next Obligation.
   unfold g.
-  apply subset_eq_compat.
-  Print Assumptions subset_eq_compat.
-  destruct (dec (i >? 0)); simpl.
-    clear h.
-    apply Z.gtb_lt in e.
-    apply Z.geb_le; omega.
-  discriminate.
+  apply eq_exist_uncurried.
+  assert ((i + 1 >=? -1) = true).
+    destruct (dec (i >? 0)); simpl.
+      clear h.
+      apply Z.gtb_lt in e.
+      apply Z.geb_le; omega.
+    discriminate.
+  exists H.
+  unfold h_obligation_3. simpl.
+  unfold eq_rect.
+  apply Eqdep_dec.UIP_dec.
+  apply Bool.bool_dec.
 Qed.

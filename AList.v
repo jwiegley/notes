@@ -1,6 +1,6 @@
 Require Import Coq.Lists.List.
-Require Export Coq.Classes.CEquivalence.
-Require Export Coq.Bool.Bool.
+Require Import Coq.Classes.CEquivalence.
+Require Import Coq.Bool.Bool.
 
 Open Scope lazy_bool_scope.
 
@@ -16,9 +16,9 @@ Inductive alist {A : Type} (B : A -> A -> Type) : A -> A -> Type :=
 Derive Signature Subterm for alist.
 
 Arguments anil {A B i}.
-Arguments acons {A B i j k} x xs.
+Arguments acons {A B i} j {k} x xs.
 
-Infix ":::" := acons (at level 42, right associativity).
+Notation "x ::: xs" := (acons _ x xs) (at level 42, right associativity).
 
 Section AList.
 
@@ -28,8 +28,28 @@ Context {B : A -> A -> Type}.
 Fixpoint alist_length {i j} (xs : alist B i j) : nat :=
   match xs with
   | anil => 0
-  | acons x xs => 1 + alist_length xs
+  | acons x _ xs => 1 + alist_length xs
   end.
+
+(* The Fixpoint version does not work, as might be expected, but fails with
+   this rather confusing error:
+
+     Error: Illegal application:
+     The term "@eq" of type "forall A : Type, A -> A -> Prop"
+     cannot be applied to the terms
+      "A" : "Type"
+      "k'" : "A"
+      "ys0" : "alist B j'0 k'"
+     The 3rd term has type "alist B j'0 k'" which should be coercible to "A".
+
+Program Fixpoint alist_app {i j k} (xs : alist B i j) (ys : alist B j k) :
+  alist B i k :=
+  match xs, ys with
+  | anil, ys => ys
+  | xs, anil => xs
+  | acons x xs, ys => x ::: alist_app xs ys
+  end.
+*)
 
 Equations alist_app {i j k} (xs : alist B i j) (ys : alist B j k) :
   alist B i k :=
@@ -80,24 +100,24 @@ Import EqNotations.
 Equations alist_equiv_sublist
           (A_eq_dec : forall x y : A, { x = y } + { x <> y })
           (B_equivb : forall (i j : A) (x y : B i j), bool)
-          {i j} (xs : alist B i j)
-          {k l} (ys : alist B k l) : bool :=
-  alist_equiv_sublist eq_dec equivb (anil j) (anil k)
-    <= eq_dec j k => {
+          {j k} (xs : alist B j k)
+          {i l} (ys : alist B i l) : bool :=
+  alist_equiv_sublist eq_dec equivb (anil j) (anil i)
+    <= eq_dec j i => {
       | left _ => true;
       | right _ => false
     };
-  alist_equiv_sublist eq_dec equivb (anil j) (acons k n l y ys)
-    <= eq_dec j k => {
+  alist_equiv_sublist eq_dec equivb (anil j) (acons i _ _ y ys)
+    <= eq_dec j i => {
       | left _ => true;
       | right _ => alist_equiv_sublist eq_dec equivb anil ys
     };
   alist_equiv_sublist _ _ _ anil := false;
-  alist_equiv_sublist eq_dec equivb (acons i m j x xs) (acons k n l y ys)
-    <= (eq_dec i k, eq_dec m n) => {
+  alist_equiv_sublist eq_dec equivb (acons j m _ x xs) (acons i o _ y ys)
+    <= (eq_dec j i, eq_dec m o) => {
       | pair (left H1) (left H2) =>
-        (equivb _ _ x (rew <- [fun y => B i y] H2 in
-                       rew <- [fun x => B x n] H1 in y)
+        (equivb _ _ x (rew <- [fun y => B _ y] H2 in
+                       rew <- [fun x => B x _] H1 in y)
            &&& alist_equiv_sublist eq_dec equivb xs ys)
           ||| alist_equiv_sublist eq_dec equivb (x ::: xs) ys;
       | _ => alist_equiv_sublist eq_dec equivb (x ::: xs) ys
@@ -143,7 +163,7 @@ Context {B : A -> A -> Type}.
 
 Lemma alist_cons_uncons
       {i m j} (xs : alist B i j) (y : B i m) ys :
-  alist_uncons xs = Some (_; (y, ys)) -> xs = acons y ys.
+  alist_uncons xs = Some (_; (y, ys)) -> xs = y ::: ys.
 Proof.
   destruct xs; simpl; intros.
     inversion H.
@@ -154,6 +174,104 @@ Proof.
 Qed.
 
 End AListProofsInj.
+
+Section WList.
+
+Context {A : Type}.
+Context {B : A -> A -> Type}.
+
+Inductive wlist : A -> forall j k l, alist B j k -> Type :=
+  | segments : forall (i j k l : A) (xs : alist B i j) ys
+                      (zs : alist B k l), wlist i j k l ys.
+
+Arguments segments {i j k l} xs ys zs.
+
+Import EqNotations.
+
+Equations alist_find_wlist
+          (A_eq_dec : forall x y : A, { x = y } + { x <> y })
+          (B_equivb : forall (i j : A) (x y : B i j), bool)
+          {j k} (xs : alist B j k)
+          {i l} (ys : alist B i l) : option (wlist i j k l xs) :=
+  alist_find_wlist eq_dec equivb (anil j) (anil i)
+    <= eq_dec j i => {
+      | left H => Some (rew <- [fun x => wlist _ x x _ anil] H
+                          in segments anil anil anil);
+      | _ => None
+    };
+  alist_find_wlist eq_dec equivb (anil j) (acons k n l y ys)
+    <= eq_dec j k => {
+      | left H =>
+        Some (rew <- [fun x => wlist _ x x _ anil] H
+                in segments anil anil (y ::: ys));
+      | _ <= alist_find_wlist eq_dec equivb anil ys => {
+        | None => None;
+        | Some (segments ys _ zs) =>
+          Some (segments (y ::: ys) anil zs)
+      }
+    };
+  alist_find_wlist _ _ _ anil := None;
+  alist_find_wlist eq_dec equivb (acons j m k x xs) (acons i o l y ys)
+    <= (eq_dec j i, eq_dec m o) => {
+      | pair (left H1) (left H2)
+        <= equivb _ _ x (rew <- [fun y => B _ y] H2 in
+                         rew <- [fun x => B x _] H1 in y) => {
+          | true <= alist_find_wlist eq_dec equivb xs ys => {
+              | Some (segments ys ws zs) =>
+                Some (rew [fun a => wlist a j wildcard1 wildcard2 (x ::: ws)] H1
+                        in segments anil (x ::: ws) zs);
+              | None <= alist_find_wlist eq_dec equivb (x ::: xs) ys => {
+                  | None => None;
+                  | Some (segments ys _ zs) =>
+                    Some (segments (y ::: ys) (x ::: xs) zs)
+                }
+            };
+          | false <= alist_find_wlist eq_dec equivb (x ::: xs) ys => {
+              | None => None;
+              | Some (segments ys _ zs) =>
+                Some (segments (y ::: ys) (x ::: xs) zs)
+            }
+        };
+      | _  <= alist_find_wlist eq_dec equivb (x ::: xs) ys => {
+          | None => None;
+          | Some (segments ys _ zs) =>
+            Some (segments (y ::: ys) (x ::: xs) zs)
+        }
+      }.
+
+End WList.
+
+Arguments segments {A B i j k l} xs ys zs.
+
+Definition nat_triple := fun (_ _ : nat) => ((nat * nat) * nat)%type.
+
+Definition my_list : alist nat_triple 0 4 :=
+  acons 1 ((0, 1), 100)
+        (acons 2 ((1, 2), 200)
+               (acons 3 ((2, 3), 300)
+                      (acons 4 ((3, 4), 400)
+                             anil))).
+
+Lemma nat_eq_dec (x y : nat) : {x = y} + {x <> y}.
+Proof. decide equality. Defined.
+
+Require Import Coq.Arith.EqNat.
+
+Definition nat_equivb (x y : ((nat * nat) * nat)) : bool :=
+  match x, y with
+    (_, a), (_, b) => beq_nat a b
+  end.
+
+Example alist_find_wlist_nat_ex1 :
+  @alist_find_wlist nat nat_triple nat_eq_dec (fun _ _ => nat_equivb)
+                    1 3 (acons 2 ((1, 2), 200) (acons 3 ((2, 3), 300) anil))
+                    0 4 my_list
+    = Some (segments ((0, 1, 100) ::: anil)
+                     ((1, 2, 200) ::: (2, 3, 300) ::: anil)
+                     ((3, 4, 400) ::: anil)).
+Proof. reflexivity. Qed.
+
+Print Assumptions alist_find_wlist_nat_ex1.
 
 Reserved Infix "<+>" (at level 42, right associativity).
 

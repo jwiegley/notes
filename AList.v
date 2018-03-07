@@ -82,7 +82,16 @@ Equations alist_equiv_sublist
           (B_equivb : forall (i j : A) (x y : B i j), bool)
           {i j} (xs : alist B i j)
           {k l} (ys : alist B k l) : bool :=
-  alist_equiv_sublist _ _ anil _ := true;
+  alist_equiv_sublist eq_dec equivb (anil j) (anil k)
+    <= eq_dec j k => {
+      | left _ => true;
+      | right _ => false
+    };
+  alist_equiv_sublist eq_dec equivb (anil j) (acons k n l y ys)
+    <= eq_dec j k => {
+      | left _ => true;
+      | right _ => alist_equiv_sublist eq_dec equivb anil ys
+    };
   alist_equiv_sublist _ _ _ anil := false;
   alist_equiv_sublist eq_dec equivb (acons i m j x xs) (acons k n l y ys)
     <= (eq_dec i k, eq_dec m n) => {
@@ -93,9 +102,6 @@ Equations alist_equiv_sublist
           ||| alist_equiv_sublist eq_dec equivb (x ::: xs) ys;
       | _ => alist_equiv_sublist eq_dec equivb (x ::: xs) ys
     }.
-Next Obligation.
-  (* Why isn't this obvious? *)
-Admitted.
 
 End AList.
 

@@ -10,9 +10,11 @@ Inductive type (ty : Type) : Type :=
 Arguments Ty {ty} _.
 Arguments Func {ty} _ _.
 
-Inductive Lambda (kind : Type) (var : type kind -> Type)
-          (s : (type kind -> Type) -> type kind -> Type) :
-  type kind -> Type :=
+Inductive Lambda
+          (kinds : Type)
+          (var : type kinds -> Type)
+          (syntax : (type kinds -> Type) -> type kinds -> Type) :
+  type kinds -> Type :=
   | V : forall t : type kind, var t -> Lambda kind var s t
   | Abs : forall d c : type kind,
       Lambda kind (fun t => var t + ())%type s c -> Lambda kind var s (Func d c)

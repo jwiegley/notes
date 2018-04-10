@@ -1,0 +1,155 @@
+hnix: data/nix/tests/lang/eval-okay-regex-split.nix:1:1:
+  |
+1 | with builtins;
+  | ^
+While evaluating: with <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:4:1:
+  |
+4 | assert  split "foobar" "foobar"  == ["" [] ""];
+  | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:5:1:
+  |
+5 | assert  split "fo*" "f"          == ["" [] ""];
+  | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:6:1:
+  |
+6 | assert  split "fo+" "f"          == ["f"];
+  | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:7:1:
+  |
+7 | assert  split "fo*" "fo"         == ["" [] ""];
+  | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:8:1:
+  |
+8 | assert  split "fo*" "foo"        == ["" [] ""];
+  | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:9:1:
+  |
+9 | assert  split "fo+" "foo"        == ["" [] ""];
+  | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:10:1:
+   |
+10 | assert  split "fo{1,2}" "foo"    == ["" [] ""];
+   | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:11:1:
+   |
+11 | assert  split "fo{1,2}" "fooo"   == ["" [] "o"];
+   | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:12:1:
+   |
+12 | assert  split "fo*" "foobar"     == ["" [] "bar"];
+   | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:15:1:
+   |
+15 | assert  split "(fo*)" "f"        == ["" ["f"] ""];
+   | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:16:1:
+   |
+16 | assert  split "(fo+)" "f"        == ["f"];
+   | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:17:1:
+   |
+17 | assert  split "(fo*)" "fo"       == ["" ["fo"] ""];
+   | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:18:1:
+   |
+18 | assert  split "(f)(o*)" "f"      == ["" ["f" ""] ""];
+   | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:19:1:
+   |
+19 | assert  split "(f)(o*)" "foo"    == ["" ["f" "oo"] ""];
+   | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:20:1:
+   |
+20 | assert  split "(fo+)" "foo"      == ["" ["foo"] ""];
+   | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:21:1:
+   |
+21 | assert  split "(fo{1,2})" "foo"  == ["" ["foo"] ""];
+   | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:22:1:
+   |
+22 | assert  split "(fo{1,2})" "fooo" == ["" ["foo"] "o"];
+   | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:23:1:
+   |
+23 | assert  split "(fo*)" "foobar"   == ["" ["foo"] "bar"];
+   | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:26:1:
+   |
+26 | assert  split "(o+)" "oooofoooo" == ["" ["oooo"] "f" ["oooo"] ""];
+   | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:29:1:
+   |
+29 | assert  split "(b)" "foobarbaz"  == ["foo" ["b"] "ar" ["b"] "az"];
+   | ^
+While evaluating: assert <?>;
+<?>
+
+data/nix/tests/lang/eval-okay-regex-split.nix:33:1:
+   |
+33 | assert  split "[[:space:]]+|([',.!?])" ''
+   | ^
+While evaluating: assert <?>;
+<?>
+
+assertion failed

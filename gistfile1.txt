@@ -1,0 +1,62 @@
+$ nix-instantiate --eval -E 'import ./default.nix {}'
+{ android = <CODE>; androidDevTools = <CODE>; androidReflexTodomvc = <CODE>; androidWithHaskellPackages = <CODE>; attrsToList = <CODE>; cabal2nixResult = <CODE>; cachePackages = <CODE>; cacheTargetSystems = <CODE>; demoVM = <CODE>; extendHaskellPackages = <CODE>; foreignLibSmuggleHeaders = <CODE>; generalDevTools = <CODE>; ghc = <CODE>; ghc7 = <CODE>; ghc7_8 = <CODE>; ghc8_0_1 = <CODE>; ghc8_2_1 = <CODE>; ghcAndroidArm64 = <CODE>; ghcAndroidArmv7a = <CODE>; ghcHEAD = <CODE>; ghcIosArm64 = <CODE>; ghcIosArmv7 = <CODE>; ghcIosSimulator64 = <CODE>; ghcjs = <CODE>; hackGet = <CODE>; hackageDocs = <CODE>; ios = <CODE>; iosReflexTodomvc = <CODE>; iosSupport = <CODE>; iosWithHaskellPackages = <CODE>; isSuffixOf = <CODE>; js-framework-benchmark-src = <CODE>; lib = <CODE>; mapSet = <CODE>; mkHackageDocs = <CODE>; mkReleaseCandidate = <CODE>; mkSdist = <CODE>; nativeHaskellPackages = <CODE>; nixpkgs = <CODE>; nixpkgsCross = <CODE>; overrideCabal = <CODE>; pinBuildInputs = <CODE>; platforms = <CODE>; project = <CODE>; reflexEnv = <CODE>; releaseCandidates = <CODE>; sdists = <CODE>; setGhcLibdir = <CODE>; sources = <CODE>; stage2Script = <CODE>; system = <CODE>; tryReflexPackages = <CODE>; tryReflexShell = <CODE>; workOn = <CODE>; workOnMulti = <CODE>; workOnMulti' = <CODE>; }
+
+$ ~/src/hnix/dist/build/hnix/hnix --eval -E 'import ./default.nix {}'
+{
+  platforms = "<thunk>";
+  ghcHEAD = "<thunk>";
+  nativeHaskellPackages = "<thunk>";
+  ghc = "<thunk>";
+  androidDevTools = "<thunk>";
+  mkHackageDocs = "<thunk>";
+  ghc8_2_1 = "<thunk>";
+  releaseCandidates = "<thunk>";
+  generalDevTools = "<thunk>";
+  sdists = "<thunk>";
+  mkReleaseCandidate = "<thunk>";
+  iosWithHaskellPackages = "<thunk>";
+  ios = "<thunk>";
+  js-framework-benchmark-src = "<thunk>";
+  project = "<thunk>";
+  system = "<thunk>";
+  ghcIosSimulator64 = "<thunk>";
+  demoVM = "<thunk>";
+  workOn = "<thunk>";
+  nixpkgs = "<thunk>";
+  extendHaskellPackages = "<thunk>";
+  androidReflexTodomvc = "<thunk>";
+  ghc7 = "<thunk>";
+  ghcAndroidArm64 = "<thunk>";
+  sources = "<thunk>";
+  mapSet = "<thunk>";
+  workOnMulti' = "<thunk>";
+  attrsToList = "<thunk>";
+  workOnMulti = "<thunk>";
+  tryReflexShell = "<thunk>";
+  isSuffixOf = "<thunk>";
+  pinBuildInputs = "<thunk>";
+  androidWithHaskellPackages = "<thunk>";
+  ghc7_8 = "<thunk>";
+  mkSdist = "<thunk>";
+  hackGet = "<thunk>";
+  lib = "<thunk>";
+  foreignLibSmuggleHeaders = "<thunk>";
+  iosSupport = "<thunk>";
+  ghcIosArm64 = "<thunk>";
+  ghc8_0_1 = "<thunk>";
+  cachePackages = "<thunk>";
+  reflexEnv = "<thunk>";
+  ghcjs = "<thunk>";
+  iosReflexTodomvc = "<thunk>";
+  cacheTargetSystems = "<thunk>";
+  android = "<thunk>";
+  setGhcLibdir = "<thunk>";
+  ghcIosArmv7 = "<thunk>";
+  tryReflexPackages = "<thunk>";
+  nixpkgsCross = "<thunk>";
+  ghcAndroidArmv7a = "<thunk>";
+  stage2Script = "<thunk>";
+  hackageDocs = "<thunk>";
+  cabal2nixResult = "<thunk>";
+  overrideCabal = "<thunk>";
+}

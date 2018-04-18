@@ -1,0 +1,36 @@
+derivationStrict {
+  phases = "installPhase fixupPhase";
+  __impureHostDeps = "/bin/sh /usr/lib/libSystem.B.dylib /usr/lib/system/libunc.dylib /dev/zero /dev/random /dev/urandom /bin/sh";
+  setupHook = "/nix/store/i9hzp0qam1ck48cg6lj786z40n0khqcf-setup-hook.sh";
+  args = [
+    "-e"
+    "/nix/store/9krlzvny65gdc8s7kpb6lkx8cd02c25b-default-builder.sh"
+  ];
+  userHook = "";
+  nativeBuildInputs = "";
+  depsBuildTargetPropagated = "";
+  propagatedNativeBuildInputs = "";
+  depsBuildBuildPropagated = "";
+  system = "x86_64-darwin";
+  depsTargetTargetPropagated = "";
+  depsHostBuildPropagated = "";
+  installPhase = "mkdir -p $out/lib $out/include\
+ln -s /nix/store/7ksfkw02kp1plgf1p737n7242n3ak7bw-bootstrap-tools/lib/libc++.dylib $out/lib/libc++.dylib\
+ln -s /nix/store/7ksfkw02kp1plgf1p737n7242n3ak7bw-bootstrap-tools/include/c++      $out/include/c++\
+";
+  linkCxxAbi = "";
+  builder = "/nix/store/7ksfkw02kp1plgf1p737n7242n3ak7bw-bootstrap-tools/bin/bash";
+  propagatedBuildInputs = "";
+  depsHostBuild = "";
+  name = "bootstrap-stage0-libcxx";
+  configureFlags = "";
+  depsTargetTarget = "";
+  depsBuildBuild = "";
+  depsBuildTarget = "";
+  __ignoreNulls = "1";
+  buildInputs = "";
+  __propagatedImpureHostDeps = "";
+  stdenv = "/nix/store/6nv8zbdw0hprx5iq19haimyy1dj0dq84-bootstrap-stage0-stdenv-darwin";
+  __sandboxProfile = "";
+  __propagatedSandboxProfile = "";
+}

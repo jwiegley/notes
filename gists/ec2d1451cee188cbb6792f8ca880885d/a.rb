@@ -1,0 +1,9 @@
+      fftw
+      fftw.dev
+      fftw.man
+      fftwFloat
+      fftwFloat.dev
+      fftwFloat.man
+      fftwLongDouble
+      fftwLongDouble.dev
+      fftwLongDouble.man

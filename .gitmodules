@@ -1,3 +1,6 @@
 [submodule "haskell/cccc"]
 	path = haskell/cccc
 	url = git://github.com/isovector/cccc.git
+[submodule "coq/FreeSpec"]
+	path = coq/FreeSpec
+	url = git://github.com/ANSSI-FR/FreeSpec.git

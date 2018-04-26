@@ -1,0 +1,3 @@
+[submodule "haskell/cccc"]
+	path = haskell/cccc
+	url = git://github.com/isovector/cccc.git

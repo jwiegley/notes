@@ -19,6 +19,7 @@ import Control.Monad.Catch
 import Control.Monad.Freer
 import Control.Monad.Reader
 import Data.Functor.Identity
+import Data.OpenUnion.Internal
 import Data.Typeable
 
 type MonoLens a b = forall f. Functor f => (b -> f b) -> a -> f a
@@ -35,7 +36,7 @@ class Has a b where
 data Level = Fatal | Error | Warning | Info | Debug
     deriving (Ord, Eq, Bounded, Enum, Show)
 
-data Frame s = Frame Level (Eff s String)
+data Frame s = forall t. Frame Level (Union s t)
 
 type Frames s = [Frame s]
 

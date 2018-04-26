@@ -1,0 +1,11 @@
+builder for '/nix/store/mkdq2k5bfnwvhcry4x3kz3pc001zqv88-lsof-4.90.drv' failed with exit code 2; last 10 log lines:
+  clang  -DHASIPv6 -mdynamic-no-pic -DHASUTMPX -DDARWINV=1200 -DHAS_STRFTIME -DLSOF_VSTR=\"17.5.0\" -I/nix/store/12yshvbpz9hjn7khzzf0ar67kaw6g7f7-Libsystem-osx-10.11.6/include  -I/nix/store/12yshvbpz9hjn7khzzf0ar67kaw6g7f7-Libsystem-osx-10.11.6/include -O   -c -o ddev.o ddev.c
+  clang  -DHASIPv6 -mdynamic-no-pic -DHASUTMPX -DDARWINV=1200 -DHAS_STRFTIME -DLSOF_VSTR=\"17.5.0\" -I/nix/store/12yshvbpz9hjn7khzzf0ar67kaw6g7f7-Libsystem-osx-10.11.6/include  -I/nix/store/12yshvbpz9hjn7khzzf0ar67kaw6g7f7-Libsystem-osx-10.11.6/include -O   -c -o dfile.o dfile.c
+  dfile.c:46:2: error: invalid preprocessing directive
+  #extern struct pff_tab  Pgf_tab[];
+   ^
+  dfile.c:299:11: error: use of undeclared identifier 'Pgf_tab'
+              tp = Pgf_tab;
+                   ^
+  2 errors generated.
+  make: *** [<builtin>: dfile.o] Error 1

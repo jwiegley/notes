@@ -1,0 +1,171 @@
+Building rings-dashboard
+Step 1/9 : FROM cabal-base
+ ---> bb451b3d5796
+Step 2/9 : COPY ./ /opt/rings-dashboard
+ ---> Using cache
+ ---> 3708108b7a7c
+Step 3/9 : WORKDIR /opt/rings-dashboard/rings-dashboard-api
+ ---> Using cache
+ ---> fd2a756b5ddc
+Step 4/9 : RUN cabal install -j4
+ ---> Using cache
+ ---> 0b5c11f8a9cf
+Step 5/9 : WORKDIR /opt/rings-dashboard
+ ---> Using cache
+ ---> 07563ad9ac3d
+Step 6/9 : RUN cabal install -j4
+ ---> Using cache
+ ---> 1899bbca8e97
+Step 7/9 : EXPOSE 8023/tcp
+ ---> Using cache
+ ---> e83ac1fc3ae6
+Step 8/9 : ENV ADDR 0.0.0.0
+ ---> Using cache
+ ---> c322c070a661
+Step 9/9 : CMD ./startup.sh --config /opt/rings/config.yaml
+ ---> Using cache
+ ---> a395be178267
+Successfully built a395be178267
+Successfully tagged rings-dashboard:latest
+Building genpatcher
+Step 1/47 : FROM ubuntu:16.04
+ ---> 0458a4468cbc
+Step 2/47 : MAINTAINER Hajime Inoue <hinoue@grammatech.com>
+ ---> Using cache
+ ---> 32aff76a8cc2
+Step 3/47 : LABEL Description="This image runs GenPatcher."
+ ---> Using cache
+ ---> 658212c23e71
+Step 4/47 : RUN apt-get update &&     apt-get --no-install-recommends install -y     autoconf     bear     build-essential     curl     ca-certificates     librabbitmq-dev     librabbitmq4     libconfig-dev     libconfig9     gcc-4.8     g++-4.8     libc6-dev     libz-dev     autoconf     automake     cmake    libtool     pkg-config     nmap     python3     python3-pip     python3-setuptools     python     python-dev     python-pip     python-setuptools     git     ssh     llvm-4.0     llvm-4.0-dev     clang-4.0     libclang-4.0-dev     pandoc     sudo     man-db     wdiff     wget     libtinfo-dev     libz-dev     libxcb1-dev     libffi-dev     libconfig-dev     time     uuid-runtime     python3     python3-pip     python3-venv     pkg-config     libffi-dev     opam     rabbitmq-server
+ ---> Using cache
+ ---> 460235f47ea7
+Step 5/47 : RUN git config --global user.email "hinoue@grammatech.com"
+ ---> Using cache
+ ---> 621461433b30
+Step 6/47 : RUN git config --global user.name "GenPatcher"
+ ---> Using cache
+ ---> 5cd482cc1742
+Step 7/47 : RUN pip3 install --upgrade pip
+ ---> Using cache
+ ---> 4a7f56012a56
+Step 8/47 : RUN pip2 install --upgrade pip
+ ---> Using cache
+ ---> c75879ba08db
+Step 9/47 : ADD https://raw.githubusercontent.com/vishnubob/wait-for-it/a454892f3c2ebbc22bd15e446415b8fcb7c1cfa4/wait-for-it.sh     /usr/local/bin/wait-for-it.sh
+
+ ---> Using cache
+ ---> 5ed7c251ffa9
+Step 10/47 : RUN chmod +x /usr/local/bin/wait-for-it.sh
+ ---> Using cache
+ ---> 1ddb6d3d3d7d
+Step 11/47 : COPY micromht/atif-monitors/smon/smedl /usr/local/src/smedl
+ ---> Using cache
+ ---> eb3af1dcebc6
+Step 12/47 : RUN pip3 install /usr/local/src/smedl
+ ---> Using cache
+ ---> 02eb6d04d5e9
+Step 13/47 : COPY micromht/requirements.txt /tmp/requirements.txt
+ ---> Using cache
+ ---> 081b97b7005b
+Step 14/47 : RUN pip3 install -r /tmp/requirements.txt
+ ---> Using cache
+ ---> 32cec58550d6
+Step 15/47 : ENV PATH /usr/lib/llvm-4.0/bin:${PATH}
+ ---> Using cache
+ ---> e37fe932fb16
+Step 16/47 : COPY GrammaTech/clang-mutate /gt/clang-mutate
+ ---> Using cache
+ ---> 2a109c8d0871
+Step 17/47 : WORKDIR /gt/clang-mutate
+ ---> Using cache
+ ---> acc558155123
+Step 18/47 : RUN make install
+ ---> Using cache
+ ---> 47ab9f0b6df6
+Step 19/47 : COPY GrammaTech/cl /gt/cl
+ ---> Using cache
+ ---> ccb7cad7e9f0
+Step 20/47 : WORKDIR /gt/cl
+ ---> Using cache
+ ---> 594f063dd02e
+Step 21/47 : RUN make install
+ ---> Using cache
+ ---> db518cae3201
+Step 22/47 : ADD https://github.com/alanxz/rabbitmq-c/releases/download/v0.8.0/rabbitmq-c-0.8.0.tar.gz     /gt/rabbitmq-c-0.8.0.tar.gz
+
+ ---> Using cache
+ ---> 8220977fa911
+Step 23/47 : WORKDIR /gt
+ ---> Using cache
+ ---> 8279f7b8a920
+Step 24/47 : RUN tar xzf rabbitmq-c-0.8.0.tar.gz
+ ---> Using cache
+ ---> 8b199d7e633b
+Step 25/47 : WORKDIR /gt/rabbitmq-c-0.8.0
+ ---> Using cache
+ ---> a7b6bc62bb4b
+Step 26/47 : RUN ./configure --prefix=/usr && make install
+ ---> Using cache
+ ---> b6f25ae07798
+Step 27/47 : COPY GrammaTech/ql-deps /gt/ql-deps
+ ---> Using cache
+ ---> c836da2e41d4
+Step 28/47 : WORKDIR /gt/ql-deps/elf
+ ---> Using cache
+ ---> 96dc92347a61
+Step 29/47 : RUN rm -rf .git
+ ---> Using cache
+ ---> 9c9ddd75e727
+Step 30/47 : RUN git init && git add --all && git commit -m "initial commit"
+ ---> Using cache
+ ---> 759d84ef43ab
+Step 31/47 : WORKDIR /gt/ql-deps/memoize
+ ---> Using cache
+ ---> b69759a66a34
+Step 32/47 : RUN rm -rf .git
+ ---> Using cache
+ ---> 0a1d132a31ed
+Step 33/47 : RUN git init && git add --all && git commit -m "initial commit"
+ ---> Using cache
+ ---> 2c6b90d6a7f1
+Step 34/47 : WORKDIR /gt/ql-deps/trace-db
+ ---> Using cache
+ ---> 47d27bb1024e
+Step 35/47 : RUN rm -rf .git
+ ---> Using cache
+ ---> 4b0355bc5d86
+Step 36/47 : RUN git init && git add --all && git commit -m "initial commit"
+ ---> Using cache
+ ---> f5ce869be139
+Step 37/47 : WORKDIR /gt/ql-deps/sel
+ ---> Using cache
+ ---> eb2f4bab7aab
+Step 38/47 : RUN rm -rf .git
+ ---> Using cache
+ ---> 6a854b4916b5
+Step 39/47 : RUN git init && git add --all && git commit -m "initial commit"
+ ---> Using cache
+ ---> 33915cd82129
+Step 40/47 : ENV PATH /usr/synth/bin:${PATH}
+ ---> Using cache
+ ---> 4d5061891d2f
+Step 41/47 : COPY GrammaTech/evo-rings /gt/evo-rings
+ ---> Using cache
+ ---> 7a395e99512b
+Step 42/47 : WORKDIR /gt/evo-rings
+ ---> Using cache
+ ---> 2a38d6220c69
+Step 43/47 : RUN make install
+ ---> Running in 00d3e4760ca9
+ccl --quiet --no-init --load /usr/synth/quicklisp//setup.lisp \
+	--eval '(pushnew (truename ".") ql:*local-project-directories*)' \
+	--eval '(ql:quickload :qlot)' \
+	--eval '(qlot:install :evo-rings)' \
+	--eval '(qlot:quickload :evo-rings)' \
+	--eval '(qlot:with-local-quicklisp ("quicklisp") (ql:register-local-projects))' \
+	--eval '#+sbcl (exit) #+ccl (quit)'
+To load "qlot":
+  Load 1 ASDF system:
+    qlot
+; Loading "qlot"
+

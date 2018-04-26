@@ -1,0 +1,173 @@
+Step 38/47 : RUN rm -rf .git
+ ---> Using cache
+ ---> 6a854b4916b5
+Step 39/47 : RUN git init && git add --all && git commit -m "initial commit"
+ ---> Using cache
+ ---> 33915cd82129
+Step 40/47 : ENV PATH /usr/synth/bin:${PATH}
+ ---> Using cache
+ ---> 4d5061891d2f
+Step 41/47 : COPY GrammaTech/evo-rings /gt/evo-rings
+ ---> Using cache
+ ---> 7a395e99512b
+Step 42/47 : WORKDIR /gt/evo-rings
+ ---> Using cache
+ ---> 2a38d6220c69
+Step 43/47 : RUN make install
+ ---> Running in 00d3e4760ca9
+ccl --quiet --no-init --load /usr/synth/quicklisp//setup.lisp \
+	--eval '(pushnew (truename ".") ql:*local-project-directories*)' \
+	--eval '(ql:quickload :qlot)' \
+	--eval '(qlot:install :evo-rings)' \
+	--eval '(qlot:quickload :evo-rings)' \
+	--eval '(qlot:with-local-quicklisp ("quicklisp") (ql:register-local-projects))' \
+	--eval '#+sbcl (exit) #+ccl (quit)'
+To load "qlot":
+  Load 1 ASDF system:
+    qlot
+; Loading "qlot"
+
+Installing Quicklisp to /gt/evo-rings/quicklisp/ ...
+; Fetching #<URL "http://beta.quicklisp.org/quicklisp.lisp">
+; 55.80KB
+Reading '/gt/evo-rings/qlfile'...
+; Fetching #<URL "http://beta.quicklisp.org/dist/quicklisp.txt">
+; 0.40KB
+==================================================
+408 bytes in 0.00 seconds (521.52KB/sec)
+Already have dist "quicklisp" version "2018-03-28".
+Installing dist "curry-compose-reader-macros".
+Installing dist "cl-arrows".
+> Error: No git references named 'HEAD'.
+> While executing: (:INTERNAL QLOT.SOURCE.GIT::SHOW-REF QLOT.SOURCE.GIT::RETRIEVE-SOURCE-GIT-REF), in process listener(1).
+> Type :GO to continue, :POP to abort, :R for a list of available restarts.
+> If continued: Skip evaluation of (qlot:install :evo-rings)
+> Type :? for other options.
+1 > CC=cc  LISP=ccl ccl --quiet --no-init \
+--load quicklisp/setup.lisp \
+--eval '(pushnew (truename ".") ql:*local-project-directories*)' \
+--eval '(ql:quickload :evo-rings)' \
+--eval '(setf evo-rings::*lisp-interaction* nil)' \
+--eval '(asdf:make :evo-rings/repair-system :type :program :monolithic t)' \
+--eval '(quit)'
+To load "evo-rings":
+  Load 1 ASDF system:
+    evo-rings
+; Loading "evo-rings"
+To load "alexandria":
+  Install 1 Quicklisp release:
+    alexandria
+; Fetching #<URL "http://beta.quicklisp.org/archive/alexandria/2017-08-30/alexandria-20170830-git.tgz">
+; 49.93KB
+==================================================
+51,131 bytes in 0.06 seconds (794.23KB/sec)
+; Loading "alexandria"
+[package alexandria.0.dev]........................
+..................................................
+..........
+; Loading "evo-rings"
+To load "bordeaux-threads":
+  Load 1 ASDF system:
+    alexandria
+  Install 1 Quicklisp release:
+    bordeaux-threads
+; Fetching #<URL "http://beta.quicklisp.org/archive/bordeaux-threads/2016-03-18/bordeaux-threads-v0.8.5.tgz">
+; 19.63KB
+==================================================
+20,105 bytes in 0.00 seconds (25236.23KB/sec)
+; Loading "bordeaux-threads"
+[package bordeaux-threads]...............
+; Loading "evo-rings"
+To load "getopt":
+  Install 1 Quicklisp release:
+    getopt
+; Fetching #<URL "http://beta.quicklisp.org/archive/getopt/2015-09-23/getopt-20150923-git.tgz">
+; 4.99KB
+==================================================
+5,108 bytes in 0.00 seconds (6668.82KB/sec)
+; Loading "getopt"
+[package getopt].
+; Loading "evo-rings"
+To load "lparallel":
+  Load 2 ASDF systems:
+    alexandria bordeaux-threads
+  Install 1 Quicklisp release:
+    lparallel
+; Fetching #<URL "http://beta.quicklisp.org/archive/lparallel/2016-08-25/lparallel-20160825-git.tgz">
+; 76.71KB
+==================================================
+78,551 bytes in 0.03 seconds (2204.06KB/sec)
+; Loading "lparallel"
+[package lparallel.util]..........................
+[package lparallel.thread-util]...................
+[package lparallel.raw-queue].....................
+[package lparallel.cons-queue]....................
+[package lparallel.vector-queue]..................
+[package lparallel.queue].........................
+[package lparallel.biased-queue]..................
+[package lparallel.kernel]........................
+[package lparallel.kernel-util]...................
+[package lparallel.promise].......................
+[package lparallel.ptree].........................
+[package lparallel.slet]..........................
+[package lparallel.defpun]........................
+..................................................
+[package lparallel.cognate].......................
+..................................................
+[package lparallel]
+; Loading "evo-rings"
+To load "metabang-bind":
+  Install 1 Quicklisp release:
+    metabang-bind
+; Fetching #<URL "http://beta.quicklisp.org/archive/metabang-bind/2017-11-30/metabang-bind-20171130-git.tgz">
+; 22.12KB
+==================================================
+22,655 bytes in 0.00 seconds (26058.92KB/sec)
+; Loading "metabang-bind"
+[package metabang.bind]...........................
+[package metabang.bind.developer].................
+............> Error: System "software-evolution-library" not found
+> While executing: (:INTERNAL QUICKLISP-CLIENT::RECURSE QUICKLISP-CLIENT::COMPUTE-LOAD-STRATEGY), in process listener(1).
+
+; Loading "evo-rings"
+> Type :GO to continue, :POP to abort, :R for a list of available restarts.
+> If continued: Try again
+> Type :? for other options.
+1 > CC=cc  LISP=ccl ccl --quiet --no-init \
+--load quicklisp/setup.lisp \
+--eval '(pushnew (truename ".") ql:*local-project-directories*)' \
+--eval '(ql:quickload :evo-rings)' \
+--eval '(setf evo-rings::*lisp-interaction* nil)' \
+--eval '(asdf:make :evo-rings/repair-service :type :program :monolithic t)' \
+--eval '(quit)'
+To load "evo-rings":
+  Load 1 ASDF system:
+    evo-rings
+; Loading "evo-rings"
+> Type :GO to continue, :POP to abort, :R for a list of available restarts.
+> If continued: Try again
+> Type :? for other options.
+1 > > Error: System "software-evolution-library" not found
+> While executing: (:INTERNAL QUICKLISP-CLIENT::RECURSE QUICKLISP-CLIENT::COMPUTE-LOAD-STRATEGY), in process listener(1).
+CC=cc  LISP=ccl ccl --quiet --no-init \
+--load quicklisp/setup.lisp \
+--eval '(pushnew (truename ".") ql:*local-project-directories*)' \
+--eval '(ql:quickload :evo-rings)' \
+--eval '(setf evo-rings::*lisp-interaction* nil)' \
+--eval '(asdf:make :evo-rings/reduce-memory :type :program :monolithic t)' \
+--eval '(quit)'
+To load "evo-rings":
+  Load 1 ASDF system:
+    evo-rings
+> Error: System "software-evolution-library" not found
+> While executing: (:INTERNAL QUICKLISP-CLIENT::RECURSE QUICKLISP-CLIENT::COMPUTE-LOAD-STRATEGY), in process listener(1).
+; Loading "evo-rings"
+> Type :GO to continue, :POP to abort, :R for a list of available restarts.
+> If continued: Try again
+> Type :? for other options.
+1 > cp bin/repair-system /usr/synth/bin
+cp: cannot stat 'bin/repair-system': No such file or directory
+make: *** [install] Error 1
+Makefile:16: recipe for target 'install' failed
+ERROR: Service 'genpatcher' failed to build: The command '/bin/sh -c make install' returned a non-zero code: 2
+make: *** [Makefile:61: build] Error 1

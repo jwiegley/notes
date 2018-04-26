@@ -1,0 +1,5 @@
+[nix-shell:~/src/hnix]$ ./dist/build/hnix/hnix --check -e "{ x, y }: let z = x + y; in [ z (y + 2) ]"
+(fromList [("x","int, string, path"),("y","int")] -> [int])
+{ x, y, ...}:   let
+                  z = x + y;
+                in [ z (y + 2) ]

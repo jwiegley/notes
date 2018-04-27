@@ -1,10 +1,12 @@
 {-# LANGUAGE DeriveFunctor #-}
 {-# LANGUAGE ExistentialQuantification #-}
 {-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE ScopedTypeVariables #-}
 
 module Cata where
 
 import Data.Fix
+import Data.Semigroup
 
 type Alg f a = f a -> a
 
@@ -79,6 +81,13 @@ foldNat (Fold step beg red) = red . cata (\case O -> beg; S r -> step r ())
 -- encodings: the Fold type has lost the knowledge of 'f' at each level of the
 -- recursion, making selective decision making based on that information
 -- impossible, whereas Cata depends on it.
+
+newtype EndoAlg f = EndoAlg (Alg f (Fix f))
+
+instance Functor f => Semigroup (EndoAlg f) where
+    EndoAlg f <> EndoAlg g = EndoAlg (cata f . g)
+
+-- jww (2018-04-27): Do these combined transforms fuse into a single pass?
 
 main :: IO ()
 main = do

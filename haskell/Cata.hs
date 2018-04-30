@@ -1,11 +1,17 @@
+{-# LANGUAGE DataKinds #-}
 {-# LANGUAGE DeriveFunctor #-}
 {-# LANGUAGE ExistentialQuantification #-}
+{-# LANGUAGE GADTs #-}
+{-# LANGUAGE KindSignatures #-}
 {-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE ScopedTypeVariables #-}
+{-# LANGUAGE TypeOperators #-}
 
 module Cata where
 
 import Data.Fix
+import Data.Functor.Compose
 import Data.Semigroup
 
 type Alg f a = f a -> a
@@ -25,6 +31,17 @@ instance Functor f => Applicative (Cata f) where
 
 runCata :: Functor f => Cata f a -> Fix f -> a
 runCata (Cata alg red) f = red (cata alg f)
+
+-- Monoid Algebra
+--
+--   Categories
+--     Objects      : Monoid Algebra
+--     Morphism     : Monoid Homomorphism
+--     Initial      : Initial Monoid Algebra (ListF)
+--                    Free Objects
+--     Catamorphism : Any morphism from the initial algebra to another algebra
+--     Terminal     : Final Monoid Coalgebra
+--     Anamorphism  : Any morphism from another algebra to the final algebra
 
 data ListF a r = Nil | Cons a r deriving Functor
 
@@ -82,10 +99,25 @@ foldNat (Fold step beg red) = red . cata (\case O -> beg; S r -> step r ())
 -- recursion, making selective decision making based on that information
 -- impossible, whereas Cata depends on it.
 
-newtype EndoAlg f = EndoAlg (Alg f (Fix f))
+-- newtype AlgHom f g = AlgHom (Alg f (Fix g))
 
-instance Functor f => Semigroup (EndoAlg f) where
-    EndoAlg f <> EndoAlg g = EndoAlg (cata f . g)
+-- -- f (Fix g) -> Fix g  ==>  g (Fix h) -> Fix h
+-- compose :: (Functor f, Functor g)
+--         => AlgHom g h -> AlgHom f g -> AlgHom f h
+-- compose (AlgHom f) (AlgHom g) = AlgHom (_ (cata f . g))
+
+data Nested (f :: * -> *) (fs :: [* -> *]) a where
+    Layer  :: (forall r. f (Nested fs a) -> a) -> Nested f fs a
+
+runNested :: Nested (f ': fs) a -> f (Nested fs a) -> Nested fs a
+runNested (Layer phi) = phi
+
+compose :: Functor f => (f a -> a) -> (g a -> a) -> f (g a) -> a
+compose f g = f . fmap g
+
+addLayer :: (forall r. f r -> r) -> Nested fs a -> Nested (f ': fs) a
+addLayer phi Bottom      = Layer phi
+addLayer phi (Layer psi) = Layer (phi . psi)
 
 -- jww (2018-04-27): Do these combined transforms fuse into a single pass?
 

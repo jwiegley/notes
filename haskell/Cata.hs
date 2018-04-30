@@ -106,6 +106,8 @@ foldNat (Fold step beg red) = red . cata (\case O -> beg; S r -> step r ())
 --         => AlgHom g h -> AlgHom f g -> AlgHom f h
 -- compose (AlgHom f) (AlgHom g) = AlgHom (_ (cata f . g))
 
+-- Another note.
+
 {-
 data Nested (f :: * -> *) (fs :: [* -> *]) a where
     Layer  :: (forall r. f (Nested fs a) -> a) -> Nested f fs a

@@ -106,6 +106,7 @@ foldNat (Fold step beg red) = red . cata (\case O -> beg; S r -> step r ())
 --         => AlgHom g h -> AlgHom f g -> AlgHom f h
 -- compose (AlgHom f) (AlgHom g) = AlgHom (_ (cata f . g))
 
+{-
 data Nested (f :: * -> *) (fs :: [* -> *]) a where
     Layer  :: (forall r. f (Nested fs a) -> a) -> Nested f fs a
 
@@ -118,6 +119,7 @@ compose f g = f . fmap g
 addLayer :: (forall r. f r -> r) -> Nested fs a -> Nested (f ': fs) a
 addLayer phi Bottom      = Layer phi
 addLayer phi (Layer psi) = Layer (phi . psi)
+-}
 
 -- jww (2018-04-27): Do these combined transforms fuse into a single pass?
 

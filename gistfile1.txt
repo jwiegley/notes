@@ -1,0 +1,9 @@
+./dist/build/hnix/hnix -v3 --values --eval LnL.nix -A a
+41   (from: (args:
+       _) _(origArgs:
+       _) _if ? _
+       then _
+       else 40 + 1if ? _ || ? && _
+       then _
+       else 40 + 1ff({ b }:
+       _) _40 + 1)

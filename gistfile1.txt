@@ -1,0 +1,20 @@
+nix build --keep-going darwin.system
+trace: Warning: `traceValIfNot` is deprecated and will be removed in the next release. Please use `if/then/else` and `traceValSeq 1`.
+[7 built, 1 copied (42.0 MiB), 7.3 MiB DL]
+rm result
+nix build -f ~/src/nix/home-manager/home-manager/home-manager.nix \
+	  --argstr confPath "/Users/johnw/src/nix/config/home.nix" \
+	  --argstr confAttr "" activationPackage \
+	  --keep-going
+trace: Warning: `traceValIfNot` is deprecated and will be removed in the next release. Please use `if/then/else` and `traceValSeq 1`.
+builder for '/nix/store/i3j6v4lglxv1hac06qcij6ghv0phbxx0-nixos-manual-combined.drv' failed with exit code 3; last 10 log lines:
+  manual-combined.xml:3483: element xref: validity error : IDREF attribute linkend references an unknown ID "opt-networking.nat.internalInterfaces"
+    3479	  rewrite container traffic to use your external IP address. This can be
+    3480	  accomplished using the following configuration on the host:
+    3481	<programlisting>
+    3482	<xref linkend="opt-networking.nat.enable"/> = true;
+    3483	<xref linkend="opt-networking.nat.internalInterfaces"/> = ["ve-+"];
+    3484	<xref linkend="opt-networking.nat.externalInterface"/> = "eth0";
+    3485	</programlisting>
+
+  manual-combined.xml fails to validate

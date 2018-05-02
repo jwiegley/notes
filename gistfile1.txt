@@ -1,0 +1,38 @@
+./dist/build/hnix/hnix -v3 --check --eval if-then.nix
+Type of expression: [ Forall
+    [ TV "a" ]
+    (TArr
+       (TSet
+          False
+          (fromList [ ( "x" , TCon "integer" ) , ( "y" , TVar (TV "a") ) ]))
+       (TCon "integer"))
+, Forall
+    [ TV "a" ]
+    (TArr
+       (TSet
+          False
+          (fromList [ ( "x" , TCon "float" ) , ( "y" , TVar (TV "a") ) ]))
+       (TCon "float"))
+, Forall
+    [ TV "a" ]
+    (TArr
+       (TSet
+          False
+          (fromList [ ( "x" , TCon "string" ) , ( "y" , TVar (TV "a") ) ]))
+       (TCon "string"))
+, Forall
+    [ TV "a" ]
+    (TArr
+       (TSet
+          False
+          (fromList [ ( "x" , TCon "path" ) , ( "y" , TVar (TV "a") ) ]))
+       (TCon "path"))
+, Forall
+    [ TV "a" ]
+    (TArr
+       (TSet
+          False
+          (fromList [ ( "x" , TCon "string" ) , ( "y" , TVar (TV "a") ) ]))
+       (TCon "path"))
+]
+<closure>

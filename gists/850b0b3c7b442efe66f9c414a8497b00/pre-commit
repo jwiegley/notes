@@ -1,0 +1,15 @@
+#!/bin/bash
+
+cp hnix.cabal /tmp/hnix.cabal
+
+# nix-shell --run "hpack --silent --force"
+hpack --silent --force
+
+if ! cmp --silent hnix.cabal /tmp/hnix.cabal
+then
+    rm -f /tmp/hnix.cabal
+    echo "error: hnix.cabal needs to be updated"
+    exit 1
+else
+    rm -f /tmp/hnix.cabal
+fi

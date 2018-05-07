@@ -7,41 +7,48 @@
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TypeOperators #-}
+{-# LANGUAGE ViewPatterns #-}
 
 module Cata where
 
+import Control.Arrow
+import Control.Category
 import Data.Fix
+import Data.Functor.Identity
 import Data.Functor.Compose
 import Data.Semigroup
+import Prelude hiding (id, (.))
 
 type Alg f a = f a -> a
+
+idAlg :: Alg Identity a
+idAlg (Identity x) = x
+
+compAlg :: Functor f => Alg f a -> Alg g a -> Alg (Compose f g) a
+compAlg f g = f . fmap g . getCompose
+
+assocAlg :: Functor f
+         => Alg (Compose (Compose f g) h) a -> Alg (Compose f (Compose g h)) a
+assocAlg f (Compose (fmap getCompose -> fgh)) = f (Compose (Compose fgh))
+
+contrahoist :: (forall x. g x -> f x) -> Alg f a -> Alg g a
+contrahoist k f = f . k
 
 data Cata f a = forall x. Cata (f x -> x) (x -> a)
 
 instance Functor (Cata f) where
     fmap f (Cata alg red) = Cata alg (f . red)
 
-algComp :: Functor f => (f a -> a) -> (f b -> b) -> f (a, b) -> (a, b)
-algComp f g x = (f (fmap fst x), g (fmap snd x))
+zipAlg :: Functor f => (f a -> a) -> (f b -> b) -> f (a, b) -> (a, b)
+zipAlg f g x = (f (fmap fst x), g (fmap snd x))
 
 instance Functor f => Applicative (Cata f) where
     pure x = Cata (const ()) (const x)
     Cata falg fred <*> Cata galg gred =
-        Cata (algComp falg galg) (\(f, g) -> fred f (gred g))
+        Cata (zipAlg falg galg) (\(f, g) -> fred f (gred g))
 
 runCata :: Functor f => Cata f a -> Fix f -> a
 runCata (Cata alg red) f = red (cata alg f)
-
--- Monoid Algebra
---
---   Categories
---     Objects      : Monoid Algebra
---     Morphism     : Monoid Homomorphism
---     Initial      : Initial Monoid Algebra (ListF)
---                    Free Objects
---     Catamorphism : Any morphism from the initial algebra to another algebra
---     Terminal     : Final Monoid Coalgebra
---     Anamorphism  : Any morphism from another algebra to the final algebra
 
 data ListF a r = Nil | Cons a r deriving Functor
 
@@ -106,20 +113,28 @@ foldNat (Fold step beg red) = red . cata (\case O -> beg; S r -> step r ())
 --         => AlgHom g h -> AlgHom f g -> AlgHom f h
 -- compose (AlgHom f) (AlgHom g) = AlgHom (_ (cata f . g))
 
-{-
-data Nested (f :: * -> *) (fs :: [* -> *]) a where
-    Layer  :: (forall r. f (Nested fs a) -> a) -> Nested f fs a
+data Nested (fs :: [* -> *]) a where
+    Ground :: Alg f a -> Nested '[f] a
+    Layer  :: Alg (Compose f (Nested fs)) a -> Nested (f ': fs) a
 
-runNested :: Nested (f ': fs) a -> f (Nested fs a) -> Nested fs a
-runNested (Layer phi) = phi
+runNestedGround :: Nested '[f] a -> Alg f a
+runNestedGround (Ground phi) = phi
 
-compose :: Functor f => (f a -> a) -> (g a -> a) -> f (g a) -> a
-compose f g = f . fmap g
+runNestedLayer :: Nested (f ': fs) a -> Alg (Compose f (Nested fs)) a
+runNestedLayer (Layer phi) = phi
 
-addLayer :: (forall r. f r -> r) -> Nested fs a -> Nested (f ': fs) a
-addLayer phi Bottom      = Layer phi
-addLayer phi (Layer psi) = Layer (phi . psi)
--}
+newtype Transform f g = Transform { getTransform :: Alg f (Fix g) }
+
+idTrans :: Transform f f
+idTrans = Transform Fix
+
+-- compTrans :: Transform g h -> Transform f g -> Transform (Compose f g) h
+-- compTrans (Transform g) (Transform f) =
+--     Transform (\(Compose x) -> compAlg f g (Compose (sequence x)))
+
+-- addLayer :: Alg f (Fix g) -> Nested fs a -> Nested (f ': fs) a
+-- addLayer phi (Ground f)  = Layer (\(Compose x) -> phi (f x))
+-- addLayer phi (Layer psi) = Layer (compAlg phi psi)
 
 -- jww (2018-04-27): Do these combined transforms fuse into a single pass?
 

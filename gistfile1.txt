@@ -1,0 +1,494 @@
+For help using this buffer, see [Easy Customization] in the [Emacs manual].
+
+                                         [ Search ]
+
+Operate on all settings in this buffer:
+[ Revert... ] [ Apply ] [ Apply and Save ]
+
+Hide Org Agenda Custom Commands:
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : e
+            [X] Description: Emacs Tasks
+            Choice: [Value Menu] Tags/Property match (all agenda files)
+            Match (only for some commands): TODO<>"PROJECT"&LEVEL<>1
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: Emacs Tasks
+            [INS] [DEL] Setting: [Value Menu] Files to be searched:
+                        org-agenda-files
+                        List:
+                        Repeat:
+                        [INS] [DEL] File: ~/Documents/tasks/emacs.txt
+                        [INS]
+            [INS]
+            [ ] Export:
+                [INS]
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : h
+            [X] Description: Current Hotlist
+            Choice: [Value Menu] Tags/Property match (all agenda files)
+            Match (only for some commands): HOT&TODO="PROJECT"
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: Current Hotlist
+            [INS]
+            [ ] Export:
+                [INS]
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : H
+            [X] Description: Non-Hot Projects
+            Choice: [Value Menu] Tags/Property match (all agenda files)
+            Match (only for some commands): -HOT&TODO="PROJECT"
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: Non-Hot Projects
+            [INS]
+            [ ] Export:
+                [INS]
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : n
+            [X] Description: Project Next Actions
+            Choice: [Value Menu] TODO list
+            Match (only for some commands): 
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: Project Next Actions
+            [INS] [DEL] Setting: [Value Menu] Non-standard skipping condition:
+                        org-agenda-skip-function
+                        Function or form (quoted!): 
+#'my-org-agenda-skip-all-siblings-but-first
+            [INS]
+            [ ] Export:
+                [INS]
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : P
+            [X] Description: All Projects
+            Choice: [Value Menu] TODO keyword tree (current buffer)
+            Match (only for some commands): PROJECT
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: All Projects
+            [INS]
+            [ ] Export:
+                [INS]
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : A
+            [X] Description: Priority #A tasks
+            Choice: [Value Menu] Agenda
+            Match (only for some commands): 
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Any variable:
+                        Variable: org-agenda-ndays
+                        Value (sexp): 1
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: Today's priority #A tasks: 
+            [INS] [DEL] Setting: [Value Menu] Non-standard skipping condition:
+                        org-agenda-skip-function
+                        Function or form (quoted!): 
+'(org-agenda-skip-entry-if 'notregexp "\\=.*\\[#A\\]")
+            [INS]
+            [ ] Export:
+                [INS]
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : b
+            [X] Description: Priority #A and #B tasks
+            Choice: [Value Menu] Agenda
+            Match (only for some commands): 
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Any variable:
+                        Variable: org-agenda-ndays
+                        Value (sexp): 1
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: Today's priority #A and #B tasks: 
+            [INS] [DEL] Setting: [Value Menu] Non-standard skipping condition:
+                        org-agenda-skip-function
+                        Function or form (quoted!): 
+'(org-agenda-skip-entry-if 'regexp "\\=.*\\[#C\\]")
+            [INS]
+            [ ] Export:
+                [INS]
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : r
+            [X] Description: Uncategorized items
+            Choice: [Value Menu] Tags/Property match (all agenda files)
+            Match (only for some commands): CATEGORY="Inbox"&LEVEL=2
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: Uncategorized items
+            [INS]
+            [ ] Export:
+                [INS]
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : w
+            [X] Description: Waiting/delegated tasks
+            Choice: [Value Menu] Tags/Property match (all agenda files)
+            Match (only for some commands): W-TODO="DONE"|TODO={WAITING\|DELEGATED}
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: Waiting/delegated tasks:
+            [INS] [DEL] Setting: [Value Menu] Standard skipping condition:
+                        org-agenda-skip-function
+                        List:
+                        List:
+                        Skipping range: [Value Menu] Skip entry
+                        Conditions for skipping:
+                        [INS] [DEL] Condition type: [Value Menu] scheduled
+                        [INS]
+            [INS] [DEL] Setting: [Value Menu] Sorting strategy:
+                        org-agenda-sorting-strategy
+                        List:
+                        Repeat:
+                        [INS] [DEL] Choice: [Value Menu] todo-state-up
+                        [INS] [DEL] Choice: [Value Menu] priority-down
+                        [INS] [DEL] Choice: [Value Menu] category-up
+                        [INS]
+            [INS]
+            [ ] Export:
+                [INS]
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : D
+            [X] Description: Deadlined tasks
+            Choice: [Value Menu] Tags/Property match (all agenda files)
+            Match (only for some commands): TODO<>""&TODO<>{DONE\|CANCELED\|NOTE\|PROJECT}
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: Deadlined tasks: 
+            [INS] [DEL] Setting: [Value Menu] Standard skipping condition:
+                        org-agenda-skip-function
+                        List:
+                        List:
+                        Skipping range: [Value Menu] Skip entry
+                        Conditions for skipping:
+                        [INS] [DEL] Condition type: [Value Menu] no deadline
+                        [INS]
+            [INS] [DEL] Setting: [Value Menu] Sorting strategy:
+                        org-agenda-sorting-strategy
+                        List:
+                        Repeat:
+                        [INS] [DEL] Choice: [Value Menu] category-up
+                        [INS]
+            [INS]
+            [ ] Export:
+                [INS]
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : S
+            [X] Description: Scheduled tasks
+            Choice: [Value Menu] Tags/Property match (all agenda files)
+            Match (only for some commands): TODO<>""&TODO<>{APPT\|DONE\|CANCELED\|NOTE\|PROJECT}&STYLE<>"habit"
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: Scheduled tasks: 
+            [INS] [DEL] Setting: [Value Menu] Standard skipping condition:
+                        org-agenda-skip-function
+                        List:
+                        List:
+                        Skipping range: [Value Menu] Skip entry
+                        Conditions for skipping:
+                        [INS] [DEL] Condition type: [Value Menu] not scheduled
+                        [INS]
+            [INS] [DEL] Setting: [Value Menu] Sorting strategy:
+                        org-agenda-sorting-strategy
+                        List:
+                        Repeat:
+                        [INS] [DEL] Choice: [Value Menu] category-up
+                        [INS]
+            [INS]
+            [ ] Export:
+                [INS]
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : d
+            [X] Description: Unscheduled open source tasks (by date)
+            Choice: [Value Menu] Tags/Property match (all agenda files)
+            Match (only for some commands): TODO<>""&TODO<>{DONE\|CANCELED\|NOTE\|PROJECT}
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: Unscheduled Open Source tasks (by date): 
+            [INS] [DEL] Setting: [Value Menu] Non-standard skipping condition:
+                        org-agenda-skip-function
+                        Function or form (quoted!): 
+'(org-agenda-skip-entry-if 'scheduled 'deadline 'timestamp 'regexp "\\* \\(DEFERRED\\|SOMEDAY\\)")
+            [INS] [DEL] Setting: [Value Menu] Sorting strategy:
+                        org-agenda-sorting-strategy
+                        List:
+                        Repeat:
+                        [INS] [DEL] Choice: [Value Menu] user-defined-up
+                        [INS]
+            [INS] [DEL] Setting: [Value Menu] Prefix format:
+                        org-agenda-prefix-format
+                        String: %-11c%5(org-todo-age) 
+            [INS] [DEL] Setting: [Value Menu] Files to be searched:
+                        org-agenda-files
+                        List:
+                        Repeat:
+                        [INS] [DEL] File: ~/Documents/tasks/OSS.txt
+                        [INS] [DEL] File: ~/Documents/tasks/emacs.txt
+                        [INS]
+            [INS]
+            [ ] Export:
+                [INS]
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : o
+            [X] Description: Unscheduled open source tasks (by project)
+            Choice: [Value Menu] Tags/Property match (all agenda files)
+            Match (only for some commands): TODO<>""&TODO<>{DONE\|CANCELED\|NOTE\|PROJECT}
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: Unscheduled Open Source tasks (by project): 
+            [INS] [DEL] Setting: [Value Menu] Non-standard skipping condition:
+                        org-agenda-skip-function
+                        Function or form (quoted!): 
+'(org-agenda-skip-entry-if 'scheduled 'deadline 'timestamp 'regexp "\\* \\(DEFERRED\\|SOMEDAY\\)")
+            [INS] [DEL] Setting: [Value Menu] Sorting strategy:
+                        org-agenda-sorting-strategy
+                        List:
+                        Repeat:
+                        [INS] [DEL] Choice: [Value Menu] category-up
+                        [INS]
+            [INS] [DEL] Setting: [Value Menu] Prefix format:
+                        org-agenda-prefix-format
+                        String: %-11c%5(org-todo-age) 
+            [INS] [DEL] Setting: [Value Menu] Files to be searched:
+                        org-agenda-files
+                        List:
+                        Repeat:
+                        [INS] [DEL] File: ~/Documents/tasks/OSS.txt
+                        [INS] [DEL] File: ~/Documents/tasks/emacs.txt
+                        [INS]
+            [INS]
+            [ ] Export:
+                [INS]
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : u
+            [X] Description: Unscheduled tasks
+            Choice: [Value Menu] Tags/Property match (all agenda files)
+            Match (only for some commands): TODO<>""&TODO<>{DONE\|CANCELED\|NOTE\|PROJECT\|DEFERRED\|SOMEDAY}
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: Unscheduled tasks: 
+            [INS] [DEL] Setting: [Value Menu] Standard skipping condition:
+                        org-agenda-skip-function
+                        List:
+                        List:
+                        Skipping range: [Value Menu] Skip entry
+                        Conditions for skipping:
+                        [INS] [DEL] Condition type: [Value Menu] scheduled
+                        [INS] [DEL] Condition type: [Value Menu] deadline
+                        [INS] [DEL] Condition type: [Value Menu] timestamp
+                        [INS]
+            [INS] [DEL] Setting: [Value Menu] Sorting strategy:
+                        org-agenda-sorting-strategy
+                        List:
+                        Repeat:
+                        [INS] [DEL] Choice: [Value Menu] user-defined-up
+                        [INS]
+            [INS] [DEL] Setting: [Value Menu] Prefix format:
+                        org-agenda-prefix-format
+                        String: %-11c%5(org-todo-age) 
+            [INS] [DEL] Setting: [Value Menu] Files to be searched:
+                        org-agenda-files
+                        List:
+                        Repeat:
+                        [INS] [DEL] File: ~/Documents/tasks/todo.txt
+                        [INS] [DEL] File: ~/Documents/tasks/Bahai.txt
+                        [INS]
+            [INS]
+            [ ] Export:
+                [INS]
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : U
+            [X] Description: Deferred tasks
+            Choice: [Value Menu] Tags/Property match (all agenda files)
+            Match (only for some commands): TODO="DEFERRED"
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: Deferred tasks:
+            [INS] [DEL] Setting: [Value Menu] Sorting strategy:
+                        org-agenda-sorting-strategy
+                        List:
+                        Repeat:
+                        [INS] [DEL] Choice: [Value Menu] user-defined-up
+                        [INS]
+            [INS] [DEL] Setting: [Value Menu] Prefix format:
+                        org-agenda-prefix-format
+                        String: %-11c%5(org-todo-age) 
+            [INS]
+            [ ] Export:
+                [INS]
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : Y
+            [X] Description: Someday tasks
+            Choice: [Value Menu] Tags/Property match (all agenda files)
+            Match (only for some commands): TODO="SOMEDAY"
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: Someday tasks:
+            [INS] [DEL] Setting: [Value Menu] Sorting strategy:
+                        org-agenda-sorting-strategy
+                        List:
+                        Repeat:
+                        [INS] [DEL] Choice: [Value Menu] user-defined-up
+                        [INS]
+            [INS] [DEL] Setting: [Value Menu] Prefix format:
+                        org-agenda-prefix-format
+                        String: %-11c%5(org-todo-age) 
+            [INS]
+            [ ] Export:
+                [INS]
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : W
+            [X] Description: Unscheduled work-related tasks
+            Choice: [Value Menu] Tags/Property match (all agenda files)
+            Match (only for some commands): TODO<>""&TODO<>{DONE\|CANCELED\|NOTE\|PROJECT}
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: Unscheduled work-related tasks
+            [INS] [DEL] Setting: [Value Menu] Files to be searched:
+                        org-agenda-files
+                        List:
+                        Repeat:
+                        [INS] [DEL] File: ~/Documents/tasks/BAE.txt
+                        [INS]
+            [INS] [DEL] Setting: [Value Menu] Sorting strategy:
+                        org-agenda-sorting-strategy
+                        List:
+                        Repeat:
+                        [INS] [DEL] Choice: [Value Menu] todo-state-up
+                        [INS] [DEL] Choice: [Value Menu] priority-down
+                        [INS] [DEL] Choice: [Value Menu] category-up
+                        [INS]
+            [INS] [DEL] Setting: [Value Menu] Standard skipping condition:
+                        org-agenda-skip-function
+                        List:
+                        List:
+                        Skipping range: [Value Menu] Skip entry
+                        Conditions for skipping:
+                        [INS] [DEL] Condition type: [Value Menu] scheduled
+                        [INS] [DEL] Condition type: [Value Menu] deadline
+                        [INS] [DEL] Condition type: [Value Menu] timestamp
+                        [INS]
+            [INS] [DEL] Setting: [Value Menu] Prefix format:
+                        org-agenda-prefix-format
+                        String: %-11c%5(org-todo-age) 
+            [INS]
+            [ ] Export:
+                [INS]
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : c
+            [X] Description: Appointment Calendar
+            Choice: [Value Menu] Agenda
+            Match (only for some commands): 
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: Appointment Calendar
+            [INS] [DEL] Setting: [Value Menu] Sorting strategy:
+                        org-agenda-sorting-strategy
+                        List:
+                        Repeat:
+                        [INS] [DEL] Choice: [Value Menu] time-up
+                        [INS]
+            [INS] [DEL] Setting: [Value Menu] Number of days in agenda:
+                        org-agenda-span
+                        Choice: [Value Menu] Custom: 14
+            [INS] [DEL] Setting: [Value Menu] Any variable:
+                        Variable: org-agenda-ndays
+                        Value (sexp): 14
+            [INS] [DEL] Setting: [Value Menu] Regexp filter preset:
+                        org-agenda-regexp-filter-preset
+                        List:
+                        Repeat:
+                        [INS] [DEL] +regexp or -regexp: +APPT
+                        [INS]
+            [INS]
+            [ ] Export:
+                [INS]
+[INS] [DEL] Choice: [Value Menu] Single command:
+            Access Key(s) : O
+            [X] Description: All TODOs
+            Choice: [Value Menu] Tags/Property match (all agenda files)
+            Match (only for some commands): TODO<>""
+            Local settings for this command.  Remember to quote values:
+            [INS] [DEL] Setting: [Value Menu] Heading for this block:
+                        org-agenda-overriding-header
+                        Headline: All TODOs
+            [INS] [DEL] Setting: [Value Menu] Files to be searched:
+                        org-agenda-files
+                        List:
+                        Repeat:
+                        [INS] [DEL] File: ~/Documents/tasks/todo.txt
+                        [INS] [DEL] File: ~/Documents/tasks/BAE.txt
+                        [INS] [DEL] File: ~/Documents/tasks/Bahai.txt
+                        [INS] [DEL] File: ~/Documents/tasks/OSS.txt
+                        [INS] [DEL] File: ~/Documents/tasks/emacs.txt
+                        [INS] [DEL] File: ~/Documents/tasks/habits.txt
+                        [INS] [DEL] File: ~/Documents/tasks/index.txt
+                        [INS] [DEL] File: ~/Documents/tasks/notes.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/BAE.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/Bahai.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/BoostPro.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/CEG.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/Embarcadero.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/FPComplete.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/IL-05.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/TI.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/archive-2007.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/archive-2008.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/archive-2009.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/archive-2010.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/archive-2011.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/archive-2012.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/archive-2013.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/archive-2014.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/archive-2015.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/archive-2016.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/archive.txt
+                        [INS] [DEL] File: ~/Documents/tasks/archive/emacs.txt
+                        [INS]
+            [INS]
+            [ ] Export:
+                [INS]
+[INS]
+   [ State ]: SAVED and set.
+   Custom commands for the agenda. Hide
+   These commands will be offered on the splash screen displayed by the
+   agenda dispatcher C-c a.  Each entry is a list like this:
+   
+      (key desc type match settings files)
+   
+   key      The key (one or more characters as a string) to be associated
+            with the command.
+   desc     A description of the command, when omitted or nil, a default
+            description is built using MATCH.
+   type     The command type, any of the following symbols:
+             agenda      The daily/weekly agenda.
+             todo        Entries with a specific TODO keyword, in all agenda files.
+             search      Entries containing search words entry or headline.
+             tags        Tags/Property/TODO match in all agenda files.
+             tags-todo   Tags/P/T match in all agenda files, TODO entries only.
+             todo-tree   Sparse tree of specific TODO keyword in *current* file.
+             tags-tree   Sparse tree with all tags matches in *current* file.
+             occur-tree  Occur sparse tree for *current* file.
+             ...         A user-defined function.
+   match    What to search for:
+             - a single keyword for TODO keyword searches
+             - a tags match expression for tags searches
+             - a word search expression for text searches.
+             - a regular expression for occur searches
+   

@@ -1,0 +1,83 @@
+#!/bin/bash
+
+COMPILER='ghc822'
+HASKVER='_8_2'
+NIXPKGS='import <darwin> {}'
+HASKPKGS="haskellPackages${HASKVER}"
+PKGNAME=$(basename "$PWD")
+
+START="$PWD"
+while [[ "$PWD" != "/" && ! -f default.nix ]]; do
+    cd ..
+done
+
+if [[ "$PWD" = "/" ]]; then
+    cd "$START"
+    while [[ "$PWD" != "/" && ! -d .git && ! -f .git ]]; do
+        cd ..
+    done
+fi
+
+if [[ "$PWD" = "/" ]]; then
+    echo "Error: Could not find default.nix or .git"
+    exit 1
+fi
+
+read -r -d '' INPUT <<- EOM
+let nixpkgs = ${NIXPKGS};
+    pkgs = nixpkgs.pkgs;
+
+    haveDefault = builtins.pathExists ./default.nix;
+
+    package =
+      if haveDefault
+      then import ./default.nix {
+             compiler = "${COMPILER}";
+             nixpkgs = pkgs.lib.recursiveUpdate nixpkgs
+               { pkgs.lib.inNixShell = false; };
+           }
+      else pkgs.${HASKPKGS}.callCabal2nix "${PKGNAME}" ./. {};
+
+    compiler =
+      if haveDefault
+      then pkgs.${HASKPKGS}.ghc
+      else package.compiler;
+
+    packages =
+      if haveDefault
+      then package.buildInputs
+      else pkgs.haskell.lib.getHaskellBuildInputs package;
+
+    cabalInstallVersion = {
+      ghc802 = "1.24.0.2";
+      ghc822 = "2.0.0.1";
+      ghc842 = "2.2.0.0";
+    };
+
+    hoogleExpr = <nixpkgs/pkgs/development/haskell-modules/hoogle.nix>;
+
+    haskell-ide-engine = import (pkgs.fetchFromGitHub {
+      owner  = "domenkozar";
+      repo   = "hie-nix";
+      rev    = "dbb89939da8997cc6d863705387ce7783d8b6958";
+      sha256 = "1bcw59zwf788wg686p3qmcq03fr7bvgbcaa83vq8gvg231bgid4m";
+      # date = 2018-03-27T10:14:16+01:00;
+    }) {};
+
+    hie = {
+      ghc802 = haskell-ide-engine.hie80;
+      ghc822 = haskell-ide-engine.hie82;
+      ghc842 = throw "HIE not supported on GHC 8.4.2 yet";
+    };
+
+    ghcEnv = compiler.withPackages
+      (p: with p;
+         let hoogle = callPackage hoogleExpr { inherit packages; }; in
+         [ hpack criterion hdevtools hoogle hie.${COMPILER}
+           (callHackage "cabal-install" cabalInstallVersion.${COMPILER} {})
+         ] ++ packages);
+
+in ghcEnv
+EOM
+
+exec nix-shell -p "$INPUT" "$@"

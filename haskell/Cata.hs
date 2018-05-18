@@ -1,5 +1,7 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE DeriveFunctor #-}
+{-# LANGUAGE DeriveFoldable #-}
+{-# LANGUAGE DeriveTraversable #-}
 {-# LANGUAGE ExistentialQuantification #-}
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE KindSignatures #-}
@@ -11,12 +13,11 @@
 
 module Cata where
 
-import Control.Arrow
 import Control.Category
+import Control.Monad
 import Data.Fix
 import Data.Functor.Identity
 import Data.Functor.Compose
-import Data.Semigroup
 import Prelude hiding (id, (.))
 
 type Alg f a = f a -> a
@@ -117,11 +118,11 @@ data Nested (fs :: [* -> *]) a where
     Ground :: Alg f a -> Nested '[f] a
     Layer  :: Alg (Compose f (Nested fs)) a -> Nested (f ': fs) a
 
-runNestedGround :: Nested '[f] a -> Alg f a
-runNestedGround (Ground phi) = phi
+-- runNestedGround :: Nested '[f] a -> Alg f a
+-- runNestedGround (Ground phi) = phi
 
-runNestedLayer :: Nested (f ': fs) a -> Alg (Compose f (Nested fs)) a
-runNestedLayer (Layer phi) = phi
+-- runNestedLayer :: Nested (f ': fs) a -> Alg (Compose f (Nested fs)) a
+-- runNestedLayer (Layer phi) = phi
 
 newtype Transform f g = Transform { getTransform :: Alg f (Fix g) }
 
@@ -137,6 +138,53 @@ idTrans = Transform Fix
 -- addLayer phi (Layer psi) = Layer (compAlg phi psi)
 
 -- jww (2018-04-27): Do these combined transforms fuse into a single pass?
+
+comp :: (f (Fix f) -> c) -> (a -> Fix f) -> a -> c
+comp x y = x . unFix . y
+
+data ExprF r = Const Int
+             | Var   Id
+             | Add   r r
+             | Mul   r r
+             | IfNeg r r r
+               deriving ( Show, Eq, Ord, Functor
+                        , Foldable, Traversable )
+
+type Id = String
+
+type Expr = Fix ExprF
+
+optAdd :: ExprF Expr -> Expr
+optAdd (Add (Fix (Const 0)) e) = e
+optAdd (Add e (Fix (Const 0))) = e
+optAdd e = Fix e
+
+optMul :: ExprF Expr -> Expr
+optMul (Mul (Fix (Const 1)) e) = e
+optMul (Mul e (Fix (Const 1))) = e
+optMul e = Fix e
+
+optimiseSlow :: Expr -> Expr
+optimiseSlow = cata optAdd . cata optMul
+
+optimiseFast :: Expr -> Expr
+optimiseFast = cata (optMul . unFix . optAdd)
+
+optAddM :: Monad m => ExprF (m Expr) -> m Expr
+optAddM (Add m e) = m >>= \(Fix (Const 0)) -> e
+-- optAddM (Add e m) = m >>= \(Fix (Const 0)) -> e
+optAddM e = Fix <$> sequence e
+
+optMulM :: Monad m => ExprF (m Expr) -> m Expr
+optMulM (Mul m e) = m >>= \(Fix (Const 1)) -> e
+-- optMulM (Mul e m) = m >>= \(Fix (Const 1)) -> e
+optMulM e = Fix <$> sequence e
+
+optimiseSlowM :: Monad m => Expr -> m Expr
+optimiseSlowM = cata optAddM <=< cata optMulM
+
+optimiseFastM :: Monad m => Expr -> m Expr
+optimiseFastM = cata (optMulM . fmap pure . unFix <=< optAddM)
 
 main :: IO ()
 main = do

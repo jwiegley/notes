@@ -1,0 +1,15 @@
+genpatcher         | errno:0  cmd: cp /tmp/file06FYZb/dist/build/cpp-driver/cpp-driver /tmp/fileyHxu6b
+genpatcher         | stdout:
+genpatcher         | stderr:
+genpatcher         | errno:0  cmd: cd /tmp/file06FYZb; ./fitness.py /tmp/fileyHxu6b --good-files /tmp/repair/0 --bad-files /tmp/repair/1 --monitor-image rings-app-monitor --monitor-network rings
+genpatcher         | stdout:
+genpatcher         | stderr:Traceback (most recent call last):
+genpatcher         |   File "./fitness.py", line 261, in <module>
+genpatcher         |     results.append(do_test(exe, base_dir, t, args.trace_file))
+genpatcher         |   File "./fitness.py", line 105, in do_test
+genpatcher         |     args.monitor_network, base_dir)
+genpatcher         |   File "/tmp/file06FYZb/monitor.py", line 76, in run_with_monitor
+genpatcher         |     import docker
+genpatcher         | ImportError: No module named 'docker'
+genpatcher         |
+genpatcher         | errno:1  cmd: rm -rf /tmp/file06FYZb

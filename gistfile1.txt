@@ -1,0 +1,30 @@
+genpatcher         | number of hypothesis: 242
+genpatcher         | number of hypothesis: 253
+genpatcher         | number of hypothesis: 264
+genpatcher         |
+genpatcher         | errno:0  cmd: cp /tmp/filerkyi4r/dist/build/cpp-driver/cpp-driver /tmp/file4ch9om
+genpatcher         | stdout:
+genpatcher         | stderr:
+genpatcher         | errno:0  cmd: cd /tmp/filerkyi4r; ./fitness.py /tmp/file4ch9om --good-files /tmp/repair/0 --bad-files /tmp/repair/1 --monitor-image rings-app-monitor --monitor-network rings
+genpatcher         | stdout:(0.75 . 19204.0)
+genpatcher         |
+genpatcher         | stderr:
+genpatcher         | errno:0  cmd: sh -c "cd /tmp/filerkyi4r; ./fitness.py  --good-files /tmp/repair/0 --bad-files /tmp/repair/1 --monitor-image rings-app-monitor --monitor-network rings --count --all --trace-file /tmp/fileRibhEi"
+genpatcher         | stdout:2
+genpatcher         |
+genpatcher         | stderr:
+genpatcher         | errno:0  cmd: clang-mutate -sexp -fields=expr_type,ast_class,counter,unbound_vals,unbound_funs,types,stmt_list,src_text,parent_counter,macros,guard_stmt,full_stmt,begin_src_line,end_src_line,begin_src_col,end_src_col,begin_addr,end_addr,includes,declares,scopes,is_decl,in_macro_expansion,opcode,children -aux=asts,types,decls /tmp/fileyugC3h.v -- -I/tmp/repair/
+genpatcher         | stdout:
+genpatcher         | stderr:warning: /tmp/fileyugC3h.v: 'linker' input unused
+genpatcher         | warning: argument unused during compilation: '-I /tmp/repair/'
+genpatcher         | error: unable to handle compilation, expected exactly one compiler job in ''
+genpatcher         | Error while processing /tmp/fileyugC3h.v.
+genpatcher         |
+genpatcher         | errno:1  cmd: rm -rf /tmp/filerkyi4r
+genpatcher         | stdout:
+genpatcher         | stderr:
+genpatcher         | errno:0  cmd: rm -rf /tmp/repair
+rings-dashboard    | LOG 2018-05-22T22:50:23+0000 [4]:repairListener: {"type":"error","message":"Error during repair: end of file on #<SB-IMPL::STRING-INPUT-STREAM {10077D9F13}>"}
+rings-dashboard    | LOG 2018-05-22T22:50:23+0000 [2]:Repair: message not recognized: {"type":"error","message":"Error during repair: end of file on #<SB-IMPL::STRING-INPUT-STREAM {10077D9F13}>"}
+genpatcher         | stdout:
+genpatcher         | stderr:

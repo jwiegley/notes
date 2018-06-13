@@ -1,3 +1,4 @@
+Require Import Coq.Sets.Ensembles.
 Require Import Coq.Program.Tactics.
 Require Import Coq.Logic.JMeq.
 Require Export Hask.Control.Monad.
@@ -251,6 +252,8 @@ Defined.
 Inductive Choice : Type -> Type :=
   | Pick : forall A (P : A -> Prop), Choice A.
 
+Arguments Pick {_} _.
+
 Definition Eff (r : list (Type -> Type)) (a : Type) := Freer (Union r) a.
 
 Program Instance Functor_Eff {r} : Functor (Eff r) := Freer_Functor _.
@@ -259,16 +262,48 @@ Program Instance Monad_Eff {r} : Monad (Eff r) := Freer_Monad _.
 
 Definition computes_to {A : Type} (ca : A -> Prop) (a : A) : Prop := ca a.
 
-Notation "c ↝ v" := (computes_to c v) (at level 100).
+Notation "c ↝ v" := (computes_to c v) (at level 40).
+
+Import EqNotations.
+
+(* A Choice "effect" may be refined so long as every value computable from the
+   new choice was computable from the original choice. *)
+Definition refineChoice {a} (old new : Choice a) : Prop :=
+  match old in Choice x return x = a -> _ with
+  | Pick o => fun Ho =>
+    match new in Choice y return y = a -> _ with
+    | Pick n => fun Hn =>
+      forall v, n ↝ v -> o ↝ rew <- Ho in rew Hn in v
+    end eq_refl
+  end eq_refl.
 
 Program Fixpoint refine {r a} (old new : Eff (Choice :: r) a) : Prop :=
   match old, new with
   | Pure x,       Pure y       => x = y
-  | Pure x,       Impure u k   => _
-  | Impure u k,   Pure y       => _
+  | Pure x,       Impure u k   => False
+  | Impure u k,   Pure y       =>
+    match decomp u with
+    | inl f => refineChoice f (_ (Pick (Singleton _ y)))
+    | inr u => refine (Impure u k) new
+    end
   | Impure xu xk, Impure yu yk => _
+    match decomp xu, decomp yu with
+    | inl f, inl g => refineChoice f (_ g)
+    | inl f, inr g => _
+    | inr f, inl g => _
+    | inr f, inr g => True
+    end
   end.
-Admit Obligations.
+Next Obligation.
+Admitted.
+Next Obligation.
+Admitted.
+Next Obligation.
+Admitted.
+Next Obligation.
+Admitted.
+Next Obligation.
+Admitted.
 
 Program Fixpoint choose `(f : Eff (Choice :: r) a) : Eff r a :=
   match f with

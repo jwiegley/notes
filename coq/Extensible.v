@@ -34,6 +34,17 @@ Program Definition decomp `(u : Union (t :: r) v) : t v + Union r v :=
   | UOr x => fun _ => _ x
   end eq_refl.
 
+Import ListNotations.
+
+Program Definition extract `(u : Union [t] v) : t v :=
+  match u in UnionF _ xs return [t] = xs -> t v with
+  | UOr x => fun _ => _ x
+  end eq_refl.
+Next Obligation.
+  destruct x; auto.
+  inversion u0.
+Defined.
+
 Inductive Freer (f : Type -> Type) (a : Type) : Type :=
   | Pure : a -> Freer f a
   | Impure : forall x, f x -> (x -> Freer f a) -> Freer f a.
@@ -233,9 +244,9 @@ Inductive Put (o : Type) : Type -> Type :=
 
 Arguments Tell {o} _.
 
-Definition send `(t : f a) : Freer f a := Impure t Pure.
+Definition sendF `(t : f a) : Freer f a := Impure t Pure.
 
-Definition tell `(x : o) : Freer (Put o) unit := send (Tell x).
+Definition tell `(x : o) : Freer (Put o) unit := sendF (Tell x).
 
 Fixpoint runWriter `(f : Freer (Put o) a) : (list o * a) :=
   match f with
@@ -301,16 +312,6 @@ Next Obligation.
   exact tt.
 Defined.
 
-Program Definition run `(f : Freer (Union nil) a) : a :=
-  match f with
-  | Pure x => x
-  | Impure u k => False_rect _ _
-  end.
-Next Obligation.
-  (* there are no more choices: effects are not possible *)
-  inversion u.
-Qed.
-
 Program Fixpoint runState {e : Type} (x : e)
         `(f : Freer (Union (Get e :: Put e :: r)%list) a) :
   Freer (Union r) a :=
@@ -340,6 +341,7 @@ Inductive Choice (A : Type) : Type :=
 
 Arguments Pick {A} P.
 
+(*
 Inductive FTCQueue (m : Type -> Type) : Type -> Type -> Type :=
   | Leaf : forall a b, (a -> m b) -> FTCQueue m a b
   | Node : forall a x b, FTCQueue m a x -> FTCQueue m x b -> FTCQueue m a b.
@@ -413,9 +415,41 @@ Proof.
   induction x; simpl; auto.
   now rewrite ViewL_size_tviewl_work.
 Qed.
+*)
 
 Definition comp `(f : A -> Prop) : Comp A := f.
 
+Definition Eff (effs : list (Type -> Type)) (a : Type) : Type :=
+  Freer (Union effs) a.
+
+Program Instance Functor_Eff {r} : Functor (Eff r) := Freer_Functor _.
+Program Instance Applicative_Eff {r} : Applicative (Eff r) := Freer_Applicative _.
+Program Instance Monad_Eff {r} : Monad (Eff r) := Freer_Monad _.
+
+Definition send `{Member eff effs} `(t : eff a) : Eff effs a :=
+  Impure (inj t) Pure.
+
+Program Definition run `(f : Eff nil a) : a :=
+  match f with
+  | Pure x => x
+  | Impure u k => False_rect _ _
+  end.
+Next Obligation.
+  (* there are no more choices: effects are not possible *)
+  inversion u.
+Qed.
+
+Import ListNotations.
+
+Program Fixpoint runM `{M : Monad} `(f : Eff [m] a) : m a :=
+  match f with
+  | Pure x => pure x
+  | Impure u q =>
+    let mb := extract u in
+    mb >>= (runM \o q)          (* jww (2018-06-15): precedence bug! *)
+  end.
+
+(*
 Inductive Eff (effs : list (Type -> Type)) (a : Type) : Type :=
   | Val : a -> Eff effs a
   | E : forall b, Union effs b -> FTCQueue (Eff effs) b a -> Eff effs a.
@@ -438,6 +472,7 @@ Proof.
     exact (Val x).
   exact (E u (Leaf IHf)).
 Defined.
+*)
 
 (*
 Definition Eff_to_Freer {effs a} : Eff effs a -> Freer (Union effs) a.
@@ -450,6 +485,7 @@ Proof.
       exact (Pure b0).
 *)
 
+(*
 Program Instance Functor_Eff {r} : Functor (Eff r) := {
   fmap := fun _ _ f x =>
     match x with
@@ -473,6 +509,7 @@ Program Definition Eff_bind `(m : Eff effs a) `(k : a -> Eff effs b) : Eff effs 
   | Val x => k x
   | E u q => E u (q |> k)
   end.
+*)
 
 (* Program Definition Eff_join `(f : Eff effs (Eff effs r)) : Eff effs r := *)
 (*   match f with *)
@@ -483,6 +520,7 @@ Program Definition Eff_bind `(m : Eff effs a) `(k : a -> Eff effs b) : Eff effs 
 Definition Arr effs a b := a -> Eff effs b.
 Arguments Arr effs a b /.
 
+(*
 Program Fixpoint qApp `(q' : Arrs effs a b) (x : a) {measure (FTCQueue_size q')} :
   Eff effs b :=
   match tviewl q' with
@@ -508,18 +546,18 @@ Lemma Eff_size_qComp `(g : Arrs effs a b) `(h : Eff effs b -> Eff effs' c) :
 Proof.
   unfold qComp.
   induction g; simpl.
+Abort.
+*)
 
 Definition computes_to {A : Type} (ca : Comp A) (a : A) : Prop := ca a.
 
 Notation "c ↝ v" := (computes_to c v) (at level 40).
 
-Import ListNotations.
-
+(*
 Lemma qApp_Leaf effs a b (k : a -> Eff effs b) v :
   qApp (Leaf k) v = k v.
-Proof.
-  now unfold qApp, qApp_func, Fix_sub.
-Qed.
+Proof. now unfold qApp, qApp_func, Fix_sub. Qed.
+*)
 
 (*
 Lemma qApp_Leaf effs a x b
@@ -533,46 +571,63 @@ Proof.
 Qed.
 *)
 
+(*
 Lemma qApp_size `(q' : Arrs effs a b) (x : a) :
   forall x, Eff_size (qApp q' x) <= FTCQueue_size q'.
 Proof.
   induction q'; simpl;
   unfold qApp, qApp_func, Fix_sub; simpl.
 Abort.
-
-Program Fixpoint handleRelay {eff effs a b}
-        (ret : a -> Eff effs b)
-        (h : forall v, eff v -> Arr effs v b -> Eff effs b)
-        (f : Eff (eff :: effs) a) {measure (Eff_size f)} :
-  Eff effs b :=
-  match f with
-  | Val x => ret x
-  | E u' q =>
-    let k r := handleRelay ret h (qApp q r) in
-    match decomp u' with
-    | inl x => h _ x k
-    | inr u => E u (tsingleton k)
-    end
-  end.
-Next Obligation.
-  clear handleRelay.
-Abort.
-
-(*
-Definition handleRelayS {eff effs s a b} :
-  s -> (s -> a -> Eff effs b)
-    -> (forall v, s -> eff v -> (s -> Arr effs v b) -> Eff effs b)
-    -> Eff (eff :: effs) a
-    -> Eff effs b.
 *)
 
+Fixpoint handleRelay {eff effs a b}
+         (ret : a -> Eff effs b)
+         (h : forall v, eff v -> Arr effs v b -> Eff effs b)
+         (f : Eff (eff :: effs) a) :
+  Eff effs b :=
+  match f with
+  | Pure x => ret x
+  | Impure u q =>
+    let k := handleRelay ret h \o q in
+    match decomp u with
+    | inl x => h _ x k
+    | inr u => Impure u k
+    end
+  end.
+
+Definition interpretWith {eff effs a}
+           (h : forall v, eff v -> Arr effs v a -> Eff effs a) :
+  Eff (eff :: effs) a -> Eff effs a := handleRelay Pure h.
+
 Definition interpret `(handler : eff ~> Eff effs) :
-    Eff (eff :: effs) ~> Eff effs.
+  Eff (eff :: effs) ~> Eff effs :=
+  fun _ => interpretWith (fun _ e f => handler _ e >>= f).
+
+Fixpoint interpose' {eff effs a b}
+         `{M : Member eff effs}
+         (ret : a -> Eff effs b)
+         (h : forall v, eff v -> Arr effs v b -> Eff effs b)
+         (f : Eff effs a) : Eff effs b :=
+  match f with
+  | Pure x => ret x
+  | Impure u q =>
+    let k := interpose' ret h \o q in
+    match @prj eff effs M _ u with
+    | Some x => h _ x k
+    | None   => Impure u k
+    end
+  end.
+
+Definition interposeWith {eff effs a} `{Member eff effs}
+           (h : forall v, eff v -> Arr effs v a -> Eff effs a) :
+  Eff effs a -> Eff effs a := interpose' Pure h.
 
 Definition interpose `{Member eff effs} `(handler : eff ~> Eff effs) :
-  Eff effs ~> Eff effs.
+  Eff effs ~> Eff effs :=
+  fun _ => interposeWith (fun _ e f => handler _ e >>= f).
 
-Definition subsume `{Member eff effs} : Eff (eff :: effs) ~> Eff effs.
+Definition subsume `{Member eff effs} : Eff (eff :: effs) ~> Eff effs :=
+  interpret (fun _ => send).
 
 (* A Choice "effect" may be refined so long as every value computable from the
    new choice was computable from the original choice. *)

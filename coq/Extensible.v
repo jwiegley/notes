@@ -672,6 +672,9 @@ Program Fixpoint refine {s s' a} (AbsR : s -> s' -> Prop)
     end
   end.
 
+(* This is supposed to be the effect handler for non-deterministic choice,
+   which simply denotes the choice as a propositional relation in Gallina over
+   the remaining effects to be handled. *)
 Inductive choose {a r} : Eff (Choice :: r) a -> Eff r a -> Prop :=
   | PureChoice : forall x,
       choose (Pure x) (Pure x)
@@ -679,5 +682,6 @@ Inductive choose {a r} : Eff (Choice :: r) a -> Eff r a -> Prop :=
       P v -> choose (k v) x ->
       choose (Impure (UThis (Pick P)) k) x
   | ImpureChoiceThat : forall u k v,
+      (* jww (2018-06-19): This is all wrong, more work to be done *)
       choose (k v) (Impure u Pure) ->
       choose (Impure (UThat u) k) (Impure u Pure).

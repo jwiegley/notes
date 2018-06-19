@@ -1,4 +1,4 @@
-Require Import Coq.Program.Wf.
+Require Import Coq.Program.Program.
 Require Import Coq.Sets.Ensembles.
 Require Import Coq.Lists.List.
 Require Import Coq.Program.Tactics.
@@ -6,44 +6,83 @@ Require Import Coq.Logic.JMeq.
 Require Import Coq.omega.Omega.
 Require Export Hask.Control.Monad.
 
+Import ListNotations.
+
 Generalizable All Variables.
 (* Set Primitive Projections. *)
 (* Set Universe Polymorphism. *)
 (* Unset Transparent Obligations. *)
 
 Inductive UnionF (a : Type) : list (Type -> Type) -> Type :=
-  | UOr : forall t r, t a + UnionF a r -> UnionF a (t :: r).
+  | UThis : forall t r, t a -> UnionF a (t :: r)
+  | UThat : forall t r, UnionF a r -> UnionF a (t :: r).
 
-Arguments UOr {a t r} _.
+Arguments UThis {a t r} _.
+Arguments UThat {a t r} _.
 
 Definition Union (r : list (Type -> Type)) (a : Type) := UnionF a r.
+
+Lemma Union_empty : forall a, Union [] a -> False.
+Proof. inversion 1. Qed.
 
 (* A notation for natural transformations. *)
 Notation "f ~> g" := (forall x, f x -> g x) (at level 90).
 
+Definition Pos (t : Type -> Type) (r : list (Type -> Type)) := nat.
+
+Inductive FindElem (t : Type -> Type) : list (Type -> Type) -> Type :=
+  | Here : forall xs, FindElem t (t :: xs)
+  | Next : forall t' xs, FindElem t xs -> FindElem t (t' :: xs).
+
 Class Member (t : Type -> Type) (r : list (Type -> Type)) := {
   inj : forall v, t v -> Union r v;
-  prj : forall v, Union r v -> option (t v)
+  prj : forall v, Union r v -> option (t v);
+  hasElem : FindElem t r
 }.
 
 Arguments inj {t r _ v} _.
 Arguments prj {t r _ v} _.
 
+Program Instance Member_Here (t : Type -> Type) (r : list (Type -> Type)) :
+  Member t (t :: r) | 1 := {
+  inj := fun _ x => UThis x;
+  prj := fun _ x => _;
+  hasElem := Here _ _
+}.
+Next Obligation.
+  inversion x; subst; clear x.
+    exact (Some X).
+  exact None.
+Defined.
+
+Program Instance Member_Next (t t' : Type -> Type) (r : list (Type -> Type)) :
+  Member t r -> Member t (t' :: r) | 2 := {
+  inj := fun _ x => UThat (inj x);
+  prj := fun _ x => _
+}.
+Next Obligation.
+  inversion x; subst; clear x.
+    exact None.
+  exact (prj X).
+Defined.
+Next Obligation.
+  apply Next, hasElem.
+Defined.
+
 Program Definition decomp `(u : Union (t :: r) v) : t v + Union r v :=
   match u in UnionF _ xs return (t :: r)%list = xs -> t v + Union r v with
-  | UOr x => fun _ => _ x
+  | UThis x => fun _ => inl (_ x)
+  | UThat x => fun _ => inr x
   end eq_refl.
-
-Import ListNotations.
 
 Program Definition extract `(u : Union [t] v) : t v :=
   match u in UnionF _ xs return [t] = xs -> t v with
-  | UOr x => fun _ => _ x
+  | UThis x => fun _ => _ x
+  | UThat x => fun H => !
   end eq_refl.
-Next Obligation.
-  destruct x; auto.
-  inversion u0.
-Defined.
+Next Obligation. inversion x. Qed.
+
+Definition weaken {t} `(u : Union r v) : Union (t :: r) v := UThat u.
 
 Inductive Freer (f : Type -> Type) (a : Type) : Type :=
   | Pure : a -> Freer f a
@@ -226,36 +265,36 @@ Fixpoint injF `{Member eff r} `(f : Freer eff a) : Freer (Union r) a :=
   | Impure f k => Impure (inj f) (fun x => injF (k x))
   end.
 
-Polymorphic Inductive Get (e : Type) : Type -> Type := Ask : Get e e.
+Polymorphic Inductive Reader (e : Type) : Type -> Type := Ask : Reader e e.
 
 Arguments Ask {e}.
 
-Definition ask {e : Type} : Freer (Get e) e :=
+Definition ask {e : Type} : Freer (Reader e) e :=
   Impure Ask Pure.
 
-Fixpoint runReader `(x : e) `(f : Freer (Get e) a) : a :=
+Fixpoint runReader `(x : e) `(f : Freer (Reader e) a) : a :=
   match f with
   | Pure v => v
   | Impure Ask k => runReader x (k x)
   end.
 
-Inductive Put (o : Type) : Type -> Type :=
-  | Tell : o -> Put o unit.
+Inductive Writer (o : Type) : Type -> Type :=
+  | Tell : o -> Writer o unit.
 
 Arguments Tell {o} _.
 
 Definition sendF `(t : f a) : Freer f a := Impure t Pure.
 
-Definition tell `(x : o) : Freer (Put o) unit := sendF (Tell x).
+Definition tell `(x : o) : Freer (Writer o) unit := sendF (Tell x).
 
-Fixpoint runWriter `(f : Freer (Put o) a) : (list o * a) :=
+Fixpoint runWriter `(f : Freer (Writer o) a) : (list o * a) :=
   match f with
   | Pure v => (nil, v)
   | Impure (Tell x) k =>
       let '(l, v) := runWriter (k tt) in (x::l, v)%list
   end.
 
-Program Fixpoint runReaderC `(x : e) `(f : Freer (Union (Get e :: r)) a) : Freer (Union r) a :=
+Program Fixpoint runReaderC `(x : e) `(f : Freer (Union (Reader e :: r)) a) : Freer (Union r) a :=
   match f with
   | Pure v => Pure v
   | Impure u k =>
@@ -269,7 +308,6 @@ Next Obligation.
   exact x.
 Defined.
 
-(*
 Definition runFreer (T : Type -> Type) `(f : Freer (Union (eff :: r)) a)
            (eta : a -> T a)
            (bind : forall t, eff t -> (t * T a))  :
@@ -278,20 +316,18 @@ Proof.
   induction f as [v|t u' k IHf].
     exact (Pure (eta v)).
   inversion u'; subst; clear u'.
-  destruct X.
-    exact (let '(t, Ta) := handler _ e in
-           res <- IHf t;).
-  exact (Impure u IHf).
+    exact (let '(t, _) := bind _ X in IHf t).
+  exact (Impure X IHf).
 Defined.
 
-Definition runReaderC `(x : e) `(f : Freer (Union (Get e :: r)) a) :=
-  runFreer id f (fun _ 'Ask => x).
-*)
+(* Definition runReaderC' `(x : e) `(f : Freer (Union (Reader e :: r)) a) := *)
+(*   runFreer id f (fun _ 'Ask => x). *)
 
-(* Program Fixpoint runWriterC `(f : Freer (Union (Put o :: r)) a) := *)
+(* Program Fixpoint runWriterC `(f : Freer (Union (Writer o :: r)) a) := *)
 (*   runFreer (fun a => list o * a)%type f (fun _ '(Tell x) => tt) _. *)
 
-Program Fixpoint runWriterC `(f : Freer (Union (Put o :: r)) a) : Freer (Union r) (list o * a) :=
+Program Fixpoint runWriterC `(f : Freer (Union (Writer o :: r)) a) :
+  Freer (Union r) (list o * a) :=
   match f with
   | Pure v => Pure (nil, v)
   | Impure u k =>
@@ -312,18 +348,18 @@ Next Obligation.
   exact tt.
 Defined.
 
-Program Fixpoint runState {e : Type} (x : e)
-        `(f : Freer (Union (Get e :: Put e :: r)%list) a) :
+Program Fixpoint runGetPut {e : Type} (x : e)
+        `(f : Freer (Union (Reader e :: Writer e :: r)%list) a) :
   Freer (Union r) a :=
   match f with
   | Pure v => Pure v
   | Impure u k =>
     match decomp u with
-    | inl f => runState x (k _)
+    | inl f => runGetPut x (k _)
     | inr u =>
       match decomp u with
-      | inl f => runState x (k _)
-      | inr u => Impure u (fun y => runState x (k y))
+      | inl f => runGetPut x (k _)
+      | inr u => Impure u (fun y => runGetPut x (k y))
       end
     end
   end.
@@ -333,6 +369,30 @@ Next Obligation.
 Defined.
 Next Obligation.
   destruct f.
+  exact tt.
+Defined.
+
+Polymorphic Inductive State (s : Type) : Type -> Type :=
+  | Get : State s s
+  | Put : s -> State s unit.
+
+Arguments Get {s}.
+Arguments Put {s} _.
+
+Program Fixpoint runState {s : Type} (x : s)
+        `(f : Freer (Union (State s :: r)%list) a) :
+  Freer (Union r) a :=
+  match f with
+  | Pure v => Pure v
+  | Impure u k =>
+    match decomp u with
+    | inl f => runState x (k _)
+    | inr u => Impure u (fun y => runState x (k y))
+    end
+  end.
+Next Obligation.
+  destruct f.
+    exact x.
   exact tt.
 Defined.
 
@@ -383,8 +443,6 @@ Fixpoint ViewL_size `(v : ViewL m a b) : nat :=
   | TCons _ q => 1%nat + FTCQueue_size q
   end.
 
-Import EqNotations.
-
 Fixpoint tviewl_work {m x y z} (t : FTCQueue m x y) (tr : FTCQueue m y z) :=
   match t in FTCQueue _ x' y' return x' = x -> y' = y -> _ with
   | Leaf r => fun H1 H2 =>
@@ -428,6 +486,38 @@ Program Instance Monad_Eff {r} : Monad (Eff r) := Freer_Monad _.
 
 Definition send `{Member eff effs} `(t : eff a) : Eff effs a :=
   Impure (inj t) Pure.
+
+Import EqNotations.
+
+Program Fixpoint Eff_size `(q : Eff effs a)
+        (P : forall eff r, FindElem eff effs -> eff r -> r) : nat :=
+  match q with
+  | Pure x => 0%nat
+  | @Impure _ _ T u k =>
+    match effs as xs return effs = xs -> _ with
+    | nil => fun _ => !
+    | cons _ _ => fun H =>
+      match decomp (rew [fun x => Union x T] H in u) with
+      | inl f => 1%nat + Eff_size (k (_ u)) P
+      | inr u => 1%nat + Eff_size (k (_ u)) P
+      end
+    end eq_refl
+  end.
+Next Obligation. inversion u. Qed.
+Next Obligation.
+  eapply P; eauto.
+  constructor.
+Defined.
+Next Obligation.
+  clear -u0 P.
+  induction u0.
+    eapply P; eauto.
+    constructor.
+  eapply IHu0; eauto.
+  intros.
+  eapply P; eauto.
+  now constructor.
+Defined.
 
 Program Definition run `(f : Eff nil a) : a :=
   match f with
@@ -632,58 +722,160 @@ Definition subsume `{Member eff effs} : Eff (eff :: effs) ~> Eff effs :=
 (* A Choice "effect" may be refined so long as every value computable from the
    new choice was computable from the original choice. *)
 Inductive refineChoice {a} : Choice a -> Choice a -> Prop :=
-  RefineChoice : forall old new,
-     (forall v, new ↝ v -> old ↝ v) ->
+  RefineChoice : forall old new, (forall v, new ↝ v -> old ↝ v) ->
      refineChoice (Pick new) (Pick old).
 
-Program Fixpoint refine {r a} (old new : Eff (Choice :: r) a) : Prop :=
+Definition State_func `(x : State s a) : s -> (s * a) :=
+  match x with
+  | Get   => fun s => (s, s)
+  | Put s => fun _ => (s, tt)
+  end.
+
+Definition refineState {s s' a} (AbsR : s -> s' -> Prop) :
+  State s a -> State s' a -> Prop :=
+  fun old new => forall s, exists s', AbsR s s' ->
+    let ro := State_func old s  in
+    let rn := State_func new s' in
+    AbsR (fst ro) (fst rn) /\ snd ro = snd rn.
+
+Program Fixpoint refineBase {s s' a} (AbsR : s -> s' -> Prop)
+        (old : Eff [State s] a) (new : Eff [State s'] a) : Prop :=
   match old, new with
   | Pure x, Pure y => x = y
 
   | Pure x, Impure u k =>
     match decomp u with
-    | inl f => _
-    | inr u' => _
+    | inl f => exists s, x = _ (snd (State_func f s))
+    | inr u' => False_rect _ (Union_empty _ u')
     end
 
   | Impure u k, Pure y =>
     match decomp u with
-    | inl f  => refineChoice f (_ (Pick (Singleton _ y)))
-    | inr u' => _
+    | inl f  => exists s, _ (snd (State_func f s)) = y
+    | inr u' => False_rect _ (Union_empty _ u')
     end
 
-  | Impure xu xk, Impure yu yk => _
+  | Impure xu xk, Impure yu yk =>
     match decomp xu, decomp yu with
-    | inl f,   inl g   => refineChoice f (_ g)
-    | inl f,   inr yu' => _
-    | inr xu', inl g   => _
-    | inr xu', inr yu' => True
+    | inl f,   inl g   =>
+      exists (old : s) (new : s'), AbsR old new ->
+        let ro := State_func f old in
+        let rn := State_func g new in
+        AbsR (fst ro) (fst rn) /\ snd ro = _ (snd rn)
+    | inl _,   inr yu' => False_rect _ (Union_empty _ yu')
+    | inr xu', inl _   => False_rect _ (Union_empty _ xu')
+    | inr xu', inr _   => False_rect _ (Union_empty _ xu')
     end
   end.
 Next Obligation.
-  destruct f.
-  exact (exists t : A, P t /\ refine old (k t)).
-Admitted.
-Next Obligation.
-Admitted.
-Next Obligation.
-Admitted.
-Next Obligation.
-Admitted.
-Next Obligation.
-Admitted.
-Next Obligation.
-Admitted.
+  destruct f, g; auto.
+  exact tt.
+Defined.
 
-Program Fixpoint choose `(f : Eff (Choice :: r) a) : Eff r a :=
-  match f with
-  | Pure x => Pure x
+Program Fixpoint reduction {s a}
+        (act : Eff [Choice; State s] a) (res : a) : Prop :=
+  match act with
+  | Pure x => x = res
   | Impure u k =>
     match decomp u with
-    | inl f => choose (k _)
-    | inr u => Impure u (fun y => choose (k y))
+    | inl (Pick P) => exists v, P v /\ reduction (k v) res
+    | inr u' =>
+      match decomp u' with
+      | inl f => exists s, reduction (k (snd (State_func f s))) res
+      | inr u' => False_rect _ (Union_empty _ u')
+      end
     end
   end.
-Next Obligation.
-  destruct f.
-Admitted.
+
+Example reduction_works :
+  reduction (s:=nat) (send (Put 10) ;;
+                      x <- send Get ;
+                      y <- send (Pick (fun x => x < 10));
+                      pure (x + y)) 15.
+Proof.
+  simpl.
+  exists 0, 10, 5.
+  omega.
+Qed.
+
+Program Fixpoint raise {e} `(f : Eff effs a) : Eff (e :: effs) a :=
+  match f with
+  | Pure x => Pure x
+  | Impure u k => Impure (weaken u) (fun x => raise (k x))
+  end.
+
+Local Obligation Tactic :=
+  program_simpl; try (eapply Union_empty; eauto).
+
+Program Fixpoint refine {s s' a} (AbsR : s -> s' -> Prop)
+        (n : nat)
+        (old : Eff [Choice; State s] a)
+        (new : Eff [Choice; State s'] a) : Prop :=
+  match n with
+  | O => False
+  | S n' =>
+    match old, new with
+    | Pure x, Pure y => x = y
+
+    | Pure x, Impure u k =>
+      match decomp u with
+      | inl (Pick P) => exists v, P v /\ refine AbsR n' old (k v)
+      | inr u' =>
+        match decomp u' with
+        | inl f => exists s,
+           refine AbsR n' old (k (_ (snd (State_func f s))))
+        | inr u' => !
+        end
+      end
+
+    | Impure u k, Pure y =>
+      match decomp u with
+      | inl (Pick P) => exists v, P v /\ refine AbsR n' (k v) new
+      | inr u' =>
+        match decomp u' with
+        | inl f => exists s,
+           refine AbsR n' (k (_ (snd (State_func f s)))) new
+        | inr u' => !
+        end
+      end
+
+    | Impure xu xk, Impure yu yk =>
+      match decomp xu, decomp yu with
+      | inl f, inl g => refineChoice f (_ g)
+
+      | inl (Pick P), inr yu' =>
+        match decomp yu' with
+        | inl g => exists v s,
+            P v /\ refine AbsR n' (xk v) (yk (_ (snd (State_func g s))))
+        | inr u' => !
+        end
+
+      | inr xu', inl (Pick P) =>
+        match decomp xu' with
+        | inl f => exists v s,
+            P v /\ refine AbsR n' (xk (_ (snd (State_func f s)))) (yk v)
+        | inr u' => !
+        end
+
+      | inr xu', inr yu' =>
+        match decomp xu', decomp yu' with
+        | inl f, inl g => exists s s', AbsR s s' ->
+           refine AbsR n' (xk (_ (snd (State_func f s))))
+                          (yk (_ (snd (State_func g s'))))
+        | inl _,   inr yu' => !
+        | inr xu', inl _   => !
+        | inr xu', inr _   => !
+        end
+      end
+    end
+  end.
+
+Inductive choose {a r} : Eff (Choice :: r) a -> Eff r a -> Prop :=
+  | PureChoice : forall x,
+      choose (Pure x) (Pure x)
+  | ImpureChoiceThis : forall A (P : A -> Prop) v k x,
+      P v -> choose (k v) x ->
+      choose (Impure (UThis (Pick P)) k) x
+  | ImpureChoiceThat : forall u k v,
+      choose (k v) (Impure u Pure) ->
+      choose (Impure (UThat u) k) (Impure u Pure).

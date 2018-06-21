@@ -2,7 +2,6 @@ Require Import Coq.Program.Program.
 Require Import Coq.Sets.Ensembles.
 Require Import Coq.Lists.List.
 Require Import Coq.Program.Tactics.
-Require Import Coq.Logic.JMeq.
 Require Import Coq.omega.Omega.
 Require Export Hask.Control.Monad.
 

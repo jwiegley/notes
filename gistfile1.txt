@@ -1,0 +1,8 @@
+
+
+As of git 2.14, you could set submodule.recurse to true to enable the desired behaviour.
+
+You can do this globally by running:
+
+git config --global submodule.recurse true
+

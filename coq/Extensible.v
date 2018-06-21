@@ -679,6 +679,10 @@ Class Refines (eff : Type -> Type) := {
 Arguments refinement {eff _ a} _ _.
 Arguments candidate {eff _ a} _.
 
+(* jww (2018-06-21): Make this an inductive definition, which removes our need
+   to use fuel. *)
+(* jww (2018-06-21): Change all_refinable to work on a union of effs and
+   effs. *)
 Fixpoint refineG {effs effs' a}
          (n : nat)
          (all_refinable : forall eff,
@@ -714,80 +718,6 @@ Proof.
     eapply IHeffs; intuition; intros.
     admit.
 Admitted.
-
-Program Fixpoint refineG {effs effs' a} (n : nat)
-        (old : Eff effs a) (new : Eff effs' a) : Prop :=
-  match n with
-  | O => False
-  | S n' =>
-    match old, new with
-    | Pure x, Pure y => x = y
-
-    | Pure x, Impure u k =>
-      match effs' with
-      | nil => !
-      | _ :: _ =>
-        match decomp u with
-        | inl (Pick P) => exists v, P v /\ refineG n' old (k v)
-        | inr u' =>
-          match decomp u' with
-          | inl f => exists s,
-                     refineG n' old (k (_ (snd (State_func f s))))
-          | inr u' => !
-          end
-        end
-      end
-
-    | Impure u k, Pure y =>
-      match effs' with
-      | nil => !
-      | _ :: _ =>
-        match decomp u with
-        | inl (Pick P) => exists v, P v /\ refineG n' (k v) new
-        | inr u' =>
-          match decomp u' with
-          | inl f => exists s,
-                     refineG n' (k (_ (snd (State_func f s)))) new
-          | inr u' => !
-          end
-        end
-      end
-
-    | Impure xu xk, Impure yu yk =>
-      match effs, effs' with
-      | nil, _ => !
-      | _, nil => !
-      | _ :: _, _ :: _ =>
-        match decomp xu, decomp yu with
-        | inl f, inl g => refineChoice f (_ g)
-
-        | inl (Pick P), inr yu' =>
-          match decomp yu' with
-          | inl g => exists v s,
-                     P v /\ refineG n' (xk v) (yk (_ (snd (State_func g s))))
-          | inr u' => !
-          end
-
-        | inr xu', inl (Pick P) =>
-          match decomp xu' with
-          | inl f => exists v s,
-                     P v /\ refineG n' (xk (_ (snd (State_func f s)))) (yk v)
-          | inr u' => !
-          end
-
-        | inr xu', inr yu' =>
-          match decomp xu', decomp yu' with
-          | inl f, inl g => exists s s', s s' ->
-                                         refineG n' (xk (_ (snd (State_func f s))))
-                                                 (yk (_ (snd (State_func g s'))))
-          | inl _,   inr yu' => !
-          | inr xu', inl _   => !
-          | inr xu', inr _   => !
-          end
-        end
-      end
-    end
-  end.
 
 (* This is supposed to be the effect handler for non-deterministic choice,
    which simply denotes the choice as a propositional relation in Gallina over

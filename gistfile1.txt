@@ -1,0 +1,16 @@
+rings-dashboard    | LOG 2018-07-05T20:21:54+0000 [3]:Finished Stop Dockerized monitors: rings-app-monitor
+rings-dashboard    | LOG 2018-07-05T20:21:54+0000 [4]:Output from Stop Dockerized monitors: rings-app-monitor:Right NoContent
+rings-dashboard    | LOG 2018-07-05T20:21:54+0000 [2]:Stopped application monitors
+rings-dashboard    | LOG 2018-07-05T20:21:54+0000 [2]:Stopping application...
+rings-dashboard    | LOG 2018-07-05T20:21:54+0000 [1]:Posted Status: DasStatusMsg {_time = 2018-07-05 20:21:54.04965919 UTC, _status = MISSION_SUSPENDED, _message = Just "stopApp 0"}
+rings-dashboard    | LOG 2018-07-05T20:21:54+0000 [3]:Starting: Stop Docker container: rings-app-bfe7fe53-3aa3-491f-a27d-6532744f55f2-0
+rings-dashboard    | LOG 2018-07-05T20:22:04+0000 [3]:Finished Stop Docker container: rings-app-bfe7fe53-3aa3-491f-a27d-6532744f55f2-0
+rings-dashboard    | LOG 2018-07-05T20:22:04+0000 [4]:Output from Stop Docker container: rings-app-bfe7fe53-3aa3-491f-a27d-6532744f55f2-0:Right NoContent
+rings-dashboard    | LOG 2018-07-05T20:22:04+0000 [2]:Stopped application.
+rings-dashboard    | LOG 2018-07-05T20:22:04+0000 [1]:Posted Done: ()
+genpatcher         | ;;2018.07.05.20.26.00: Starting coq repair
+genpatcher         |
+genpatcher         | ;;2018.07.05.20.26.00: Creating new serapi instance.
+rings-dashboard    | LOG 2018-07-05T20:26:01+0000 [4]:repairListener: {"type":"event","name":"startingRepair","randomState":"#.(CCL::INITIALIZE-MRG31K3P-STATE 1462267402 1795882334 222570335 2056452845 81696097 219234574)"}
+rings-dashboard    | LOG 2018-07-05T20:26:01+0000 [2]:Repair: starting repair
+genpatcher         | ;;2018.07.05.20.26.11: Setting original fitness...

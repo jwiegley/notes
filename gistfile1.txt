@@ -1,0 +1,47 @@
+nix-shell -k -Q -A eta-build-shell
+these derivations will be built:
+  /nix/store/2n3v335wmgpp5aiwzkgy5ic3n4mx1p3d-etlas-cabal-1.4.0.1.drv
+  /nix/store/07wzdbxp7fbj9x1ayjc4s4a3mbrw3d8x-hackage-security-0.5.2.2.drv
+  /nix/store/3fcsvjcqzg4cy6s0zp3b1h7nax2nvacb-eta-build-0.0.0.drv
+  /nix/store/rdb05nafkidbdc13053m6bpsc3vndkn5-eta-boot-meta-0.8.0.drv
+  /nix/store/hhqfyrhxrwry0ljvl30naq28p84qrjhn-eta-boot-0.8.0.drv
+  /nix/store/jninn6jijhcdb4r283v1gypn9bhzyj2j-eta-repl-0.8.0.2.drv
+  /nix/store/7zrknad7vm7z9h1l75ddbf7qxzimw1nr-eta-meta-0.8.0.3.drv
+  /nix/store/aqpcl913rssqqsiv4bnqjhkl5gyar32r-codec-jvm-0.1.drv
+  /nix/store/cdm8ccbp6fspwjmws4my4hlsrvrb4hzb-etlas-1.4.0.1.drv
+  /nix/store/qr3xpw6kvsq5swp2zpkwacvpp6z4lbjr-eta-0.8.0.3.drv
+  /nix/store/v9g9z182h68zv34i27bfjgr1xs5qx35c-eta-pkg-0.8.0.3.drv
+building '/nix/store/aqpcl913rssqqsiv4bnqjhkl5gyar32r-codec-jvm-0.1.drv'...
+building '/nix/store/rdb05nafkidbdc13053m6bpsc3vndkn5-eta-boot-meta-0.8.0.drv'...
+building '/nix/store/2n3v335wmgpp5aiwzkgy5ic3n4mx1p3d-etlas-cabal-1.4.0.1.drv'...
+building '/nix/store/hhqfyrhxrwry0ljvl30naq28p84qrjhn-eta-boot-0.8.0.drv'...
+building '/nix/store/jninn6jijhcdb4r283v1gypn9bhzyj2j-eta-repl-0.8.0.2.drv'...
+building '/nix/store/7zrknad7vm7z9h1l75ddbf7qxzimw1nr-eta-meta-0.8.0.3.drv'...
+building '/nix/store/qr3xpw6kvsq5swp2zpkwacvpp6z4lbjr-eta-0.8.0.3.drv'...
+builder for '/nix/store/qr3xpw6kvsq5swp2zpkwacvpp6z4lbjr-eta-0.8.0.3.drv' failed with exit code 1; last 10 log lines:
+  CallStack (from HasCallStack):
+    die', called at libraries/Cabal/Cabal/Distribution/Simple/Configure.hs:948:20 in Cabal-2.0.1.0:Distribution.Simple.Configure
+    configureFinalizedPackage, called at libraries/Cabal/Cabal/Distribution/Simple/Configure.hs:470:12 in Cabal-2.0.1.0:Distribution.Simple.Configure
+    configure, called at libraries/Cabal/Cabal/Distribution/Simple.hs:570:20 in Cabal-2.0.1.0:Distribution.Simple
+    confHook, called at libraries/Cabal/Cabal/Distribution/Simple/UserHooks.hs:67:5 in Cabal-2.0.1.0:Distribution.Simple.UserHooks
+    configureAction, called at libraries/Cabal/Cabal/Distribution/Simple.hs:174:19 in Cabal-2.0.1.0:Distribution.Simple
+    defaultMainHelper, called at libraries/Cabal/Cabal/Distribution/Simple.hs:119:27 in Cabal-2.0.1.0:Distribution.Simple
+    defaultMain, called at /nix/store/4mdp8nhyfddh7bllbi7xszz7k9955n79-Setup.hs:2:8 in main:Main
+  Setup: Encountered missing dependencies:
+  Glob -any, tasty -any, tasty-golden -any
+building '/nix/store/3fcsvjcqzg4cy6s0zp3b1h7nax2nvacb-eta-build-0.0.0.drv'...
+building '/nix/store/v9g9z182h68zv34i27bfjgr1xs5qx35c-eta-pkg-0.8.0.3.drv'...
+building '/nix/store/07wzdbxp7fbj9x1ayjc4s4a3mbrw3d8x-hackage-security-0.5.2.2.drv'...
+building '/nix/store/cdm8ccbp6fspwjmws4my4hlsrvrb4hzb-etlas-1.4.0.1.drv'...
+builder for '/nix/store/cdm8ccbp6fspwjmws4my4hlsrvrb4hzb-etlas-1.4.0.1.drv' failed with exit code 1; last 10 log lines:
+  ignoring (possibly broken) abi-depends field for packages
+  ignoring (possibly broken) abi-depends field for packages
+  unpacking sources
+  unpacking source archive /nix/store/zgfpviyzqcx8r8yzg3qz25zxisp5h0m3-etlas
+  source root is etlas
+  patching sources
+  compileBuildDriverPhase
+  setupCompileFlags: -package-db=/private/tmp/nix-build-etlas-1.4.0.1.drv-0/setup-package.conf.d -j1 -threaded -hide-package=etlas-cabal
+  <command line>: cannot satisfy -hide-package etlas-cabal
+      (use -v for more information)
+error: build of '/nix/store/cdm8ccbp6fspwjmws4my4hlsrvrb4hzb-etlas-1.4.0.1.drv', '/nix/store/qr3xpw6kvsq5swp2zpkwacvpp6z4lbjr-eta-0.8.0.3.drv' failed

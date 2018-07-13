@@ -1,0 +1,18 @@
+    test/golden-test-cases/gl.nix:                                  FAIL (0.04s)
+      --- test/golden-test-cases/gl.nix.golden  2018-07-10 13:29:51.000000000 +0000
+      +++ test/golden-test-cases/gl.nix 2018-07-13 18:36:44.578893414 +0000
+      @@ -1,5 +1,5 @@
+       { mkDerivation, base, Cabal, containers, directory, filepath, fixed
+      -, half, hxt, libGL, stdenv, transformers
+      +, half, hxt, stdenv, transformers
+       }:
+       mkDerivation {
+         pname = "gl";
+      @@ -11,7 +11,6 @@
+         libraryHaskellDepends = [
+           base containers fixed half transformers
+         ];
+      -  librarySystemDepends = [ libGL ];
+         description = "Complete OpenGL raw bindings";
+         license = stdenv.lib.licenses.bsd3;
+       }

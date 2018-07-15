@@ -1,0 +1,2411 @@
+$ nix-build '<darwin>' -A pkgs.haskellPackages.cabal2nix
+these derivations will be built:
+  /nix/store/ss938kva345l9mq3cg2251ipj8dcnm5d-cabal2nix-2.9.3.drv
+building '/nix/store/ss938kva345l9mq3cg2251ipj8dcnm5d-cabal2nix-2.9.3.drv'...
+setupCompilerEnvironmentPhase
+Build with /nix/store/wf2pmlin0dq6iaa06q0w87d2hp7fsggm-ghc-8.2.2.
+ignoring (possibly broken) abi-depends field for packages
+ignoring (possibly broken) abi-depends field for packages
+unpacking sources
+unpacking source archive /nix/store/zzdig0fg3fx44rs3hjmyqy9wc6x0i08r-cabal2nix-2.9.3.tar.gz
+source root is cabal2nix-2.9.3
+setting SOURCE_DATE_EPOCH to timestamp 1531229391 of file cabal2nix-2.9.3/test/golden-test-cases/zlib.nix.golden
+patching sources
+compileBuildDriverPhase
+setupCompileFlags: -package-db=/private/tmp/nix-build-cabal2nix-2.9.3.drv-0/setup-package.conf.d -j1 -threaded
+[1 of 1] Compiling Main             ( Setup.hs, /private/tmp/nix-build-cabal2nix-2.9.3.drv-0/Main.o )
+Linking Setup ...
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+configuring
+configureFlags: --verbose --prefix=/nix/store/6h5isysqhqpf3l07k8npa4fyf1q6wq52-cabal2nix-2.9.3 --libdir=$prefix/lib/$compiler --libsubdir=$pkgid --docdir=/nix/store/k09jicmz7hd8kz19h31v2pjrln7mq61z-cabal2nix-2.9.3-doc/share/doc/cabal2nix-2.9.3 --with-gcc=clang --package-db=/private/tmp/nix-build-cabal2nix-2.9.3.drv-0/package.conf.d --ghc-option=-j1 --disable-split-objs --enable-library-profiling --profiling-detail=all-functions --disable-profiling --enable-shared --disable-coverage --disable-executable-dynamic --enable-tests --enable-library-vanilla --enable-library-for-ghci --extra-include-dirs=/nix/store/cssxc3nfsvn3a88dsdjx0wr8wq61xv4v-libc++-5.0.2/include --extra-lib-dirs=/nix/store/cssxc3nfsvn3a88dsdjx0wr8wq61xv4v-libc++-5.0.2/lib --extra-include-dirs=/nix/store/610adibjkd5h07niii5q0si6kc6cgca1-libc++abi-5.0.2/include --extra-lib-dirs=/nix/store/610adibjkd5h07niii5q0si6kc6cgca1-libc++abi-5.0.2/lib --extra-include-dirs=/nix/store/ika0jc7pka2gp485jn4d6har92ycyrxb-compiler-rt-5.0.2-dev/include --extra-lib-dirs=/nix/store/gqlyb35j08c2rgy8ff5m5x7pd0znfk41-compiler-rt-5.0.2/lib --extra-lib-dirs=/nix/store/3mrldk4v82yjzh2ycnx8wnycpqmahar8-ncurses-6.1/lib --extra-lib-dirs=/nix/store/b8a8nw7h9da0vky8n215mn9yg45dyznf-gmp-6.1.2/lib --extra-include-dirs=/nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/include --extra-lib-dirs=/nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib --extra-framework-dirs=/nix/store/hjnb56ah4zb7v168nz1615yrcamhw9cv-apple-framework-GSS/Library/Frameworks --extra-framework-dirs=/nix/store/3gl8mvnpm1k7kvadl19bx6zwklh5f63r-apple-framework-Kerberos/Library/Frameworks --extra-framework-dirs=/nix/store/96mdp6hfh23215m14c7l23db1bfyw3b5-apple-framework-Security/Library/Frameworks --extra-framework-dirs=/nix/store/9ysqjk1k7xndmwqfpa1wx36dz1r8wcmk-CF-osx-10.10.5/Library/Frameworks --extra-framework-dirs=/nix/store/m3ggq8206v338mvnc9chbmsrz2mk9gsk-apple-framework-IOKit/Library/Frameworks --extra-framework-dirs=/nix/store/af48b8irxgi098x6p6kvs5l2p0p2iz3r-apple-framework-PCSC/Library/Frameworks --extra-framework-dirs=/nix/store/g4y7jx3cc8pa60df5zim8mjdz95zbj1r-apple-framework-CoreData/Library/Frameworks --extra-framework-dirs=/nix/store/g20vaqfbzmv480rm82r20n3ywy60bi7w-apple-framework-Foundation/Library/Frameworks --extra-framework-dirs=/nix/store/cizxaxn5il5asda96favpqbwyixg8m3i-CF-osx-10.10.5-private/Library/Frameworks --extra-include-dirs=/nix/store/y703lj0n1k5iyc6y7sk664zlarj06m4n-objc4-osx-10.11.6/include --extra-lib-dirs=/nix/store/y703lj0n1k5iyc6y7sk664zlarj06m4n-objc4-osx-10.11.6/lib --extra-framework-dirs=/nix/store/vrn92zlzzzhcgcpc8m7zgr9nnb4pyf2q-apple-framework-ApplicationServices/Library/Frameworks --extra-framework-dirs=/nix/store/i4k05zpwv2zh5fc6ink2yiig48a3fmq1-apple-framework-CoreServices/Library/Frameworks --extra-framework-dirs=/nix/store/7i2vkxsx1nl4r216ifldr049f039c4g5-apple-framework-CFNetwork/Library/Frameworks --extra-framework-dirs=/nix/store/w89sb59ckawrzr3y1d19p6sr19x2kr07-apple-framework-CoreAudio/Library/Frameworks --extra-framework-dirs=/nix/store/wsbpd9fklfpjmib57rbn655pql2b8z5g-apple-framework-DiskArbitration/Library/Frameworks --extra-framework-dirs=/nix/store/xh4496bydz4j5qxwmspdgzkqbyhd963l-apple-framework-NetFS/Library/Frameworks --extra-framework-dirs=/nix/store/gh8yxq4wira4w805fr1h0x7yg3p775z1-apple-framework-OpenDirectory/Library/Frameworks --extra-framework-dirs=/nix/store/j2w8940vk6y91fwgqyk76hr3gpndjvqb-apple-framework-ServiceManagement/Library/Frameworks --extra-framework-dirs=/nix/store/lvbivdiyxal7qla59zkyx8k154zvxw5p-apple-framework-CoreText/Library/Frameworks --extra-framework-dirs=/nix/store/znlvli3nmriz99gag889saaprc4r47ad-apple-framework-CoreGraphics/Library/Frameworks --extra-framework-dirs=/nix/store/i2xg3j38yyzmgvx8f1p152x278qb3ym2-apple-framework-Accelerate/Library/Frameworks --extra-framework-dirs=/nix/store/3fm78a4lhadpsg6w35f3ga5ms37pgq05-apple-framework-CoreWLAN/Library/Frameworks --extra-framework-dirs=/nix/store/sydj93wr6gk7cnmwzf6azvim7s94klwk-apple-framework-SecurityFoundation/Library/Frameworks --extra-framework-dirs=/nix/store/lfvmfqpc8xy2mqm3i275vdih24hy78sr-apple-framework-IOBluetooth/Library/Frameworks --extra-framework-dirs=/nix/store/yq15aa8pbyhw5qfcpz2fjjhv4iriwsy2-apple-framework-IOSurface/Library/Frameworks --extra-include-dirs=/nix/store/zscwqlmj6h6w0ypjsy4w1gl2g2d5lw14-apple-lib-xpc/include --extra-framework-dirs=/nix/store/vx24hrk9m1xhw03yz6qczlwrcnivsrl2-apple-framework-SystemConfiguration/Library/Frameworks --extra-framework-dirs=/nix/store/ic6g7y7zafcphwvq80dm7224jay5a78w-apple-framework-ImageIO/Library/Frameworks --extra-framework-dirs=/nix/store/shgpngxlby2rw80wbacswld028b61cj7-CF-osx-10.10.5/Library/Frameworks
+Configuring cabal2nix-2.9.3...
+Dependency Cabal >2.2: using Cabal-2.2.0.1
+Dependency aeson -any: using aeson-1.3.1.1
+Dependency ansi-wl-pprint -any: using ansi-wl-pprint-0.6.8.2
+Dependency base <5: using base-4.10.1.0
+Dependency bytestring -any: using bytestring-0.10.8.2
+Dependency cabal2nix -any: using cabal2nix-2.9.3
+Dependency containers -any: using containers-0.5.10.2
+Dependency deepseq >=1.4: using deepseq-1.4.3.0
+Dependency directory -any: using directory-1.3.0.2
+Dependency distribution-nixpkgs >=1.1.1: using distribution-nixpkgs-1.1.1
+Dependency filepath -any: using filepath-1.4.1.2
+Dependency hackage-db >=2.0.1: using hackage-db-2.0.1
+Dependency hopenssl >=2: using hopenssl-2.2.1
+Dependency hpack >=0.26: using hpack-0.28.2
+Dependency language-nix -any: using language-nix-2.1.0.1
+Dependency lens -any: using lens-4.16.1
+Dependency monad-par -any: using monad-par-0.3.4.8
+Dependency monad-par-extras -any: using monad-par-extras-0.3.3
+Dependency mtl -any: using mtl-2.2.2
+Dependency optparse-applicative -any: using optparse-applicative-0.14.2.0
+Dependency pretty >=1.1.2: using pretty-1.1.3.3
+Dependency process >1.2: using process-1.6.1.0
+Dependency split -any: using split-0.2.3.3
+Dependency tasty -any: using tasty-1.1.0.2
+Dependency tasty-golden -any: using tasty-golden-2.3.2
+Dependency text -any: using text-1.2.3.0
+Dependency time -any: using time-1.8.0.2
+Dependency transformers -any: using transformers-0.5.2.0
+Dependency yaml -any: using yaml-0.8.31.1
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+Source component graph:
+    component lib
+    component exe:cabal2nix dependency lib
+    component exe:hackage2nix dependency lib
+    component test:regression-test
+        dependency exe:cabal2nix
+        dependency lib
+Configured component graph:
+    component cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+        include Cabal-2.2.0.1-3v8eN38Q8b43yJQcNsIyfp
+        include aeson-1.3.1.1-1YkUtgnZgF41Ut5kD74cVi
+        include ansi-wl-pprint-0.6.8.2-9xuhzBw0sxT3GcMo3MQQvg
+        include base-4.10.1.0
+        include bytestring-0.10.8.2
+        include containers-0.5.10.2
+        include deepseq-1.4.3.0
+        include directory-1.3.0.2
+        include distribution-nixpkgs-1.1.1-27oL3H4P1DjGPhlPrwicWZ
+        include filepath-1.4.1.2
+        include hackage-db-2.0.1-FRRureN0gnO4f1Ro7lbOEr
+        include hopenssl-2.2.1-FdGjxO0diCZ2UdvmlaNY3D
+        include hpack-0.28.2-FCvcXTFA4LU2gehRUJ6OUs
+        include language-nix-2.1.0.1-C78WnuSIe123zNUv9RN8uw
+        include lens-4.16.1-CDzQsecE1KRHqbXODQcQaN
+        include optparse-applicative-0.14.2.0-2TeR65y1X9k4J5Cd6qWASy
+        include pretty-1.1.3.3
+        include process-1.6.1.0
+        include split-0.2.3.3-E2sTUBg0daVJ8yvycwtXk9
+        include text-1.2.3.0-GmbS1eycnDHLhZQQeWF5x
+        include time-1.8.0.2
+        include transformers-0.5.2.0
+        include yaml-0.8.31.1-EcJjKHVS9Bb79o1qlRMyHN
+    component cabal2nix-2.9.3-5ggn2zkir682YGqwRuI2d3-cabal2nix
+        include base-4.10.1.0
+        include cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+    component cabal2nix-2.9.3-AMwICFPjjvaF0uNvv6HTm1-hackage2nix
+        include Cabal-2.2.0.1-3v8eN38Q8b43yJQcNsIyfp
+        include aeson-1.3.1.1-1YkUtgnZgF41Ut5kD74cVi
+        include base-4.10.1.0
+        include bytestring-0.10.8.2
+        include cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+        include containers-0.5.10.2
+        include directory-1.3.0.2
+        include distribution-nixpkgs-1.1.1-27oL3H4P1DjGPhlPrwicWZ
+        include filepath-1.4.1.2
+        include hopenssl-2.2.1-FdGjxO0diCZ2UdvmlaNY3D
+        include language-nix-2.1.0.1-C78WnuSIe123zNUv9RN8uw
+        include lens-4.16.1-CDzQsecE1KRHqbXODQcQaN
+        include monad-par-0.3.4.8-DardDIwNW9fI8U59W9K34I
+        include monad-par-extras-0.3.3-50UZesQ5P46DAjsiXmvP3t
+        include mtl-2.2.2-8XubxMJDT8QLsstvlNotkc
+        include optparse-applicative-0.14.2.0-2TeR65y1X9k4J5Cd6qWASy
+        include pretty-1.1.3.3
+    component cabal2nix-2.9.3-5GKGGuOX4M1886NbQPtQn-regression-test
+        include base-4.10.1.0
+        include Cabal-2.2.0.1-3v8eN38Q8b43yJQcNsIyfp
+        include cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+        include containers-0.5.10.2
+        include directory-1.3.0.2
+        include filepath-1.4.1.2
+        include language-nix-2.1.0.1-C78WnuSIe123zNUv9RN8uw
+        include lens-4.16.1-CDzQsecE1KRHqbXODQcQaN
+        include pretty-1.1.3.3
+        include process-1.6.1.0
+        include tasty-1.1.0.2-8btVMUFYyQL92m5ScQ3hY
+        include tasty-golden-2.3.2-Ip7EDmzzgPsFuDlIMdSu86
+Linked component graph:
+    unit cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+        include Cabal-2.2.0.1-3v8eN38Q8b43yJQcNsIyfp
+        include aeson-1.3.1.1-1YkUtgnZgF41Ut5kD74cVi
+        include ansi-wl-pprint-0.6.8.2-9xuhzBw0sxT3GcMo3MQQvg
+        include base-4.10.1.0
+        include bytestring-0.10.8.2
+        include containers-0.5.10.2
+        include deepseq-1.4.3.0
+        include directory-1.3.0.2
+        include distribution-nixpkgs-1.1.1-27oL3H4P1DjGPhlPrwicWZ
+        include filepath-1.4.1.2
+        include hackage-db-2.0.1-FRRureN0gnO4f1Ro7lbOEr
+        include hopenssl-2.2.1-FdGjxO0diCZ2UdvmlaNY3D
+        include hpack-0.28.2-FCvcXTFA4LU2gehRUJ6OUs
+        include language-nix-2.1.0.1-C78WnuSIe123zNUv9RN8uw
+        include lens-4.16.1-CDzQsecE1KRHqbXODQcQaN
+        include optparse-applicative-0.14.2.0-2TeR65y1X9k4J5Cd6qWASy
+        include pretty-1.1.3.3
+        include process-1.6.1.0
+        include split-0.2.3.3-E2sTUBg0daVJ8yvycwtXk9
+        include text-1.2.3.0-GmbS1eycnDHLhZQQeWF5x
+        include time-1.8.0.2
+        include transformers-0.5.2.0
+        include yaml-0.8.31.1-EcJjKHVS9Bb79o1qlRMyHN
+        Cabal2nix=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Cabal2nix,Distribution.Nixpkgs.Fetch=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Fetch,Distribution.Nixpkgs.Haskell=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell,Distribution.Nixpkgs.Haskell.BuildInfo=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.BuildInfo,Distribution.Nixpkgs.Haskell.Constraint=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.Constraint,Distribution.Nixpkgs.Haskell.Derivation=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.Derivation,Distribution.Nixpkgs.Haskell.FromCabal=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.FromCabal,Distribution.Nixpkgs.Haskell.FromCabal.Configuration=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.FromCabal.Configuration,Distribution.Nixpkgs.Haskell.FromCabal.Flags=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.FromCabal.Flags,Distribution.Nixpkgs.Haskell.FromCabal.License=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.FromCabal.License,Distribution.Nixpkgs.Haskell.FromCabal.Name=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.FromCabal.Name,Distribution.Nixpkgs.Haskell.FromCabal.Normalize=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.FromCabal.Normalize,Distribution.Nixpkgs.Haskell.FromCabal.PostProcess=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.FromCabal.PostProcess,Distribution.Nixpkgs.Haskell.Hackage=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.Hackage,Distribution.Nixpkgs.Haskell.OrphanInstances=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.OrphanInstances,Distribution.Nixpkgs.Haskell.PackageSourceSpec=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.PackageSourceSpec
+    unit cabal2nix-2.9.3-5ggn2zkir682YGqwRuI2d3-cabal2nix
+        include base-4.10.1.0
+        include cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+    unit cabal2nix-2.9.3-AMwICFPjjvaF0uNvv6HTm1-hackage2nix
+        include Cabal-2.2.0.1-3v8eN38Q8b43yJQcNsIyfp
+        include aeson-1.3.1.1-1YkUtgnZgF41Ut5kD74cVi
+        include base-4.10.1.0
+        include bytestring-0.10.8.2
+        include cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+        include containers-0.5.10.2
+        include directory-1.3.0.2
+        include distribution-nixpkgs-1.1.1-27oL3H4P1DjGPhlPrwicWZ
+        include filepath-1.4.1.2
+        include hopenssl-2.2.1-FdGjxO0diCZ2UdvmlaNY3D
+        include language-nix-2.1.0.1-C78WnuSIe123zNUv9RN8uw
+        include lens-4.16.1-CDzQsecE1KRHqbXODQcQaN
+        include monad-par-0.3.4.8-DardDIwNW9fI8U59W9K34I
+        include monad-par-extras-0.3.3-50UZesQ5P46DAjsiXmvP3t
+        include mtl-2.2.2-8XubxMJDT8QLsstvlNotkc
+        include optparse-applicative-0.14.2.0-2TeR65y1X9k4J5Cd6qWASy
+        include pretty-1.1.3.3
+    unit cabal2nix-2.9.3-5GKGGuOX4M1886NbQPtQn-regression-test
+        include base-4.10.1.0
+        include Cabal-2.2.0.1-3v8eN38Q8b43yJQcNsIyfp
+        include cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+        include containers-0.5.10.2
+        include directory-1.3.0.2
+        include filepath-1.4.1.2
+        include language-nix-2.1.0.1-C78WnuSIe123zNUv9RN8uw
+        include lens-4.16.1-CDzQsecE1KRHqbXODQcQaN
+        include pretty-1.1.3.3
+        include process-1.6.1.0
+        include tasty-1.1.0.2-8btVMUFYyQL92m5ScQ3hY
+        include tasty-golden-2.3.2-Ip7EDmzzgPsFuDlIMdSu86
+Ready component graph:
+    definite cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+        depends Cabal-2.2.0.1-3v8eN38Q8b43yJQcNsIyfp
+        depends aeson-1.3.1.1-1YkUtgnZgF41Ut5kD74cVi
+        depends ansi-wl-pprint-0.6.8.2-9xuhzBw0sxT3GcMo3MQQvg
+        depends base-4.10.1.0
+        depends bytestring-0.10.8.2
+        depends containers-0.5.10.2
+        depends deepseq-1.4.3.0
+        depends directory-1.3.0.2
+        depends distribution-nixpkgs-1.1.1-27oL3H4P1DjGPhlPrwicWZ
+        depends filepath-1.4.1.2
+        depends hackage-db-2.0.1-FRRureN0gnO4f1Ro7lbOEr
+        depends hopenssl-2.2.1-FdGjxO0diCZ2UdvmlaNY3D
+        depends hpack-0.28.2-FCvcXTFA4LU2gehRUJ6OUs
+        depends language-nix-2.1.0.1-C78WnuSIe123zNUv9RN8uw
+        depends lens-4.16.1-CDzQsecE1KRHqbXODQcQaN
+        depends optparse-applicative-0.14.2.0-2TeR65y1X9k4J5Cd6qWASy
+        depends pretty-1.1.3.3
+        depends process-1.6.1.0
+        depends split-0.2.3.3-E2sTUBg0daVJ8yvycwtXk9
+        depends text-1.2.3.0-GmbS1eycnDHLhZQQeWF5x
+        depends time-1.8.0.2
+        depends transformers-0.5.2.0
+        depends yaml-0.8.31.1-EcJjKHVS9Bb79o1qlRMyHN
+    definite cabal2nix-2.9.3-AMwICFPjjvaF0uNvv6HTm1-hackage2nix
+        depends Cabal-2.2.0.1-3v8eN38Q8b43yJQcNsIyfp
+        depends aeson-1.3.1.1-1YkUtgnZgF41Ut5kD74cVi
+        depends base-4.10.1.0
+        depends bytestring-0.10.8.2
+        depends cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+        depends containers-0.5.10.2
+        depends directory-1.3.0.2
+        depends distribution-nixpkgs-1.1.1-27oL3H4P1DjGPhlPrwicWZ
+        depends filepath-1.4.1.2
+        depends hopenssl-2.2.1-FdGjxO0diCZ2UdvmlaNY3D
+        depends language-nix-2.1.0.1-C78WnuSIe123zNUv9RN8uw
+        depends lens-4.16.1-CDzQsecE1KRHqbXODQcQaN
+        depends monad-par-0.3.4.8-DardDIwNW9fI8U59W9K34I
+        depends monad-par-extras-0.3.3-50UZesQ5P46DAjsiXmvP3t
+        depends mtl-2.2.2-8XubxMJDT8QLsstvlNotkc
+        depends optparse-applicative-0.14.2.0-2TeR65y1X9k4J5Cd6qWASy
+        depends pretty-1.1.3.3
+    definite cabal2nix-2.9.3-5ggn2zkir682YGqwRuI2d3-cabal2nix
+        depends base-4.10.1.0
+        depends cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+    definite cabal2nix-2.9.3-5GKGGuOX4M1886NbQPtQn-regression-test
+        depends base-4.10.1.0
+        depends Cabal-2.2.0.1-3v8eN38Q8b43yJQcNsIyfp
+        depends cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+        depends containers-0.5.10.2
+        depends directory-1.3.0.2
+        depends filepath-1.4.1.2
+        depends language-nix-2.1.0.1-C78WnuSIe123zNUv9RN8uw
+        depends lens-4.16.1-CDzQsecE1KRHqbXODQcQaN
+        depends pretty-1.1.3.3
+        depends process-1.6.1.0
+        depends tasty-1.1.0.2-8btVMUFYyQL92m5ScQ3hY
+        depends tasty-golden-2.3.2-Ip7EDmzzgPsFuDlIMdSu86
+        depends cabal2nix-2.9.3-5ggn2zkir682YGqwRuI2d3-cabal2nix
+Using Cabal-2.0.1.0 compiled by ghc-8.2
+Using compiler: ghc-8.2.2
+Using install prefix:
+/nix/store/6h5isysqhqpf3l07k8npa4fyf1q6wq52-cabal2nix-2.9.3
+Executables installed in:
+/nix/store/6h5isysqhqpf3l07k8npa4fyf1q6wq52-cabal2nix-2.9.3/bin
+Libraries installed in:
+/nix/store/6h5isysqhqpf3l07k8npa4fyf1q6wq52-cabal2nix-2.9.3/lib/ghc-8.2.2/cabal2nix-2.9.3
+Dynamic Libraries installed in:
+/nix/store/6h5isysqhqpf3l07k8npa4fyf1q6wq52-cabal2nix-2.9.3/lib/ghc-8.2.2/x86_64-osx-ghc-8.2.2
+Private executables installed in:
+/nix/store/6h5isysqhqpf3l07k8npa4fyf1q6wq52-cabal2nix-2.9.3/libexec/x86_64-osx-ghc-8.2.2/cabal2nix-2.9.3
+Data files installed in:
+/nix/store/6h5isysqhqpf3l07k8npa4fyf1q6wq52-cabal2nix-2.9.3/share/x86_64-osx-ghc-8.2.2/cabal2nix-2.9.3
+Documentation installed in:
+/nix/store/k09jicmz7hd8kz19h31v2pjrln7mq61z-cabal2nix-2.9.3-doc/share/doc/cabal2nix-2.9.3
+Configuration files installed in:
+/nix/store/6h5isysqhqpf3l07k8npa4fyf1q6wq52-cabal2nix-2.9.3/etc
+No alex found
+Using ar found on system at:
+/nix/store/7ddbq63v97nk8gkbf7gcsfmby37h6gbl-cctools-binutils-darwin/bin/ar
+No c2hs found
+No cpphs found
+No doctest found
+Using gcc version 4.2.1 given by user at:
+/nix/store/ckq71kkymh1ji2b44xn80wmr7fmi6wr5-clang-wrapper-5.0.2/bin/clang
+Using ghc version 8.2.2 found on system at:
+/nix/store/wf2pmlin0dq6iaa06q0w87d2hp7fsggm-ghc-8.2.2/bin/ghc
+Using ghc-pkg version 8.2.2 found on system at:
+/nix/store/wf2pmlin0dq6iaa06q0w87d2hp7fsggm-ghc-8.2.2/bin/ghc-pkg
+No ghcjs found
+No ghcjs-pkg found
+No greencard found
+Using haddock version 2.18.1 found on system at:
+/nix/store/wf2pmlin0dq6iaa06q0w87d2hp7fsggm-ghc-8.2.2/bin/haddock
+No happy found
+Using haskell-suite found on system at: haskell-suite-dummy-location
+Using haskell-suite-pkg found on system at: haskell-suite-pkg-dummy-location
+No hmake found
+Using hpc version 0.67 found on system at:
+/nix/store/wf2pmlin0dq6iaa06q0w87d2hp7fsggm-ghc-8.2.2/bin/hpc
+Using hsc2hs version 0.68.2 found on system at:
+/nix/store/wf2pmlin0dq6iaa06q0w87d2hp7fsggm-ghc-8.2.2/bin/hsc2hs
+Using hscolour version 1.24 found on system at:
+/nix/store/rx16ssnhldy6v9q9pgns8i00nfb6521g-hscolour-1.24.4/bin/HsColour
+No jhc found
+Using ld found on system at:
+/nix/store/qk4fdnzkr8r0gihgyps7x07cpyffvkmy-cctools-binutils-darwin-wrapper/bin/ld
+No lhc found
+No lhc-pkg found
+No pkg-config found
+Using runghc version 8.2.2 found on system at:
+/nix/store/wf2pmlin0dq6iaa06q0w87d2hp7fsggm-ghc-8.2.2/bin/runghc
+Using strip found on system at:
+/nix/store/7ddbq63v97nk8gkbf7gcsfmby37h6gbl-cctools-binutils-darwin/bin/strip
+Using tar found on system at:
+/nix/store/cj0pwxwmzfsq4mwjfsiw1aqgq7458v1q-gnutar-1.30/bin/tar
+No uhc found
+building
+Preprocessing library for cabal2nix-2.9.3..
+Building library for cabal2nix-2.9.3..
+[ 1 of 17] Compiling Distribution.Nixpkgs.Fetch ( src/Distribution/Nixpkgs/Fetch.hs, dist/build/Distribution/Nixpkgs/Fetch.o )
+
+src/Distribution/Nixpkgs/Fetch.hs:134:13: warning: [-Wincomplete-uni-patterns]
+    Pattern match(es) are non-exhaustive
+    In a pattern binding: Patterns not matched: []
+    |
+134 |         let (l:ls) = reverse (BS.lines buf)
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[ 2 of 17] Compiling Distribution.Nixpkgs.Haskell.BuildInfo ( src/Distribution/Nixpkgs/Haskell/BuildInfo.hs, dist/build/Distribution/Nixpkgs/Haskell/BuildInfo.o )
+[ 3 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.License ( src/Distribution/Nixpkgs/Haskell/FromCabal/License.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/License.o )
+[ 4 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.Name ( src/Distribution/Nixpkgs/Haskell/FromCabal/Name.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/Name.o )
+[ 5 of 17] Compiling Distribution.Nixpkgs.Haskell.Hackage ( src/Distribution/Nixpkgs/Haskell/Hackage.hs, dist/build/Distribution/Nixpkgs/Haskell/Hackage.o )
+[ 6 of 17] Compiling Distribution.Nixpkgs.Haskell.OrphanInstances ( src/Distribution/Nixpkgs/Haskell/OrphanInstances.hs, dist/build/Distribution/Nixpkgs/Haskell/OrphanInstances.o )
+[ 7 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.Flags ( src/Distribution/Nixpkgs/Haskell/FromCabal/Flags.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/Flags.o )
+[ 8 of 17] Compiling Distribution.Nixpkgs.Haskell.Derivation ( src/Distribution/Nixpkgs/Haskell/Derivation.hs, dist/build/Distribution/Nixpkgs/Haskell/Derivation.o )
+[ 9 of 17] Compiling Distribution.Nixpkgs.Haskell ( src/Distribution/Nixpkgs/Haskell.hs, dist/build/Distribution/Nixpkgs/Haskell.o )
+[10 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.PostProcess ( src/Distribution/Nixpkgs/Haskell/FromCabal/PostProcess.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/PostProcess.o )
+[11 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.Normalize ( src/Distribution/Nixpkgs/Haskell/FromCabal/Normalize.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/Normalize.o )
+[12 of 17] Compiling Distribution.Nixpkgs.Haskell.Constraint ( src/Distribution/Nixpkgs/Haskell/Constraint.hs, dist/build/Distribution/Nixpkgs/Haskell/Constraint.o )
+[13 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.Configuration ( src/Distribution/Nixpkgs/Haskell/FromCabal/Configuration.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/Configuration.o )
+[14 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal ( src/Distribution/Nixpkgs/Haskell/FromCabal.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal.o )
+[15 of 17] Compiling Distribution.Nixpkgs.Haskell.PackageSourceSpec ( src/Distribution/Nixpkgs/Haskell/PackageSourceSpec.hs, dist/build/Distribution/Nixpkgs/Haskell/PackageSourceSpec.o )
+[16 of 17] Compiling Paths_cabal2nix  ( dist/build/autogen/Paths_cabal2nix.hs, dist/build/Paths_cabal2nix.o )
+[17 of 17] Compiling Cabal2nix        ( src/Cabal2nix.hs, dist/build/Cabal2nix.o )
+[ 1 of 17] Compiling Distribution.Nixpkgs.Fetch ( src/Distribution/Nixpkgs/Fetch.hs, dist/build/Distribution/Nixpkgs/Fetch.p_o )
+
+src/Distribution/Nixpkgs/Fetch.hs:134:13: warning: [-Wincomplete-uni-patterns]
+    Pattern match(es) are non-exhaustive
+    In a pattern binding: Patterns not matched: []
+    |
+134 |         let (l:ls) = reverse (BS.lines buf)
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[ 2 of 17] Compiling Distribution.Nixpkgs.Haskell.BuildInfo ( src/Distribution/Nixpkgs/Haskell/BuildInfo.hs, dist/build/Distribution/Nixpkgs/Haskell/BuildInfo.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[ 3 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.License ( src/Distribution/Nixpkgs/Haskell/FromCabal/License.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/License.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[ 4 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.Name ( src/Distribution/Nixpkgs/Haskell/FromCabal/Name.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/Name.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[ 5 of 17] Compiling Distribution.Nixpkgs.Haskell.Hackage ( src/Distribution/Nixpkgs/Haskell/Hackage.hs, dist/build/Distribution/Nixpkgs/Haskell/Hackage.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[ 6 of 17] Compiling Distribution.Nixpkgs.Haskell.OrphanInstances ( src/Distribution/Nixpkgs/Haskell/OrphanInstances.hs, dist/build/Distribution/Nixpkgs/Haskell/OrphanInstances.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[ 7 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.Flags ( src/Distribution/Nixpkgs/Haskell/FromCabal/Flags.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/Flags.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[ 8 of 17] Compiling Distribution.Nixpkgs.Haskell.Derivation ( src/Distribution/Nixpkgs/Haskell/Derivation.hs, dist/build/Distribution/Nixpkgs/Haskell/Derivation.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[ 9 of 17] Compiling Distribution.Nixpkgs.Haskell ( src/Distribution/Nixpkgs/Haskell.hs, dist/build/Distribution/Nixpkgs/Haskell.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+
+[10 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.PostProcess ( src/Distribution/Nixpkgs/Haskell/FromCabal/PostProcess.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/PostProcess.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[11 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.Normalize ( src/Distribution/Nixpkgs/Haskell/FromCabal/Normalize.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/Normalize.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[12 of 17] Compiling Distribution.Nixpkgs.Haskell.Constraint ( src/Distribution/Nixpkgs/Haskell/Constraint.hs, dist/build/Distribution/Nixpkgs/Haskell/Constraint.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+
+[13 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.Configuration ( src/Distribution/Nixpkgs/Haskell/FromCabal/Configuration.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/Configuration.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[14 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal ( src/Distribution/Nixpkgs/Haskell/FromCabal.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[15 of 17] Compiling Distribution.Nixpkgs.Haskell.PackageSourceSpec ( src/Distribution/Nixpkgs/Haskell/PackageSourceSpec.hs, dist/build/Distribution/Nixpkgs/Haskell/PackageSourceSpec.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[16 of 17] Compiling Paths_cabal2nix  ( dist/build/autogen/Paths_cabal2nix.hs, dist/build/Paths_cabal2nix.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[17 of 17] Compiling Cabal2nix        ( src/Cabal2nix.hs, dist/build/Cabal2nix.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+ignoring (possibly broken) abi-depends field for packages
+Preprocessing executable 'hackage2nix' for cabal2nix-2.9.3..
+Building executable 'hackage2nix' for cabal2nix-2.9.3..
+[1 of 3] Compiling HackageGit       ( hackage2nix/HackageGit.hs, dist/build/hackage2nix/hackage2nix-tmp/HackageGit.o )
+[2 of 3] Compiling Paths_cabal2nix  ( dist/build/hackage2nix/autogen/Paths_cabal2nix.hs, dist/build/hackage2nix/hackage2nix-tmp/Paths_cabal2nix.o )
+[3 of 3] Compiling Main             ( hackage2nix/Main.hs, dist/build/hackage2nix/hackage2nix-tmp/Main.o )
+Linking dist/build/hackage2nix/hackage2nix ...
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+Preprocessing executable 'cabal2nix' for cabal2nix-2.9.3..
+Building executable 'cabal2nix' for cabal2nix-2.9.3..
+[1 of 1] Compiling Main             ( cabal2nix/Main.hs, dist/build/cabal2nix/cabal2nix-tmp/Main.o )
+Linking dist/build/cabal2nix/cabal2nix ...
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+Preprocessing test suite 'regression-test' for cabal2nix-2.9.3..
+Building test suite 'regression-test' for cabal2nix-2.9.3..
+[1 of 1] Compiling Main             ( test/Main.hs, dist/build/regression-test/regression-test-tmp/Main.o )
+Linking dist/build/regression-test/regression-test ...
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+running tests
+Running 1 test suites...
+Test suite regression-test: RUNNING...
+regression-tests
+  cabal2nix library
+    test/golden-test-cases/mwc-random-monad.nix:                    OK (0.03s)
+    test/golden-test-cases/dotnet-timespan.nix:                     OK
+    test/golden-test-cases/polynomials-bernstein.nix:               OK
+    test/golden-test-cases/bzlib.nix:                               OK
+    test/golden-test-cases/lmdb.nix:                                OK
+    test/golden-test-cases/ttrie.nix:                               OK
+    test/golden-test-cases/ratio-int.nix:                           OK
+    test/golden-test-cases/eventful-sqlite.nix:                     OK
+    test/golden-test-cases/aws.nix:                                 OK
+    test/golden-test-cases/exact-pi.nix:                            OK
+    test/golden-test-cases/hformat.nix:                             OK
+    test/golden-test-cases/unlit.nix:                               OK
+    test/golden-test-cases/quickcheck-combinators.nix:              OK
+    test/golden-test-cases/chell.nix:                               OK
+    test/golden-test-cases/http-media.nix:                          OK
+    test/golden-test-cases/picosat.nix:                             OK
+    test/golden-test-cases/case-insensitive.nix:                    OK
+    test/golden-test-cases/type-spec.nix:                           OK
+    test/golden-test-cases/wai-cors.nix:                            OK
+    test/golden-test-cases/happstack-hsp.nix:                       OK
+    test/golden-test-cases/partial-isomorphisms.nix:                OK (0.02s)
+    test/golden-test-cases/tree-fun.nix:                            OK
+    test/golden-test-cases/gogol-youtube.nix:                       OK
+    test/golden-test-cases/QuasiText.nix:                           OK
+    test/golden-test-cases/tagstream-conduit.nix:                   OK
+    test/golden-test-cases/fingertree.nix:                          OK
+    test/golden-test-cases/vivid-supercollider.nix:                 OK
+    test/golden-test-cases/brittany.nix:                            OK
+    test/golden-test-cases/hxt-expat.nix:                           OK
+    test/golden-test-cases/string-class.nix:                        OK
+    test/golden-test-cases/one-liner.nix:                           OK
+    test/golden-test-cases/lens-aeson.nix:                          OK
+    test/golden-test-cases/happy.nix:                               OK
+    test/golden-test-cases/vty.nix:                                 OK (0.01s)
+    test/golden-test-cases/amazonka-route53-domains.nix:            OK
+    test/golden-test-cases/katip.nix:                               OK
+    test/golden-test-cases/online.nix:                              OK
+    test/golden-test-cases/haskell-tools-rewrite.nix:               OK
+    test/golden-test-cases/prettyprinter-compat-ansi-wl-pprint.nix: OK
+    test/golden-test-cases/hashtables.nix:                          OK
+    test/golden-test-cases/data-msgpack.nix:                        OK
+    test/golden-test-cases/gogol-affiliates.nix:                    OK
+    test/golden-test-cases/spreadsheet.nix:                         OK
+    test/golden-test-cases/yesod-recaptcha2.nix:                    OK
+    test/golden-test-cases/proto-lens.nix:                          OK
+    test/golden-test-cases/strict-types.nix:                        OK
+    test/golden-test-cases/monad-products.nix:                      OK
+    test/golden-test-cases/wai-middleware-caching-redis.nix:        OK
+    test/golden-test-cases/hxt-charproperties.nix:                  OK
+    test/golden-test-cases/FenwickTree.nix:                         OK
+    test/golden-test-cases/gogol-blogger.nix:                       OK
+    test/golden-test-cases/pell.nix:                                OK
+    test/golden-test-cases/hoogle.nix:                              OK
+    test/golden-test-cases/unique.nix:                              OK
+    test/golden-test-cases/weigh.nix:                               OK
+    test/golden-test-cases/deque.nix:                               OK
+    test/golden-test-cases/servant-checked-exceptions.nix:          OK
+    test/golden-test-cases/hsx-jmacro.nix:                          OK
+    test/golden-test-cases/slack-web.nix:                           OK
+    test/golden-test-cases/hOpenPGP.nix:                            OK
+    test/golden-test-cases/pusher-http-haskell.nix:                 OK
+    test/golden-test-cases/rosezipper.nix:                          OK
+    test/golden-test-cases/swagger.nix:                             OK
+    test/golden-test-cases/bioalign.nix:                            OK
+    test/golden-test-cases/texmath.nix:                             OK
+    test/golden-test-cases/svg-tree.nix:                            OK
+    test/golden-test-cases/apply-refact.nix:                        OK
+    test/golden-test-cases/haskell-tools-debug.nix:                 OK
+    test/golden-test-cases/drifter-postgresql.nix:                  OK
+    test/golden-test-cases/tce-conf.nix:                            OK
+    test/golden-test-cases/frisby.nix:                              OK
+    test/golden-test-cases/network-transport-tcp.nix:               OK
+    test/golden-test-cases/katip-elasticsearch.nix:                 OK
+    test/golden-test-cases/clumpiness.nix:                          OK
+    test/golden-test-cases/ekg-cloudwatch.nix:                      OK
+    test/golden-test-cases/openpgp-asciiarmor.nix:                  OK
+    test/golden-test-cases/ghcid.nix:                               OK
+    test/golden-test-cases/zlib.nix:                                OK
+    test/golden-test-cases/timezone-series.nix:                     OK
+    test/golden-test-cases/tuples-homogenous-h98.nix:               OK
+    test/golden-test-cases/xml-hamlet.nix:                          OK
+    test/golden-test-cases/tuple-th.nix:                            OK
+    test/golden-test-cases/katydid.nix:                             OK
+    test/golden-test-cases/gogol-dfareporting.nix:                  OK
+    test/golden-test-cases/relational-query.nix:                    OK
+    test/golden-test-cases/hit.nix:                                 OK
+    test/golden-test-cases/hxt-tagsoup.nix:                         OK
+    test/golden-test-cases/invariant.nix:                           OK
+    test/golden-test-cases/bindings-uname.nix:                      OK
+    test/golden-test-cases/yesod-form-bootstrap4.nix:               OK
+    test/golden-test-cases/dhall-bash.nix:                          OK
+    test/golden-test-cases/giphy-api.nix:                           OK
+    test/golden-test-cases/hasql.nix:                               OK
+    test/golden-test-cases/ChasingBottoms.nix:                      OK
+    test/golden-test-cases/rasterific-svg.nix:                      OK
+    test/golden-test-cases/io-streams-haproxy.nix:                  OK
+    test/golden-test-cases/iconv.nix:                               OK
+    test/golden-test-cases/primitive.nix:                           OK
+    test/golden-test-cases/selda.nix:                               OK
+    test/golden-test-cases/ReadArgs.nix:                            OK
+    test/golden-test-cases/gsasl.nix:                               OK
+    test/golden-test-cases/strict-base-types.nix:                   OK
+    test/golden-test-cases/generic-lens.nix:                        OK
+    test/golden-test-cases/streaming-commons.nix:                   OK
+    test/golden-test-cases/cassette.nix:                            OK
+    test/golden-test-cases/postgresql-simple-url.nix:               OK
+    test/golden-test-cases/reform-blaze.nix:                        OK
+    test/golden-test-cases/lambdabot-social-plugins.nix:            OK
+    test/golden-test-cases/monadcryptorandom.nix:                   OK
+    test/golden-test-cases/simple-smt.nix:                          OK
+    test/golden-test-cases/once.nix:                                OK
+    test/golden-test-cases/th-expand-syns.nix:                      OK
+    test/golden-test-cases/mmorph.nix:                              OK
+    test/golden-test-cases/mainland-pretty.nix:                     OK
+    test/golden-test-cases/cassava-conduit.nix:                     OK
+    test/golden-test-cases/unicode-show.nix:                        OK
+    test/golden-test-cases/gogol-adexchange-buyer.nix:              OK
+    test/golden-test-cases/persistable-types-HDBC-pg.nix:           OK
+    test/golden-test-cases/lifted-async.nix:                        OK
+    test/golden-test-cases/gogol-webmaster-tools.nix:               OK
+    test/golden-test-cases/gogol-firebase-rules.nix:                OK
+    test/golden-test-cases/text-postgresql.nix:                     OK
+    test/golden-test-cases/l10n.nix:                                OK
+    test/golden-test-cases/repa.nix:                                OK
+    test/golden-test-cases/nix-paths.nix:                           OK
+    test/golden-test-cases/HTF.nix:                                 OK
+    test/golden-test-cases/speedy-slice.nix:                        OK
+    test/golden-test-cases/gogol-apps-tasks.nix:                    OK
+    test/golden-test-cases/csv.nix:                                 OK
+    test/golden-test-cases/pcap.nix:                                OK
+    test/golden-test-cases/hjson.nix:                               OK
+    test/golden-test-cases/poly-arity.nix:                          OK
+    test/golden-test-cases/htoml.nix:                               OK
+    test/golden-test-cases/unix-bytestring.nix:                     OK
+    test/golden-test-cases/kraken.nix:                              OK
+    test/golden-test-cases/text-icu.nix:                            OK
+    test/golden-test-cases/selda-sqlite.nix:                        OK
+    test/golden-test-cases/hstatsd.nix:                             OK
+    test/golden-test-cases/partial-semigroup.nix:                   OK
+    test/golden-test-cases/stb-image-redux.nix:                     OK
+    test/golden-test-cases/data-serializer.nix:                     OK
+    test/golden-test-cases/taggy.nix:                               OK
+    test/golden-test-cases/QuickCheck.nix:                          OK
+    test/golden-test-cases/emailaddress.nix:                        OK
+    test/golden-test-cases/io-machine.nix:                          OK
+    test/golden-test-cases/network-protocol-xmpp.nix:               OK
+    test/golden-test-cases/yahoo-finance-api.nix:                   OK
+    test/golden-test-cases/soxlib.nix:                              OK
+    test/golden-test-cases/aeson-diff.nix:                          OK
+    test/golden-test-cases/crypt-sha512.nix:                        OK
+    test/golden-test-cases/test-fixture.nix:                        OK
+    test/golden-test-cases/amazonka-kms.nix:                        OK
+    test/golden-test-cases/system-filepath.nix:                     OK
+    test/golden-test-cases/pager.nix:                               OK
+    test/golden-test-cases/gogol-maps-engine.nix:                   OK
+    test/golden-test-cases/cheapskate.nix:                          OK
+    test/golden-test-cases/repa-io.nix:                             OK
+    test/golden-test-cases/indentation-core.nix:                    OK
+    test/golden-test-cases/explicit-exception.nix:                  OK
+    test/golden-test-cases/crypto-random-api.nix:                   OK
+    test/golden-test-cases/benchpress.nix:                          OK
+    test/golden-test-cases/bbdb.nix:                                OK
+    test/golden-test-cases/gogol-admin-emailmigration.nix:          OK
+    test/golden-test-cases/mole.nix:                                OK
+    test/golden-test-cases/pdfinfo.nix:                             OK
+    test/golden-test-cases/integer-logarithms.nix:                  OK
+    test/golden-test-cases/vector-mmap.nix:                         OK
+    test/golden-test-cases/ObjectName.nix:                          OK
+    test/golden-test-cases/data-endian.nix:                         OK
+    test/golden-test-cases/countable.nix:                           OK
+    test/golden-test-cases/amazonka-waf.nix:                        OK
+    test/golden-test-cases/gogol-kgsearch.nix:                      OK
+    test/golden-test-cases/type-operators.nix:                      OK
+    test/golden-test-cases/reform-hsp.nix:                          OK
+    test/golden-test-cases/gogol-resourceviews.nix:                 OK
+    test/golden-test-cases/haddock-library.nix:                     OK
+    test/golden-test-cases/expiring-cache-map.nix:                  OK
+    test/golden-test-cases/mersenne-random.nix:                     OK
+    test/golden-test-cases/cpu.nix:                                 OK
+    test/golden-test-cases/lucid.nix:                               OK
+    test/golden-test-cases/matrices.nix:                            OK
+    test/golden-test-cases/http-link-header.nix:                    OK
+    test/golden-test-cases/pipes-network.nix:                       OK
+    test/golden-test-cases/megaparsec.nix:                          OK
+    test/golden-test-cases/projectroot.nix:                         OK
+    test/golden-test-cases/Strafunski-StrategyLib.nix:              OK
+    test/golden-test-cases/Only.nix:                                OK
+    test/golden-test-cases/inline-c-cpp.nix:                        OK
+    test/golden-test-cases/genvalidity-hspec-binary.nix:            OK
+    test/golden-test-cases/envelope.nix:                            OK
+    test/golden-test-cases/ghc-syb-utils.nix:                       OK
+    test/golden-test-cases/file-modules.nix:                        OK
+    test/golden-test-cases/diagrams-solve.nix:                      OK
+    test/golden-test-cases/colorize-haskell.nix:                    OK
+    test/golden-test-cases/scalpel-core.nix:                        OK
+    test/golden-test-cases/hPDB-examples.nix:                       OK
+    test/golden-test-cases/harp.nix:                                OK
+    test/golden-test-cases/quickcheck-arbitrary-adt.nix:            OK
+    test/golden-test-cases/algebraic-graphs.nix:                    OK
+    test/golden-test-cases/fdo-notify.nix:                          OK
+    test/golden-test-cases/system-fileio.nix:                       OK
+    test/golden-test-cases/utility-ht.nix:                          OK
+    test/golden-test-cases/prettyclass.nix:                         OK
+    test/golden-test-cases/psqueues.nix:                            OK
+    test/golden-test-cases/general-games.nix:                       OK
+    test/golden-test-cases/validity-aeson.nix:                      OK
+    test/golden-test-cases/persistent-mysql-haskell.nix:            OK
+    test/golden-test-cases/http-conduit.nix:                        OK
+    test/golden-test-cases/slug.nix:                                OK
+    test/golden-test-cases/Clipboard.nix:                           OK
+    test/golden-test-cases/broadcast-chan.nix:                      OK
+    test/golden-test-cases/data-default-instances-containers.nix:   OK
+    test/golden-test-cases/reactive-banana.nix:                     OK
+    test/golden-test-cases/proto-lens-optparse.nix:                 OK
+    test/golden-test-cases/sets.nix:                                OK
+    test/golden-test-cases/aeson-pretty.nix:                        OK
+    test/golden-test-cases/lens.nix:                                OK (0.01s)
+    test/golden-test-cases/GenericPretty.nix:                       OK
+    test/golden-test-cases/profiterole.nix:                         OK
+    test/golden-test-cases/prettyprinter-compat-wl-pprint.nix:      OK
+    test/golden-test-cases/wai-middleware-prometheus.nix:           OK
+    test/golden-test-cases/gogol-gmail.nix:                         OK
+    test/golden-test-cases/active.nix:                              OK
+    test/golden-test-cases/product-profunctors.nix:                 OK
+    test/golden-test-cases/ede.nix:                                 OK
+    test/golden-test-cases/warp.nix:                                OK
+    test/golden-test-cases/fixed-vector.nix:                        OK
+    test/golden-test-cases/yesod-gitrepo.nix:                       OK
+    test/golden-test-cases/mwc-random.nix:                          OK
+    test/golden-test-cases/stack-type.nix:                          OK
+    test/golden-test-cases/app-settings.nix:                        OK
+    test/golden-test-cases/discrimination.nix:                      OK
+    test/golden-test-cases/bits.nix:                                OK
+    test/golden-test-cases/blaze-markup.nix:                        OK
+    test/golden-test-cases/Hclip.nix:                               OK
+    test/golden-test-cases/adjunctions.nix:                         OK
+    test/golden-test-cases/monoid-extras.nix:                       OK
+    test/golden-test-cases/highlighting-kate.nix:                   OK
+    test/golden-test-cases/stripe-haskell.nix:                      OK
+    test/golden-test-cases/transformers-compat.nix:                 OK
+    test/golden-test-cases/tagged.nix:                              OK
+    test/golden-test-cases/rank1dynamic.nix:                        OK
+    test/golden-test-cases/hostname-validate.nix:                   OK
+    test/golden-test-cases/librato.nix:                             OK
+    test/golden-test-cases/regex-pcre.nix:                          OK
+    test/golden-test-cases/binary-bits.nix:                         OK
+    test/golden-test-cases/jmacro-rpc-happstack.nix:                OK
+    test/golden-test-cases/gl.nix:                                  OK (0.02s)
+    test/golden-test-cases/amazonka-cloudtrail.nix:                 OK
+    test/golden-test-cases/openexr-write.nix:                       OK
+    test/golden-test-cases/data-accessor.nix:                       OK
+    test/golden-test-cases/libgit.nix:                              OK
+    test/golden-test-cases/kawhi.nix:                               OK
+    test/golden-test-cases/messagepack.nix:                         OK
+    test/golden-test-cases/hsinstall.nix:                           OK
+    test/golden-test-cases/SHA.nix:                                 OK
+    test/golden-test-cases/intero.nix:                              OK
+    test/golden-test-cases/monadloc.nix:                            OK
+    test/golden-test-cases/hsyslog.nix:                             OK
+    test/golden-test-cases/boxes.nix:                               OK
+    test/golden-test-cases/validity-containers.nix:                 OK
+    test/golden-test-cases/fgl.nix:                                 OK
+    test/golden-test-cases/iso8601-time.nix:                        OK
+    test/golden-test-cases/lazy-csv.nix:                            OK
+    test/golden-test-cases/dpor.nix:                                OK
+    test/golden-test-cases/pinch.nix:                               OK
+    test/golden-test-cases/rvar.nix:                                OK
+    test/golden-test-cases/attoparsec-expr.nix:                     OK
+    test/golden-test-cases/hakyll.nix:                              OK
+    test/golden-test-cases/foundation.nix:                          OK
+    test/golden-test-cases/iso639.nix:                              OK
+    test/golden-test-cases/xmonad-contrib.nix:                      OK
+    test/golden-test-cases/HTTP.nix:                                OK
+    test/golden-test-cases/amazonka-ecs.nix:                        OK
+    test/golden-test-cases/groundhog-mysql.nix:                     OK
+    test/golden-test-cases/HPDF.nix:                                OK
+    test/golden-test-cases/pointed.nix:                             OK
+    test/golden-test-cases/gogol-plus.nix:                          OK
+    test/golden-test-cases/regex-compat.nix:                        OK
+    test/golden-test-cases/criterion.nix:                           OK
+    test/golden-test-cases/genvalidity-scientific.nix:              OK
+    test/golden-test-cases/rebase.nix:                              OK
+    test/golden-test-cases/relational-schemas.nix:                  OK
+    test/golden-test-cases/jose.nix:                                OK
+    test/golden-test-cases/hmpfr.nix:                               OK
+    test/golden-test-cases/genvalidity-hspec-aeson.nix:             OK
+    test/golden-test-cases/these.nix:                               OK
+    test/golden-test-cases/microlens.nix:                           OK
+    test/golden-test-cases/set-cover.nix:                           OK
+    test/golden-test-cases/transformers-lift.nix:                   OK
+    test/golden-test-cases/drawille.nix:                            OK
+    test/golden-test-cases/boomerang.nix:                           OK
+    test/golden-test-cases/genvalidity-aeson.nix:                   OK
+    test/golden-test-cases/nvim-hs.nix:                             OK
+    test/golden-test-cases/prelude-safeenum.nix:                    OK
+    test/golden-test-cases/mnist-idx.nix:                           OK
+    test/golden-test-cases/avers-server.nix:                        OK
+    test/golden-test-cases/code-page.nix:                           OK
+    test/golden-test-cases/blosum.nix:                              OK
+    test/golden-test-cases/minio-hs.nix:                            OK
+    test/golden-test-cases/github.nix:                              OK
+    test/golden-test-cases/amazonka-cognito-idp.nix:                OK
+    test/golden-test-cases/median-stream.nix:                       OK
+    test/golden-test-cases/nanospec.nix:                            OK
+    test/golden-test-cases/system-argv0.nix:                        OK
+    test/golden-test-cases/state-codes.nix:                         OK
+    test/golden-test-cases/accelerate-fftw.nix:                     OK
+    test/golden-test-cases/blank-canvas.nix:                        OK
+    test/golden-test-cases/readline.nix:                            OK
+    test/golden-test-cases/presburger.nix:                          OK
+    test/golden-test-cases/mongoDB.nix:                             OK
+    test/golden-test-cases/microlens-ghc.nix:                       OK
+    test/golden-test-cases/GPipe-GLFW.nix:                          OK
+    test/golden-test-cases/incremental-parser.nix:                  OK
+    test/golden-test-cases/accelerate.nix:                          OK
+    test/golden-test-cases/tasty-rerun.nix:                         OK
+    test/golden-test-cases/butcher.nix:                             OK
+    test/golden-test-cases/pathtype.nix:                            OK
+    test/golden-test-cases/tasty-hedgehog.nix:                      OK
+    test/golden-test-cases/turtle-options.nix:                      OK
+    test/golden-test-cases/dotenv.nix:                              OK
+    test/golden-test-cases/amazonka-lightsail.nix:                  OK
+    test/golden-test-cases/logging-effect-extra-file.nix:           OK
+    test/golden-test-cases/amazonka-cloudwatch-logs.nix:            OK
+    test/golden-test-cases/amazonka-codedeploy.nix:                 OK
+    test/golden-test-cases/sdl2.nix:                                OK
+    test/golden-test-cases/blaze-svg.nix:                           OK
+    test/golden-test-cases/genvalidity-uuid.nix:                    OK
+    test/golden-test-cases/gogol-datastore.nix:                     OK
+    test/golden-test-cases/indentation-parsec.nix:                  OK
+    test/golden-test-cases/stm-containers.nix:                      OK
+    test/golden-test-cases/gogol-appstate.nix:                      OK
+    test/golden-test-cases/pipes-safe.nix:                          OK
+    test/golden-test-cases/funcmp.nix:                              OK
+    test/golden-test-cases/fixed.nix:                               OK
+    test/golden-test-cases/blaze-html.nix:                          OK
+    test/golden-test-cases/async.nix:                               OK
+    test/golden-test-cases/netpbm.nix:                              OK
+    test/golden-test-cases/jmacro-rpc.nix:                          OK
+    test/golden-test-cases/api-field-json-th.nix:                   OK
+    test/golden-test-cases/MissingH.nix:                            OK
+    test/golden-test-cases/wai-middleware-auth.nix:                 OK
+    test/golden-test-cases/cereal-text.nix:                         OK
+    test/golden-test-cases/ip.nix:                                  OK
+    test/golden-test-cases/attoparsec-time.nix:                     OK
+    test/golden-test-cases/functor-classes-compat.nix:              OK
+    test/golden-test-cases/splice.nix:                              OK
+    test/golden-test-cases/gogol-translate.nix:                     OK
+    test/golden-test-cases/binary-tagged.nix:                       OK
+    test/golden-test-cases/rawstring-qm.nix:                        OK
+    test/golden-test-cases/terminal-progress-bar.nix:               OK
+  cabal2nix executable
+    test/golden-test-cases/mwc-random-monad.nix:                    OK (0.03s)
+    test/golden-test-cases/dotnet-timespan.nix:                     OK (0.03s)
+    test/golden-test-cases/polynomials-bernstein.nix:               OK (0.03s)
+    test/golden-test-cases/bzlib.nix:                               OK (0.03s)
+    test/golden-test-cases/lmdb.nix:                                OK (0.03s)
+    test/golden-test-cases/ttrie.nix:                               OK (0.03s)
+    test/golden-test-cases/ratio-int.nix:                           OK (0.03s)
+    test/golden-test-cases/eventful-sqlite.nix:                     OK (0.03s)
+    test/golden-test-cases/aws.nix:                                 OK (0.03s)
+    test/golden-test-cases/exact-pi.nix:                            OK (0.03s)
+    test/golden-test-cases/hformat.nix:                             OK (0.03s)
+    test/golden-test-cases/unlit.nix:                               OK (0.03s)
+    test/golden-test-cases/quickcheck-combinators.nix:              OK (0.03s)
+    test/golden-test-cases/chell.nix:                               OK (0.03s)
+    test/golden-test-cases/http-media.nix:                          OK (0.03s)
+    test/golden-test-cases/picosat.nix:                             OK (0.03s)
+    test/golden-test-cases/case-insensitive.nix:                    OK (0.03s)
+    test/golden-test-cases/type-spec.nix:                           OK (0.03s)
+    test/golden-test-cases/wai-cors.nix:                            OK (0.03s)
+    test/golden-test-cases/happstack-hsp.nix:                       OK (0.03s)
+    test/golden-test-cases/partial-isomorphisms.nix:                OK (0.03s)
+    test/golden-test-cases/tree-fun.nix:                            OK (0.03s)
+    test/golden-test-cases/gogol-youtube.nix:                       OK (0.03s)
+    test/golden-test-cases/QuasiText.nix:                           OK (0.03s)
+    test/golden-test-cases/tagstream-conduit.nix:                   OK (0.03s)
+    test/golden-test-cases/fingertree.nix:                          OK (0.03s)
+    test/golden-test-cases/vivid-supercollider.nix:                 OK (0.03s)
+    test/golden-test-cases/brittany.nix:                            OK (0.03s)
+    test/golden-test-cases/hxt-expat.nix:                           OK (0.03s)
+    test/golden-test-cases/string-class.nix:                        OK (0.03s)
+    test/golden-test-cases/one-liner.nix:                           OK (0.03s)
+    test/golden-test-cases/lens-aeson.nix:                          OK (0.03s)
+    test/golden-test-cases/happy.nix:                               OK (0.03s)
+    test/golden-test-cases/vty.nix:                                 OK (0.04s)
+    test/golden-test-cases/amazonka-route53-domains.nix:            OK (0.03s)
+    test/golden-test-cases/katip.nix:                               OK (0.03s)
+    test/golden-test-cases/online.nix:                              OK (0.03s)
+    test/golden-test-cases/haskell-tools-rewrite.nix:               OK (0.03s)
+    test/golden-test-cases/prettyprinter-compat-ansi-wl-pprint.nix: OK (0.03s)
+    test/golden-test-cases/hashtables.nix:                          OK (0.03s)
+    test/golden-test-cases/data-msgpack.nix:                        OK (0.03s)
+    test/golden-test-cases/gogol-affiliates.nix:                    OK (0.03s)
+    test/golden-test-cases/spreadsheet.nix:                         OK (0.03s)
+    test/golden-test-cases/yesod-recaptcha2.nix:                    OK (0.03s)
+    test/golden-test-cases/proto-lens.nix:                          OK (0.03s)
+    test/golden-test-cases/strict-types.nix:                        OK (0.03s)
+    test/golden-test-cases/monad-products.nix:                      OK (0.03s)
+    test/golden-test-cases/wai-middleware-caching-redis.nix:        OK (0.03s)
+    test/golden-test-cases/hxt-charproperties.nix:                  OK (0.03s)
+    test/golden-test-cases/FenwickTree.nix:                         OK (0.03s)
+    test/golden-test-cases/gogol-blogger.nix:                       OK (0.03s)
+    test/golden-test-cases/pell.nix:                                OK (0.03s)
+    test/golden-test-cases/hoogle.nix:                              OK (0.03s)
+    test/golden-test-cases/unique.nix:                              OK (0.03s)
+    test/golden-test-cases/weigh.nix:                               OK (0.03s)
+    test/golden-test-cases/deque.nix:                               OK (0.03s)
+    test/golden-test-cases/servant-checked-exceptions.nix:          OK (0.03s)
+    test/golden-test-cases/hsx-jmacro.nix:                          OK (0.03s)
+    test/golden-test-cases/slack-web.nix:                           OK (0.03s)
+    test/golden-test-cases/hOpenPGP.nix:                            OK (0.03s)
+    test/golden-test-cases/pusher-http-haskell.nix:                 OK (0.03s)
+    test/golden-test-cases/rosezipper.nix:                          OK (0.03s)
+    test/golden-test-cases/swagger.nix:                             OK (0.03s)
+    test/golden-test-cases/bioalign.nix:                            OK (0.03s)
+    test/golden-test-cases/texmath.nix:                             OK (0.03s)
+    test/golden-test-cases/svg-tree.nix:                            OK (0.03s)
+    test/golden-test-cases/apply-refact.nix:                        OK (0.03s)
+    test/golden-test-cases/haskell-tools-debug.nix:                 OK (0.04s)
+    test/golden-test-cases/drifter-postgresql.nix:                  OK (0.04s)
+    test/golden-test-cases/tce-conf.nix:                            OK (0.03s)
+    test/golden-test-cases/frisby.nix:                              OK (0.03s)
+    test/golden-test-cases/network-transport-tcp.nix:               OK (0.03s)
+    test/golden-test-cases/katip-elasticsearch.nix:                 OK (0.03s)
+    test/golden-test-cases/clumpiness.nix:                          OK (0.03s)
+    test/golden-test-cases/ekg-cloudwatch.nix:                      OK (0.03s)
+    test/golden-test-cases/openpgp-asciiarmor.nix:                  OK (0.03s)
+    test/golden-test-cases/ghcid.nix:                               OK (0.03s)
+    test/golden-test-cases/zlib.nix:                                OK (0.03s)
+    test/golden-test-cases/timezone-series.nix:                     OK (0.03s)
+    test/golden-test-cases/tuples-homogenous-h98.nix:               OK (0.03s)
+    test/golden-test-cases/xml-hamlet.nix:                          OK (0.03s)
+    test/golden-test-cases/tuple-th.nix:                            OK (0.03s)
+    test/golden-test-cases/katydid.nix:                             OK (0.03s)
+    test/golden-test-cases/gogol-dfareporting.nix:                  OK (0.04s)
+    test/golden-test-cases/relational-query.nix:                    OK (0.03s)
+    test/golden-test-cases/hit.nix:                                 OK (0.03s)
+    test/golden-test-cases/hxt-tagsoup.nix:                         OK (0.03s)
+    test/golden-test-cases/invariant.nix:                           OK (0.03s)
+    test/golden-test-cases/bindings-uname.nix:                      OK (0.03s)
+    test/golden-test-cases/yesod-form-bootstrap4.nix:               OK (0.03s)
+    test/golden-test-cases/dhall-bash.nix:                          OK (0.03s)
+    test/golden-test-cases/giphy-api.nix:                           OK (0.03s)
+    test/golden-test-cases/hasql.nix:                               OK (0.03s)
+    test/golden-test-cases/ChasingBottoms.nix:                      OK (0.03s)
+    test/golden-test-cases/rasterific-svg.nix:                      OK (0.03s)
+    test/golden-test-cases/io-streams-haproxy.nix:                  OK (0.03s)
+    test/golden-test-cases/iconv.nix:                               FAIL (0.03s)
+      --- test/golden-test-cases/iconv.nix.golden       2018-07-10 13:29:51.000000000 +0000
+      +++ test/golden-test-cases/iconv.nix      2018-07-15 17:50:17.185538627 +0000
+      @@ -1,9 +1,10 @@
+      -{ mkDerivation, base, bytestring, stdenv }:
+      +{ mkDerivation, base, bytestring, iconv, stdenv }:
+       mkDerivation {
+         pname = "iconv";
+         version = "0.4.1.3";
+         sha256 = "deadbeef";
+         libraryHaskellDepends = [ base bytestring ];
+      +  librarySystemDepends = [ iconv ];
+         description = "String encoding conversion";
+         license = stdenv.lib.licenses.bsd3;
+       }
+    test/golden-test-cases/primitive.nix:                           OK (0.03s)
+    test/golden-test-cases/selda.nix:                               OK (0.03s)
+    test/golden-test-cases/ReadArgs.nix:                            OK (0.03s)
+    test/golden-test-cases/gsasl.nix:                               OK (0.03s)
+    test/golden-test-cases/strict-base-types.nix:                   OK (0.03s)
+    test/golden-test-cases/generic-lens.nix:                        OK (0.03s)
+    test/golden-test-cases/streaming-commons.nix:                   OK (0.03s)
+    test/golden-test-cases/cassette.nix:                            OK (0.03s)
+    test/golden-test-cases/postgresql-simple-url.nix:               OK (0.03s)
+    test/golden-test-cases/reform-blaze.nix:                        OK (0.03s)
+    test/golden-test-cases/lambdabot-social-plugins.nix:            OK (0.03s)
+    test/golden-test-cases/monadcryptorandom.nix:                   OK (0.03s)
+    test/golden-test-cases/simple-smt.nix:                          OK (0.04s)
+    test/golden-test-cases/once.nix:                                OK (0.04s)
+    test/golden-test-cases/th-expand-syns.nix:                      OK (0.03s)
+    test/golden-test-cases/mmorph.nix:                              OK (0.03s)
+    test/golden-test-cases/mainland-pretty.nix:                     OK (0.03s)
+    test/golden-test-cases/cassava-conduit.nix:                     OK (0.03s)
+    test/golden-test-cases/unicode-show.nix:                        OK (0.03s)
+    test/golden-test-cases/gogol-adexchange-buyer.nix:              OK (0.03s)
+    test/golden-test-cases/persistable-types-HDBC-pg.nix:           OK (0.03s)
+    test/golden-test-cases/lifted-async.nix:                        OK (0.03s)
+    test/golden-test-cases/gogol-webmaster-tools.nix:               OK (0.03s)
+    test/golden-test-cases/gogol-firebase-rules.nix:                OK (0.03s)
+    test/golden-test-cases/text-postgresql.nix:                     OK (0.03s)
+    test/golden-test-cases/l10n.nix:                                OK (0.03s)
+    test/golden-test-cases/repa.nix:                                OK (0.03s)
+    test/golden-test-cases/nix-paths.nix:                           OK (0.03s)
+    test/golden-test-cases/HTF.nix:                                 OK (0.03s)
+    test/golden-test-cases/speedy-slice.nix:                        OK (0.03s)
+    test/golden-test-cases/gogol-apps-tasks.nix:                    OK (0.03s)
+    test/golden-test-cases/csv.nix:                                 OK (0.03s)
+    test/golden-test-cases/pcap.nix:                                OK (0.03s)
+    test/golden-test-cases/hjson.nix:                               OK (0.03s)
+    test/golden-test-cases/poly-arity.nix:                          OK (0.03s)
+    test/golden-test-cases/htoml.nix:                               OK (0.04s)
+    test/golden-test-cases/unix-bytestring.nix:                     OK (0.03s)
+    test/golden-test-cases/kraken.nix:                              OK (0.03s)
+    test/golden-test-cases/text-icu.nix:                            OK (0.03s)
+    test/golden-test-cases/selda-sqlite.nix:                        OK (0.03s)
+    test/golden-test-cases/hstatsd.nix:                             OK (0.03s)
+    test/golden-test-cases/partial-semigroup.nix:                   OK (0.04s)
+    test/golden-test-cases/stb-image-redux.nix:                     OK (0.03s)
+    test/golden-test-cases/data-serializer.nix:                     OK (0.04s)
+    test/golden-test-cases/taggy.nix:                               OK (0.03s)
+    test/golden-test-cases/QuickCheck.nix:                          OK (0.03s)
+    test/golden-test-cases/emailaddress.nix:                        OK (0.03s)
+    test/golden-test-cases/io-machine.nix:                          OK (0.03s)
+    test/golden-test-cases/network-protocol-xmpp.nix:               OK (0.03s)
+    test/golden-test-cases/yahoo-finance-api.nix:                   OK (0.03s)
+    test/golden-test-cases/soxlib.nix:                              OK (0.03s)
+    test/golden-test-cases/aeson-diff.nix:                          OK (0.03s)
+    test/golden-test-cases/crypt-sha512.nix:                        FAIL (0.03s)
+      --- test/golden-test-cases/crypt-sha512.nix.golden        2018-07-10 13:29:51.000000000 +0000
+      +++ test/golden-test-cases/crypt-sha512.nix       2018-07-15 17:50:18.939839535 +0000
+      @@ -1,6 +1,5 @@
+       { mkDerivation, attoparsec, base, bytestring, cryptohash-sha512
+      -, quickcheck-instances, stdenv, tasty, tasty-hunit
+      -, tasty-quickcheck
+      +, stdenv
+       }:
+       mkDerivation {
+         pname = "crypt-sha512";
+      @@ -9,10 +8,6 @@
+         libraryHaskellDepends = [
+           attoparsec base bytestring cryptohash-sha512
+         ];
+      -  testHaskellDepends = [
+      -    base bytestring quickcheck-instances tasty tasty-hunit
+      -    tasty-quickcheck
+      -  ];
+         homepage = "https://github.com/phadej/crypt-sha512";
+         description = "Pure Haskell implelementation for GNU SHA512 crypt algorithm";
+         license = stdenv.lib.licenses.bsd3;
+    test/golden-test-cases/test-fixture.nix:                        OK (0.03s)
+    test/golden-test-cases/amazonka-kms.nix:                        OK (0.03s)
+    test/golden-test-cases/system-filepath.nix:                     OK (0.03s)
+    test/golden-test-cases/pager.nix:                               OK (0.03s)
+    test/golden-test-cases/gogol-maps-engine.nix:                   OK (0.03s)
+    test/golden-test-cases/cheapskate.nix:                          OK (0.03s)
+    test/golden-test-cases/repa-io.nix:                             OK (0.03s)
+    test/golden-test-cases/indentation-core.nix:                    OK (0.03s)
+    test/golden-test-cases/explicit-exception.nix:                  OK (0.03s)
+    test/golden-test-cases/crypto-random-api.nix:                   OK (0.03s)
+    test/golden-test-cases/benchpress.nix:                          OK (0.03s)
+    test/golden-test-cases/bbdb.nix:                                OK (0.03s)
+    test/golden-test-cases/gogol-admin-emailmigration.nix:          OK (0.03s)
+    test/golden-test-cases/mole.nix:                                OK (0.03s)
+    test/golden-test-cases/pdfinfo.nix:                             OK (0.03s)
+    test/golden-test-cases/integer-logarithms.nix:                  OK (0.03s)
+    test/golden-test-cases/vector-mmap.nix:                         OK (0.03s)
+    test/golden-test-cases/ObjectName.nix:                          OK (0.03s)
+    test/golden-test-cases/data-endian.nix:                         OK (0.03s)
+    test/golden-test-cases/countable.nix:                           OK (0.03s)
+    test/golden-test-cases/amazonka-waf.nix:                        OK (0.03s)
+    test/golden-test-cases/gogol-kgsearch.nix:                      OK (0.03s)
+    test/golden-test-cases/type-operators.nix:                      OK (0.03s)
+    test/golden-test-cases/reform-hsp.nix:                          OK (0.03s)
+    test/golden-test-cases/gogol-resourceviews.nix:                 OK (0.04s)
+    test/golden-test-cases/haddock-library.nix:                     OK (0.03s)
+    test/golden-test-cases/expiring-cache-map.nix:                  OK (0.03s)
+    test/golden-test-cases/mersenne-random.nix:                     OK (0.03s)
+    test/golden-test-cases/cpu.nix:                                 OK (0.03s)
+    test/golden-test-cases/lucid.nix:                               OK (0.03s)
+    test/golden-test-cases/matrices.nix:                            OK (0.03s)
+    test/golden-test-cases/http-link-header.nix:                    OK (0.03s)
+    test/golden-test-cases/pipes-network.nix:                       OK (0.03s)
+    test/golden-test-cases/megaparsec.nix:                          OK (0.03s)
+    test/golden-test-cases/projectroot.nix:                         OK (0.03s)
+    test/golden-test-cases/Strafunski-StrategyLib.nix:              OK (0.03s)
+    test/golden-test-cases/Only.nix:                                OK (0.03s)
+    test/golden-test-cases/inline-c-cpp.nix:                        OK (0.03s)
+    test/golden-test-cases/genvalidity-hspec-binary.nix:            OK (0.03s)
+    test/golden-test-cases/envelope.nix:                            OK (0.03s)
+    test/golden-test-cases/ghc-syb-utils.nix:                       OK (0.03s)
+    test/golden-test-cases/file-modules.nix:                        OK (0.03s)
+    test/golden-test-cases/diagrams-solve.nix:                      OK (0.03s)
+    test/golden-test-cases/colorize-haskell.nix:                    OK (0.03s)
+    test/golden-test-cases/scalpel-core.nix:                        OK (0.03s)
+    test/golden-test-cases/hPDB-examples.nix:                       OK (0.03s)
+    test/golden-test-cases/harp.nix:                                OK (0.03s)
+    test/golden-test-cases/quickcheck-arbitrary-adt.nix:            OK (0.03s)
+    test/golden-test-cases/algebraic-graphs.nix:                    OK (0.03s)
+    test/golden-test-cases/fdo-notify.nix:                          OK (0.03s)
+    test/golden-test-cases/system-fileio.nix:                       OK (0.03s)
+    test/golden-test-cases/utility-ht.nix:                          OK (0.03s)
+    test/golden-test-cases/prettyclass.nix:                         OK (0.03s)
+    test/golden-test-cases/psqueues.nix:                            OK (0.03s)
+    test/golden-test-cases/general-games.nix:                       OK (0.03s)
+    test/golden-test-cases/validity-aeson.nix:                      OK (0.03s)
+    test/golden-test-cases/persistent-mysql-haskell.nix:            OK (0.03s)
+    test/golden-test-cases/http-conduit.nix:                        OK (0.03s)
+    test/golden-test-cases/slug.nix:                                OK (0.03s)
+    test/golden-test-cases/Clipboard.nix:                           OK (0.03s)
+    test/golden-test-cases/broadcast-chan.nix:                      OK (0.03s)
+    test/golden-test-cases/data-default-instances-containers.nix:   OK (0.03s)
+    test/golden-test-cases/reactive-banana.nix:                     OK (0.03s)
+    test/golden-test-cases/proto-lens-optparse.nix:                 OK (0.03s)
+    test/golden-test-cases/sets.nix:                                OK (0.03s)
+    test/golden-test-cases/aeson-pretty.nix:                        OK (0.03s)
+    test/golden-test-cases/lens.nix:                                OK (0.05s)
+    test/golden-test-cases/GenericPretty.nix:                       OK (0.03s)
+    test/golden-test-cases/profiterole.nix:                         OK (0.03s)
+    test/golden-test-cases/prettyprinter-compat-wl-pprint.nix:      OK (0.03s)
+    test/golden-test-cases/wai-middleware-prometheus.nix:           OK (0.03s)
+    test/golden-test-cases/gogol-gmail.nix:                         OK (0.03s)
+    test/golden-test-cases/active.nix:                              OK (0.03s)
+    test/golden-test-cases/product-profunctors.nix:                 OK (0.03s)
+    test/golden-test-cases/ede.nix:                                 OK (0.03s)
+    test/golden-test-cases/warp.nix:                                OK (0.03s)
+    test/golden-test-cases/fixed-vector.nix:                        OK (0.03s)
+    test/golden-test-cases/yesod-gitrepo.nix:                       OK (0.03s)
+    test/golden-test-cases/mwc-random.nix:                          OK (0.03s)
+    test/golden-test-cases/stack-type.nix:                          OK (0.03s)
+    test/golden-test-cases/app-settings.nix:                        OK (0.04s)
+    test/golden-test-cases/discrimination.nix:                      OK (0.03s)
+    test/golden-test-cases/bits.nix:                                OK (0.03s)
+    test/golden-test-cases/blaze-markup.nix:                        OK (0.03s)
+    test/golden-test-cases/Hclip.nix:                               OK (0.03s)
+    test/golden-test-cases/adjunctions.nix:                         OK (0.03s)
+    test/golden-test-cases/monoid-extras.nix:                       OK (0.03s)
+    test/golden-test-cases/highlighting-kate.nix:                   OK (0.03s)
+    test/golden-test-cases/stripe-haskell.nix:                      OK (0.03s)
+    test/golden-test-cases/transformers-compat.nix:                 OK (0.03s)
+    test/golden-test-cases/tagged.nix:                              OK (0.03s)
+    test/golden-test-cases/rank1dynamic.nix:                        OK (0.03s)
+    test/golden-test-cases/hostname-validate.nix:                   OK (0.03s)
+    test/golden-test-cases/librato.nix:                             OK (0.03s)
+    test/golden-test-cases/regex-pcre.nix:                          OK (0.03s)
+    test/golden-test-cases/binary-bits.nix:                         OK (0.03s)
+    test/golden-test-cases/jmacro-rpc-happstack.nix:                OK (0.03s)
+    test/golden-test-cases/gl.nix:                                  FAIL (0.05s)
+      --- test/golden-test-cases/gl.nix.golden  2018-07-10 13:29:51.000000000 +0000
+      +++ test/golden-test-cases/gl.nix 2018-07-15 17:50:22.195284061 +0000
+      @@ -1,5 +1,5 @@
+       { mkDerivation, base, Cabal, containers, directory, filepath, fixed
+      -, half, hxt, libGL, stdenv, transformers
+      +, half, hxt, stdenv, transformers
+       }:
+       mkDerivation {
+         pname = "gl";
+      @@ -11,7 +11,6 @@
+         libraryHaskellDepends = [
+           base containers fixed half transformers
+         ];
+      -  librarySystemDepends = [ libGL ];
+         description = "Complete OpenGL raw bindings";
+         license = stdenv.lib.licenses.bsd3;
+       }
+    test/golden-test-cases/amazonka-cloudtrail.nix:                 OK (0.03s)
+    test/golden-test-cases/openexr-write.nix:                       OK (0.03s)
+    test/golden-test-cases/data-accessor.nix:                       OK (0.03s)
+    test/golden-test-cases/libgit.nix:                              OK (0.03s)
+    test/golden-test-cases/kawhi.nix:                               OK (0.04s)
+    test/golden-test-cases/messagepack.nix:                         OK (0.04s)
+    test/golden-test-cases/hsinstall.nix:                           OK (0.04s)
+    test/golden-test-cases/SHA.nix:                                 OK (0.03s)
+    test/golden-test-cases/intero.nix:                              OK (0.03s)
+    test/golden-test-cases/monadloc.nix:                            OK (0.03s)
+    test/golden-test-cases/hsyslog.nix:                             OK (0.03s)
+    test/golden-test-cases/boxes.nix:                               OK (0.03s)
+    test/golden-test-cases/validity-containers.nix:                 OK (0.03s)
+    test/golden-test-cases/fgl.nix:                                 OK (0.03s)
+    test/golden-test-cases/iso8601-time.nix:                        OK (0.03s)
+    test/golden-test-cases/lazy-csv.nix:                            OK (0.03s)
+    test/golden-test-cases/dpor.nix:                                OK (0.03s)
+    test/golden-test-cases/pinch.nix:                               OK (0.03s)
+    test/golden-test-cases/rvar.nix:                                OK (0.03s)
+    test/golden-test-cases/attoparsec-expr.nix:                     OK (0.03s)
+    test/golden-test-cases/hakyll.nix:                              OK (0.03s)
+    test/golden-test-cases/foundation.nix:                          OK (0.03s)
+    test/golden-test-cases/iso639.nix:                              OK (0.03s)
+    test/golden-test-cases/xmonad-contrib.nix:                      OK (0.03s)
+    test/golden-test-cases/HTTP.nix:                                OK (0.03s)
+    test/golden-test-cases/amazonka-ecs.nix:                        OK (0.03s)
+    test/golden-test-cases/groundhog-mysql.nix:                     OK (0.03s)
+    test/golden-test-cases/HPDF.nix:                                OK (0.03s)
+    test/golden-test-cases/pointed.nix:                             OK (0.03s)
+    test/golden-test-cases/gogol-plus.nix:                          OK (0.03s)
+    test/golden-test-cases/regex-compat.nix:                        OK (0.03s)
+    test/golden-test-cases/criterion.nix:                           OK (0.03s)
+    test/golden-test-cases/genvalidity-scientific.nix:              OK (0.03s)
+    test/golden-test-cases/rebase.nix:                              OK (0.03s)
+    test/golden-test-cases/relational-schemas.nix:                  OK (0.03s)
+    test/golden-test-cases/jose.nix:                                OK (0.03s)
+    test/golden-test-cases/hmpfr.nix:                               OK (0.03s)
+    test/golden-test-cases/genvalidity-hspec-aeson.nix:             OK (0.03s)
+    test/golden-test-cases/these.nix:                               OK (0.03s)
+    test/golden-test-cases/microlens.nix:                           OK (0.03s)
+    test/golden-test-cases/set-cover.nix:                           OK (0.03s)
+    test/golden-test-cases/transformers-lift.nix:                   OK (0.03s)
+    test/golden-test-cases/drawille.nix:                            OK (0.03s)
+    test/golden-test-cases/boomerang.nix:                           OK (0.03s)
+    test/golden-test-cases/genvalidity-aeson.nix:                   OK (0.03s)
+    test/golden-test-cases/nvim-hs.nix:                             OK (0.03s)
+    test/golden-test-cases/prelude-safeenum.nix:                    OK (0.03s)
+    test/golden-test-cases/mnist-idx.nix:                           OK (0.03s)
+    test/golden-test-cases/avers-server.nix:                        OK (0.03s)
+    test/golden-test-cases/code-page.nix:                           OK (0.03s)
+    test/golden-test-cases/blosum.nix:                              OK (0.03s)
+    test/golden-test-cases/minio-hs.nix:                            OK (0.03s)
+    test/golden-test-cases/github.nix:                              OK (0.03s)
+    test/golden-test-cases/amazonka-cognito-idp.nix:                OK (0.03s)
+    test/golden-test-cases/median-stream.nix:                       OK (0.03s)
+    test/golden-test-cases/nanospec.nix:                            OK (0.03s)
+    test/golden-test-cases/system-argv0.nix:                        OK (0.03s)
+    test/golden-test-cases/state-codes.nix:                         OK (0.03s)
+    test/golden-test-cases/accelerate-fftw.nix:                     OK (0.03s)
+    test/golden-test-cases/blank-canvas.nix:                        OK (0.03s)
+    test/golden-test-cases/readline.nix:                            OK (0.03s)
+    test/golden-test-cases/presburger.nix:                          OK (0.03s)
+    test/golden-test-cases/mongoDB.nix:                             OK (0.03s)
+    test/golden-test-cases/microlens-ghc.nix:                       OK (0.03s)
+    test/golden-test-cases/GPipe-GLFW.nix:                          OK (0.03s)
+    test/golden-test-cases/incremental-parser.nix:                  OK (0.03s)
+    test/golden-test-cases/accelerate.nix:                          OK (0.05s)
+    test/golden-test-cases/tasty-rerun.nix:                         OK (0.03s)
+    test/golden-test-cases/butcher.nix:                             OK (0.03s)
+    test/golden-test-cases/pathtype.nix:                            OK (0.03s)
+    test/golden-test-cases/tasty-hedgehog.nix:                      OK (0.03s)
+    test/golden-test-cases/turtle-options.nix:                      OK (0.03s)
+    test/golden-test-cases/dotenv.nix:                              OK (0.03s)
+    test/golden-test-cases/amazonka-lightsail.nix:                  OK (0.03s)
+    test/golden-test-cases/logging-effect-extra-file.nix:           OK (0.03s)
+    test/golden-test-cases/amazonka-cloudwatch-logs.nix:            OK (0.03s)
+    test/golden-test-cases/amazonka-codedeploy.nix:                 OK (0.03s)
+    test/golden-test-cases/sdl2.nix:                                OK (0.03s)
+    test/golden-test-cases/blaze-svg.nix:                           OK (0.03s)
+    test/golden-test-cases/genvalidity-uuid.nix:                    OK (0.03s)
+    test/golden-test-cases/gogol-datastore.nix:                     OK (0.03s)
+    test/golden-test-cases/indentation-parsec.nix:                  OK (0.03s)
+    test/golden-test-cases/stm-containers.nix:                      OK (0.03s)
+    test/golden-test-cases/gogol-appstate.nix:                      OK (0.03s)
+    test/golden-test-cases/pipes-safe.nix:                          OK (0.03s)
+    test/golden-test-cases/funcmp.nix:                              OK (0.03s)
+    test/golden-test-cases/fixed.nix:                               OK (0.03s)
+    test/golden-test-cases/blaze-html.nix:                          OK (0.03s)
+    test/golden-test-cases/async.nix:                               OK (0.03s)
+    test/golden-test-cases/netpbm.nix:                              OK (0.03s)
+    test/golden-test-cases/jmacro-rpc.nix:                          OK (0.03s)
+    test/golden-test-cases/api-field-json-th.nix:                   OK (0.03s)
+    test/golden-test-cases/MissingH.nix:                            OK (0.03s)
+    test/golden-test-cases/wai-middleware-auth.nix:                 OK (0.03s)
+    test/golden-test-cases/cereal-text.nix:                         OK (0.03s)
+    test/golden-test-cases/ip.nix:                                  OK (0.03s)
+    test/golden-test-cases/attoparsec-time.nix:                     OK (0.03s)
+    test/golden-test-cases/functor-classes-compat.nix:              OK (0.03s)
+    test/golden-test-cases/splice.nix:                              OK (0.03s)
+    test/golden-test-cases/gogol-translate.nix:                     OK (0.03s)
+    test/golden-test-cases/binary-tagged.nix:                       OK (0.03s)
+    test/golden-test-cases/rawstring-qm.nix:                        OK (0.03s)
+    test/golden-test-cases/terminal-progress-bar.nix:               OK (0.03s)
+
+3 out of 702 tests failed (13.38s)
+Test suite regression-test: FAIL
+Test suite logged to: dist/test/cabal2nix-2.9.3-regression-test.log
+0 of 1 test suites (0 of 1 test cases) passed.
+builder for '/nix/store/ss938kva345l9mq3cg2251ipj8dcnm5d-cabal2nix-2.9.3.drv' failed with exit code 1
+error: build of '/nix/store/ss938kva345l9mq3cg2251ipj8dcnm5d-cabal2nix-2.9.3.drv' failed
+╭─ johnw@Hermes  ~/src/nix-next/nixpkgs                                               01:36 Dur
+╰─ nix-build '<darwin>' -A pkgs.haskellPackages.cabal2nix
+these derivations will be built:
+  /nix/store/ss938kva345l9mq3cg2251ipj8dcnm5d-cabal2nix-2.9.3.drv
+building '/nix/store/ss938kva345l9mq3cg2251ipj8dcnm5d-cabal2nix-2.9.3.drv'...
+setupCompilerEnvironmentPhase
+Build with /nix/store/wf2pmlin0dq6iaa06q0w87d2hp7fsggm-ghc-8.2.2.
+ignoring (possibly broken) abi-depends field for packages
+ignoring (possibly broken) abi-depends field for packages
+unpacking sources
+unpacking source archive /nix/store/zzdig0fg3fx44rs3hjmyqy9wc6x0i08r-cabal2nix-2.9.3.tar.gz
+source root is cabal2nix-2.9.3
+setting SOURCE_DATE_EPOCH to timestamp 1531229391 of file cabal2nix-2.9.3/test/golden-test-cases/zlib.nix.golden
+patching sources
+compileBuildDriverPhase
+setupCompileFlags: -package-db=/private/tmp/nix-build-cabal2nix-2.9.3.drv-0/setup-package.conf.d -j1 -threaded
+[1 of 1] Compiling Main             ( Setup.hs, /private/tmp/nix-build-cabal2nix-2.9.3.drv-0/Main.o )
+Linking Setup ...
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+configuring
+configureFlags: --verbose --prefix=/nix/store/6h5isysqhqpf3l07k8npa4fyf1q6wq52-cabal2nix-2.9.3 --libdir=$prefix/lib/$compiler --libsubdir=$pkgid --docdir=/nix/store/k09jicmz7hd8kz19h31v2pjrln7mq61z-cabal2nix-2.9.3-doc/share/doc/cabal2nix-2.9.3 --with-gcc=clang --package-db=/private/tmp/nix-build-cabal2nix-2.9.3.drv-0/package.conf.d --ghc-option=-j1 --disable-split-objs --enable-library-profiling --profiling-detail=all-functions --disable-profiling --enable-shared --disable-coverage --disable-executable-dynamic --enable-tests --enable-library-vanilla --enable-library-for-ghci --extra-include-dirs=/nix/store/cssxc3nfsvn3a88dsdjx0wr8wq61xv4v-libc++-5.0.2/include --extra-lib-dirs=/nix/store/cssxc3nfsvn3a88dsdjx0wr8wq61xv4v-libc++-5.0.2/lib --extra-include-dirs=/nix/store/610adibjkd5h07niii5q0si6kc6cgca1-libc++abi-5.0.2/include --extra-lib-dirs=/nix/store/610adibjkd5h07niii5q0si6kc6cgca1-libc++abi-5.0.2/lib --extra-include-dirs=/nix/store/ika0jc7pka2gp485jn4d6har92ycyrxb-compiler-rt-5.0.2-dev/include --extra-lib-dirs=/nix/store/gqlyb35j08c2rgy8ff5m5x7pd0znfk41-compiler-rt-5.0.2/lib --extra-lib-dirs=/nix/store/3mrldk4v82yjzh2ycnx8wnycpqmahar8-ncurses-6.1/lib --extra-lib-dirs=/nix/store/b8a8nw7h9da0vky8n215mn9yg45dyznf-gmp-6.1.2/lib --extra-include-dirs=/nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/include --extra-lib-dirs=/nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib --extra-framework-dirs=/nix/store/hjnb56ah4zb7v168nz1615yrcamhw9cv-apple-framework-GSS/Library/Frameworks --extra-framework-dirs=/nix/store/3gl8mvnpm1k7kvadl19bx6zwklh5f63r-apple-framework-Kerberos/Library/Frameworks --extra-framework-dirs=/nix/store/96mdp6hfh23215m14c7l23db1bfyw3b5-apple-framework-Security/Library/Frameworks --extra-framework-dirs=/nix/store/9ysqjk1k7xndmwqfpa1wx36dz1r8wcmk-CF-osx-10.10.5/Library/Frameworks --extra-framework-dirs=/nix/store/m3ggq8206v338mvnc9chbmsrz2mk9gsk-apple-framework-IOKit/Library/Frameworks --extra-framework-dirs=/nix/store/af48b8irxgi098x6p6kvs5l2p0p2iz3r-apple-framework-PCSC/Library/Frameworks --extra-framework-dirs=/nix/store/g4y7jx3cc8pa60df5zim8mjdz95zbj1r-apple-framework-CoreData/Library/Frameworks --extra-framework-dirs=/nix/store/g20vaqfbzmv480rm82r20n3ywy60bi7w-apple-framework-Foundation/Library/Frameworks --extra-framework-dirs=/nix/store/cizxaxn5il5asda96favpqbwyixg8m3i-CF-osx-10.10.5-private/Library/Frameworks --extra-include-dirs=/nix/store/y703lj0n1k5iyc6y7sk664zlarj06m4n-objc4-osx-10.11.6/include --extra-lib-dirs=/nix/store/y703lj0n1k5iyc6y7sk664zlarj06m4n-objc4-osx-10.11.6/lib --extra-framework-dirs=/nix/store/vrn92zlzzzhcgcpc8m7zgr9nnb4pyf2q-apple-framework-ApplicationServices/Library/Frameworks --extra-framework-dirs=/nix/store/i4k05zpwv2zh5fc6ink2yiig48a3fmq1-apple-framework-CoreServices/Library/Frameworks --extra-framework-dirs=/nix/store/7i2vkxsx1nl4r216ifldr049f039c4g5-apple-framework-CFNetwork/Library/Frameworks --extra-framework-dirs=/nix/store/w89sb59ckawrzr3y1d19p6sr19x2kr07-apple-framework-CoreAudio/Library/Frameworks --extra-framework-dirs=/nix/store/wsbpd9fklfpjmib57rbn655pql2b8z5g-apple-framework-DiskArbitration/Library/Frameworks --extra-framework-dirs=/nix/store/xh4496bydz4j5qxwmspdgzkqbyhd963l-apple-framework-NetFS/Library/Frameworks --extra-framework-dirs=/nix/store/gh8yxq4wira4w805fr1h0x7yg3p775z1-apple-framework-OpenDirectory/Library/Frameworks --extra-framework-dirs=/nix/store/j2w8940vk6y91fwgqyk76hr3gpndjvqb-apple-framework-ServiceManagement/Library/Frameworks --extra-framework-dirs=/nix/store/lvbivdiyxal7qla59zkyx8k154zvxw5p-apple-framework-CoreText/Library/Frameworks --extra-framework-dirs=/nix/store/znlvli3nmriz99gag889saaprc4r47ad-apple-framework-CoreGraphics/Library/Frameworks --extra-framework-dirs=/nix/store/i2xg3j38yyzmgvx8f1p152x278qb3ym2-apple-framework-Accelerate/Library/Frameworks --extra-framework-dirs=/nix/store/3fm78a4lhadpsg6w35f3ga5ms37pgq05-apple-framework-CoreWLAN/Library/Frameworks --extra-framework-dirs=/nix/store/sydj93wr6gk7cnmwzf6azvim7s94klwk-apple-framework-SecurityFoundation/Library/Frameworks --extra-framework-dirs=/nix/store/lfvmfqpc8xy2mqm3i275vdih24hy78sr-apple-framework-IOBluetooth/Library/Frameworks --extra-framework-dirs=/nix/store/yq15aa8pbyhw5qfcpz2fjjhv4iriwsy2-apple-framework-IOSurface/Library/Frameworks --extra-include-dirs=/nix/store/zscwqlmj6h6w0ypjsy4w1gl2g2d5lw14-apple-lib-xpc/include --extra-framework-dirs=/nix/store/vx24hrk9m1xhw03yz6qczlwrcnivsrl2-apple-framework-SystemConfiguration/Library/Frameworks --extra-framework-dirs=/nix/store/ic6g7y7zafcphwvq80dm7224jay5a78w-apple-framework-ImageIO/Library/Frameworks --extra-framework-dirs=/nix/store/shgpngxlby2rw80wbacswld028b61cj7-CF-osx-10.10.5/Library/Frameworks
+Configuring cabal2nix-2.9.3...
+Dependency Cabal >2.2: using Cabal-2.2.0.1
+Dependency aeson -any: using aeson-1.3.1.1
+Dependency ansi-wl-pprint -any: using ansi-wl-pprint-0.6.8.2
+Dependency base <5: using base-4.10.1.0
+Dependency bytestring -any: using bytestring-0.10.8.2
+Dependency cabal2nix -any: using cabal2nix-2.9.3
+Dependency containers -any: using containers-0.5.10.2
+Dependency deepseq >=1.4: using deepseq-1.4.3.0
+Dependency directory -any: using directory-1.3.0.2
+Dependency distribution-nixpkgs >=1.1.1: using distribution-nixpkgs-1.1.1
+Dependency filepath -any: using filepath-1.4.1.2
+Dependency hackage-db >=2.0.1: using hackage-db-2.0.1
+Dependency hopenssl >=2: using hopenssl-2.2.1
+Dependency hpack >=0.26: using hpack-0.28.2
+Dependency language-nix -any: using language-nix-2.1.0.1
+Dependency lens -any: using lens-4.16.1
+Dependency monad-par -any: using monad-par-0.3.4.8
+Dependency monad-par-extras -any: using monad-par-extras-0.3.3
+Dependency mtl -any: using mtl-2.2.2
+Dependency optparse-applicative -any: using optparse-applicative-0.14.2.0
+Dependency pretty >=1.1.2: using pretty-1.1.3.3
+Dependency process >1.2: using process-1.6.1.0
+Dependency split -any: using split-0.2.3.3
+Dependency tasty -any: using tasty-1.1.0.2
+Dependency tasty-golden -any: using tasty-golden-2.3.2
+Dependency text -any: using text-1.2.3.0
+Dependency time -any: using time-1.8.0.2
+Dependency transformers -any: using transformers-0.5.2.0
+Dependency yaml -any: using yaml-0.8.31.1
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+Source component graph:
+    component lib
+    component exe:cabal2nix dependency lib
+    component exe:hackage2nix dependency lib
+    component test:regression-test
+        dependency exe:cabal2nix
+        dependency lib
+Configured component graph:
+    component cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+        include Cabal-2.2.0.1-3v8eN38Q8b43yJQcNsIyfp
+        include aeson-1.3.1.1-1YkUtgnZgF41Ut5kD74cVi
+        include ansi-wl-pprint-0.6.8.2-9xuhzBw0sxT3GcMo3MQQvg
+        include base-4.10.1.0
+        include bytestring-0.10.8.2
+        include containers-0.5.10.2
+        include deepseq-1.4.3.0
+        include directory-1.3.0.2
+        include distribution-nixpkgs-1.1.1-27oL3H4P1DjGPhlPrwicWZ
+        include filepath-1.4.1.2
+        include hackage-db-2.0.1-FRRureN0gnO4f1Ro7lbOEr
+        include hopenssl-2.2.1-FdGjxO0diCZ2UdvmlaNY3D
+        include hpack-0.28.2-FCvcXTFA4LU2gehRUJ6OUs
+        include language-nix-2.1.0.1-C78WnuSIe123zNUv9RN8uw
+        include lens-4.16.1-CDzQsecE1KRHqbXODQcQaN
+        include optparse-applicative-0.14.2.0-2TeR65y1X9k4J5Cd6qWASy
+        include pretty-1.1.3.3
+        include process-1.6.1.0
+        include split-0.2.3.3-E2sTUBg0daVJ8yvycwtXk9
+        include text-1.2.3.0-GmbS1eycnDHLhZQQeWF5x
+        include time-1.8.0.2
+        include transformers-0.5.2.0
+        include yaml-0.8.31.1-EcJjKHVS9Bb79o1qlRMyHN
+    component cabal2nix-2.9.3-5ggn2zkir682YGqwRuI2d3-cabal2nix
+        include base-4.10.1.0
+        include cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+    component cabal2nix-2.9.3-AMwICFPjjvaF0uNvv6HTm1-hackage2nix
+        include Cabal-2.2.0.1-3v8eN38Q8b43yJQcNsIyfp
+        include aeson-1.3.1.1-1YkUtgnZgF41Ut5kD74cVi
+        include base-4.10.1.0
+        include bytestring-0.10.8.2
+        include cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+        include containers-0.5.10.2
+        include directory-1.3.0.2
+        include distribution-nixpkgs-1.1.1-27oL3H4P1DjGPhlPrwicWZ
+        include filepath-1.4.1.2
+        include hopenssl-2.2.1-FdGjxO0diCZ2UdvmlaNY3D
+        include language-nix-2.1.0.1-C78WnuSIe123zNUv9RN8uw
+        include lens-4.16.1-CDzQsecE1KRHqbXODQcQaN
+        include monad-par-0.3.4.8-DardDIwNW9fI8U59W9K34I
+        include monad-par-extras-0.3.3-50UZesQ5P46DAjsiXmvP3t
+        include mtl-2.2.2-8XubxMJDT8QLsstvlNotkc
+        include optparse-applicative-0.14.2.0-2TeR65y1X9k4J5Cd6qWASy
+        include pretty-1.1.3.3
+    component cabal2nix-2.9.3-5GKGGuOX4M1886NbQPtQn-regression-test
+        include base-4.10.1.0
+        include Cabal-2.2.0.1-3v8eN38Q8b43yJQcNsIyfp
+        include cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+        include containers-0.5.10.2
+        include directory-1.3.0.2
+        include filepath-1.4.1.2
+        include language-nix-2.1.0.1-C78WnuSIe123zNUv9RN8uw
+        include lens-4.16.1-CDzQsecE1KRHqbXODQcQaN
+        include pretty-1.1.3.3
+        include process-1.6.1.0
+        include tasty-1.1.0.2-8btVMUFYyQL92m5ScQ3hY
+        include tasty-golden-2.3.2-Ip7EDmzzgPsFuDlIMdSu86
+Linked component graph:
+    unit cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+        include Cabal-2.2.0.1-3v8eN38Q8b43yJQcNsIyfp
+        include aeson-1.3.1.1-1YkUtgnZgF41Ut5kD74cVi
+        include ansi-wl-pprint-0.6.8.2-9xuhzBw0sxT3GcMo3MQQvg
+        include base-4.10.1.0
+        include bytestring-0.10.8.2
+        include containers-0.5.10.2
+        include deepseq-1.4.3.0
+        include directory-1.3.0.2
+        include distribution-nixpkgs-1.1.1-27oL3H4P1DjGPhlPrwicWZ
+        include filepath-1.4.1.2
+        include hackage-db-2.0.1-FRRureN0gnO4f1Ro7lbOEr
+        include hopenssl-2.2.1-FdGjxO0diCZ2UdvmlaNY3D
+        include hpack-0.28.2-FCvcXTFA4LU2gehRUJ6OUs
+        include language-nix-2.1.0.1-C78WnuSIe123zNUv9RN8uw
+        include lens-4.16.1-CDzQsecE1KRHqbXODQcQaN
+        include optparse-applicative-0.14.2.0-2TeR65y1X9k4J5Cd6qWASy
+        include pretty-1.1.3.3
+        include process-1.6.1.0
+        include split-0.2.3.3-E2sTUBg0daVJ8yvycwtXk9
+        include text-1.2.3.0-GmbS1eycnDHLhZQQeWF5x
+        include time-1.8.0.2
+        include transformers-0.5.2.0
+        include yaml-0.8.31.1-EcJjKHVS9Bb79o1qlRMyHN
+        Cabal2nix=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Cabal2nix,Distribution.Nixpkgs.Fetch=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Fetch,Distribution.Nixpkgs.Haskell=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell,Distribution.Nixpkgs.Haskell.BuildInfo=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.BuildInfo,Distribution.Nixpkgs.Haskell.Constraint=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.Constraint,Distribution.Nixpkgs.Haskell.Derivation=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.Derivation,Distribution.Nixpkgs.Haskell.FromCabal=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.FromCabal,Distribution.Nixpkgs.Haskell.FromCabal.Configuration=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.FromCabal.Configuration,Distribution.Nixpkgs.Haskell.FromCabal.Flags=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.FromCabal.Flags,Distribution.Nixpkgs.Haskell.FromCabal.License=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.FromCabal.License,Distribution.Nixpkgs.Haskell.FromCabal.Name=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.FromCabal.Name,Distribution.Nixpkgs.Haskell.FromCabal.Normalize=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.FromCabal.Normalize,Distribution.Nixpkgs.Haskell.FromCabal.PostProcess=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.FromCabal.PostProcess,Distribution.Nixpkgs.Haskell.Hackage=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.Hackage,Distribution.Nixpkgs.Haskell.OrphanInstances=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.OrphanInstances,Distribution.Nixpkgs.Haskell.PackageSourceSpec=cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR:Distribution.Nixpkgs.Haskell.PackageSourceSpec
+    unit cabal2nix-2.9.3-5ggn2zkir682YGqwRuI2d3-cabal2nix
+        include base-4.10.1.0
+        include cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+    unit cabal2nix-2.9.3-AMwICFPjjvaF0uNvv6HTm1-hackage2nix
+        include Cabal-2.2.0.1-3v8eN38Q8b43yJQcNsIyfp
+        include aeson-1.3.1.1-1YkUtgnZgF41Ut5kD74cVi
+        include base-4.10.1.0
+        include bytestring-0.10.8.2
+        include cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+        include containers-0.5.10.2
+        include directory-1.3.0.2
+        include distribution-nixpkgs-1.1.1-27oL3H4P1DjGPhlPrwicWZ
+        include filepath-1.4.1.2
+        include hopenssl-2.2.1-FdGjxO0diCZ2UdvmlaNY3D
+        include language-nix-2.1.0.1-C78WnuSIe123zNUv9RN8uw
+        include lens-4.16.1-CDzQsecE1KRHqbXODQcQaN
+        include monad-par-0.3.4.8-DardDIwNW9fI8U59W9K34I
+        include monad-par-extras-0.3.3-50UZesQ5P46DAjsiXmvP3t
+        include mtl-2.2.2-8XubxMJDT8QLsstvlNotkc
+        include optparse-applicative-0.14.2.0-2TeR65y1X9k4J5Cd6qWASy
+        include pretty-1.1.3.3
+    unit cabal2nix-2.9.3-5GKGGuOX4M1886NbQPtQn-regression-test
+        include base-4.10.1.0
+        include Cabal-2.2.0.1-3v8eN38Q8b43yJQcNsIyfp
+        include cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+        include containers-0.5.10.2
+        include directory-1.3.0.2
+        include filepath-1.4.1.2
+        include language-nix-2.1.0.1-C78WnuSIe123zNUv9RN8uw
+        include lens-4.16.1-CDzQsecE1KRHqbXODQcQaN
+        include pretty-1.1.3.3
+        include process-1.6.1.0
+        include tasty-1.1.0.2-8btVMUFYyQL92m5ScQ3hY
+        include tasty-golden-2.3.2-Ip7EDmzzgPsFuDlIMdSu86
+Ready component graph:
+    definite cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+        depends Cabal-2.2.0.1-3v8eN38Q8b43yJQcNsIyfp
+        depends aeson-1.3.1.1-1YkUtgnZgF41Ut5kD74cVi
+        depends ansi-wl-pprint-0.6.8.2-9xuhzBw0sxT3GcMo3MQQvg
+        depends base-4.10.1.0
+        depends bytestring-0.10.8.2
+        depends containers-0.5.10.2
+        depends deepseq-1.4.3.0
+        depends directory-1.3.0.2
+        depends distribution-nixpkgs-1.1.1-27oL3H4P1DjGPhlPrwicWZ
+        depends filepath-1.4.1.2
+        depends hackage-db-2.0.1-FRRureN0gnO4f1Ro7lbOEr
+        depends hopenssl-2.2.1-FdGjxO0diCZ2UdvmlaNY3D
+        depends hpack-0.28.2-FCvcXTFA4LU2gehRUJ6OUs
+        depends language-nix-2.1.0.1-C78WnuSIe123zNUv9RN8uw
+        depends lens-4.16.1-CDzQsecE1KRHqbXODQcQaN
+        depends optparse-applicative-0.14.2.0-2TeR65y1X9k4J5Cd6qWASy
+        depends pretty-1.1.3.3
+        depends process-1.6.1.0
+        depends split-0.2.3.3-E2sTUBg0daVJ8yvycwtXk9
+        depends text-1.2.3.0-GmbS1eycnDHLhZQQeWF5x
+        depends time-1.8.0.2
+        depends transformers-0.5.2.0
+        depends yaml-0.8.31.1-EcJjKHVS9Bb79o1qlRMyHN
+    definite cabal2nix-2.9.3-AMwICFPjjvaF0uNvv6HTm1-hackage2nix
+        depends Cabal-2.2.0.1-3v8eN38Q8b43yJQcNsIyfp
+        depends aeson-1.3.1.1-1YkUtgnZgF41Ut5kD74cVi
+        depends base-4.10.1.0
+        depends bytestring-0.10.8.2
+        depends cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+        depends containers-0.5.10.2
+        depends directory-1.3.0.2
+        depends distribution-nixpkgs-1.1.1-27oL3H4P1DjGPhlPrwicWZ
+        depends filepath-1.4.1.2
+        depends hopenssl-2.2.1-FdGjxO0diCZ2UdvmlaNY3D
+        depends language-nix-2.1.0.1-C78WnuSIe123zNUv9RN8uw
+        depends lens-4.16.1-CDzQsecE1KRHqbXODQcQaN
+        depends monad-par-0.3.4.8-DardDIwNW9fI8U59W9K34I
+        depends monad-par-extras-0.3.3-50UZesQ5P46DAjsiXmvP3t
+        depends mtl-2.2.2-8XubxMJDT8QLsstvlNotkc
+        depends optparse-applicative-0.14.2.0-2TeR65y1X9k4J5Cd6qWASy
+        depends pretty-1.1.3.3
+    definite cabal2nix-2.9.3-5ggn2zkir682YGqwRuI2d3-cabal2nix
+        depends base-4.10.1.0
+        depends cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+    definite cabal2nix-2.9.3-5GKGGuOX4M1886NbQPtQn-regression-test
+        depends base-4.10.1.0
+        depends Cabal-2.2.0.1-3v8eN38Q8b43yJQcNsIyfp
+        depends cabal2nix-2.9.3-J13HaTa65QM3oF3IhLjeMR
+        depends containers-0.5.10.2
+        depends directory-1.3.0.2
+        depends filepath-1.4.1.2
+        depends language-nix-2.1.0.1-C78WnuSIe123zNUv9RN8uw
+        depends lens-4.16.1-CDzQsecE1KRHqbXODQcQaN
+        depends pretty-1.1.3.3
+        depends process-1.6.1.0
+        depends tasty-1.1.0.2-8btVMUFYyQL92m5ScQ3hY
+        depends tasty-golden-2.3.2-Ip7EDmzzgPsFuDlIMdSu86
+        depends cabal2nix-2.9.3-5ggn2zkir682YGqwRuI2d3-cabal2nix
+Using Cabal-2.0.1.0 compiled by ghc-8.2
+Using compiler: ghc-8.2.2
+Using install prefix:
+/nix/store/6h5isysqhqpf3l07k8npa4fyf1q6wq52-cabal2nix-2.9.3
+Executables installed in:
+/nix/store/6h5isysqhqpf3l07k8npa4fyf1q6wq52-cabal2nix-2.9.3/bin
+Libraries installed in:
+/nix/store/6h5isysqhqpf3l07k8npa4fyf1q6wq52-cabal2nix-2.9.3/lib/ghc-8.2.2/cabal2nix-2.9.3
+Dynamic Libraries installed in:
+/nix/store/6h5isysqhqpf3l07k8npa4fyf1q6wq52-cabal2nix-2.9.3/lib/ghc-8.2.2/x86_64-osx-ghc-8.2.2
+Private executables installed in:
+/nix/store/6h5isysqhqpf3l07k8npa4fyf1q6wq52-cabal2nix-2.9.3/libexec/x86_64-osx-ghc-8.2.2/cabal2nix-2.9.3
+Data files installed in:
+/nix/store/6h5isysqhqpf3l07k8npa4fyf1q6wq52-cabal2nix-2.9.3/share/x86_64-osx-ghc-8.2.2/cabal2nix-2.9.3
+Documentation installed in:
+/nix/store/k09jicmz7hd8kz19h31v2pjrln7mq61z-cabal2nix-2.9.3-doc/share/doc/cabal2nix-2.9.3
+Configuration files installed in:
+/nix/store/6h5isysqhqpf3l07k8npa4fyf1q6wq52-cabal2nix-2.9.3/etc
+No alex found
+Using ar found on system at:
+/nix/store/7ddbq63v97nk8gkbf7gcsfmby37h6gbl-cctools-binutils-darwin/bin/ar
+No c2hs found
+No cpphs found
+No doctest found
+Using gcc version 4.2.1 given by user at:
+/nix/store/ckq71kkymh1ji2b44xn80wmr7fmi6wr5-clang-wrapper-5.0.2/bin/clang
+Using ghc version 8.2.2 found on system at:
+/nix/store/wf2pmlin0dq6iaa06q0w87d2hp7fsggm-ghc-8.2.2/bin/ghc
+Using ghc-pkg version 8.2.2 found on system at:
+/nix/store/wf2pmlin0dq6iaa06q0w87d2hp7fsggm-ghc-8.2.2/bin/ghc-pkg
+No ghcjs found
+No ghcjs-pkg found
+No greencard found
+Using haddock version 2.18.1 found on system at:
+/nix/store/wf2pmlin0dq6iaa06q0w87d2hp7fsggm-ghc-8.2.2/bin/haddock
+No happy found
+Using haskell-suite found on system at: haskell-suite-dummy-location
+Using haskell-suite-pkg found on system at: haskell-suite-pkg-dummy-location
+No hmake found
+Using hpc version 0.67 found on system at:
+/nix/store/wf2pmlin0dq6iaa06q0w87d2hp7fsggm-ghc-8.2.2/bin/hpc
+Using hsc2hs version 0.68.2 found on system at:
+/nix/store/wf2pmlin0dq6iaa06q0w87d2hp7fsggm-ghc-8.2.2/bin/hsc2hs
+Using hscolour version 1.24 found on system at:
+/nix/store/rx16ssnhldy6v9q9pgns8i00nfb6521g-hscolour-1.24.4/bin/HsColour
+No jhc found
+Using ld found on system at:
+/nix/store/qk4fdnzkr8r0gihgyps7x07cpyffvkmy-cctools-binutils-darwin-wrapper/bin/ld
+No lhc found
+No lhc-pkg found
+No pkg-config found
+Using runghc version 8.2.2 found on system at:
+/nix/store/wf2pmlin0dq6iaa06q0w87d2hp7fsggm-ghc-8.2.2/bin/runghc
+Using strip found on system at:
+/nix/store/7ddbq63v97nk8gkbf7gcsfmby37h6gbl-cctools-binutils-darwin/bin/strip
+Using tar found on system at:
+/nix/store/cj0pwxwmzfsq4mwjfsiw1aqgq7458v1q-gnutar-1.30/bin/tar
+No uhc found
+building
+Preprocessing library for cabal2nix-2.9.3..
+Building library for cabal2nix-2.9.3..
+[ 1 of 17] Compiling Distribution.Nixpkgs.Fetch ( src/Distribution/Nixpkgs/Fetch.hs, dist/build/Distribution/Nixpkgs/Fetch.o )
+
+src/Distribution/Nixpkgs/Fetch.hs:134:13: warning: [-Wincomplete-uni-patterns]
+    Pattern match(es) are non-exhaustive
+    In a pattern binding: Patterns not matched: []
+    |
+134 |         let (l:ls) = reverse (BS.lines buf)
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[ 2 of 17] Compiling Distribution.Nixpkgs.Haskell.BuildInfo ( src/Distribution/Nixpkgs/Haskell/BuildInfo.hs, dist/build/Distribution/Nixpkgs/Haskell/BuildInfo.o )
+[ 3 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.License ( src/Distribution/Nixpkgs/Haskell/FromCabal/License.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/License.o )
+[ 4 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.Name ( src/Distribution/Nixpkgs/Haskell/FromCabal/Name.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/Name.o )
+[ 5 of 17] Compiling Distribution.Nixpkgs.Haskell.Hackage ( src/Distribution/Nixpkgs/Haskell/Hackage.hs, dist/build/Distribution/Nixpkgs/Haskell/Hackage.o )
+[ 6 of 17] Compiling Distribution.Nixpkgs.Haskell.OrphanInstances ( src/Distribution/Nixpkgs/Haskell/OrphanInstances.hs, dist/build/Distribution/Nixpkgs/Haskell/OrphanInstances.o )
+[ 7 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.Flags ( src/Distribution/Nixpkgs/Haskell/FromCabal/Flags.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/Flags.o )
+[ 8 of 17] Compiling Distribution.Nixpkgs.Haskell.Derivation ( src/Distribution/Nixpkgs/Haskell/Derivation.hs, dist/build/Distribution/Nixpkgs/Haskell/Derivation.o )
+[ 9 of 17] Compiling Distribution.Nixpkgs.Haskell ( src/Distribution/Nixpkgs/Haskell.hs, dist/build/Distribution/Nixpkgs/Haskell.o )
+[10 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.PostProcess ( src/Distribution/Nixpkgs/Haskell/FromCabal/PostProcess.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/PostProcess.o )
+[11 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.Normalize ( src/Distribution/Nixpkgs/Haskell/FromCabal/Normalize.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/Normalize.o )
+[12 of 17] Compiling Distribution.Nixpkgs.Haskell.Constraint ( src/Distribution/Nixpkgs/Haskell/Constraint.hs, dist/build/Distribution/Nixpkgs/Haskell/Constraint.o )
+[13 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.Configuration ( src/Distribution/Nixpkgs/Haskell/FromCabal/Configuration.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/Configuration.o )
+[14 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal ( src/Distribution/Nixpkgs/Haskell/FromCabal.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal.o )
+[15 of 17] Compiling Distribution.Nixpkgs.Haskell.PackageSourceSpec ( src/Distribution/Nixpkgs/Haskell/PackageSourceSpec.hs, dist/build/Distribution/Nixpkgs/Haskell/PackageSourceSpec.o )
+[16 of 17] Compiling Paths_cabal2nix  ( dist/build/autogen/Paths_cabal2nix.hs, dist/build/Paths_cabal2nix.o )
+[17 of 17] Compiling Cabal2nix        ( src/Cabal2nix.hs, dist/build/Cabal2nix.o )
+[ 1 of 17] Compiling Distribution.Nixpkgs.Fetch ( src/Distribution/Nixpkgs/Fetch.hs, dist/build/Distribution/Nixpkgs/Fetch.p_o )
+
+src/Distribution/Nixpkgs/Fetch.hs:134:13: warning: [-Wincomplete-uni-patterns]
+    Pattern match(es) are non-exhaustive
+    In a pattern binding: Patterns not matched: []
+    |
+134 |         let (l:ls) = reverse (BS.lines buf)
+    |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[ 2 of 17] Compiling Distribution.Nixpkgs.Haskell.BuildInfo ( src/Distribution/Nixpkgs/Haskell/BuildInfo.hs, dist/build/Distribution/Nixpkgs/Haskell/BuildInfo.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[ 3 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.License ( src/Distribution/Nixpkgs/Haskell/FromCabal/License.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/License.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[ 4 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.Name ( src/Distribution/Nixpkgs/Haskell/FromCabal/Name.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/Name.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[ 5 of 17] Compiling Distribution.Nixpkgs.Haskell.Hackage ( src/Distribution/Nixpkgs/Haskell/Hackage.hs, dist/build/Distribution/Nixpkgs/Haskell/Hackage.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[ 6 of 17] Compiling Distribution.Nixpkgs.Haskell.OrphanInstances ( src/Distribution/Nixpkgs/Haskell/OrphanInstances.hs, dist/build/Distribution/Nixpkgs/Haskell/OrphanInstances.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[ 7 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.Flags ( src/Distribution/Nixpkgs/Haskell/FromCabal/Flags.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/Flags.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[ 8 of 17] Compiling Distribution.Nixpkgs.Haskell.Derivation ( src/Distribution/Nixpkgs/Haskell/Derivation.hs, dist/build/Distribution/Nixpkgs/Haskell/Derivation.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[ 9 of 17] Compiling Distribution.Nixpkgs.Haskell ( src/Distribution/Nixpkgs/Haskell.hs, dist/build/Distribution/Nixpkgs/Haskell.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[10 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.PostProcess ( src/Distribution/Nixpkgs/Haskell/FromCabal/PostProcess.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/PostProcess.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[11 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.Normalize ( src/Distribution/Nixpkgs/Haskell/FromCabal/Normalize.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/Normalize.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[12 of 17] Compiling Distribution.Nixpkgs.Haskell.Constraint ( src/Distribution/Nixpkgs/Haskell/Constraint.hs, dist/build/Distribution/Nixpkgs/Haskell/Constraint.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file/nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+
+[13 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal.Configuration ( src/Distribution/Nixpkgs/Haskell/FromCabal/Configuration.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal/Configuration.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[14 of 17] Compiling Distribution.Nixpkgs.Haskell.FromCabal ( src/Distribution/Nixpkgs/Haskell/FromCabal.hs, dist/build/Distribution/Nixpkgs/Haskell/FromCabal.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[15 of 17] Compiling Distribution.Nixpkgs.Haskell.PackageSourceSpec ( src/Distribution/Nixpkgs/Haskell/PackageSourceSpec.hs, dist/build/Distribution/Nixpkgs/Haskell/PackageSourceSpec.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[16 of 17] Compiling Paths_cabal2nix  ( dist/build/autogen/Paths_cabal2nix.hs, dist/build/Paths_cabal2nix.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+[17 of 17] Compiling Cabal2nix        ( src/Cabal2nix.hs, dist/build/Cabal2nix.p_o )
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+ld: warning: /nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file
+ld: warning: ld: warning: /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation, ignoring unexpected dylib file/nix/store/y0b2y33wzmlijsq81x831k3cy00v2vx4-libiconv-osx-10.11.6/lib/libiconv.dylib, ignoring unexpected dylib file
+
+ignoring (possibly broken) abi-depends field for packages
+Preprocessing executable 'hackage2nix' for cabal2nix-2.9.3..
+Building executable 'hackage2nix' for cabal2nix-2.9.3..
+[1 of 3] Compiling HackageGit       ( hackage2nix/HackageGit.hs, dist/build/hackage2nix/hackage2nix-tmp/HackageGit.o )
+[2 of 3] Compiling Paths_cabal2nix  ( dist/build/hackage2nix/autogen/Paths_cabal2nix.hs, dist/build/hackage2nix/hackage2nix-tmp/Paths_cabal2nix.o )
+[3 of 3] Compiling Main             ( hackage2nix/Main.hs, dist/build/hackage2nix/hackage2nix-tmp/Main.o )
+Linking dist/build/hackage2nix/hackage2nix ...
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+Preprocessing executable 'cabal2nix' for cabal2nix-2.9.3..
+Building executable 'cabal2nix' for cabal2nix-2.9.3..
+[1 of 1] Compiling Main             ( cabal2nix/Main.hs, dist/build/cabal2nix/cabal2nix-tmp/Main.o )
+Linking dist/build/cabal2nix/cabal2nix ...
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+Preprocessing test suite 'regression-test' for cabal2nix-2.9.3..
+Building test suite 'regression-test' for cabal2nix-2.9.3..
+[1 of 1] Compiling Main             ( test/Main.hs, dist/build/regression-test/regression-test-tmp/Main.o )
+Linking dist/build/regression-test/regression-test ...
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+running tests
+Running 1 test suites...
+Test suite regression-test: RUNNING...
+regression-tests
+  cabal2nix library
+    test/golden-test-cases/mwc-random-monad.nix:                    OK (0.02s)
+    test/golden-test-cases/dotnet-timespan.nix:                     OK
+    test/golden-test-cases/polynomials-bernstein.nix:               OK
+    test/golden-test-cases/bzlib.nix:                               OK
+    test/golden-test-cases/lmdb.nix:                                OK
+    test/golden-test-cases/ttrie.nix:                               OK
+    test/golden-test-cases/ratio-int.nix:                           OK
+    test/golden-test-cases/eventful-sqlite.nix:                     OK
+    test/golden-test-cases/aws.nix:                                 OK (0.01s)
+    test/golden-test-cases/exact-pi.nix:                            OK
+    test/golden-test-cases/hformat.nix:                             OK
+    test/golden-test-cases/unlit.nix:                               OK
+    test/golden-test-cases/quickcheck-combinators.nix:              OK
+    test/golden-test-cases/chell.nix:                               OK
+    test/golden-test-cases/http-media.nix:                          OK
+    test/golden-test-cases/picosat.nix:                             OK
+    test/golden-test-cases/case-insensitive.nix:                    OK
+    test/golden-test-cases/type-spec.nix:                           OK
+    test/golden-test-cases/wai-cors.nix:                            OK
+    test/golden-test-cases/happstack-hsp.nix:                       OK
+    test/golden-test-cases/partial-isomorphisms.nix:                OK
+    test/golden-test-cases/tree-fun.nix:                            OK
+    test/golden-test-cases/gogol-youtube.nix:                       OK
+    test/golden-test-cases/QuasiText.nix:                           OK
+    test/golden-test-cases/tagstream-conduit.nix:                   OK
+    test/golden-test-cases/fingertree.nix:                          OK
+    test/golden-test-cases/vivid-supercollider.nix:                 OK
+    test/golden-test-cases/brittany.nix:                            OK
+    test/golden-test-cases/hxt-expat.nix:                           OK
+    test/golden-test-cases/string-class.nix:                        OK
+    test/golden-test-cases/one-liner.nix:                           OK
+    test/golden-test-cases/lens-aeson.nix:                          OK
+    test/golden-test-cases/happy.nix:                               OK
+    test/golden-test-cases/vty.nix:                                 OK (0.01s)
+    test/golden-test-cases/amazonka-route53-domains.nix:            OK
+    test/golden-test-cases/katip.nix:                               OK
+    test/golden-test-cases/online.nix:                              OK
+    test/golden-test-cases/haskell-tools-rewrite.nix:               OK
+    test/golden-test-cases/prettyprinter-compat-ansi-wl-pprint.nix: OK
+    test/golden-test-cases/hashtables.nix:                          OK
+    test/golden-test-cases/data-msgpack.nix:                        OK
+    test/golden-test-cases/gogol-affiliates.nix:                    OK
+    test/golden-test-cases/spreadsheet.nix:                         OK
+    test/golden-test-cases/yesod-recaptcha2.nix:                    OK
+    test/golden-test-cases/proto-lens.nix:                          OK
+    test/golden-test-cases/strict-types.nix:                        OK
+    test/golden-test-cases/monad-products.nix:                      OK
+    test/golden-test-cases/wai-middleware-caching-redis.nix:        OK
+    test/golden-test-cases/hxt-charproperties.nix:                  OK
+    test/golden-test-cases/FenwickTree.nix:                         OK
+    test/golden-test-cases/gogol-blogger.nix:                       OK
+    test/golden-test-cases/pell.nix:                                OK
+    test/golden-test-cases/hoogle.nix:                              OK
+    test/golden-test-cases/unique.nix:                              OK
+    test/golden-test-cases/weigh.nix:                               OK
+    test/golden-test-cases/deque.nix:                               OK
+    test/golden-test-cases/servant-checked-exceptions.nix:          OK
+    test/golden-test-cases/hsx-jmacro.nix:                          OK
+    test/golden-test-cases/slack-web.nix:                           OK
+    test/golden-test-cases/hOpenPGP.nix:                            OK
+    test/golden-test-cases/pusher-http-haskell.nix:                 OK
+    test/golden-test-cases/rosezipper.nix:                          OK
+    test/golden-test-cases/swagger.nix:                             OK
+    test/golden-test-cases/bioalign.nix:                            OK
+    test/golden-test-cases/texmath.nix:                             OK
+    test/golden-test-cases/svg-tree.nix:                            OK
+    test/golden-test-cases/apply-refact.nix:                        OK
+    test/golden-test-cases/haskell-tools-debug.nix:                 OK
+    test/golden-test-cases/drifter-postgresql.nix:                  OK
+    test/golden-test-cases/tce-conf.nix:                            OK
+    test/golden-test-cases/frisby.nix:                              OK
+    test/golden-test-cases/network-transport-tcp.nix:               OK
+    test/golden-test-cases/katip-elasticsearch.nix:                 OK
+    test/golden-test-cases/clumpiness.nix:                          OK
+    test/golden-test-cases/ekg-cloudwatch.nix:                      OK
+    test/golden-test-cases/openpgp-asciiarmor.nix:                  OK
+    test/golden-test-cases/ghcid.nix:                               OK
+    test/golden-test-cases/zlib.nix:                                OK
+    test/golden-test-cases/timezone-series.nix:                     OK
+    test/golden-test-cases/tuples-homogenous-h98.nix:               OK
+    test/golden-test-cases/xml-hamlet.nix:                          OK
+    test/golden-test-cases/tuple-th.nix:                            OK
+    test/golden-test-cases/katydid.nix:                             OK
+    test/golden-test-cases/gogol-dfareporting.nix:                  OK
+    test/golden-test-cases/relational-query.nix:                    OK
+    test/golden-test-cases/hit.nix:                                 OK
+    test/golden-test-cases/hxt-tagsoup.nix:                         OK
+    test/golden-test-cases/invariant.nix:                           OK
+    test/golden-test-cases/bindings-uname.nix:                      OK
+    test/golden-test-cases/yesod-form-bootstrap4.nix:               OK
+    test/golden-test-cases/dhall-bash.nix:                          OK
+    test/golden-test-cases/giphy-api.nix:                           OK
+    test/golden-test-cases/hasql.nix:                               OK
+    test/golden-test-cases/ChasingBottoms.nix:                      OK
+    test/golden-test-cases/rasterific-svg.nix:                      OK
+    test/golden-test-cases/io-streams-haproxy.nix:                  OK
+    test/golden-test-cases/iconv.nix:                               OK
+    test/golden-test-cases/primitive.nix:                           OK
+    test/golden-test-cases/selda.nix:                               OK
+    test/golden-test-cases/ReadArgs.nix:                            OK
+    test/golden-test-cases/gsasl.nix:                               OK
+    test/golden-test-cases/strict-base-types.nix:                   OK
+    test/golden-test-cases/generic-lens.nix:                        OK
+    test/golden-test-cases/streaming-commons.nix:                   OK
+    test/golden-test-cases/cassette.nix:                            OK
+    test/golden-test-cases/postgresql-simple-url.nix:               OK
+    test/golden-test-cases/reform-blaze.nix:                        OK
+    test/golden-test-cases/lambdabot-social-plugins.nix:            OK
+    test/golden-test-cases/monadcryptorandom.nix:                   OK
+    test/golden-test-cases/simple-smt.nix:                          OK
+    test/golden-test-cases/once.nix:                                OK
+    test/golden-test-cases/th-expand-syns.nix:                      OK
+    test/golden-test-cases/mmorph.nix:                              OK
+    test/golden-test-cases/mainland-pretty.nix:                     OK
+    test/golden-test-cases/cassava-conduit.nix:                     OK
+    test/golden-test-cases/unicode-show.nix:                        OK
+    test/golden-test-cases/gogol-adexchange-buyer.nix:              OK
+    test/golden-test-cases/persistable-types-HDBC-pg.nix:           OK
+    test/golden-test-cases/lifted-async.nix:                        OK
+    test/golden-test-cases/gogol-webmaster-tools.nix:               OK
+    test/golden-test-cases/gogol-firebase-rules.nix:                OK
+    test/golden-test-cases/text-postgresql.nix:                     OK
+    test/golden-test-cases/l10n.nix:                                OK
+    test/golden-test-cases/repa.nix:                                OK
+    test/golden-test-cases/nix-paths.nix:                           OK
+    test/golden-test-cases/HTF.nix:                                 OK
+    test/golden-test-cases/speedy-slice.nix:                        OK
+    test/golden-test-cases/gogol-apps-tasks.nix:                    OK
+    test/golden-test-cases/csv.nix:                                 OK
+    test/golden-test-cases/pcap.nix:                                OK
+    test/golden-test-cases/hjson.nix:                               OK
+    test/golden-test-cases/poly-arity.nix:                          OK
+    test/golden-test-cases/htoml.nix:                               OK
+    test/golden-test-cases/unix-bytestring.nix:                     OK
+    test/golden-test-cases/kraken.nix:                              OK
+    test/golden-test-cases/text-icu.nix:                            OK
+    test/golden-test-cases/selda-sqlite.nix:                        OK
+    test/golden-test-cases/hstatsd.nix:                             OK
+    test/golden-test-cases/partial-semigroup.nix:                   OK
+    test/golden-test-cases/stb-image-redux.nix:                     OK
+    test/golden-test-cases/data-serializer.nix:                     OK
+    test/golden-test-cases/taggy.nix:                               OK
+    test/golden-test-cases/QuickCheck.nix:                          OK
+    test/golden-test-cases/emailaddress.nix:                        OK
+    test/golden-test-cases/io-machine.nix:                          OK
+    test/golden-test-cases/network-protocol-xmpp.nix:               OK
+    test/golden-test-cases/yahoo-finance-api.nix:                   OK
+    test/golden-test-cases/soxlib.nix:                              OK
+    test/golden-test-cases/aeson-diff.nix:                          OK
+    test/golden-test-cases/crypt-sha512.nix:                        OK
+    test/golden-test-cases/test-fixture.nix:                        OK
+    test/golden-test-cases/amazonka-kms.nix:                        OK
+    test/golden-test-cases/system-filepath.nix:                     OK
+    test/golden-test-cases/pager.nix:                               OK
+    test/golden-test-cases/gogol-maps-engine.nix:                   OK
+    test/golden-test-cases/cheapskate.nix:                          OK
+    test/golden-test-cases/repa-io.nix:                             OK
+    test/golden-test-cases/indentation-core.nix:                    OK
+    test/golden-test-cases/explicit-exception.nix:                  OK
+    test/golden-test-cases/crypto-random-api.nix:                   OK
+    test/golden-test-cases/benchpress.nix:                          OK
+    test/golden-test-cases/bbdb.nix:                                OK
+    test/golden-test-cases/gogol-admin-emailmigration.nix:          OK
+    test/golden-test-cases/mole.nix:                                OK
+    test/golden-test-cases/pdfinfo.nix:                             OK
+    test/golden-test-cases/integer-logarithms.nix:                  OK
+    test/golden-test-cases/vector-mmap.nix:                         OK
+    test/golden-test-cases/ObjectName.nix:                          OK
+    test/golden-test-cases/data-endian.nix:                         OK
+    test/golden-test-cases/countable.nix:                           OK
+    test/golden-test-cases/amazonka-waf.nix:                        OK
+    test/golden-test-cases/gogol-kgsearch.nix:                      OK
+    test/golden-test-cases/type-operators.nix:                      OK
+    test/golden-test-cases/reform-hsp.nix:                          OK
+    test/golden-test-cases/gogol-resourceviews.nix:                 OK
+    test/golden-test-cases/haddock-library.nix:                     OK
+    test/golden-test-cases/expiring-cache-map.nix:                  OK
+    test/golden-test-cases/mersenne-random.nix:                     OK
+    test/golden-test-cases/cpu.nix:                                 OK
+    test/golden-test-cases/lucid.nix:                               OK
+    test/golden-test-cases/matrices.nix:                            OK
+    test/golden-test-cases/http-link-header.nix:                    OK
+    test/golden-test-cases/pipes-network.nix:                       OK
+    test/golden-test-cases/megaparsec.nix:                          OK
+    test/golden-test-cases/projectroot.nix:                         OK
+    test/golden-test-cases/Strafunski-StrategyLib.nix:              OK
+    test/golden-test-cases/Only.nix:                                OK
+    test/golden-test-cases/inline-c-cpp.nix:                        OK
+    test/golden-test-cases/genvalidity-hspec-binary.nix:            OK
+    test/golden-test-cases/envelope.nix:                            OK
+    test/golden-test-cases/ghc-syb-utils.nix:                       OK
+    test/golden-test-cases/file-modules.nix:                        OK
+    test/golden-test-cases/diagrams-solve.nix:                      OK
+    test/golden-test-cases/colorize-haskell.nix:                    OK
+    test/golden-test-cases/scalpel-core.nix:                        OK
+    test/golden-test-cases/hPDB-examples.nix:                       OK
+    test/golden-test-cases/harp.nix:                                OK
+    test/golden-test-cases/quickcheck-arbitrary-adt.nix:            OK
+    test/golden-test-cases/algebraic-graphs.nix:                    OK
+    test/golden-test-cases/fdo-notify.nix:                          OK
+    test/golden-test-cases/system-fileio.nix:                       OK
+    test/golden-test-cases/utility-ht.nix:                          OK
+    test/golden-test-cases/prettyclass.nix:                         OK
+    test/golden-test-cases/psqueues.nix:                            OK
+    test/golden-test-cases/general-games.nix:                       OK
+    test/golden-test-cases/validity-aeson.nix:                      OK
+    test/golden-test-cases/persistent-mysql-haskell.nix:            OK
+    test/golden-test-cases/http-conduit.nix:                        OK
+    test/golden-test-cases/slug.nix:                                OK
+    test/golden-test-cases/Clipboard.nix:                           OK
+    test/golden-test-cases/broadcast-chan.nix:                      OK
+    test/golden-test-cases/data-default-instances-containers.nix:   OK
+    test/golden-test-cases/reactive-banana.nix:                     OK
+    test/golden-test-cases/proto-lens-optparse.nix:                 OK
+    test/golden-test-cases/sets.nix:                                OK
+    test/golden-test-cases/aeson-pretty.nix:                        OK
+    test/golden-test-cases/lens.nix:                                OK (0.01s)
+    test/golden-test-cases/GenericPretty.nix:                       OK
+    test/golden-test-cases/profiterole.nix:                         OK
+    test/golden-test-cases/prettyprinter-compat-wl-pprint.nix:      OK
+    test/golden-test-cases/wai-middleware-prometheus.nix:           OK
+    test/golden-test-cases/gogol-gmail.nix:                         OK
+    test/golden-test-cases/active.nix:                              OK
+    test/golden-test-cases/product-profunctors.nix:                 OK
+    test/golden-test-cases/ede.nix:                                 OK
+    test/golden-test-cases/warp.nix:                                OK
+    test/golden-test-cases/fixed-vector.nix:                        OK
+    test/golden-test-cases/yesod-gitrepo.nix:                       OK
+    test/golden-test-cases/mwc-random.nix:                          OK
+    test/golden-test-cases/stack-type.nix:                          OK
+    test/golden-test-cases/app-settings.nix:                        OK
+    test/golden-test-cases/discrimination.nix:                      OK
+    test/golden-test-cases/bits.nix:                                OK
+    test/golden-test-cases/blaze-markup.nix:                        OK
+    test/golden-test-cases/Hclip.nix:                               OK
+    test/golden-test-cases/adjunctions.nix:                         OK
+    test/golden-test-cases/monoid-extras.nix:                       OK
+    test/golden-test-cases/highlighting-kate.nix:                   OK
+    test/golden-test-cases/stripe-haskell.nix:                      OK
+    test/golden-test-cases/transformers-compat.nix:                 OK
+    test/golden-test-cases/tagged.nix:                              OK
+    test/golden-test-cases/rank1dynamic.nix:                        OK
+    test/golden-test-cases/hostname-validate.nix:                   OK
+    test/golden-test-cases/librato.nix:                             OK
+    test/golden-test-cases/regex-pcre.nix:                          OK
+    test/golden-test-cases/binary-bits.nix:                         OK
+    test/golden-test-cases/jmacro-rpc-happstack.nix:                OK
+    test/golden-test-cases/gl.nix:                                  OK
+    test/golden-test-cases/amazonka-cloudtrail.nix:                 OK
+    test/golden-test-cases/openexr-write.nix:                       OK
+    test/golden-test-cases/data-accessor.nix:                       OK
+    test/golden-test-cases/libgit.nix:                              OK
+    test/golden-test-cases/kawhi.nix:                               OK
+    test/golden-test-cases/messagepack.nix:                         OK
+    test/golden-test-cases/hsinstall.nix:                           OK
+    test/golden-test-cases/SHA.nix:                                 OK
+    test/golden-test-cases/intero.nix:                              OK
+    test/golden-test-cases/monadloc.nix:                            OK
+    test/golden-test-cases/hsyslog.nix:                             OK
+    test/golden-test-cases/boxes.nix:                               OK
+    test/golden-test-cases/validity-containers.nix:                 OK
+    test/golden-test-cases/fgl.nix:                                 OK
+    test/golden-test-cases/iso8601-time.nix:                        OK
+    test/golden-test-cases/lazy-csv.nix:                            OK
+    test/golden-test-cases/dpor.nix:                                OK
+    test/golden-test-cases/pinch.nix:                               OK
+    test/golden-test-cases/rvar.nix:                                OK
+    test/golden-test-cases/attoparsec-expr.nix:                     OK
+    test/golden-test-cases/hakyll.nix:                              OK (0.01s)
+    test/golden-test-cases/foundation.nix:                          OK
+    test/golden-test-cases/iso639.nix:                              OK
+    test/golden-test-cases/xmonad-contrib.nix:                      OK
+    test/golden-test-cases/HTTP.nix:                                OK
+    test/golden-test-cases/amazonka-ecs.nix:                        OK
+    test/golden-test-cases/groundhog-mysql.nix:                     OK
+    test/golden-test-cases/HPDF.nix:                                OK
+    test/golden-test-cases/pointed.nix:                             OK
+    test/golden-test-cases/gogol-plus.nix:                          OK
+    test/golden-test-cases/regex-compat.nix:                        OK
+    test/golden-test-cases/criterion.nix:                           OK
+    test/golden-test-cases/genvalidity-scientific.nix:              OK
+    test/golden-test-cases/rebase.nix:                              OK
+    test/golden-test-cases/relational-schemas.nix:                  OK
+    test/golden-test-cases/jose.nix:                                OK
+    test/golden-test-cases/hmpfr.nix:                               OK
+    test/golden-test-cases/genvalidity-hspec-aeson.nix:             OK
+    test/golden-test-cases/these.nix:                               OK
+    test/golden-test-cases/microlens.nix:                           OK
+    test/golden-test-cases/set-cover.nix:                           OK
+    test/golden-test-cases/transformers-lift.nix:                   OK
+    test/golden-test-cases/drawille.nix:                            OK
+    test/golden-test-cases/boomerang.nix:                           OK
+    test/golden-test-cases/genvalidity-aeson.nix:                   OK
+    test/golden-test-cases/nvim-hs.nix:                             OK
+    test/golden-test-cases/prelude-safeenum.nix:                    OK
+    test/golden-test-cases/mnist-idx.nix:                           OK
+    test/golden-test-cases/avers-server.nix:                        OK
+    test/golden-test-cases/code-page.nix:                           OK
+    test/golden-test-cases/blosum.nix:                              OK
+    test/golden-test-cases/minio-hs.nix:                            OK
+    test/golden-test-cases/github.nix:                              OK
+    test/golden-test-cases/amazonka-cognito-idp.nix:                OK
+    test/golden-test-cases/median-stream.nix:                       OK
+    test/golden-test-cases/nanospec.nix:                            OK
+    test/golden-test-cases/system-argv0.nix:                        OK
+    test/golden-test-cases/state-codes.nix:                         OK
+    test/golden-test-cases/accelerate-fftw.nix:                     OK
+    test/golden-test-cases/blank-canvas.nix:                        OK
+    test/golden-test-cases/readline.nix:                            OK
+    test/golden-test-cases/presburger.nix:                          OK
+    test/golden-test-cases/mongoDB.nix:                             OK
+    test/golden-test-cases/microlens-ghc.nix:                       OK
+    test/golden-test-cases/GPipe-GLFW.nix:                          OK
+    test/golden-test-cases/incremental-parser.nix:                  OK
+    test/golden-test-cases/accelerate.nix:                          OK
+    test/golden-test-cases/tasty-rerun.nix:                         OK
+    test/golden-test-cases/butcher.nix:                             OK
+    test/golden-test-cases/pathtype.nix:                            OK
+    test/golden-test-cases/tasty-hedgehog.nix:                      OK
+    test/golden-test-cases/turtle-options.nix:                      OK
+    test/golden-test-cases/dotenv.nix:                              OK
+    test/golden-test-cases/amazonka-lightsail.nix:                  OK
+    test/golden-test-cases/logging-effect-extra-file.nix:           OK
+    test/golden-test-cases/amazonka-cloudwatch-logs.nix:            OK
+    test/golden-test-cases/amazonka-codedeploy.nix:                 OK
+    test/golden-test-cases/sdl2.nix:                                OK
+    test/golden-test-cases/blaze-svg.nix:                           OK
+    test/golden-test-cases/genvalidity-uuid.nix:                    OK
+    test/golden-test-cases/gogol-datastore.nix:                     OK
+    test/golden-test-cases/indentation-parsec.nix:                  OK
+    test/golden-test-cases/stm-containers.nix:                      OK
+    test/golden-test-cases/gogol-appstate.nix:                      OK
+    test/golden-test-cases/pipes-safe.nix:                          OK
+    test/golden-test-cases/funcmp.nix:                              OK
+    test/golden-test-cases/fixed.nix:                               OK
+    test/golden-test-cases/blaze-html.nix:                          OK
+    test/golden-test-cases/async.nix:                               OK
+    test/golden-test-cases/netpbm.nix:                              OK
+    test/golden-test-cases/jmacro-rpc.nix:                          OK
+    test/golden-test-cases/api-field-json-th.nix:                   OK
+    test/golden-test-cases/MissingH.nix:                            OK
+    test/golden-test-cases/wai-middleware-auth.nix:                 OK
+    test/golden-test-cases/cereal-text.nix:                         OK
+    test/golden-test-cases/ip.nix:                                  OK
+    test/golden-test-cases/attoparsec-time.nix:                     OK
+    test/golden-test-cases/functor-classes-compat.nix:              OK
+    test/golden-test-cases/splice.nix:                              OK
+    test/golden-test-cases/gogol-translate.nix:                     OK
+    test/golden-test-cases/binary-tagged.nix:                       OK
+    test/golden-test-cases/rawstring-qm.nix:                        OK
+    test/golden-test-cases/terminal-progress-bar.nix:               OK
+  cabal2nix executable
+    test/golden-test-cases/mwc-random-monad.nix:                    OK (0.03s)
+    test/golden-test-cases/dotnet-timespan.nix:                     OK (0.03s)
+    test/golden-test-cases/polynomials-bernstein.nix:               OK (0.03s)
+    test/golden-test-cases/bzlib.nix:                               OK (0.03s)
+    test/golden-test-cases/lmdb.nix:                                OK (0.03s)
+    test/golden-test-cases/ttrie.nix:                               OK (0.03s)
+    test/golden-test-cases/ratio-int.nix:                           OK (0.03s)
+    test/golden-test-cases/eventful-sqlite.nix:                     OK (0.03s)
+    test/golden-test-cases/aws.nix:                                 OK (0.03s)
+    test/golden-test-cases/exact-pi.nix:                            OK (0.03s)
+    test/golden-test-cases/hformat.nix:                             OK (0.03s)
+    test/golden-test-cases/unlit.nix:                               OK (0.03s)
+    test/golden-test-cases/quickcheck-combinators.nix:              OK (0.03s)
+    test/golden-test-cases/chell.nix:                               OK (0.03s)
+    test/golden-test-cases/http-media.nix:                          OK (0.03s)
+    test/golden-test-cases/picosat.nix:                             OK (0.03s)
+    test/golden-test-cases/case-insensitive.nix:                    OK (0.03s)
+    test/golden-test-cases/type-spec.nix:                           OK (0.03s)
+    test/golden-test-cases/wai-cors.nix:                            OK (0.03s)
+    test/golden-test-cases/happstack-hsp.nix:                       OK (0.03s)
+    test/golden-test-cases/partial-isomorphisms.nix:                OK (0.03s)
+    test/golden-test-cases/tree-fun.nix:                            OK (0.03s)
+    test/golden-test-cases/gogol-youtube.nix:                       OK (0.03s)
+    test/golden-test-cases/QuasiText.nix:                           OK (0.03s)
+    test/golden-test-cases/tagstream-conduit.nix:                   OK (0.03s)
+    test/golden-test-cases/fingertree.nix:                          OK (0.03s)
+    test/golden-test-cases/vivid-supercollider.nix:                 OK (0.03s)
+    test/golden-test-cases/brittany.nix:                            OK (0.04s)
+    test/golden-test-cases/hxt-expat.nix:                           OK (0.03s)
+    test/golden-test-cases/string-class.nix:                        OK (0.03s)
+    test/golden-test-cases/one-liner.nix:                           OK (0.03s)
+    test/golden-test-cases/lens-aeson.nix:                          OK (0.03s)
+    test/golden-test-cases/happy.nix:                               OK (0.03s)
+    test/golden-test-cases/vty.nix:                                 OK (0.04s)
+    test/golden-test-cases/amazonka-route53-domains.nix:            OK (0.03s)
+    test/golden-test-cases/katip.nix:                               OK (0.03s)
+    test/golden-test-cases/online.nix:                              OK (0.03s)
+    test/golden-test-cases/haskell-tools-rewrite.nix:               OK (0.03s)
+    test/golden-test-cases/prettyprinter-compat-ansi-wl-pprint.nix: OK (0.03s)
+    test/golden-test-cases/hashtables.nix:                          OK (0.03s)
+    test/golden-test-cases/data-msgpack.nix:                        OK (0.03s)
+    test/golden-test-cases/gogol-affiliates.nix:                    OK (0.03s)
+    test/golden-test-cases/spreadsheet.nix:                         OK (0.03s)
+    test/golden-test-cases/yesod-recaptcha2.nix:                    OK (0.03s)
+    test/golden-test-cases/proto-lens.nix:                          OK (0.03s)
+    test/golden-test-cases/strict-types.nix:                        OK (0.03s)
+    test/golden-test-cases/monad-products.nix:                      OK (0.03s)
+    test/golden-test-cases/wai-middleware-caching-redis.nix:        OK (0.03s)
+    test/golden-test-cases/hxt-charproperties.nix:                  OK (0.03s)
+    test/golden-test-cases/FenwickTree.nix:                         OK (0.03s)
+    test/golden-test-cases/gogol-blogger.nix:                       OK (0.03s)
+    test/golden-test-cases/pell.nix:                                OK (0.03s)
+    test/golden-test-cases/hoogle.nix:                              OK (0.03s)
+    test/golden-test-cases/unique.nix:                              OK (0.03s)
+    test/golden-test-cases/weigh.nix:                               OK (0.04s)
+    test/golden-test-cases/deque.nix:                               OK (0.03s)
+    test/golden-test-cases/servant-checked-exceptions.nix:          OK (0.03s)
+    test/golden-test-cases/hsx-jmacro.nix:                          OK (0.03s)
+    test/golden-test-cases/slack-web.nix:                           OK (0.03s)
+    test/golden-test-cases/hOpenPGP.nix:                            OK (0.03s)
+    test/golden-test-cases/pusher-http-haskell.nix:                 OK (0.03s)
+    test/golden-test-cases/rosezipper.nix:                          OK (0.03s)
+    test/golden-test-cases/swagger.nix:                             OK (0.03s)
+    test/golden-test-cases/bioalign.nix:                            OK (0.03s)
+    test/golden-test-cases/texmath.nix:                             OK (0.03s)
+    test/golden-test-cases/svg-tree.nix:                            OK (0.03s)
+    test/golden-test-cases/apply-refact.nix:                        OK (0.03s)
+    test/golden-test-cases/haskell-tools-debug.nix:                 OK (0.03s)
+    test/golden-test-cases/drifter-postgresql.nix:                  OK (0.03s)
+    test/golden-test-cases/tce-conf.nix:                            OK (0.03s)
+    test/golden-test-cases/frisby.nix:                              OK (0.03s)
+    test/golden-test-cases/network-transport-tcp.nix:               OK (0.03s)
+    test/golden-test-cases/katip-elasticsearch.nix:                 OK (0.03s)
+    test/golden-test-cases/clumpiness.nix:                          OK (0.03s)
+    test/golden-test-cases/ekg-cloudwatch.nix:                      OK (0.03s)
+    test/golden-test-cases/openpgp-asciiarmor.nix:                  OK (0.03s)
+    test/golden-test-cases/ghcid.nix:                               OK (0.03s)
+    test/golden-test-cases/zlib.nix:                                OK (0.03s)
+    test/golden-test-cases/timezone-series.nix:                     OK (0.03s)
+    test/golden-test-cases/tuples-homogenous-h98.nix:               OK (0.03s)
+    test/golden-test-cases/xml-hamlet.nix:                          OK (0.03s)
+    test/golden-test-cases/tuple-th.nix:                            OK (0.04s)
+    test/golden-test-cases/katydid.nix:                             OK (0.03s)
+    test/golden-test-cases/gogol-dfareporting.nix:                  OK (0.03s)
+    test/golden-test-cases/relational-query.nix:                    OK (0.03s)
+    test/golden-test-cases/hit.nix:                                 OK (0.03s)
+    test/golden-test-cases/hxt-tagsoup.nix:                         OK (0.03s)
+    test/golden-test-cases/invariant.nix:                           OK (0.03s)
+    test/golden-test-cases/bindings-uname.nix:                      OK (0.03s)
+    test/golden-test-cases/yesod-form-bootstrap4.nix:               OK (0.03s)
+    test/golden-test-cases/dhall-bash.nix:                          OK (0.03s)
+    test/golden-test-cases/giphy-api.nix:                           OK (0.03s)
+    test/golden-test-cases/hasql.nix:                               OK (0.03s)
+    test/golden-test-cases/ChasingBottoms.nix:                      OK (0.03s)
+    test/golden-test-cases/rasterific-svg.nix:                      OK (0.03s)
+    test/golden-test-cases/io-streams-haproxy.nix:                  OK (0.03s)
+    test/golden-test-cases/iconv.nix:                               FAIL (0.03s)
+      --- test/golden-test-cases/iconv.nix.golden       2018-07-10 13:29:51.000000000 +0000
+      +++ test/golden-test-cases/iconv.nix      2018-07-15 17:52:02.334772169 +0000
+      @@ -1,9 +1,10 @@
+      -{ mkDerivation, base, bytestring, stdenv }:
+      +{ mkDerivation, base, bytestring, iconv, stdenv }:
+       mkDerivation {
+         pname = "iconv";
+         version = "0.4.1.3";
+         sha256 = "deadbeef";
+         libraryHaskellDepends = [ base bytestring ];
+      +  librarySystemDepends = [ iconv ];
+         description = "String encoding conversion";
+         license = stdenv.lib.licenses.bsd3;
+       }
+    test/golden-test-cases/primitive.nix:                           OK (0.03s)
+    test/golden-test-cases/selda.nix:                               OK (0.04s)
+    test/golden-test-cases/ReadArgs.nix:                            OK (0.03s)
+    test/golden-test-cases/gsasl.nix:                               OK (0.03s)
+    test/golden-test-cases/strict-base-types.nix:                   OK (0.03s)
+    test/golden-test-cases/generic-lens.nix:                        OK (0.03s)
+    test/golden-test-cases/streaming-commons.nix:                   OK (0.03s)
+    test/golden-test-cases/cassette.nix:                            OK (0.03s)
+    test/golden-test-cases/postgresql-simple-url.nix:               OK (0.03s)
+    test/golden-test-cases/reform-blaze.nix:                        OK (0.03s)
+    test/golden-test-cases/lambdabot-social-plugins.nix:            OK (0.03s)
+    test/golden-test-cases/monadcryptorandom.nix:                   OK (0.03s)
+    test/golden-test-cases/simple-smt.nix:                          OK (0.03s)
+    test/golden-test-cases/once.nix:                                OK (0.03s)
+    test/golden-test-cases/th-expand-syns.nix:                      OK (0.03s)
+    test/golden-test-cases/mmorph.nix:                              OK (0.03s)
+    test/golden-test-cases/mainland-pretty.nix:                     OK (0.03s)
+    test/golden-test-cases/cassava-conduit.nix:                     OK (0.03s)
+    test/golden-test-cases/unicode-show.nix:                        OK (0.03s)
+    test/golden-test-cases/gogol-adexchange-buyer.nix:              OK (0.03s)
+    test/golden-test-cases/persistable-types-HDBC-pg.nix:           OK (0.03s)
+    test/golden-test-cases/lifted-async.nix:                        OK (0.03s)
+    test/golden-test-cases/gogol-webmaster-tools.nix:               OK (0.03s)
+    test/golden-test-cases/gogol-firebase-rules.nix:                OK (0.03s)
+    test/golden-test-cases/text-postgresql.nix:                     OK (0.03s)
+    test/golden-test-cases/l10n.nix:                                OK (0.03s)
+    test/golden-test-cases/repa.nix:                                OK (0.03s)
+    test/golden-test-cases/nix-paths.nix:                           OK (0.03s)
+    test/golden-test-cases/HTF.nix:                                 OK (0.03s)
+    test/golden-test-cases/speedy-slice.nix:                        OK (0.03s)
+    test/golden-test-cases/gogol-apps-tasks.nix:                    OK (0.03s)
+    test/golden-test-cases/csv.nix:                                 OK (0.03s)
+    test/golden-test-cases/pcap.nix:                                OK (0.03s)
+    test/golden-test-cases/hjson.nix:                               OK (0.03s)
+    test/golden-test-cases/poly-arity.nix:                          OK (0.03s)
+    test/golden-test-cases/htoml.nix:                               OK (0.03s)
+    test/golden-test-cases/unix-bytestring.nix:                     OK (0.03s)
+    test/golden-test-cases/kraken.nix:                              OK (0.03s)
+    test/golden-test-cases/text-icu.nix:                            OK (0.03s)
+    test/golden-test-cases/selda-sqlite.nix:                        OK (0.03s)
+    test/golden-test-cases/hstatsd.nix:                             OK (0.03s)
+    test/golden-test-cases/partial-semigroup.nix:                   OK (0.03s)
+    test/golden-test-cases/stb-image-redux.nix:                     OK (0.03s)
+    test/golden-test-cases/data-serializer.nix:                     OK (0.03s)
+    test/golden-test-cases/taggy.nix:                               OK (0.03s)
+    test/golden-test-cases/QuickCheck.nix:                          OK (0.03s)
+    test/golden-test-cases/emailaddress.nix:                        OK (0.03s)
+    test/golden-test-cases/io-machine.nix:                          OK (0.03s)
+    test/golden-test-cases/network-protocol-xmpp.nix:               OK (0.03s)
+    test/golden-test-cases/yahoo-finance-api.nix:                   OK (0.03s)
+    test/golden-test-cases/soxlib.nix:                              OK (0.03s)
+    test/golden-test-cases/aeson-diff.nix:                          OK (0.03s)
+    test/golden-test-cases/crypt-sha512.nix:                        FAIL (0.03s)
+      --- test/golden-test-cases/crypt-sha512.nix.golden        2018-07-10 13:29:51.000000000 +0000
+      +++ test/golden-test-cases/crypt-sha512.nix       2018-07-15 17:52:04.107697092 +0000
+      @@ -1,6 +1,5 @@
+       { mkDerivation, attoparsec, base, bytestring, cryptohash-sha512
+      -, quickcheck-instances, stdenv, tasty, tasty-hunit
+      -, tasty-quickcheck
+      +, stdenv
+       }:
+       mkDerivation {
+         pname = "crypt-sha512";
+      @@ -9,10 +8,6 @@
+         libraryHaskellDepends = [
+           attoparsec base bytestring cryptohash-sha512
+         ];
+      -  testHaskellDepends = [
+      -    base bytestring quickcheck-instances tasty tasty-hunit
+      -    tasty-quickcheck
+      -  ];
+         homepage = "https://github.com/phadej/crypt-sha512";
+         description = "Pure Haskell implelementation for GNU SHA512 crypt algorithm";
+         license = stdenv.lib.licenses.bsd3;
+    test/golden-test-cases/test-fixture.nix:                        OK (0.03s)
+    test/golden-test-cases/amazonka-kms.nix:                        OK (0.03s)
+    test/golden-test-cases/system-filepath.nix:                     OK (0.03s)
+    test/golden-test-cases/pager.nix:                               OK (0.03s)
+    test/golden-test-cases/gogol-maps-engine.nix:                   OK (0.03s)
+    test/golden-test-cases/cheapskate.nix:                          OK (0.03s)
+    test/golden-test-cases/repa-io.nix:                             OK (0.03s)
+    test/golden-test-cases/indentation-core.nix:                    OK (0.03s)
+    test/golden-test-cases/explicit-exception.nix:                  OK (0.03s)
+    test/golden-test-cases/crypto-random-api.nix:                   OK (0.03s)
+    test/golden-test-cases/benchpress.nix:                          OK (0.03s)
+    test/golden-test-cases/bbdb.nix:                                OK (0.03s)
+    test/golden-test-cases/gogol-admin-emailmigration.nix:          OK (0.03s)
+    test/golden-test-cases/mole.nix:                                OK (0.03s)
+    test/golden-test-cases/pdfinfo.nix:                             OK (0.03s)
+    test/golden-test-cases/integer-logarithms.nix:                  OK (0.03s)
+    test/golden-test-cases/vector-mmap.nix:                         OK (0.03s)
+    test/golden-test-cases/ObjectName.nix:                          OK (0.03s)
+    test/golden-test-cases/data-endian.nix:                         OK (0.03s)
+    test/golden-test-cases/countable.nix:                           OK (0.03s)
+    test/golden-test-cases/amazonka-waf.nix:                        OK (0.03s)
+    test/golden-test-cases/gogol-kgsearch.nix:                      OK (0.03s)
+    test/golden-test-cases/type-operators.nix:                      OK (0.03s)
+    test/golden-test-cases/reform-hsp.nix:                          OK (0.03s)
+    test/golden-test-cases/gogol-resourceviews.nix:                 OK (0.03s)
+    test/golden-test-cases/haddock-library.nix:                     OK (0.03s)
+    test/golden-test-cases/expiring-cache-map.nix:                  OK (0.03s)
+    test/golden-test-cases/mersenne-random.nix:                     OK (0.03s)
+    test/golden-test-cases/cpu.nix:                                 OK (0.04s)
+    test/golden-test-cases/lucid.nix:                               OK (0.03s)
+    test/golden-test-cases/matrices.nix:                            OK (0.03s)
+    test/golden-test-cases/http-link-header.nix:                    OK (0.03s)
+    test/golden-test-cases/pipes-network.nix:                       OK (0.03s)
+    test/golden-test-cases/megaparsec.nix:                          OK (0.03s)
+    test/golden-test-cases/projectroot.nix:                         OK (0.03s)
+    test/golden-test-cases/Strafunski-StrategyLib.nix:              OK (0.03s)
+    test/golden-test-cases/Only.nix:                                OK (0.03s)
+    test/golden-test-cases/inline-c-cpp.nix:                        OK (0.04s)
+    test/golden-test-cases/genvalidity-hspec-binary.nix:            OK (0.03s)
+    test/golden-test-cases/envelope.nix:                            OK (0.03s)
+    test/golden-test-cases/ghc-syb-utils.nix:                       OK (0.03s)
+    test/golden-test-cases/file-modules.nix:                        OK (0.03s)
+    test/golden-test-cases/diagrams-solve.nix:                      OK (0.03s)
+    test/golden-test-cases/colorize-haskell.nix:                    OK (0.03s)
+    test/golden-test-cases/scalpel-core.nix:                        OK (0.03s)
+    test/golden-test-cases/hPDB-examples.nix:                       OK (0.03s)
+    test/golden-test-cases/harp.nix:                                OK (0.03s)
+    test/golden-test-cases/quickcheck-arbitrary-adt.nix:            OK (0.03s)
+    test/golden-test-cases/algebraic-graphs.nix:                    OK (0.03s)
+    test/golden-test-cases/fdo-notify.nix:                          OK (0.03s)
+    test/golden-test-cases/system-fileio.nix:                       OK (0.03s)
+    test/golden-test-cases/utility-ht.nix:                          OK (0.03s)
+    test/golden-test-cases/prettyclass.nix:                         OK (0.03s)
+    test/golden-test-cases/psqueues.nix:                            OK (0.03s)
+    test/golden-test-cases/general-games.nix:                       OK (0.03s)
+    test/golden-test-cases/validity-aeson.nix:                      OK (0.04s)
+    test/golden-test-cases/persistent-mysql-haskell.nix:            OK (0.03s)
+    test/golden-test-cases/http-conduit.nix:                        OK (0.03s)
+    test/golden-test-cases/slug.nix:                                OK (0.03s)
+    test/golden-test-cases/Clipboard.nix:                           OK (0.03s)
+    test/golden-test-cases/broadcast-chan.nix:                      OK (0.03s)
+    test/golden-test-cases/data-default-instances-containers.nix:   OK (0.03s)
+    test/golden-test-cases/reactive-banana.nix:                     OK (0.03s)
+    test/golden-test-cases/proto-lens-optparse.nix:                 OK (0.03s)
+    test/golden-test-cases/sets.nix:                                OK (0.03s)
+    test/golden-test-cases/aeson-pretty.nix:                        OK (0.03s)
+    test/golden-test-cases/lens.nix:                                OK (0.04s)
+    test/golden-test-cases/GenericPretty.nix:                       OK (0.04s)
+    test/golden-test-cases/profiterole.nix:                         OK (0.04s)
+    test/golden-test-cases/prettyprinter-compat-wl-pprint.nix:      OK (0.03s)
+    test/golden-test-cases/wai-middleware-prometheus.nix:           OK (0.03s)
+    test/golden-test-cases/gogol-gmail.nix:                         OK (0.03s)
+    test/golden-test-cases/active.nix:                              OK (0.03s)
+    test/golden-test-cases/product-profunctors.nix:                 OK (0.03s)
+    test/golden-test-cases/ede.nix:                                 OK (0.03s)
+    test/golden-test-cases/warp.nix:                                OK (0.03s)
+    test/golden-test-cases/fixed-vector.nix:                        OK (0.03s)
+    test/golden-test-cases/yesod-gitrepo.nix:                       OK (0.03s)
+    test/golden-test-cases/mwc-random.nix:                          OK (0.03s)
+    test/golden-test-cases/stack-type.nix:                          OK (0.03s)
+    test/golden-test-cases/app-settings.nix:                        OK (0.03s)
+    test/golden-test-cases/discrimination.nix:                      OK (0.03s)
+    test/golden-test-cases/bits.nix:                                OK (0.03s)
+    test/golden-test-cases/blaze-markup.nix:                        OK (0.03s)
+    test/golden-test-cases/Hclip.nix:                               OK (0.03s)
+    test/golden-test-cases/adjunctions.nix:                         OK (0.04s)
+    test/golden-test-cases/monoid-extras.nix:                       OK (0.03s)
+    test/golden-test-cases/highlighting-kate.nix:                   OK (0.04s)
+    test/golden-test-cases/stripe-haskell.nix:                      OK (0.03s)
+    test/golden-test-cases/transformers-compat.nix:                 OK (0.03s)
+    test/golden-test-cases/tagged.nix:                              OK (0.03s)
+    test/golden-test-cases/rank1dynamic.nix:                        OK (0.03s)
+    test/golden-test-cases/hostname-validate.nix:                   OK (0.03s)
+    test/golden-test-cases/librato.nix:                             OK (0.04s)
+    test/golden-test-cases/regex-pcre.nix:                          OK (0.03s)
+    test/golden-test-cases/binary-bits.nix:                         OK (0.03s)
+    test/golden-test-cases/jmacro-rpc-happstack.nix:                OK (0.03s)
+    test/golden-test-cases/gl.nix:                                  FAIL (0.05s)
+      --- test/golden-test-cases/gl.nix.golden  2018-07-10 13:29:51.000000000 +0000
+      +++ test/golden-test-cases/gl.nix 2018-07-15 17:52:07.388381060 +0000
+      @@ -1,5 +1,5 @@
+       { mkDerivation, base, Cabal, containers, directory, filepath, fixed
+      -, half, hxt, libGL, stdenv, transformers
+      +, half, hxt, stdenv, transformers
+       }:
+       mkDerivation {
+         pname = "gl";
+      @@ -11,7 +11,6 @@
+         libraryHaskellDepends = [
+           base containers fixed half transformers
+         ];
+      -  librarySystemDepends = [ libGL ];
+         description = "Complete OpenGL raw bindings";
+         license = stdenv.lib.licenses.bsd3;
+       }
+    test/golden-test-cases/amazonka-cloudtrail.nix:                 OK (0.03s)
+    test/golden-test-cases/openexr-write.nix:                       OK (0.03s)
+    test/golden-test-cases/data-accessor.nix:                       OK (0.03s)
+    test/golden-test-cases/libgit.nix:                              OK (0.03s)
+    test/golden-test-cases/kawhi.nix:                               OK (0.03s)
+    test/golden-test-cases/messagepack.nix:                         OK (0.03s)
+    test/golden-test-cases/hsinstall.nix:                           OK (0.03s)
+    test/golden-test-cases/SHA.nix:                                 OK (0.03s)
+    test/golden-test-cases/intero.nix:                              OK (0.03s)
+    test/golden-test-cases/monadloc.nix:                            OK (0.03s)
+    test/golden-test-cases/hsyslog.nix:                             OK (0.03s)
+    test/golden-test-cases/boxes.nix:                               OK (0.03s)
+    test/golden-test-cases/validity-containers.nix:                 OK (0.03s)
+    test/golden-test-cases/fgl.nix:                                 OK (0.03s)
+    test/golden-test-cases/iso8601-time.nix:                        OK (0.03s)
+    test/golden-test-cases/lazy-csv.nix:                            OK (0.03s)
+    test/golden-test-cases/dpor.nix:                                OK (0.04s)
+    test/golden-test-cases/pinch.nix:                               OK (0.03s)
+    test/golden-test-cases/rvar.nix:                                OK (0.03s)
+    test/golden-test-cases/attoparsec-expr.nix:                     OK (0.03s)
+    test/golden-test-cases/hakyll.nix:                              OK (0.03s)
+    test/golden-test-cases/foundation.nix:                          OK (0.03s)
+    test/golden-test-cases/iso639.nix:                              OK (0.03s)
+    test/golden-test-cases/xmonad-contrib.nix:                      OK (0.03s)
+    test/golden-test-cases/HTTP.nix:                                OK (0.03s)
+    test/golden-test-cases/amazonka-ecs.nix:                        OK (0.03s)
+    test/golden-test-cases/groundhog-mysql.nix:                     OK (0.03s)
+    test/golden-test-cases/HPDF.nix:                                OK (0.03s)
+    test/golden-test-cases/pointed.nix:                             OK (0.03s)
+    test/golden-test-cases/gogol-plus.nix:                          OK (0.03s)
+    test/golden-test-cases/regex-compat.nix:                        OK (0.03s)
+    test/golden-test-cases/criterion.nix:                           OK (0.03s)
+    test/golden-test-cases/genvalidity-scientific.nix:              OK (0.03s)
+    test/golden-test-cases/rebase.nix:                              OK (0.03s)
+    test/golden-test-cases/relational-schemas.nix:                  OK (0.03s)
+    test/golden-test-cases/jose.nix:                                OK (0.03s)
+    test/golden-test-cases/hmpfr.nix:                               OK (0.03s)
+    test/golden-test-cases/genvalidity-hspec-aeson.nix:             OK (0.04s)
+    test/golden-test-cases/these.nix:                               OK (0.03s)
+    test/golden-test-cases/microlens.nix:                           OK (0.03s)
+    test/golden-test-cases/set-cover.nix:                           OK (0.03s)
+    test/golden-test-cases/transformers-lift.nix:                   OK (0.03s)
+    test/golden-test-cases/drawille.nix:                            OK (0.03s)
+    test/golden-test-cases/boomerang.nix:                           OK (0.04s)
+    test/golden-test-cases/genvalidity-aeson.nix:                   OK (0.03s)
+    test/golden-test-cases/nvim-hs.nix:                             OK (0.03s)
+    test/golden-test-cases/prelude-safeenum.nix:                    OK (0.04s)
+    test/golden-test-cases/mnist-idx.nix:                           OK (0.04s)
+    test/golden-test-cases/avers-server.nix:                        OK (0.04s)
+    test/golden-test-cases/code-page.nix:                           OK (0.03s)
+    test/golden-test-cases/blosum.nix:                              OK (0.03s)
+    test/golden-test-cases/minio-hs.nix:                            OK (0.03s)
+    test/golden-test-cases/github.nix:                              OK (0.03s)
+    test/golden-test-cases/amazonka-cognito-idp.nix:                OK (0.03s)
+    test/golden-test-cases/median-stream.nix:                       OK (0.03s)
+    test/golden-test-cases/nanospec.nix:                            OK (0.03s)
+    test/golden-test-cases/system-argv0.nix:                        OK (0.03s)
+    test/golden-test-cases/state-codes.nix:                         OK (0.03s)
+    test/golden-test-cases/accelerate-fftw.nix:                     OK (0.03s)
+    test/golden-test-cases/blank-canvas.nix:                        OK (0.03s)
+    test/golden-test-cases/readline.nix:                            OK (0.03s)
+    test/golden-test-cases/presburger.nix:                          OK (0.03s)
+    test/golden-test-cases/mongoDB.nix:                             OK (0.03s)
+    test/golden-test-cases/microlens-ghc.nix:                       OK (0.03s)
+    test/golden-test-cases/GPipe-GLFW.nix:                          OK (0.03s)
+    test/golden-test-cases/incremental-parser.nix:                  OK (0.03s)
+    test/golden-test-cases/accelerate.nix:                          OK (0.05s)
+    test/golden-test-cases/tasty-rerun.nix:                         OK (0.03s)
+    test/golden-test-cases/butcher.nix:                             OK (0.03s)
+    test/golden-test-cases/pathtype.nix:                            OK (0.03s)
+    test/golden-test-cases/tasty-hedgehog.nix:                      OK (0.03s)
+    test/golden-test-cases/turtle-options.nix:                      OK (0.03s)
+    test/golden-test-cases/dotenv.nix:                              OK (0.03s)
+    test/golden-test-cases/amazonka-lightsail.nix:                  OK (0.04s)
+    test/golden-test-cases/logging-effect-extra-file.nix:           OK (0.03s)
+    test/golden-test-cases/amazonka-cloudwatch-logs.nix:            OK (0.03s)
+    test/golden-test-cases/amazonka-codedeploy.nix:                 OK (0.03s)
+    test/golden-test-cases/sdl2.nix:                                OK (0.03s)
+    test/golden-test-cases/blaze-svg.nix:                           OK (0.03s)
+    test/golden-test-cases/genvalidity-uuid.nix:                    OK (0.03s)
+    test/golden-test-cases/gogol-datastore.nix:                     OK (0.03s)
+    test/golden-test-cases/indentation-parsec.nix:                  OK (0.03s)
+    test/golden-test-cases/stm-containers.nix:                      OK (0.03s)
+    test/golden-test-cases/gogol-appstate.nix:                      OK (0.03s)
+    test/golden-test-cases/pipes-safe.nix:                          OK (0.03s)
+    test/golden-test-cases/funcmp.nix:                              OK (0.03s)
+    test/golden-test-cases/fixed.nix:                               OK (0.03s)
+    test/golden-test-cases/blaze-html.nix:                          OK (0.03s)
+    test/golden-test-cases/async.nix:                               OK (0.03s)
+    test/golden-test-cases/netpbm.nix:                              OK (0.03s)
+    test/golden-test-cases/jmacro-rpc.nix:                          OK (0.03s)
+    test/golden-test-cases/api-field-json-th.nix:                   OK (0.03s)
+    test/golden-test-cases/MissingH.nix:                            OK (0.03s)
+    test/golden-test-cases/wai-middleware-auth.nix:                 OK (0.03s)
+    test/golden-test-cases/cereal-text.nix:                         OK (0.03s)
+    test/golden-test-cases/ip.nix:                                  OK (0.04s)
+    test/golden-test-cases/attoparsec-time.nix:                     OK (0.04s)
+    test/golden-test-cases/functor-classes-compat.nix:              OK (0.03s)
+    test/golden-test-cases/splice.nix:                              OK (0.03s)
+    test/golden-test-cases/gogol-translate.nix:                     OK (0.03s)
+    test/golden-test-cases/binary-tagged.nix:                       OK (0.03s)
+    test/golden-test-cases/rawstring-qm.nix:                        OK (0.03s)
+    test/golden-test-cases/terminal-progress-bar.nix:               OK (0.03s)
+
+3 out of 702 tests failed (13.44s)
+Test suite regression-test: FAIL
+Test suite logged to: dist/test/cabal2nix-2.9.3-regression-test.log
+0 of 1 test suites (0 of 1 test cases) passed.
+builder for '/nix/store/ss938kva345l9mq3cg2251ipj8dcnm5d-cabal2nix-2.9.3.drv' failed with exit code 1
+error: build of '/nix/store/ss938kva345l9mq3cg2251ipj8dcnm5d-cabal2nix-2.9.3.drv' failed

@@ -1,0 +1,125 @@
+#!/bin/bash
+
+case $1 in
+    hackage)
+        exec httrack -s0 --display              \
+            http://hackage.haskell.org/         \
+            '-*.cabal'                          \
+            '-*.gz'
+        ;;
+    haskell-irc)
+        exec httrack -s0 --display              \
+            http://tunes.org/~nef/logs/haskell/
+        ;;
+    ghc-trac)
+        exec httrack -s0 --display              \
+            https://ghc.haskell.org/trac/ghc/   \
+            '-*gentoo*'                         \
+            '-*/hoogle/*'                       \
+            '-*/ghc/export/*'                   \
+            '-*depgraph*'                       \
+            '-*/FASTA/*'                        \
+            '-*/ghc/dist/*'                     \
+            '-*/trac/ghc/*attachment/*'         \
+            '-*/ghc/docs/*'                     \
+            '-*/cabal/release/*'                \
+            '-*edgewall.org*'                   \
+            '-*trac.edgewall.org/report/*'      \
+            '-*/log/*'                          \
+            '-*/haskellwiki/*'                  \
+            '-*darcs.haskell.org*'              \
+            '-*/pipermail/*'                    \
+            '-*.tgz'                            \
+            '-*.msi'                            \
+            '-*.deb'                            \
+            '-*.rpm'                            \
+            '-*.7z'                             \
+            '-*/browser/*'                      \
+            '-*/ghc/report/*'                   \
+            '-*/ghc/log/*'                      \
+            '-*/ghc/docs/*'                     \
+            '-*.pkg.gz'                         \
+            '-*.dmg'                            \
+            '-*.pkg'                            \
+            '-*.exe'                            \
+            '-*/query?*'                        \
+            '-*?action*'                        \
+            '-*?format*'                        \
+            '-*?version*'                       \
+            '-*timeline*'                       \
+            '-*/changeset*'                     \
+            '-*git.haskell.org*'                \
+            '-*.tar.*'                          \
+            '-*.zip'
+        ;;
+
+    haskell-pdfs)
+        exec mirror http://ircbrowse.net/pdfs/haskell/unique    \
+            '-*timestamp*'
+        ;;
+
+    haskellwiki)
+        exec httrack -s0 --ext-depth=0 --display        \
+            http://www.haskell.org/haskellwiki/         \
+            '-*.php'                                    \
+            '-*.mov'                                    \
+            '-*/Special_*/*'                            \
+            '-*/thumb/*'                                \
+            '-*.tar.bz2'
+        ;;
+
+    haskell-lists)
+        exec rsync -Lav --delete-excluded --exclude=attachments \
+            --exclude=database --exclude='*.gz' --exclude='*.txt' \
+            --exclude='*.pck' haskell.org:/var/lib/mailman/archives/public/ ./
+        ;;
+
+    ncatlab)
+        exec httrack -s0 --ext-depth=0 --display -N '%h%p/%n%[id:-:::].%t'   \
+            --max-rate=2500000 \
+            http://ncatlab.org                  \
+            '-*/edit/*'                         \
+            '-*/history/*'                      \
+            '-*/print/*'                        \
+            '-*/revision/*'                     \
+            '-*/show/diff/*'                    \
+            '-*/source/*'                       \
+            '-*/schreiber/export_html'          \
+            '-*/tex/*'
+        ;;
+
+    nixwiki)
+        exec httrack -s0 --ext-depth=0 --display https://nixos.org/wiki      \
+            '-*/edit/*'                         \
+            '-*/history/*'                      \
+            '-*/print/*'                        \
+            '-*/revision/*'                     \
+            '-*/show/diff/*'                    \
+            '-*/source/*'                       \
+            '-*/tex/*'
+        ;;
+
+    cocorico)
+        exec httrack -s0 --ext-depth=0 --display http://coq.inria.fr/cocorico	\
+            '-*/distrib/*'                      \
+            '-*/refman/*'                       \
+            '-*/stdlib/*'                       \
+            '-*/doc/Reference-Manual*'          \
+            '-*/library/*'                      \
+            '-*/bugs/*'                         \
+            '-*/bench/*'                        \
+            '-*/V8.1*'                          \
+            '-*/V8.2*'                          \
+            '-*/V8.3*'                          \
+            '-*/pylons/report/view/*'           \
+            '-*/pylons/*/view/*'
+        ;;
+
+    okmij)
+        exec mirror http://okmij.org/ftp/
+        ;;
+
+    *)
+        exec httrack -s0 --ext-depth=0 --near -Y --display "$@"
+        ;;
+esac

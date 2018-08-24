@@ -1,0 +1,17 @@
+nix copy --keep-going --to ssh://hermes		\
+    /nix/store/4c0643dl50gkcl5skjjs7gbhc19kb448-user-environment		\
+    /nix/store/6n7v1lbhgs4125dhqrgafzyn4yp650za-darwin-system-18.09pre-git
+copying 9067 pathserror: unknown serve command 9
+could not copy /nix/store/001r33sv767kg2ls1c0g3rcx6sdbwhk6-texlive-hackthefootline-2017: unexpected end-of-file
+error (ignored): interrupted by the user
+[6/0/9067 copied (1 failed) (0.0/7.9 MiB)] copying path '/nix/store/02cigbc6p9m7zz5gmc3ilq1pyqn55cnnerror: unknown serve command 9
+could not copy /nix/store/02cigbc6p9m7zz5gmc3ilq1pyqn55cnn-texlive-oldstyle-0.2: unexpected end-of-file
+error (ignored): interrupted by the user
+error (ignored): interrupted by the user
+[4/0/9067 copied (2 failed) (0.0/10.8 MiB)] copying path '/nix/store/030796l3iv0a221nclr61xs8lfn9z2serror: unknown serve command 9
+could not copy /nix/store/01xbc08nlv0c97x9ymbbpvvy7bpqrv51-source.drv: unexpected end-of-file
+error (ignored): interrupted by the user
+[3/0/9067 copied (3 failed) (0.0/12.1 MiB)] copying path '/nix/store/030796l3iv0a221nclr61xs8lfn9z2serror: unknown serve command 9
+could not copy /nix/store/030796l3iv0a221nclr61xs8lfn9z2sk-texlive-aurical-1.5: writing to file: Broken pipe
+[0 copied (4 failed) (0.3 MiB)]
+error: unexpected end-of-file

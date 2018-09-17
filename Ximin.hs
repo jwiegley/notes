@@ -31,7 +31,6 @@ type family Subst (xs :: k) (y :: *) :: k where
     Subst ('TNode _ lxs rxs) y =
         'TNode y (Subst lxs y) (Subst rxs y)
 
-nodeFold :: forall x y xs. Observe xs x => (x -> y) -> HTree xs -> HTree (Subst xs y)
-nodeFold f HLeaf = HLeaf
-nodeFold f (HNode x (l :: HTree ls) (r :: HTree rs)) =
-    HNode (f x) (nodeFold f l) (nodeFold f r)
+treeFold :: forall x y xs. Observe xs x => (x -> y) -> HTree xs -> HTree (Subst xs y)
+treeFold f HLeaf = HLeaf
+treeFold f (HNode x l r) = HNode (f x) (treeFold f l) (treeFold f r)

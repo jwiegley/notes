@@ -33,3 +33,8 @@ type family Subst (xs :: k) (y :: *) :: k where
 treeFold :: forall x y xs. Observe xs x => (x -> y) -> HTree xs -> HTree (Subst xs y)
 treeFold f HLeaf = HLeaf
 treeFold f (HNode x l r) = HNode (f x) (treeFold f l) (treeFold f r)
+
+treeFoldA :: forall x m y xs. (Applicative m, Observe xs x)
+    => (x -> m y) -> HTree xs -> m (HTree (Subst xs y))
+treeFoldA f HLeaf = pure HLeaf
+treeFoldA f (HNode x l r) = HNode <$> f x <*> treeFoldA f l <*> treeFoldA f r

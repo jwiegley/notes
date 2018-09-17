@@ -28,8 +28,7 @@ type family Observe (xs :: k) (x :: *) :: Constraint where
 -- This type function substitutes the type indices at nodes in a tree.
 type family Subst (xs :: k) (y :: *) :: k where
     Subst 'TLeaf _ = 'TLeaf
-    Subst ('TNode _ lxs rxs) y =
-        'TNode y (Subst lxs y) (Subst rxs y)
+    Subst ('TNode _ lxs rxs) y = 'TNode y (Subst lxs y) (Subst rxs y)
 
 treeFold :: forall x y xs. Observe xs x => (x -> y) -> HTree xs -> HTree (Subst xs y)
 treeFold f HLeaf = HLeaf

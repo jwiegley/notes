@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-module Conduit where
+module ConduitIdeas where
 
 import           Control.Applicative
 import           Control.Monad hiding (forM_)

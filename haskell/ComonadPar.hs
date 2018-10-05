@@ -1,6 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
-module Conduit where
+module ComonadPar where
 
 import Control.Comonad
 import Control.Monad.Par

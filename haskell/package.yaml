@@ -1,0 +1,22 @@
+name:       haskell
+version:    0.0.1
+synopsis:   Various Haskell notes
+github:     jwiegley/notes
+author:     John Wiegley
+maintainer: johnw@newartisans.com
+category:   System, Data, Nix
+license:    BSD3
+
+description:
+  Various Haskell notes.
+
+library:
+  source-dirs: .
+  ghc-options:
+    - -Wall
+  dependencies:
+    - base                        >= 4.9 && < 5
+    - bytestring
+    - constraints
+    - containers
+    - unordered-containers

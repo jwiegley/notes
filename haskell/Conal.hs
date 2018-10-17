@@ -1,4 +1,6 @@
+{-# LANGUAGE ImpredicativeTypes #-}
 {-# LANGUAGE LambdaCase #-}
+{-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
 module Conal where
@@ -46,6 +48,11 @@ denote threshold (LArrow fs) a = do
   where
     count :: b -> Multiset b
     count k = Multiset (M.singleton k 1)
+
+newtype BArrow a b = BArrow { getBArrow :: [forall r. a -> (b -> r) -> r] }
+
+byzantine :: Ord b => BArrow a b -> LArrow a b
+byzantine (BArrow _fs) = undefined
 
 machineA :: Int -> Int
 machineA = \case

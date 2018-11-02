@@ -1,0 +1,11 @@
+builder for '/nix/store/hjwfpa2df4fww6sv7grpgckggdi0bpa4-libsecurity_utilities-osx-10.7.5.drv' failed with exit code 2; last 10 log lines:
+  CFStringRef _CFAffixedStringCreate(CFStringRef theString, CFStringRef prefix, CFStringRef suffix) API_AVAILABLE(macosx(10.13), ios(11.0), watchos(4.0), tvos(11.0));
+                                                                                                    ^
+  /nix/store/0xdrdyjy77lhwzpaxqagc9fdw3gx89jq-swift-corefoundation-private/Library/Frameworks/CoreFoundation.framework/Headers/CFBundlePriv.h:264:66: error: expected function body after function declarator
+  CFStringRef _CFRLORightToLeftStringCreate(CFStringRef theString) API_AVAILABLE(macosx(10.13), ios(11.0), watchos(4.0), tvos(11.0));
+                                                                   ^
+  17 warnings and 11 errors generated.
+  make[3]: *** [/nix/store/204lvxmsigkgkdv2c0fvkqalxmg4fik5-gnustep-make-2.7.0/share/GNUstep/Makefiles/rules.make:499: obj/security_utilities.obj/lib/osxcode.cpp.o] Error 1
+  make[2]: *** [/nix/store/204lvxmsigkgkdv2c0fvkqalxmg4fik5-gnustep-make-2.7.0/share/GNUstep/Makefiles/Instance/library.make:278: internal-library-all_] Error 2
+  make[1]: *** [/nix/store/204lvxmsigkgkdv2c0fvkqalxmg4fik5-gnustep-make-2.7.0/share/GNUstep/Makefiles/Master/rules.make:297: security_utilities.all.library.variables] Error 2
+  make: *** [/nix/store/204lvxmsigkgkdv2c0fvkqalxmg4fik5-gnustep-make-2.7.0/share/GNUstep/Makefiles/

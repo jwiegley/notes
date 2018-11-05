@@ -1,0 +1,11 @@
+builder for '/nix/store/qn2ad8zjd8kyqd615l7mpqwlkh9zfj0b-quartz-wm-1.3.1.drv' failed with exit code 2; last 10 log lines:
+        objc-class-ref in x-screen.o
+    "_OBJC_EHTYPE_$_NSException", referenced from:
+        GCC_except_table25 in main.o
+  ld: symbol(s) not found for architecture x86_64
+  clang-5.0: error: linker command failed with exit code 1 (use -v to see invocation)
+  make[2]: *** [Makefile:366: quartz-wm] Error 1
+  make[2]: Leaving directory '/private/tmp/nix-build-quartz-wm-1.3.1.drv-0/quartz-wm-1.3.1/src'
+  make[1]: *** [Makefile:352: all-recursive] Error 1
+  make[1]: Leaving directory '/private/tmp/nix-build-quartz-wm-1.3.1.drv-0/quartz-wm-1.3.1'
+  make: *** [Makefile:292: all] Error 2

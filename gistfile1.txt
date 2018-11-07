@@ -1,0 +1,7 @@
+builder for '/nix/store/hhcv734rvp789j84c91m0ysh3gf75b61-libsecurity_utilities-osx-10.7.5.drv' failed with exit code 2; last 10 log lines:
+  CFStringRef _CFAffixedStringCreate(CFStringRef theString, CFStringRef prefix, CFStringRef suffix) API_AVAILABLE(macosx(10.13), ios(11.0), watchos(4.0), tvos(11.0));
+                                                                                                    ^
+  /nix/store/ghzyd66s8yv8z0gf4xg1lv2vqwdn1ynz-swift-corefoundation-private/Library/Frameworks/CoreFoundation.framework/Headers/CFBundlePriv.h:264:66: error: expected function body after function declarator
+  CFStringRef _CFRLORightToLeftStringCreate(CFStringRef theString) API_AVAILABLE(macosx(10.13), ios(11.0), watchos(4.0), tvos(11.0));
+                                                                   ^
+  17 warnings and 11 errors generated.

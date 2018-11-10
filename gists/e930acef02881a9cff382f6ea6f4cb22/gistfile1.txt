@@ -1,0 +1,6 @@
+genpatcher         | ;;2018.07.05.18.31.52: Starting coq repair
+genpatcher         |
+genpatcher         | ;;2018.07.05.18.31.52: Creating new serapi instance.
+rings-dashboard    | LOG 2018-07-05T18:31:52+0000 [4]:repairListener: {"type":"event","name":"startingRepair","randomState":"#.(CCL::INITIALIZE-MRG31K3P-STATE 260662637 1984571375 906067126 646587768 76746067 839601289)"}
+rings-dashboard    | LOG 2018-07-05T18:31:52+0000 [2]:Repair: starting repair
+genpatcher         | ;;2018.07.05.18.32.05: Setting original fitness...

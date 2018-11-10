@@ -1,0 +1,5 @@
+    val visited = e map walkExpression(ledger)
+
+    visited match {
+      // If e is a [[Mux]], increment our ledger and return e.
+      case Mux(cond, tval, fval, tpe) =>

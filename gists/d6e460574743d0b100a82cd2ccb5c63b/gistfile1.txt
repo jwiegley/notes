@@ -1,0 +1,47 @@
+[nix-shell:~/bae/craft/firrtl]$ sbt compile
+/nix/store/03pdhzb1qlgn4jil6kbxy75dcqpd1m1a-bash-4.4-p12/bin/bash: warning: setlocale: LC_ALL: cannot change locale (en_US.utf8): No such file or directory
+/nix/store/03pdhzb1qlgn4jil6kbxy75dcqpd1m1a-bash-4.4-p12/bin/bash: warning: setlocale: LC_ALL: cannot change locale (en_US.utf8): No such file or directory
+[info] Loading settings from plugins.sbt ...
+[info] Loading project definition from /Users/johnw/bae/craft/firrtl/project
+[info] Updating ProjectRef(uri("file:/Users/johnw/bae/craft/firrtl/project/"), "firrtl-build")...
+[warn] Choosing local for com.typelead#sbt-eta;0.1.1-SNAPSHOT
+[info] Done updating.
+[warn] Found version conflict(s) in library dependencies; some are suspected to be binary incompatible:
+[warn] 	* org.ow2.asm:asm-tree:6.0 is selected over 5.0.3
+[warn] 	    +- org.ow2.asm:asm-commons:6.0                        (depends on 6.0)
+[warn] 	    +- org.parboiled:parboiled-java:1.1.7                 (depends on 5.0.3)
+[warn] 	    +- org.ow2.asm:asm-util:5.0.3                         (depends on 5.0.3)
+[warn] 	    +- org.ow2.asm:asm-analysis:5.0.3                     (depends on 5.0.3)
+[warn] 	* org.ow2.asm:asm:6.0 is selected over 5.0.3
+[warn] 	    +- org.pantsbuild:jarjar:1.6.5                        (depends on 6.0)
+[warn] 	    +- org.ow2.asm:asm-tree:6.0                           (depends on 6.0)
+[warn] 	    +- org.parboiled:parboiled-java:1.1.7                 (depends on 5.0.3)
+[warn] 	    +- org.ow2.asm:asm-tree:5.0.3                         (depends on 5.0.3)
+[warn] Run 'evicted' to see detailed eviction warnings
+[info] Loading settings from build.sbt ...
+[info] [etlas] Installing dependencies...
+[info] [etlas] Resolving dependencies...
+[info] [etlas] All the requested packages are already installed:
+[info] [etlas] Use --reinstall if you want to reinstall anyway.
+[info] [etlas] Checking Maven dependencies...
+[error] [etlas] etlas: unrecognized 'deps' option `--maven'
+[error] java.lang.RuntimeException:
+[error]
+[error]  [etlas] Exit Failure 1
+[error] 	at scala.sys.package$.error(package.scala:27)
+[error] 	at com.typelead.SbtEta$.etlas(SbtEta.scala:137)
+[error] 	at com.typelead.SbtEta$.$anonfun$baseEtaSettings$7(SbtEta.scala:65)
+[error] 	at scala.Function1.$anonfun$compose$1(Function1.scala:44)
+[error] 	at sbt.internal.util.EvaluateSettings$MixedNode.evaluate0(INode.scala:219)
+[error] 	at sbt.internal.util.EvaluateSettings$INode.evaluate(INode.scala:164)
+[error] 	at sbt.internal.util.EvaluateSettings.$anonfun$submitEvaluate$1(INode.scala:87)
+[error] 	at sbt.internal.util.EvaluateSettings.sbt$internal$util$EvaluateSettings$$run0(INode.scala:98)
+[error] 	at sbt.internal.util.EvaluateSettings$$anon$3.run(INode.scala:94)
+[error] 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+[error] 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+[error] 	at java.lang.Thread.run(Thread.java:745)
+[error]
+[error]
+[error]  [etlas] Exit Failure 1
+[error] Use 'last' for the full log.
+Project loading failed: (r)etry, (q)uit, (l)ast, or (i)gnore?

@@ -1,0 +1,20 @@
+"dfinity-tx@git+https://github.com/dfinity/js-dfinity-tx.git":
+  version "0.0.1"
+  resolved "git+https://github.com/dfinity/js-dfinity-tx.git#32240a29f03e1e5062dcd8f8e4ff50eb69bb91a0"
+  dependencies:
+    assert "^1.4.1"
+    borc "git+https://github.com/dignifiedquire/borc.git#fix/nested-array"
+    events "^2.0.0"
+    safe-buffer "^5.1.1"
+    secp256k1 "^3.3.1"
+
+"dfinity-tx@https://github.com/dfinity/js-dfinity-tx.git":
+  version "0.0.1"
+  resolved "https://github.com/dfinity/js-dfinity-tx.git#8657759ce78bde01c16858a9543c1d069a77333f"
+  dependencies:
+    assert "^1.4.1"
+    borc "^2.0.3"
+    events "^2.0.0"
+    safe-buffer "^5.1.1"
+    secp256k1 "^3.3.1"
+

@@ -1,0 +1,154 @@
+==== fetch v8 ====
+Bootstrapping cipd client for mac-amd64 from https://chrome-infra-packages.appspot.com/client?platform=mac-amd64&version=git_revision:b9c4670197dcefd8762d6e509302acd3efc6e303...
+Bootstrapping cipd client for mac-amd64 from https://chrome-infra-packages.appspot.com/client?platform=mac-amd64&version=git_revision:b9c4670197dcefd8762d6e509302acd3efc6e303...
+
+________ running 'git -c core.deltaBaseCacheLimit=2g clone --no-checkout --progress https://chromium.googlesource.com/v8/v8.git /nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ' in '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources'
+Cloning into '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ'...
+fatal: unable to access 'https://chromium.googlesource.com/v8/v8.git/': error setting certificate verify locations:
+  CAfile: /etc/ssl/certs/ca-certificates.crt
+  CApath: none
+WARNING: subprocess '"git" "-c" "core.deltaBaseCacheLimit=2g" "clone" "--no-checkout" "--progress" "https://chromium.googlesource.com/v8/v8.git" "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ"' in /nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources failed; will retry after a short nap...
+
+________ running 'git -c core.deltaBaseCacheLimit=2g clone --no-checkout --progress https://chromium.googlesource.com/v8/v8.git /nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ' in '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources'
+Cloning into '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ'...
+fatal: unable to access 'https://chromium.googlesource.com/v8/v8.git/': error setting certificate verify locations:
+  CAfile: /etc/ssl/certs/ca-certificates.crt
+  CApath: none
+WARNING: subprocess '"git" "-c" "core.deltaBaseCacheLimit=2g" "clone" "--no-checkout" "--progress" "https://chromium.googlesource.com/v8/v8.git" "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ"' in /nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources failed; will retry after a short nap...
+
+________ running 'git -c core.deltaBaseCacheLimit=2g clone --no-checkout --progress https://chromium.googlesource.com/v8/v8.git /nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ' in '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources'
+Cloning into '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ'...
+fatal: unable to access 'https://chromium.googlesource.com/v8/v8.git/': error setting certificate verify locations:
+  CAfile: /etc/ssl/certs/ca-certificates.crt
+  CApath: none
+WARNING: subprocess '"git" "-c" "core.deltaBaseCacheLimit=2g" "clone" "--no-checkout" "--progress" "https://chromium.googlesource.com/v8/v8.git" "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ"' in /nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources failed; will retry after a short nap...
+
+________ running 'git -c core.deltaBaseCacheLimit=2g clone --no-checkout --progress https://chromium.googlesource.com/v8/v8.git /nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ' in '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources'
+Cloning into '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ'...
+fatal: unable to access 'https://chromium.googlesource.com/v8/v8.git/': error setting certificate verify locations:
+  CAfile: /etc/ssl/certs/ca-certificates.crt
+  CApath: none
+WARNING: subprocess '"git" "-c" "core.deltaBaseCacheLimit=2g" "clone" "--no-checkout" "--progress" "https://chromium.googlesource.com/v8/v8.git" "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ"' in /nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources failed; will retry after a short nap...
+
+v8 (ERROR)
+----------------------------------------
+[0:00:00] Started.
+[0:00:00]
+
+________ running 'git -c core.deltaBaseCacheLimit=2g clone --no-checkout --progress https://chromium.googlesource.com/v8/v8.git /nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ' in '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources'
+Cloning into '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ'...
+[0:00:00] Cloning into '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ'...
+fatal: unable to access 'https://chromium.googlesource.com/v8/v8.git/': error setting certificate verify locations:
+[0:00:00] fatal: unable to access 'https://chromium.googlesource.com/v8/v8.git/': error setting certificate verify locations:
+  CAfile: /etc/ssl/certs/ca-certificates.crt
+[0:00:00]   CAfile: /etc/ssl/certs/ca-certificates.crt
+  CApath: none
+[0:00:00]   CApath: none
+
+________ running 'git -c core.deltaBaseCacheLimit=2g clone --no-checkout --progress https://chromium.googlesource.com/v8/v8.git /nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ' in '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources'
+Cloning into '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ'...
+[0:00:00] Cloning into '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ'...
+fatal: unable to access 'https://chromium.googlesource.com/v8/v8.git/': error setting certificate verify locations:
+[0:00:00] fatal: unable to access 'https://chromium.googlesource.com/v8/v8.git/': error setting certificate verify locations:
+  CAfile: /etc/ssl/certs/ca-certificates.crt
+[0:00:00]   CAfile: /etc/ssl/certs/ca-certificates.crt
+  CApath: none
+[0:00:00]   CApath: none
+
+________ running 'git -c core.deltaBaseCacheLimit=2g clone --no-checkout --progress https://chromium.googlesource.com/v8/v8.git /nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ' in '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources'
+Cloning into '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ'...
+[0:00:01] Cloning into '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ'...
+fatal: unable to access 'https://chromium.googlesource.com/v8/v8.git/': error setting certificate verify locations:
+[0:00:01] fatal: unable to access 'https://chromium.googlesource.com/v8/v8.git/': error setting certificate verify locations:
+  CAfile: /etc/ssl/certs/ca-certificates.crt
+[0:00:01]   CAfile: /etc/ssl/certs/ca-certificates.crt
+  CApath: none
+[0:00:01]   CApath: none
+
+________ running 'git -c core.deltaBaseCacheLimit=2g clone --no-checkout --progress https://chromium.googlesource.com/v8/v8.git /nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ' in '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources'
+Cloning into '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ'...
+[0:00:03] Cloning into '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ'...
+fatal: unable to access 'https://chromium.googlesource.com/v8/v8.git/': error setting certificate verify locations:
+[0:00:03] fatal: unable to access 'https://chromium.googlesource.com/v8/v8.git/': error setting certificate verify locations:
+  CAfile: /etc/ssl/certs/ca-certificates.crt
+[0:00:03]   CAfile: /etc/ssl/certs/ca-certificates.crt
+  CApath: none
+[0:00:03]   CApath: none
+Traceback (most recent call last):
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/gclient_scm.py", line 931, in _Clone
+    print_stdout=print_stdout, stdout=stdout)
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/gclient_scm.py", line 1235, in _Run
+    gclient_utils.CheckCallAndFilterAndHeader(cmd, env=env, **kwargs)
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/gclient_utils.py", line 314, in CheckCallAndFilterAndHeader
+    return CheckCallAndFilter(args, **kwargs)
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/gclient_utils.py", line 576, in CheckCallAndFilter
+    rv, args, kwargs.get('cwd', None), None, None)
+CalledProcessError: Command 'git -c core.deltaBaseCacheLimit=2g clone --no-checkout --progress https://chromium.googlesource.com/v8/v8.git /nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_gclient_v8_eFW3JZ' returned non-zero exit status 128 in /nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources
+[0:00:07] _____ Conflicting directory found in /nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/v8. Moving to /nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_bad_scm/v8qwctyQ.
+----------------------------------------
+
+
+Warnings:
+Conflicting directory /nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/v8 moved to /nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/_bad_scm/v8qwctyQ.
+Traceback (most recent call last):
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/gclient.py", line 2953, in <module>
+    sys.exit(main(sys.argv[1:]))
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/gclient.py", line 2939, in main
+    return dispatcher.execute(OptionParser(), argv)
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/subcommand.py", line 252, in execute
+    return command(parser, args[1:])
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/gclient.py", line 2590, in CMDsync
+    ret = client.RunOnDeps('update', args)
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/gclient.py", line 1558, in RunOnDeps
+    patch_refs=patch_refs)
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/gclient_utils.py", line 1075, in run
+    self.item.run(*self.args, **self.kwargs)
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/gclient.py", line 868, in run
+    file_list)
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/gclient_scm.py", line 130, in RunCommand
+    return getattr(self, command)(options, args, file_list)
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/gclient_scm.py", line 452, in update
+    self._DeleteOrMove(options.force)
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/gclient_scm.py", line 205, in _DeleteOrMove
+    shutil.move(self.checkout_path, dest_path)
+  File "/nix/store/pscp0gr3ym4h0xrba4wmr2ag3lb4nvjs-python-2.7.15/lib/python2.7/shutil.py", line 316, in move
+    copy2(src, real_dst)
+  File "/nix/store/pscp0gr3ym4h0xrba4wmr2ag3lb4nvjs-python-2.7.15/lib/python2.7/shutil.py", line 144, in copy2
+    copyfile(src, dst)
+  File "/nix/store/pscp0gr3ym4h0xrba4wmr2ag3lb4nvjs-python-2.7.15/lib/python2.7/shutil.py", line 96, in copyfile
+    with open(src, 'rb') as fsrc:
+IOError: [Errno 2] No such file or directory: '/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/v8'
+Running: gclient root
+Running: gclient config --spec 'solutions = [
+  {
+    "url": "https://chromium.googlesource.com/v8/v8.git",
+    "managed": False,
+    "name": "v8",
+    "deps_file": "DEPS",
+    "custom_deps": {},
+  },
+]
+'
+Running: gclient sync --with_branch_heads
+Traceback (most recent call last):
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/fetch.py", line 306, in <module>
+    sys.exit(main())
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/fetch.py", line 301, in main
+    return run(options, spec, root)
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/fetch.py", line 295, in run
+    return checkout.init()
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/fetch.py", line 137, in init
+    self.run_gclient(*sync_cmd)
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/fetch.py", line 82, in run_gclient
+    return self.run(cmd_prefix + cmd, **kwargs)
+  File "/nix/store/3v08h48yp8fiflxvsf6dd600zazz14dq-v8-sources/bin/fetch.py", line 71, in run
+    subprocess.check_call(cmd, **kwargs)
+  File "/nix/store/pscp0gr3ym4h0xrba4wmr2ag3lb4nvjs-python-2.7.15/lib/python2.7/subprocess.py", line 190, in check_call
+    raise CalledProcessError(retcode, cmd)
+subprocess.CalledProcessError: Command '('gclient', 'sync', '--with_branch_heads')' returned non-zero exit status 1
+builder for '/nix/store/ljnj5br0mmdgfxwl8hg8490yfyznddrv-v8-sources.drv' failed with exit code 1
+cannot build derivation '/nix/store/r75kfhd6vyabs8l19c0dkpxraavp0h06-wasm-c-api.drv': 1 dependencies couldn't be built
+cannot build derivation '/nix/store/f3slwksw9cw812zzgsyrhq19qizb08ya-wasm-v8-0.0.0.drv': 1 dependencies couldn't be built
+cannot build derivation '/nix/store/6s6mvh6sznfba55375ak36ggif5pj386-dfinity-hypervisor-0.0.0.drv': 1 dependencies couldn't be built
+cannot build derivation '/nix/store/5m918k8k9d4rbcdn8xyvsx4953y8yx2w-dfinity-client-0.0.0.drv': 1 dependencies couldn't be built
+error: build of '/nix/store/5m918k8k9d4rbcdn8xyvsx4953y8yx2w-dfinity-client-0.0.0.drv' failed

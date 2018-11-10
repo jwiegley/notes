@@ -1,0 +1,54 @@
+error: while evaluating the attribute 'buildCommand' of the derivation 'darwin-system-18.09pre-git' at /Users/johnw/src/nix/nixpkgs/pkgs/stdenv/generic/make-derivation.nix:175:11:
+while evaluating the attribute 'buildCommand' of the derivation 'etc' at /Users/johnw/src/nix/nixpkgs/pkgs/stdenv/generic/make-derivation.nix:175:11:
+while evaluating 'concatMapStringsSep' at /Users/johnw/src/nix/nixpkgs/lib/strings.nix:64:33, called from /Users/johnw/src/nix/darwin/modules/system/etc.nix:40:11:
+while evaluating anonymous function at /Users/johnw/src/nix/darwin/modules/system/etc.nix:40:37, called from undefined position:
+while evaluating the attribute 'source' at /Users/johnw/src/nix/nixpkgs/lib/attrsets.nix:200:46:
+while evaluating anonymous function at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:75:45, called from /Users/johnw/src/nix/nixpkgs/lib/attrsets.nix:200:54:
+while evaluating the attribute 'value' at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:312:9:
+while evaluating the option `environment.etc.bashrc.source':
+while evaluating the attribute 'mergedValue' at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:345:5:
+while evaluating anonymous function at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:345:32, called from /Users/johnw/src/nix/nixpkgs/lib/modules.nix:345:19:
+while evaluating 'check' at /Users/johnw/src/nix/nixpkgs/lib/types.nix:237:15, called from /Users/johnw/src/nix/nixpkgs/lib/modules.nix:346:10:
+while evaluating the attribute 'text' of the derivation 'etc-bashrc' at /Users/johnw/src/nix/nixpkgs/pkgs/stdenv/generic/make-derivation.nix:175:11:
+while evaluating the attribute 'text' at /Users/johnw/src/nix/nixpkgs/lib/attrsets.nix:200:46:
+while evaluating anonymous function at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:75:45, called from /Users/johnw/src/nix/nixpkgs/lib/attrsets.nix:200:54:
+while evaluating the attribute 'value' at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:312:9:
+while evaluating the option `environment.etc.bashrc.text':
+while evaluating the attribute 'isDefined' at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:350:5:
+while evaluating the attribute 'values' at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:338:9:
+while evaluating the attribute 'values' at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:434:7:
+while evaluating anonymous function at /Users/johnw/src/nix/nixpkgs/lib/lists.nix:103:41, called from /Users/johnw/src/nix/nixpkgs/lib/modules.nix:434:16:
+while evaluating anonymous function at /Users/johnw/src/nix/nixpkgs/lib/lists.nix:103:41, called from /Users/johnw/src/nix/nixpkgs/lib/modules.nix:324:17:
+while evaluating anonymous function at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:324:28, called from undefined position:
+while evaluating 'dischargeProperties' at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:392:25, called from /Users/johnw/src/nix/nixpkgs/lib/modules.nix:325:62:
+while evaluating the attribute 'value' at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:216:48:
+while evaluating the attribute 'config.text' at /Users/johnw/src/nix/darwin/modules/programs/bash/default.nix:51:5:
+while evaluating the attribute 'system.build.setEnvironment.text' at /Users/johnw/src/nix/nixpkgs/pkgs/build-support/trivial-builders.nix:32:16:
+while evaluating anonymous function at /Users/johnw/src/nix/nixpkgs/lib/attrsets.nix:225:10, called from undefined position:
+while evaluating anonymous function at /Users/johnw/src/nix/darwin/modules/environment/default.nix:10:24, called from /Users/johnw/src/nix/nixpkgs/lib/attrsets.nix:225:16:
+while evaluating the attribute 'MANPATH' at /Users/johnw/src/nix/nixpkgs/lib/attrsets.nix:200:46:
+while evaluating anonymous function at /Users/johnw/src/nix/darwin/modules/environment/default.nix:83:28, called from /Users/johnw/src/nix/nixpkgs/lib/attrsets.nix:200:54:
+while evaluating the attribute 'MANPATH' at /Users/johnw/src/nix/nixpkgs/lib/attrsets.nix:200:46:
+while evaluating anonymous function at /Users/johnw/src/nix/nixpkgs/lib/types.nix:275:22, called from /Users/johnw/src/nix/nixpkgs/lib/attrsets.nix:200:54:
+while evaluating the attribute 'value' at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:353:27:
+while evaluating anonymous function at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:345:32, called from /Users/johnw/src/nix/nixpkgs/lib/modules.nix:345:19:
+while evaluating 'merge' at /Users/johnw/src/nix/nixpkgs/lib/types.nix:420:20, called from /Users/johnw/src/nix/nixpkgs/lib/modules.nix:348:8:
+while evaluating 'merge' at /Users/johnw/src/nix/nixpkgs/lib/types.nix:248:20, called from /Users/johnw/src/nix/nixpkgs/lib/types.nix:427:21:
+while evaluating anonymous function at /Users/johnw/src/nix/nixpkgs/lib/types.nix:249:35, called from undefined position:
+while evaluating anonymous function at /Users/johnw/src/nix/nixpkgs/lib/lists.nix:95:29, called from undefined position:
+while evaluating anonymous function at /Users/johnw/src/nix/nixpkgs/lib/types.nix:251:23, called from /Users/johnw/src/nix/nixpkgs/lib/lists.nix:95:32:
+while evaluating the attribute 'optionalValue' at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:352:5:
+while evaluating the attribute 'values' at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:338:9:
+while evaluating the attribute 'values' at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:434:7:
+while evaluating anonymous function at /Users/johnw/src/nix/nixpkgs/lib/lists.nix:103:41, called from /Users/johnw/src/nix/nixpkgs/lib/modules.nix:434:16:
+while evaluating anonymous function at /Users/johnw/src/nix/nixpkgs/lib/lists.nix:103:41, called from /Users/johnw/src/nix/nixpkgs/lib/modules.nix:324:17:
+while evaluating anonymous function at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:324:28, called from undefined position:
+while evaluating 'dischargeProperties' at /Users/johnw/src/nix/nixpkgs/lib/modules.nix:392:25, called from /Users/johnw/src/nix/nixpkgs/lib/modules.nix:325:62:
+while evaluating the attribute 'value' at /Users/johnw/src/nix/nixpkgs/lib/types.nix:255:40:
+while evaluating the attribute 'passAsFile' of the derivation 'system-path' at /Users/johnw/src/nix/nixpkgs/pkgs/stdenv/generic/make-derivation.nix:175:11:
+while evaluating the attribute 'nativeBuildInputs' of the derivation 'llvm-manpages-5.0.2' at /Users/johnw/src/nix/nixpkgs/pkgs/stdenv/generic/make-derivation.nix:175:11:
+while evaluating 'getOutput' at /Users/johnw/src/nix/nixpkgs/lib/attrsets.nix:451:23, called from undefined position:
+while evaluating anonymous function at /Users/johnw/src/nix/nixpkgs/pkgs/stdenv/generic/make-derivation.nix:106:17, called from undefined position:
+attribute 'pkgs' missing, at /Users/johnw/src/nix/nixpkgs/pkgs/development/compilers/llvm/5/llvm.nix:37:43
+╭─ johnw@Hermes  ~/src/nix/nixpkgs                                                     9.70 Dur
+╰─

@@ -1,0 +1,16 @@
+From git://github.com/NixOS/nixpkgs-channels
+   0a70d65fd47..2f06e04b74e  nixos-18.03    -> channels/nixos-18.03
+   e686bd27719..85497a3b06e  nixos-unstable -> channels/nixos-unstable
+Current branch unstable is up to date.
+nix build --keep-going darwin.system
+builder for '/nix/store/h2vcpxh6lkqj7mal4yvjncxl801bxalz-nix-2.0.4.drv' failed with exit code 2; last 10 log lines:
+      + chmod -R +w /private/tmp/nix-test/store
+      chmod: changing permissions of '/private/tmp/nix-test/store': Operation not permitted
+      chmod: changing permissions of '/private/tmp/nix-test/store/.links': Operation not permitted
+  running test tests/plugins.sh... [FAIL]
+      + set -o pipefail
+      ++ nix eval '(builtins.anotherNull)' --option setting-set true --option plugin-files /private/tmp/nix-build-nix-2.0.4.drv-0/nix-2.0.4/tests/plugins/libplugintest.dylib
+      error: opening lock file '/private/tmp/nix-test/var/nix/db/big-lock': Permission denied
+      + res=
+  48 out of 51 tests failed
+  make: *** [mk/tests.mk:12: installcheck] Error 1

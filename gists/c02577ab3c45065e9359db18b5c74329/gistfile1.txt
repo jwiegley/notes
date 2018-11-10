@@ -1,0 +1,80 @@
+genpatcher         | errno:0  cmd: cd /tmp/fileLHBDoe; ./fitness.py /tmp/file35Wvu7 --good-files /tmp/repair/0 --bad-files /tmp/repair/1 --monitor-image rings-app-monitor --monitor-network rings
+genpatcher         | stdout:
+genpatcher         | stderr:Traceback (most recent call last):
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 601, in urlopen
+genpatcher         |     chunked=chunked)
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 357, in _make_request
+genpatcher         |     conn.request(method, url, **httplib_request_kw)
+genpatcher         |   File "/usr/lib/python3.5/http/client.py", line 1106, in request
+genpatcher         |     self._send_request(method, url, body, headers)
+genpatcher         |   File "/usr/lib/python3.5/http/client.py", line 1151, in _send_request
+genpatcher         |     self.endheaders(body)
+genpatcher         |   File "/usr/lib/python3.5/http/client.py", line 1102, in endheaders
+genpatcher         |     self._send_output(message_body)
+genpatcher         |   File "/usr/lib/python3.5/http/client.py", line 934, in _send_output
+genpatcher         |     self.send(msg)
+genpatcher         |   File "/usr/lib/python3.5/http/client.py", line 877, in send
+genpatcher         |     self.connect()
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/docker/transport/unixconn.py", line 43, in connect
+genpatcher         |     sock.connect(self.unix_socket)
+genpatcher         | PermissionError: [Errno 13] Permission denied
+genpatcher         |
+genpatcher         | During handling of the above exception, another exception occurred:
+genpatcher         |
+genpatcher         | Traceback (most recent call last):
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/requests/adapters.py", line 440, in send
+genpatcher         |     timeout=timeout
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 639, in urlopen
+genpatcher         |     _stacktrace=sys.exc_info()[2])
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/urllib3/util/retry.py", line 357, in increment
+genpatcher         |     raise six.reraise(type(error), error, _stacktrace)
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/urllib3/packages/six.py", line 685, in reraise
+genpatcher         |     raise value.with_traceback(tb)
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 601, in urlopen
+genpatcher         |     chunked=chunked)
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/urllib3/connectionpool.py", line 357, in _make_request
+genpatcher         |     conn.request(method, url, **httplib_request_kw)
+genpatcher         |   File "/usr/lib/python3.5/http/client.py", line 1106, in request
+genpatcher         |     self._send_request(method, url, body, headers)
+genpatcher         |   File "/usr/lib/python3.5/http/client.py", line 1151, in _send_request
+genpatcher         |     self.endheaders(body)
+genpatcher         |   File "/usr/lib/python3.5/http/client.py", line 1102, in endheaders
+genpatcher         |     self._send_output(message_body)
+genpatcher         |   File "/usr/lib/python3.5/http/client.py", line 934, in _send_output
+genpatcher         |     self.send(msg)
+genpatcher         |   File "/usr/lib/python3.5/http/client.py", line 877, in send
+genpatcher         |     self.connect()
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/docker/transport/unixconn.py", line 43, in connect
+genpatcher         |     sock.connect(self.unix_socket)
+genpatcher         | urllib3.exceptions.ProtocolError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+genpatcher         |
+genpatcher         | During handling of the above exception, another exception occurred:
+genpatcher         |
+genpatcher         | Traceback (most recent call last):
+genpatcher         |   File "./fitness.py", line 261, in <module>
+genpatcher         |     results.append(do_test(exe, base_dir, t, args.trace_file))
+genpatcher         |   File "./fitness.py", line 105, in do_test
+genpatcher         |     args.monitor_network, base_dir)
+genpatcher         |   File "/tmp/fileLHBDoe/monitor.py", line 82, in run_with_monitor
+genpatcher         |     'CONTROL_EXCHANGE': exchanges[1]})
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/docker/api/container.py", line 120, in create_container
+genpatcher         |     return self.create_container_from_config(config, name)
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/docker/api/container.py", line 130, in create_container_from_config
+genpatcher         |     res = self._post_json(u, data=config, params=params)
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/docker/client.py", line 198, in _post_json
+genpatcher         |     return self._post(url, data=json.dumps(data2), **kwargs)
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/docker/utils/decorators.py", line 47, in inner
+genpatcher         |     return f(self, *args, **kwargs)
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/docker/client.py", line 136, in _post
+genpatcher         |     return self.post(url, **self._set_request_timeout(kwargs))
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/requests/sessions.py", line 555, in post
+genpatcher         |     return self.request('POST', url, data=data, json=json, **kwargs)
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/requests/sessions.py", line 508, in request
+genpatcher         |     resp = self.send(prep, **send_kwargs)
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/requests/sessions.py", line 618, in send
+genpatcher         |     r = adapter.send(request, **kwargs)
+genpatcher         |   File "/usr/local/lib/python3.5/dist-packages/requests/adapters.py", line 490, in send
+genpatcher         |     raise ConnectionError(err, request=request)
+genpatcher         | requests.exceptions.ConnectionError: ('Connection aborted.', PermissionError(13, 'Permission denied'))
+genpatcher         |
+genpatcher         | errno:1  cmd: rm -rf /tmp/fileLHBDoe

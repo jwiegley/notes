@@ -1,0 +1,9 @@
+        "dfinity-tx@0.0.1" = f "dfinity-tx" "0.0.1" (ir "https://github.com/dfinity/js-dfinity-tx.git") "8657759ce78bde01c16858a9543c1d069a77333f" [
+          (s."assert@^1.4.1")
+          (s."borc@^2.0.3")
+          (s."events@^2.0.0")
+          (s."safe-buffer@^5.1.1")
+          (s."secp256k1@^3.3.1")
+        ];
+        "dfinity-tx@git+https://github.com/dfinity/js-dfinity-tx.git" = s."dfinity-tx@0.0.1";
+        "dfinity-tx@https://github.com/dfinity/js-dfinity-tx.git" = s."dfinity-tx@0.0.1";

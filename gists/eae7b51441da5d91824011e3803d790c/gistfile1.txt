@@ -1,0 +1,18 @@
+let
+  nixpkgsPath = builtins.fetchTarball
+    (let rev = "4ccb13adb6c39816b7a6ce2efe5a9686f077956b"; in {
+       sha256 = "1p35v6zny71nnl59cnk8pp184l665qa67arl27sfzssp702cwhzn";
+       url = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
+     });
+  pkgs = import nixpkgsPath {};
+  nixLib = pkgs.callPackage ../yarn2nix/nix-lib {
+    yarn2nix = import ../yarn2nix { inherit nixpkgsPath; };
+  };
+
+in
+  nixLib.buildNodePackage
+    ( { src = nixLib.removePrefixes [ "node_modules" ] ./.;
+        key = { name = ""; scope = ""; };
+      } //
+      nixLib.callTemplate ./npm-package.nix
+        (nixLib.buildNodeDeps (pkgs.callPackage ./npm-deps.nix {})))

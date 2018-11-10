@@ -1,0 +1,13 @@
+[nix-shell:~/bae/craft/firrtl]$ javap './target/scala-2.11/classes/firrtl/LowForm$.class'
+Compiled from "Compiler.scala"
+public final class firrtl.LowForm$ extends firrtl.CircuitForm implements scala.Product,scala.Serializable {
+  public static final firrtl.LowForm$ MODULE$;
+  public static {};
+  public java.lang.String productPrefix();
+  public int productArity();
+  public java.lang.Object productElement(int);
+  public scala.collection.Iterator<java.lang.Object> productIterator();
+  public boolean canEqual(java.lang.Object);
+  public int hashCode();
+  public java.lang.String toString();
+}

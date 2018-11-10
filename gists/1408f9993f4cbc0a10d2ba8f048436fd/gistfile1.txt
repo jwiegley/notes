@@ -1,0 +1,12 @@
+builder for '/nix/store/bv5flhwv85pf3vkdahnqcg9ix8b1pq6x-xar-1.6.1.drv' failed with exit code 2; last 10 log lines:
+  clang -Wall -g -O2  -fPIC -DPIC -dynamic -Iinclude -Iinclude -I/nix/store/4g7qhngvwvzjh57qgjyzllp6p9z4g4v5-libxml2-2.9.8-dev/include/libxml2 -c lib/ext2.c -o lib/ext2.o
+  clang -Wall -g -O2  -fPIC -DPIC -dynamic -Iinclude -Iinclude -I/nix/store/4g7qhngvwvzjh57qgjyzllp6p9z4g4v5-libxml2-2.9.8-dev/include/libxml2 -c lib/fbsdattr.c -o lib/fbsdattr.o
+  clang -Wall -g -O2  -fPIC -DPIC -dynamic -Iinclude -Iinclude -I/nix/store/4g7qhngvwvzjh57qgjyzllp6p9z4g4v5-libxml2-2.9.8-dev/include/libxml2 -c lib/filetree.c -o lib/filetree.o
+  clang -Wall -g -O2  -fPIC -DPIC -dynamic -Iinclude -Iinclude -I/nix/store/4g7qhngvwvzjh57qgjyzllp6p9z4g4v5-libxml2-2.9.8-dev/include/libxml2 -c lib/io.c -o lib/io.o
+  clang -Wall -g -O2  -fPIC -DPIC -dynamic -Iinclude -Iinclude -I/nix/store/4g7qhngvwvzjh57qgjyzllp6p9z4g4v5-libxml2-2.9.8-dev/include/libxml2 -c lib/lzmaxar.c -o lib/lzmaxar.o
+  lib/lzmaxar.c:49:10: fatal error: 'lzma.h' file not found
+  #include <lzma.h>
+           ^~~~~~~~
+  1 error generated.
+  make: *** [lib/Makefile.inc:199: lib/lzmaxar.o] Error 1
+cannot build derivation '/nix/store/w6i61b0y50x1kqiaf8iw3v7qzb819rca-MacOS_SDK-10.10.drv': 1 dependencies couldn't be built

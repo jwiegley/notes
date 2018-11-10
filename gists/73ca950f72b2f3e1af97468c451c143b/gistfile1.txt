@@ -1,0 +1,12 @@
+╰─ echo -e ${PATH//:/\\n}
+/Users/johnw/.nix-profile/bin
+/run/current-system/sw/bin
+/nix/var/nix/profiles/default/bin
+/usr/local/bin
+/usr/bin
+/usr/sbin
+/bin
+/sbin
+/nix/store/f21hkqwd8n946xvn3pg64912f38d2nz6-Docker-17.12.1-ce-mac49/Applications/Docker.app/Contents/Resources/bin
+/Users/johnw/.config/zsh/plugins/zsh-powerlevel9k
+/Users/johnw/.config/zsh/plugins/iterm2_shell_integration

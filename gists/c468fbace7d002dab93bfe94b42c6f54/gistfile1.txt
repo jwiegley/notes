@@ -1,0 +1,41 @@
+<===========--> 88% EXECUTING [38s]
+> :proJar
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':proJar'.
+> java.io.IOException: Please correct the above warnings first.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+Warning: there were 1 unresolved references to library class members.
+         You probably need to update the library versions.
+         (http://proguard.sourceforge.net/manual/troubleshooting.html#unresolvedlibraryclassmember)
+
+> Task :proJar FAILED
+7 actionable tasks: 6 executed, 1 up-to-date
+Error when running Shake build system:
+* install
+user error (Development.Shake.cmd, system command failed
+Command: /Users/johnw/bae/craft/eta/eta-serv/gradlew proJar
+Current directory: /Users/johnw/bae/craft/eta/eta-serv
+Exit code: 1
+Stderr:
+sh: warning: setlocale: LC_ALL: cannot change locale (en_US.utf8): No such file or directory
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':proJar'.
+> java.io.IOException: Please correct the above warnings first.
+
+* Try:
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+BUILD FAILED in 39s
+)

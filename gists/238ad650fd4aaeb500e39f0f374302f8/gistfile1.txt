@@ -1,0 +1,11 @@
+builder for '/nix/store/895fz25f1xd52s6p12zdqi4nbyb557kj-atomicparsley-0.9.6.drv' failed with exit code 2; last 10 log lines:
+                            ^
+  6 warnings generated.
+  c++  -g -O2  -framework Cocoa -framework Foundation -framework IOKit  -o AtomicParsley src/util.o src/arrays.o src/iconv.o src/parsley.o src/extracts.o src/sha1.o src/uuid.o src/id3v2.o src/metalist.o src/CDtoc.o src/compress.o src/main.o src/nsfile.o src/nsimage.o   -lz
+  Undefined symbols for architecture x86_64:
+    "_OBJC_CLASS_$_NSDictionary", referenced from:
+        objc-class-ref in nsfile.o
+        objc-class-ref in nsimage.o
+  ld: symbol(s) not found for architecture x86_64
+  clang-5.0: error: linker command failed with exit code 1 (use -v to see invocation)
+  make: *** [Makefile:479: AtomicParsley] Error 1

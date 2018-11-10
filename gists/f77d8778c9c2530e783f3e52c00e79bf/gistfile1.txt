@@ -1,0 +1,10 @@
+      MANPATH = [
+        "${home_directory}/.nix-profile/share/man"
+        "${home_directory}/.nix-profile/man"
+        "${config.system.path}/share/man"
+        "${config.system.path}/man"
+        "/usr/local/share/man"
+        "/usr/share/man"
+        "/Developer/usr/share/man"
+        "/usr/X11/man"
+      ];

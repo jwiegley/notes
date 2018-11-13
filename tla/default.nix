@@ -20,9 +20,7 @@ pkgs.stdenv.mkDerivation rec {
          then pkgs.coqFilterSource [] ./.
          else ./.;
 
-  buildInputs = [
-    pkgs.tlaplus
-  ];
+  buildInputs = [ pkgs.tlaplus ];
 
   env = pkgs.buildEnv { name = name; paths = buildInputs; };
 }

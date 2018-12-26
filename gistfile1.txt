@@ -1,0 +1,11 @@
+builder for '/nix/store/95awv660s9kmdck3znzwlkl1c8c3nykc-python3-3.7.2.drv' failed with exit code 1; last 10 log lines:
+  Hunk #1 succeeded at 5891 (offset 11 lines).
+  applying patch /nix/store/69l3nsc7g76kbikknyxz7j3ssifam2js-python-3.8-distutils-C++.patch
+  patching file Lib/_osx_support.py
+  Hunk #1 FAILED at 14.
+  1 out of 1 hunk FAILED -- saving rejects to file Lib/_osx_support.py.rej
+  patching file Lib/distutils/cygwinccompiler.py
+  patching file Lib/distutils/sysconfig.py
+  patching file Lib/distutils/unixccompiler.py
+  patching file Makefile.pre.in
+  Hunk #1 succeeded at 615 (offset 31 lines).

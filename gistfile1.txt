@@ -1,0 +1,24 @@
+Using wasm spec test directory: /nix/store/4j655agycn2gvz60l3rq5nzkpf9kgh9z-ocaml4.06.1-wasm-1.0/test/core
+spec
+  /nix/store/4j655agycn2gvz60l3rq5nzkpf9kgh9z-ocaml4.06.1-wasm-1.0/test/core/forward.wast:                OK (0.03s)
+  /nix/store/4j655agycn2gvz60l3rq5nzkpf9kgh9z-ocaml4.06.1-wasm-1.0/test/core/float_misc.wast:             OK (0.07s)
+  /nix/store/4j655agycn2gvz60l3rq5nzkpf9kgh9z-ocaml4.06.1-wasm-1.0/test/core/store_retval.wast:           OK
+  /nix/store/4j655agycn2gvz60l3rq5nzkpf9kgh9z-ocaml4.06.1-wasm-1.0/test/core/unwind.wast:                 OK (0.03s)
+  /nix/store/4j655agycn2gvz60l3rq5nzkpf9kgh9z-ocaml4.06.1-wasm-1.0/test/core/float_literals.wast:         OK (0.03s)
+  /nix/store/4j655agycn2gvz60l3rq5nzkpf9kgh9z-ocaml4.06.1-wasm-1.0/test/core/align.wast:                  OK (0.27s)
+  /nix/store/4j655agycn2gvz60l3rq5nzkpf9kgh9z-ocaml4.06.1-wasm-1.0/test/core/utf8-import-module.wast:     OK (0.05s)
+  /nix/store/4j655agycn2gvz60l3rq5nzkpf9kgh9z-ocaml4.06.1-wasm-1.0/test/core/if.wast:                     OK (0.03s)
+  /nix/store/4j655agycn2gvz60l3rq5nzkpf9kgh9z-ocaml4.06.1-wasm-1.0/test/core/const.wast:                  OK (0.28s)
+  /nix/store/4j655agycn2gvz60l3rq5nzkpf9kgh9z-ocaml4.06.1-wasm-1.0/test/core/skip-stack-guard-page.wast:  OK (0.11s)
+  /nix/store/4j655agycn2gvz60l3rq5nzkpf9kgh9z-ocaml4.06.1-wasm-1.0/test/core/f64_cmp.wast:                OK (0.23s)
+  /nix/store/4j655agycn2gvz60l3rq5nzkpf9kgh9z-ocaml4.06.1-wasm-1.0/test/core/block.wast:                  OK (0.03s)
+  /nix/store/4j655agycn2gvz60l3rq5nzkpf9kgh9z-ocaml4.06.1-wasm-1.0/test/core/unreached-invalid.wast:      OK (0.02s)
+  /nix/store/4j655agycn2gvz60l3rq5nzkpf9kgh9z-ocaml4.06.1-wasm-1.0/test/core/labels.wast:                 OK (0.03s)
+  /nix/store/4j655agycn2gvz60l3rq5nzkpf9kgh9z-ocaml4.06.1-wasm-1.0/test/core/i64.wast:                    Wasm API: i64 value not supported yet!
+Leaked 1 instances of wasm::Engine, made 1, freed 0!
+Leaked 2 instances of wasm::Store, made 79, freed 77!
+Leaked 3 instances of wasm::ValType, made 21273, freed 21270!
+Leaked 2 instances of wasm::vec<ValType>, made 14975, freed 14973!
+Leaked 1 instances of wasm::FuncType, made 9071, freed 9070!
+Leaked 2 instances of wasm::Module, made 203, freed 201!
+Leaked 2 instances of wasm::Instance, made 79, freed 77!

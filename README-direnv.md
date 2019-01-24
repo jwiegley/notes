@@ -13,7 +13,7 @@ somewhere on your `PATH`. Then, create a file name `.envrc` file in your
 project's top directory:
 
     . $(which use_nix.sh)
-    export NIXARGS=("-A" "node")
+    export NIXARGS=(-Q)
     use_nix
 
 Now when you change directory anywhere into your project, you'll have all its

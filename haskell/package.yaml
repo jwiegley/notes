@@ -20,4 +20,6 @@ library:
     - constraints
     - containers
     - unordered-containers
+    - mtl
     - lens
+    - transformers

@@ -1,0 +1,14 @@
+import os
+
+tag Project
+    check os.path.isfile(value)
+
+2016-11-10 * Test
+    Expenses:Foo                10.00 EUR
+        ; Project: test.ledger
+    Assets:Cash                -10.00 EUR
+
+2016-11-10 * Test
+    Expenses:Foo                10.00 EUR
+        ; Project: bar
+    Assets:Cash                -10.00 EUR

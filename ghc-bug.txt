@@ -1,0 +1,27 @@
+    Call hs_init_ghc() from your main() function to set these options.
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+"inplace/bin/ghc-stage1" -optc-fno-stack-protector -optc-Wall -optc-Wall -optc-Wextra -optc-Wstrict-prototypes -optc-Wmissing-prototypes -optc-Wmissing-declarations -optc-Winline -optc-Waggregate-return -optc-Wpointer-arith -optc-Wmissing-noreturn -optc-Wnested-externs -optc-Wredundant-decls -optc-Wundef -optc-Iincludes -optc-Iincludes/dist -optc-Iincludes/dist-derivedconstants/header -optc-Iincludes/dist-ghcconstants/header -optc-Irts -optc-Irts/dist/build -optc-DCOMPILING_RTS -optc-fno-strict-aliasing -optc-fno-common -optc-Irts/dist/build/./autogen -optc-Wno-unknown-pragmas -optc-O2 -optc-fomit-frame-pointer -optc-g -optc-DRtsWay=\"rts_v\" -static  -H32m -O -Wall   -Iincludes -Iincludes/dist -Iincludes/dist-derivedconstants/header -Iincludes/dist-ghcconstants/header -Irts -Irts/dist/build -DCOMPILING_RTS -this-unit-id rts -dcmm-lint      -i -irts -irts/dist/build -Irts/dist/build -irts/dist/build/./autogen -Irts/dist/build/./autogen            -O2 -Wcpp-undef    -Wnoncanonical-monad-instances  -c rts/hooks/OnExit.c -o rts/dist/build/hooks/OnExit.o
+
+Extension error:
+The 'ghc-flag' directive is already registered to domain std
+make[1]: *** [docs/users_guide/ghc.mk:16: docs/users_guide/build-html/users_guide/index.html] Error 2
+make[1]: *** Waiting for unfinished jobs....
+
+Extension error:
+The 'ghc-flag' directive is already registered to domain std
+make[1]: *** [docs/users_guide/ghc.mk:28: docs/users_guide/build-man/ghc.1] Error 2
+<<ghc: 19802264 bytes, 11 GCs, 231628/294888 avg/max bytes residency (2 samples), 24M in use, 0.000 INIT (0.002 elapsed), 0.013 MUT (3.633 elapsed), 0.013 GC (0.020 elapsed) :ghc>>
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+<<ghc: 19807280 bytes, 11 GCs, 231516/294664 avg/max bytes residency (2 samples), 24M in use, 0.000 INIT (0.002 elapsed), 0.013 MUT (3.368 elapsed), 0.013 GC (0.019 elapsed) :ghc>>
+<<ghc: 19801056 bytes, 11 GCs, 231604/294840 avg/max bytes residency (2 samples), 25M in use, 0.000 INIT (0.002 elapsed), 0.014 MUT (3.322 elapsed), 0.013 GC (0.019 elapsed) :ghc>>
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+clang-5.0: warning: argument unused during compilation: '-nopie' [-Wunused-command-line-argument]
+make: *** [Makefile:127: all] Error 2
+builder for '/nix/store/cmv536jmydhk2d44y7kfby36a3s3231r-ghc-8.4.4.drv' failed with exit code 2
+cannot build derivation '/nix/store/xsajrlw8wmdjwj6w9mshdqyy8pp7dsbv-cabal2nix-2.14.1.drv': 1 dependencies couldn't be built
+cannot build derivation '/nix/store/a0wwq1i4z1dmqz7savinjxyvpzwb6663-cabal2nix-git-all.drv': 1 dependencies couldn't be built
+

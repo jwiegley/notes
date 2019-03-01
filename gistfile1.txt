@@ -1,0 +1,67 @@
+### Keybase proof
+
+I hereby claim:
+
+  * I am jwiegley on github.
+  * I am jwiegley (https://keybase.io/jwiegley) on keybase.
+  * I have a public key ASD5l7_RcDb0u2rtoVCpQsZNhVdA8BPMB9aYant6pn_2qAo
+
+To claim this, I am signing this object:
+
+```json
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120f997bfd17036f4bb6aeda150a942c64d855740f013cc07d6986a7b7aa67ff6a80a",
+      "host": "keybase.io",
+      "kid": "0120f997bfd17036f4bb6aeda150a942c64d855740f013cc07d6986a7b7aa67ff6a80a",
+      "uid": "a5e8d785ce4916390d88c8a409828619",
+      "username": "jwiegley"
+    },
+    "merkle_root": {
+      "ctime": 1551471585,
+      "hash": "f612671d9306f89b8f325ae27c6e9f64cfc5bee6a4e36312b4c4cf0655e1edaf610f910815423560b7a0ff45362677b973770157955e4d0f5a1b7562459c2aab",
+      "hash_meta": "71e1da51afa4c8977c330bb87f1014f5ca05a948425106e9268f014ef3810be4",
+      "seqno": 4858947
+    },
+    "service": {
+      "entropy": "SdBvSnviv1rhi/A/y5LIjFed",
+      "name": "github",
+      "username": "jwiegley"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "3.0.0"
+  },
+  "ctime": 1551471589,
+  "expire_in": 504576000,
+  "prev": "803f2e578baf6ac01b7281d31e356fd6e300ad77eca852dd860ccd9ccbbba3aa",
+  "seqno": 6,
+  "tag": "signature"
+}
+```
+
+with the key [ASD5l7_RcDb0u2rtoVCpQsZNhVdA8BPMB9aYant6pn_2qAo](https://keybase.io/jwiegley), yielding the signature:
+
+```
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg+Ze/0XA29Ltq7aFQqULGTYVXQPATzAfWmGp7eqZ/9qgKp3BheWxvYWTESpcCBsQggD8uV4uvasAbcoHTHjVv1uMArXfsqFLdhgzNnMu7o6rEION2GOcPhUIBD0NWLNnGWD7g4YpL0Yu3cK1KTqBTbWTqAgHCo3NpZ8RAnh0d4AodfSRCcRk/ELN0YRQm9kg/jyV+Kbl+lRMEBUJdugXvA4Ihhz5yuE6egb5lbO2HPGpx/awA3XatqiZiDqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIJoO3FlmJNVdt4QclOtJEhzlHm1TUyqcyu+4lyHQTQoIo3RhZ80CAqd2ZXJzaW9uAQ==
+
+```
+
+And finally, I am proving ownership of the github account by posting this as a gist.
+
+### My publicly-auditable identity:
+
+https://keybase.io/jwiegley
+
+### From the command line:
+
+Consider the [keybase command line program](https://keybase.io/download).
+
+```bash
+# look me up
+keybase id jwiegley
+```

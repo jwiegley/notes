@@ -1,0 +1,10 @@
+Vulcan ~/dfinity/ops-in-nix $ python -c 'import locale; locale.setlocale(locale.LC_ALL, "C.UTF-8")'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/nix/store/b8y1f5r258lf4g1l7rffii89iwdnby40-python-2.7.15/lib/python2.7/locale.py", line 581, in setlocale
+    return _setlocale(category, locale)
+locale.Error: unsupported locale setting
+Vulcan ~/dfinity/ops-in-nix $ which python
+/run/current-system/sw/bin/python
+Vulcan ~/dfinity/ops-in-nix $ python --version
+Python 2.7.15

@@ -1,0 +1,13 @@
+nix build --keep-going darwin.system
+builder for '/nix/store/4l6kfazfylv0b9pzs95c8k6aryrlrnmq-gfortran-7.3.0.drv' failed with exit code 2; last 10 log lines:
+  make[2]: Leaving directory '/private/tmp/nix-build-gfortran-7.3.0.drv-0/build/libdecnumber'
+  make[2]: Entering directory '/private/tmp/nix-build-gfortran-7.3.0.drv-0/build/gcc'
+  clang++ -std=gnu++98   -O2 -I/nix/store/g3sn8w714qg0ad2ixh93kziiszs9pyvn-Libsystem-osx-10.11.6/include -B/nix/store/g3sn8w714qg0ad2ixh93kziiszs9pyvn-Libsystem-osx-10.11.6/lib/ -idirafter /nix/store/g3sn8w714qg0ad2ixh93kziiszs9pyvn-Libsystem-osx-10.11.6/include -Wl,-rpath,/nix/store/77zir2xdr9gmgy85xcm590czvn3h6swa-gfortran-7.3.0-lib/lib -Wl,-L/nix/store/g3sn8w714qg0ad2ixh93kziiszs9pyvn-Libsystem-osx-10.11.6/lib -Wl,-rpath -Wl,/nix/store/g3sn8w714qg0ad2ixh93kziiszs9pyvn-Libsystem-osx-10.11.6/lib -Wl,-L/nix/store/g3sn8w714qg0ad2ixh93kziiszs9pyvn-Libsystem-osx-10.11.6/lib -DIN_GCC     -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H -DGENERATOR_FILE -fno-PIE -static-libstdc++ -static-libgcc -Wl,-rpath,/nix/store/77zir2xdr9gmgy85xcm590czvn3h6swa-gfortran-7.3.0-lib/lib -Wl,-L/nix/store/g3sn8w714qg0ad2ixh93kziiszs9pyvn-Libsystem-osx-10.11.6/lib -Wl,-rpath -Wl,/nix/store/g3sn8w714qg0ad2ixh93kziiszs9pyvn-Libsystem-osx-10.11.6/lib -Wl,-L/nix/store/g3sn8w714qg0ad2ixh93kziiszs9pyvn-Libsystem-osx-10.11.6/lib  -o build/genmddeps \
+      build/genmddeps.o build/read-md.o build/errors.o .././libiberty/libiberty.a
+  clang-5.0: error: unsupported option '-static-libgcc'
+  make[2]: *** [Makefile:2791: build/genmddeps] Error 1
+  make[2]: Leaving directory '/private/tmp/nix-build-gfortran-7.3.0.drv-0/build/gcc'
+  make[1]: *** [Makefile:4550: all-gcc] Error 2
+  make[1]: Leaving directory '/private/tmp/nix-build-gfortran-7.3.0.drv-0/build'
+  make: *** [Makefile:21452: bootstrap] Error 2
+cannot build derivation '/nix/store/fsmdzwpv036501i9pf0p73dmw9symd34-gfortran-wrapper-7.3.0.drv': 1 dependencies couldn't be built

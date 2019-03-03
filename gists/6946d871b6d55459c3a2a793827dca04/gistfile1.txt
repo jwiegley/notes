@@ -1,0 +1,21 @@
+    nix.useSandbox = mkOption {
+      type = types.either types.bool (types.enum ["relaxed"]);
+      default = false;
+      description = "
+        If set, Nix will perform builds in a sandboxed environment that it
+        will set up automatically for each build.  This prevents
+        impurities in builds by disallowing access to dependencies
+        outside of the Nix store.
+      ";
+    };
+
+    nix.sandboxPaths = mkOption {
+      type = types.listOf types.str;
+      default = [];
+      example = [ "/dev" "/proc" ];
+      description =
+        ''
+          Directories from the host filesystem to be included
+          in the sandbox.
+        '';
+    };

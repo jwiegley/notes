@@ -1,0 +1,11 @@
+builder for '/nix/store/20w3b12fmvv4a71pibhk7061xlvp234b-pandoc-2.2.1.drv' failed with exit code 1; last 10 log lines:
+  haddockPhase
+  installing
+  Installing library in /nix/store/6a63diklhzsjay0h1kw8x46x4b955kkg-pandoc-2.2.1/lib/ghc-8.4.4/x86_64-osx-ghc-8.4.4/pandoc-2.2.1-Di2loTZzwTECxsaRa2oxX2
+  Installing executable pandoc in /nix/store/6a63diklhzsjay0h1kw8x46x4b955kkg-pandoc-2.2.1/bin
+  Warning: The directory
+  /nix/store/6a63diklhzsjay0h1kw8x46x4b955kkg-pandoc-2.2.1/bin is not in the
+  system search path.
+  Registering library for pandoc-2.2.1..
+  mv: missing destination file operand after '/nix/store/6a63diklhzsjay0h1kw8x46x4b955kkg-pandoc-2.2.1/share/'
+  Try 'mv --help' for more information.

@@ -21,5 +21,6 @@ library:
     - containers
     - unordered-containers
     - mtl
+    - multiset
     - lens
     - transformers

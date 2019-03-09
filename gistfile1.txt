@@ -1,0 +1,18 @@
+Warning: The package list for 'hackage.haskell.org' does not exist. Run 'cabal
+update' to download it.
+Resolving dependencies...
+cabal: Could not resolve dependencies:
+[__0] trying: hnix-0.5.2 (user goal)
+[__1] rejecting: hnix:!test (constraint from config file, command line flag,
+or user target requires opposite flag selection)
+[__1] trying: hnix:*test
+[__2] next goal: hnix:hspec-discover:exe.hspec-discover (dependency of hnix
+*test)
+[__2] rejecting: hnix:hspec-discover:exe.hspec-discover-2.6.1/installed-1hN...
+(does not contain executable 'hspec-discover', which is required by hnix
+*test)
+[__2] fail (backjumping, conflict set: hnix,
+hnix:hspec-discover:exe.hspec-discover, hnix:test)
+After searching the rest of the dependency tree exhaustively, these were the
+goals I've had most trouble fulfilling: hnix, hnix:test,
+hnix:hspec-discover:exe.hspec-discover

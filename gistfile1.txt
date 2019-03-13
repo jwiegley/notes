@@ -1,0 +1,757 @@
+Sampling process 7894 for 3 seconds with 1 millisecond of run time between samples
+Sampling completed, processing symbols...
+Analysis of sampling test-v8-spectests (pid 7781) every 1 millisecond
+Process:         test-v8-spectests [7781]
+Path:            /Users/johnw/dfinity/dev/master/dist-newstyle/build/x86_64-osx/ghc-8.4.4/dfinity-hypervisor-0.0.0/t/test-v8-spectests/build/test-v8-spectests/test-v8-spectests
+Load Address:    0x1023a6000
+Identifier:      test-v8-spectests
+Version:         0
+Code Type:       X86-64
+Parent Process:  zsh [755]
+
+Date/Time:       2019-03-13 16:55:53.781 -0700
+Launch Time:     2019-03-13 16:55:42.180 -0700
+OS Version:      Mac OS X 10.13.6 (17G5019)
+Report Version:  7
+Analysis Tool:   /usr/bin/sample
+
+Physical footprint:         97.1M
+Physical footprint (peak):  97.1M
+----
+
+Call graph:
+    2142 Thread_61640   DispatchQueue_1: com.apple.main-thread  (serial)
+    + 2142 start  (in libdyld.dylib) + 1  [0x7fff52e90015]
+    +   2142 main  (in test-v8-spectests) + 92  [0x1023af5dc]
+    +     2142 hs_main  (in test-v8-spectests) + 86  [0x10286fbc6]
+    +       2142 rts_evalLazyIO  (in test-v8-spectests) + 69  [0x1028720a5]
+    +         2142 scheduleWaitThread  (in test-v8-spectests) + 203  [0x102883f5b]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61641
+    + 2142 c9Kj_info  (in test-v8-spectests) + 192  [0x102836318]
+    +   2142 kevent  (in libsystem_kernel.dylib) + 10  [0x7fff52fe1bea]
+    2142 Thread_61642
+    + 2142 c9Kj_info  (in test-v8-spectests) + 192  [0x102836318]
+    +   2142 kevent  (in libsystem_kernel.dylib) + 10  [0x7fff52fe1bea]
+    2142 Thread_61643
+    + 2142 c9Kj_info  (in test-v8-spectests) + 192  [0x102836318]
+    +   2142 kevent  (in libsystem_kernel.dylib) + 10  [0x7fff52fe1bea]
+    2142 Thread_61644
+    + 2142 c9Kj_info  (in test-v8-spectests) + 192  [0x102836318]
+    +   2142 kevent  (in libsystem_kernel.dylib) + 10  [0x7fff52fe1bea]
+    2142 Thread_61645
+    + 2142 c9Kj_info  (in test-v8-spectests) + 192  [0x102836318]
+    +   2142 kevent  (in libsystem_kernel.dylib) + 10  [0x7fff52fe1bea]
+    2142 Thread_61646
+    + 2142 c9Kj_info  (in test-v8-spectests) + 192  [0x102836318]
+    +   2142 kevent  (in libsystem_kernel.dylib) + 10  [0x7fff52fe1bea]
+    2142 Thread_61647
+    + 2142 c9Kj_info  (in test-v8-spectests) + 192  [0x102836318]
+    +   2142 kevent  (in libsystem_kernel.dylib) + 10  [0x7fff52fe1bea]
+    2142 Thread_61648
+    + 2142 c9Kj_info  (in test-v8-spectests) + 192  [0x102836318]
+    +   2142 kevent  (in libsystem_kernel.dylib) + 10  [0x7fff52fe1bea]
+    2142 Thread_61649
+    + 2142 c9Kj_info  (in test-v8-spectests) + 192  [0x102836318]
+    +   2142 kevent  (in libsystem_kernel.dylib) + 10  [0x7fff52fe1bea]
+    2142 Thread_61650
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 itimer_thread_func  (in test-v8-spectests) + 199  [0x1028b1307]
+    +         2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +           2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +             2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61651
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61652
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61653
+    + 2142 c8e8_info  (in test-v8-spectests) + 184  [0x102841568]
+    +   2142 poll  (in libsystem_kernel.dylib) + 10  [0x7fff52fe209a]
+    2142 Thread_61654
+    + 2142 s5vG_info  (in test-v8-spectests) + 130  [0x102747d72]
+    +   2142 forkOS_entry  (in test-v8-spectests) + 89  [0x1027487f9]
+    +     2142 rts_evalIO  (in test-v8-spectests) + 69  [0x102872035]
+    +       2142 scheduleWaitThread  (in test-v8-spectests) + 203  [0x102883f5b]
+    +         2142 schedule  (in test-v8-spectests) + 2811  [0x102884beb]
+    +           2142 scheduleDoGC  (in test-v8-spectests) + 1654  [0x102885586]
+    +             1523 waitForGcThreads  (in test-v8-spectests) + 326  [0x10289fc36]
+    +             ! 1447 yieldThread  (in test-v8-spectests) + 13  [0x1028b159d]
+    +             ! : 1359 sched_yield  (in libsystem_pthread.dylib) + 11  [0x7fff531a922e]
+    +             ! : | 1359 swtch_pri  (in libsystem_kernel.dylib) + 10  [0x7fff52fd7306]
+    +             ! : 87 sched_yield  (in libsystem_pthread.dylib) + 11,13,...  [0x7fff531a922e,0x7fff531a9230,...]
+    +             ! : 1 DYLD-STUB$$swtch_pri  (in libsystem_pthread.dylib) + 0  [0x7fff531ae29a]
+    +             ! 76 yieldThread  (in test-v8-spectests) + 16,21,...  [0x1028b15a0,0x1028b15a5,...]
+    +             479 waitForGcThreads  (in test-v8-spectests) + 290,265,...  [0x10289fc12,0x10289fbf9,...]
+    +             99 waitForGcThreads  (in test-v8-spectests) + 270  [0x10289fbfe]
+    +             ! 80 interruptCapability  (in test-v8-spectests) + 21  [0x10289fcf5]
+    +             ! : 80 stopCapability  (in test-v8-spectests) + 23,12,...  [0x1028a02c7,0x1028a02bc,...]
+    +             ! 19 interruptCapability  (in test-v8-spectests) + 35,12,...  [0x10289fd03,0x10289fcec,...]
+    +             24 waitForGcThreads  (in test-v8-spectests) + 345  [0x10289fc49]
+    +             ! 24 getProcessElapsedTime  (in test-v8-spectests) + 9  [0x1028b1969]
+    +             !   13 getMonotonicNSec  (in test-v8-spectests) + 13  [0x1028b193d]
+    +             !   : 13 mach_absolute_time  (in libsystem_kernel.dylib) + 18,0,...  [0x7fff52fd66b1,0x7fff52fd669f,...]
+    +             !   8 getMonotonicNSec  (in test-v8-spectests) + 21,29,...  [0x1028b1945,0x1028b194d,...]
+    +             !   3 DYLD-STUB$$mach_absolute_time  (in test-v8-spectests) + 0  [0x1028bfcfe]
+    +             10 waitForGcThreads  (in test-v8-spectests) + 170  [0x10289fb9a]
+    +             ! 9 prodCapability  (in test-v8-spectests) + 35  [0x102880f13]
+    +             ! : 8 _pthread_mutex_lock_slow  (in libsystem_pthread.dylib) + 207,215,...  [0x7fff531a649a,0x7fff531a64a2,...]
+    +             ! : 1 pthread_mutex_lock  (in libsystem_pthread.dylib) + 7  [0x7fff531a6353]
+    +             ! 1 prodCapability  (in test-v8-spectests) + 127  [0x102880f6f]
+    +             !   1 _pthread_mutex_unlock_slow  (in libsystem_pthread.dylib) + 160  [0x7fff531a67ec]
+    +             7 waitForGcThreads  (in test-v8-spectests) + 249  [0x10289fbe9]
+    +               7 write_barrier  (in test-v8-spectests) + 5,0  [0x1028753a5,0x1028753a0]
+    2142 Thread_61655
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61656
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61657
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61658
+    + 2142 s5vG_info  (in test-v8-spectests) + 130  [0x102747d72]
+    +   2142 forkOS_entry  (in test-v8-spectests) + 89  [0x1027487f9]
+    +     2142 rts_evalIO  (in test-v8-spectests) + 69  [0x102872035]
+    +       2142 scheduleWaitThread  (in test-v8-spectests) + 203  [0x102883f5b]
+    +         2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +           2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +             2142 yieldCapability  (in test-v8-spectests) + 111  [0x10288066f]
+    +               2142 gcWorkerThread  (in test-v8-spectests) + 201  [0x10289f929]
+    +                 1643 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 89  [0x10289fac9]
+    +                 ! 1643 busy_wait_nop  (in test-v8-spectests) + 6,7,...  [0x102875396,0x102875397,...]
+    +                 271 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 55  [0x10289faa7]
+    +                 ! 271 cas  (in test-v8-spectests) + 33,1,...  [0x102875331,0x102875311,...]
+    +                 185 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 33,92,...  [0x10289fa91,0x10289facc,...]
+    +                 43 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 105  [0x10289fad9]
+    +                   42 yieldThread  (in test-v8-spectests) + 13  [0x1028b159d]
+    +                   : 38 sched_yield  (in libsystem_pthread.dylib) + 11  [0x7fff531a922e]
+    +                   : | 38 swtch_pri  (in libsystem_kernel.dylib) + 10  [0x7fff52fd7306]
+    +                   : 4 sched_yield  (in libsystem_pthread.dylib) + 0,1,...  [0x7fff531a9223,0x7fff531a9224,...]
+    +                   1 yieldThread  (in test-v8-spectests) + 13  [0x1028b159d]
+    2142 Thread_61659
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61660
+    + 2142 caLV_info  (in test-v8-spectests) + 101  [0x1025ecc1d]
+    +   2142 runInteractiveProcess  (in test-v8-spectests) + 1244  [0x1025f492c]
+    +     2142 execvp  (in libsystem_c.dylib) + 36  [0x7fff52f05383]
+    +       2142 getenv  (in libsystem_c.dylib) + 34  [0x7fff52f3d341]
+    +         2142 _os_unfair_lock_lock_slow  (in libsystem_platform.dylib) + 140  [0x7fff531a16ba]
+    +           2142 __ulock_wait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe115a]
+    2142 Thread_61661
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 111  [0x10288066f]
+    +                 2142 gcWorkerThread  (in test-v8-spectests) + 201  [0x10289f929]
+    +                   1657 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 89  [0x10289fac9]
+    +                   ! 1657 busy_wait_nop  (in test-v8-spectests) + 6,7,...  [0x102875396,0x102875397,...]
+    +                   260 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 55  [0x10289faa7]
+    +                   ! 260 cas  (in test-v8-spectests) + 33,28,...  [0x102875331,0x10287532c,...]
+    +                   205 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 33,92,...  [0x10289fa91,0x10289facc,...]
+    +                   20 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 105  [0x10289fad9]
+    +                     19 yieldThread  (in test-v8-spectests) + 13  [0x1028b159d]
+    +                     : 18 sched_yield  (in libsystem_pthread.dylib) + 11  [0x7fff531a922e]
+    +                     : | 18 swtch_pri  (in libsystem_kernel.dylib) + 10,0  [0x7fff52fd7306,0x7fff52fd72fc]
+    +                     : 1 sched_yield  (in libsystem_pthread.dylib) + 14  [0x7fff531a9231]
+    +                     1 DYLD-STUB$$sched_yield  (in test-v8-spectests) + 0  [0x1028bfe2a]
+    2142 Thread_61662
+    + 2142 s5vG_info  (in test-v8-spectests) + 130  [0x102747d72]
+    +   2142 forkOS_entry  (in test-v8-spectests) + 89  [0x1027487f9]
+    +     2142 rts_evalIO  (in test-v8-spectests) + 69  [0x102872035]
+    +       2142 scheduleWaitThread  (in test-v8-spectests) + 203  [0x102883f5b]
+    +         2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +           2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +             2142 yieldCapability  (in test-v8-spectests) + 111  [0x10288066f]
+    +               2142 gcWorkerThread  (in test-v8-spectests) + 201  [0x10289f929]
+    +                 1637 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 89  [0x10289fac9]
+    +                 ! 1637 busy_wait_nop  (in test-v8-spectests) + 6,7,...  [0x102875396,0x102875397,...]
+    +                 275 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 55  [0x10289faa7]
+    +                 ! 275 cas  (in test-v8-spectests) + 33,39,...  [0x102875331,0x102875337,...]
+    +                 197 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 92,33,...  [0x10289facc,0x10289fa91,...]
+    +                 33 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 105  [0x10289fad9]
+    +                   31 yieldThread  (in test-v8-spectests) + 13  [0x1028b159d]
+    +                   : 29 sched_yield  (in libsystem_pthread.dylib) + 11  [0x7fff531a922e]
+    +                   : | 29 swtch_pri  (in libsystem_kernel.dylib) + 10,0  [0x7fff52fd7306,0x7fff52fd72fc]
+    +                   : 1 DYLD-STUB$$swtch_pri  (in libsystem_pthread.dylib) + 0  [0x7fff531ae29a]
+    +                   : 1 sched_yield  (in libsystem_pthread.dylib) + 1  [0x7fff531a9224]
+    +                   2 yieldThread  (in test-v8-spectests) + 16  [0x1028b15a0]
+    2142 Thread_61663
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61664
+    + 2142 s5vG_info  (in test-v8-spectests) + 130  [0x102747d72]
+    +   2142 forkOS_entry  (in test-v8-spectests) + 89  [0x1027487f9]
+    +     2142 rts_evalIO  (in test-v8-spectests) + 69  [0x102872035]
+    +       2142 scheduleWaitThread  (in test-v8-spectests) + 203  [0x102883f5b]
+    +         2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +           2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +             2142 yieldCapability  (in test-v8-spectests) + 111  [0x10288066f]
+    +               2142 gcWorkerThread  (in test-v8-spectests) + 201  [0x10289f929]
+    +                 1656 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 89  [0x10289fac9]
+    +                 ! 1656 busy_wait_nop  (in test-v8-spectests) + 6,7,...  [0x102875396,0x102875397,...]
+    +                 251 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 55  [0x10289faa7]
+    +                 ! 251 cas  (in test-v8-spectests) + 33,12,...  [0x102875331,0x10287531c,...]
+    +                 199 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 92,33,...  [0x10289facc,0x10289fa91,...]
+    +                 36 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 105  [0x10289fad9]
+    +                   36 yieldThread  (in test-v8-spectests) + 13  [0x1028b159d]
+    +                     32 sched_yield  (in libsystem_pthread.dylib) + 11  [0x7fff531a922e]
+    +                     : 32 swtch_pri  (in libsystem_kernel.dylib) + 10  [0x7fff52fd7306]
+    +                     4 sched_yield  (in libsystem_pthread.dylib) + 0,1,...  [0x7fff531a9223,0x7fff531a9224,...]
+    2142 Thread_61665
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61666
+    + 2142 s5vG_info  (in test-v8-spectests) + 130  [0x102747d72]
+    +   2142 forkOS_entry  (in test-v8-spectests) + 89  [0x1027487f9]
+    +     2142 rts_evalIO  (in test-v8-spectests) + 69  [0x102872035]
+    +       2142 scheduleWaitThread  (in test-v8-spectests) + 203  [0x102883f5b]
+    +         2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +           2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +             2142 yieldCapability  (in test-v8-spectests) + 111  [0x10288066f]
+    +               2142 gcWorkerThread  (in test-v8-spectests) + 201  [0x10289f929]
+    +                 1616 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 89  [0x10289fac9]
+    +                 ! 1616 busy_wait_nop  (in test-v8-spectests) + 6,7,...  [0x102875396,0x102875397,...]
+    +                 277 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 55  [0x10289faa7]
+    +                 ! 277 cas  (in test-v8-spectests) + 33,28,...  [0x102875331,0x10287532c,...]
+    +                 216 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 33,92,...  [0x10289fa91,0x10289facc,...]
+    +                 33 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 105  [0x10289fad9]
+    +                   30 yieldThread  (in test-v8-spectests) + 13  [0x1028b159d]
+    +                   : 28 sched_yield  (in libsystem_pthread.dylib) + 11  [0x7fff531a922e]
+    +                   : | 28 swtch_pri  (in libsystem_kernel.dylib) + 10,0  [0x7fff52fd7306,0x7fff52fd72fc]
+    +                   : 1 DYLD-STUB$$swtch_pri  (in libsystem_pthread.dylib) + 0  [0x7fff531ae29a]
+    +                   : 1 sched_yield  (in libsystem_pthread.dylib) + 13  [0x7fff531a9230]
+    +                   3 yieldThread  (in test-v8-spectests) + 0,1,...  [0x1028b1590,0x1028b1591,...]
+    2142 Thread_61667
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61668
+    + 2142 c1frn_info  (in test-v8-spectests) + 137  [0x102462ea1]  V8.hs:781
+    +   2142 resumeThread  (in test-v8-spectests) + 85  [0x102883ba5]
+    +     2142 waitForCapability  (in test-v8-spectests) + 565  [0x102880185]
+    +       2142 waitForReturnCapability  (in test-v8-spectests) + 99  [0x102880483]
+    +         2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +           2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +             2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61669
+    + 2142 s5vG_info  (in test-v8-spectests) + 130  [0x102747d72]
+    +   2142 forkOS_entry  (in test-v8-spectests) + 89  [0x1027487f9]
+    +     2142 rts_evalIO  (in test-v8-spectests) + 69  [0x102872035]
+    +       2142 scheduleWaitThread  (in test-v8-spectests) + 203  [0x102883f5b]
+    +         2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +           2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +             2142 yieldCapability  (in test-v8-spectests) + 111  [0x10288066f]
+    +               2142 gcWorkerThread  (in test-v8-spectests) + 201  [0x10289f929]
+    +                 1610 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 89  [0x10289fac9]
+    +                 ! 1610 busy_wait_nop  (in test-v8-spectests) + 6,7,...  [0x102875396,0x102875397,...]
+    +                 307 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 55  [0x10289faa7]
+    +                 ! 307 cas  (in test-v8-spectests) + 33,28,...  [0x102875331,0x10287532c,...]
+    +                 201 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 92,33,...  [0x10289facc,0x10289fa91,...]
+    +                 24 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 105  [0x10289fad9]
+    +                   23 yieldThread  (in test-v8-spectests) + 13  [0x1028b159d]
+    +                   : 22 sched_yield  (in libsystem_pthread.dylib) + 11  [0x7fff531a922e]
+    +                   : | 22 swtch_pri  (in libsystem_kernel.dylib) + 10  [0x7fff52fd7306]
+    +                   : 1 sched_yield  (in libsystem_pthread.dylib) + 11  [0x7fff531a922e]
+    +                   1 yieldThread  (in test-v8-spectests) + 13  [0x1028b159d]
+    2142 Thread_61670
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61671
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61672
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 111  [0x10288066f]
+    +                 2142 gcWorkerThread  (in test-v8-spectests) + 201  [0x10289f929]
+    +                   1593 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 89  [0x10289fac9]
+    +                   ! 1593 busy_wait_nop  (in test-v8-spectests) + 6,7,...  [0x102875396,0x102875397,...]
+    +                   300 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 55  [0x10289faa7]
+    +                   ! 300 cas  (in test-v8-spectests) + 33,12,...  [0x102875331,0x10287531c,...]
+    +                   212 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 33,92,...  [0x10289fa91,0x10289facc,...]
+    +                   37 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 105  [0x10289fad9]
+    +                     34 yieldThread  (in test-v8-spectests) + 13  [0x1028b159d]
+    +                     : 31 sched_yield  (in libsystem_pthread.dylib) + 11  [0x7fff531a922e]
+    +                     : | 31 swtch_pri  (in libsystem_kernel.dylib) + 10  [0x7fff52fd7306]
+    +                     : 2 sched_yield  (in libsystem_pthread.dylib) + 0,1  [0x7fff531a9223,0x7fff531a9224]
+    +                     : 1 DYLD-STUB$$swtch_pri  (in libsystem_pthread.dylib) + 0  [0x7fff531ae29a]
+    +                     3 yieldThread  (in test-v8-spectests) + 16,0  [0x1028b15a0,0x1028b1590]
+    2142 Thread_61673
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61674: V8 WorkerThread
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 v8::base::ThreadEntry(void*)  (in libv8_libbase.dylib) + 87  [0x103ff9617]
+    +         2142 v8::platform::WorkerThread::Run()  (in libv8_libplatform.dylib) + 89  [0x104015729]
+    +           2142 v8::platform::TaskQueue::GetNext()  (in libv8_libplatform.dylib) + 64  [0x10400f6b0]
+    +             2142 v8::base::Semaphore::Wait()  (in libv8_libbase.dylib) + 23  [0x103ff61b7]
+    +               2142 semaphore_wait_trap  (in libsystem_kernel.dylib) + 10  [0x7fff52fd7246]
+    2142 Thread_61675: V8 WorkerThread
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 v8::base::ThreadEntry(void*)  (in libv8_libbase.dylib) + 87  [0x103ff9617]
+    +         2142 v8::platform::WorkerThread::Run()  (in libv8_libplatform.dylib) + 89  [0x104015729]
+    +           2142 v8::platform::TaskQueue::GetNext()  (in libv8_libplatform.dylib) + 64  [0x10400f6b0]
+    +             2142 v8::base::Semaphore::Wait()  (in libv8_libbase.dylib) + 23  [0x103ff61b7]
+    +               2142 semaphore_wait_trap  (in libsystem_kernel.dylib) + 10  [0x7fff52fd7246]
+    2142 Thread_61676: V8 WorkerThread
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 v8::base::ThreadEntry(void*)  (in libv8_libbase.dylib) + 87  [0x103ff9617]
+    +         2142 v8::platform::WorkerThread::Run()  (in libv8_libplatform.dylib) + 89  [0x104015729]
+    +           2142 v8::platform::TaskQueue::GetNext()  (in libv8_libplatform.dylib) + 64  [0x10400f6b0]
+    +             2142 v8::base::Semaphore::Wait()  (in libv8_libbase.dylib) + 23  [0x103ff61b7]
+    +               2142 semaphore_wait_trap  (in libsystem_kernel.dylib) + 10  [0x7fff52fd7246]
+    2142 Thread_61677: V8 WorkerThread
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 v8::base::ThreadEntry(void*)  (in libv8_libbase.dylib) + 87  [0x103ff9617]
+    +         2142 v8::platform::WorkerThread::Run()  (in libv8_libplatform.dylib) + 89  [0x104015729]
+    +           2142 v8::platform::TaskQueue::GetNext()  (in libv8_libplatform.dylib) + 64  [0x10400f6b0]
+    +             2142 v8::base::Semaphore::Wait()  (in libv8_libbase.dylib) + 23  [0x103ff61b7]
+    +               2142 semaphore_wait_trap  (in libsystem_kernel.dylib) + 10  [0x7fff52fd7246]
+    2142 Thread_61678: V8 WorkerThread
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 v8::base::ThreadEntry(void*)  (in libv8_libbase.dylib) + 87  [0x103ff9617]
+    +         2142 v8::platform::WorkerThread::Run()  (in libv8_libplatform.dylib) + 89  [0x104015729]
+    +           2142 v8::platform::TaskQueue::GetNext()  (in libv8_libplatform.dylib) + 64  [0x10400f6b0]
+    +             2142 v8::base::Semaphore::Wait()  (in libv8_libbase.dylib) + 23  [0x103ff61b7]
+    +               2142 semaphore_wait_trap  (in libsystem_kernel.dylib) + 10  [0x7fff52fd7246]
+    2142 Thread_61679: V8 WorkerThread
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 v8::base::ThreadEntry(void*)  (in libv8_libbase.dylib) + 87  [0x103ff9617]
+    +         2142 v8::platform::WorkerThread::Run()  (in libv8_libplatform.dylib) + 89  [0x104015729]
+    +           2142 v8::platform::TaskQueue::GetNext()  (in libv8_libplatform.dylib) + 64  [0x10400f6b0]
+    +             2142 v8::base::Semaphore::Wait()  (in libv8_libbase.dylib) + 23  [0x103ff61b7]
+    +               2142 semaphore_wait_trap  (in libsystem_kernel.dylib) + 10  [0x7fff52fd7246]
+    2142 Thread_61680: V8 WorkerThread
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 v8::base::ThreadEntry(void*)  (in libv8_libbase.dylib) + 87  [0x103ff9617]
+    +         2142 v8::platform::WorkerThread::Run()  (in libv8_libplatform.dylib) + 89  [0x104015729]
+    +           2142 v8::platform::TaskQueue::GetNext()  (in libv8_libplatform.dylib) + 64  [0x10400f6b0]
+    +             2142 v8::base::Semaphore::Wait()  (in libv8_libbase.dylib) + 23  [0x103ff61b7]
+    +               2142 semaphore_wait_trap  (in libsystem_kernel.dylib) + 10  [0x7fff52fd7246]
+    2142 Thread_61681: V8 WorkerThread
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 v8::base::ThreadEntry(void*)  (in libv8_libbase.dylib) + 87  [0x103ff9617]
+    +         2142 v8::platform::WorkerThread::Run()  (in libv8_libplatform.dylib) + 89  [0x104015729]
+    +           2142 v8::platform::TaskQueue::GetNext()  (in libv8_libplatform.dylib) + 64  [0x10400f6b0]
+    +             2142 v8::base::Semaphore::Wait()  (in libv8_libbase.dylib) + 23  [0x103ff61b7]
+    +               2142 semaphore_wait_trap  (in libsystem_kernel.dylib) + 10  [0x7fff52fd7246]
+    2142 Thread_61682
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61730
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61748
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61754
+    + 2142 c9Kj_info  (in test-v8-spectests) + 192  [0x102836318]
+    +   2142 kevent  (in libsystem_kernel.dylib) + 10  [0x7fff52fe1bea]
+    2142 Thread_61763
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61764
+    + 2142 c1frn_info  (in test-v8-spectests) + 137  [0x102462ea1]  V8.hs:781
+    +   2142 resumeThread  (in test-v8-spectests) + 85  [0x102883ba5]
+    +     2142 waitForCapability  (in test-v8-spectests) + 565  [0x102880185]
+    +       2142 waitForReturnCapability  (in test-v8-spectests) + 99  [0x102880483]
+    +         2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +           2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +             2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61793
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61820
+    + 2142 s5vG_info  (in test-v8-spectests) + 130  [0x102747d72]
+    +   2142 forkOS_entry  (in test-v8-spectests) + 89  [0x1027487f9]
+    +     2142 rts_evalIO  (in test-v8-spectests) + 69  [0x102872035]
+    +       2142 scheduleWaitThread  (in test-v8-spectests) + 203  [0x102883f5b]
+    +         2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +           2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +             2142 yieldCapability  (in test-v8-spectests) + 111  [0x10288066f]
+    +               2142 gcWorkerThread  (in test-v8-spectests) + 201  [0x10289f929]
+    +                 1646 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 89  [0x10289fac9]
+    +                 ! 1646 busy_wait_nop  (in test-v8-spectests) + 6,7,...  [0x102875396,0x102875397,...]
+    +                 267 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 55  [0x10289faa7]
+    +                 ! 267 cas  (in test-v8-spectests) + 33,12,...  [0x102875331,0x10287531c,...]
+    +                 195 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 33,92,...  [0x10289fa91,0x10289facc,...]
+    +                 34 ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 105  [0x10289fad9]
+    +                   33 yieldThread  (in test-v8-spectests) + 13  [0x1028b159d]
+    +                   : 28 sched_yield  (in libsystem_pthread.dylib) + 11  [0x7fff531a922e]
+    +                   : | 28 swtch_pri  (in libsystem_kernel.dylib) + 10  [0x7fff52fd7306]
+    +                   : 4 sched_yield  (in libsystem_pthread.dylib) + 11,13  [0x7fff531a922e,0x7fff531a9230]
+    +                   : 1 DYLD-STUB$$swtch_pri  (in libsystem_pthread.dylib) + 0  [0x7fff531ae29a]
+    +                   1 yieldThread  (in test-v8-spectests) + 13  [0x1028b159d]
+    2142 Thread_61831
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61868
+    + 2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+    +   2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+    +     2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+    +       2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+    +         2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+    +           2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+    +             2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+    +               2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+    +                 2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+    +                   2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+    +                     2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+    +                       2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+    2142 Thread_61898
+      2142 thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+        2142 _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+          2142 _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+            2142 workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+              2142 scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+                2142 schedule  (in test-v8-spectests) + 403  [0x102884283]
+                  2142 scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+                    2142 yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+                      2142 waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+                        2142 waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+                          2142 _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+                            2142 __psynch_cvwait  (in libsystem_kernel.dylib) + 10  [0x7fff52fe0a16]
+
+Total number in stack (recursive counted multiple, when >=5):
+        31       _pthread_body  (in libsystem_pthread.dylib) + 340  [0x7fff531a8661]
+        31       _pthread_start  (in libsystem_pthread.dylib) + 377  [0x7fff531a850d]
+        31       thread_start  (in libsystem_pthread.dylib) + 13  [0x7fff531a7bf9]
+        29       schedule  (in test-v8-spectests) + 403  [0x102884283]
+        29       scheduleYield  (in test-v8-spectests) + 130  [0x102886af2]
+        24       __psynch_cvwait  (in libsystem_kernel.dylib) + 0  [0x7fff52fe0a0c]
+        24       _pthread_cond_wait  (in libsystem_pthread.dylib) + 732  [0x7fff531a9589]
+        24       waitCondition  (in test-v8-spectests) + 29  [0x1028b157d]
+        22       scheduleWorker  (in test-v8-spectests) + 29  [0x102884c5d]
+        22       workerStart  (in test-v8-spectests) + 258  [0x1028707b2]
+        21       waitForWorkerCapability  (in test-v8-spectests) + 99  [0x102880c53]
+        21       yieldCapability  (in test-v8-spectests) + 382  [0x10288077e]
+        10       c9Kj_info  (in test-v8-spectests) + 192  [0x102836318]
+        10       kevent  (in libsystem_kernel.dylib) + 0  [0x7fff52fe1be0]
+        9       sched_yield  (in libsystem_pthread.dylib) + 0  [0x7fff531a9223]
+        9       sched_yield  (in libsystem_pthread.dylib) + 11  [0x7fff531a922e]
+        9       swtch_pri  (in libsystem_kernel.dylib) + 0  [0x7fff52fd72fc]
+        9       yieldThread  (in test-v8-spectests) + 13  [0x1028b159d]
+        8       ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 0  [0x10289fa70]
+        8       ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 105  [0x10289fad9]
+        8       ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 55  [0x10289faa7]
+        8       ACQUIRE_SPIN_LOCK  (in test-v8-spectests) + 89  [0x10289fac9]
+        8       busy_wait_nop  (in test-v8-spectests) + 0  [0x102875390]
+        8       cas  (in test-v8-spectests) + 0  [0x102875310]
+        8       gcWorkerThread  (in test-v8-spectests) + 201  [0x10289f929]
+        8       scheduleWaitThread  (in test-v8-spectests) + 203  [0x102883f5b]
+        8       semaphore_wait_trap  (in libsystem_kernel.dylib) + 0  [0x7fff52fd723c]
+        8       v8::base::Semaphore::Wait()  (in libv8_libbase.dylib) + 23  [0x103ff61b7]
+        8       v8::base::ThreadEntry(void*)  (in libv8_libbase.dylib) + 87  [0x103ff9617]
+        8       v8::platform::TaskQueue::GetNext()  (in libv8_libplatform.dylib) + 64  [0x10400f6b0]
+        8       v8::platform::WorkerThread::Run()  (in libv8_libplatform.dylib) + 89  [0x104015729]
+        8       yieldCapability  (in test-v8-spectests) + 111  [0x10288066f]
+        7       forkOS_entry  (in test-v8-spectests) + 89  [0x1027487f9]
+        7       rts_evalIO  (in test-v8-spectests) + 69  [0x102872035]
+        7       s5vG_info  (in test-v8-spectests) + 130  [0x102747d72]
+        7       yieldThread  (in test-v8-spectests) + 0  [0x1028b1590]
+        5       DYLD-STUB$$swtch_pri  (in libsystem_pthread.dylib) + 0  [0x7fff531ae29a]
+
+Sort by top of stack, same collapsed (when >= 5):
+        __psynch_cvwait  (in libsystem_kernel.dylib)        51408
+        kevent  (in libsystem_kernel.dylib)        21420
+        semaphore_wait_trap  (in libsystem_kernel.dylib)        17136
+        busy_wait_nop  (in test-v8-spectests)        13058
+        cas  (in test-v8-spectests)        2208
+        __ulock_wait  (in libsystem_kernel.dylib)        2142
+        poll  (in libsystem_kernel.dylib)        2142
+        ACQUIRE_SPIN_LOCK  (in test-v8-spectests)        1610
+        swtch_pri  (in libsystem_kernel.dylib)        1585
+        waitForGcThreads  (in test-v8-spectests)        479
+        sched_yield  (in libsystem_pthread.dylib)        105
+        yieldThread  (in test-v8-spectests)        87
+        stopCapability  (in test-v8-spectests)        80
+        interruptCapability  (in test-v8-spectests)        19
+        mach_absolute_time  (in libsystem_kernel.dylib)        13
+        _pthread_mutex_lock_slow  (in libsystem_pthread.dylib)        8
+        getMonotonicNSec  (in test-v8-spectests)        8
+        write_barrier  (in test-v8-spectests)        7
+        DYLD-STUB$$swtch_pri  (in libsystem_pthread.dylib)        5
+
+Binary Images:
+       0x1023a6000 -        0x1028dff0f +test-v8-spectests (0) <771342E6-66FF-3937-9338-FAE4FE014BFA> /Users/johnw/dfinity/dev/master/dist-newstyle/build/x86_64-osx/ghc-8.4.4/dfinity-hypervisor-0.0.0/t/test-v8-spectests/build/test-v8-spectests/test-v8-spectests
+       0x102db3000 -        0x102db3fff +libSystem.B.dylib (1226.10.1) <AD386215-687F-354B-99DB-C23D6EE55DD7> /nix/store/n70vmq3kgmbjk7nj0vaa1q7ny1p25k2p-Libsystem-osx-10.11.6/lib/libSystem.B.dylib
+       0x102db8000 -        0x102dd2fff +libv8_wasm.dylib (0) <B7CACEE5-F5E9-32F7-8ABB-5D4F814136B0> /nix/store/h7z87y298nx8nddc9xglmnl6h9xkkqny-wasm-c-api/lib/libv8_wasm.dylib
+       0x102de6000 -        0x102e64ff7 +libc++.1.0.dylib (0) <8866CB3C-277B-30C9-B7AA-8305F29B30D5> /nix/store/zmdzyd8q7h0zs4xn1pns3rr7c86c8vws-libc++-5.0.2/lib/libc++.1.0.dylib
+       0x102ec2000 -        0x102ec2fff +libiconv.dylib (0) <97D77A71-200A-32FE-80E4-8F0BC1A3D272> /nix/store/dxi3kdkngsz16sk88pifaj21z61ywyqn-libiconv-osx-10.11.6/lib/libiconv.dylib
+       0x102ec6000 -        0x102ed7fff +liblmdb.so (0) <09E34ED3-BC8F-3E69-A8B4-0F6496BD0820> /nix/store/r9ifjf0bhjvjha885mkjx667kifnhv9w-lmdb-0.9.22.1/lib/liblmdb.so
+       0x102edb000 -        0x102f13ff7 +libleveldb.dylib (0) <756E4E98-87B1-37CF-AA89-D69BA6139CCB> /nix/store/j5y26ylbszcj6wz55ch54c84k6a1n9z6-leveldb-1.20/lib/libleveldb.dylib
+       0x102f31000 -        0x102f60ff3 +libbls_c384.dylib (0) <C491781C-64B8-3A38-B491-ED572D783186> /nix/store/1ppgljrgkiw8qxmb6g3jdwrxar21b21h-bls/lib/libbls_c384.dylib
+       0x102f80000 -        0x103009fe7 +libgmp.10.dylib (0) <ADBE2C6F-250C-3D6B-86E3-BF042B79C9BD> /nix/store/q92kjbb3i01dp4hpslpq7lcn8x6p1naf-gmp-6.1.2/lib/libgmp.10.dylib
+       0x103018000 -        0x103018fff +libsystem_c.dylib (0) <26E403CB-23B5-3284-94C8-3C63A0541CC9> /nix/store/n70vmq3kgmbjk7nj0vaa1q7ny1p25k2p-Libsystem-osx-10.11.6/lib/system/libsystem_c.dylib
+       0x103037000 -        0x103037fff +libsystem_kernel.dylib (0) <825901CD-8494-3EAC-8112-206809921343> /nix/store/n70vmq3kgmbjk7nj0vaa1q7ny1p25k2p-Libsystem-osx-10.11.6/lib/system/libsystem_kernel.dylib
+       0x103055000 -        0x103055fff +libSystem_internal.dylib (0) <3219CB16-7862-393A-8516-81EB41CE1AEE> /nix/store/n70vmq3kgmbjk7nj0vaa1q7ny1p25k2p-Libsystem-osx-10.11.6/lib/libSystem_internal.dylib
+       0x103058000 -        0x1030dafff +libc++.1.0.dylib (0) <8992B433-615B-3C60-B4D2-F83C1EA17B3D> /nix/store/lgxlxli98gayxgw1nciprpw1gdgdc8yy-libc++-7.0.0/lib/libc++.1.0.dylib
+       0x10313e000 -        0x103b2dfef +libv8.dylib (0) <B0CB24D4-BBFF-3EE9-A5CE-20C88267E6C1> /nix/store/f8kzvm4i14pgar5nwcf70jx7kgm8avg8-v8-6.9.427.31/lib/libv8.dylib
+       0x103fed000 -        0x103ffbfff +libv8_libbase.dylib (0) <2D717B87-3514-3964-AC5D-4781C67FFAB1> /nix/store/f8kzvm4i14pgar5nwcf70jx7kgm8avg8-v8-6.9.427.31/lib/libv8_libbase.dylib
+       0x10400a000 -        0x104015fff +libv8_libplatform.dylib (0) <841AA662-48CA-3BAF-BFCE-AAE85ECF1484> /nix/store/f8kzvm4i14pgar5nwcf70jx7kgm8avg8-v8-6.9.427.31/lib/libv8_libplatform.dylib
+       0x104024000 -        0x104044ff7 +libc++abi.dylib (0) <FDF0CF6E-8115-36C5-8674-268D86B22B73> /nix/store/zaxrnm09qy5mlbskc463pywwa9vs8slr-libc++abi-7.0.0/lib/libc++abi.dylib
+       0x10405c000 -        0x104098ff7 +libc++abi.1.dylib (0) <D7BED0B2-EB1B-3FCF-91D3-6FD2056CA2AD> /nix/store/764rsjbfmq4h8dib78p06dpkjxzlqcy4-libc++abi-5.0.2/lib/libc++abi.1.dylib
+       0x1040a8000 -        0x1040affff +libintl.8.dylib (0) <80ED0683-3F2A-3959-9F0E-38FF7B4774BE> /nix/store/kzlpsb85aj275bk8nxdxin5hrargqiz2-gettext-0.19.8.1/lib/libintl.8.dylib
+       0x1040ba000 -        0x104199ff3 +libiconv-nocharset.dylib (0) <97CFE397-9B11-3478-A1F5-EE759E737099> /nix/store/dxi3kdkngsz16sk88pifaj21z61ywyqn-libiconv-osx-10.11.6/lib/libiconv-nocharset.dylib
+       0x1041a5000 -        0x1041a5ffb +libcharset.1.dylib (0) <F68247C2-16E0-31A7-BA56-308221FAA75A> /nix/store/dxi3kdkngsz16sk88pifaj21z61ywyqn-libiconv-osx-10.11.6/lib/libcharset.1.dylib
+       0x1041ae000 -        0x104229ff7 +libmcl.dylib (0) <68E43B1D-B17D-32E1-9632-9AB50815EB8C> /nix/store/712288wdxkpyjjvpvyvkg3h4zcw7iwnl-mcl/lib/libmcl.dylib
+       0x104257000 -        0x104258fff +libgmpxx.4.dylib (0) <24F608A2-CABF-3EB2-93EC-18C14AED8D40> /nix/store/q92kjbb3i01dp4hpslpq7lcn8x6p1naf-gmp-6.1.2/lib/libgmpxx.4.dylib
+       0x104260000 -        0x104382fff +libcrypto.43.dylib (0) <F3389724-CCC2-331D-98A3-108AF88F7C6E> /nix/store/d32ldfbdd89a6igk5iw36ldfj5x7h0f9-libressl-2.7.4/lib/libcrypto.43.dylib
+       0x1105a0000 -        0x1105eaacf  dyld (551.5) <30B355CB-35BA-3112-AA76-4E46CD45F699> /usr/lib/dyld
+    0x7fff5066f000 -     0x7fff506a2ff7  libclosured.dylib (551.5) <112BC241-6626-3848-8DD8-B34B5B6F7ABC> /usr/lib/closure/libclosured.dylib
+    0x7fff50ba9000 -     0x7fff50baaffb  libSystem.B.dylib (1252.50.4) <FE429C40-31DB-39A9-8B98-A8E688F58478> /usr/lib/libSystem.B.dylib
+    0x7fff50dde000 -     0x7fff50e34fff  libc++.1.dylib (400.9) <7D3DACCC-3804-393C-ABC1-1A580FD00CB6> /usr/lib/libc++.1.dylib
+    0x7fff50e35000 -     0x7fff50e59ff7  libc++abi.dylib (400.8.2) <EF5E37D7-11D9-3530-BE45-B986612D13E2> /usr/lib/libc++abi.dylib
+    0x7fff52262000 -     0x7fff526507e7  libobjc.A.dylib (723) <DD9E5EC5-B507-3249-B700-93433E2D5EDF> /usr/lib/libobjc.A.dylib
+    0x7fff52d26000 -     0x7fff52d2aff7  libcache.dylib (80) <092479CB-1008-3A83-BECF-E115F24D13C1> /usr/lib/system/libcache.dylib
+    0x7fff52d2b000 -     0x7fff52d35ff3  libcommonCrypto.dylib (60118.50.1) <029F5985-9B6E-3DCB-9B96-FD007678C6A7> /usr/lib/system/libcommonCrypto.dylib
+    0x7fff52d36000 -     0x7fff52d3dfff  libcompiler_rt.dylib (62) <968B8E3F-3681-3230-9D78-BB8732024F6E> /usr/lib/system/libcompiler_rt.dylib
+    0x7fff52d3e000 -     0x7fff52d47ffb  libcopyfile.dylib (146.50.5) <3885083D-50D8-3EEC-B481-B2E605180D7F> /usr/lib/system/libcopyfile.dylib
+    0x7fff52d48000 -     0x7fff52dcdffb  libcorecrypto.dylib (562.70.2) <495BACA2-67D7-369D-ABB1-FE67FAF63A6A> /usr/lib/system/libcorecrypto.dylib
+    0x7fff52e55000 -     0x7fff52e8eff7  libdispatch.dylib (913.60.3) <BF368549-2DFB-3530-B4CB-31D5EDAC4F2F> /usr/lib/system/libdispatch.dylib
+    0x7fff52e8f000 -     0x7fff52eacff7  libdyld.dylib (551.5) <49BF9E96-8297-30CF-8AA6-128CC14054B2> /usr/lib/system/libdyld.dylib
+    0x7fff52ead000 -     0x7fff52eadffb  libkeymgr.dylib (28) <E34E283E-90FA-3C59-B48E-1277CDB9CDCE> /usr/lib/system/libkeymgr.dylib
+    0x7fff52ebb000 -     0x7fff52ebbff7  liblaunch.dylib (1205.70.10) <ACB92462-EDA9-39E6-BB4E-635D47D30D58> /usr/lib/system/liblaunch.dylib
+    0x7fff52ebc000 -     0x7fff52ec0ffb  libmacho.dylib (906) <1902A611-081A-3452-B11E-EBD1B166E831> /usr/lib/system/libmacho.dylib
+    0x7fff52ec1000 -     0x7fff52ec3ff3  libquarantine.dylib (86) <26C0BA22-8F93-3A07-9A4E-C8D53D2CE42E> /usr/lib/system/libquarantine.dylib
+    0x7fff52ec4000 -     0x7fff52ec5ff3  libremovefile.dylib (45) <711E18B2-5BBE-3211-A916-56740C27D17A> /usr/lib/system/libremovefile.dylib
+    0x7fff52ec6000 -     0x7fff52eddfff  libsystem_asl.dylib (356.70.1) <39E46A6F-B228-3E78-B83E-1779F9707A39> /usr/lib/system/libsystem_asl.dylib
+    0x7fff52ede000 -     0x7fff52edefff  libsystem_blocks.dylib (67) <17303FDF-0D2D-3963-B05E-B4DF63052D47> /usr/lib/system/libsystem_blocks.dylib
+    0x7fff52edf000 -     0x7fff52f68ff7  libsystem_c.dylib (1244.50.9) <1187BFE8-4576-3247-8177-481554E1F9E7> /usr/lib/system/libsystem_c.dylib
+    0x7fff52f69000 -     0x7fff52f6cffb  libsystem_configuration.dylib (963.50.8) <DF6B5287-203E-30CB-9947-78DF446C72B8> /usr/lib/system/libsystem_configuration.dylib
+    0x7fff52f6d000 -     0x7fff52f70ffb  libsystem_coreservices.dylib (51) <486000D3-D8CB-3BE7-8EE5-8BF380DE6DF7> /usr/lib/system/libsystem_coreservices.dylib
+    0x7fff52f71000 -     0x7fff52f72fff  libsystem_darwin.dylib (1244.50.9) <09C21A4A-9EE0-388B-A9D9-DFF8F6758791> /usr/lib/system/libsystem_darwin.dylib
+    0x7fff52f73000 -     0x7fff52f79ff7  libsystem_dnssd.dylib (878.70.3) <7C4C39D5-3642-3049-B309-7ACF2F3CE0DA> /usr/lib/system/libsystem_dnssd.dylib
+    0x7fff52f7a000 -     0x7fff52fc3ff7  libsystem_info.dylib (517.30.1) <AB634A98-B8AA-3804-8436-38261FC8EC4D> /usr/lib/system/libsystem_info.dylib
+    0x7fff52fc4000 -     0x7fff52feaff7  libsystem_kernel.dylib (4570.71.22) <6BFAF4C2-FF7B-301C-8D1C-3ED5E090B0CE> /usr/lib/system/libsystem_kernel.dylib
+    0x7fff52feb000 -     0x7fff53036fcb  libsystem_m.dylib (3147.50.1) <17570F46-566C-39FC-BEF6-635A355DD549> /usr/lib/system/libsystem_m.dylib
+    0x7fff53037000 -     0x7fff53056fff  libsystem_malloc.dylib (140.50.6) <7FD43735-9DDD-300E-8C4A-F909A74BDF49> /usr/lib/system/libsystem_malloc.dylib
+    0x7fff53057000 -     0x7fff53187ff7  libsystem_network.dylib (1229.70.2) <5E86B2DE-9E15-3354-8714-4094ED5F698D> /usr/lib/system/libsystem_network.dylib
+    0x7fff53188000 -     0x7fff53192ffb  libsystem_networkextension.dylib (767.70.2) <9DC03712-552D-3AEE-9519-B5ED70980B70> /usr/lib/system/libsystem_networkextension.dylib
+    0x7fff53193000 -     0x7fff5319cff3  libsystem_notify.dylib (172) <08012EC0-2CD2-34BE-BF93-E7F56491299A> /usr/lib/system/libsystem_notify.dylib
+    0x7fff5319d000 -     0x7fff531a4ff7  libsystem_platform.dylib (161.50.1) <6355EE2D-5456-3CA8-A227-B96E8F1E2AF8> /usr/lib/system/libsystem_platform.dylib
+    0x7fff531a5000 -     0x7fff531b0fff  libsystem_pthread.dylib (301.50.1) <0E51CCBA-91F2-34E1-BF2A-FEEFD3D321E4> /usr/lib/system/libsystem_pthread.dylib
+    0x7fff531b1000 -     0x7fff531b4fff  libsystem_sandbox.dylib (765.70.1) <553DFCC6-9D31-3B9C-AB7C-30F6F265786D> /usr/lib/system/libsystem_sandbox.dylib
+    0x7fff531b5000 -     0x7fff531b6ff3  libsystem_secinit.dylib (30) <DE8D14E8-A276-3FF8-AE13-77F7040F33C1> /usr/lib/system/libsystem_secinit.dylib
+    0x7fff531b7000 -     0x7fff531beff7  libsystem_symptoms.dylib (820.60.3) <441C6CA0-5711-3BB1-8420-DDAC3D5272E1> /usr/lib/system/libsystem_symptoms.dylib
+    0x7fff531bf000 -     0x7fff531d2fff  libsystem_trace.dylib (829.70.1) <3A6CB706-8CA6-3616-8AFC-14AAD7FAF187> /usr/lib/system/libsystem_trace.dylib
+    0x7fff531d3000 -     0x7fff531d3ff7  libunc.dylib (30) <0B236E0B-3F93-366C-AE1A-B30DDA89AA23> /usr/lib/system/libunc.dylib
+    0x7fff531d4000 -     0x7fff531d9ff7  libunwind.dylib (35.3) <BEF3FB49-5604-3B5F-82B5-332B80023AC3> /usr/lib/system/libunwind.dylib
+    0x7fff531da000 -     0x7fff53207ff7  libxpc.dylib (1205.70.10) <903AB944-964B-3E73-89AE-A55F5424BD9A> /usr/lib/system/libxpc.dylib
+Sample analysis of process 7781 written to file /dev/stdout

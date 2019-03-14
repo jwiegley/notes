@@ -1,0 +1,25 @@
+libsystem_c.dylib`getenv:
+->  0x7fff52f3d31f <+0>:  pushq  %rbp
+    0x7fff52f3d320 <+1>:  movq   %rsp, %rbp
+    0x7fff52f3d323 <+4>:  pushq  %r14
+    0x7fff52f3d325 <+6>:  pushq  %rbx
+    0x7fff52f3d326 <+7>:  subq   $0x10, %rsp
+    0x7fff52f3d32a <+11>: movq   %rdi, %rbx
+    0x7fff52f3d32d <+14>: leaq   0x3897a79c(%rip), %r14    ; __environ_lock_obj
+    0x7fff52f3d334 <+21>: movl   $0x10000, %esi            ; imm = 0x10000
+    0x7fff52f3d339 <+26>: movq   %r14, %rdi
+    0x7fff52f3d33c <+29>: callq  0x7fff52f615f2            ; symbol stub for: os_unfair_lock_lock_with_options
+    0x7fff52f3d341 <+34>: callq  0x7fff52eef5ca            ; _NSGetEnviron
+    0x7fff52f3d346 <+39>: movq   (%rax), %rdx
+    0x7fff52f3d349 <+42>: leaq   -0x14(%rbp), %rsi
+    0x7fff52f3d34d <+46>: movq   %rbx, %rdi
+    0x7fff52f3d350 <+49>: callq  0x7fff52f3d217            ; __findenv_locked
+    0x7fff52f3d355 <+54>: movq   %rax, %rbx
+    0x7fff52f3d358 <+57>: movq   %r14, %rdi
+    0x7fff52f3d35b <+60>: callq  0x7fff52f615f8            ; symbol stub for: os_unfair_lock_unlock
+    0x7fff52f3d360 <+65>: movq   %rbx, %rax
+    0x7fff52f3d363 <+68>: addq   $0x10, %rsp
+    0x7fff52f3d367 <+72>: popq   %rbx
+    0x7fff52f3d368 <+73>: popq   %r14
+    0x7fff52f3d36a <+75>: popq   %rbp
+    0x7fff52f3d36b <+76>: retq

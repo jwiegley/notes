@@ -1,0 +1,122 @@
+fibonacci: node-1: 2019-03-18 22:57:53.527406 UTC|, I, consensus: starting new round: 710, beacon BLS.9ed560a6b22bdd6b7e49391bb24903c2a1463fa9daf6120b0e76126a9ae6be6c.5669112547433093903
+fibonacci: node-4: 2019-03-18 22:57:53.527589 UTC|, I, consensus: starting new round: 710, beacon BLS.9ed560a6b22bdd6b7e49391bb24903c2a1463fa9daf6120b0e76126a9ae6be6c.5669112547433093903
+fibonacci: node-2: 2019-03-18 22:57:53.535130 UTC|, I, consensus: finalized round 709, beacon 726d0544fd79c5a9674cab9731f7f9a5f2026e5c9afa8bbb94adbd6864a42967 BLS.d0fac19cc40af468b4feb3862b4247678b66a1d9768815e465d4a783aa0f8c11.5669112547433093903, block 4a356793bd217155d7a6cf65423b7daa81d97b2c5f9f9e586865ac6633383f20 BLS.8ad11996bb2138db6591bb9d1d5cc315de4209cce1a086e9bed1f26ef04769e7.10015448743860730300
+node-2: Saw finality at round 709
+fibonacci: node-1: 2019-03-18 22:57:53.535864 UTC|, I, consensus: finalized round 709, beacon 726d0544fd79c5a9674cab9731f7f9a5f2026e5c9afa8bbb94adbd6864a42967 BLS.d0fac19cc40af468b4feb3862b4247678b66a1d9768815e465d4a783aa0f8c11.5669112547433093903, block 4a356793bd217155d7a6cf65423b7daa81d97b2c5f9f9e586865ac6633383f20 BLS.8ad11996bb2138db6591bb9d1d5cc315de4209cce1a086e9bed1f26ef04769e7.10015448743860730300
+node-1: Saw finality at round 709
+fibonacci: node-3: 2019-03-18 22:57:53.536223 UTC|, I, consensus: finalized round 709, beacon 726d0544fd79c5a9674cab9731f7f9a5f2026e5c9afa8bbb94adbd6864a42967 BLS.d0fac19cc40af468b4feb3862b4247678b66a1d9768815e465d4a783aa0f8c11.5669112547433093903, block 4a356793bd217155d7a6cf65423b7daa81d97b2c5f9f9e586865ac6633383f20 BLS.8ad11996bb2138db6591bb9d1d5cc315de4209cce1a086e9bed1f26ef04769e7.10015448743860730300
+node-3: Saw finality at round 709
+fibonacci: node-4: 2019-03-18 22:57:53.536716 UTC|, I, consensus: finalized round 709, beacon 726d0544fd79c5a9674cab9731f7f9a5f2026e5c9afa8bbb94adbd6864a42967 BLS.d0fac19cc40af468b4feb3862b4247678b66a1d9768815e465d4a783aa0f8c11.5669112547433093903, block 4a356793bd217155d7a6cf65423b7daa81d97b2c5f9f9e586865ac6633383f20 BLS.8ad11996bb2138db6591bb9d1d5cc315de4209cce1a086e9bed1f26ef04769e7.10015448743860730300
+node-4: Saw finality at round 709
+consoleStreamer: restarting due to exception
+HttpExceptionRequest Request {
+  host                 = "127.0.0.1"
+  port                 = 58816
+  secure               = False
+  requestHeaders       = [("Accept","text/event-stream")]
+  path                 = "/api/v1/debug/console/stream"
+  queryString          = ""
+  method               = "GET"
+  proxy                = Nothing
+  rawBody              = False
+  redirectCount        = 10
+  responseTimeout      = ResponseTimeoutDefault
+  requestVersion       = HTTP/1.1
+}
+ IncompleteHeaders
+fibonacci: node-3: 2019-03-18 22:57:53.552205 UTC|, W, p2p: succ service uEZBmxXe422iazHVtyDOIyPUua6egxHjFRAiwDgDUAo='s linked-child thread exiting due to exception: AsyncCancelled
+fibonacci: node-2: 2019-03-18 22:57:53.552264 UTC|, W, p2p: pred service uEZBmxXe422iazHVtyDOIyPUua6egxHjFRAiwDgDUAo='s linked-child thread exiting due to exception: AsyncCancelled
+fibonacci: node-4: 2019-03-18 22:57:53.552212 UTC|, W, p2p: succ service uEZBmxXe422iazHVtyDOIyPUua6egxHjFRAiwDgDUAo='s linked-child thread exiting due to exception: AsyncCancelled
+fibonacci: node-1: 2019-03-18 22:57:53.552265 UTC|, W, p2p: succ service uEZBmxXe422iazHVtyDOIyPUua6egxHjFRAiwDgDUAo='s linked-child thread exiting due to exception: AsyncCancelled
+fibonacci: node-4: 2019-03-18 22:57:53.552540 UTC|, W, p2p: succ service uEZBmxXe422iazHVtyDOIyPUua6egxHjFRAiwDgDUAo= thread will restart after 1.0s due to exception: data: end of file
+fibonacci: node-3: 2019-03-18 22:57:53.552554 UTC|, W, p2p: succ service uEZBmxXe422iazHVtyDOIyPUua6egxHjFRAiwDgDUAo= thread will restart after 1.0s due to exception: data: end of file
+fibonacci: node-2: 2019-03-18 22:57:53.552556 UTC|, W, p2p: succ service uEZBmxXe422iazHVtyDOIyPUua6egxHjFRAiwDgDUAo='s linked-child thread exiting due to exception: AsyncCancelled
+fibonacci: node-2: 2019-03-18 22:57:53.553375 UTC|, W, p2p: pred service uEZBmxXe422iazHVtyDOIyPUua6egxHjFRAiwDgDUAo= thread exiting due to exception: data: end of file
+fibonacci: node-2: 2019-03-18 22:57:53.553790 UTC|, E, p2p: connection service 127.0.0.1:59208 thread exiting due to exception: data: end of file
+fibonacci: node-2: 2019-03-18 22:57:53.554285 UTC|, W, p2p: succ service uEZBmxXe422iazHVtyDOIyPUua6egxHjFRAiwDgDUAo= thread will restart after 1.0s due to exception: data: end of file
+fibonacci: node-4: 2019-03-18 22:57:53.553328 UTC|, W, p2p: pred service uEZBmxXe422iazHVtyDOIyPUua6egxHjFRAiwDgDUAo='s linked-child thread exiting due to exception: AsyncCancelled
+fibonacci: node-4: 2019-03-18 22:57:53.553745 UTC|, W, p2p: pred service uEZBmxXe422iazHVtyDOIyPUua6egxHjFRAiwDgDUAo= thread exiting due to exception: data: end of file
+fibonacci: node-4: 2019-03-18 22:57:53.554123 UTC|, E, p2p: connection service 127.0.0.1:59209 thread exiting due to exception: data: end of file
+fibonacci: node-1: STDERR: dfinity-exe: data: end of file
+fibonacci: node-3: STDERR: dfinity-exe: data: end of file
+fibonacci: node-1: 2019-03-18 22:57:53.552600 UTC|, W, p2p: pred service uEZBmxXe422iazHVtyDOIyPUua6egxHjFRAiwDgDUAo='s linked-child thread exiting due to exception: AsyncCancelled
+fibonacci: node-4: STDERR: dfinity-exe: data: end of file
+fibonacci: node-1: 2019-03-18 22:57:53.553413 UTC|, W, p2p: succ service uEZBmxXe422iazHVtyDOIyPUua6egxHjFRAiwDgDUAo= thread will restart after 1.0s due to exception: data: end of file
+fibonacci: node-1: 2019-03-18 22:57:53.553833 UTC|, W, p2p: pred service uEZBmxXe422iazHVtyDOIyPUua6egxHjFRAiwDgDUAo= thread exiting due to exception: data: end of file
+fibonacci: node-1: 2019-03-18 22:57:53.554180 UTC|, E, p2p: connection service 127.0.0.1:59205 thread exiting due to exception: data: end of file
+fibonacci: node-3: 2019-03-18 22:57:53.553328 UTC|, W, p2p: pred service uEZBmxXe422iazHVtyDOIyPUua6egxHjFRAiwDgDUAo='s linked-child thread exiting due to exception: AsyncCancelled
+fibonacci: node-2: STDERR: dfinity-exe: data: end of file
+fibonacci: node-3: 2019-03-18 22:57:53.553670 UTC|, W, p2p: pred service uEZBmxXe422iazHVtyDOIyPUua6egxHjFRAiwDgDUAo= thread exiting due to exception: data: end of file
+fibonacci: node-3: 2019-03-18 22:57:53.553964 UTC|, E, p2p: connection service 127.0.0.1:59110 thread exiting due to exception: data: end of file
+consoleStreamer: restarting due to exception
+HttpExceptionRequest Request {
+  host                 = "127.0.0.1"
+  port                 = 58816
+  secure               = False
+  requestHeaders       = [("Accept","text/event-stream")]
+  path                 = "/api/v1/debug/console/stream"
+  queryString          = ""
+  method               = "GET"
+  proxy                = Nothing
+  rawBody              = False
+  redirectCount        = 10
+  responseTimeout      = ResponseTimeoutDefault
+  requestVersion       = HTTP/1.1
+}
+ (ConnectionFailure Network.Socket.connect: <socket: 118>: does not exist (Connection refused))
+consoleStreamer: restarting due to exception
+HttpExceptionRequest Request {
+  host                 = "127.0.0.1"
+  port                 = 58816
+  secure               = False
+  requestHeaders       = [("Accept","text/event-stream")]
+  path                 = "/api/v1/debug/console/stream"
+  queryString          = ""
+  method               = "GET"
+  proxy                = Nothing
+  rawBody              = False
+  redirectCount        = 10
+  responseTimeout      = ResponseTimeoutDefault
+  requestVersion       = HTTP/1.1
+}
+ (ConnectionFailure Network.Socket.connect: <socket: 118>: does not exist (Connection refused))
+consoleStreamer: restarting due to exception
+HttpExceptionRequest Request {
+  host                 = "127.0.0.1"
+  port                 = 58816
+  secure               = False
+  requestHeaders       = [("Accept","text/event-stream")]
+  path                 = "/api/v1/debug/console/stream"
+  queryString          = ""
+  method               = "GET"
+  proxy                = Nothing
+  rawBody              = False
+  redirectCount        = 10
+  responseTimeout      = ResponseTimeoutDefault
+  requestVersion       = HTTP/1.1
+}
+ (ConnectionFailure Network.Socket.connect: <socket: 118>: does not exist (Connection refused))
+consoleStreamer: restarting due to exception
+HttpExceptionRequest Request {
+  host                 = "127.0.0.1"
+  port                 = 58816
+  secure               = False
+  requestHeaders       = [("Accept","text/event-stream")]
+  path                 = "/api/v1/debug/console/stream"
+  queryString          = ""
+  method               = "GET"
+  proxy                = Nothing
+  rawBody              = False
+  redirectCount        = 10
+  responseTimeout      = ResponseTimeoutDefault
+  requestVersion       = HTTP/1.1
+}
+ (ConnectionFailure Network.Socket.connect: <socket: 118>: does not exist (Connection refused))
+test-fibonacci: ExceptionInLinkedThread ThreadId 50 consoleStreamer failed to recover
+CallStack (from HasCallStack):
+  error, called at src/DFINITY/Integration.hs:125:10 in dfinity-integration-0.0.0-inplace:DFINITY.Integration
+Test suite test-fibonacci: FAIL
+Test suite logged to:
+/Users/johnw/dfinity/dev/master/dist-newstyle/build/x86_64-osx/ghc-8.4.4/dfinity-integration-0.0.0/t/test-fibonacci/test/dfinity-integration-0.0.0-test-fibonacci.log
+0 of 1 test suites (0 of 1 test cases) passed.
+cabal: Tests failed for test:test-fibonacci from dfinity-integration-0.0.0.

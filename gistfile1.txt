@@ -1,0 +1,17 @@
+Vulcan ~/src $ (cd hnix ; nix-build)
+warning: dumping very large path (> 256 MiB); this may run out of memory
+these derivations will be built:
+  /nix/store/8h1wm62qwyzz5zbdng1s3m6h41029ykl-hnix-0.6.0.drv
+building '/nix/store/8h1wm62qwyzz5zbdng1s3m6h41029ykl-hnix-0.6.0.drv'...
+setupCompilerEnvironmentPhase
+Build with /nix/store/8xfwc1hx4ywb0rfy9r3pfmbxdp3v89n7-ghc-8.6.3.
+unpacking sources
+unpacking source archive /nix/store/pp8kfawwbk3wpbjvfi881nc8kmy70pl0-hnix
+source root is hnix
+patching sources
+compileBuildDriverPhase
+setupCompileFlags: -package-db=/private/tmp/nix-build-hnix-0.6.0.drv-0/setup-package.conf.d -j4 -threaded
+Loaded package environment from /private/tmp/nix-build-hnix-0.6.0.drv-0/hnix/.ghc.environment.x86_64-darwin-8.6.3
+ghc: can't find a package database at /Users/johnw/.cabal/store/ghc-8.6.3/package.db
+builder for '/nix/store/8h1wm62qwyzz5zbdng1s3m6h41029ykl-hnix-0.6.0.drv' failed with exit code 1
+error: build of '/nix/store/8h1wm62qwyzz5zbdng1s3m6h41029ykl-hnix-0.6.0.drv' failed

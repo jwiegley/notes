@@ -1,7 +1,8 @@
-{ compiler ? "ghc844"
+{ compiler ? "ghc864"
 
-, rev     ? "7c1b85cf6de1dc431e5736bff8adf01224e6abe5"
-, sha256  ? "1i8nvc4r0zx263ch5k3b6nkg78sc9ggx2d4lzri6kmng315pcs05"
+, rev     ? "796a8764ab85746f916e2cc8f6a9a5fc6d4d03ac"
+, sha256  ? "1m57gsr9r96gip2wdvdzbkj8zxf47rg3lrz35yi352x1mzj3by3x"
+
 , pkgs    ?
     if builtins.compareVersions builtins.nixVersion "2.0" < 0
     then abort "hnix requires at least nix 2.0"

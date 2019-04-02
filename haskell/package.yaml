@@ -19,8 +19,12 @@ library:
     - bytestring
     - constraints
     - containers
-    - unordered-containers
-    - mtl
-    - multiset
+    - deepseq
     - lens
+    - machines
+    - mtl
+    - monad-par
+    - multiset
+    - pcre-heavy
     - transformers
+    - unordered-containers

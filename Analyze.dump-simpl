@@ -1,0 +1,92 @@
+-- RHS size: {terms: 18, types: 36, coercions: 10, joins: 0/2}
+combine_$scombine
+  :: Mealy LogEntry LogEntryAnalysis
+     -> Mealy LogEntry LogEntryAnalysis
+     -> Mealy LogEntry LogEntryAnalysis
+combine_$scombine
+  = \ (ds1 :: Mealy LogEntry LogEntryAnalysis)
+      (ds2 :: Mealy LogEntry LogEntryAnalysis) ->
+      let {
+        lvl71
+          :: LogEntry
+             -> forall r.
+                (LogEntryAnalysis -> Mealy LogEntry LogEntryAnalysis -> r) -> r
+        lvl71 = \ (dk :: LogEntry) (@ r) -> (ds1 `cast` <Co:3>) dk } in
+      let {
+        lvl72
+          :: LogEntry
+             -> forall r.
+                (LogEntryAnalysis -> Mealy LogEntry LogEntryAnalysis -> r) -> r
+        lvl72 = \ (dk :: LogEntry) (@ r) -> (ds2 `cast` <Co:3>) dk } in
+      (tick<combine>
+       \ (dk :: LogEntry) (@ r) ->
+         (scc<combine> always'_go lvl71 lvl72 dk))
+      `cast` <Co:4>
+
+-- RHS size: {terms: 93, types: 201, coercions: 36, joins: 0/8}
+combine
+  :: forall a b. Semigroup b => Mealy a b -> Mealy a b -> Mealy a b
+combine
+  = \ (@ a)
+      (@ b)
+      ($dSemigroup :: Semigroup b)
+      (ds1 :: Mealy a b)
+      (ds2 :: Mealy a b) ->
+      let {
+        lvl71 :: a -> forall r. (b -> Mealy a b -> r) -> r
+        lvl71 = \ (dk :: a) (@ r) -> (ds1 `cast` <Co:3>) dk } in
+      let {
+        lvl72 :: a -> forall r. (b -> Mealy a b -> r) -> r
+        lvl72 = \ (dk :: a) (@ r) -> (ds2 `cast` <Co:3>) dk } in
+      scctick<combine>
+      letrec {
+        $sgo :: forall r. a -> (b -> Mealy a b -> r) -> r
+        $sgo
+          = \ (@ r) (sc :: a) ->
+              scctick<combine.go>
+              (ds1 `cast` <Co:3>)
+                sc
+                (\ (a1 :: b) (ds3 :: Mealy a b) ->
+                   let {
+                     lvl73 :: a -> forall r1. (b -> Mealy a b -> r1) -> r1
+                     lvl73 = \ (dk :: a) (@ r1) -> (ds3 `cast` <Co:3>) dk } in
+                   scctick<combine.go.go'>
+                   (ds2 `cast` <Co:3>)
+                     sc
+                     (\ (a' :: b) (ds4 :: Mealy a b) (k :: b -> Mealy a b -> r) ->
+                        let {
+                          lvl74 :: a -> forall r1. (b -> Mealy a b -> r1) -> r1
+                          lvl74 = \ (dk :: a) (@ r1) -> (ds4 `cast` <Co:3>) dk } in
+                        scctick<combine.go.go'.go''>
+                        case scctick<combine.go.go'.go''.m> <> $dSemigroup a1 a' of m
+                        { __DEFAULT ->
+                        k m ((\ (dk :: a) (@ r1) -> go lvl73 lvl74 dk) `cast` <Co:4>)
+                        }));
+        go
+          :: (a -> Pair b (Mealy a b))
+             -> (a -> Pair b (Mealy a b)) -> a -> Pair b (Mealy a b)
+        go
+          = \ (dk :: a -> Pair b (Mealy a b))
+              (dk1 :: a -> Pair b (Mealy a b))
+              (dk2 :: a)
+              (@ r) ->
+              scctick<combine.go>
+              dk
+                dk2
+                (\ (a1 :: b) (ds3 :: Mealy a b) ->
+                   let {
+                     lvl73 :: a -> forall r1. (b -> Mealy a b -> r1) -> r1
+                     lvl73 = \ (dk3 :: a) (@ r1) -> (ds3 `cast` <Co:3>) dk3 } in
+                   scctick<combine.go.go'>
+                   dk1
+                     dk2
+                     (\ (a' :: b) (ds4 :: Mealy a b) (k :: b -> Mealy a b -> r) ->
+                        let {
+                          lvl74 :: a -> forall r1. (b -> Mealy a b -> r1) -> r1
+                          lvl74 = \ (dk3 :: a) (@ r1) -> (ds4 `cast` <Co:3>) dk3 } in
+                        scctick<combine.go.go'.go''>
+                        case scctick<combine.go.go'.go''.m> <> $dSemigroup a1 a' of m
+                        { __DEFAULT ->
+                        k m ((\ (dk3 :: a) (@ r1) -> go lvl73 lvl74 dk3) `cast` <Co:4>)
+                        })); } in
+      (\ (dk :: a) (@ r) -> $sgo dk) `cast` <Co:4>

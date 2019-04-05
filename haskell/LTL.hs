@@ -25,7 +25,6 @@ import Prelude hiding ((.), id, until)
 class PartialArrow p where
   parr  :: (a -> Maybe b) -> p a b
   (&-&) :: p a b -> p a c -> p a (Either b (Either c (b, c)))
-  toPartial :: Arrow r => r a (Maybe b) -> p a b
 
 -- | Given a PartialArrow, we can construct a linear temporal logic by taking
 --   the productivity of any arrow as its truth value. Note that this only

@@ -19,6 +19,8 @@ import Prelude hiding ((.), id, until)
 -- | Just as 'Arrow' represents a cartesian functor from arrows in Haskell to
 --   some subcategory 'c' of Hask, a PartialArrow represents a cartesian
 --   functor from partial arrows in Hask to some subcategory 'p'.
+--
+--   The encoding of this idea in haskell is due to Paul (Hai) Lui.
 
 class PartialArrow p where
   parr  :: (a -> Maybe b) -> p a b
@@ -39,8 +41,8 @@ class Arrow p => ArrowLogic p where
   next   :: p a b -> p a b
   until  :: p a b -> p a b -> p a b
 
-  -- | Run the given arrow on its input, if it is has a no value then for
-  --   *future* inputs use the second arrow. The opposite of until.
+  -- | Run the given arrow on its input; if it is has a no value then for
+  --   *future* inputs use the second arrow.
   orElse :: p a b -> p a b -> p a b
 
 -- | Let us take for an example a partial automaton, or mealy machine.

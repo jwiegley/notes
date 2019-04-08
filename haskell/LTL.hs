@@ -9,13 +9,91 @@
 
 module LTL where
 
+import Control.Applicative
+{-
 import Control.Arrow
 import Control.Arrow.Transformer.Automaton
 import Control.Category
 import Data.Foldable (foldlM)
 import Data.Monoid (Sum(..))
-import Prelude hiding ((.), id, until)
+-}
+import Data.Maybe (maybe)
+import Prelude hiding (until)
 
+-- | A decidable, constructive proposition on 'a' returns Nothing if it does
+--   not hold, or a proof witness of type 'b' that it does hold.
+type Proof b = Maybe b
+
+type Prop a b = a -> Proof b
+
+type Nat = Int
+
+type Stream a = Nat -> a
+
+-- | An LTL formula on a stream of elements of type 'a' returns Nothing if the
+--   formula does not hold from the start of the stream, or else it advances
+--   the stream for the elements the formula pertained to, plus a monoid
+--   accumulation of the proof witnesses for the formula.
+type Formula a b = Stream a -> Proof b
+
+truth :: Monoid b => Proof b
+truth = Just mempty
+
+falsehood :: Proof b
+falsehood = Nothing
+
+true :: Monoid b => Formula a b
+true _ = truth
+
+false :: Monoid b => Formula a b
+false _ = falsehood
+
+atomic :: Prop a b -> Formula a b
+atomic p w = p (w 0)
+
+lognot :: Monoid b => Formula a b -> Formula a b
+lognot p = maybe truth (const falsehood) . p
+
+-- Here we use 'liftA2' to share the incoming stream argument across both
+-- formulae, and then monoidal append, which gives the "or" behavior.
+logor :: Semigroup b => Formula a b -> Formula a b -> Formula a b
+logor = liftA2 (<>)
+
+-- Here we use 'liftA2' to share the incoming stream argument across both
+-- formulae, but then 'liftA2' to use the Maybe monoid as the context for
+-- monoidal append, which gives the "and" behavior.
+logand :: Semigroup b => Formula a b -> Formula a b -> Formula a b
+logand = liftA2 (liftA2 (<>))
+
+next :: Formula a b -> Formula a b
+next p w = p (w . succ)
+
+until :: Semigroup b => Formula a b -> Formula a b -> Formula a b
+-- until p q f = exists i, q (f i) st. forall j, 0 <= j < i -> p (f j)
+until p q = p `logor` (q `logand` (next p `until` next q))
+
+always :: Semigroup b => Formula a b -> Formula a b
+always p = p `logand` always (next p)
+
+eventually :: Semigroup b => Formula a b -> Formula a b
+eventually p = p `logor` eventually (next p)
+
+implies :: Monoid b => Formula a b -> Formula a b -> Formula a b
+implies p q w = maybe truth ((<> q w) . Just) (p w)
+
+iff :: Monoid b => Formula a b -> Formula a b -> Formula a b
+iff p q = (p `implies` q) `logand` (q `implies` p)
+
+release :: Monoid b => Formula a b -> Formula a b -> Formula a b
+release p q = q `weakUntil` (q `logand` p)
+
+weakUntil :: Monoid b => Formula a b -> Formula a b -> Formula a b
+weakUntil p q = p `until` (q `logor` always p)
+
+strongRelease :: Semigroup b => Formula a b -> Formula a b -> Formula a b
+strongRelease p q = q `until` (p `logand` q)
+
+{-
 -- | Just as 'Arrow' represents a cartesian functor from arrows in Haskell to
 --   some subcategory 'c' of Hask, a PartialArrow represents a cartesian
 --   functor from partial arrows in Hask to some subcategory 'p'.
@@ -282,3 +360,4 @@ test = do
       putStrLn $ "i = " ++ show i ++ ", x = " ++ show x
       return m'
     return ()
+-}

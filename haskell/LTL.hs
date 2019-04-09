@@ -68,15 +68,15 @@ logand = liftA2 (liftA2 (<>))
 next :: Formula a b -> Formula a b
 next p w = p (w . succ)
 
-until :: Semigroup b => Formula a b -> Formula a b -> Formula a b
 -- until p q f = exists i, q (f i) st. forall j, 0 <= j < i -> p (f j)
-until p q = p `logor` (q `logand` (next p `until` next q))
+until :: Semigroup b => Formula a b -> Formula a b -> Formula a b
+until p q = p `logor` (q `logand` next (p `until` q))
 
 always :: Semigroup b => Formula a b -> Formula a b
-always p = p `logand` always (next p)
+always p = p `logand` next (always p)
 
 eventually :: Semigroup b => Formula a b -> Formula a b
-eventually p = p `logor` eventually (next p)
+eventually p = p `logor` next (eventually p)
 
 implies :: Monoid b => Formula a b -> Formula a b -> Formula a b
 implies p q w = maybe truth ((<> q w) . Just) (p w)

@@ -1,7 +1,7 @@
-{ packages ? "coqPackages_8_8"
+{ packages ? "coqPackages_8_9"
 
-, rev      ? "89b618771ad4b0cfdb874dee3d51eb267c4257dd"
-, sha256   ? "0jlyggy7pvqj2a6iyn44r7pscz9ixjb6fn6s4ssvahfywsncza6y"
+, rev      ? "d73f16d6767e99675682f822dac3017bf9af1e83"
+, sha256   ? "1b5wix9kr5s3hscpl425si0zw00zzijc9xrcph6l2myh4n5nvcm0"
 
 , pkgs     ? import (builtins.fetchTarball {
     url = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
@@ -121,7 +121,7 @@ in pkgs.stdenv.mkDerivation rec {
 
   buildInputs = [
     coq coq.ocaml coq.camlp5 coq.findlib
-    equations coq-haskell category-theory fiat-core
+    equations coq-haskell #category-theory fiat-core
   ];
   enableParallelBuilding = true;
 

@@ -233,7 +233,7 @@ Fixpoint Verify (T : Stream) `(W : Witness L) : Prop :=
   | Both P Q         => Verify T P /\ Verify T Q
   | InLeft P _       => Verify T P
   | InRight _ Q      => Verify T Q
-  | Implied1 _ _     => False
+  | Implied1 _ _     => True
   | Implied2 P Q     => Verify T P -> Verify T Q
   | NextFwd P        => match T with _ :: xs => Verify xs P | _ => False end
   | EventuallyStop P => Verify T P
@@ -246,6 +246,156 @@ Fixpoint Verify (T : Stream) `(W : Witness L) : Prop :=
   end.
 
 Local Obligation Tactic := program_simpl; unfold remaining; simpl; omega.
+
+Inductive Stepper : Stream -> LTL -> Type :=
+  | StepStream                : forall x xs L,
+      Stepper xs L          -> Stepper (x :: xs) L
+  | StepAnd1 (p q : LTL)      : forall T,
+      Stepper T p           -> Stepper T (And p q)
+  | StepAnd2 (p q : LTL)      : forall T,
+      Stepper T q           -> Stepper T (And p q)
+  | StepOr1 (p q : LTL)       : forall T,
+      Stepper T p           -> Stepper T (Or p q)
+  | StepOr2 (p q : LTL)       : forall T,
+      Stepper T q           -> Stepper T (Or p q)
+  | StepImpl1 (p q : LTL)     : forall T,
+      Stepper T p           -> Stepper T (Impl p q)
+  | StepImpl2 (p q : LTL)     : forall T,
+      Stepper T q           -> Stepper T (Impl p q)
+  | StepNext (p : LTL)        : forall x xs,
+      Stepper xs p          -> Stepper (x :: xs) (Next p)
+  | StepEventually1 (p : LTL) : forall T,
+      Stepper T p           -> Stepper T (Eventually p)
+  | StepEventually2 (p : LTL) : forall x xs,
+      Stepper xs p          -> Stepper (x :: xs) (Eventually p)
+  | StepUntil1 (p q : LTL)    : forall T,
+      Stepper T q           -> Stepper T (Until p q)
+  | StepUntil2 (p q : LTL)    : forall x xs,
+      Stepper [x] p         -> Stepper (x :: xs) (Until p q)
+  | StepUntil3 (p q : LTL)    : forall T,
+      Stepper T p           -> Stepper T (Until p q)
+  | StepUntil4 (p q : LTL)    : forall x xs,
+      Stepper xs (p U q)    -> Stepper (x :: xs) (Until p q)
+  | StepAlways1 (p : LTL)     : forall T,
+      Stepper T p           -> Stepper T (Always p)
+  | StepAlways2 (p : LTL)     : forall x xs,
+      Stepper xs (Always p) -> Stepper (x :: xs) (Always p).
+
+(*
+Program Fixpoint Compute' (t : option term) (T : Stream) (L : LTL) (n : nat) : option (Witness L) :=
+  match L with
+  | Top          => Some IsTrue
+  | Bottom       => None
+  | Query v      => match T with
+                    | x :: _ => Some (Base v (v x))
+                    | _ =>
+                      match t with
+                      | None => None
+                      | Some t => Some (EndOfTrace t (Query v))
+                      end
+                    end
+  | And p q      => match Compute' t T p with
+                    | None   => None
+                    | Some P =>
+                      match Compute' t T q with
+                      | None   => None
+                      | Some Q => Some (Both P Q)
+                      end
+                    end
+  | Or p q       => match Compute' t T p with
+                    | None   =>
+                      match Compute' t T q with
+                      | None   => None
+                      | Some Q => Some (InRight p Q)
+                      end
+                    | Some P => Some (InLeft P q)
+                    end
+  | Impl p q     => match Compute' t T p with
+                    | None   => Some (Implied1 p q)
+                    | Some P =>
+                      match Compute' t T q with
+                      | None   => None
+                      | Some Q => Some (Implied2 P Q)
+                      end
+                    end
+  | Next p       => match T with
+                    | _ :: xs =>
+                      match Compute' t xs p with
+                      | None => None
+                      | Some P => Some (NextFwd P)
+                      end
+                    | _ =>
+                      match t with
+                      | None => None
+                      | Some t => Some (EndOfTrace t (Next p))
+                      end
+                    end
+  | Eventually p => match T with
+                    | x :: xs =>
+                      match Compute' t (x :: xs) p with
+                      | None =>
+                        match Compute' t xs p with
+                        | None => None
+                        | Some P => Some (EventuallyFwd P)
+                        end
+                      | Some P => Some (EventuallyStop P)
+                      end
+                    | _ =>
+                      match t with
+                      | None => None
+                      | Some t => Some (EndOfTrace t (Eventually p))
+                      end
+                    end
+  | Until p q    => match T with
+                    | x :: xs =>
+                      match Compute' t (x :: xs) q with
+                      | Some Q => Some (UntilPrf1 p Q)
+                      | None =>
+                        match xs with
+                        | [] =>
+                          match Compute' t [x] p with
+                          | Some P => Some (UntilPrf3 P q)
+                          | None => None
+                          end
+                        | _ =>
+                          match Compute' t (x :: xs) p with
+                          | None => None
+                          | Some P =>
+                            match Compute' t xs (p U q) with
+                            | Some Q => Some (UntilPrf2 P Q)
+                            | None => None
+                            end
+                          end
+                        end
+                      end
+                    | _ =>
+                      match t with
+                      | None => None
+                      | Some t => Some (EndOfTrace t (Until p q))
+                      end
+                    end
+  | Always p     => match T with
+                    | x :: xs =>
+                      match Compute' t (x :: xs) p with
+                      | None => None
+                      | Some P =>
+                        match xs with
+                        | [] => Some (AlwaysPrf2 P)
+                        | _ =>
+                          match Compute' t xs (Always p) with
+                          | None => None
+                          | Some PS => Some (AlwaysPrf1 P PS)
+                          end
+                        end
+                      end
+                    | _ =>
+                      match t with
+                      | None => None
+                      | Some t => Some (EndOfTrace t (Always p))
+                      end
+                    end
+  end.
+*)
 
 Fixpoint Compute' (t : option term) (T : Stream) (L : LTL) (n : nat) : option (Witness L) :=
   match n with
@@ -365,27 +515,61 @@ Fixpoint Compute' (t : option term) (T : Stream) (L : LTL) (n : nat) : option (W
     end
   end.
 
-Definition Compute (t : option term) (T : Stream) (L : LTL) : option (Witness L) :=
+Definition Compute (t : option term) (T : Stream) (L : LTL) :=
   Compute' t T L (remaining T L).
+
+Lemma Compute'_Both t T p q n P1 P2 :
+  Compute' t T p n = Some P1 ->
+  Compute' t T q n = Some P2 ->
+  Compute' t T (p ∧ q) n = Some (Both P1 P2).
+Proof.
+  generalize dependent p.
+  generalize dependent q.
+  generalize dependent T.
+  generalize dependent t.
+  induction n; simpl; intros.
+    discriminate.
+  destruct p, q; try discriminate;
+  inversion H; subst; clear H;
+  inversion H0; subst; clear H0.
+  - admit.
+  - admit.
+  -
+  destruct n; simpl in *.
+Abort.
 
 Lemma Compute_Verified (t : option term) (T : Stream) (L : LTL) :
   forall P, Compute t T L = Some P -> Verify T P.
 Proof.
   unfold Compute; intros.
-  induction (remaining T L); simpl in *.
+  generalize dependent (remaining T L).
+  induction n; simpl in *.
     discriminate.
-  induction P; simpl in *; auto.
+  destruct P; simpl in *; intros; auto.
   - destruct l; simpl in *;
     inversion_clear H; discriminate.
   - destruct T; simpl in *.
       destruct t;
       inversion_clear H; discriminate.
     now inversion_clear H.
-  - destruct p, q; simpl in *; admit.
+  - destruct (Compute' t T p n) eqn:?;
+    destruct (Compute' t T q n) eqn:?; try discriminate.
+    inversion H; subst; clear H.
+    apply inj_pair2 in H1.
+    apply inj_pair2 in H2.
+    subst.
+    apply IHn; clear IHn.
   - destruct p, q; simpl in *; admit.
   - destruct q; simpl in *; admit.
   - admit.
   - admit.
+  - admit.
+  - admit.
+  - admit.
+  - admit.
+  - admit.
+  - admit.
+  - destruct T, p, t; simpl in *.
 Admitted.
 
 (*

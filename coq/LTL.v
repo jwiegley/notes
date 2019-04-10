@@ -2,11 +2,13 @@ Require Import Program.
 (* Require Import FunctionalExtensionality. *)
 Require Import Coq.Lists.List.
 Require Import Coq.Classes.Equivalence.
+Require Import Coq.omega.Omega.
 
 Open Scope program_scope.
 Open Scope list_scope.
 
 Generalizable All Variables.
+Set Transparent Obligations.
 
 Section LTL.
 
@@ -20,7 +22,6 @@ Inductive LTL : Type :=
   | Top
   | Bottom
   | Query (v : a -> b -> Prop)
-  | Not (p : LTL)
   | And (p q : LTL)
   | Or (p q : LTL)
   | Impl (p q : LTL)
@@ -33,7 +34,7 @@ Inductive LTL : Type :=
 
 Notation "⊤" := Top (at level 50).
 Notation "⊥" := Bottom (at level 50).
-Notation "¬ x" := (Not x) (at level 50).
+Notation "¬ x" := (Impl x Bottom) (at level 50).
 Infix "∧" := And (at level 50).
 Infix "∨" := Or (at level 50).
 Infix "→" := Impl (at level 50).
@@ -49,7 +50,6 @@ Fixpoint LTL_size (p : LTL) : nat :=
   | Query v      => 1
   | Top          => 1
   | Bottom       => 1
-  | Not p        => 1 + LTL_size p
   | And p q      => 1 + LTL_size p + LTL_size q
   | Or p q       => 1 + LTL_size p + LTL_size q
   | Impl p q     => 1 + LTL_size p + LTL_size q
@@ -65,43 +65,117 @@ Definition remaining (s : Stream) (p : LTL) := length s + LTL_size p.
    [EndOfTrace] and [UntilSing]. Choosing [term] to be [False] has the effect
    of requiring all matching formula to match some prefix of the input
    completely. *)
-Inductive Witness {term : Prop} : Stream -> LTL -> Prop :=
-  | EndOfTrace     : forall (t : term) p, p <> Top -> Witness [] p
-  | IsTrue         : forall xs, Witness xs Top
-  | Base           : forall (q : a -> b -> Prop) x xs w,
-      q x w -> Witness (x :: xs) (Query q)
-  | Negated        : forall p xs,
-      (Witness xs p -> False) -> Witness xs (¬p)
-  | Both           : forall p q xs,
-      Witness xs p -> Witness xs q -> Witness xs (p ∧ q)
-  | InLeft         : forall p q xs,
-      Witness xs p -> Witness xs (p ∨ q)
-  | InRight        : forall p q xs,
-      Witness xs q -> Witness xs (p ∨ q)
-  (* | Implied           : forall p q xs, *)
-  (*     (Witness xs p -> Witness xs q) -> Witness xs (p → q) *)
-  | NextFwd        : forall p x xs,
-      Witness xs p -> Witness (x :: xs) (X p)
-  | EventuallyStop : forall p xs,
-      Witness xs p -> Witness xs (◇ p)
-  | EventuallyFwd  : forall p x xs,
-      Witness xs (◇ p) -> Witness (x :: xs) (◇ p)
-  | UntilNil       : forall p q xs,
-      Witness xs q -> Witness xs (p U q)
-  | UntilCons      : forall p q x xs,
-      Witness (x :: xs) p -> Witness xs (p U q) -> Witness (x :: xs) (p U q)
-  | UntilSing      : forall (t : term) p q x,
-      Witness [x] p -> Witness [x] (p U q)
-  | AlwaysCons     : forall p ps x xs,
-      Witness (x :: xs) p -> Witness xs (□ ps) -> Witness (x :: xs) (□ p)
-  | AlwaysSing     : forall p x,
-      Witness [x] p -> Witness [x] (□ p).
+Inductive Witness {term : Type} : Type :=
+  | EndOfTrace (t : term) (l : LTL)
+  | IsTrue
+  | Base (x : a) (w : b)
+  | Both (p q : Witness)
+  | InLeft (p : Witness)
+  | InRight (q : Witness)
+  | Implied (p q : Witness)
+  | NextFwd (p : Witness)
+  | EventuallyStop (p : Witness)
+  | EventuallyFwd (p : Witness)
+  | UntilPrf (ps : list Witness) (q : Witness)
+  | AlwaysPrf (ps : list Witness).
 
-(* Strong Interpretation, where an EndOfTrace is not considered a match. *)
-Notation "T ⊢ L" := (Witness T L) (at level 70).
+Fixpoint summation (xs : list nat) : nat :=
+  match xs with
+  | nil => 0
+  | x :: xs' => x + summation xs'
+  end.
+
+Lemma S_summation xs : S (summation xs) = summation (1 :: xs).
+Proof. induction xs; simpl; auto. Qed.
+
+Lemma plus_summation x xs : x + summation xs = summation (x :: xs).
+Proof. induction xs; simpl; auto. Qed.
+
+Lemma summation_plus x xs : summation xs + x = summation (x :: xs).
+Proof.
+  induction xs; simpl; auto.
+  rewrite <- plus_assoc.
+  rewrite IHxs.
+  simpl.
+  rewrite! plus_assoc.
+  rewrite (plus_comm a0).
+  reflexivity.
+Qed.
+
+Fixpoint Witness_size `(p : @Witness term) : nat :=
+  match p with
+  | EndOfTrace t l => 1 + LTL_size l
+  | IsTrue => 1
+  | Base x w => 1
+  | Both p q => 1 + Witness_size p + Witness_size q
+  | InLeft p => 1 + Witness_size p
+  | InRight q => 1 + Witness_size q
+  | Implied p q => 1 + Witness_size p + Witness_size q
+  | NextFwd p => 1 + Witness_size p
+  | EventuallyStop p => 1 + Witness_size p
+  | EventuallyFwd p => 1 + Witness_size p
+  | UntilPrf ps q => 1 + summation (map Witness_size ps) + Witness_size q
+  | AlwaysPrf ps => 1 + summation (map Witness_size ps)
+  end.
+
+Lemma Witness_not_empty `(p : @Witness term) : Witness_size p > 0.
+Proof. induction p; simpl; omega. Qed.
+
+Local Obligation Tactic := program_simpl; simpl; try omega.
+
+(* The [term] proposition must hold for any dangling cases, such as
+   [EndOfTrace] and [UntilSing]. Choosing [term] to be [False] has the effect
+   of requiring all matching formula to match some prefix of the input
+   completely. *)
+Program Fixpoint Verify {term : Prop}
+        (T : Stream) (L : LTL) (W : @Witness term)
+        {measure (Witness_size W)} : Prop :=
+  match W with
+  | EndOfTrace t l   => l = L /\ L <> ⊤
+  | IsTrue           => L = ⊤
+  | Base x w         => forall   q, L = Query q -> forall x xs, T = x :: xs -> q x w
+  | Both P Q         => forall p q, L = p ∧ q -> Verify T p P /\ Verify T q Q
+  | InLeft P         => forall p q, L = p ∨ q -> Verify T p P
+  | InRight Q        => forall p q, L = p ∨ q -> Verify T q Q
+  | Implied P Q      => forall p q, L = p → q -> Verify T p P -> Verify T q Q
+  | NextFwd P        => forall x xs, T = x :: xs -> forall p, L = X p -> Verify xs p P
+  | EventuallyStop P => forall p, L = ◇ p -> Verify T p P
+  | EventuallyFwd P  => forall x xs, T = x :: xs -> Verify xs L P
+
+  | UntilPrf PS Q    => forall p q,
+      L = p U q -> match T, PS with
+                   | [], _ => False
+                   | [x], [P'] =>
+                     exists t, Q = EndOfTrace t q -> Verify [x] p P'
+                   | x :: xs, [] => Verify (x :: xs) q Q
+                   | x :: xs, P' :: PS' =>
+                     Verify (x :: xs) p P' /\ Verify xs (p U q) (UntilPrf PS' P')
+                   end
+
+  | AlwaysPrf PS     => forall p,
+      L = □ p   -> match T, PS with
+                   | [], _ => False
+                   | _, [] => False
+                   | [x], [P'] => Verify [x] p P'
+                   | x :: xs, P' :: PS' =>
+                     Verify (x :: xs) p P' /\ Verify xs (□ p) (AlwaysPrf PS')
+                   end
+  end.
+Next Obligation.
+  pose proof (Witness_not_empty Q).
+  simpl; omega.
+Defined.
+Next Obligation.
+  pose proof (Witness_not_empty P').
+  simpl; omega.
+Defined.
+
+Notation "T ⊢ L ⟿ P" := (Verify T L P) (at level 80).
+
+Notation "T ⊢[ t ] L ⟿ P" := (@Verify t T L P) (at level 80).
 
 (* Weak Interpretation, where an EndOfTrace is considered a match. *)
-Notation "T ⊢~ L" := (@Witness True T L) (at level 70).
+Notation "T ⊢~ L ⟿ P" := (@Verify True T L P) (at level 80).
 
 Definition impl (φ ψ : LTL) := ¬φ ∨ ψ.
 
@@ -114,7 +188,9 @@ Definition release (φ ψ : LTL) := ¬(¬φ U ¬ψ).
 Notation "p 'R' q" := (release p q) (at level 50).
 
 Definition ltl_equiv (p q : LTL) : Prop :=
-  forall t s, @Witness t s p <-> @Witness t s q.
+  forall t s P, @Verify t s p P <-> @Verify t s q P.
+
+Local Obligation Tactic := program_simpl.
 
 Program Instance Equivalence_ltl_equiv : Equivalence ltl_equiv.
 Next Obligation.
@@ -132,7 +208,7 @@ Next Obligation.
 Qed.
 
 Definition ltl_strong_equiv (p q : LTL) : Prop :=
-  forall s, @Witness False s p <-> @Witness False s q.
+  forall s P, @Verify False s p P <-> @Verify False s q P.
 
 Infix "≈" := equiv (at level 90).
 
@@ -155,12 +231,22 @@ Infix "≈[strong]" := ltl_strong_equiv (at level 90).
 
 Ltac end_of_trace := apply EndOfTrace; [auto|intro; discriminate].
 
+Lemma eventually_inv {t s ψ P} :
+  s ⊢ ◇ ψ ⟿ P -> s ⊢ ψ ⟿ P \/ tl s ⊢[t] ◇ ψ ⟿ P.
+Proof.
+  intros.
+  induction P.
+  - now right.
+  - now right.
+  - now right.
+Admitted.
+
 (* eventually ψ becomes true *)
 Lemma eventually_until (ψ : LTL) : ◇ ψ ≈ ⊤ U ψ.
 Proof.
   repeat intro; split; intros.
-  - induction s.
-      inversion_clear H.
+  - induction s; simpl.
+      inversion P.
         now constructor.
       now apply UntilNil.
     inversion_clear H.

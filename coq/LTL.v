@@ -281,8 +281,7 @@ Inductive Stepper : Stream -> LTL -> Type :=
   | StepAlways2 (p : LTL)     : forall x xs,
       Stepper xs (Always p) -> Stepper (x :: xs) (Always p).
 
-(*
-Program Fixpoint Compute' (t : option term) (T : Stream) (L : LTL) (n : nat) : option (Witness L) :=
+Program Fixpoint Compute' (t : option term) (T : Stream) (L : LTL) {wf (Stepper T L)} : option (Witness L) :=
   match L with
   | Top          => Some IsTrue
   | Bottom       => None
@@ -395,7 +394,6 @@ Program Fixpoint Compute' (t : option term) (T : Stream) (L : LTL) (n : nat) : o
                       end
                     end
   end.
-*)
 
 Fixpoint Compute' (t : option term) (T : Stream) (L : LTL) (n : nat) : option (Witness L) :=
   match n with

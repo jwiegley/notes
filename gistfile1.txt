@@ -1,0 +1,8 @@
+src/DFINITY/Node/REST/Client.hs:50:5: error:
+    • No instance for (servant-client-core-0.16:Servant.Client.Core.RunClient.RunStreamingClient
+                         ClientM)
+        arising from a use of ‘client’
+      There are instances for similar types:
+        instance servant-client-core-0.16:Servant.Client.Core.RunClient.RunStreamingClient
+                   Servant.Client.Internal.HttpClient.Streaming.ClientM
+          -- Defined in ‘Servant.Client.Internal.HttpClient.Streaming’

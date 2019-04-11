@@ -90,22 +90,40 @@ Equations matches (l : LTL) (s : Stream) : Prop by wf (remaining l s) lt :=
   (* 16 *) matches (□ p)     []        := True.
 
 Inductive Match : Type :=
-  | EndOfTrace (t : term)
+  | EndOfTrace     (t : term)
   | IsTrue
-  | Base (x : b)
-  | Both (p q : Match)
-  | InLeft (p : Match)
-  | InRight (q : Match)
+  | Base           (x : b)
+  | Both           (p q : Match)
+  | InLeft         (p : Match)
+  | InRight        (q : Match)
   | NotImplied
-  | Implied (p q : Match)
-  | NextFwd (p : Match)
+  | Implied        (p q : Match)
+  | NextFwd        (p : Match)
   | EventuallyStop (p : Match)
-  | EventuallyFwd (p : Match)
-  | UntilPrf1 (q : Match)
-  | UntilPrf2 (p : Match)
-  | UntilPrf3 (p : Match) (ps : Match)
-  | AlwaysPrf1 (p : Match) (ps : Match)
+  | EventuallyFwd  (p : Match)
+  | UntilPrf1      (q : Match)
+  | UntilPrf2      (p : Match)
+  | UntilPrf3      (p : Match) (ps : Match)
+  | AlwaysPrf1     (p : Match) (ps : Match)
   | AlwaysPrf2.
+
+Inductive MatchDep : LTL -> Type :=
+  | DepEndOfTrace     (t : term) (l : LTL)                       : MatchDep l
+  | DepIsTrue                                                    : MatchDep Top
+  | DepBase           q (w : b)                                  : MatchDep (Query q)
+  | DepBoth           `(P : MatchDep p) `(Q : MatchDep q)        : MatchDep (p ∧ q)
+  | DepInLeft         `(P : MatchDep p) q                        : MatchDep (p ∨ q)
+  | DepInRight        p `(Q : MatchDep q)                        : MatchDep (p ∨ q)
+  | DepImplied1       p q                                        : MatchDep (p → q)
+  | DepImplied2       `(P : MatchDep p) `(Q : MatchDep q)        : MatchDep (p → q)
+  | DepNextFwd        `(P : MatchDep p)                          : MatchDep (X p)
+  | DepEventuallyStop `(P : MatchDep p)                          : MatchDep (◇ p)
+  | DepEventuallyFwd  `(P : MatchDep p)                          : MatchDep (◇ p)
+  | DepUntilPrf1      p `(Q : MatchDep q)                        : MatchDep (p U q)
+  | DepUntilPrf2      `(P : MatchDep p) `(PS : MatchDep (p U q)) : MatchDep (p U q)
+  | DepUntilPrf3      `(P : MatchDep p) q                        : MatchDep (p U q)
+  | DepAlwaysPrf1     `(P : MatchDep p) `(PS : MatchDep (□ p))   : MatchDep (□ p)
+  | DepAlwaysPrf2     p                                          : MatchDep (□ p).
 
 Equations compare (t : option term) (L : LTL) (T : Stream) : option Match
   by wf (remaining L T) lt :=
@@ -223,6 +241,24 @@ Equations compare (t : option term) (L : LTL) (T : Stream) : option Match
 
   compare t (Always p) [] := Some AlwaysPrf2.
 
+Ltac simplify_compare :=
+  repeat rewrite
+    ?compare_equation_1,
+    ?compare_equation_2,
+    ?compare_equation_3,
+    ?compare_equation_4,
+    ?compare_equation_5,
+    ?compare_equation_6,
+    ?compare_equation_7,
+    ?compare_equation_8,
+    ?compare_equation_9,
+    ?compare_equation_10,
+    ?compare_equation_11,
+    ?compare_equation_12,
+    ?compare_equation_13,
+    ?compare_equation_14,
+    ?compare_equation_15.
+
 Ltac simplify_compare_in H :=
   repeat rewrite
     ?compare_equation_1,
@@ -241,6 +277,24 @@ Ltac simplify_compare_in H :=
     ?compare_equation_14,
     ?compare_equation_15
     in H.
+
+Ltac simplify_matches :=
+  repeat rewrite
+    ?matches_equation_1,
+    ?matches_equation_2,
+    ?matches_equation_3,
+    ?matches_equation_4,
+    ?matches_equation_5,
+    ?matches_equation_6,
+    ?matches_equation_7,
+    ?matches_equation_8,
+    ?matches_equation_9,
+    ?matches_equation_10,
+    ?matches_equation_11,
+    ?matches_equation_12,
+    ?matches_equation_13,
+    ?matches_equation_14,
+    ?matches_equation_15.
 
 Ltac simplify_matches_in H :=
   repeat rewrite
@@ -261,43 +315,174 @@ Ltac simplify_matches_in H :=
     ?matches_equation_15
     in H.
 
-Lemma Compute_Verified (t : option term) (L : LTL) (T : Stream) :
-  forall P, compare t L T = Some P -> matches L T.
-Proof.
-  induction L, T; simpl; intros; try constructor;
-  simplify_compare_in H;
-  repeat rewrite
-    ?matches_equation_1,
-    ?matches_equation_2,
-    ?matches_equation_3,
-    ?matches_equation_4,
-    ?matches_equation_5,
-    ?matches_equation_6,
-    ?matches_equation_7,
-    ?matches_equation_8,
-    ?matches_equation_9,
-    ?matches_equation_10,
-    ?matches_equation_11,
-    ?matches_equation_12,
-    ?matches_equation_13,
-    ?matches_equation_14,
-    ?matches_equation_15;
-  try discriminate;
-  simpl in *; auto.
-  - destruct t; [|discriminate].
-    assumption.
-  - destruct (v a0) eqn:?; [|discriminate].
-    now exists b0.
-  - destruct (compare t L1 []) eqn:?; [|discriminate].
-    destruct (compare t L2 []) eqn:?; [|discriminate].
-    inversion H; subst; clear H.
-    specialize (IHL1 m eq_refl).
-    specialize (IHL2 m0 eq_refl).
-    admit.
-  - admit.
-Abort.
+Lemma matches_and L1 L2 T :
+  matches (L1 ∧ L2) T <-> matches L1 T /\ matches L2 T.
+Proof. induction T; simplify_matches; split; auto. Qed.
 
-Notation "T ⊢ L ⟿ P" := (compare T L = Some P) (at level 80).
+Lemma compare_and_inv t L1 L2 T P :
+  compare t (L1 ∧ L2) T = Some P ->
+  exists P1 P2, P = Both P1 P2
+    /\ compare t L1 T = Some P1 /\ compare t L2 T = Some P2.
+Proof.
+  intros H.
+  simplify_compare_in H.
+  destruct (compare t L1 T) eqn:?; [|discriminate].
+  destruct (compare t L2 T) eqn:?; [|discriminate].
+  exists m, m0.
+  now inversion H; subst; clear H.
+Qed.
+
+Lemma compare_and_impl t L1 L2 T P1 P2 :
+  compare t L1 T = Some P1 -> compare t L2 T = Some P2 ->
+  compare t (L1 ∧ L2) T = Some (Both P1 P2).
+Proof.
+  intros.
+  simplify_compare.
+  now rewrite H, H0.
+Qed.
+
+Lemma matches_or L1 L2 T :
+  matches (L1 ∨ L2) T <-> matches L1 T \/ matches L2 T.
+Proof. induction T; simplify_matches; split; auto. Qed.
+
+Lemma compare_or_inv t L1 L2 T P :
+  compare t (L1 ∨ L2) T = Some P ->
+    (exists P1, P = InLeft P1 /\ compare t L1 T = Some P1) \/
+    (exists P2, P = InRight P2 /\ compare t L2 T = Some P2).
+Proof.
+  intros H.
+  simplify_compare_in H.
+  destruct (compare t L1 T) eqn:?.
+    left.
+    exists m.
+    now inversion H; subst; clear H.
+  destruct (compare t L2 T) eqn:?; [|discriminate].
+  right.
+  exists m.
+  now inversion H; subst; clear H.
+Qed.
+
+Lemma compare_or_left_impl t L1 L2 T P1 :
+  compare t L1 T = Some P1 ->
+  compare t (L1 ∨ L2) T = Some (InLeft P1).
+Proof.
+  intros.
+  simplify_compare.
+  now rewrite H.
+Qed.
+
+Lemma compare_or_right_impl t L1 L2 T P2 :
+  compare t L1 T = None ->
+  compare t L2 T = Some P2 ->
+  compare t (L1 ∨ L2) T = Some (InRight P2).
+Proof.
+  intros.
+  simplify_compare.
+  now rewrite H, H0.
+Qed.
+
+Lemma matches_impl L1 L2 T :
+  matches (L1 → L2) T <-> (matches L1 T -> matches L2 T).
+Proof. induction T; simplify_matches; split; auto. Qed.
+
+Lemma compare_impl_inv t L1 L2 T P :
+  compare t (L1 → L2) T = Some P ->
+  (exists P1 P2, P = Implied P1 P2
+     /\ compare t L1 T = Some P1 /\ compare t L2 T = Some P2) \/
+  (P = NotImplied /\ compare t L1 T = None).
+Proof.
+  intros H.
+  simplify_compare_in H.
+  destruct (compare t L1 T) eqn:?.
+    destruct (compare t L2 T) eqn:?; [|discriminate].
+    left.
+    exists m, m0.
+    now inversion H; subst; clear H.
+  right.
+  now inversion H; subst; clear H.
+Qed.
+
+Lemma compare_impl_fails_impl t L1 L2 T :
+  compare t L1 T = None ->
+  compare t (L1 → L2) T = Some NotImplied.
+Proof.
+  intros.
+  simplify_compare.
+  now rewrite H.
+Qed.
+
+Lemma compare_impl_holds_impl t L1 L2 T P1 P2 :
+  compare t L1 T = Some P1 -> compare t L2 T = Some P2 ->
+  compare t (L1 → L2) T = Some (Implied P1 P2).
+Proof.
+  intros.
+  simplify_compare.
+  now rewrite H, H0.
+Qed.
+
+Lemma Compute_Verified (t : option term) (L : LTL) (T : Stream) :
+  (exists P, compare t L T = Some P) <-> matches L T.
+Proof.
+  induction L; simpl; split; intros.
+  - simplify_compare_in H; now constructor.
+  - simplify_compare; now eauto.
+  - simplify_compare_in H.
+    destruct H.
+    discriminate.
+  - simplify_matches_in H.
+    contradiction.
+  - destruct H.
+    induction T; simplify_compare_in H.
+      destruct t; [|discriminate].
+      now simplify_matches.
+    destruct (v a0) eqn:?; [|discriminate].
+    simplify_matches.
+    inversion H; subst; clear H.
+    now exists b0.
+  - admit.
+  - destruct H.
+    apply matches_and.
+    apply compare_and_inv in H.
+    repeat destruct H.
+    destruct H0.
+    split.
+      now apply IHL1; eauto.
+    now apply IHL2; eauto.
+  - admit.
+  - destruct H.
+    apply matches_or.
+    apply compare_or_inv in H.
+    repeat destruct H.
+      left.
+      now apply IHL1; eauto.
+    right.
+    now apply IHL2; eauto.
+  - admit.
+  - destruct H.
+    apply matches_impl; intros.
+    apply compare_impl_inv in H.
+    destruct H.
+      repeat destruct H.
+      apply IHL2.
+      now exists x1.
+    apply IHL1 in H0.
+    destruct H, H0.
+    rewrite H1 in H0.
+    discriminate.
+  - admit.
+  - admit.
+  - admit.
+  - admit.
+  - admit.
+  - admit.
+  - admit.
+  - admit.
+  - admit.
+Admitted.
+
+Variable t : option term.
+
+Notation "T ⊢ L ⟿ P" := (compare t L T = Some P) (at level 80).
 
 Definition impl (φ ψ : LTL) := ¬φ ∨ ψ.
 
@@ -309,36 +494,38 @@ Infix "↔" := iff (at level 50).
 Definition release (φ ψ : LTL) := ¬(¬φ U ¬ψ).
 Notation "p 'R' q" := (release p q) (at level 50).
 
-Definition ltl_equiv (p q : LTL) : Prop.
-Admitted.
+Infix "≈" := equiv (at level 70).
 
-(*
+Definition Match_equiv (p q : Match) : Prop := p = q.
+
+Definition ltl_equiv (p q : LTL) : Prop :=
+  forall t (T : Stream) P1 P2,
+    compare t p T = Some P1 ->
+    compare t q T = Some P2 ->
+    P1 ≈ P2.
+
 Local Obligation Tactic := program_simpl.
 
 Program Instance Equivalence_ltl_equiv : Equivalence ltl_equiv.
 Next Obligation.
-  repeat intro; split; auto.
-Qed.
+  repeat intro; auto.
+Admitted.
 Next Obligation.
   repeat intro; intros.
-  now symmetry.
-Qed.
+  symmetry.
+Admitted.
 Next Obligation.
   repeat intro; intros.
-  specialize (H s).
-  specialize (H0 s).
-  now rewrite H, H0.
-Qed.
-*)
-
-Infix "≈" := equiv (at level 90).
+Admitted.
 
 Ltac end_of_trace := apply EndOfTrace; [auto|intro; discriminate].
 
 (* eventually ψ becomes true *)
 Lemma eventually_until (ψ : LTL) : ◇ ψ ≈ ⊤ U ψ.
 Proof.
-  repeat intro; split; intros.
+Abort.
+(*
+  repeat intro.
   - induction s; simpl.
       inversion P.
         now constructor.
@@ -356,10 +543,17 @@ Proof.
     + now apply EventuallyFwd; auto.
     + apply EventuallyFwd.
       now end_of_trace.
-Qed.
+*)
 
-Lemma witness_neg s φ : s ⊢ ¬φ <-> ~ (s ⊢ φ).
+Lemma match_neg P T φ : (T ⊢ ¬φ ⟿ P) <-> ~ (T ⊢ φ ⟿ P).
 Proof.
+  split; intros.
+    simplify_compare_in H.
+    destruct (compare t φ T) eqn:?.
+      discriminate.
+    intro.
+    discriminate.
+  simplify_compare.
 Abort.
 
 (* ψ always remains true *)
@@ -423,7 +617,9 @@ Proof. Abort.
 
 Lemma foo18 (φ : LTL) : ¬(X φ) ≈ X ¬φ.
 Proof.
-  repeat intro; split; intros.
+Abort.
+(*
+  repeat intro; intros.
   - induction s.
       inversion_clear H.
         end_of_trace.
@@ -437,7 +633,7 @@ Proof.
     + now apply EventuallyFwd; auto.
     + apply EventuallyFwd.
       now end_of_trace.
-Qed.
+*)
 
 Lemma foo19 (φ : LTL) : ¬(◇ φ) ≈ □ ¬φ.
 Proof. Abort.

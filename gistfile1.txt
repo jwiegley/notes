@@ -1,0 +1,3499 @@
+Vulcan ~/dfinity/dev/upgrade $ strings dist-newstyle/build/x86_64-osx/ghc-8.6.4/wasm-v8-0.0.0/setup-config
+Saved package config for wasm-v8-0.0.0 written by Cabal-2.4.1.0 using ghc-8.6
+lib:wasm-v8
+K/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin/ghc
+ghc-pkg
+O/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin/ghc-pkg
+-hide-all-packages
+/Users/johnw/.cabal/bin
+/Users/johnw/.cabal
+/Users/johnw/.cabal/bin
+B/Users/johnw/.cabal/lib/x86_64-osx-ghc-8.6.4/wasm-v8-0.0.0-inplace
+,/Users/johnw/.cabal/lib/x86_64-osx-ghc-8.6.4
+>/Users/johnw/.cabal/libexec/x86_64-osx-ghc-8.6.4/wasm-v8-0.0.0
+</Users/johnw/.cabal/share/x86_64-osx-ghc-8.6.4/wasm-v8-0.0.0
+@/Users/johnw/.cabal/share/doc/x86_64-osx-ghc-8.6.4/wasm-v8-0.0.0
+E/Users/johnw/.cabal/share/doc/x86_64-osx-ghc-8.6.4/wasm-v8-0.0.0/html
+E/Users/johnw/.cabal/share/doc/x86_64-osx-ghc-8.6.4/wasm-v8-0.0.0/html
+/Users/johnw/.cabal/etc
+wasm-v8-0.0.0-inplace
+W/Users/johnw/dfinity/dev/upgrade/dist-newstyle/build/x86_64-osx/ghc-8.6.4/wasm-v8-0.0.0
+./Users/johnw/.cabal/store/ghc-8.6.4/package.db
+B/Users/johnw/dfinity/dev/upgrade/dist-newstyle/packagedb/ghc-8.6.4
+base
+base-4.12.0.0
+
+bindings-DSL
+*bindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi
+bytestring
+bytestring-0.10.8.2
+mtl-2.2.2
+vector
+&vector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH
+static
+static
+lib:wasm-v8
+/Users/johnw/.cabal
+/Users/johnw/.cabal/bin
+B/Users/johnw/.cabal/lib/x86_64-osx-ghc-8.6.4/wasm-v8-0.0.0-inplace
+,/Users/johnw/.cabal/lib/x86_64-osx-ghc-8.6.4
+>/Users/johnw/.cabal/libexec/x86_64-osx-ghc-8.6.4/wasm-v8-0.0.0
+/include
+</Users/johnw/.cabal/share/x86_64-osx-ghc-8.6.4/wasm-v8-0.0.0
+@/Users/johnw/.cabal/share/doc/x86_64-osx-ghc-8.6.4/wasm-v8-0.0.0
+/man
+E/Users/johnw/.cabal/share/doc/x86_64-osx-ghc-8.6.4/wasm-v8-0.0.0/html
+E/Users/johnw/.cabal/share/doc/x86_64-osx-ghc-8.6.4/wasm-v8-0.0.0/html
+/Users/johnw/.cabal/etc
+-XHaskell98
+-XHaskell2010
+Haskell98
+-XHaskell98
+Haskell2010
+-XHaskell2010
+-XUnsafe
+-XTrustworthy
+-XSafe
+-XAllowAmbiguousTypes
+-XNoAllowAmbiguousTypes
+AlternativeLayoutRule
+-XAlternativeLayoutRule
+NoAlternativeLayoutRule
+-XNoAlternativeLayoutRule
+!AlternativeLayoutRuleTransitional
+#-XAlternativeLayoutRuleTransitional
+#NoAlternativeLayoutRuleTransitional
+%-XNoAlternativeLayoutRuleTransitional
+-XArrows
+-XNoArrows
+-XAutoDeriveTypeable
+-XNoAutoDeriveTypeable
+-XBangPatterns
+-XNoBangPatterns
+-XBinaryLiterals
+-XNoBinaryLiterals
+-XCApiFFI
+-XNoCApiFFI
+-XCPP
+-XNoCPP
+-XConstrainedClassMethods
+-XNoConstrainedClassMethods
+-XConstraintKinds
+-XNoConstraintKinds
+-XDataKinds
+-XNoDataKinds
+-XDatatypeContexts
+-XNoDatatypeContexts
+-XDefaultSignatures
+-XNoDefaultSignatures
+-XDeriveAnyClass
+-XNoDeriveAnyClass
+-XDeriveDataTypeable
+-XNoDeriveDataTypeable
+-XDeriveFoldable
+-XNoDeriveFoldable
+-XDeriveFunctor
+-XNoDeriveFunctor
+-XDeriveGeneric
+-XNoDeriveGeneric
+
+-XDeriveLift
+-XNoDeriveLift
+-XDeriveTraversable
+-XNoDeriveTraversable
+-XDerivingStrategies
+-XNoDerivingStrategies
+DerivingVia
+-XDerivingVia
+NoDerivingVia
+-XNoDerivingVia
+-XDisambiguateRecordFields
+-XNoDisambiguateRecordFields
+-XDoAndIfThenElse
+-XNoDoAndIfThenElse
+-XBlockArguments
+-XNoBlockArguments
+-XDoRec
+-XNoDoRec
+-XDuplicateRecordFields
+-XNoDuplicateRecordFields
+-XEmptyCase
+-XNoEmptyCase
+-XEmptyDataDecls
+-XNoEmptyDataDecls
+EmptyDataDeriving
+-XEmptyDataDeriving
+NoEmptyDataDeriving
+-XNoEmptyDataDeriving
+-XExistentialQuantification
+-XNoExistentialQuantification
+-XExplicitForAll
+-XNoExplicitForAll
+-XExplicitNamespaces
+-XNoExplicitNamespaces
+-XExtendedDefaultRules
+-XNoExtendedDefaultRules
+-XFlexibleContexts
+-XNoFlexibleContexts
+-XFlexibleInstances
+-XNoFlexibleInstances
+-XForeignFunctionInterface
+-XNoForeignFunctionInterface
+-XFunctionalDependencies
+-XNoFunctionalDependencies
+
+-XGADTSyntax
+-XNoGADTSyntax
+-XGADTs
+-XNoGADTs
+-XGHCForeignImportPrim
+-XNoGHCForeignImportPrim
+-XGeneralizedNewtypeDeriving
+-XNoGeneralizedNewtypeDeriving
+GeneralisedNewtypeDeriving
+-XGeneralisedNewtypeDeriving
+NoGeneralisedNewtypeDeriving
+-XNoGeneralisedNewtypeDeriving
+-XImplicitParams
+-XNoImplicitParams
+-XImplicitPrelude
+-XNoImplicitPrelude
+-XImpredicativeTypes
+-XNoImpredicativeTypes
+-XIncoherentInstances
+-XNoIncoherentInstances
+-XTypeFamilyDependencies
+-XNoTypeFamilyDependencies
+-XInstanceSigs
+-XNoInstanceSigs
+-XApplicativeDo
+-XNoApplicativeDo
+-XInterruptibleFFI
+-XNoInterruptibleFFI
+-XNoJavaScriptFFI
+-XKindSignatures
+-XNoKindSignatures
+
+-XLambdaCase
+-XNoLambdaCase
+-XLiberalTypeSynonyms
+-XNoLiberalTypeSynonyms
+-XMagicHash
+-XNoMagicHash
+-XMonadComprehensions
+-XNoMonadComprehensions
+-XMonadFailDesugaring
+-XNoMonadFailDesugaring
+-XMonoLocalBinds
+-XNoMonoLocalBinds
+-XMonoPatBinds
+-XNoMonoPatBinds
+-XMonomorphismRestriction
+-XNoMonomorphismRestriction
+-XMultiParamTypeClasses
+-XNoMultiParamTypeClasses
+
+-XMultiWayIf
+-XNoMultiWayIf
+-XNumericUnderscores
+-XNoNumericUnderscores
+-XNPlusKPatterns
+-XNoNPlusKPatterns
+-XNamedFieldPuns
+-XNoNamedFieldPuns
+-XNamedWildCards
+-XNoNamedWildCards
+-XNegativeLiterals
+-XNoNegativeLiterals
+-XHexFloatLiterals
+-XNoHexFloatLiterals
+-XNondecreasingIndentation
+-XNoNondecreasingIndentation
+-XNullaryTypeClasses
+-XNoNullaryTypeClasses
+-XNumDecimals
+-XNoNumDecimals
+-XOverlappingInstances
+-XNoOverlappingInstances
+-XOverloadedLabels
+-XNoOverloadedLabels
+-XOverloadedLists
+-XNoOverloadedLists
+-XOverloadedStrings
+-XNoOverloadedStrings
+-XPackageImports
+-XNoPackageImports
+-XParallelArrays
+-XNoParallelArrays
+-XParallelListComp
+-XNoParallelListComp
+-XPartialTypeSignatures
+-XNoPartialTypeSignatures
+-XPatternGuards
+-XNoPatternGuards
+-XPatternSignatures
+-XNoPatternSignatures
+-XPatternSynonyms
+-XNoPatternSynonyms
+-XPolyKinds
+-XNoPolyKinds
+-XPolymorphicComponents
+-XNoPolymorphicComponents
+-XQuantifiedConstraints
+-XNoQuantifiedConstraints
+-XPostfixOperators
+-XNoPostfixOperators
+-XQuasiQuotes
+-XNoQuasiQuotes
+
+-XRank2Types
+-XNoRank2Types
+
+-XRankNTypes
+-XNoRankNTypes
+-XRebindableSyntax
+-XNoRebindableSyntax
+
+-XRecordPuns
+-XNoRecordPuns
+-XRecordWildCards
+-XNoRecordWildCards
+-XRecursiveDo
+-XNoRecursiveDo
+RelaxedLayout
+-XRelaxedLayout
+NoRelaxedLayout
+-XNoRelaxedLayout
+-XRelaxedPolyRec
+-XNoRelaxedPolyRec
+-XRoleAnnotations
+-XNoRoleAnnotations
+-XScopedTypeVariables
+-XNoScopedTypeVariables
+-XStandaloneDeriving
+-XNoStandaloneDeriving
+
+-XStarIsType
+-XNoStarIsType
+-XStaticPointers
+-XNoStaticPointers
+-XStrict
+-XNoStrict
+
+-XStrictData
+-XNoStrictData
+-XTemplateHaskell
+-XNoTemplateHaskell
+-XTemplateHaskellQuotes
+-XNoTemplateHaskellQuotes
+-XTraditionalRecordSyntax
+-XNoTraditionalRecordSyntax
+-XTransformListComp
+-XNoTransformListComp
+-XTupleSections
+-XNoTupleSections
+-XTypeApplications
+-XNoTypeApplications
+
+-XTypeInType
+-XNoTypeInType
+-XTypeFamilies
+-XNoTypeFamilies
+-XTypeOperators
+-XNoTypeOperators
+-XTypeSynonymInstances
+-XNoTypeSynonymInstances
+-XUnboxedTuples
+-XNoUnboxedTuples
+-XUnboxedSums
+-XNoUnboxedSums
+-XUndecidableInstances
+-XNoUndecidableInstances
+-XUndecidableSuperClasses
+-XNoUndecidableSuperClasses
+-XUnicodeSyntax
+-XNoUnicodeSyntax
+-XUnliftedFFITypes
+-XNoUnliftedFFITypes
+-XViewPatterns
+-XNoViewPatterns
+Booter version
+8.2.2
+Build platform
+x86_64-apple-darwin
+C compiler command
+F/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin/cc
+C compiler flags
+ -fno-stack-protector
+C compiler link flags
+C compiler supports -no-pie
+Debug on
+False
+Dynamic by default
+GCC extra via C opts
+ -fwrapv -fno-builtin
+GHC Dynamic
+
+GHC Profiled
+Global Package DB
+`/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4/package.conf.d
+Haskell CPP command
+F/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin/cc
+Haskell CPP flags
+H-E -undef -traditional -Wno-invalid-pp-token -Wno-unicode -Wno-trigraphs
+Have interpreter
+Have native code generator
+Host platform
+x86_64-apple-darwin
+LLVM clang command
+clang
+LLVM llc command
+LLVM opt command
+Leading underscore
+LibDir
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+Object splitting supported
+Project Git commit id
+(aac18e9a08e6de9648e1a62d849dcd409f407df8
+
+Project name
+/The Glorious Glasgow Haskell Compilation System
+Project version
+8.6.4
+RTS expects libdw
+RTS ways
+Ul debug thr thr_debug thr_l thr_p dyn debug_dyn thr_dyn thr_debug_dyn l_dyn thr_l_dyn
+&Requires unified installed package IDs
+Stage
+Support Backpack
+Support SMP
+Support dynamic-too
+Support parallel --make
+Support reexported-modules
++Support thinning and renaming package flags
+Tables next to code
+Target platform
+x86_64-apple-darwin
+Unregisterised
+Uses package keys
+Uses unit IDs
+ar command
+ar flags
+qcls
+ar supports at file
+cross compiling
+dllwrap command
+/bin/false
+ld command
+R/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin/ld
+ld flags
+
+ld is GNU ld
+ld supports build-id
+ld supports compact unwind
+ld supports filelist
+libtool command
+libtool
+
+perl command
+@/nix/store/i2mv61phlsfbr9gyj9b6zp9xdnvlhiy0-perl-5.28.1/bin/perl
+ranlib command
+N/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin/ranlib
+target arch
+ArchX86_64
+target has .ident directive
+True
+target has GNU nonexec stack
+False
+target has RTS linker
+"target has subsections via symbols
+True
+target os
+OSDarwin
+target word size
+touch command
+touch
+windres command
+/bin/false
+]/Users/johnw/dfinity/dev/upgrade/dist-newstyle/build/x86_64-osx/ghc-8.6.4/wasm-v8-0.0.0/build
+wasm-v8-0.0.0-inplace
+wasm-v8-0.0.0-inplace
+base-4.12.0.0
+base
+*bindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi
+
+bindings-DSL
+bytestring-0.10.8.2
+bytestring
+mtl-2.2.2
+&vector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH
+vector
+base-4.12.0.0
+*bindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi
+bytestring-0.10.8.2
+mtl-2.2.2
+&vector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH
+wasm-v8-0.0.0-inplace
+wasm-v8
+Wasm
+Bindings
+Wasm
+Bindings
+Internal
+wasm-v8-0.0.0-inplace
+wasm-v8-0.0.0-inplace
+base-4.12.0.0
+base
+*bindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi
+
+bindings-DSL
+bytestring-0.10.8.2
+bytestring
+mtl-2.2.2
+&vector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH
+vector
+base-4.12.0.0
+*bindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi
+bytestring-0.10.8.2
+mtl-2.2.2
+&vector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH
+wasm-v8-0.0.0-inplace
+wasm-v8
+Wasm
+Bindings
+Wasm
+Bindings
+Internal
+array-0.5.3.0
+array
+array-0.5.3.0
+array-0.5.3.0
+libraries@haskell.org
+Mutable and immutable arrays
+NIn addition to providing the "Data.Array" module
+<http://www.haskell.org/onlinereport/haskell2010/haskellch14.html as specified in the Haskell 2010 Language Report>,
+this package also defines the classes 'IArray' of
+immutable arrays and 'MArray' of arrays mutable within appropriate
+monads, as well as some instances of these classes.
+Data Structures
+ 245ff002992d3f2fcafcf15682a63a63
+Data
+Array
+Data
+Array
+Base
+Data
+Array
+IArray
+Data
+Array
+Data
+Array
+Internals
+Data
+Array
+Safe
+Data
+Array
+MArray
+Data
+Array
+MArray
+Safe
+Data
+Array
+Data
+Array
+Safe
+Data
+Array
+Storable
+Data
+Array
+Storable
+Internals
+Data
+Array
+Storable
+Safe
+Data
+Array
+Unboxed
+Data
+Array
+Unsafe
+Q/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/array-0.5.3.0
+Q/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/array-0.5.3.0
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+^/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/share/x86_64-osx-ghc-8.6.4/array-0.5.3.0
+HSarray-0.5.3.0
+base-4.12.0.0
+r/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/array-0.5.3.0/array.haddock
+d/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/array-0.5.3.0
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+base-4.12.0.0
+base
+base-4.12.0.0
+base-4.12.0.0
+libraries@haskell.org
+Basic libraries
+This package contains the Standard Haskell "Prelude" and its support libraries,
+and a large collection of useful libraries ranging from data
+structures to parsing combinators and debugging utilities.
+Prelude
+ 1c10b51c029959b15b10a64664ec9347
+Control
+Applicative
+Control
+Arrow
+Control
+Category
+Control
+Concurrent
+Control
+Concurrent
+Chan
+Control
+Concurrent
+MVar
+Control
+Concurrent
+QSem
+Control
+Concurrent
+QSemN
+Control
+Exception
+Control
+Exception
+Base
+Control
+Monad
+Control
+Monad
+Fail
+Control
+Monad
+Control
+Monad
+Class
+Control
+Monad
+Instances
+Control
+Monad
+Control
+Monad
+Lazy
+Control
+Monad
+Lazy
+Safe
+Control
+Monad
+Lazy
+Unsafe
+Control
+Monad
+Safe
+Control
+Monad
+Strict
+Control
+Monad
+Unsafe
+Control
+Monad
+Data
+Bifoldable
+Data
+Bifunctor
+Data
+Bitraversable
+Data
+Bits
+Data
+Bool
+Data
+Char
+Data
+Coerce
+Data
+Complex
+Data
+Data
+Data
+Dynamic
+Data
+Either
+Data
+Data
+Fixed
+Data
+Foldable
+Data
+Function
+Data
+Functor
+Data
+Functor
+Classes
+Data
+Functor
+Compose
+Data
+Functor
+Const
+Data
+Functor
+Contravariant
+Data
+Functor
+Identity
+Data
+Functor
+Product
+Data
+Functor
+Data
+IORef
+Data
+Data
+Data
+Kind
+Data
+List
+Data
+List
+NonEmpty
+Data
+Maybe
+Data
+Monoid
+Data
+Data
+Proxy
+Data
+Ratio
+Data
+STRef
+Data
+STRef
+Lazy
+Data
+STRef
+Strict
+Data
+Semigroup
+Data
+String
+Data
+Traversable
+Data
+Tuple
+Data
+Type
+Bool
+Data
+Type
+Coercion
+Data
+Type
+Equality
+Data
+Typeable
+Data
+Unique
+Data
+Version
+Data
+Void
+Data
+Word
+Debug
+Trace
+Foreign
+Foreign
+Foreign
+Error
+Foreign
+String
+Foreign
+Types
+Foreign
+Concurrent
+Foreign
+ForeignPtr
+Foreign
+ForeignPtr
+Safe
+Foreign
+ForeignPtr
+Unsafe
+Foreign
+Marshal
+Foreign
+Marshal
+Alloc
+Foreign
+Marshal
+Array
+Foreign
+Marshal
+Error
+Foreign
+Marshal
+Pool
+Foreign
+Marshal
+Safe
+Foreign
+Marshal
+Unsafe
+Foreign
+Marshal
+Utils
+Foreign
+Foreign
+Safe
+Foreign
+StablePtr
+Foreign
+Storable
+Base
+ByteOrder
+Char
+Clock
+Conc
+Conc
+Conc
+Signal
+Conc
+Sync
+ConsoleHandler
+Constants
+Desugar
+Enum
+Environment
+Event
+Exception
+Exception
+Type
+ExecutionStack
+ExecutionStack
+Internal
+Exts
+Fingerprint
+Fingerprint
+Type
+Float
+Float
+ConversionUtils
+Float
+RealFracMethods
+Foreign
+ForeignPtr
+GHCi
+Generics
+Buffer
+BufferedIO
+Device
+Encoding
+Encoding
+CodePage
+Encoding
+Failure
+Encoding
+Iconv
+Encoding
+Latin1
+Encoding
+Types
+Encoding
+UTF16
+Encoding
+UTF32
+Encoding
+UTF8
+Exception
+Handle
+Handle
+Handle
+Internals
+Handle
+Lock
+Handle
+Text
+Handle
+Types
+IOMode
+Unsafe
+IOArray
+IORef
+List
+MVar
+Maybe
+Natural
+OldList
+OverloadedLabels
+Pack
+Profiling
+Flags
+Read
+Real
+Records
+
+ResponseFile
+STRef
+Show
+Stable
+StableName
+Stack
+Stack
+Stack
+Types
+StaticPtr
+Stats
+Storable
+TopHandler
+TypeLits
+TypeNats
+Unicode
+Weak
+Word
+Numeric
+Numeric
+Natural
+Prelude
+System
+CPUTime
+System
+Console
+GetOpt
+System
+Environment
+System
+Environment
+Blank
+System
+Exit
+System
+System
+Error
+System
+Unsafe
+System
+Info
+System
+System
+StableName
+System
+Weak
+System
+Posix
+Internals
+System
+Posix
+Types
+System
+Timeout
+Text
+ParserCombinators
+ReadP
+Text
+ParserCombinators
+ReadPrec
+Text
+Printf
+Text
+Read
+Text
+Read
+Text
+Show
+Text
+Show
+Functions
+Type
+Reflection
+Type
+Reflection
+Unsafe
+Unsafe
+Coerce
+Control
+Monad
+Control
+Monad
+Lazy
+Data
+Functor
+Utils
+Data
+OldList
+Data
+Semigroup
+Internal
+Data
+Typeable
+Internal
+Foreign
+ForeignPtr
+StaticPtr
+Internal
+System
+Environment
+ExecutablePath
+System
+CPUTime
+Utils
+Event
+Event
+Array
+Event
+Control
+Event
+EPoll
+Event
+IntTable
+Event
+Internal
+Event
+KQueue
+Event
+Manager
+Event
+Event
+Poll
+Event
+Thread
+Event
+
+TimerManager
+Event
+Unique
+System
+CPUTime
+Posix
+
+ClockGetTime
+System
+CPUTime
+Posix
+Times
+System
+CPUTime
+Posix
+RUsage
+System
+CPUTime
+Unsupported
+Q/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/base-4.12.0.0
+Q/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/base-4.12.0.0
+D/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/lib
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+D/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/lib
+^/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/share/x86_64-osx-ghc-8.6.4/base-4.12.0.0
+HSbase-4.12.0.0
+iconv
+H/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/include
+Y/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/base-4.12.0.0/include
+HsBase.h
+ghc-prim-0.5.3
+integer-gmp-1.0.2.0
+q/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/base-4.12.0.0/base.haddock
+d/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/base-4.12.0.0
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+*bindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi
+
+bindings-DSL
+*bindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi
+*bindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi
+$John Wiegley <johnw@newartisans.com>
+Maur
+cio C. Antunes
+;Stable API, well tested, portable, used in commercial code.
+-https://github.com/jwiegley/bindings-dsl/wiki
+/FFI domain specific language, on top of hsc2hs.
+This is a set of macros to be used when writing Haskell FFI.
+They were designed to be able to fully describe C interfaces,
+so that hsc2hs can extract from them all Haskell code needed to
+mimic such interfaces. All Haskell names used are automatically
+derived from C names, structures are mapped to Haskell instances
+of Storable, and there are also macros you can use with C code
+to help write bindings to inline functions or macro functions.
+Documentation is available at package homepage:
+<https://github.com/jwiegley/bindings-dsl/wiki>
+The extra module Bindings.Utilities will contain tools that may
+be convenient when working with FFI.
+ ec7a9d4b3a4cd31ca1d17c8c85526c9e
+Bindings
+Utilities
+/nix/store/27vg3zjflallxd9d2b1a4sxwm81ga230-bindings-DSL-1.0.25/lib/ghc-8.6.4/x86_64-osx-ghc-8.6.4/bindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi
+/nix/store/27vg3zjflallxd9d2b1a4sxwm81ga230-bindings-DSL-1.0.25/lib/ghc-8.6.4/x86_64-osx-ghc-8.6.4/bindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi
+</nix/store/i9sqhlfi3qy9i6vbjkzswvzlkg1vz6zp-libc++-5.0.2/lib
+?/nix/store/favl95hgd1akmqrawj89xxwz7n9gvgky-libc++abi-5.0.2/lib
+A/nix/store/ac3p1nvv9p5yl3plf97ffp42f54x8fag-compiler-rt-5.0.2/lib
+D/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/lib
+</nix/store/d61prwj3s9jxidpmf7kk29xha425fv42-libffi-3.2.1/lib
+9/nix/store/jqrxd7qsf3nph0jv4yxl99cibqgpkrxz-gmp-6.1.2/lib
+D/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/lib
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+</nix/store/i9sqhlfi3qy9i6vbjkzswvzlkg1vz6zp-libc++-5.0.2/lib
+?/nix/store/favl95hgd1akmqrawj89xxwz7n9gvgky-libc++abi-5.0.2/lib
+A/nix/store/ac3p1nvv9p5yl3plf97ffp42f54x8fag-compiler-rt-5.0.2/lib
+D/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/lib
+</nix/store/d61prwj3s9jxidpmf7kk29xha425fv42-libffi-3.2.1/lib
+9/nix/store/jqrxd7qsf3nph0jv4yxl99cibqgpkrxz-gmp-6.1.2/lib
+D/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/lib
+n/nix/store/27vg3zjflallxd9d2b1a4sxwm81ga230-bindings-DSL-1.0.25/share/x86_64-osx-ghc-8.6.4/bindings-DSL-1.0.25
+,HSbindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi
+@/nix/store/i9sqhlfi3qy9i6vbjkzswvzlkg1vz6zp-libc++-5.0.2/include
+C/nix/store/favl95hgd1akmqrawj89xxwz7n9gvgky-libc++abi-5.0.2/include
+I/nix/store/asgh886fpfrwnbhqd701qf1ras5s52vb-compiler-rt-5.0.2-dev/include
+H/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/include
+/nix/store/27vg3zjflallxd9d2b1a4sxwm81ga230-bindings-DSL-1.0.25/lib/ghc-8.6.4/x86_64-osx-ghc-8.6.4/bindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi/include
+base-4.12.0.0
+S/nix/store/bcgk1i2wqgn2vkcraqpyhmv8m43skasg-swift-corefoundation/Library/Frameworks
+{/nix/store/3aiani54nrmfjz9h2j3z74vqwfbqw3q1-bindings-DSL-1.0.25-doc/share/doc/bindings-DSL-1.0.25/html/bindings-DSL.haddock
+f/nix/store/3aiani54nrmfjz9h2j3z74vqwfbqw3q1-bindings-DSL-1.0.25-doc/share/doc/bindings-DSL-1.0.25/html
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+bytestring-0.10.8.2
+bytestring
+bytestring-0.10.8.2
+bytestring-0.10.8.2
+Copyright (c) Don Stewart          2005-2009,
+(c) Duncan Coutts        2006-2015,
+(c) David Roundy         2003-2005,
+(c) Jasper Van der Jeugt 2010,
+(c) Simon Meier          2010-2013.
+,Duncan Coutts <duncan@community.haskell.org>
+Don Stewart,
+Duncan Coutts
+%https://github.com/haskell/bytestring
+AFast, compact, strict and lazy byte strings with a list interface
+XAn efficient compact, immutable byte string type (both strict and lazy)
+suitable for binary or 8-bit character data.
+The 'ByteString' type represents sequences of bytes or 8-bit characters.
+It is suitable for high performance use, both in terms of large data
+quantities, or high speed requirements. The 'ByteString' functions follow
+the same style as Haskell\'s ordinary lists, so it is easy to convert code
+from using 'String' to 'ByteString'.
+Two 'ByteString' variants are provided:
+* Strict 'ByteString's keep the string as a single large array. This
+makes them convenient for passing data between C and Haskell.
+* Lazy 'ByteString's use a lazy list of strict chunks which makes it
+suitable for I\/O streaming tasks.
+The @Char8@ modules provide a character-based view of the same
+underlying 'ByteString' types. This makes it convenient to handle mixed
+binary and 8-bit character content (which is common in many file formats
+and network protocols).
+The 'Builder' module provides an efficient way to build up 'ByteString's
+in an ad-hoc way by repeated concatenation. This is ideal for fast
+serialisation or pretty printing.
+There is also a 'ShortByteString' type which has a lower memory overhead
+and can can be converted to or from a 'ByteString', but supports very few
+other operations. It is suitable for keeping many short strings in memory.
+'ByteString's are not designed for Unicode. For Unicode strings you should
+use the 'Text' type from the @text@ package.
+These modules are intended to be imported qualified, to avoid name clashes
+with "Prelude" functions, e.g.
+> import qualified Data.ByteString as BS
+Data
+ c516340f96d1bd052e2a22e538c17b8d
+Data
+ByteString
+Data
+ByteString
+Builder
+Data
+ByteString
+Builder
+Extra
+Data
+ByteString
+Builder
+Internal
+Data
+ByteString
+Builder
+Prim
+Data
+ByteString
+Builder
+Prim
+Internal
+Data
+ByteString
+Char8
+Data
+ByteString
+Internal
+Data
+ByteString
+Lazy
+Data
+ByteString
+Lazy
+Builder
+Data
+ByteString
+Lazy
+Builder
+ASCII
+Data
+ByteString
+Lazy
+Builder
+Extras
+Data
+ByteString
+Lazy
+Char8
+Data
+ByteString
+Lazy
+Internal
+Data
+ByteString
+Short
+Data
+ByteString
+Short
+Internal
+Data
+ByteString
+Unsafe
+Data
+ByteString
+Builder
+ASCII
+Data
+ByteString
+Builder
+Prim
+Binary
+Data
+ByteString
+Builder
+Prim
+ASCII
+Data
+ByteString
+Builder
+Prim
+Internal
+Floating
+Data
+ByteString
+Builder
+Prim
+Internal
+UncheckedShifts
+Data
+ByteString
+Builder
+Prim
+Internal
+Base16
+W/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/bytestring-0.10.8.2
+W/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/bytestring-0.10.8.2
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+d/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/share/x86_64-osx-ghc-8.6.4/bytestring-0.10.8.2
+HSbytestring-0.10.8.2
+_/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/bytestring-0.10.8.2/include
+fpstring.h
+base-4.12.0.0
+deepseq-1.4.4.0
+ghc-prim-0.5.3
+integer-gmp-1.0.2.0
+}/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/bytestring-0.10.8.2/bytestring.haddock
+j/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/bytestring-0.10.8.2
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+deepseq-1.4.4.0
+deepseq
+deepseq-1.4.4.0
+deepseq-1.4.4.0
+libraries@haskell.org
+"Deep evaluation of data structures
+This package provides methods for fully evaluating data structures
+(\"deep evaluation\"). Deep evaluation is often used for adding
+strictness to a program, e.g. in order to force pending exceptions,
+remove space leaks, or force lazy I/O to happen. It is also useful
+in parallel programs, to ensure pending work does not migrate to the
+wrong thread.
+The primary use of this package is via the 'deepseq' function, a
+\"deep\" version of 'seq'. It is implemented on top of an 'NFData'
+typeclass (\"Normal Form Data\", data structures with no unevaluated
+components) which defines strategies for fully evaluating different
+data types. See module documentation in "Control.DeepSeq" for more
+details.
+Control
+ 9bdf2755bebe1afb302550a57d75100e
+Control
+DeepSeq
+Control
+DeepSeq
+BackDoor
+S/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/deepseq-1.4.4.0
+S/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/deepseq-1.4.4.0
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+`/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/share/x86_64-osx-ghc-8.6.4/deepseq-1.4.4.0
+HSdeepseq-1.4.4.0
+array-0.5.3.0
+base-4.12.0.0
+v/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/deepseq-1.4.4.0/deepseq.haddock
+f/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/deepseq-1.4.4.0
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+ghc-prim-0.5.3
+ghc-prim
+ghc-prim-0.5.3
+ghc-prim-0.5.3
+libraries@haskell.org
+GHC primitives
+IThis package contains the primitive types and operations supplied by GHC.
+ 70beaf5ddd426d72ddda98de7531b1ec
+CString
+Classes
+Debug
+IntWord64
+Magic
+PrimopWrappers
+Tuple
+Types
+Prim
+R/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/ghc-prim-0.5.3
+R/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/ghc-prim-0.5.3
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+_/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/share/x86_64-osx-ghc-8.6.4/ghc-prim-0.5.3
+HSghc-prim-0.5.3
+v/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/ghc-prim-0.5.3/ghc-prim.haddock
+e/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/ghc-prim-0.5.3
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+integer-gmp-1.0.2.0
+integer-gmp
+integer-gmp-1.0.2.0
+integer-gmp-1.0.2.0
+hvr@gnu.org
+Herbert Valerio Riedel
+Integer library based on GMP
+dThis package provides the low-level implementation of the standard
+'Integer' type based on the
+<http://gmplib.org/ GNU Multiple Precision Arithmetic Library (GMP)>.
+This package provides access to the internal representation of
+'Integer' as well as primitive operations with no proper error
+handling, and should only be used directly with the utmost care.
+Numeric, Algebra
+ e0520ba7950257c2eb2ebdbbd1cc1efd
+Integer
+Integer
+Internals
+Integer
+Logarithms
+Integer
+Logarithms
+Internals
+Integer
+Type
+W/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/integer-gmp-1.0.2.0
+W/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/integer-gmp-1.0.2.0
+9/nix/store/jqrxd7qsf3nph0jv4yxl99cibqgpkrxz-gmp-6.1.2/lib
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+9/nix/store/jqrxd7qsf3nph0jv4yxl99cibqgpkrxz-gmp-6.1.2/lib
+d/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/share/x86_64-osx-ghc-8.6.4/integer-gmp-1.0.2.0
+HSinteger-gmp-1.0.2.0
+A/nix/store/lcsmc0jqqj05q96321wcb2w73nkwclxq-gmp-6.1.2-dev/include
+_/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/integer-gmp-1.0.2.0/include
+ghc-prim-0.5.3
+~/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/integer-gmp-1.0.2.0/integer-gmp.haddock
+j/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/integer-gmp-1.0.2.0
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+mtl-2.2.2
+mtl-2.2.2
+mtl-2.2.2
+Edward Kmett <ekmett@gmail.com>
+Andy Gill
+http://github.com/haskell/mtl
+,Monad classes, using functional dependencies
+9Monad classes using functional dependencies, with instances
+for various monad transformers, inspired by the paper
+/Functional Programming with Overloading and Higher-Order Polymorphism/,
+by Mark P Jones, in /Advanced School of Functional Programming/, 1995
+(<http://web.cecs.pdx.edu/~mpj/pubs/springschool.html>).
+Control
+ 5043faed8d4ee0efe7c3be38f7fdaa0a
+Control
+Monad
+Cont
+Control
+Monad
+Cont
+Class
+Control
+Monad
+Error
+Control
+Monad
+Error
+Class
+Control
+Monad
+Except
+Control
+Monad
+Identity
+Control
+Monad
+List
+Control
+Monad
+Control
+Monad
+Class
+Control
+Monad
+Lazy
+Control
+Monad
+Strict
+Control
+Monad
+Reader
+Control
+Monad
+Reader
+Class
+Control
+Monad
+State
+Control
+Monad
+State
+Class
+Control
+Monad
+State
+Lazy
+Control
+Monad
+State
+Strict
+Control
+Monad
+Trans
+Control
+Monad
+Writer
+Control
+Monad
+Writer
+Class
+Control
+Monad
+Writer
+Lazy
+Control
+Monad
+Writer
+Strict
+M/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/mtl-2.2.2
+M/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/mtl-2.2.2
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+Z/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/share/x86_64-osx-ghc-8.6.4/mtl-2.2.2
+HSmtl-2.2.2
+base-4.12.0.0
+transformers-0.5.6.2
+l/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/mtl-2.2.2/mtl.haddock
+`/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/mtl-2.2.2
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+(primitive-0.6.4.0-ILgywxtLpvnAOlEISPpP5b
+primitive
+(primitive-0.6.4.0-ILgywxtLpvnAOlEISPpP5b
+(primitive-0.6.4.0-ILgywxtLpvnAOlEISPpP5b
+ (c) Roman Leshchinskiy 2009-2012
+libraries@haskell.org
+'Roman Leshchinskiy <rl@cse.unsw.edu.au>
+$https://github.com/haskell/primitive
+#Primitive memory-related operations
+BThis package provides various primitive memory-related operations.
+Data
+ 46d2603dae5fe0eae2b1e47e730d45b9
+Control
+Monad
+Primitive
+Data
+Primitive
+Data
+Primitive
+Addr
+Data
+Primitive
+Array
+Data
+Primitive
+ByteArray
+Data
+Primitive
+MVar
+Data
+Primitive
+MachDeps
+Data
+Primitive
+MutVar
+Data
+Primitive
+PrimArray
+Data
+Primitive
+Data
+Primitive
+SmallArray
+Data
+Primitive
+Types
+Data
+Primitive
+UnliftedArray
+Data
+Primitive
+Internal
+Compat
+Data
+Primitive
+Internal
+Operations
+/nix/store/42ca44vp2gflpax6jpgxfp0fa3c1p0ab-primitive-0.6.4.0/lib/ghc-8.6.4/x86_64-osx-ghc-8.6.4/primitive-0.6.4.0-ILgywxtLpvnAOlEISPpP5b
+/nix/store/42ca44vp2gflpax6jpgxfp0fa3c1p0ab-primitive-0.6.4.0/lib/ghc-8.6.4/x86_64-osx-ghc-8.6.4/primitive-0.6.4.0-ILgywxtLpvnAOlEISPpP5b
+</nix/store/i9sqhlfi3qy9i6vbjkzswvzlkg1vz6zp-libc++-5.0.2/lib
+?/nix/store/favl95hgd1akmqrawj89xxwz7n9gvgky-libc++abi-5.0.2/lib
+A/nix/store/ac3p1nvv9p5yl3plf97ffp42f54x8fag-compiler-rt-5.0.2/lib
+D/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/lib
+</nix/store/d61prwj3s9jxidpmf7kk29xha425fv42-libffi-3.2.1/lib
+9/nix/store/jqrxd7qsf3nph0jv4yxl99cibqgpkrxz-gmp-6.1.2/lib
+D/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/lib
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+</nix/store/i9sqhlfi3qy9i6vbjkzswvzlkg1vz6zp-libc++-5.0.2/lib
+?/nix/store/favl95hgd1akmqrawj89xxwz7n9gvgky-libc++abi-5.0.2/lib
+A/nix/store/ac3p1nvv9p5yl3plf97ffp42f54x8fag-compiler-rt-5.0.2/lib
+D/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/lib
+</nix/store/d61prwj3s9jxidpmf7kk29xha425fv42-libffi-3.2.1/lib
+9/nix/store/jqrxd7qsf3nph0jv4yxl99cibqgpkrxz-gmp-6.1.2/lib
+D/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/lib
+j/nix/store/42ca44vp2gflpax6jpgxfp0fa3c1p0ab-primitive-0.6.4.0/share/x86_64-osx-ghc-8.6.4/primitive-0.6.4.0
+*HSprimitive-0.6.4.0-ILgywxtLpvnAOlEISPpP5b
+@/nix/store/i9sqhlfi3qy9i6vbjkzswvzlkg1vz6zp-libc++-5.0.2/include
+C/nix/store/favl95hgd1akmqrawj89xxwz7n9gvgky-libc++abi-5.0.2/include
+I/nix/store/asgh886fpfrwnbhqd701qf1ras5s52vb-compiler-rt-5.0.2-dev/include
+H/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/include
+/nix/store/42ca44vp2gflpax6jpgxfp0fa3c1p0ab-primitive-0.6.4.0/lib/ghc-8.6.4/x86_64-osx-ghc-8.6.4/primitive-0.6.4.0-ILgywxtLpvnAOlEISPpP5b/include
+primitive-memops.h
+base-4.12.0.0
+ghc-prim-0.5.3
+transformers-0.5.6.2
+S/nix/store/bcgk1i2wqgn2vkcraqpyhmv8m43skasg-swift-corefoundation/Library/Frameworks
+t/nix/store/rbkxpxw9ni9c7v8gp2gwf3vpxjk9xfjx-primitive-0.6.4.0-doc/share/doc/primitive-0.6.4.0/html/primitive.haddock
+b/nix/store/rbkxpxw9ni9c7v8gp2gwf3vpxjk9xfjx-primitive-0.6.4.0-doc/share/doc/primitive-0.6.4.0/html
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+!glasgow-haskell-users@haskell.org
+G/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/rts
+</nix/store/d61prwj3s9jxidpmf7kk29xha425fv42-libffi-3.2.1/lib
+HSrts
+K/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/include
+D/nix/store/3z676qwr8jq9ncwz4jycmdsykdbk7g0a-libffi-3.2.1-dev/include
+Stg.h
+*-Wl,-u,_base_GHCziTopHandler_runIO_closure
+--Wl,-u,_base_GHCziTopHandler_runNonIO_closure
+(-Wl,-u,_ghczmprim_GHCziTuple_Z0T_closure
+)-Wl,-u,_ghczmprim_GHCziTypes_True_closure
+*-Wl,-u,_ghczmprim_GHCziTypes_False_closure
+,-Wl,-u,_base_GHCziPack_unpackCString_closure
+1-Wl,-u,_base_GHCziWeak_runFinalizzerBatch_closure
+5-Wl,-u,_base_GHCziIOziException_stackOverflow_closure
+4-Wl,-u,_base_GHCziIOziException_heapOverflow_closure
+?-Wl,-u,_base_GHCziIOziException_allocationLimitExceeded_closure
+A-Wl,-u,_base_GHCziIOziException_blockedIndefinitelyOnMVar_closure
+@-Wl,-u,_base_GHCziIOziException_blockedIndefinitelyOnSTM_closure
+=-Wl,-u,_base_GHCziIOziException_cannotCompactFunction_closure
+;-Wl,-u,_base_GHCziIOziException_cannotCompactPinned_closure
+<-Wl,-u,_base_GHCziIOziException_cannotCompactMutable_closure
+A-Wl,-u,_base_ControlziExceptionziBase_absentSumFieldError_closure
+<-Wl,-u,_base_ControlziExceptionziBase_nonTermination_closure
+>-Wl,-u,_base_ControlziExceptionziBase_nestedAtomically_closure
+6-Wl,-u,_base_GHCziEventziThread_blockedOnBadFD_closure
+.-Wl,-u,_base_GHCziConcziSync_runSparks_closure
+;-Wl,-u,_base_GHCziConcziIO_ensureIOManagerIsRunning_closure
+?-Wl,-u,_base_GHCziConcziIO_ioManagerCapabilitiesChanged_closure
+5-Wl,-u,_base_GHCziConcziSignal_runHandlersPtr_closure
+4-Wl,-u,_base_GHCziTopHandler_flushStdHandles_closure
+.-Wl,-u,_base_GHCziTopHandler_runMainIO_closure
+)-Wl,-u,_ghczmprim_GHCziTypes_Czh_con_info
+)-Wl,-u,_ghczmprim_GHCziTypes_Izh_con_info
+)-Wl,-u,_ghczmprim_GHCziTypes_Fzh_con_info
+)-Wl,-u,_ghczmprim_GHCziTypes_Dzh_con_info
+)-Wl,-u,_ghczmprim_GHCziTypes_Wzh_con_info
+"-Wl,-u,_base_GHCziPtr_Ptr_con_info
+%-Wl,-u,_base_GHCziPtr_FunPtr_con_info
+#-Wl,-u,_base_GHCziInt_I8zh_con_info
+$-Wl,-u,_base_GHCziInt_I16zh_con_info
+$-Wl,-u,_base_GHCziInt_I32zh_con_info
+$-Wl,-u,_base_GHCziInt_I64zh_con_info
+$-Wl,-u,_base_GHCziWord_W8zh_con_info
+%-Wl,-u,_base_GHCziWord_W16zh_con_info
+%-Wl,-u,_base_GHCziWord_W32zh_con_info
+%-Wl,-u,_base_GHCziWord_W64zh_con_info
++-Wl,-u,_base_GHCziStable_StablePtr_con_info
+-Wl,-u,_hs_atomic_add8
+-Wl,-u,_hs_atomic_add16
+-Wl,-u,_hs_atomic_add32
+-Wl,-u,_hs_atomic_add64
+-Wl,-u,_hs_atomic_sub8
+-Wl,-u,_hs_atomic_sub16
+-Wl,-u,_hs_atomic_sub32
+-Wl,-u,_hs_atomic_sub64
+-Wl,-u,_hs_atomic_and8
+-Wl,-u,_hs_atomic_and16
+-Wl,-u,_hs_atomic_and32
+-Wl,-u,_hs_atomic_and64
+-Wl,-u,_hs_atomic_nand8
+-Wl,-u,_hs_atomic_nand16
+-Wl,-u,_hs_atomic_nand32
+-Wl,-u,_hs_atomic_nand64
+-Wl,-u,_hs_atomic_or8
+-Wl,-u,_hs_atomic_or16
+-Wl,-u,_hs_atomic_or32
+-Wl,-u,_hs_atomic_or64
+-Wl,-u,_hs_atomic_xor8
+-Wl,-u,_hs_atomic_xor16
+-Wl,-u,_hs_atomic_xor32
+-Wl,-u,_hs_atomic_xor64
+-Wl,-u,_hs_cmpxchg8
+-Wl,-u,_hs_cmpxchg16
+-Wl,-u,_hs_cmpxchg32
+-Wl,-u,_hs_cmpxchg64
+-Wl,-u,_hs_atomicread8
+-Wl,-u,_hs_atomicread16
+-Wl,-u,_hs_atomicread32
+-Wl,-u,_hs_atomicread64
+-Wl,-u,_hs_atomicwrite8
+-Wl,-u,_hs_atomicwrite16
+-Wl,-u,_hs_atomicwrite32
+-Wl,-u,_hs_atomicwrite64
+-Wl,-search_paths_first
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+transformers-0.5.6.2
+
+transformers
+transformers-0.5.6.2
+transformers-0.5.6.2
+%Ross Paterson <R.Paterson@city.ac.uk>
+Andy Gill, Ross Paterson
+'Concrete functor and monad transformers
+A portable library of functor and monad transformers, inspired by
+the paper
+* \"Functional Programming with Overloading and Higher-Order
+Polymorphism\", by Mark P Jones,
+in /Advanced School of Functional Programming/, 1995
+(<http://web.cecs.pdx.edu/~mpj/pubs/springschool.html>).
+This package contains:
+* the monad transformer class (in "Control.Monad.Trans.Class")
+* concrete functor and monad transformers, each with associated
+operations and functions to lift operations associated with other
+transformers.
+The package can be used on its own in portable Haskell code, in
+which case operations need to be manually lifted through transformer
+stacks (see "Control.Monad.Trans.Class" for some examples).
+Alternatively, it can be used with the non-portable monad classes in
+the @mtl@ or @monads-tf@ packages, which automatically lift operations
+introduced by monad transformers through other transformers.
+Control
+ fa37705c59d758425ec7bfd6b1662680
+Control
+Applicative
+Backwards
+Control
+Applicative
+Lift
+Control
+Monad
+Signatures
+Control
+Monad
+Trans
+Accum
+Control
+Monad
+Trans
+Class
+Control
+Monad
+Trans
+Cont
+Control
+Monad
+Trans
+Error
+Control
+Monad
+Trans
+Except
+Control
+Monad
+Trans
+Identity
+Control
+Monad
+Trans
+List
+Control
+Monad
+Trans
+Maybe
+Control
+Monad
+Trans
+Control
+Monad
+Trans
+Control
+Monad
+Trans
+Lazy
+Control
+Monad
+Trans
+Strict
+Control
+Monad
+Trans
+Reader
+Control
+Monad
+Trans
+Select
+Control
+Monad
+Trans
+State
+Control
+Monad
+Trans
+State
+Lazy
+Control
+Monad
+Trans
+State
+Strict
+Control
+Monad
+Trans
+Writer
+Control
+Monad
+Trans
+Writer
+Control
+Monad
+Trans
+Writer
+Lazy
+Control
+Monad
+Trans
+Writer
+Strict
+Data
+Functor
+Constant
+Data
+Functor
+Reverse
+X/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/transformers-0.5.6.2
+X/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/transformers-0.5.6.2
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+e/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/share/x86_64-osx-ghc-8.6.4/transformers-0.5.6.2
+HStransformers-0.5.6.2
+base-4.12.0.0
+/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/transformers-0.5.6.2/transformers.haddock
+k/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/transformers-0.5.6.2
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+&vector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH
+vector
+&vector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH
+&vector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH
+ (c) Roman Leshchinskiy 2008-2012
+.Haskell Libraries Team <libraries@haskell.org>
+'Roman Leshchinskiy <rl@cse.unsw.edu.au>
+!https://github.com/haskell/vector
+Efficient Arrays
+An efficient implementation of Int-indexed arrays (both mutable
+and immutable), with a powerful loop optimisation framework .
+It is structured as follows:
+["Data.Vector"] Boxed vectors of arbitrary types.
+["Data.Vector.Unboxed"] Unboxed vectors with an adaptive
+representation based on data type families.
+["Data.Vector.Storable"] Unboxed vectors of 'Storable' types.
+["Data.Vector.Primitive"] Unboxed vectors of primitive types as
+defined by the @primitive@ package. "Data.Vector.Unboxed" is more
+flexible at no performance cost.
+["Data.Vector.Generic"] Generic interface to the vector types.
+There is also a (draft) tutorial on common uses of vector.
+* <http://haskell.org/haskellwiki/Numeric_Haskell:_A_Vector_Tutorial>
+Data, Data Structures
+ 1e9359a41c6e27b00a1725b820d307de
+Data
+Vector
+Data
+Vector
+Fusion
+Bundle
+Data
+Vector
+Fusion
+Bundle
+Monadic
+Data
+Vector
+Fusion
+Bundle
+Size
+Data
+Vector
+Fusion
+Stream
+Monadic
+Data
+Vector
+Fusion
+Util
+Data
+Vector
+Generic
+Data
+Vector
+Generic
+Base
+Data
+Vector
+Generic
+Mutable
+Data
+Vector
+Generic
+Mutable
+Base
+Data
+Vector
+Generic
+Data
+Vector
+Internal
+Check
+Data
+Vector
+Mutable
+Data
+Vector
+Primitive
+Data
+Vector
+Primitive
+Mutable
+Data
+Vector
+Storable
+Data
+Vector
+Storable
+Internal
+Data
+Vector
+Storable
+Mutable
+Data
+Vector
+Unboxed
+Data
+Vector
+Unboxed
+Base
+Data
+Vector
+Unboxed
+Mutable
+/nix/store/8ws488qvps7jxvq5lpyyy8akq7cc9ln1-vector-0.12.0.2/lib/ghc-8.6.4/x86_64-osx-ghc-8.6.4/vector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH
+/nix/store/8ws488qvps7jxvq5lpyyy8akq7cc9ln1-vector-0.12.0.2/lib/ghc-8.6.4/x86_64-osx-ghc-8.6.4/vector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH
+</nix/store/i9sqhlfi3qy9i6vbjkzswvzlkg1vz6zp-libc++-5.0.2/lib
+?/nix/store/favl95hgd1akmqrawj89xxwz7n9gvgky-libc++abi-5.0.2/lib
+A/nix/store/ac3p1nvv9p5yl3plf97ffp42f54x8fag-compiler-rt-5.0.2/lib
+D/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/lib
+</nix/store/d61prwj3s9jxidpmf7kk29xha425fv42-libffi-3.2.1/lib
+9/nix/store/jqrxd7qsf3nph0jv4yxl99cibqgpkrxz-gmp-6.1.2/lib
+D/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/lib
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+</nix/store/i9sqhlfi3qy9i6vbjkzswvzlkg1vz6zp-libc++-5.0.2/lib
+?/nix/store/favl95hgd1akmqrawj89xxwz7n9gvgky-libc++abi-5.0.2/lib
+A/nix/store/ac3p1nvv9p5yl3plf97ffp42f54x8fag-compiler-rt-5.0.2/lib
+D/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/lib
+</nix/store/d61prwj3s9jxidpmf7kk29xha425fv42-libffi-3.2.1/lib
+9/nix/store/jqrxd7qsf3nph0jv4yxl99cibqgpkrxz-gmp-6.1.2/lib
+D/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/lib
+f/nix/store/8ws488qvps7jxvq5lpyyy8akq7cc9ln1-vector-0.12.0.2/share/x86_64-osx-ghc-8.6.4/vector-0.12.0.2
+(HSvector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH
+@/nix/store/i9sqhlfi3qy9i6vbjkzswvzlkg1vz6zp-libc++-5.0.2/include
+C/nix/store/favl95hgd1akmqrawj89xxwz7n9gvgky-libc++abi-5.0.2/include
+I/nix/store/asgh886fpfrwnbhqd701qf1ras5s52vb-compiler-rt-5.0.2-dev/include
+H/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/include
+/nix/store/8ws488qvps7jxvq5lpyyy8akq7cc9ln1-vector-0.12.0.2/lib/ghc-8.6.4/x86_64-osx-ghc-8.6.4/vector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH/include
+base-4.12.0.0
+deepseq-1.4.4.0
+ghc-prim-0.5.3
+(primitive-0.6.4.0-ILgywxtLpvnAOlEISPpP5b
+S/nix/store/bcgk1i2wqgn2vkcraqpyhmv8m43skasg-swift-corefoundation/Library/Frameworks
+m/nix/store/1r6b3cl0j1yv6dpsr7fl2w9kn7cb6zzw-vector-0.12.0.2-doc/share/doc/vector-0.12.0.2/html/vector.haddock
+^/nix/store/1r6b3cl0j1yv6dpsr7fl2w9kn7cb6zzw-vector-0.12.0.2-doc/share/doc/vector-0.12.0.2/html
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+array
+array
+array-0.5.3.0
+array-0.5.3.0
+libraries@haskell.org
+Mutable and immutable arrays
+NIn addition to providing the "Data.Array" module
+<http://www.haskell.org/onlinereport/haskell2010/haskellch14.html as specified in the Haskell 2010 Language Report>,
+this package also defines the classes 'IArray' of
+immutable arrays and 'MArray' of arrays mutable within appropriate
+monads, as well as some instances of these classes.
+Data Structures
+ 245ff002992d3f2fcafcf15682a63a63
+Data
+Array
+Data
+Array
+Base
+Data
+Array
+IArray
+Data
+Array
+Data
+Array
+Internals
+Data
+Array
+Safe
+Data
+Array
+MArray
+Data
+Array
+MArray
+Safe
+Data
+Array
+Data
+Array
+Safe
+Data
+Array
+Storable
+Data
+Array
+Storable
+Internals
+Data
+Array
+Storable
+Safe
+Data
+Array
+Unboxed
+Data
+Array
+Unsafe
+Q/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/array-0.5.3.0
+Q/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/array-0.5.3.0
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+^/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/share/x86_64-osx-ghc-8.6.4/array-0.5.3.0
+HSarray-0.5.3.0
+base-4.12.0.0
+r/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/array-0.5.3.0/array.haddock
+d/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/array-0.5.3.0
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+base
+base
+base-4.12.0.0
+base-4.12.0.0
+libraries@haskell.org
+Basic libraries
+This package contains the Standard Haskell "Prelude" and its support libraries,
+and a large collection of useful libraries ranging from data
+structures to parsing combinators and debugging utilities.
+Prelude
+ 1c10b51c029959b15b10a64664ec9347
+Control
+Applicative
+Control
+Arrow
+Control
+Category
+Control
+Concurrent
+Control
+Concurrent
+Chan
+Control
+Concurrent
+MVar
+Control
+Concurrent
+QSem
+Control
+Concurrent
+QSemN
+Control
+Exception
+Control
+Exception
+Base
+Control
+Monad
+Control
+Monad
+Fail
+Control
+Monad
+Control
+Monad
+Class
+Control
+Monad
+Instances
+Control
+Monad
+Control
+Monad
+Lazy
+Control
+Monad
+Lazy
+Safe
+Control
+Monad
+Lazy
+Unsafe
+Control
+Monad
+Safe
+Control
+Monad
+Strict
+Control
+Monad
+Unsafe
+Control
+Monad
+Data
+Bifoldable
+Data
+Bifunctor
+Data
+Bitraversable
+Data
+Bits
+Data
+Bool
+Data
+Char
+Data
+Coerce
+Data
+Complex
+Data
+Data
+Data
+Dynamic
+Data
+Either
+Data
+Data
+Fixed
+Data
+Foldable
+Data
+Function
+Data
+Functor
+Data
+Functor
+Classes
+Data
+Functor
+Compose
+Data
+Functor
+Const
+Data
+Functor
+Contravariant
+Data
+Functor
+Identity
+Data
+Functor
+Product
+Data
+Functor
+Data
+IORef
+Data
+Data
+Data
+Kind
+Data
+List
+Data
+List
+NonEmpty
+Data
+Maybe
+Data
+Monoid
+Data
+Data
+Proxy
+Data
+Ratio
+Data
+STRef
+Data
+STRef
+Lazy
+Data
+STRef
+Strict
+Data
+Semigroup
+Data
+String
+Data
+Traversable
+Data
+Tuple
+Data
+Type
+Bool
+Data
+Type
+Coercion
+Data
+Type
+Equality
+Data
+Typeable
+Data
+Unique
+Data
+Version
+Data
+Void
+Data
+Word
+Debug
+Trace
+Foreign
+Foreign
+Foreign
+Error
+Foreign
+String
+Foreign
+Types
+Foreign
+Concurrent
+Foreign
+ForeignPtr
+Foreign
+ForeignPtr
+Safe
+Foreign
+ForeignPtr
+Unsafe
+Foreign
+Marshal
+Foreign
+Marshal
+Alloc
+Foreign
+Marshal
+Array
+Foreign
+Marshal
+Error
+Foreign
+Marshal
+Pool
+Foreign
+Marshal
+Safe
+Foreign
+Marshal
+Unsafe
+Foreign
+Marshal
+Utils
+Foreign
+Foreign
+Safe
+Foreign
+StablePtr
+Foreign
+Storable
+Base
+ByteOrder
+Char
+Clock
+Conc
+Conc
+Conc
+Signal
+Conc
+Sync
+ConsoleHandler
+Constants
+Desugar
+Enum
+Environment
+Event
+Exception
+Exception
+Type
+ExecutionStack
+ExecutionStack
+Internal
+Exts
+Fingerprint
+Fingerprint
+Type
+Float
+Float
+ConversionUtils
+Float
+RealFracMethods
+Foreign
+ForeignPtr
+GHCi
+Generics
+Buffer
+BufferedIO
+Device
+Encoding
+Encoding
+CodePage
+Encoding
+Failure
+Encoding
+Iconv
+Encoding
+Latin1
+Encoding
+Types
+Encoding
+UTF16
+Encoding
+UTF32
+Encoding
+UTF8
+Exception
+Handle
+Handle
+Handle
+Internals
+Handle
+Lock
+Handle
+Text
+Handle
+Types
+IOMode
+Unsafe
+IOArray
+IORef
+List
+MVar
+Maybe
+Natural
+OldList
+OverloadedLabels
+Pack
+Profiling
+Flags
+Read
+Real
+Records
+
+ResponseFile
+STRef
+Show
+Stable
+StableName
+Stack
+Stack
+Stack
+Types
+StaticPtr
+Stats
+Storable
+TopHandler
+TypeLits
+TypeNats
+Unicode
+Weak
+Word
+Numeric
+Numeric
+Natural
+Prelude
+System
+CPUTime
+System
+Console
+GetOpt
+System
+Environment
+System
+Environment
+Blank
+System
+Exit
+System
+System
+Error
+System
+Unsafe
+System
+Info
+System
+System
+StableName
+System
+Weak
+System
+Posix
+Internals
+System
+Posix
+Types
+System
+Timeout
+Text
+ParserCombinators
+ReadP
+Text
+ParserCombinators
+ReadPrec
+Text
+Printf
+Text
+Read
+Text
+Read
+Text
+Show
+Text
+Show
+Functions
+Type
+Reflection
+Type
+Reflection
+Unsafe
+Unsafe
+Coerce
+Control
+Monad
+Control
+Monad
+Lazy
+Data
+Functor
+Utils
+Data
+OldList
+Data
+Semigroup
+Internal
+Data
+Typeable
+Internal
+Foreign
+ForeignPtr
+StaticPtr
+Internal
+System
+Environment
+ExecutablePath
+System
+CPUTime
+Utils
+Event
+Event
+Array
+Event
+Control
+Event
+EPoll
+Event
+IntTable
+Event
+Internal
+Event
+KQueue
+Event
+Manager
+Event
+Event
+Poll
+Event
+Thread
+Event
+
+TimerManager
+Event
+Unique
+System
+CPUTime
+Posix
+
+ClockGetTime
+System
+CPUTime
+Posix
+Times
+System
+CPUTime
+Posix
+RUsage
+System
+CPUTime
+Unsupported
+Q/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/base-4.12.0.0
+Q/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/base-4.12.0.0
+D/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/lib
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+D/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/lib
+^/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/share/x86_64-osx-ghc-8.6.4/base-4.12.0.0
+HSbase-4.12.0.0
+iconv
+H/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/include
+Y/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/base-4.12.0.0/include
+HsBase.h
+ghc-prim-0.5.3
+integer-gmp-1.0.2.0
+q/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/base-4.12.0.0/base.haddock
+d/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/base-4.12.0.0
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+
+bindings-DSL
+
+bindings-DSL
+*bindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi
+*bindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi
+$John Wiegley <johnw@newartisans.com>
+Maur
+cio C. Antunes
+;Stable API, well tested, portable, used in commercial code.
+-https://github.com/jwiegley/bindings-dsl/wiki
+/FFI domain specific language, on top of hsc2hs.
+This is a set of macros to be used when writing Haskell FFI.
+They were designed to be able to fully describe C interfaces,
+so that hsc2hs can extract from them all Haskell code needed to
+mimic such interfaces. All Haskell names used are automatically
+derived from C names, structures are mapped to Haskell instances
+of Storable, and there are also macros you can use with C code
+to help write bindings to inline functions or macro functions.
+Documentation is available at package homepage:
+<https://github.com/jwiegley/bindings-dsl/wiki>
+The extra module Bindings.Utilities will contain tools that may
+be convenient when working with FFI.
+ ec7a9d4b3a4cd31ca1d17c8c85526c9e
+Bindings
+Utilities
+/nix/store/27vg3zjflallxd9d2b1a4sxwm81ga230-bindings-DSL-1.0.25/lib/ghc-8.6.4/x86_64-osx-ghc-8.6.4/bindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi
+/nix/store/27vg3zjflallxd9d2b1a4sxwm81ga230-bindings-DSL-1.0.25/lib/ghc-8.6.4/x86_64-osx-ghc-8.6.4/bindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi
+</nix/store/i9sqhlfi3qy9i6vbjkzswvzlkg1vz6zp-libc++-5.0.2/lib
+?/nix/store/favl95hgd1akmqrawj89xxwz7n9gvgky-libc++abi-5.0.2/lib
+A/nix/store/ac3p1nvv9p5yl3plf97ffp42f54x8fag-compiler-rt-5.0.2/lib
+D/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/lib
+</nix/store/d61prwj3s9jxidpmf7kk29xha425fv42-libffi-3.2.1/lib
+9/nix/store/jqrxd7qsf3nph0jv4yxl99cibqgpkrxz-gmp-6.1.2/lib
+D/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/lib
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+</nix/store/i9sqhlfi3qy9i6vbjkzswvzlkg1vz6zp-libc++-5.0.2/lib
+?/nix/store/favl95hgd1akmqrawj89xxwz7n9gvgky-libc++abi-5.0.2/lib
+A/nix/store/ac3p1nvv9p5yl3plf97ffp42f54x8fag-compiler-rt-5.0.2/lib
+D/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/lib
+</nix/store/d61prwj3s9jxidpmf7kk29xha425fv42-libffi-3.2.1/lib
+9/nix/store/jqrxd7qsf3nph0jv4yxl99cibqgpkrxz-gmp-6.1.2/lib
+D/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/lib
+n/nix/store/27vg3zjflallxd9d2b1a4sxwm81ga230-bindings-DSL-1.0.25/share/x86_64-osx-ghc-8.6.4/bindings-DSL-1.0.25
+,HSbindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi
+@/nix/store/i9sqhlfi3qy9i6vbjkzswvzlkg1vz6zp-libc++-5.0.2/include
+C/nix/store/favl95hgd1akmqrawj89xxwz7n9gvgky-libc++abi-5.0.2/include
+I/nix/store/asgh886fpfrwnbhqd701qf1ras5s52vb-compiler-rt-5.0.2-dev/include
+H/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/include
+/nix/store/27vg3zjflallxd9d2b1a4sxwm81ga230-bindings-DSL-1.0.25/lib/ghc-8.6.4/x86_64-osx-ghc-8.6.4/bindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi/include
+base-4.12.0.0
+S/nix/store/bcgk1i2wqgn2vkcraqpyhmv8m43skasg-swift-corefoundation/Library/Frameworks
+{/nix/store/3aiani54nrmfjz9h2j3z74vqwfbqw3q1-bindings-DSL-1.0.25-doc/share/doc/bindings-DSL-1.0.25/html/bindings-DSL.haddock
+f/nix/store/3aiani54nrmfjz9h2j3z74vqwfbqw3q1-bindings-DSL-1.0.25-doc/share/doc/bindings-DSL-1.0.25/html
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+bytestring
+bytestring
+bytestring-0.10.8.2
+bytestring-0.10.8.2
+Copyright (c) Don Stewart          2005-2009,
+(c) Duncan Coutts        2006-2015,
+(c) David Roundy         2003-2005,
+(c) Jasper Van der Jeugt 2010,
+(c) Simon Meier          2010-2013.
+,Duncan Coutts <duncan@community.haskell.org>
+Don Stewart,
+Duncan Coutts
+%https://github.com/haskell/bytestring
+AFast, compact, strict and lazy byte strings with a list interface
+XAn efficient compact, immutable byte string type (both strict and lazy)
+suitable for binary or 8-bit character data.
+The 'ByteString' type represents sequences of bytes or 8-bit characters.
+It is suitable for high performance use, both in terms of large data
+quantities, or high speed requirements. The 'ByteString' functions follow
+the same style as Haskell\'s ordinary lists, so it is easy to convert code
+from using 'String' to 'ByteString'.
+Two 'ByteString' variants are provided:
+* Strict 'ByteString's keep the string as a single large array. This
+makes them convenient for passing data between C and Haskell.
+* Lazy 'ByteString's use a lazy list of strict chunks which makes it
+suitable for I\/O streaming tasks.
+The @Char8@ modules provide a character-based view of the same
+underlying 'ByteString' types. This makes it convenient to handle mixed
+binary and 8-bit character content (which is common in many file formats
+and network protocols).
+The 'Builder' module provides an efficient way to build up 'ByteString's
+in an ad-hoc way by repeated concatenation. This is ideal for fast
+serialisation or pretty printing.
+There is also a 'ShortByteString' type which has a lower memory overhead
+and can can be converted to or from a 'ByteString', but supports very few
+other operations. It is suitable for keeping many short strings in memory.
+'ByteString's are not designed for Unicode. For Unicode strings you should
+use the 'Text' type from the @text@ package.
+These modules are intended to be imported qualified, to avoid name clashes
+with "Prelude" functions, e.g.
+> import qualified Data.ByteString as BS
+Data
+ c516340f96d1bd052e2a22e538c17b8d
+Data
+ByteString
+Data
+ByteString
+Builder
+Data
+ByteString
+Builder
+Extra
+Data
+ByteString
+Builder
+Internal
+Data
+ByteString
+Builder
+Prim
+Data
+ByteString
+Builder
+Prim
+Internal
+Data
+ByteString
+Char8
+Data
+ByteString
+Internal
+Data
+ByteString
+Lazy
+Data
+ByteString
+Lazy
+Builder
+Data
+ByteString
+Lazy
+Builder
+ASCII
+Data
+ByteString
+Lazy
+Builder
+Extras
+Data
+ByteString
+Lazy
+Char8
+Data
+ByteString
+Lazy
+Internal
+Data
+ByteString
+Short
+Data
+ByteString
+Short
+Internal
+Data
+ByteString
+Unsafe
+Data
+ByteString
+Builder
+ASCII
+Data
+ByteString
+Builder
+Prim
+Binary
+Data
+ByteString
+Builder
+Prim
+ASCII
+Data
+ByteString
+Builder
+Prim
+Internal
+Floating
+Data
+ByteString
+Builder
+Prim
+Internal
+UncheckedShifts
+Data
+ByteString
+Builder
+Prim
+Internal
+Base16
+W/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/bytestring-0.10.8.2
+W/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/bytestring-0.10.8.2
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+d/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/share/x86_64-osx-ghc-8.6.4/bytestring-0.10.8.2
+HSbytestring-0.10.8.2
+_/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/bytestring-0.10.8.2/include
+fpstring.h
+base-4.12.0.0
+deepseq-1.4.4.0
+ghc-prim-0.5.3
+integer-gmp-1.0.2.0
+}/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/bytestring-0.10.8.2/bytestring.haddock
+j/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/bytestring-0.10.8.2
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+deepseq
+deepseq
+deepseq-1.4.4.0
+deepseq-1.4.4.0
+libraries@haskell.org
+"Deep evaluation of data structures
+This package provides methods for fully evaluating data structures
+(\"deep evaluation\"). Deep evaluation is often used for adding
+strictness to a program, e.g. in order to force pending exceptions,
+remove space leaks, or force lazy I/O to happen. It is also useful
+in parallel programs, to ensure pending work does not migrate to the
+wrong thread.
+The primary use of this package is via the 'deepseq' function, a
+\"deep\" version of 'seq'. It is implemented on top of an 'NFData'
+typeclass (\"Normal Form Data\", data structures with no unevaluated
+components) which defines strategies for fully evaluating different
+data types. See module documentation in "Control.DeepSeq" for more
+details.
+Control
+ 9bdf2755bebe1afb302550a57d75100e
+Control
+DeepSeq
+Control
+DeepSeq
+BackDoor
+S/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/deepseq-1.4.4.0
+S/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/deepseq-1.4.4.0
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+`/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/share/x86_64-osx-ghc-8.6.4/deepseq-1.4.4.0
+HSdeepseq-1.4.4.0
+array-0.5.3.0
+base-4.12.0.0
+v/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/deepseq-1.4.4.0/deepseq.haddock
+f/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/deepseq-1.4.4.0
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+ghc-prim
+ghc-prim
+ghc-prim-0.5.3
+ghc-prim-0.5.3
+libraries@haskell.org
+GHC primitives
+IThis package contains the primitive types and operations supplied by GHC.
+ 70beaf5ddd426d72ddda98de7531b1ec
+CString
+Classes
+Debug
+IntWord64
+Magic
+PrimopWrappers
+Tuple
+Types
+Prim
+R/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/ghc-prim-0.5.3
+R/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/ghc-prim-0.5.3
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+_/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/share/x86_64-osx-ghc-8.6.4/ghc-prim-0.5.3
+HSghc-prim-0.5.3
+v/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/ghc-prim-0.5.3/ghc-prim.haddock
+e/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/ghc-prim-0.5.3
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+integer-gmp
+integer-gmp
+integer-gmp-1.0.2.0
+integer-gmp-1.0.2.0
+hvr@gnu.org
+Herbert Valerio Riedel
+Integer library based on GMP
+dThis package provides the low-level implementation of the standard
+'Integer' type based on the
+<http://gmplib.org/ GNU Multiple Precision Arithmetic Library (GMP)>.
+This package provides access to the internal representation of
+'Integer' as well as primitive operations with no proper error
+handling, and should only be used directly with the utmost care.
+Numeric, Algebra
+ e0520ba7950257c2eb2ebdbbd1cc1efd
+Integer
+Integer
+Internals
+Integer
+Logarithms
+Integer
+Logarithms
+Internals
+Integer
+Type
+W/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/integer-gmp-1.0.2.0
+W/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/integer-gmp-1.0.2.0
+9/nix/store/jqrxd7qsf3nph0jv4yxl99cibqgpkrxz-gmp-6.1.2/lib
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+9/nix/store/jqrxd7qsf3nph0jv4yxl99cibqgpkrxz-gmp-6.1.2/lib
+d/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/share/x86_64-osx-ghc-8.6.4/integer-gmp-1.0.2.0
+HSinteger-gmp-1.0.2.0
+A/nix/store/lcsmc0jqqj05q96321wcb2w73nkwclxq-gmp-6.1.2-dev/include
+_/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/integer-gmp-1.0.2.0/include
+ghc-prim-0.5.3
+~/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/integer-gmp-1.0.2.0/integer-gmp.haddock
+j/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/integer-gmp-1.0.2.0
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+mtl-2.2.2
+mtl-2.2.2
+Edward Kmett <ekmett@gmail.com>
+Andy Gill
+http://github.com/haskell/mtl
+,Monad classes, using functional dependencies
+9Monad classes using functional dependencies, with instances
+for various monad transformers, inspired by the paper
+/Functional Programming with Overloading and Higher-Order Polymorphism/,
+by Mark P Jones, in /Advanced School of Functional Programming/, 1995
+(<http://web.cecs.pdx.edu/~mpj/pubs/springschool.html>).
+Control
+ 5043faed8d4ee0efe7c3be38f7fdaa0a
+Control
+Monad
+Cont
+Control
+Monad
+Cont
+Class
+Control
+Monad
+Error
+Control
+Monad
+Error
+Class
+Control
+Monad
+Except
+Control
+Monad
+Identity
+Control
+Monad
+List
+Control
+Monad
+Control
+Monad
+Class
+Control
+Monad
+Lazy
+Control
+Monad
+Strict
+Control
+Monad
+Reader
+Control
+Monad
+Reader
+Class
+Control
+Monad
+State
+Control
+Monad
+State
+Class
+Control
+Monad
+State
+Lazy
+Control
+Monad
+State
+Strict
+Control
+Monad
+Trans
+Control
+Monad
+Writer
+Control
+Monad
+Writer
+Class
+Control
+Monad
+Writer
+Lazy
+Control
+Monad
+Writer
+Strict
+M/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/mtl-2.2.2
+M/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/mtl-2.2.2
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+Z/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/share/x86_64-osx-ghc-8.6.4/mtl-2.2.2
+HSmtl-2.2.2
+base-4.12.0.0
+transformers-0.5.6.2
+l/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/mtl-2.2.2/mtl.haddock
+`/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/mtl-2.2.2
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+primitive
+primitive
+(primitive-0.6.4.0-ILgywxtLpvnAOlEISPpP5b
+(primitive-0.6.4.0-ILgywxtLpvnAOlEISPpP5b
+ (c) Roman Leshchinskiy 2009-2012
+libraries@haskell.org
+'Roman Leshchinskiy <rl@cse.unsw.edu.au>
+$https://github.com/haskell/primitive
+#Primitive memory-related operations
+BThis package provides various primitive memory-related operations.
+Data
+ 46d2603dae5fe0eae2b1e47e730d45b9
+Control
+Monad
+Primitive
+Data
+Primitive
+Data
+Primitive
+Addr
+Data
+Primitive
+Array
+Data
+Primitive
+ByteArray
+Data
+Primitive
+MVar
+Data
+Primitive
+MachDeps
+Data
+Primitive
+MutVar
+Data
+Primitive
+PrimArray
+Data
+Primitive
+Data
+Primitive
+SmallArray
+Data
+Primitive
+Types
+Data
+Primitive
+UnliftedArray
+Data
+Primitive
+Internal
+Compat
+Data
+Primitive
+Internal
+Operations
+/nix/store/42ca44vp2gflpax6jpgxfp0fa3c1p0ab-primitive-0.6.4.0/lib/ghc-8.6.4/x86_64-osx-ghc-8.6.4/primitive-0.6.4.0-ILgywxtLpvnAOlEISPpP5b
+/nix/store/42ca44vp2gflpax6jpgxfp0fa3c1p0ab-primitive-0.6.4.0/lib/ghc-8.6.4/x86_64-osx-ghc-8.6.4/primitive-0.6.4.0-ILgywxtLpvnAOlEISPpP5b
+</nix/store/i9sqhlfi3qy9i6vbjkzswvzlkg1vz6zp-libc++-5.0.2/lib
+?/nix/store/favl95hgd1akmqrawj89xxwz7n9gvgky-libc++abi-5.0.2/lib
+A/nix/store/ac3p1nvv9p5yl3plf97ffp42f54x8fag-compiler-rt-5.0.2/lib
+D/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/lib
+</nix/store/d61prwj3s9jxidpmf7kk29xha425fv42-libffi-3.2.1/lib
+9/nix/store/jqrxd7qsf3nph0jv4yxl99cibqgpkrxz-gmp-6.1.2/lib
+D/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/lib
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+</nix/store/i9sqhlfi3qy9i6vbjkzswvzlkg1vz6zp-libc++-5.0.2/lib
+?/nix/store/favl95hgd1akmqrawj89xxwz7n9gvgky-libc++abi-5.0.2/lib
+A/nix/store/ac3p1nvv9p5yl3plf97ffp42f54x8fag-compiler-rt-5.0.2/lib
+D/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/lib
+</nix/store/d61prwj3s9jxidpmf7kk29xha425fv42-libffi-3.2.1/lib
+9/nix/store/jqrxd7qsf3nph0jv4yxl99cibqgpkrxz-gmp-6.1.2/lib
+D/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/lib
+j/nix/store/42ca44vp2gflpax6jpgxfp0fa3c1p0ab-primitive-0.6.4.0/share/x86_64-osx-ghc-8.6.4/primitive-0.6.4.0
+*HSprimitive-0.6.4.0-ILgywxtLpvnAOlEISPpP5b
+@/nix/store/i9sqhlfi3qy9i6vbjkzswvzlkg1vz6zp-libc++-5.0.2/include
+C/nix/store/favl95hgd1akmqrawj89xxwz7n9gvgky-libc++abi-5.0.2/include
+I/nix/store/asgh886fpfrwnbhqd701qf1ras5s52vb-compiler-rt-5.0.2-dev/include
+H/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/include
+/nix/store/42ca44vp2gflpax6jpgxfp0fa3c1p0ab-primitive-0.6.4.0/lib/ghc-8.6.4/x86_64-osx-ghc-8.6.4/primitive-0.6.4.0-ILgywxtLpvnAOlEISPpP5b/include
+primitive-memops.h
+base-4.12.0.0
+ghc-prim-0.5.3
+transformers-0.5.6.2
+S/nix/store/bcgk1i2wqgn2vkcraqpyhmv8m43skasg-swift-corefoundation/Library/Frameworks
+t/nix/store/rbkxpxw9ni9c7v8gp2gwf3vpxjk9xfjx-primitive-0.6.4.0-doc/share/doc/primitive-0.6.4.0/html/primitive.haddock
+b/nix/store/rbkxpxw9ni9c7v8gp2gwf3vpxjk9xfjx-primitive-0.6.4.0-doc/share/doc/primitive-0.6.4.0/html
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+!glasgow-haskell-users@haskell.org
+G/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/rts
+</nix/store/d61prwj3s9jxidpmf7kk29xha425fv42-libffi-3.2.1/lib
+HSrts
+K/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/include
+D/nix/store/3z676qwr8jq9ncwz4jycmdsykdbk7g0a-libffi-3.2.1-dev/include
+Stg.h
+*-Wl,-u,_base_GHCziTopHandler_runIO_closure
+--Wl,-u,_base_GHCziTopHandler_runNonIO_closure
+(-Wl,-u,_ghczmprim_GHCziTuple_Z0T_closure
+)-Wl,-u,_ghczmprim_GHCziTypes_True_closure
+*-Wl,-u,_ghczmprim_GHCziTypes_False_closure
+,-Wl,-u,_base_GHCziPack_unpackCString_closure
+1-Wl,-u,_base_GHCziWeak_runFinalizzerBatch_closure
+5-Wl,-u,_base_GHCziIOziException_stackOverflow_closure
+4-Wl,-u,_base_GHCziIOziException_heapOverflow_closure
+?-Wl,-u,_base_GHCziIOziException_allocationLimitExceeded_closure
+A-Wl,-u,_base_GHCziIOziException_blockedIndefinitelyOnMVar_closure
+@-Wl,-u,_base_GHCziIOziException_blockedIndefinitelyOnSTM_closure
+=-Wl,-u,_base_GHCziIOziException_cannotCompactFunction_closure
+;-Wl,-u,_base_GHCziIOziException_cannotCompactPinned_closure
+<-Wl,-u,_base_GHCziIOziException_cannotCompactMutable_closure
+A-Wl,-u,_base_ControlziExceptionziBase_absentSumFieldError_closure
+<-Wl,-u,_base_ControlziExceptionziBase_nonTermination_closure
+>-Wl,-u,_base_ControlziExceptionziBase_nestedAtomically_closure
+6-Wl,-u,_base_GHCziEventziThread_blockedOnBadFD_closure
+.-Wl,-u,_base_GHCziConcziSync_runSparks_closure
+;-Wl,-u,_base_GHCziConcziIO_ensureIOManagerIsRunning_closure
+?-Wl,-u,_base_GHCziConcziIO_ioManagerCapabilitiesChanged_closure
+5-Wl,-u,_base_GHCziConcziSignal_runHandlersPtr_closure
+4-Wl,-u,_base_GHCziTopHandler_flushStdHandles_closure
+.-Wl,-u,_base_GHCziTopHandler_runMainIO_closure
+)-Wl,-u,_ghczmprim_GHCziTypes_Czh_con_info
+)-Wl,-u,_ghczmprim_GHCziTypes_Izh_con_info
+)-Wl,-u,_ghczmprim_GHCziTypes_Fzh_con_info
+)-Wl,-u,_ghczmprim_GHCziTypes_Dzh_con_info
+)-Wl,-u,_ghczmprim_GHCziTypes_Wzh_con_info
+"-Wl,-u,_base_GHCziPtr_Ptr_con_info
+%-Wl,-u,_base_GHCziPtr_FunPtr_con_info
+#-Wl,-u,_base_GHCziInt_I8zh_con_info
+$-Wl,-u,_base_GHCziInt_I16zh_con_info
+$-Wl,-u,_base_GHCziInt_I32zh_con_info
+$-Wl,-u,_base_GHCziInt_I64zh_con_info
+$-Wl,-u,_base_GHCziWord_W8zh_con_info
+%-Wl,-u,_base_GHCziWord_W16zh_con_info
+%-Wl,-u,_base_GHCziWord_W32zh_con_info
+%-Wl,-u,_base_GHCziWord_W64zh_con_info
++-Wl,-u,_base_GHCziStable_StablePtr_con_info
+-Wl,-u,_hs_atomic_add8
+-Wl,-u,_hs_atomic_add16
+-Wl,-u,_hs_atomic_add32
+-Wl,-u,_hs_atomic_add64
+-Wl,-u,_hs_atomic_sub8
+-Wl,-u,_hs_atomic_sub16
+-Wl,-u,_hs_atomic_sub32
+-Wl,-u,_hs_atomic_sub64
+-Wl,-u,_hs_atomic_and8
+-Wl,-u,_hs_atomic_and16
+-Wl,-u,_hs_atomic_and32
+-Wl,-u,_hs_atomic_and64
+-Wl,-u,_hs_atomic_nand8
+-Wl,-u,_hs_atomic_nand16
+-Wl,-u,_hs_atomic_nand32
+-Wl,-u,_hs_atomic_nand64
+-Wl,-u,_hs_atomic_or8
+-Wl,-u,_hs_atomic_or16
+-Wl,-u,_hs_atomic_or32
+-Wl,-u,_hs_atomic_or64
+-Wl,-u,_hs_atomic_xor8
+-Wl,-u,_hs_atomic_xor16
+-Wl,-u,_hs_atomic_xor32
+-Wl,-u,_hs_atomic_xor64
+-Wl,-u,_hs_cmpxchg8
+-Wl,-u,_hs_cmpxchg16
+-Wl,-u,_hs_cmpxchg32
+-Wl,-u,_hs_cmpxchg64
+-Wl,-u,_hs_atomicread8
+-Wl,-u,_hs_atomicread16
+-Wl,-u,_hs_atomicread32
+-Wl,-u,_hs_atomicread64
+-Wl,-u,_hs_atomicwrite8
+-Wl,-u,_hs_atomicwrite16
+-Wl,-u,_hs_atomicwrite32
+-Wl,-u,_hs_atomicwrite64
+-Wl,-search_paths_first
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+
+transformers
+
+transformers
+transformers-0.5.6.2
+transformers-0.5.6.2
+%Ross Paterson <R.Paterson@city.ac.uk>
+Andy Gill, Ross Paterson
+'Concrete functor and monad transformers
+A portable library of functor and monad transformers, inspired by
+the paper
+* \"Functional Programming with Overloading and Higher-Order
+Polymorphism\", by Mark P Jones,
+in /Advanced School of Functional Programming/, 1995
+(<http://web.cecs.pdx.edu/~mpj/pubs/springschool.html>).
+This package contains:
+* the monad transformer class (in "Control.Monad.Trans.Class")
+* concrete functor and monad transformers, each with associated
+operations and functions to lift operations associated with other
+transformers.
+The package can be used on its own in portable Haskell code, in
+which case operations need to be manually lifted through transformer
+stacks (see "Control.Monad.Trans.Class" for some examples).
+Alternatively, it can be used with the non-portable monad classes in
+the @mtl@ or @monads-tf@ packages, which automatically lift operations
+introduced by monad transformers through other transformers.
+Control
+ fa37705c59d758425ec7bfd6b1662680
+Control
+Applicative
+Backwards
+Control
+Applicative
+Lift
+Control
+Monad
+Signatures
+Control
+Monad
+Trans
+Accum
+Control
+Monad
+Trans
+Class
+Control
+Monad
+Trans
+Cont
+Control
+Monad
+Trans
+Error
+Control
+Monad
+Trans
+Except
+Control
+Monad
+Trans
+Identity
+Control
+Monad
+Trans
+List
+Control
+Monad
+Trans
+Maybe
+Control
+Monad
+Trans
+Control
+Monad
+Trans
+Control
+Monad
+Trans
+Lazy
+Control
+Monad
+Trans
+Strict
+Control
+Monad
+Trans
+Reader
+Control
+Monad
+Trans
+Select
+Control
+Monad
+Trans
+State
+Control
+Monad
+Trans
+State
+Lazy
+Control
+Monad
+Trans
+State
+Strict
+Control
+Monad
+Trans
+Writer
+Control
+Monad
+Trans
+Writer
+Control
+Monad
+Trans
+Writer
+Lazy
+Control
+Monad
+Trans
+Writer
+Strict
+Data
+Functor
+Constant
+Data
+Functor
+Reverse
+X/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/transformers-0.5.6.2
+X/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/lib/ghc-8.6.4/transformers-0.5.6.2
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+e/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/share/x86_64-osx-ghc-8.6.4/transformers-0.5.6.2
+HStransformers-0.5.6.2
+base-4.12.0.0
+/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/transformers-0.5.6.2/transformers.haddock
+k/nix/store/i1x9vi66r0y449xivdmhbg0mwpxnwwf6-ghc-8.6.4-doc/share/doc/ghc/html/libraries/transformers-0.5.6.2
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+vector
+vector
+&vector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH
+&vector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH
+ (c) Roman Leshchinskiy 2008-2012
+.Haskell Libraries Team <libraries@haskell.org>
+'Roman Leshchinskiy <rl@cse.unsw.edu.au>
+!https://github.com/haskell/vector
+Efficient Arrays
+An efficient implementation of Int-indexed arrays (both mutable
+and immutable), with a powerful loop optimisation framework .
+It is structured as follows:
+["Data.Vector"] Boxed vectors of arbitrary types.
+["Data.Vector.Unboxed"] Unboxed vectors with an adaptive
+representation based on data type families.
+["Data.Vector.Storable"] Unboxed vectors of 'Storable' types.
+["Data.Vector.Primitive"] Unboxed vectors of primitive types as
+defined by the @primitive@ package. "Data.Vector.Unboxed" is more
+flexible at no performance cost.
+["Data.Vector.Generic"] Generic interface to the vector types.
+There is also a (draft) tutorial on common uses of vector.
+* <http://haskell.org/haskellwiki/Numeric_Haskell:_A_Vector_Tutorial>
+Data, Data Structures
+ 1e9359a41c6e27b00a1725b820d307de
+Data
+Vector
+Data
+Vector
+Fusion
+Bundle
+Data
+Vector
+Fusion
+Bundle
+Monadic
+Data
+Vector
+Fusion
+Bundle
+Size
+Data
+Vector
+Fusion
+Stream
+Monadic
+Data
+Vector
+Fusion
+Util
+Data
+Vector
+Generic
+Data
+Vector
+Generic
+Base
+Data
+Vector
+Generic
+Mutable
+Data
+Vector
+Generic
+Mutable
+Base
+Data
+Vector
+Generic
+Data
+Vector
+Internal
+Check
+Data
+Vector
+Mutable
+Data
+Vector
+Primitive
+Data
+Vector
+Primitive
+Mutable
+Data
+Vector
+Storable
+Data
+Vector
+Storable
+Internal
+Data
+Vector
+Storable
+Mutable
+Data
+Vector
+Unboxed
+Data
+Vector
+Unboxed
+Base
+Data
+Vector
+Unboxed
+Mutable
+/nix/store/8ws488qvps7jxvq5lpyyy8akq7cc9ln1-vector-0.12.0.2/lib/ghc-8.6.4/x86_64-osx-ghc-8.6.4/vector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH
+/nix/store/8ws488qvps7jxvq5lpyyy8akq7cc9ln1-vector-0.12.0.2/lib/ghc-8.6.4/x86_64-osx-ghc-8.6.4/vector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH
+</nix/store/i9sqhlfi3qy9i6vbjkzswvzlkg1vz6zp-libc++-5.0.2/lib
+?/nix/store/favl95hgd1akmqrawj89xxwz7n9gvgky-libc++abi-5.0.2/lib
+A/nix/store/ac3p1nvv9p5yl3plf97ffp42f54x8fag-compiler-rt-5.0.2/lib
+D/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/lib
+</nix/store/d61prwj3s9jxidpmf7kk29xha425fv42-libffi-3.2.1/lib
+9/nix/store/jqrxd7qsf3nph0jv4yxl99cibqgpkrxz-gmp-6.1.2/lib
+D/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/lib
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/links
+</nix/store/i9sqhlfi3qy9i6vbjkzswvzlkg1vz6zp-libc++-5.0.2/lib
+?/nix/store/favl95hgd1akmqrawj89xxwz7n9gvgky-libc++abi-5.0.2/lib
+A/nix/store/ac3p1nvv9p5yl3plf97ffp42f54x8fag-compiler-rt-5.0.2/lib
+D/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/lib
+</nix/store/d61prwj3s9jxidpmf7kk29xha425fv42-libffi-3.2.1/lib
+9/nix/store/jqrxd7qsf3nph0jv4yxl99cibqgpkrxz-gmp-6.1.2/lib
+D/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/lib
+f/nix/store/8ws488qvps7jxvq5lpyyy8akq7cc9ln1-vector-0.12.0.2/share/x86_64-osx-ghc-8.6.4/vector-0.12.0.2
+(HSvector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH
+@/nix/store/i9sqhlfi3qy9i6vbjkzswvzlkg1vz6zp-libc++-5.0.2/include
+C/nix/store/favl95hgd1akmqrawj89xxwz7n9gvgky-libc++abi-5.0.2/include
+I/nix/store/asgh886fpfrwnbhqd701qf1ras5s52vb-compiler-rt-5.0.2-dev/include
+H/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/include
+/nix/store/8ws488qvps7jxvq5lpyyy8akq7cc9ln1-vector-0.12.0.2/lib/ghc-8.6.4/x86_64-osx-ghc-8.6.4/vector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH/include
+base-4.12.0.0
+deepseq-1.4.4.0
+ghc-prim-0.5.3
+(primitive-0.6.4.0-ILgywxtLpvnAOlEISPpP5b
+S/nix/store/bcgk1i2wqgn2vkcraqpyhmv8m43skasg-swift-corefoundation/Library/Frameworks
+m/nix/store/1r6b3cl0j1yv6dpsr7fl2w9kn7cb6zzw-vector-0.12.0.2-doc/share/doc/vector-0.12.0.2/html/vector.haddock
+^/nix/store/1r6b3cl0j1yv6dpsr7fl2w9kn7cb6zzw-vector-0.12.0.2-doc/share/doc/vector-0.12.0.2/html
+Q/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/lib/ghc-8.6.4
+./wasm-v8.cabal
+wasm-v8
+maciej.wos@gmail.com
+Maciej Wo
+Wasm V8 API
+Wasm
+Bindings
+Wasm
+Bindings
+Internal
+
+cbits/wrap.c
+v8_wasm
+iconv
+v8_libplatform
+wasm.h
+-Wall
+-Werror
+-Wredundant-constraints
+-Wincomplete-record-updates
+-Wincomplete-uni-patterns
+-Werror
+-fprof-auto
+base
+
+bindings-DSL
+bytestring
+vector
+wasm-v8-tests
+wasm-v8-tests.hs
+tests
+-Wall
+-Werror
+-Wredundant-constraints
+-Wincomplete-record-updates
+-Wincomplete-uni-patterns
+-fprof-auto
+base
+bytestring
+tasty
+tasty-hunit
+vector
+wasm-v8
+wasm-v8-tests-concurrent
+wasm-v8-tests-concurrent.hs
+tests
+-Wall
+-Werror
+-Wredundant-constraints
+-Wincomplete-record-updates
+-Wincomplete-uni-patterns
+-threaded
+-fprof-auto
+base
+bytestring
+tasty
+tasty-hunit
+vector
+wasm-v8
+wasm-v8-tests-table
+wasm-v8-tests-table.hs
+tests
+-Wall
+-Werror
+-Wredundant-constraints
+-Wincomplete-record-updates
+-Wincomplete-uni-patterns
+-Werror
+-threaded
+-fprof-auto
+base
+bytestring
+tasty
+tasty-hunit
+vector
+wasm-v8
+wasm-v8-tests-memory
+wasm-v8-tests-memory.hs
+tests
+-Wall
+-Werror
+-Wredundant-constraints
+-Wincomplete-record-updates
+-Wincomplete-uni-patterns
+-Werror
+-threaded
+-fprof-auto
+base
+bytestring
+tasty
+tasty-hunit
+vector
+wasm-v8
+wasm-v8-tests-globals
+wasm-v8-tests-globals.hs
+tests
+-Wall
+-Werror
+-Wredundant-constraints
+-Wincomplete-record-updates
+-Wincomplete-uni-patterns
+-Werror
+-threaded
+-fprof-auto
+base
+bytestring
+tasty
+tasty-hunit
+vector
+wasm-v8
+"wasm-v8-tests-bls-wasm-sdk-issue-4
+%wasm-v8-tests-bls-wasm-sdk-issue-4.hs
+tests
+-Wall
+-Werror
+-Wredundant-constraints
+-Wincomplete-record-updates
+-Wincomplete-uni-patterns
+-Werror
+-threaded
+-fprof-auto
+base
+bytestring
+tasty
+tasty-hunit
+vector
+wasm-v8
+wasm/hello.wasm
+wasm/concurrent.wasm
+wasm/global.wasm
+/Users/johnw/.cabal/bin
+PATH
+$/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/mk0y8v4crr8rlgd04caib30d5li8f1b5-hspec-discover-2.6.1/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/08msahvp3jj3ckn82wsjzg27lbzgnih1-jq-1.6-bin/bin:/nix/store/687yhv3dd1xg5g7fv2rdc3gqifn2qvkp-python-2.7.16/bin:/nix/store/fjwk7ypk48zzziv07p32czg7y5x28n3p-nodejs-8.15.1/bin:/nix/store/w00axf7ikghw0f8dkvsyjvfy0yrlyc3d-node-node2nix-1.6.0/bin:/nix/store/xk14v3ygf03jlwzz23bjwfv559zg4dgs-tmux-2.8/bin:/nix/store/jym0y1sa49d61py70g7f54c88m46vrby-cabal-install-2.4.1.0/bin:/nix/store/f27jpbdb996brzphyc7qga6i77cwnfqk-ghcid-0.7.2/bin:/nix/store/3wn5n8yf78zwihlrng0x41mv8p13vc3r-hasktags-0.71.2/bin:/nix/store/z92kmgpyzwr4l3navc4p46v0a44q3vjp-hp2pretty-0.9/bin:/nix/store/hgng47231vlszjd29p3474ibkwy4n7pr-brittany-test-0.0.0/bin:/nix/store/y11cm9zkgc1z3f2xhnlg21dv5pcx13iz-brittany-0.11.0.0/bin:/nix/store/pvpm878b58a5ky1blvyyq740hmi6yh7h-stylish-haskell-0.9.2.1/bin:/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/9n68xdkcpyrfc430kal8fk3wpr0aqn68-wabt-1.0.8/bin:/nix/store/kgw7j2vfckwprx1nnwmyb6ix2hfzf8hr-ocaml4.06.1-wasm-1.0/bin:/nix/store/jaac4i146r1q53r4ckypg6m30y7nkydm-pcre-8.42-dev/bin:/nix/store/3cf4ddkw4vdv3abz1qnryczx03551crd-pcre-8.42-bin/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/90r2p501ligl7bc0ppkqki1sc4d13vga-diffutils-3.7/bin:/nix/store/w9zpyi6ibagr7ilcax4gd5vac5z9v0cs-gnused-4.7/bin:/nix/store/iqgap45bkpn2mggbmssyas9y29ywmmr0-gnugrep-3.3/bin:/nix/store/rhp9b79xvb70zrhgqav0ghggiifdyvq3-gawk-4.2.1/bin:/nix/store/z7cbjw2vckkm4lngp6qy2nswx2k239gq-gnutar-1.31/bin:/nix/store/3f92ilmvqic2y427ajnxhqh8mbdqqwvm-gzip-1.10/bin:/nix/store/3ladyzm5ra035n6h0d78ly3cbf1kz4pp-bzip2-1.0.6.0.1-bin/bin:/nix/store/l8jh4zdr0badlcnx8a99s431s8b5d2zw-gnumake-4.2.1/bin:/nix/store/06z61jbgs0vkw4i9cqqf9yl7zsfkkhw2-bash-4.4-p23/bin:/nix/store/hzmbrmva3s5vw3apy2hyl2qcax0wnz0w-patch-2.7.6/bin:/nix/store/69xi19x2509l3699y4lyn4vr8k2cbgm0-xz-5.2.4-bin/bin:/Users/johnw/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/nix/store/p0b2q8bfj8lrchxi88qb7kjmf3hdjrc2-Docker-2.0.0.2/Applications/Docker.app/Contents/Resources/bin:/Users/johnw/.config/zsh/plugins/iterm2_shell_integration:/Users/johnw/.config/zsh/plugins/iterm2_tmux_integration:/usr/local/sbin:/Users/johnw/.cabal/bin
+J/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin/ar
+./ar
+K/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin/ar
+J/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin/ar
+</nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin/ar
+F/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin/ar
+>/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin/ar
+A/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin/ar
+R/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin/ar
+cpphs
+cpphs
+PATH
+$/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/mk0y8v4crr8rlgd04caib30d5li8f1b5-hspec-discover-2.6.1/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/08msahvp3jj3ckn82wsjzg27lbzgnih1-jq-1.6-bin/bin:/nix/store/687yhv3dd1xg5g7fv2rdc3gqifn2qvkp-python-2.7.16/bin:/nix/store/fjwk7ypk48zzziv07p32czg7y5x28n3p-nodejs-8.15.1/bin:/nix/store/w00axf7ikghw0f8dkvsyjvfy0yrlyc3d-node-node2nix-1.6.0/bin:/nix/store/xk14v3ygf03jlwzz23bjwfv559zg4dgs-tmux-2.8/bin:/nix/store/jym0y1sa49d61py70g7f54c88m46vrby-cabal-install-2.4.1.0/bin:/nix/store/f27jpbdb996brzphyc7qga6i77cwnfqk-ghcid-0.7.2/bin:/nix/store/3wn5n8yf78zwihlrng0x41mv8p13vc3r-hasktags-0.71.2/bin:/nix/store/z92kmgpyzwr4l3navc4p46v0a44q3vjp-hp2pretty-0.9/bin:/nix/store/hgng47231vlszjd29p3474ibkwy4n7pr-brittany-test-0.0.0/bin:/nix/store/y11cm9zkgc1z3f2xhnlg21dv5pcx13iz-brittany-0.11.0.0/bin:/nix/store/pvpm878b58a5ky1blvyyq740hmi6yh7h-stylish-haskell-0.9.2.1/bin:/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/9n68xdkcpyrfc430kal8fk3wpr0aqn68-wabt-1.0.8/bin:/nix/store/kgw7j2vfckwprx1nnwmyb6ix2hfzf8hr-ocaml4.06.1-wasm-1.0/bin:/nix/store/jaac4i146r1q53r4ckypg6m30y7nkydm-pcre-8.42-dev/bin:/nix/store/3cf4ddkw4vdv3abz1qnryczx03551crd-pcre-8.42-bin/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/90r2p501ligl7bc0ppkqki1sc4d13vga-diffutils-3.7/bin:/nix/store/w9zpyi6ibagr7ilcax4gd5vac5z9v0cs-gnused-4.7/bin:/nix/store/iqgap45bkpn2mggbmssyas9y29ywmmr0-gnugrep-3.3/bin:/nix/store/rhp9b79xvb70zrhgqav0ghggiifdyvq3-gawk-4.2.1/bin:/nix/store/z7cbjw2vckkm4lngp6qy2nswx2k239gq-gnutar-1.31/bin:/nix/store/3f92ilmvqic2y427ajnxhqh8mbdqqwvm-gzip-1.10/bin:/nix/store/3ladyzm5ra035n6h0d78ly3cbf1kz4pp-bzip2-1.0.6.0.1-bin/bin:/nix/store/l8jh4zdr0badlcnx8a99s431s8b5d2zw-gnumake-4.2.1/bin:/nix/store/06z61jbgs0vkw4i9cqqf9yl7zsfkkhw2-bash-4.4-p23/bin:/nix/store/hzmbrmva3s5vw3apy2hyl2qcax0wnz0w-patch-2.7.6/bin:/nix/store/69xi19x2509l3699y4lyn4vr8k2cbgm0-xz-5.2.4-bin/bin:/Users/johnw/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/nix/store/p0b2q8bfj8lrchxi88qb7kjmf3hdjrc2-Docker-2.0.0.2/Applications/Docker.app/Contents/Resources/bin:/Users/johnw/.config/zsh/plugins/iterm2_shell_integration:/Users/johnw/.config/zsh/plugins/iterm2_tmux_integration:/usr/local/sbin:/Users/johnw/.cabal/bin
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin/cpphs
+N/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin/cpphs
+-fno-stack-protector
+PATH
+$/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/mk0y8v4crr8rlgd04caib30d5li8f1b5-hspec-discover-2.6.1/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/08msahvp3jj3ckn82wsjzg27lbzgnih1-jq-1.6-bin/bin:/nix/store/687yhv3dd1xg5g7fv2rdc3gqifn2qvkp-python-2.7.16/bin:/nix/store/fjwk7ypk48zzziv07p32czg7y5x28n3p-nodejs-8.15.1/bin:/nix/store/w00axf7ikghw0f8dkvsyjvfy0yrlyc3d-node-node2nix-1.6.0/bin:/nix/store/xk14v3ygf03jlwzz23bjwfv559zg4dgs-tmux-2.8/bin:/nix/store/jym0y1sa49d61py70g7f54c88m46vrby-cabal-install-2.4.1.0/bin:/nix/store/f27jpbdb996brzphyc7qga6i77cwnfqk-ghcid-0.7.2/bin:/nix/store/3wn5n8yf78zwihlrng0x41mv8p13vc3r-hasktags-0.71.2/bin:/nix/store/z92kmgpyzwr4l3navc4p46v0a44q3vjp-hp2pretty-0.9/bin:/nix/store/hgng47231vlszjd29p3474ibkwy4n7pr-brittany-test-0.0.0/bin:/nix/store/y11cm9zkgc1z3f2xhnlg21dv5pcx13iz-brittany-0.11.0.0/bin:/nix/store/pvpm878b58a5ky1blvyyq740hmi6yh7h-stylish-haskell-0.9.2.1/bin:/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/9n68xdkcpyrfc430kal8fk3wpr0aqn68-wabt-1.0.8/bin:/nix/store/kgw7j2vfckwprx1nnwmyb6ix2hfzf8hr-ocaml4.06.1-wasm-1.0/bin:/nix/store/jaac4i146r1q53r4ckypg6m30y7nkydm-pcre-8.42-dev/bin:/nix/store/3cf4ddkw4vdv3abz1qnryczx03551crd-pcre-8.42-bin/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/90r2p501ligl7bc0ppkqki1sc4d13vga-diffutils-3.7/bin:/nix/store/w9zpyi6ibagr7ilcax4gd5vac5z9v0cs-gnused-4.7/bin:/nix/store/iqgap45bkpn2mggbmssyas9y29ywmmr0-gnugrep-3.3/bin:/nix/store/rhp9b79xvb70zrhgqav0ghggiifdyvq3-gawk-4.2.1/bin:/nix/store/z7cbjw2vckkm4lngp6qy2nswx2k239gq-gnutar-1.31/bin:/nix/store/3f92ilmvqic2y427ajnxhqh8mbdqqwvm-gzip-1.10/bin:/nix/store/3ladyzm5ra035n6h0d78ly3cbf1kz4pp-bzip2-1.0.6.0.1-bin/bin:/nix/store/l8jh4zdr0badlcnx8a99s431s8b5d2zw-gnumake-4.2.1/bin:/nix/store/06z61jbgs0vkw4i9cqqf9yl7zsfkkhw2-bash-4.4-p23/bin:/nix/store/hzmbrmva3s5vw3apy2hyl2qcax0wnz0w-patch-2.7.6/bin:/nix/store/69xi19x2509l3699y4lyn4vr8k2cbgm0-xz-5.2.4-bin/bin:/Users/johnw/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/nix/store/p0b2q8bfj8lrchxi88qb7kjmf3hdjrc2-Docker-2.0.0.2/Applications/Docker.app/Contents/Resources/bin:/Users/johnw/.config/zsh/plugins/iterm2_shell_integration:/Users/johnw/.config/zsh/plugins/iterm2_tmux_integration:/usr/local/sbin:/Users/johnw/.cabal/bin
+F/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin/cc
+-hide-all-packages
+PATH
+$/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/mk0y8v4crr8rlgd04caib30d5li8f1b5-hspec-discover-2.6.1/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/08msahvp3jj3ckn82wsjzg27lbzgnih1-jq-1.6-bin/bin:/nix/store/687yhv3dd1xg5g7fv2rdc3gqifn2qvkp-python-2.7.16/bin:/nix/store/fjwk7ypk48zzziv07p32czg7y5x28n3p-nodejs-8.15.1/bin:/nix/store/w00axf7ikghw0f8dkvsyjvfy0yrlyc3d-node-node2nix-1.6.0/bin:/nix/store/xk14v3ygf03jlwzz23bjwfv559zg4dgs-tmux-2.8/bin:/nix/store/jym0y1sa49d61py70g7f54c88m46vrby-cabal-install-2.4.1.0/bin:/nix/store/f27jpbdb996brzphyc7qga6i77cwnfqk-ghcid-0.7.2/bin:/nix/store/3wn5n8yf78zwihlrng0x41mv8p13vc3r-hasktags-0.71.2/bin:/nix/store/z92kmgpyzwr4l3navc4p46v0a44q3vjp-hp2pretty-0.9/bin:/nix/store/hgng47231vlszjd29p3474ibkwy4n7pr-brittany-test-0.0.0/bin:/nix/store/y11cm9zkgc1z3f2xhnlg21dv5pcx13iz-brittany-0.11.0.0/bin:/nix/store/pvpm878b58a5ky1blvyyq740hmi6yh7h-stylish-haskell-0.9.2.1/bin:/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/9n68xdkcpyrfc430kal8fk3wpr0aqn68-wabt-1.0.8/bin:/nix/store/kgw7j2vfckwprx1nnwmyb6ix2hfzf8hr-ocaml4.06.1-wasm-1.0/bin:/nix/store/jaac4i146r1q53r4ckypg6m30y7nkydm-pcre-8.42-dev/bin:/nix/store/3cf4ddkw4vdv3abz1qnryczx03551crd-pcre-8.42-bin/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/90r2p501ligl7bc0ppkqki1sc4d13vga-diffutils-3.7/bin:/nix/store/w9zpyi6ibagr7ilcax4gd5vac5z9v0cs-gnused-4.7/bin:/nix/store/iqgap45bkpn2mggbmssyas9y29ywmmr0-gnugrep-3.3/bin:/nix/store/rhp9b79xvb70zrhgqav0ghggiifdyvq3-gawk-4.2.1/bin:/nix/store/z7cbjw2vckkm4lngp6qy2nswx2k239gq-gnutar-1.31/bin:/nix/store/3f92ilmvqic2y427ajnxhqh8mbdqqwvm-gzip-1.10/bin:/nix/store/3ladyzm5ra035n6h0d78ly3cbf1kz4pp-bzip2-1.0.6.0.1-bin/bin:/nix/store/l8jh4zdr0badlcnx8a99s431s8b5d2zw-gnumake-4.2.1/bin:/nix/store/06z61jbgs0vkw4i9cqqf9yl7zsfkkhw2-bash-4.4-p23/bin:/nix/store/hzmbrmva3s5vw3apy2hyl2qcax0wnz0w-patch-2.7.6/bin:/nix/store/69xi19x2509l3699y4lyn4vr8k2cbgm0-xz-5.2.4-bin/bin:/Users/johnw/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/nix/store/p0b2q8bfj8lrchxi88qb7kjmf3hdjrc2-Docker-2.0.0.2/Applications/Docker.app/Contents/Resources/bin:/Users/johnw/.config/zsh/plugins/iterm2_shell_integration:/Users/johnw/.config/zsh/plugins/iterm2_tmux_integration:/usr/local/sbin:/Users/johnw/.cabal/bin
+K/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin/ghc
+ghc-pkg
+ghc-pkg
+PATH
+$/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/mk0y8v4crr8rlgd04caib30d5li8f1b5-hspec-discover-2.6.1/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/08msahvp3jj3ckn82wsjzg27lbzgnih1-jq-1.6-bin/bin:/nix/store/687yhv3dd1xg5g7fv2rdc3gqifn2qvkp-python-2.7.16/bin:/nix/store/fjwk7ypk48zzziv07p32czg7y5x28n3p-nodejs-8.15.1/bin:/nix/store/w00axf7ikghw0f8dkvsyjvfy0yrlyc3d-node-node2nix-1.6.0/bin:/nix/store/xk14v3ygf03jlwzz23bjwfv559zg4dgs-tmux-2.8/bin:/nix/store/jym0y1sa49d61py70g7f54c88m46vrby-cabal-install-2.4.1.0/bin:/nix/store/f27jpbdb996brzphyc7qga6i77cwnfqk-ghcid-0.7.2/bin:/nix/store/3wn5n8yf78zwihlrng0x41mv8p13vc3r-hasktags-0.71.2/bin:/nix/store/z92kmgpyzwr4l3navc4p46v0a44q3vjp-hp2pretty-0.9/bin:/nix/store/hgng47231vlszjd29p3474ibkwy4n7pr-brittany-test-0.0.0/bin:/nix/store/y11cm9zkgc1z3f2xhnlg21dv5pcx13iz-brittany-0.11.0.0/bin:/nix/store/pvpm878b58a5ky1blvyyq740hmi6yh7h-stylish-haskell-0.9.2.1/bin:/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/9n68xdkcpyrfc430kal8fk3wpr0aqn68-wabt-1.0.8/bin:/nix/store/kgw7j2vfckwprx1nnwmyb6ix2hfzf8hr-ocaml4.06.1-wasm-1.0/bin:/nix/store/jaac4i146r1q53r4ckypg6m30y7nkydm-pcre-8.42-dev/bin:/nix/store/3cf4ddkw4vdv3abz1qnryczx03551crd-pcre-8.42-bin/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/90r2p501ligl7bc0ppkqki1sc4d13vga-diffutils-3.7/bin:/nix/store/w9zpyi6ibagr7ilcax4gd5vac5z9v0cs-gnused-4.7/bin:/nix/store/iqgap45bkpn2mggbmssyas9y29ywmmr0-gnugrep-3.3/bin:/nix/store/rhp9b79xvb70zrhgqav0ghggiifdyvq3-gawk-4.2.1/bin:/nix/store/z7cbjw2vckkm4lngp6qy2nswx2k239gq-gnutar-1.31/bin:/nix/store/3f92ilmvqic2y427ajnxhqh8mbdqqwvm-gzip-1.10/bin:/nix/store/3ladyzm5ra035n6h0d78ly3cbf1kz4pp-bzip2-1.0.6.0.1-bin/bin:/nix/store/l8jh4zdr0badlcnx8a99s431s8b5d2zw-gnumake-4.2.1/bin:/nix/store/06z61jbgs0vkw4i9cqqf9yl7zsfkkhw2-bash-4.4-p23/bin:/nix/store/hzmbrmva3s5vw3apy2hyl2qcax0wnz0w-patch-2.7.6/bin:/nix/store/69xi19x2509l3699y4lyn4vr8k2cbgm0-xz-5.2.4-bin/bin:/Users/johnw/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/nix/store/p0b2q8bfj8lrchxi88qb7kjmf3hdjrc2-Docker-2.0.0.2/Applications/Docker.app/Contents/Resources/bin:/Users/johnw/.config/zsh/plugins/iterm2_shell_integration:/Users/johnw/.config/zsh/plugins/iterm2_tmux_integration:/usr/local/sbin:/Users/johnw/.cabal/bin
+O/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin/ghc-pkg
+haddock
+haddock
+PATH
+$/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/mk0y8v4crr8rlgd04caib30d5li8f1b5-hspec-discover-2.6.1/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/08msahvp3jj3ckn82wsjzg27lbzgnih1-jq-1.6-bin/bin:/nix/store/687yhv3dd1xg5g7fv2rdc3gqifn2qvkp-python-2.7.16/bin:/nix/store/fjwk7ypk48zzziv07p32czg7y5x28n3p-nodejs-8.15.1/bin:/nix/store/w00axf7ikghw0f8dkvsyjvfy0yrlyc3d-node-node2nix-1.6.0/bin:/nix/store/xk14v3ygf03jlwzz23bjwfv559zg4dgs-tmux-2.8/bin:/nix/store/jym0y1sa49d61py70g7f54c88m46vrby-cabal-install-2.4.1.0/bin:/nix/store/f27jpbdb996brzphyc7qga6i77cwnfqk-ghcid-0.7.2/bin:/nix/store/3wn5n8yf78zwihlrng0x41mv8p13vc3r-hasktags-0.71.2/bin:/nix/store/z92kmgpyzwr4l3navc4p46v0a44q3vjp-hp2pretty-0.9/bin:/nix/store/hgng47231vlszjd29p3474ibkwy4n7pr-brittany-test-0.0.0/bin:/nix/store/y11cm9zkgc1z3f2xhnlg21dv5pcx13iz-brittany-0.11.0.0/bin:/nix/store/pvpm878b58a5ky1blvyyq740hmi6yh7h-stylish-haskell-0.9.2.1/bin:/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/9n68xdkcpyrfc430kal8fk3wpr0aqn68-wabt-1.0.8/bin:/nix/store/kgw7j2vfckwprx1nnwmyb6ix2hfzf8hr-ocaml4.06.1-wasm-1.0/bin:/nix/store/jaac4i146r1q53r4ckypg6m30y7nkydm-pcre-8.42-dev/bin:/nix/store/3cf4ddkw4vdv3abz1qnryczx03551crd-pcre-8.42-bin/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/90r2p501ligl7bc0ppkqki1sc4d13vga-diffutils-3.7/bin:/nix/store/w9zpyi6ibagr7ilcax4gd5vac5z9v0cs-gnused-4.7/bin:/nix/store/iqgap45bkpn2mggbmssyas9y29ywmmr0-gnugrep-3.3/bin:/nix/store/rhp9b79xvb70zrhgqav0ghggiifdyvq3-gawk-4.2.1/bin:/nix/store/z7cbjw2vckkm4lngp6qy2nswx2k239gq-gnutar-1.31/bin:/nix/store/3f92ilmvqic2y427ajnxhqh8mbdqqwvm-gzip-1.10/bin:/nix/store/3ladyzm5ra035n6h0d78ly3cbf1kz4pp-bzip2-1.0.6.0.1-bin/bin:/nix/store/l8jh4zdr0badlcnx8a99s431s8b5d2zw-gnumake-4.2.1/bin:/nix/store/06z61jbgs0vkw4i9cqqf9yl7zsfkkhw2-bash-4.4-p23/bin:/nix/store/hzmbrmva3s5vw3apy2hyl2qcax0wnz0w-patch-2.7.6/bin:/nix/store/69xi19x2509l3699y4lyn4vr8k2cbgm0-xz-5.2.4-bin/bin:/Users/johnw/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/nix/store/p0b2q8bfj8lrchxi88qb7kjmf3hdjrc2-Docker-2.0.0.2/Applications/Docker.app/Contents/Resources/bin:/Users/johnw/.config/zsh/plugins/iterm2_shell_integration:/Users/johnw/.config/zsh/plugins/iterm2_tmux_integration:/usr/local/sbin:/Users/johnw/.cabal/bin
+O/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin/haddock
+haskell-suite
+haskell-suite
+PATH
+$/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/mk0y8v4crr8rlgd04caib30d5li8f1b5-hspec-discover-2.6.1/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/08msahvp3jj3ckn82wsjzg27lbzgnih1-jq-1.6-bin/bin:/nix/store/687yhv3dd1xg5g7fv2rdc3gqifn2qvkp-python-2.7.16/bin:/nix/store/fjwk7ypk48zzziv07p32czg7y5x28n3p-nodejs-8.15.1/bin:/nix/store/w00axf7ikghw0f8dkvsyjvfy0yrlyc3d-node-node2nix-1.6.0/bin:/nix/store/xk14v3ygf03jlwzz23bjwfv559zg4dgs-tmux-2.8/bin:/nix/store/jym0y1sa49d61py70g7f54c88m46vrby-cabal-install-2.4.1.0/bin:/nix/store/f27jpbdb996brzphyc7qga6i77cwnfqk-ghcid-0.7.2/bin:/nix/store/3wn5n8yf78zwihlrng0x41mv8p13vc3r-hasktags-0.71.2/bin:/nix/store/z92kmgpyzwr4l3navc4p46v0a44q3vjp-hp2pretty-0.9/bin:/nix/store/hgng47231vlszjd29p3474ibkwy4n7pr-brittany-test-0.0.0/bin:/nix/store/y11cm9zkgc1z3f2xhnlg21dv5pcx13iz-brittany-0.11.0.0/bin:/nix/store/pvpm878b58a5ky1blvyyq740hmi6yh7h-stylish-haskell-0.9.2.1/bin:/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/9n68xdkcpyrfc430kal8fk3wpr0aqn68-wabt-1.0.8/bin:/nix/store/kgw7j2vfckwprx1nnwmyb6ix2hfzf8hr-ocaml4.06.1-wasm-1.0/bin:/nix/store/jaac4i146r1q53r4ckypg6m30y7nkydm-pcre-8.42-dev/bin:/nix/store/3cf4ddkw4vdv3abz1qnryczx03551crd-pcre-8.42-bin/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/90r2p501ligl7bc0ppkqki1sc4d13vga-diffutils-3.7/bin:/nix/store/w9zpyi6ibagr7ilcax4gd5vac5z9v0cs-gnused-4.7/bin:/nix/store/iqgap45bkpn2mggbmssyas9y29ywmmr0-gnugrep-3.3/bin:/nix/store/rhp9b79xvb70zrhgqav0ghggiifdyvq3-gawk-4.2.1/bin:/nix/store/z7cbjw2vckkm4lngp6qy2nswx2k239gq-gnutar-1.31/bin:/nix/store/3f92ilmvqic2y427ajnxhqh8mbdqqwvm-gzip-1.10/bin:/nix/store/3ladyzm5ra035n6h0d78ly3cbf1kz4pp-bzip2-1.0.6.0.1-bin/bin:/nix/store/l8jh4zdr0badlcnx8a99s431s8b5d2zw-gnumake-4.2.1/bin:/nix/store/06z61jbgs0vkw4i9cqqf9yl7zsfkkhw2-bash-4.4-p23/bin:/nix/store/hzmbrmva3s5vw3apy2hyl2qcax0wnz0w-patch-2.7.6/bin:/nix/store/69xi19x2509l3699y4lyn4vr8k2cbgm0-xz-5.2.4-bin/bin:/Users/johnw/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/nix/store/p0b2q8bfj8lrchxi88qb7kjmf3hdjrc2-Docker-2.0.0.2/Applications/Docker.app/Contents/Resources/bin:/Users/johnw/.config/zsh/plugins/iterm2_shell_integration:/Users/johnw/.config/zsh/plugins/iterm2_tmux_integration:/usr/local/sbin:/Users/johnw/.cabal/bin
+haskell-suite-dummy-location
+haskell-suite-pkg
+haskell-suite-pkg
+PATH
+$/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/mk0y8v4crr8rlgd04caib30d5li8f1b5-hspec-discover-2.6.1/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/08msahvp3jj3ckn82wsjzg27lbzgnih1-jq-1.6-bin/bin:/nix/store/687yhv3dd1xg5g7fv2rdc3gqifn2qvkp-python-2.7.16/bin:/nix/store/fjwk7ypk48zzziv07p32czg7y5x28n3p-nodejs-8.15.1/bin:/nix/store/w00axf7ikghw0f8dkvsyjvfy0yrlyc3d-node-node2nix-1.6.0/bin:/nix/store/xk14v3ygf03jlwzz23bjwfv559zg4dgs-tmux-2.8/bin:/nix/store/jym0y1sa49d61py70g7f54c88m46vrby-cabal-install-2.4.1.0/bin:/nix/store/f27jpbdb996brzphyc7qga6i77cwnfqk-ghcid-0.7.2/bin:/nix/store/3wn5n8yf78zwihlrng0x41mv8p13vc3r-hasktags-0.71.2/bin:/nix/store/z92kmgpyzwr4l3navc4p46v0a44q3vjp-hp2pretty-0.9/bin:/nix/store/hgng47231vlszjd29p3474ibkwy4n7pr-brittany-test-0.0.0/bin:/nix/store/y11cm9zkgc1z3f2xhnlg21dv5pcx13iz-brittany-0.11.0.0/bin:/nix/store/pvpm878b58a5ky1blvyyq740hmi6yh7h-stylish-haskell-0.9.2.1/bin:/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/9n68xdkcpyrfc430kal8fk3wpr0aqn68-wabt-1.0.8/bin:/nix/store/kgw7j2vfckwprx1nnwmyb6ix2hfzf8hr-ocaml4.06.1-wasm-1.0/bin:/nix/store/jaac4i146r1q53r4ckypg6m30y7nkydm-pcre-8.42-dev/bin:/nix/store/3cf4ddkw4vdv3abz1qnryczx03551crd-pcre-8.42-bin/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/90r2p501ligl7bc0ppkqki1sc4d13vga-diffutils-3.7/bin:/nix/store/w9zpyi6ibagr7ilcax4gd5vac5z9v0cs-gnused-4.7/bin:/nix/store/iqgap45bkpn2mggbmssyas9y29ywmmr0-gnugrep-3.3/bin:/nix/store/rhp9b79xvb70zrhgqav0ghggiifdyvq3-gawk-4.2.1/bin:/nix/store/z7cbjw2vckkm4lngp6qy2nswx2k239gq-gnutar-1.31/bin:/nix/store/3f92ilmvqic2y427ajnxhqh8mbdqqwvm-gzip-1.10/bin:/nix/store/3ladyzm5ra035n6h0d78ly3cbf1kz4pp-bzip2-1.0.6.0.1-bin/bin:/nix/store/l8jh4zdr0badlcnx8a99s431s8b5d2zw-gnumake-4.2.1/bin:/nix/store/06z61jbgs0vkw4i9cqqf9yl7zsfkkhw2-bash-4.4-p23/bin:/nix/store/hzmbrmva3s5vw3apy2hyl2qcax0wnz0w-patch-2.7.6/bin:/nix/store/69xi19x2509l3699y4lyn4vr8k2cbgm0-xz-5.2.4-bin/bin:/Users/johnw/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/nix/store/p0b2q8bfj8lrchxi88qb7kjmf3hdjrc2-Docker-2.0.0.2/Applications/Docker.app/Contents/Resources/bin:/Users/johnw/.config/zsh/plugins/iterm2_shell_integration:/Users/johnw/.config/zsh/plugins/iterm2_tmux_integration:/usr/local/sbin:/Users/johnw/.cabal/bin
+ haskell-suite-pkg-dummy-location
+PATH
+$/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/mk0y8v4crr8rlgd04caib30d5li8f1b5-hspec-discover-2.6.1/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/08msahvp3jj3ckn82wsjzg27lbzgnih1-jq-1.6-bin/bin:/nix/store/687yhv3dd1xg5g7fv2rdc3gqifn2qvkp-python-2.7.16/bin:/nix/store/fjwk7ypk48zzziv07p32czg7y5x28n3p-nodejs-8.15.1/bin:/nix/store/w00axf7ikghw0f8dkvsyjvfy0yrlyc3d-node-node2nix-1.6.0/bin:/nix/store/xk14v3ygf03jlwzz23bjwfv559zg4dgs-tmux-2.8/bin:/nix/store/jym0y1sa49d61py70g7f54c88m46vrby-cabal-install-2.4.1.0/bin:/nix/store/f27jpbdb996brzphyc7qga6i77cwnfqk-ghcid-0.7.2/bin:/nix/store/3wn5n8yf78zwihlrng0x41mv8p13vc3r-hasktags-0.71.2/bin:/nix/store/z92kmgpyzwr4l3navc4p46v0a44q3vjp-hp2pretty-0.9/bin:/nix/store/hgng47231vlszjd29p3474ibkwy4n7pr-brittany-test-0.0.0/bin:/nix/store/y11cm9zkgc1z3f2xhnlg21dv5pcx13iz-brittany-0.11.0.0/bin:/nix/store/pvpm878b58a5ky1blvyyq740hmi6yh7h-stylish-haskell-0.9.2.1/bin:/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/9n68xdkcpyrfc430kal8fk3wpr0aqn68-wabt-1.0.8/bin:/nix/store/kgw7j2vfckwprx1nnwmyb6ix2hfzf8hr-ocaml4.06.1-wasm-1.0/bin:/nix/store/jaac4i146r1q53r4ckypg6m30y7nkydm-pcre-8.42-dev/bin:/nix/store/3cf4ddkw4vdv3abz1qnryczx03551crd-pcre-8.42-bin/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/90r2p501ligl7bc0ppkqki1sc4d13vga-diffutils-3.7/bin:/nix/store/w9zpyi6ibagr7ilcax4gd5vac5z9v0cs-gnused-4.7/bin:/nix/store/iqgap45bkpn2mggbmssyas9y29ywmmr0-gnugrep-3.3/bin:/nix/store/rhp9b79xvb70zrhgqav0ghggiifdyvq3-gawk-4.2.1/bin:/nix/store/z7cbjw2vckkm4lngp6qy2nswx2k239gq-gnutar-1.31/bin:/nix/store/3f92ilmvqic2y427ajnxhqh8mbdqqwvm-gzip-1.10/bin:/nix/store/3ladyzm5ra035n6h0d78ly3cbf1kz4pp-bzip2-1.0.6.0.1-bin/bin:/nix/store/l8jh4zdr0badlcnx8a99s431s8b5d2zw-gnumake-4.2.1/bin:/nix/store/06z61jbgs0vkw4i9cqqf9yl7zsfkkhw2-bash-4.4-p23/bin:/nix/store/hzmbrmva3s5vw3apy2hyl2qcax0wnz0w-patch-2.7.6/bin:/nix/store/69xi19x2509l3699y4lyn4vr8k2cbgm0-xz-5.2.4-bin/bin:/Users/johnw/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/nix/store/p0b2q8bfj8lrchxi88qb7kjmf3hdjrc2-Docker-2.0.0.2/Applications/Docker.app/Contents/Resources/bin:/Users/johnw/.config/zsh/plugins/iterm2_shell_integration:/Users/johnw/.config/zsh/plugins/iterm2_tmux_integration:/usr/local/sbin:/Users/johnw/.cabal/bin
+K/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin/hpc
+hsc2hs
+hsc2hs
+PATH
+$/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/mk0y8v4crr8rlgd04caib30d5li8f1b5-hspec-discover-2.6.1/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/08msahvp3jj3ckn82wsjzg27lbzgnih1-jq-1.6-bin/bin:/nix/store/687yhv3dd1xg5g7fv2rdc3gqifn2qvkp-python-2.7.16/bin:/nix/store/fjwk7ypk48zzziv07p32czg7y5x28n3p-nodejs-8.15.1/bin:/nix/store/w00axf7ikghw0f8dkvsyjvfy0yrlyc3d-node-node2nix-1.6.0/bin:/nix/store/xk14v3ygf03jlwzz23bjwfv559zg4dgs-tmux-2.8/bin:/nix/store/jym0y1sa49d61py70g7f54c88m46vrby-cabal-install-2.4.1.0/bin:/nix/store/f27jpbdb996brzphyc7qga6i77cwnfqk-ghcid-0.7.2/bin:/nix/store/3wn5n8yf78zwihlrng0x41mv8p13vc3r-hasktags-0.71.2/bin:/nix/store/z92kmgpyzwr4l3navc4p46v0a44q3vjp-hp2pretty-0.9/bin:/nix/store/hgng47231vlszjd29p3474ibkwy4n7pr-brittany-test-0.0.0/bin:/nix/store/y11cm9zkgc1z3f2xhnlg21dv5pcx13iz-brittany-0.11.0.0/bin:/nix/store/pvpm878b58a5ky1blvyyq740hmi6yh7h-stylish-haskell-0.9.2.1/bin:/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/9n68xdkcpyrfc430kal8fk3wpr0aqn68-wabt-1.0.8/bin:/nix/store/kgw7j2vfckwprx1nnwmyb6ix2hfzf8hr-ocaml4.06.1-wasm-1.0/bin:/nix/store/jaac4i146r1q53r4ckypg6m30y7nkydm-pcre-8.42-dev/bin:/nix/store/3cf4ddkw4vdv3abz1qnryczx03551crd-pcre-8.42-bin/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/90r2p501ligl7bc0ppkqki1sc4d13vga-diffutils-3.7/bin:/nix/store/w9zpyi6ibagr7ilcax4gd5vac5z9v0cs-gnused-4.7/bin:/nix/store/iqgap45bkpn2mggbmssyas9y29ywmmr0-gnugrep-3.3/bin:/nix/store/rhp9b79xvb70zrhgqav0ghggiifdyvq3-gawk-4.2.1/bin:/nix/store/z7cbjw2vckkm4lngp6qy2nswx2k239gq-gnutar-1.31/bin:/nix/store/3f92ilmvqic2y427ajnxhqh8mbdqqwvm-gzip-1.10/bin:/nix/store/3ladyzm5ra035n6h0d78ly3cbf1kz4pp-bzip2-1.0.6.0.1-bin/bin:/nix/store/l8jh4zdr0badlcnx8a99s431s8b5d2zw-gnumake-4.2.1/bin:/nix/store/06z61jbgs0vkw4i9cqqf9yl7zsfkkhw2-bash-4.4-p23/bin:/nix/store/hzmbrmva3s5vw3apy2hyl2qcax0wnz0w-patch-2.7.6/bin:/nix/store/69xi19x2509l3699y4lyn4vr8k2cbgm0-xz-5.2.4-bin/bin:/Users/johnw/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/nix/store/p0b2q8bfj8lrchxi88qb7kjmf3hdjrc2-Docker-2.0.0.2/Applications/Docker.app/Contents/Resources/bin:/Users/johnw/.config/zsh/plugins/iterm2_shell_integration:/Users/johnw/.config/zsh/plugins/iterm2_tmux_integration:/usr/local/sbin:/Users/johnw/.cabal/bin
+N/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin/hsc2hs
+hscolour
+hscolour
+PATH
+$/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/mk0y8v4crr8rlgd04caib30d5li8f1b5-hspec-discover-2.6.1/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/08msahvp3jj3ckn82wsjzg27lbzgnih1-jq-1.6-bin/bin:/nix/store/687yhv3dd1xg5g7fv2rdc3gqifn2qvkp-python-2.7.16/bin:/nix/store/fjwk7ypk48zzziv07p32czg7y5x28n3p-nodejs-8.15.1/bin:/nix/store/w00axf7ikghw0f8dkvsyjvfy0yrlyc3d-node-node2nix-1.6.0/bin:/nix/store/xk14v3ygf03jlwzz23bjwfv559zg4dgs-tmux-2.8/bin:/nix/store/jym0y1sa49d61py70g7f54c88m46vrby-cabal-install-2.4.1.0/bin:/nix/store/f27jpbdb996brzphyc7qga6i77cwnfqk-ghcid-0.7.2/bin:/nix/store/3wn5n8yf78zwihlrng0x41mv8p13vc3r-hasktags-0.71.2/bin:/nix/store/z92kmgpyzwr4l3navc4p46v0a44q3vjp-hp2pretty-0.9/bin:/nix/store/hgng47231vlszjd29p3474ibkwy4n7pr-brittany-test-0.0.0/bin:/nix/store/y11cm9zkgc1z3f2xhnlg21dv5pcx13iz-brittany-0.11.0.0/bin:/nix/store/pvpm878b58a5ky1blvyyq740hmi6yh7h-stylish-haskell-0.9.2.1/bin:/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/9n68xdkcpyrfc430kal8fk3wpr0aqn68-wabt-1.0.8/bin:/nix/store/kgw7j2vfckwprx1nnwmyb6ix2hfzf8hr-ocaml4.06.1-wasm-1.0/bin:/nix/store/jaac4i146r1q53r4ckypg6m30y7nkydm-pcre-8.42-dev/bin:/nix/store/3cf4ddkw4vdv3abz1qnryczx03551crd-pcre-8.42-bin/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/90r2p501ligl7bc0ppkqki1sc4d13vga-diffutils-3.7/bin:/nix/store/w9zpyi6ibagr7ilcax4gd5vac5z9v0cs-gnused-4.7/bin:/nix/store/iqgap45bkpn2mggbmssyas9y29ywmmr0-gnugrep-3.3/bin:/nix/store/rhp9b79xvb70zrhgqav0ghggiifdyvq3-gawk-4.2.1/bin:/nix/store/z7cbjw2vckkm4lngp6qy2nswx2k239gq-gnutar-1.31/bin:/nix/store/3f92ilmvqic2y427ajnxhqh8mbdqqwvm-gzip-1.10/bin:/nix/store/3ladyzm5ra035n6h0d78ly3cbf1kz4pp-bzip2-1.0.6.0.1-bin/bin:/nix/store/l8jh4zdr0badlcnx8a99s431s8b5d2zw-gnumake-4.2.1/bin:/nix/store/06z61jbgs0vkw4i9cqqf9yl7zsfkkhw2-bash-4.4-p23/bin:/nix/store/hzmbrmva3s5vw3apy2hyl2qcax0wnz0w-patch-2.7.6/bin:/nix/store/69xi19x2509l3699y4lyn4vr8k2cbgm0-xz-5.2.4-bin/bin:/Users/johnw/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/nix/store/p0b2q8bfj8lrchxi88qb7kjmf3hdjrc2-Docker-2.0.0.2/Applications/Docker.app/Contents/Resources/bin:/Users/johnw/.config/zsh/plugins/iterm2_shell_integration:/Users/johnw/.config/zsh/plugins/iterm2_tmux_integration:/usr/local/sbin:/Users/johnw/.cabal/bin
+P/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin/HsColour
+Q/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin/HsColour
+PATH
+$/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/mk0y8v4crr8rlgd04caib30d5li8f1b5-hspec-discover-2.6.1/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/08msahvp3jj3ckn82wsjzg27lbzgnih1-jq-1.6-bin/bin:/nix/store/687yhv3dd1xg5g7fv2rdc3gqifn2qvkp-python-2.7.16/bin:/nix/store/fjwk7ypk48zzziv07p32czg7y5x28n3p-nodejs-8.15.1/bin:/nix/store/w00axf7ikghw0f8dkvsyjvfy0yrlyc3d-node-node2nix-1.6.0/bin:/nix/store/xk14v3ygf03jlwzz23bjwfv559zg4dgs-tmux-2.8/bin:/nix/store/jym0y1sa49d61py70g7f54c88m46vrby-cabal-install-2.4.1.0/bin:/nix/store/f27jpbdb996brzphyc7qga6i77cwnfqk-ghcid-0.7.2/bin:/nix/store/3wn5n8yf78zwihlrng0x41mv8p13vc3r-hasktags-0.71.2/bin:/nix/store/z92kmgpyzwr4l3navc4p46v0a44q3vjp-hp2pretty-0.9/bin:/nix/store/hgng47231vlszjd29p3474ibkwy4n7pr-brittany-test-0.0.0/bin:/nix/store/y11cm9zkgc1z3f2xhnlg21dv5pcx13iz-brittany-0.11.0.0/bin:/nix/store/pvpm878b58a5ky1blvyyq740hmi6yh7h-stylish-haskell-0.9.2.1/bin:/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/9n68xdkcpyrfc430kal8fk3wpr0aqn68-wabt-1.0.8/bin:/nix/store/kgw7j2vfckwprx1nnwmyb6ix2hfzf8hr-ocaml4.06.1-wasm-1.0/bin:/nix/store/jaac4i146r1q53r4ckypg6m30y7nkydm-pcre-8.42-dev/bin:/nix/store/3cf4ddkw4vdv3abz1qnryczx03551crd-pcre-8.42-bin/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/90r2p501ligl7bc0ppkqki1sc4d13vga-diffutils-3.7/bin:/nix/store/w9zpyi6ibagr7ilcax4gd5vac5z9v0cs-gnused-4.7/bin:/nix/store/iqgap45bkpn2mggbmssyas9y29ywmmr0-gnugrep-3.3/bin:/nix/store/rhp9b79xvb70zrhgqav0ghggiifdyvq3-gawk-4.2.1/bin:/nix/store/z7cbjw2vckkm4lngp6qy2nswx2k239gq-gnutar-1.31/bin:/nix/store/3f92ilmvqic2y427ajnxhqh8mbdqqwvm-gzip-1.10/bin:/nix/store/3ladyzm5ra035n6h0d78ly3cbf1kz4pp-bzip2-1.0.6.0.1-bin/bin:/nix/store/l8jh4zdr0badlcnx8a99s431s8b5d2zw-gnumake-4.2.1/bin:/nix/store/06z61jbgs0vkw4i9cqqf9yl7zsfkkhw2-bash-4.4-p23/bin:/nix/store/hzmbrmva3s5vw3apy2hyl2qcax0wnz0w-patch-2.7.6/bin:/nix/store/69xi19x2509l3699y4lyn4vr8k2cbgm0-xz-5.2.4-bin/bin:/Users/johnw/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/nix/store/p0b2q8bfj8lrchxi88qb7kjmf3hdjrc2-Docker-2.0.0.2/Applications/Docker.app/Contents/Resources/bin:/Users/johnw/.config/zsh/plugins/iterm2_shell_integration:/Users/johnw/.config/zsh/plugins/iterm2_tmux_integration:/usr/local/sbin:/Users/johnw/.cabal/bin
+R/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin/ld
+runghc
+runghc
+PATH
+$/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/mk0y8v4crr8rlgd04caib30d5li8f1b5-hspec-discover-2.6.1/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/08msahvp3jj3ckn82wsjzg27lbzgnih1-jq-1.6-bin/bin:/nix/store/687yhv3dd1xg5g7fv2rdc3gqifn2qvkp-python-2.7.16/bin:/nix/store/fjwk7ypk48zzziv07p32czg7y5x28n3p-nodejs-8.15.1/bin:/nix/store/w00axf7ikghw0f8dkvsyjvfy0yrlyc3d-node-node2nix-1.6.0/bin:/nix/store/xk14v3ygf03jlwzz23bjwfv559zg4dgs-tmux-2.8/bin:/nix/store/jym0y1sa49d61py70g7f54c88m46vrby-cabal-install-2.4.1.0/bin:/nix/store/f27jpbdb996brzphyc7qga6i77cwnfqk-ghcid-0.7.2/bin:/nix/store/3wn5n8yf78zwihlrng0x41mv8p13vc3r-hasktags-0.71.2/bin:/nix/store/z92kmgpyzwr4l3navc4p46v0a44q3vjp-hp2pretty-0.9/bin:/nix/store/hgng47231vlszjd29p3474ibkwy4n7pr-brittany-test-0.0.0/bin:/nix/store/y11cm9zkgc1z3f2xhnlg21dv5pcx13iz-brittany-0.11.0.0/bin:/nix/store/pvpm878b58a5ky1blvyyq740hmi6yh7h-stylish-haskell-0.9.2.1/bin:/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/9n68xdkcpyrfc430kal8fk3wpr0aqn68-wabt-1.0.8/bin:/nix/store/kgw7j2vfckwprx1nnwmyb6ix2hfzf8hr-ocaml4.06.1-wasm-1.0/bin:/nix/store/jaac4i146r1q53r4ckypg6m30y7nkydm-pcre-8.42-dev/bin:/nix/store/3cf4ddkw4vdv3abz1qnryczx03551crd-pcre-8.42-bin/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/90r2p501ligl7bc0ppkqki1sc4d13vga-diffutils-3.7/bin:/nix/store/w9zpyi6ibagr7ilcax4gd5vac5z9v0cs-gnused-4.7/bin:/nix/store/iqgap45bkpn2mggbmssyas9y29ywmmr0-gnugrep-3.3/bin:/nix/store/rhp9b79xvb70zrhgqav0ghggiifdyvq3-gawk-4.2.1/bin:/nix/store/z7cbjw2vckkm4lngp6qy2nswx2k239gq-gnutar-1.31/bin:/nix/store/3f92ilmvqic2y427ajnxhqh8mbdqqwvm-gzip-1.10/bin:/nix/store/3ladyzm5ra035n6h0d78ly3cbf1kz4pp-bzip2-1.0.6.0.1-bin/bin:/nix/store/l8jh4zdr0badlcnx8a99s431s8b5d2zw-gnumake-4.2.1/bin:/nix/store/06z61jbgs0vkw4i9cqqf9yl7zsfkkhw2-bash-4.4-p23/bin:/nix/store/hzmbrmva3s5vw3apy2hyl2qcax0wnz0w-patch-2.7.6/bin:/nix/store/69xi19x2509l3699y4lyn4vr8k2cbgm0-xz-5.2.4-bin/bin:/Users/johnw/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/nix/store/p0b2q8bfj8lrchxi88qb7kjmf3hdjrc2-Docker-2.0.0.2/Applications/Docker.app/Contents/Resources/bin:/Users/johnw/.config/zsh/plugins/iterm2_shell_integration:/Users/johnw/.config/zsh/plugins/iterm2_tmux_integration:/usr/local/sbin:/Users/johnw/.cabal/bin
+N/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin/runghc
+strip
+strip
+PATH
+$/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/mk0y8v4crr8rlgd04caib30d5li8f1b5-hspec-discover-2.6.1/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/08msahvp3jj3ckn82wsjzg27lbzgnih1-jq-1.6-bin/bin:/nix/store/687yhv3dd1xg5g7fv2rdc3gqifn2qvkp-python-2.7.16/bin:/nix/store/fjwk7ypk48zzziv07p32czg7y5x28n3p-nodejs-8.15.1/bin:/nix/store/w00axf7ikghw0f8dkvsyjvfy0yrlyc3d-node-node2nix-1.6.0/bin:/nix/store/xk14v3ygf03jlwzz23bjwfv559zg4dgs-tmux-2.8/bin:/nix/store/jym0y1sa49d61py70g7f54c88m46vrby-cabal-install-2.4.1.0/bin:/nix/store/f27jpbdb996brzphyc7qga6i77cwnfqk-ghcid-0.7.2/bin:/nix/store/3wn5n8yf78zwihlrng0x41mv8p13vc3r-hasktags-0.71.2/bin:/nix/store/z92kmgpyzwr4l3navc4p46v0a44q3vjp-hp2pretty-0.9/bin:/nix/store/hgng47231vlszjd29p3474ibkwy4n7pr-brittany-test-0.0.0/bin:/nix/store/y11cm9zkgc1z3f2xhnlg21dv5pcx13iz-brittany-0.11.0.0/bin:/nix/store/pvpm878b58a5ky1blvyyq740hmi6yh7h-stylish-haskell-0.9.2.1/bin:/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/9n68xdkcpyrfc430kal8fk3wpr0aqn68-wabt-1.0.8/bin:/nix/store/kgw7j2vfckwprx1nnwmyb6ix2hfzf8hr-ocaml4.06.1-wasm-1.0/bin:/nix/store/jaac4i146r1q53r4ckypg6m30y7nkydm-pcre-8.42-dev/bin:/nix/store/3cf4ddkw4vdv3abz1qnryczx03551crd-pcre-8.42-bin/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/90r2p501ligl7bc0ppkqki1sc4d13vga-diffutils-3.7/bin:/nix/store/w9zpyi6ibagr7ilcax4gd5vac5z9v0cs-gnused-4.7/bin:/nix/store/iqgap45bkpn2mggbmssyas9y29ywmmr0-gnugrep-3.3/bin:/nix/store/rhp9b79xvb70zrhgqav0ghggiifdyvq3-gawk-4.2.1/bin:/nix/store/z7cbjw2vckkm4lngp6qy2nswx2k239gq-gnutar-1.31/bin:/nix/store/3f92ilmvqic2y427ajnxhqh8mbdqqwvm-gzip-1.10/bin:/nix/store/3ladyzm5ra035n6h0d78ly3cbf1kz4pp-bzip2-1.0.6.0.1-bin/bin:/nix/store/l8jh4zdr0badlcnx8a99s431s8b5d2zw-gnumake-4.2.1/bin:/nix/store/06z61jbgs0vkw4i9cqqf9yl7zsfkkhw2-bash-4.4-p23/bin:/nix/store/hzmbrmva3s5vw3apy2hyl2qcax0wnz0w-patch-2.7.6/bin:/nix/store/69xi19x2509l3699y4lyn4vr8k2cbgm0-xz-5.2.4-bin/bin:/Users/johnw/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/nix/store/p0b2q8bfj8lrchxi88qb7kjmf3hdjrc2-Docker-2.0.0.2/Applications/Docker.app/Contents/Resources/bin:/Users/johnw/.config/zsh/plugins/iterm2_shell_integration:/Users/johnw/.config/zsh/plugins/iterm2_tmux_integration:/usr/local/sbin:/Users/johnw/.cabal/bin
+M/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin/strip
+N/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin/strip
+M/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin/strip
+?/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin/strip
+I/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin/strip
+A/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin/strip
+D/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin/strip
+U/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin/strip
+PATH
+$/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/mk0y8v4crr8rlgd04caib30d5li8f1b5-hspec-discover-2.6.1/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/08msahvp3jj3ckn82wsjzg27lbzgnih1-jq-1.6-bin/bin:/nix/store/687yhv3dd1xg5g7fv2rdc3gqifn2qvkp-python-2.7.16/bin:/nix/store/fjwk7ypk48zzziv07p32czg7y5x28n3p-nodejs-8.15.1/bin:/nix/store/w00axf7ikghw0f8dkvsyjvfy0yrlyc3d-node-node2nix-1.6.0/bin:/nix/store/xk14v3ygf03jlwzz23bjwfv559zg4dgs-tmux-2.8/bin:/nix/store/jym0y1sa49d61py70g7f54c88m46vrby-cabal-install-2.4.1.0/bin:/nix/store/f27jpbdb996brzphyc7qga6i77cwnfqk-ghcid-0.7.2/bin:/nix/store/3wn5n8yf78zwihlrng0x41mv8p13vc3r-hasktags-0.71.2/bin:/nix/store/z92kmgpyzwr4l3navc4p46v0a44q3vjp-hp2pretty-0.9/bin:/nix/store/hgng47231vlszjd29p3474ibkwy4n7pr-brittany-test-0.0.0/bin:/nix/store/y11cm9zkgc1z3f2xhnlg21dv5pcx13iz-brittany-0.11.0.0/bin:/nix/store/pvpm878b58a5ky1blvyyq740hmi6yh7h-stylish-haskell-0.9.2.1/bin:/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin:/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin:/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin:/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin:/nix/store/9n68xdkcpyrfc430kal8fk3wpr0aqn68-wabt-1.0.8/bin:/nix/store/kgw7j2vfckwprx1nnwmyb6ix2hfzf8hr-ocaml4.06.1-wasm-1.0/bin:/nix/store/jaac4i146r1q53r4ckypg6m30y7nkydm-pcre-8.42-dev/bin:/nix/store/3cf4ddkw4vdv3abz1qnryczx03551crd-pcre-8.42-bin/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin:/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin:/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin:/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin:/nix/store/90r2p501ligl7bc0ppkqki1sc4d13vga-diffutils-3.7/bin:/nix/store/w9zpyi6ibagr7ilcax4gd5vac5z9v0cs-gnused-4.7/bin:/nix/store/iqgap45bkpn2mggbmssyas9y29ywmmr0-gnugrep-3.3/bin:/nix/store/rhp9b79xvb70zrhgqav0ghggiifdyvq3-gawk-4.2.1/bin:/nix/store/z7cbjw2vckkm4lngp6qy2nswx2k239gq-gnutar-1.31/bin:/nix/store/3f92ilmvqic2y427ajnxhqh8mbdqqwvm-gzip-1.10/bin:/nix/store/3ladyzm5ra035n6h0d78ly3cbf1kz4pp-bzip2-1.0.6.0.1-bin/bin:/nix/store/l8jh4zdr0badlcnx8a99s431s8b5d2zw-gnumake-4.2.1/bin:/nix/store/06z61jbgs0vkw4i9cqqf9yl7zsfkkhw2-bash-4.4-p23/bin:/nix/store/hzmbrmva3s5vw3apy2hyl2qcax0wnz0w-patch-2.7.6/bin:/nix/store/69xi19x2509l3699y4lyn4vr8k2cbgm0-xz-5.2.4-bin/bin:/Users/johnw/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/nix/store/p0b2q8bfj8lrchxi88qb7kjmf3hdjrc2-Docker-2.0.0.2/Applications/Docker.app/Contents/Resources/bin:/Users/johnw/.config/zsh/plugins/iterm2_shell_integration:/Users/johnw/.config/zsh/plugins/iterm2_tmux_integration:/usr/local/sbin:/Users/johnw/.cabal/bin
+Supports --format
+?/nix/store/z7cbjw2vckkm4lngp6qy2nswx2k239gq-gnutar-1.31/bin/tar
+L/nix/store/h0ygg2f4gq2cs1y9zxi7zmig6jxsv7qc-bash-interactive-4.4-p23/bin/tar
+K/nix/store/39csz3dz863s8yx1l2y9cq14nkjw8wrv-ghc-8.6.4-with-packages/bin/tar
+=/nix/store/w1jvf8xv2xzjqvhb2vbmqmpj20yxymdj-ghc-8.6.4/bin/tar
+G/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin/tar
+?/nix/store/d9yyrqg1gp7rjw1n0vfp06frxrdmg7wc-clang-5.0.2/bin/tar
+B/nix/store/8ia1axra4176hzfyhlrc2gk6k6iazh6z-coreutils-8.30/bin/tar
+S/nix/store/h47x6izm19vvifl10xsd886qryrqi1w6-cctools-binutils-darwin-wrapper/bin/tar
+K/nix/store/3ibh116gnggzgsvrq8vvalmqyipk8cy9-cctools-binutils-darwin/bin/tar
+H/nix/store/dd0skaz2py0vzqf23248f01z9fvy9vs5-remove-references-to/bin/tar
+H/nix/store/mk0y8v4crr8rlgd04caib30d5li8f1b5-hspec-discover-2.6.1/bin/tar
+C/nix/store/majnjmnj0qn787bsvcvfs18dw1fxkixz-findutils-4.6.0/bin/tar
+F/nix/store/1ri1v5kk3378hc1b47gsxalj5rxk8r04-libressl-2.8.3-bin/bin/tar
+>/nix/store/08msahvp3jj3ckn82wsjzg27lbzgnih1-jq-1.6-bin/bin/tar
+A/nix/store/687yhv3dd1xg5g7fv2rdc3gqifn2qvkp-python-2.7.16/bin/tar
+A/nix/store/fjwk7ypk48zzziv07p32czg7y5x28n3p-nodejs-8.15.1/bin/tar
+G/nix/store/w00axf7ikghw0f8dkvsyjvfy0yrlyc3d-node-node2nix-1.6.0/bin/tar
+</nix/store/xk14v3ygf03jlwzz23bjwfv559zg4dgs-tmux-2.8/bin/tar
+I/nix/store/jym0y1sa49d61py70g7f54c88m46vrby-cabal-install-2.4.1.0/bin/tar
+?/nix/store/f27jpbdb996brzphyc7qga6i77cwnfqk-ghcid-0.7.2/bin/tar
+C/nix/store/3wn5n8yf78zwihlrng0x41mv8p13vc3r-hasktags-0.71.2/bin/tar
+A/nix/store/z92kmgpyzwr4l3navc4p46v0a44q3vjp-hp2pretty-0.9/bin/tar
+G/nix/store/hgng47231vlszjd29p3474ibkwy4n7pr-brittany-test-0.0.0/bin/tar
+E/nix/store/y11cm9zkgc1z3f2xhnlg21dv5pcx13iz-brittany-0.11.0.0/bin/tar
+K/nix/store/pvpm878b58a5ky1blvyyq740hmi6yh7h-stylish-haskell-0.9.2.1/bin/tar
+H/nix/store/v2prm7zl4gm36wxyfji1p7sq5abv29ly-ncurses-6.1-20190112/bin/tar
+H/nix/store/58ivxpy77naf5m655is137pild3bhbbv-libiconv-osx-10.11.6/bin/tar
+>/nix/store/9n68xdkcpyrfc430kal8fk3wpr0aqn68-wabt-1.0.8/bin/tar
+H/nix/store/kgw7j2vfckwprx1nnwmyb6ix2hfzf8hr-ocaml4.06.1-wasm-1.0/bin/tar
+A/nix/store/jaac4i146r1q53r4ckypg6m30y7nkydm-pcre-8.42-dev/bin/tar
+A/nix/store/3cf4ddkw4vdv3abz1qnryczx03551crd-pcre-8.42-bin/bin/tar
+I/nix/store/mjnsdx80c1shcswzidv8cc2r7kzsk7qz-v8-7.4.288.15-dfinity/bin/tar
+A/nix/store/90r2p501ligl7bc0ppkqki1sc4d13vga-diffutils-3.7/bin/tar
+>/nix/store/w9zpyi6ibagr7ilcax4gd5vac5z9v0cs-gnused-4.7/bin/tar
+?/nix/store/iqgap45bkpn2mggbmssyas9y29ywmmr0-gnugrep-3.3/bin/tar
+>/nix/store/rhp9b79xvb70zrhgqav0ghggiifdyvq3-gawk-4.2.1/bin/tar
+./Users/johnw/.cabal/store/ghc-8.6.4/package.db
+B/Users/johnw/dfinity/dev/upgrade/dist-newstyle/packagedb/ghc-8.6.4
+Vulcan ~/dfinity/dev/upgrade $

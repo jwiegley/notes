@@ -1,0 +1,26 @@
+name: wasm-v8
+version: 0.0.0
+id: wasm-v8-0.0.0-inplace
+key: wasm-v8-0.0.0-inplace
+maintainer: maciej.wos@gmail.com
+author: Maciej Woś
+synopsis: Wasm V8 API
+abi: inplace
+exposed: True
+exposed-modules:
+    V8.Wasm.Bindings V8.Wasm.Bindings.Internal
+import-dirs: /Users/johnw/dfinity/dev/upgrade/dist-newstyle/build/x86_64-osx/ghc-8.6.4/wasm-v8-0.0.0/build
+library-dirs: /Users/johnw/dfinity/dev/upgrade/dist-newstyle/build/x86_64-osx/ghc-8.6.4/wasm-v8-0.0.0/build
+dynamic-library-dirs: /Users/johnw/dfinity/dev/upgrade/dist-newstyle/build/x86_64-osx/ghc-8.6.4/wasm-v8-0.0.0/build
+data-dir: /Users/johnw/dfinity/dev/upgrade/hs-wasm-v8
+hs-libraries: HSwasm-v8-0.0.0-inplace
+extra-libraries:
+    v8_wasm c++ iconv v8 v8_libplatform
+includes:
+    wasm.h
+depends:
+    base-4.12.0.0 bindings-DSL-1.0.25-2kwolusgL8L5V1adlcppFi
+    bytestring-0.10.8.2 mtl-2.2.2
+    vector-0.12.0.2-AoZ9EwUsgIW1yrOc105QXH
+haddock-interfaces: /Users/johnw/dfinity/dev/upgrade/dist-newstyle/build/x86_64-osx/ghc-8.6.4/wasm-v8-0.0.0/doc/html/wasm-v8/wasm-v8.haddock
+haddock-html: /Users/johnw/dfinity/dev/upgrade/dist-newstyle/build/x86_64-osx/ghc-8.6.4/wasm-v8-0.0.0/doc/html/wasm-v8

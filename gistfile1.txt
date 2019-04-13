@@ -1,0 +1,11 @@
+Loading package wasm-v8-0.0.0 ... addDLL: dll_name = '/Users/johnw/dfinity/dev/upgrade/dist-newstyle/build/x86_64-osx/ghc-8.6.4/wasm-v8-0.0.0/build/libHSwasm-v8-0.0.0-inplace-ghc8.6.4.dylib'
+internal_dlopen: dll_name = '/Users/johnw/dfinity/dev/upgrade/dist-newstyle/build/x86_64-osx/ghc-8.6.4/wasm-v8-0.0.0/build/libHSwasm-v8-0.0.0-inplace-ghc8.6.4.dylib'
+addDLL: dll_name = 'libv8_wasm.dylib'
+internal_dlopen: dll_name = 'libv8_wasm.dylib'
+addDLL: dll_name = 'libiconv.dylib'
+internal_dlopen: dll_name = 'libiconv.dylib'
+addDLL: dll_name = 'libv8_libplatform.dylib'
+internal_dlopen: dll_name = 'libv8_libplatform.dylib'
+loadArchive: start
+loadArchive: Loading archive `/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin/clang++'
+ghc: loadArchive: Neither an archive, nor a fat archive: `/nix/store/c64nivj8qwfx6cy5x6a8gbh6nx9m7vpk-clang-wrapper-5.0.2/bin/clang++'

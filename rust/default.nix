@@ -4,7 +4,7 @@
              url = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
              inherit sha256; }) {
              config.allowUnfree = true;
-             config.allowBroken = false;
+             config.allowBroken = true;
            }
 , mkDerivation ? null
 }:
@@ -20,8 +20,8 @@ rustPlatform.buildRustPackage rec {
 
   cargoBuildFlags = [];
 
-  nativeBuildInputs = [ asciidoc docbook_xsl libxslt ];
-  buildInputs = []
+  nativeBuildInputs = [ asciidoc asciidoctor plantuml docbook_xsl libxslt ];
+  buildInputs = [ rustfmt ]
     ++ (stdenv.lib.optional stdenv.isDarwin darwin.apple_sdk.frameworks.Security);
 
   preFixup = ''

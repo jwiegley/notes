@@ -1,0 +1,8 @@
+GHCi, version 8.6.4: http://www.haskell.org/ghc/  :? for help
+ghc: loadArchive: Failed reading header from `/Users/johnw/dfinity/dev/upgrade/dist-newstyle/build/x86_64-osx/ghc-8.6.4/crypto-bls-0.0.0/build/Crypto'
+ghc: panic! (the 'impossible' happened)
+  (GHC version 8.6.4 for x86_64-apple-darwin):
+	loadArchive "/Users/johnw/dfinity/dev/upgrade/dist-newstyle/build/x86_64-osx/ghc-8.6.4/crypto-bls-0.0.0/build/Crypto": failed
+
+Please report this as a GHC bug:  http://www.haskell.org/ghc/reportabug
+

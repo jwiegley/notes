@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+set -e
+
+KADENA_NODE="https://us-e3.chainweb.com"
+KADENA_VERSION="mainnet01"
+
+PACT=$PWD/pact/result/bin/pact
+if [[ ! -x $PACT ]]; then
+    PACT=pact
+fi
+
+if [ $# -eq 0 ]
+then
+    echo "No arguments supplied: Expected account name"
+else
+    accountName=$1
+    createBalanceYaml() {
+        echo "$accountName" | xargs printf "code: (coin.get-balance \"%s\") \nkeyPairs: []\n" > balCheck.yaml
+    }
+    get-balance() {
+        chainId=$1
+        BALANCE=$($PACT -l -a balCheck.yaml                                                                 \
+                      | curl -k -s -H "Content-Type: application/json" -d @-                                \
+                            $KADENA_NODE/chainweb/0.0/$KADENA_VERSION/chain/$chainId/pact/api/v1/local      \
+                      | python -m json.tool                                                                 \
+                      | jq '.result.data')
+        echo "$BALANCE"
+    }
+    allChains() {
+      B0=$(get-balance 0)
+      echo "CHAIN 0: $B0"
+      B1=$(get-balance 1)
+      echo "CHAIN 1: $B1"
+      B2=$(get-balance 2)
+      echo "CHAIN 2: $B2"
+      B3=$(get-balance 3)
+      echo "CHAIN 3: $B3"
+      B4=$(get-balance 4)
+      echo "CHAIN 4: $B4"
+      B5=$(get-balance 5)
+      echo "CHAIN 5: $B5"
+      B6=$(get-balance 6)
+      echo "CHAIN 6: $B6"
+      B7=$(get-balance 7)
+      echo "CHAIN 7: $B7"
+      B8=$(get-balance 8)
+      echo "CHAIN 8: $B8"
+      B9=$(get-balance 9)
+      echo "CHAIN 9: $B9"
+      echo "--------------------"
+      echo "  TOTAL: $(echo $B0 + $B1 + $B2 + $B3 + $B4 + $B5 + $B6 + $B7 + $B8 + $B9 | bc)"
+    }
+    createBalanceYaml && allChains
+# rm balCheck.yaml
+fi
+

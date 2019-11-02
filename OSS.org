@@ -1,0 +1,140 @@
+. HarfBuzz as the primary text-shaping engine, enabling support for
+  ligatures, stylistic sets, etc.
+
+In HarfBuzz there is a way to select styles, but we haven't yet exposed it
+through Emacs Lisp. This isn't a hard job, and just requires someone to review
+the HarfBuzz functionality and decide how to make it available in various
+modes. For example, we'd probably like to see different ligatures in text
+modes apart from programming modes, etc.
+
+Right now we use an old feature for ligatures called static compilations,
+which is something we'd like to remove from the Emacs code base entirely. For
+example, the current schemes fakes ligatures by creating a string containing a
+particular symbol and masking out the set of characters you'd like to replace
+with the ligature. Without HarfBuzz this was the only way; but now that we
+have it, we can have real ligatures. We just have to tell the HarfBuzz
+library: when you see "ffi", simply legate them, and it will be replaced by
+the ffi ligature.
+
+For example, all you would have to say is, "for this text, display it as style
+#7", in which case HarfBuzz can use what it knows about the font, which is
+able to encode ligature replacements. We could also have a special text
+property which indicates which style to use for a specific range of text.
+
+. The Cairo build is no longer "experimental" (i.e., buggy)
+
+This build had a lot of bugs, most of which have been fixed, so we've removed
+the experimental tag in the configure script.
+
+In the Cairo scheme, you don't use the typical server/client mode. Cairo is a
+text shaping and display library, and is something that Wayland wants to see
+in applications. This is the path forward for graphical Emacs on Linux
+machines. It's the means for Emacs to stay relevant in the future. Just like
+the move from text-only to X11, this is a evolutionary move foward for how
+text is displayed by Emacs.
+
+Importantly, to keep Emacs alive there are certain developments that need to
+be tracked and supported. It's not enough to just play Lisp games and focus on
+the applications that Emacs is able to run. But this will not keep Emacs alive
+for years to come. As the core technologies of the system evolve around us, we
+have to constantly adapt and add first class support for them. And mostly this
+happens on the C side of development, not the Lisp side.
+
+Eli could use help from people to track and understand these technology, and
+help us understand which ones are important now, and which are going to become
+important in the near to distant future. HarfBuzz is a good example of one of
+these; Eli had noticed that Windows has abandoned Uniscribe, and chosen a
+library that cannot be called from C, only C++; and on Unix, the library we
+were using for complex text shaping is no longer being developed or
+maintained. These are two large libraries that we depend on that we're going
+to lose support for; so HarfBuzz became a necessary path forward, and it's
+important for the community to understand that for all the exciting
+developments that happen on the Lisp side, there are absolutely essential
+changes that also need to happen on the C side for Emacs to stay relevant, or
+even functional!
+
+. Built-in tabs and tab bar
+
+On Linux machines, and in text mode, this provides built-in tabs, just as you
+have in your browser. There is a tab-bar per frame; also, per window each tab
+saves a window configuration, not just the window, so that when you press a
+tab it can reconfigure the entire contents of the frame.
+
+(NOTE: This did not work for me on macOS)
+
+. Built-in image scaling and rotation without ImageMagick
+
+"ImageMagick is a Pandora's box" -- Eli
+
+We see quite a few crash bugs coming from inside ImageMagick, which forces us
+to be both Emacs developers and ImageMagick developers, if we want to get
+these issues fixed on our schedule. By replacing our need for ImageMagick, we
+shift the work -- and the guarantee of stability -- into our own code base.
+
+. Portable dumping
+
+This is important because modern C libraries no longer do the tricks which the
+original dumper relied upon. These tricks made assumptions about how memory
+allocation works, since it functioned by taking a direct dump of the heap and
+then mapping it back into memory later. But this is very difficult, because
+ordinarily applications are not supposed to know how memory is laid out
+exactly. glibc had been giving us privileged knowledge of the heap in order to
+make this possible, but made the decision to stop supporting these special
+hooks, which immediately broke Emacs and result in lots of quick patches being
+necessary just to keep Emacs functioning.
+
+With the portable dumper, we can finally drop this abstraction leakage and
+make ourselves immune to even which C library implementation is used. Now we
+could even use MUSL, and still have support for snapshotting the load state
+for fast recovery later.
+
+. Initial support for XDG spec
+
+~/.config, ~/.cache, ~/.local
+
+One of the problems with this is that parts of the XDG spec are incompatible
+with the original Emacs directory location assumptions, making it tricky to
+maintain backward compatibility, but since this is also the way of the future,
+it's good to begin introducing this support now.
+
+. Enhanced NSM; more tight TLS security
+
+Network Security Manager (in lisp/net) is an intermediate layer that watches
+all the network connections and makes sure that the security is OK. For
+example, if you start a TLS connection, NSM validates all of the certificates
+involved, that the authorities are OK, that they are not expired, etc. If
+anything is wrong, it prompts the user as to see they want to use. This
+separates out security validation from the network transport layer.
+
+. display-fill-column-indicator-mode as now a built-in feature
+
+This is now native in the display engine itself, so more text repainting
+tricks are needed based on hooks or change functions, etc. Also, it now
+maintains compatibility with other Lisp packages that modify the buffer,
+whereas previously the set of tricks needed would often collide with other
+tricks being performed with other modules.
+
+. so-long-mode now available for buffers with very long lines
+
+This mode makes buffers with very long lines more bareable. It turns off all
+kinds of features that are known to slow down long lines even more. If your
+lines are very very very long, instead of waiting for a minute for this to
+redisplay, you may only have to wait for a few seconds. It doesn't solve all
+the problems, it just knows about features that make the problem even worse,
+and turns those features. But it only knows about basic features, like
+font-lock, etc.
+
+. 'ngettext' for internationalization of messages
+
+This is a small step in the direction of internationalization. Making Emacs
+properly localized is a /very/ large job. We even name commands such that the
+name is a kind of documentation -- but the name is in English!
+
+This job is necessarily huge, but at leasts ngettext is a small step in that
+direction. If a Lisp package, for example, wants to display messages based on
+the locale, it can now provides strings to ngettext, and the proper string
+will be chosen based on the local language.
+
+In a sense, this is more a flag to show people that we're thinking about this
+direction in the future, even though there is still so much more to be done,
+and as always, volunteers are more than welcome!

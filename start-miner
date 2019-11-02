@@ -4,10 +4,11 @@ NODE=us-w2.chainweb.com:443
 KEY=188ceafeb942811c944d6c6d55a8bee9370334dcd7a54d54dd53df754a5f03d4
 ACCOUNT=$KEY
 
-# MINER=$HOME/.nix-profile/bin/chainweb-miner
-if [[ -x chainweb/current/bin/chainweb-miner ]]; then
+MINER=$HOME/.nix-profile/bin/chainweb-miner
+if [[ ! -x $MINER ]]; then
     MINER=chainweb/current/bin/chainweb-miner 
-else
+fi
+if [[ ! -x $MINER ]]; then
     MINER=chainweb-node/result/bin/chainweb-miner
 fi
 

@@ -1,0 +1,4 @@
+#!/bin/bash
+git clone --branch johnw/blake2 https://github.com/jwiegley/chainweb-node
+cd chainweb-node
+nix build -f . --substituters 'http://nixcache.kadena.io https://nixcache.reflex-frp.org' --trusted-substituters 'http://nixcache.kadena.io https://nixcache.reflex-frp.org' --option trusted-public-keys 'kadena-cache.local-1:8wj8JW8V9tmc5bgNNyPM18DYNA1ws3X/MChXh1AQy/Q= ryantrinkle.com-1:JJiAKaRv9mWgpVAz8dwewnZe0AzzEAzPkagE9SP5NWI='

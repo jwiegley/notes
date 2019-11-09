@@ -5,7 +5,7 @@ build it yourself using Nix and this script:
 
 Or you can slipstream a pre-built binary directly into your Nix store:
 
-    curl -s http://ftp.newartisans.com/pub/chainweb-node-linux.closure.xz | xz -dc | nix-store --import
+    curl -s https://block77.io/kadena/chainweb-node-linux.closure.xz | xz -dc | nix-store --import
 
 And then run (for Linux):
 
@@ -13,7 +13,7 @@ And then run (for Linux):
 
 To install the same binary for Darwin:
 
-    curl -s http://ftp.newartisans.com/pub/chainweb-node-darwin.closure.xz | xz -dc | nix-store --import
+    curl -s https://block77.io/kadena/chainweb-node-darwin.closure.xz | xz -dc | nix-store --import
 
 After running that command for Darwin, you can run:
 

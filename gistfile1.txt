@@ -23,4 +23,4 @@ If you are running a GCP or AWS miner, you can either run the commands above on 
 or you can copy from your local machine to the miner after running the commands above on that
 machine:
 
-    nix copy --no-check-sigs --keep-going --to ssh-ng://<MINER-IP-ADDRESS> /nix/store/8swra2i2m8l7i7ffw1y95032wzzq5h36-chainweb-1.0.3
+    nix copy --no-check-sigs --to ssh-ng://<MINER-IP-ADDRESS> /nix/store/8swra2i2m8l7i7ffw1y95032wzzq5h36-chainweb-1.0.3

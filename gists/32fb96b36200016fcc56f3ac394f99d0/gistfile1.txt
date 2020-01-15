@@ -1,0 +1,182 @@
+these derivations will be built:
+  /nix/store/98wgxbyp0zaf08ncvagar8q5rxnr5i4z-ocaml4.07.1-lablgtk3-3.0.beta6.drv
+  /nix/store/zjzzy992b5x7x8f9jfqsm841x4scg93a-shared-mime-info-1.13.1.drv
+  /nix/store/hqb4439863z4hw2s01kx0fiynd7pm5l5-gtksourceview-3.24.11.drv
+  /nix/store/iylxxx8hzlxbgfawdf4mjlf5dlah7s3y-ocaml4.07.1-lablgtk3-sourceview3-3.0.beta6.drv
+  /nix/store/h0ciwgrrn2q82maiw9mr8575fs232hq1-coq-8.10.2.drv
+building '/nix/store/98wgxbyp0zaf08ncvagar8q5rxnr5i4z-ocaml4.07.1-lablgtk3-3.0.beta6.drv'...
+building '/nix/store/zjzzy992b5x7x8f9jfqsm841x4scg93a-shared-mime-info-1.13.1.drv'...
+unpacking sources
+unpacking source archive /nix/store/lmyrk89dbikqxrvb49q30j6h5g9bs9bw-shared-mime-info-1.13.1.tar.xz
+source root is shared-mime-info-1.13.1
+setting SOURCE_DATE_EPOCH to timestamp 1568224620 of file shared-mime-info-1.13.1/ChangeLog
+patching sources
+configuring
+configure flags: --disable-dependency-tracking --prefix=/nix/store/vaglas9nb30d6h6phm2vyx42sq83fqar-shared-mime-info-1.13.1
+checking for a BSD-compatible install... /nix/store/60s6snsvsw62mnhg94qv3ydbafncadj2-coreutils-8.31/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /nix/store/60s6snsvsw62mnhg94qv3ydbafncadj2-coreutils-8.31/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking whether make supports nested variables... (cached) yes
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether clang accepts -g... yes
+checking for clang option to accept ISO C89... none needed
+unpacking sources
+unpacking source archive /nix/store/iy8k4x04fjiwnqsh2l1yi2yg2db0asgf-lablgtk3-3.0.beta6.tbz
+checking whether clang understands -c and -o together... yes
+checking whether make supports the include directive... yes (GNU style)
+checking dependency style of clang... none
+checking for an ANSI C-conforming const... yes
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+source root is lablgtk3-3.0.beta6
+checking for a sed that does not truncate output... /nix/store/04x6zmq0p7s15451dcrb1p1bkjd3vklq-gnused-4.7/bin/sed
+checking whether NLS is requested... yes
+setting SOURCE_DATE_EPOCH to timestamp 1556180526 of file lablgtk3-3.0.beta6/src/xml_lexer.mll
+patching sources
+configuring
+configure flags: --prefix=/nix/store/32hmdy2602rsmgi771662w6mvmdq7vjz-ocaml4.07.1-lablgtk3-3.0.beta6
+checking for msgfmt... /nix/store/cd7acalqxwbdxvc98qayfxz74ijp597p-gettext-0.20.1/bin/msgfmt
+checking for gmsgfmt... /nix/store/cd7acalqxwbdxvc98qayfxz74ijp597p-gettext-0.20.1/bin/msgfmt
+checking for xgettext... /nix/store/cd7acalqxwbdxvc98qayfxz74ijp597p-gettext-0.20.1/bin/xgettext
+checking for ocamlc... ocamlc
+ocaml version is 4.07.1
+ocaml library path is /nix/store/lgw66nd38zw19q3qbczmly7dpmfvhys0-ocaml-4.07.1/lib/ocaml
+Default install dirs are : /nix/store/lgw66nd38zw19q3qbczmly7dpmfvhys0-ocaml-4.07.1/lib/ocaml/lablgtk3 and /nix/store/lgw66nd38zw19q3qbczmly7dpmfvhys0-ocaml-4.07.1/lib/ocaml/stublibs
+Compile with ocamlc -I +lablgtk3
+checking for ocamlopt... ocamlopt
+checking for msgmerge... /nix/store/cd7acalqxwbdxvc98qayfxz74ijp597p-gettext-0.20.1/bin/msgmerge
+checking ocamlopt version... ok
+checking for ocamlrun... ocamlrun
+checking for ocamldep... ocamldep
+checking for ocamldoc... ocamldoc
+checking for ocamllex... ocamllex
+checking for ocamlyacc... ocamlyacc
+checking for ocamlmktop... ocamlmktop
+checking for ocamlmklib... ocamlmklib
+checking for camlp4o... no
+configure: WARNING: Cannot find camlp4o; please do not modify .ml4 files.
+checking for ocamlfind... ocamlfind
+ocamlfind library path is /nix/store/32hmdy2602rsmgi771662w6mvmdq7vjz-ocaml4.07.1-lablgtk3-3.0.beta6/lib/ocaml/4.07.1/site-lib/
+ocamlfind ldconf path is ignore
+checking for ocaml threads... use system threads
+checking for ocaml dll support... yes
+checking for ranlib... ranlib
+checking for gcc... clang
+checking build system type... x86_64-apple-darwin19.2.0
+checking host system type... x86_64-apple-darwin19.2.0
+checking for ld used by clang... ld
+checking if the linker (ld) is GNU ld... no
+checking for shared library run path origin... done
+checking how to run the C preprocessor... clang -E
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for grep that handles long lines and -e... /nix/store/hghq139xqbv66z22g8h7yzi5z0cqn16a-gnugrep-3.3/bin/grep
+checking for egrep... /nix/store/hghq139xqbv66z22g8h7yzi5z0cqn16a-gnugrep-3.3/bin/grep -E
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for CFPreferencesCopyAppValue... yes
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking for CFLocaleCopyCurrent... yes
+checking whether clang accepts -g... yes
+checking for clang option to accept ISO C89... none needed
+checking for GNU gettext in libc... yes
+checking whether to use NLS... yes
+checking where the gettext function comes from... libc
+checking for itstool... itstool
+checking whether C compiler accepts -fno-unwind-tables... yes
+checking platform... Unix
+checking for fdatasync... yes
+checking for pkg-config... /nix/store/25va75krwyh9m82p61n78vl9z8bmsq07-pkg-config-0.29.2/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for ALL... yes
+checking for GIO... yes
+checking for xmllint... /nix/store/3y1lfznk3gqy2bwyd7i9hk7b2r07qbdm-libxml2-2.9.10-bin/bin/xmllint
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+checking native dynlink... checking for pkg-config... /nix/store/25va75krwyh9m82p61n78vl9z8bmsq07-pkg-config-0.29.2/bin/pkg-config
+checking pkg-config is at least version 0.16... yes
+config.status: creating Makefile
+config.status: creating shared-mime-info.pc
+config.status: creating po/Makefile.in
+config.status: creating config.h
+config.status: executing depfiles commands
+config.status: executing po-directories commands
+config.status: creating po/POTFILES
+config.status: creating po/Makefile
+building
+build flags: SHELL=/nix/store/5arhyyfgnfs01n1cgaf7s82ckzys3vbg-bash-4.4-p23/bin/bash
+make  all-recursive
+make[1]: Entering directory '/private/var/folders/nn/ptvj18r56wj8g2hz241_d46h0000gn/T/nix-build-shared-mime-info-1.13.1.drv-0/shared-mime-info-1.13.1'
+Making all in po
+make[2]: Entering directory '/private/var/folders/nn/ptvj18r56wj8g2hz241_d46h0000gn/T/nix-build-shared-mime-info-1.13.1.drv-0/shared-mime-info-1.13.1/po'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/private/var/folders/nn/ptvj18r56wj8g2hz241_d46h0000gn/T/nix-build-shared-mime-info-1.13.1.drv-0/shared-mime-info-1.13.1/po'
+Making all in .
+make[2]: Entering directory '/private/var/folders/nn/ptvj18r56wj8g2hz241_d46h0000gn/T/nix-build-shared-mime-info-1.13.1.drv-0/shared-mime-info-1.13.1'
+  CC       update_mime_database-update-mime-database.o
+checking for GTK+ - version >= 3.0.0... yes (version 3.24.12)
+checking for gtkspell3-3.0... no
+update-mime-database.c:974:6: warning: implicit declaration of function 'fdatasync' is invalid in C99 [-Wimplicit-function-declaration]
+        if (fdatasync(fd) == -1)
+            ^
+update-mime-database.c:974:6: warning: this function declaration is not a prototype [-Wstrict-prototypes]
+checking for gtksourceview-3.0... no
+checking for gtk+-quartz-3.0... yes
+checking for gtk+-3.0   gtk+-quartz-3.0... yes
+configure: creating ./config.status
+config.status: creating config.make
+
+LablGTK configuration:
+        threads         system
+        native dynlink  yes
+        gtkspell        not found
+        gtksourceview3  not found
+        quartz          yes
+
+        debug           no
+        C compiler      clang
+        Camlp4          no
+building
+2 warnings generated.
+  CCLD     update-mime-database
+  CC       test_subclassing-test-subclassing.o
+  CCLD     test-subclassing
+  CC       test_tree_magic-test-tree-magic.o
+  CCLD     test-tree-magic
+make -C po update-gmo
+  GEN      freedesktop.org.xml
+/nix/store/0818wpv01gzhckn5f59lng1dbnki2fzg-itstool-2.0.6/bin/itstool: line 19: from: command not found
+/nix/store/0818wpv01gzhckn5f59lng1dbnki2fzg-itstool-2.0.6/bin/itstool: line 20: from: command not found
+/nix/store/0818wpv01gzhckn5f59lng1dbnki2fzg-itstool-2.0.6/bin/itstool: line 25: import: command not found
+/nix/store/0818wpv01gzhckn5f59lng1dbnki2fzg-itstool-2.0.6/bin/itstool: line 26: import: command not found
+/nix/store/0818wpv01gzhckn5f59lng1dbnki2fzg-itstool-2.0.6/bin/itstool: line 27: import: command not found
+/nix/store/0818wpv01gzhckn5f59lng1dbnki2fzg-itstool-2.0.6/bin/itstool: line 28: import: command not found
+/nix/store/0818wpv01gzhckn5f59lng1dbnki2fzg-itstool-2.0.6/bin/itstool: line 29: import: command not found
+/nix/store/0818wpv01gzhckn5f59lng1dbnki2fzg-itstool-2.0.6/bin/itstool: line 30: import: command not found
+/nix/store/0818wpv01gzhckn5f59lng1dbnki2fzg-itstool-2.0.6/bin/itstool: line 31: import: command not found
+/nix/store/0818wpv01gzhckn5f59lng1dbnki2fzg-itstool-2.0.6/bin/itstool: line 32: import: command not found
+/nix/store/0818wpv01gzhckn5f59lng1dbnki2fzg-itstool-2.0.6/bin/itstool: line 33: import: command not found
+/nix/store/0818wpv01gzhckn5f59lng1dbnki2fzg-itstool-2.0.6/bin/itstool: line 34: import: command not found
+/nix/store/0818wpv01gzhckn5f59lng1dbnki2fzg-itstool-2.0.6/bin/itstool: line 36: PY3: command not found
+/nix/store/0818wpv01gzhckn5f59lng1dbnki2fzg-itstool-2.0.6/bin/itstool: line 39: syntax error near unexpected token `('
+/nix/store/0818wpv01gzhckn5f59lng1dbnki2fzg-itstool-2.0.6/bin/itstool: line 39: `    def ustr(s, encoding=None):'
+make[2]: *** [Makefile:1179: freedesktop.org.xml] Error 2
+make[2]: Leaving directory '/private/var/folders/nn/ptvj18r56wj8g2hz241_d46h0000gn/T/nix-build-shared-mime-info-1.13.1.drv-0/shared-mime-info-1.13.1'
+make[1]: *** [Makefile:731: all-recursive] Error 1
+make[1]: Leaving directory '/private/var/folders/nn/ptvj18r56wj8g2hz241_d46h0000gn/T/nix-build-shared-mime-info-1.13.1.drv-0/shared-mime-info-1.13.1'
+make: *** [Makefile:455: all] Error 2
+builder for '/nix/store/zjzzy992b5x7x8f9jfqsm841x4scg93a-shared-mime-info-1.13.1.drv' failed with exit code 2
+cannot build derivation '/nix/store/hqb4439863z4hw2s01kx0fiynd7pm5l5-gtksourceview-3.24.11.drv': 1 dependencies couldn't be built
+cannot build derivation '/nix/store/iylxxx8hzlxbgfawdf4mjlf5dlah7s3y-ocaml4.07.1-lablgtk3-sourceview3-3.0.beta6.drv': 1 dependencies couldn't be built
+cannot build derivation '/nix/store/h0ciwgrrn2q82maiw9mr8575fs232hq1-coq-8.10.2.drv': 1 dependencies couldn't be built
+error: build of '/nix/store/h0ciwgrrn2q82maiw9mr8575fs232hq1-coq-8.10.2.drv' failed

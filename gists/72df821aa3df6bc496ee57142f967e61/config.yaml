@@ -1,0 +1,87 @@
+databaseDirectory: null
+resetChainDatabases: false
+chainweb:
+  miner:
+    enabled: false
+    configuration:
+      minerInfo:
+        account: '188ceafeb942811c944d6c6d55a8bee9370334dcd7a54d54dd53df754a5f03d4'
+        predicate: keys-all
+        public-keys: []
+  throttling:
+    local: 0.1
+    mining: 2
+    global: 50
+    putPeer: 11
+  includeOrigin: true
+  blockGasLimit: 100000
+  pruneChainDatabase: true
+  chainwebVersion: mainnet01
+  p2p:
+    peerDbFilePath: null
+    peer:
+      certificateChainFile: null
+      key: null
+      interface: '*'
+      certificateChain: null
+      hostaddress:
+        hostname: home.johnwiegley.com
+        port: 10000
+      keyFile: null
+    maxPeerCount: 50
+    ignoreBootstrapNodes: false
+    maxSessionCount: 10
+    sessionTimeout: 60
+    peers:
+     - address:
+         hostname: bigchungusmining.energy
+         port: 31330
+       id: null
+  transactionIndex:
+    enabled: true
+    configuration: {}
+  miningCoordination: true
+  cutFetchTimeout: 3000000
+  nodeId:
+    _nodeIdId: 0
+  headerStream: false
+  mempoolP2p:
+    enabled: true
+    configuration:
+      pollInterval: 30
+      maxSessionCount: 6
+      sessionTimeout: 120
+  reintroTxs: true
+logging:
+  telemetryBackend:
+    enabled: true
+    configuration:
+      handle: stdout
+      color: auto
+      format: text
+  backend:
+    handle: stdout
+    color: auto
+    format: text
+  logger:
+    log_level: error
+    queue_size: 1000
+    exception_wait: 1000
+    exit_timeout: 1000000
+    scope: []
+    exception_limit: 10
+    policy: discard
+  clusterId: null
+  amberdataBackend:
+    enabled: false
+    configuration:
+      apiKey: ''
+      chainId: null
+      debug: true
+      host:
+        hostname: localhost
+        port: 443
+      blockchainId: ''
+  filter:
+    rules: []
+    default: debug

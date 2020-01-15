@@ -1,0 +1,26 @@
+To run my accelerated version of the chainweb-miner, you can either try to
+build it yourself using Nix and this script:
+
+    https://gist.github.com/jwiegley/ba7e588a5688b9bf6f3cee90df2b01c2
+
+Or you can slipstream a pre-built binary directly into your Nix store:
+
+    curl -s https://block77.io/kadena/chainweb-node-linux.closure.xz | xz -dc | nix-store --import
+
+And then run (for Linux):
+
+    /nix/store/8swra2i2m8l7i7ffw1y95032wzzq5h36-chainweb-1.0.3/bin/chainweb-miner <ARGS>
+
+To install the same binary for Darwin:
+
+    curl -s https://block77.io/kadena/chainweb-node-darwin.closure.xz | xz -dc | nix-store --import
+
+After running that command for Darwin, you can run:
+
+    /nix/store/0pw8vmxrigh648j2fhxg2x2wbnr067yl-chainweb-1.0.3/bin/chainweb-miner <ARGS>
+
+If you are running a GCP or AWS miner, you can either run the commands above on the miner itself,
+or you can copy from your local machine to the miner after running the commands above on that
+machine:
+
+    nix copy --no-check-sigs --to ssh-ng://<MINER-IP-ADDRESS> /nix/store/8swra2i2m8l7i7ffw1y95032wzzq5h36-chainweb-1.0.3

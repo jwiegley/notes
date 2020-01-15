@@ -1,0 +1,181 @@
+databaseDirectory: null
+resetChainDatabases: false
+chainweb:
+  throttleRate: 1000
+  miner:
+    enabled: false
+  includeOrigin: true
+  blockGasLimit: 100000
+  pruneChainDatabase: true
+  chainwebVersion: mainnet01
+  p2p:
+    peerDbFilePath: null
+    peer:
+      certificateChainFile: null
+      key: null
+      interface: '*'
+      certificateChain: null
+      hostaddress:
+        hostname: 76.234.69.149
+        port: 10000
+      keyFile: null
+    maxPeerCount: 50
+    ignoreBootstrapNodes: false
+    maxSessionCount: 10
+    sessionTimeout: 60
+    peers:
+    - address:
+        hostname: 3.91.216.143
+        port: 443
+      id: null
+    - address:
+        hostname: 159.203.174.78
+        port: 443
+      id: null
+    - address:
+        hostname: 167.99.116.95
+        port: 443
+      id: null
+    - address:
+        hostname: 194.8.3.67
+        port: 443
+      id: null
+    - address:
+        hostname: 54.200.80.43
+        port: 443
+      id: null
+    - address:
+        hostname: 85.10.225.12
+        port: 443
+      id: null
+    - address:
+        hostname: 52.170.99.107
+        port: 443
+      id: null
+    - address:
+        hostname: kadenamining.com
+        port: 443
+      id: null
+    - address:
+        hostname: 68.183.154.83
+        port: 1443
+      id: null
+    - address:
+        hostname: 45.55.48.112
+        port: 443
+      id: null
+    - address:
+        hostname: 159.203.97.208
+        port: 443
+      id: null
+    - address:
+        hostname: 138.197.1.18
+        port: 443
+      id: null
+    - address:
+        hostname: us-w1.chainweb.com
+        port: 443
+      id: null
+    - address:
+        hostname: fr2.chainweb.com
+        port: 443
+      id: null
+    - address:
+        hostname: 45.55.35.136
+        port: 443
+      id: null
+    - address:
+        hostname: us-e1.chainweb.com
+        port: 443
+      id: null
+    - address:
+        hostname: us-e2.chainweb.com
+        port: 443
+      id: null
+    - address:
+        hostname: us-e3.chainweb.com
+        port: 443
+      id: null
+    - address:
+        hostname: us-w1.chainweb.com
+        port: 443
+      id: null
+    - address:
+        hostname: us-w2.chainweb.com
+        port: 443
+      id: null
+    - address:
+        hostname: us-w3.chainweb.com
+        port: 443
+      id: null
+    - address:
+        hostname: fr1.chainweb.com
+        port: 443
+      id: null
+    - address:
+        hostname: fr2.chainweb.com
+        port: 443
+      id: null
+    - address:
+        hostname: fr3.chainweb.com
+        port: 443
+      id: null
+    - address:
+        hostname: jp1.chainweb.com
+        port: 443
+      id: null
+    - address:
+        hostname: jp2.chainweb.com
+        port: 443
+      id: null
+    - address:
+        hostname: jp3.chainweb.com
+        port: 443
+      id: null
+  transactionIndex:
+    enabled: true
+    configuration: {}
+  miningCoordination: true
+  nodeId:
+    _nodeIdId: 0
+  headerStream: false
+  mempoolP2p:
+    enabled: true
+    configuration:
+      pollInterval: 30
+      maxSessionCount: 6
+      sessionTimeout: 120
+  reintroTxs: true
+logging:
+  telemetryBackend:
+    enabled: true
+    configuration:
+      handle: stdout
+      color: auto
+      format: text
+  backend:
+    handle: stdout
+    color: auto
+    format: text
+  logger:
+    log_level: error
+    queue_size: 10000
+    exception_wait: 1000
+    exit_timeout: 1000000
+    scope: []
+    exception_limit: 10
+    policy: discard
+  clusterId: null
+  amberdataBackend:
+    enabled: false
+    configuration:
+      apiKey: ''
+      chainId: null
+      debug: true
+      host:
+        hostname: localhost
+        port: 443
+      blockchainId: ''
+  filter:
+    rules: []
+    default: debug

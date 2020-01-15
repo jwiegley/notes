@@ -1,0 +1,65 @@
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+Dload  Upload   Total   Spent    Left  Speed
+
+0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 3.18.168.175...
+* TCP_NODELAY set
+* Connected to us-e2.chainweb.com (3.18.168.175) port 443 (#0)
+* ALPN, offering h2
+* ALPN, offering http/1.1
+* Cipher selection: ALL:!EXPORT:!EXPORT40:!EXPORT56:!aNULL:!LOW:!RC4:@STRENGTH
+* successfully set certificate verify locations:
+*   CAfile: /nix/store/j7ssb6g2vplm7a932n07qggzmmmjmzf2-nss-cacert-3.46/etc/ssl/certs/ca-bundle.crt
+CApath: /nix/store/j7ssb6g2vplm7a932n07qggzmmmjmzf2-nss-cacert-3.46/etc/ssl/certs/
+* TLSv1.2 (OUT), TLS handshake, Client hello (1):
+} [512 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server hello (2):
+{ [94 bytes data]
+* TLSv1.2 (IN), TLS handshake, Certificate (11):
+{ [2562 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+{ [333 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server finished (14):
+{ [4 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+} [70 bytes data]
+* TLSv1.2 (OUT), TLS change cipher, Client hello (1):
+} [1 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Finished (20):
+} [16 bytes data]
+* TLSv1.2 (IN), TLS change cipher, Client hello (1):
+{ [1 bytes data]
+* TLSv1.2 (IN), TLS handshake, Finished (20):
+{ [16 bytes data]
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256
+* ALPN, server accepted to use h2
+* Server certificate:
+*  subject: CN=us-e2.chainweb.com
+*  start date: Oct 26 21:22:51 2019 GMT
+*  expire date: Jan 24 21:22:51 2020 GMT
+*  issuer: C=US; O=Let's Encrypt; CN=Let's Encrypt Authority X3
+*  SSL certificate verify ok.
+* Using HTTP2, server supports multi-use
+* Connection state changed (HTTP/2 confirmed)
+* Copying HTTP/2 data in stream buffer to connection buffer after upgrade: len=0
+* Using Stream ID: 1 (easy handle 0x7f901480c800)
+> POST /chainweb/0.0/mainnet01/chain/0/pact/api/v1/local HTTP/2
+> Host: us-e2.chainweb.com
+> User-Agent: curl/7.54.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 400
+> 
+} [400 bytes data]
+* We are completely uploaded and fine
+* Connection state changed (MAX_CONCURRENT_STREAMS updated)!
+< HTTP/2 200 
+< date: Sat, 02 Nov 2019 15:04:53 GMT
+< server: Warp/3.2.26
+< x-server-timestamp: 1572707093
+< content-type: application/json;charset=utf-8
+< 
+{ [349 bytes data]
+
+100   749    0   349  100   400    624    715 --:--:-- --:--:-- --:--:--   716
+* Connection #0 to host us-e2.chainweb.com left intact
+{"gas":0,"result":{"status":"success","data":115.22615},"reqKey":"4OjxfmXnpoCG54ufCkM_YnLpDdKC_XMQZBDWfrziCe4","logs":"wsATyGqckuIvlm89hhd2j4t6RMkCrcwJe_oeCYr7Th8","metaData":{"publicMeta":{"creationTime":0,"ttl":0,"gasLimit":0,"chainId":"","gasPrice":0,"sender":""},"blockTime":0,"prevBlockHash":"","blockHeight":0},"continuation":null,"txId":null}

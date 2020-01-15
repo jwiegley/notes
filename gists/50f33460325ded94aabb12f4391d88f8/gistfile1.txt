@@ -1,0 +1,257 @@
+building '/nix/store/94r501vy4q1kvn6xi10mrxqgiic7s592-nix-2.3pre6895_84de821.drv'...
+unpacking sources
+unpacking source archive /nix/store/bng79y6asrs7kpmm3y1z23gx0f0cs74a-nix
+source root is nix
+patching sources
+autoreconfPhase
+autoreconf: Entering directory `.'
+autoreconf: configure.ac: not using Gettext
+autoreconf: running: aclocal --force
+autoreconf: configure.ac: tracing
+autoreconf: configure.ac: not using Libtool
+autoreconf: running: /nix/store/7qr3v8p2kw3aw51zrmgxdn11xlk0g0pq-autoconf-2.69/bin/autoconf --force
+autoreconf: running: /nix/store/7qr3v8p2kw3aw51zrmgxdn11xlk0g0pq-autoconf-2.69/bin/autoheader --force
+autoreconf: configure.ac: not using Automake
+autoreconf: Leaving directory `.'
+configuring
+configure flags: --prefix=/nix/store/6khs15w8i9a0k09vfpsm207vkv2fnria-nix-2.3pre6895_84de821 --bindir=/nix/store/6khs15w8i9a0k09vfpsm207vkv2fnria-nix-2.3pre6895_84de821/bin --sbindir=/nix/store/6khs15w8i9a0k09vfpsm207vkv2fnria-nix-2.3pre6895_84de821/sbin --includedir=/nix/store/yikch4jx4pbdaipirc8qpx4cniwrm72h-nix-2.3pre6895_84de821-dev/include --oldincludedir=/nix/store/yikch4jx4pbdaipirc8qpx4cniwrm72h-nix-2.3pre6895_84de821-dev/include --mandir=/nix/store/6khs15w8i9a0k09vfpsm207vkv2fnria-nix-2.3pre6895_84de821/share/man --infodir=/nix/store/6khs15w8i9a0k09vfpsm207vkv2fnria-nix-2.3pre6895_84de821/share/info --docdir=/nix/store/6khs15w8i9a0k09vfpsm207vkv2fnria-nix-2.3pre6895_84de821/share/doc/nix --libdir=/nix/store/6khs15w8i9a0k09vfpsm207vkv2fnria-nix-2.3pre6895_84de821/lib --libexecdir=/nix/store/6khs15w8i9a0k09vfpsm207vkv2fnria-nix-2.3pre6895_84de821/libexec --localedir=/nix/store/6khs15w8i9a0k09vfpsm207vkv2fnria-nix-2.3pre6895_84de821/share/locale --with-store-dir=/nix/store --localstatedir=/nix/var --sysconfdir=/etc --disable-init-state --enable-gc --disable-seccomp-sandboxing --disable-doc-gen
+configure: WARNING: unrecognized options: --disable-init-state
+checking for a sed that does not truncate output... /nix/store/sds2hz3a5pm3gj8mxd8026vl2msvp9hn-gnused-4.7/bin/sed
+checking build system type... x86_64-apple-darwin17.7.0
+checking host system type... x86_64-apple-darwin17.7.0
+checking for the canonical Nix system name... x86_64-darwin
+checking for gcc... clang
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables...
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether clang accepts -g... yes
+checking for clang option to accept ISO C89... none needed
+checking for dirent.h that defines DIR... yes
+checking for library containing opendir... none required
+checking for struct dirent.d_type... yes
+checking for gcc... (cached) clang
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether clang accepts -g... (cached) yes
+checking for clang option to accept ISO C89... (cached) none needed
+checking whether we are using the GNU C++ compiler... yes
+checking whether clang++ accepts -g... yes
+checking how to run the C preprocessor... clang -E
+checking whether clang++ supports C++14 features with -std=gnu++14... yes
+checking for ar... ar
+checking for special C compiler options needed for large files... no
+checking for _FILE_OFFSET_BITS value needed for large files... no
+checking for pubsetbuf... yes
+checking for statvfs... yes
+checking for pipe2... no
+checking for lutimes... yes
+checking whether it is possible to create a link to a symlink... no
+checking how to run the C++ preprocessor... clang++ -std=gnu++14 -E
+checking for grep that handles long lines and -e... /nix/store/q0h3sfxi4p5qvi3gn2srdzydgh17f649-gnugrep-3.3/bin/grep
+checking for egrep... /nix/store/q0h3sfxi4p5qvi3gn2srdzydgh17f649-gnugrep-3.3/bin/grep -E
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking locale usability... yes
+checking locale presence... yes
+checking for locale... yes
+checking for bash... /nix/store/3m47xivp1clcv6q5p425h7vr8sjpmxxr-bash-4.4-p23/bin/bash
+checking for patch... /nix/store/2ia47xsik0h4b4mbcqpkh79mi6cwhsr0-patch-2.7.6/bin/patch
+checking for xmllint... /nix/store/zq9pv5yr8p1l2rycr5dx27hk7j796p7v-libxml2-2.9.9-bin/bin/xmllint
+checking for xsltproc... /nix/store/mvbx2nhgwh0qii6smybx3ka59snxchn1-libxslt-1.1.33-bin/bin/xsltproc
+checking for flex... /nix/store/0wnxir6mwd2nmq3a19dg4c8lain09qdj-flex-2.6.4/bin/flex
+checking for bison... /nix/store/wdd6x7ncx5lkfs91jayh4arwx44rv6kn-bison-3.4.1/bin/bison
+checking for sed... /nix/store/sds2hz3a5pm3gj8mxd8026vl2msvp9hn-gnused-4.7/bin/sed
+checking for tar... /nix/store/28f9x10hdr9f3mcfsb7hdmn6n020bgci-gnutar-1.32/bin/tar
+checking for bzip2... /nix/store/f26pyap9d90jybgc6w79k61491gxc7b9-bzip2-1.0.6.0.1-bin/bin/bzip2
+checking for gzip... /nix/store/zxvwiv704i314582fd9afnz3kkpn5h67-gzip-1.10/bin/gzip
+checking for xz... /nix/store/gmmdnwqhadd5549h759gqid8gdganahg-xz-5.2.4-bin/bin/xz
+checking for dot... no
+checking for lsof... lsof
+checking for cat... /nix/store/ss8mv0709ychhy5hrlqas1xrk3xyr6s9-coreutils-8.31/bin/cat
+checking for tr... /nix/store/ss8mv0709ychhy5hrlqas1xrk3xyr6s9-coreutils-8.31/bin/tr
+checking for pkg-config... /nix/store/i3bm4r6bw0505vfpka57zb2s2scq3l4i-pkg-config-0.29.2/bin/pkg-config
+checking pkg-config is at least version 0.9.0... yes
+checking for libcrypto... yes
+checking for BZ2_bzWriteOpen in -lbz2... yes
+checking bzlib.h usability... yes
+checking bzlib.h presence... yes
+checking for bzlib.h... yes
+checking for sqlite3 >= 3.6.19... yes
+checking for libcurl... yes
+checking for libeditline... yes
+checking for libsodium... yes
+checking for liblzma... yes
+checking for lzma_stream_encoder_mt in -llzma... yes
+checking for libbrotlienc libbrotlidec... yes
+checking aws/s3/S3Client.h usability... yes
+checking aws/s3/S3Client.h presence... yes
+checking for aws/s3/S3Client.h... yes
+checking for bdw-gc... yes
+checking for setresuid... no
+checking for setreuid... yes
+checking for lchown... yes
+checking for strsignal... yes
+checking for posix_fallocate... no
+checking for sysconf... yes
+checking if you have a recent GNU tar... yes
+configure: creating ./config.status
+config.status: creating config.h
+configure: WARNING: unrecognized options: --disable-init-state
+building
+build flags: -j10 -l10 SHELL=/nix/store/3m47xivp1clcv6q5p425h7vr8sjpmxxr-bash-4.4-p23/bin/bash profiledir=\$\(out\)/etc/profile.d
+  GEN    Makefile.config
+  GEN    src/libexpr/parser-tab.cc
+  GEN    src/libexpr/parser-tab.hh
+  GEN    src/libexpr/lexer-tab.cc
+src/libexpr/parser.y:2.1-12: warning: deprecated directive, use '%define api.pure' [-Wdeprecated]
+    2 | %pure-parser
+      | ^~~~~~~~~~~~
+src/libexpr/parser.y:4.1-14: warning: deprecated directive, use '%define parse.error verbose' [-Wdeprecated]
+    4 | %error-verbose
+      | ^~~~~~~~~~~~~~
+src/libexpr/parser.y:2.1-12: warning: deprecated directive, use '%define api.pure'  GEN    src/libexpr/lexer-tab.hh
+ [-Wdeprecated]
+    2 | %pure-parser
+      | ^~~~~~~~~~~~
+src/libexpr/parser.y:4.1-14: warning: deprecated directive, use '%define parse.error verbose' [-Wdeprecated]
+    4 | %error-verbose
+      | ^~~~~~~~~~~~~~
+  CXX    src/libutil/affinity.o
+  CXX    src/libutil/archive.o
+  CXX    src/libutil/args.o
+src/libexpr/parser.y: warning: fix-its can be applied.  Rerun with option '--update'. [-Wother]
+src/libexpr/parser.y: warning: fix-its can be applied.  Rerun with option '--update'. [-Wother]
+  CXX    src/libutil/compression.o
+  CXX    src/libutil/config.o
+  CXX    src/libutil/hash.o
+In file included from src/libutil/affinity.cc:2:
+In file included from src/libutil/util.hh:17:
+/nix/store/q4h02ll1y44ilqd9shwv7agdxmfhd5d6-libc++-7.1.0/include/c++/v1/experimental/optional:11:2: error: "<experimental/optional> has been removed. Use <optional> instead."
+#error "<experimental/optional> has been removed. Use <optional> instead."
+ ^
+In file included from src/libutil/affinity.cc:2:
+src/libutil/util.hh:262:16: error: no member named 'experimental' in namespace 'std'
+    const std::experimental::optional<std::string> & input = {});
+          ~~~~~^
+src/libutil/util.hh:269:10: error: no member named 'experimental' in namespace 'std'
+    std::experimental::optional<std::string> input;
+    ~~~~~^
+3 errors generated.
+make: *** [mk/patterns.mk:3: src/libutil/affinity.o] Error 1
+  CXX    src/libutil/json.o
+make: *** Waiting for unfinished jobs....
+  CXX    src/libutil/logging.o
+In file included from src/libutil/compression.cc:1:
+In file included from src/libutil/compression.hh:5:
+In file included from src/libutil/serialise.hh:6:
+In file included from src/libutil/util.hh:17:
+/nix/store/q4h02ll1y44ilqd9shwv7agdxmfhd5d6-libc++-7.1.0/include/c++/v1/experimental/optional:11:2: error: "<experimental/optional> has been removed. Use <optional> instead."
+#error "<experimental/optional> has been removed. Use <optional> instead."
+ ^
+In file included from src/libutil/hash.cc:7:
+In file included from src/libutil/hash.hh:4:
+In file included from src/libutil/serialise.hh:6:
+In file included from src/libutil/util.hh:17:
+/nix/store/q4h02ll1y44ilqd9shwv7agdxmfhd5d6-libc++-7.1.0/include/c++/v1/experimental/optional:11:2: error: "<experimental/optional> has been removed. Use <optional> instead."
+#error "<experimental/optional> has been removed. Use <optional> instead."
+ ^
+In file included from src/libutil/compression.cc:1:
+In file included from src/libutil/compression.hh:5:
+In file included from src/libutil/serialise.hh:6:
+src/libutil/util.hh:262:16: error: no member named 'experimental' in namespace 'std'
+    const std::experimental::optional<std::string> & input = {});
+          ~~~~~^
+In file included from src/libutil/config.cc:2:
+In file included from src/libutil/args.hh:7:
+In file included from src/libutil/util.hh:17:
+/nix/store/q4h02ll1y44ilqd9shwv7agdxmfhd5d6-libc++-7.1.0/include/c++/v1/experimental/optional:11:2: error: "<experimental/optional> has been removed. Use <optional> instead."
+#error "<experimental/optional> has been removed. Use <optional> instead."
+ ^
+src/libutil/util.hh:269:10: error: no member named 'experimental' in namespace 'std'
+    std::experimental::optional<std::string> input;
+    ~~~~~^
+In file included from src/libutil/hash.cc:7:
+In file included from src/libutil/hash.hh:4:
+In file included from src/libutil/serialise.hh:6:
+src/libutil/util.hh:262:16: error: no member named 'experimental' in namespace 'std'
+    const std::experimental::optional<std::string> & input = {});
+          ~~~~~^
+src/libutil/util.hh:269:10: error: no member named 'experimental' in namespace 'std'
+    std::experimental::optional<std::string> input;
+    ~~~~~^
+In file included from src/libutil/config.cc:2:
+In file included from src/libutil/args.hh:7:
+src/libutil/util.hh:262:16: error: no member named 'experimental' in namespace 'std'
+    const std::experimental::optional<std::string> & input = {});
+          ~~~~~^
+src/libutil/util.hh:269:10: error: no member named 'experimental' in namespace 'std'
+    std::experimental::optional<std::string> input;
+    ~~~~~^
+3 errors generated.
+make: *** [mk/patterns.mk:3: src/libutil/hash.o] Error 1
+3 errors generated.
+make: *** [mk/patterns.mk:3: src/libutil/compression.o] Error 1
+In file included from src/libutil/args.cc:1:
+In file included from src/libutil/args.hh:7:
+In file included from src/libutil/util.hh:17:
+/nix/store/q4h02ll1y44ilqd9shwv7agdxmfhd5d6-libc++-7.1.0/include/c++/v1/experimental/optional:11:2: error: "<experimental/optional> has been removed. Use <optional> instead."
+#error "<experimental/optional> has been removed. Use <optional> instead."
+ ^
+In file included from src/libutil/archive.cc:14:
+In file included from src/libutil/archive.hh:4:
+In file included from src/libutil/serialise.hh:6:
+In file included from src/libutil/util.hh:17:
+/nix/store/q4h02ll1y44ilqd9shwv7agdxmfhd5d6-libc++-7.1.0/include/c++/v1/experimental/optional:11:2: error: "<experimental/optional> has been removed. Use <optional> instead."
+#error "<experimental/optional> has been removed. Use <optional> instead."
+ ^
+In file included from src/libutil/logging.cc:2:
+In file included from src/libutil/util.hh:17:
+/nix/store/q4h02ll1y44ilqd9shwv7agdxmfhd5d6-libc++-7.1.0/include/c++/v1/experimental/optional:11:2: error: "<experimental/optional> has been removed. Use <optional> instead."
+#error "<experimental/optional> has been removed. Use <optional> instead."
+ ^
+In file included from src/libutil/args.cc:1:
+In file included from src/libutil/args.hh:7:
+src/libutil/util.hh:262:16: error: no member named 'experimental' in namespace 'std'
+    const std::experimental::optional<std::string> & input = {});
+          ~~~~~^
+src/libutil/util.hh:269:10: error: no member named 'experimental' in namespace 'std'
+    std::experimental::optional<std::string> input;
+    ~~~~~^
+In file included from src/libutil/archive.cc:14:
+In file included from src/libutil/archive.hh:4:
+In file included from src/libutil/serialise.hh:6:
+src/libutil/util.hh:262:16: error: no member named 'experimental' in namespace 'std'
+    const std::experimental::optional<std::string> & input = {});
+          ~~~~~^
+src/libutil/util.hh:269:10: error: no member named 'experimental' in namespace 'std'
+    std::experimental::optional<std::string> input;
+    ~~~~~^
+In file included from src/libutil/logging.cc:2:
+src/libutil/util.hh:262:16: error: no member named 'experimental' in namespace 'std'
+    const std::experimental::optional<std::string> & input = {});
+          ~~~~~^
+src/libutil/util.hh:269:10: error: no member named 'experimental' in namespace 'std'
+    std::experimental::optional<std::string> input;
+    ~~~~~^
+3 errors generated.
+make: *** [mk/patterns.mk:2: src/libutil/archive.o] Error 1
+3 errors generated.
+make: *** [mk/patterns.mk:2: src/libutil/config.o] Error 1
+3 errors generated.
+make: *** [mk/patterns.mk:2: src/libutil/args.o] Error 1
+3 errors generated.
+make: *** [mk/patterns.mk:2: src/libutil/logging.o] Error 1
+builder for '/nix/store/94r501vy4q1kvn6xi10mrxqgiic7s592-nix-2.3pre6895_84de821.drv' failed with exit code 2
+cannot build derivation '/nix/store/pa41f3sx2x5qg6pxpb49g4kapsaq789b-cabal2nix-2.14.4.drv': 1 dependencies couldn't be built
+cannot build derivation '/nix/store/yxy9vrc8xnibp74rf4lalrq70vn60n6v-cabal2nix-hnix.drv': 1 dependencies couldn't be built
+error: build of '/nix/store/yxy9vrc8xnibp74rf4lalrq70vn60n6v-cabal2nix-hnix.drv' failed

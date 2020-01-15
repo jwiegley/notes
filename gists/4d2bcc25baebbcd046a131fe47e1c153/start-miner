@@ -1,0 +1,30 @@
+#!/bin/bash -e
+
+NODE=us-w2.chainweb.com:443
+KEY=188ceafeb942811c944d6c6d55a8bee9370334dcd7a54d54dd53df754a5f03d4
+ACCOUNT=$KEY
+
+MINER=$HOME/.nix-profile/bin/chainweb-miner
+if [[ ! -x $MINER ]]; then
+    MINER=chainweb/current/bin/chainweb-miner 
+fi
+if [[ ! -x $MINER ]]; then
+    MINER=chainweb-node/result/bin/chainweb-miner
+fi
+
+if [[ ! -x $MINER ]]; then
+    echo "Cannot find chainweb-miner executable"
+    exit 1
+fi
+
+if [[ -z "$1" ]]; then
+    echo "Usage: star-miner <CORES>"
+    exit 1
+fi
+
+exec $MINER                                     \
+    cpu                                         \
+    --cores $1                                  \
+    --node $NODE                                \
+    --miner-account $ACCOUNT                    \
+    --miner-key $KEY

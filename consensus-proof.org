@@ -1,0 +1,18 @@
+#+TITLE: Proving Consensus
+
+#+name: extract
+#+header: :results raw
+#+header: :var path=""
+#+header: :var start=""
+#+header: :var end=""
+#+begin_src sh :exports none
+perl -ne "print if /$start/ .. /$end/" $path
+#+end_src
+
+This is the code I want to display as Coq:
+
+#+begin_src coq :noweb yes
+<<extract(path="Foo.v", start="Definition Foo", end="Definition Foo")>>
+#+end_src
+
+Can this be done?

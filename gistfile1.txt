@@ -1,0 +1,6 @@
+Vulcan ~ $ nix-locate bin/sqlite3
+tcl.out                                          30,346 x /nix/store/rlkrsmys4dqybqpx61s1r7nb3kgzd1hh-tcl-8.6.9/bin/sqlite3_analyzer
+sqlite-replication.bin                        1,840,796 x /nix/store/k8dvc5nacaq9fhb4zky7hbvnzwiagw08-sqlite-3.27.2+replication3-bin/bin/sqlite3
+sqlite-analyzer.out                           1,228,332 x /nix/store/9zkzj9n80763l59wp3qnaycykszbk3zi-sqlite-analyzer-3.31.0/bin/sqlite3_analyzer
+sqlite.bin                                    1,880,068 x /nix/store/1c9jg5x5sjlnr6j13wcpbic5cw33iisc-sqlite-3.31.0-bin/bin/sqlite3
+sqlite-interactive.bin                        1,880,732 x /nix/store/2klvr0w97gmwb1pz5hxchhss1j14yc7p-sqlite-3.31.0-bin/bin/sqlite3

@@ -1,13 +1,32 @@
-{ packages ? "coqPackages_8_9"
+{ packages ? "coqPackages_8_10"
 
-, rev      ? "d73f16d6767e99675682f822dac3017bf9af1e83"
-, sha256   ? "1b5wix9kr5s3hscpl425si0zw00zzijc9xrcph6l2myh4n5nvcm0"
+, rev      ? "8da81465c19fca393a3b17004c743e4d82a98e4f"
+, sha256   ? "1f3s27nrssfk413pszjhbs70wpap43bbjx2pf4zq5x2c1kd72l6y"
 
 , pkgs     ? import (builtins.fetchTarball {
     url = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
     inherit sha256; }) {
     config.allowUnfree = true;
     config.allowBroken = false;
+    overlays = [
+      (self: super:
+       let
+         nixpkgs = { rev, sha256 }:
+           import (super.fetchFromGitHub {
+             owner = "NixOS";
+             repo  = "nixpkgs";
+             inherit rev sha256;
+           }) { config.allowUnfree = true; };
+
+         known-good-20191113_070954 = nixpkgs {
+           rev    = "620124b130c9e678b9fe9dd4a98750968b1f749a";
+           sha256 = "0xgy2rn2pxii3axa0d9y4s25lsq7d9ykq30gvg2nzgmdkmy375rr";
+         };
+       in
+       {
+         inherit (known-good-20191113_070954) shared-mime-info;
+       })
+    ];
   }
 }:
 
@@ -21,9 +40,9 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "jwiegley";
       repo = "coq-haskell";
-      rev = "83a5db4b5741745ec9d522543d3616c308dfb542";
-      sha256 = "0310sbf6i8zfvrw5mqaifnh4rdl0j64gj3j20ak533xpq1fpbd4v";
-      # date = 2018-10-04T18:17:03-07:00;
+      rev = "921bf95cabdbcb8fc0f9dfdf7c33c3530431a5a4";
+      sha256 = "0am0z62lp48n5afz5ss9srlwzp51wxi8286iibik40gis7ai86sh";
+      # date = 2020-01-19T15:22:16-08:00;
     };
 
     buildInputs = [ coq.ocaml coq.camlp5 coq.findlib coq ssreflect ];
@@ -40,7 +59,7 @@ let
     };
 
     passthru = {
-      compatibleCoqVersions = v: builtins.elem v [ "8.5" "8.6" "8.7" "8.8" ];
+      compatibleCoqVersions = v: builtins.elem v [ "8.5" "8.6" "8.7" "8.8" "8.9" "8.10" ];
     };
   };
 
@@ -51,9 +70,9 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "jwiegley";
       repo = "category-theory";
-      rev = "e204fee5b8662e414ecca13ca543fae3b19bd72a";
-      sha256 = "15hi0vmvm42qzsh5zzw78q2l5c8bf4nis2mjbannm0m96dpmszk0";
-      # date = 2018-10-05T10:50:15-07:00;
+      rev = "380ff60d34c306f7005babc3dade1d96b5eeb935";
+      sha256 = "1r4v5lm090i23kqa1ad39sgfph7pfl458kh8rahsh1mr6yl1cbv9";
+      # date = 2020-01-12T15:09:07-08:00;
     };
 
     buildInputs = [ coq coq.ocaml coq.camlp5 coq.findlib equations ];
@@ -64,7 +83,7 @@ let
     installFlags = "COQLIB=$(out)/lib/coq/${coq.coq-version}/";
 
     passthru = {
-      compatibleCoqVersions = v: builtins.elem v [ "8.6" "8.7" "8.8" ];
+      compatibleCoqVersions = v: builtins.elem v [ "8.6" "8.7" "8.8" "8.9" "8.10" ];
    };
   };
 
@@ -104,7 +123,7 @@ let
     };
 
     passthru = {
-      compatibleCoqVersions = v: builtins.elem v [ "8.5" "8.6" "8.7" "8.8" ];
+      compatibleCoqVersions = v: builtins.elem v [ "8.5" "8.6" "8.7" "8.8" "8.9" "8.10" ];
     };
   };
 

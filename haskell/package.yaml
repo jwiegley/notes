@@ -22,7 +22,6 @@ library:
     - containers
     - deepseq
     - lens
-    - machines
     - mtl
     - monad-par
     - multiset

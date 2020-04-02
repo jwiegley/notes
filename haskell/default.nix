@@ -1,9 +1,9 @@
-{ compiler ? "ghc864"
+{ compiler ? "ghc882"
 
-, rev     ? "796a8764ab85746f916e2cc8f6a9a5fc6d4d03ac"
-, sha256  ? "1m57gsr9r96gip2wdvdzbkj8zxf47rg3lrz35yi352x1mzj3by3x"
+, rev    ? "8da81465c19fca393a3b17004c743e4d82a98e4f"
+, sha256 ? "1f3s27nrssfk413pszjhbs70wpap43bbjx2pf4zq5x2c1kd72l6y"
 
-, pkgs    ?
+, pkgs ?
     if builtins.compareVersions builtins.nixVersion "2.0" < 0
     then abort "hnix requires at least nix 2.0"
     else import (builtins.fetchTarball {

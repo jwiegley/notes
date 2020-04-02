@@ -1,0 +1,12 @@
+Vulcan ~/src/ltl/coq $ nix-build
+these derivations will be built:
+  /nix/store/in7q7f6ijkxm9wmpsrl0zz56dgpap54f-coq8.10-haskell-1.0.drv
+  /nix/store/qvai1jpqlgdhvmsjrjrp89j5i06hzqwz-category-theory.drv
+  /nix/store/ln3hky8sj99ysry6r4vg3bkiclaj4ifq-coq8.10-constructive-ltl-1.0.drv
+  /nix/store/6yaii8w4n5m6xk2zb9n021ymjnaf0ix3-coq8.10-constructive-ltl-1.0.drv
+these paths will be fetched (0.00 MiB download, 338.80 MiB unpacked):
+  /nix/store/yyj6wnfcr039648v0ps4fm1hb4n5p5xv-coq-8.10.2
+copying path '/nix/store/yyj6wnfcr039648v0ps4fm1hb4n5p5xv-coq-8.10.2' to 'local'...
+building '/nix/store/qvai1jpqlgdhvmsjrjrp89j5i06hzqwz-category-theory.drv'...
+building '/nix/store/in7q7f6ijkxm9wmpsrl0zz56dgpap54f-coq8.10-haskell-1.0.drv'...
+unpacking sources

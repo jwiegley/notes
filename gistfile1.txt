@@ -1,0 +1,17 @@
+building '/nix/store/rwqyvgl0j3ixbkd00kl0laiz9ybjdf2c-stdenv-darwin.drv'...
+output '/nix/store/0fsajyj672qh78ndgsv7gxaxms3hpm6s-stdenv-darwin' is not allowed to refer to the following paths:
+  /nix/store/05wrwrslcqdv7qh5w750fwzzlygy893d-zlib-1.2.11
+  /nix/store/0xqs5h1n9avficlxbhh299bphpmnpbhk-Libsystem-osx-10.12.6
+  /nix/store/36xfjdpmyrywjqi410cm7haf8n84i8ay-libssh2-1.9.0
+  /nix/store/6jbbgblwa2bm02xndcb58rndhzp5vs67-libxml2-2.9.10
+  /nix/store/7ygifkrn7sbirhi53rh1bpq9cym6mjy9-bash-4.4-p23
+  /nix/store/gwm759zvhdn9c4lrr30n8mq2gyivzz12-openssl-1.1.1f
+  /nix/store/l54m17fy5a3sypf59ywjm60b2fib4dj5-libiconv-osx-10.12.6
+  /nix/store/m3k48ypzmihpmxmj0wqkf1i0nh02i305-nghttp2-1.40.0-lib
+  /nix/store/vwfz506bnzwv3k2ya8kfnax5hlshzl2i-libc++-7.1.0
+  /nix/store/w7fdv0hcv3jm58psywshdrgbf20g14hc-swift-corefoundation
+  /nix/store/y0i5psqgrjn0gfak0as5rf614b3dasdb-curl-7.68.0
+  /nix/store/ys73swi5lay6yjzm0plyyvhx2a3p7zq2-libkrb5-1.17
+  /nix/store/z38ndnzj25icq8kd5kja0k6b3assi3zw-libc++abi-7.1.0
+  /nix/store/zyi8a0nxrxgqp87v59830j81bb7vh0wy-ICU-osx-10.10.5
+cannot build derivation '/nix/store/fsf7pv5pyici43cwhcqabscwx8f91hrm-cabal2nix-ic-runner.drv': 1 dependencies couldn't be built

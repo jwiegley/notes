@@ -1,0 +1,17 @@
+Vulcan ~/dfinity/haskell/hs/ic-runner $ nix build -f . --arg returnShellEnv false
+builder for '/nix/store/fzarbz1am5vbw96vxwz0cr0p4v6d2amn-file-embed-0.0.11.1.drv' failed with exit code 1; last 10 log lines:
+    filezmembedzm0zi0zi11zi1zmC0YF5fqd5gIEKDY5gZZxCcA_DataziFileEmbed_embedDir_closure
+  This may be due to you not asking GHCi to load extra object files,
+  archives or DLLs needed by your current session.  Restart GHCi, specifying
+  the missing library using the -L/path/to/object/dir and -lmissinglibname
+  flags, or simply by naming the relevant files on the GHCi command line.
+  Alternatively, this link failure might indicate a bug in GHCi.
+  If you suspect the latter, please send a bug report to:
+    glasgow-haskell-bugs@haskell.org
+
+
+cannot build derivation '/nix/store/yx4ncwdfwvagwfcmj16jxayj54mr608b-wai-app-static-3.1.7.1.drv': 1 dependencies couldn't be built
+cannot build derivation '/nix/store/rqrw8ak2lyyx63yva842iqslizhflghg-servant-server-0.17.drv': 1 dependencies couldn't be built
+cannot build derivation '/nix/store/3ac37fv3mpwsn30g641szpgd9hd8im29-servant-client-0.17.drv': 1 dependencies couldn't be built
+cannot build derivation '/nix/store/pqv1yhgsy8hx5370lv3rlbiv08gbbi64-ic-runner-0.0.0.drv': 1 dependencies couldn't be built
+[9 built (1 failed)]

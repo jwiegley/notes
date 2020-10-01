@@ -30,6 +30,7 @@ drv = haskellPackages.developPackage {
   modifier = drv: pkgs.haskell.lib.overrideCabal drv (attrs: {
     buildTools = (attrs.buildTools or []) ++ [
       haskellPackages.cabal-install
+      haskellPackages.ormolu
     ];
 
     enableLibraryProfiling = false;

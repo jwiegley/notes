@@ -1,0 +1,28 @@
+Vulcan /private/var/folders/nn/ptvj18r56wj8g2hz241_d46h0000gn/T/nix-build-emacs-26.3.drv-0/emacs-26.3 $ ls -lh src/emacs
+-rwxr-xr-x 3 johnw staff 26M Apr 15 21:47 src/emacs
+Vulcan /private/var/folders/nn/ptvj18r56wj8g2hz241_d46h0000gn/T/nix-build-emacs-26.3.drv-0/emacs-26.3 $ otool -L src/emacs
+src/emacs:
+	/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit (compatibility version 45.0.0, current version 1894.40.150)
+	/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit (compatibility version 1.0.0, current version 275.0.0)
+	/nix/store/9gwf0wk97ax69ja5a4pxdj3jp2r7ails-libjpeg-turbo-2.0.3/lib/libjpeg.62.dylib (compatibility version 62.0.0, current version 62.3.0)
+	/nix/store/p4gi1s3lkw3cnc38m5fgi268ybrf7i5y-librsvg-2.46.4/lib/librsvg-2.2.dylib (compatibility version 49.0.0, current version 49.0.0)
+	/nix/store/42svdgwl6zqyzgsqbfmw9rh7bssyms0a-Libsystem-osx-10.12.6/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1226.10.1)
+	/nix/store/adjjf536w6vx6djabbv2ccl34w6wmhvi-glib-2.62.5/lib/libgio-2.0.0.dylib (compatibility version 6201.0.0, current version 6201.5.0)
+	/nix/store/1f2qbz66yh53bchvkl2s4xz7qrm4z1y8-gdk-pixbuf-2.40.0/lib/libgdk_pixbuf-2.0.0.dylib (compatibility version 4001.0.0, current version 4001.0.0)
+	/nix/store/adjjf536w6vx6djabbv2ccl34w6wmhvi-glib-2.62.5/lib/libgobject-2.0.0.dylib (compatibility version 6201.0.0, current version 6201.5.0)
+	/nix/store/adjjf536w6vx6djabbv2ccl34w6wmhvi-glib-2.62.5/lib/libglib-2.0.0.dylib (compatibility version 6201.0.0, current version 6201.5.0)
+	/nix/store/3pfn4p1b8v9y46gqqb67xzg23spwlwvr-cairo-1.16.0/lib/libcairo.2.dylib (compatibility version 11603.0.0, current version 11603.0.0)
+	/nix/store/b4kp1q5pnzxfw7q1dj11x5bswdnxnz0b-imagemagick-6.9.10-71/lib/libMagickWand-6.Q16.6.dylib (compatibility version 7.0.0, current version 7.0.0)
+	/nix/store/b4kp1q5pnzxfw7q1dj11x5bswdnxnz0b-imagemagick-6.9.10-71/lib/libMagickCore-6.Q16.6.dylib (compatibility version 7.0.0, current version 7.0.0)
+	/nix/store/9s9b2k6mipllqi84nb7hcy49i3mygsmh-libxml2-2.9.10/lib/libxml2.2.dylib (compatibility version 12.0.0, current version 12.10.0)
+	/nix/store/izvb1pxcljmwblf8cb6zp2wwzl9m9vr5-ncurses-6.2/lib/libncursesw.6.dylib (compatibility version 6.0.0, current version 6.0.0)
+	/nix/store/3mq8jl3qjjlvyppd2yvh2lbmb9nm2kvc-gnutls-3.6.12/lib/libgnutls.30.dylib (compatibility version 57.0.0, current version 57.2.0)
+	/nix/store/crq2wlb7l0xz0yrzxlml3sfb8a933pjp-lcms2-2.9/lib/liblcms2.2.dylib (compatibility version 3.0.0, current version 3.8.0)
+	/nix/store/a94k4f1y1jdcsqvjcvj6ym5vi6kr24al-zlib-1.2.11/lib/libz.dylib (compatibility version 1.0.0, current version 1.2.11)
+	/nix/store/jrg2b8aqqag39r8bx6dcjk3qvdlji716-gettext-0.20.1/lib/libintl.8.dylib (compatibility version 10.0.0, current version 10.6.0)
+	/nix/store/k600sa8qadp74bwy638nc288d66iq1ch-libiconv-osx-10.12.6/lib/libiconv.dylib (compatibility version 7.0.0, current version 7.0.0)
+	/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation (compatibility version 150.0.0, current version 1675.129.0)
+	/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics (compatibility version 64.0.0, current version 1355.13.0)
+	/System/Library/Frameworks/CoreText.framework/Versions/A/CoreText (compatibility version 1.0.0, current version 1.0.0)
+	/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation (compatibility version 300.0.0, current version 1675.129.0)
+	/usr/lib/libobjc.A.dylib (compatibility version 1.0.0, current version 228.0.0)

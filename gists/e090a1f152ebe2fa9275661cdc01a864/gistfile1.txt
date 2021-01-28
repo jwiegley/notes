@@ -1,0 +1,112 @@
+Vulcan ~/dfinity/master/tests/basic-resume-test $ nix-build .
+these derivations will be built:
+  /nix/store/f7gdxczb78ylhbwqx6azdjh76zwb32vx-crate-ic-replica-0.1.0.drv
+  /nix/store/21wprnv824nvrwnnvqkplx6fsvgbzwz6-run.drv
+  /nix/store/hm1rycl77bkr22b0c2qn907bfjz5aw2z-basic-resume-test.drv
+building '/nix/store/f7gdxczb78ylhbwqx6azdjh76zwb32vx-crate-ic-replica-0.1.0.drv'...
+unpacking sources
+unpacking source archive /nix/store/rf7bz7hvbij5a77j65zv4acpsi6wv8fm-source
+source root is source
+patching sources
+configuring
+building
+   Compiling ic-replica v0.1.0 (/private/var/folders/nn/ptvj18r56wj8g2hz241_d46h0000gn/T/nix-build-crate-ic-replica-0.1.0.drv-0/source)
+    Finished release [optimized] target(s) in 14.74s
+running tests
+   Compiling ic-replica v0.1.0 (/private/var/folders/nn/ptvj18r56wj8g2hz241_d46h0000gn/T/nix-build-crate-ic-replica-0.1.0.drv-0/source)
+    Finished test [unoptimized + debuginfo] target(s) in 16.23s
+     Running target_check/x86_64-apple-darwin/debug/deps/ic_replica-c4e7d98a5b8475f2
+
+running 4 tests
+test config::tests::validate_ok_scheduler_exec_gas_equal_round_gas_max ... ok(B
+test config::tests::validate_ok_scheduler_exec_gas_lower_round_gas_max ... ok(B
+test config::tests::validate_fail_scheduler_exec_gas_greater_round_gas_max ... ok(B
+test config::tests::validate_fail_invalid_transport_config ... ok(B
+
+test result: ok(B. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+
+     Running target_check/x86_64-apple-darwin/debug/deps/replica-c845685749b2b8f7
+
+running 0 tests
+
+test result: ok(B. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+
+     Running target_check/x86_64-apple-darwin/debug/deps/cli-e99056ff42cb4da8
+
+running 6 tests
+test nonexistent_config_causes_failure ... ok(B
+test can_read_config_from_stdin ... ok(B
+test can_read_config_from_arg ... ok(B
+test can_print_sample_config ... ok(B
+test too_many_arguments_causes_exit_code_1 ... ok(B
+test help_arg_prints_help ... ok(B
+
+test result: ok(B. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+
+     Running target_check/x86_64-apple-darwin/debug/deps/inter_canister_queries-7871a5a104231cbf
+
+running 8 tests
+test inter_canister_query_can_call_self ... ignored(B
+test inter_canister_query_first_canister_multiple_requests ... ignored(B
+test inter_canister_query_missing_recipient_canister ... ignored(B
+test inter_canister_query_missing_recipient_user ... ignored(B
+test inter_canister_query_recipient_does_not_reply ... ignored(B
+test inter_canister_query_second_canister_multiple_requests ... ignored(B
+test inter_canister_query_simple_canister ... ignored(B
+test inter_canister_query_simple_user ... ignored(B
+
+test result: ok(B. 0 passed; 0 failed; 8 ignored; 0 measured; 0 filtered out
+
+     Running target_check/x86_64-apple-darwin/debug/deps/tests-d0cfbc7a1f85af40
+
+running 37 tests
+test test_call_forbidden_function_in_canister_init ... ok(B
+test test_canister_init_invalid ... ok(B
+test test_canister_init_noop ... ok(B
+debug.print: Hi!
+test test_canister_init_debug_print ... ok(B
+test query_call_on_update_method ... ok(B
+test test_canister_init ... ok(B
+test inter_canister_response_limit ... ok(B
+test test_heap_initialized_from_data_section_only_once ... ok(B
+test test_counter_heap ... ok(B
+test test_call_unknown_canister ... ok(B
+test can_persist_globals_across_multiple_message_executions ... ok(B
+test can_create_canister_from_another_canister ... ok(B
+test test_duplicate_message_is_noop ... ok(B
+test test_memory_access_between_min_and_max_canister_init ... ok(B
+test test_memory_access_between_min_and_max_start ... ok(B
+test inter_canister_request_limit ... ok(B
+test full_canister_lifecycle_ingress ... ok(B
+test test_query_trap_recovery ... ok(B
+test test_read_query_does_not_modify_wasm_state ... ok(B
+test test_memory_access_between_min_and_max_ingress ... ok(B
+test test_message_roundtrip ... ok(B
+test test_no_response_is_an_error ... ok(B
+test test_memory_persistence ... ok(B
+test test_reply_after_calling_self ... ok(B
+test test_update_available_memory_1 ... ok(B
+test test_reject_callback ... ok(B
+test test_update_available_memory_2 ... ok(B
+test test_inter_canister_messaging_full_queues ... ok(B
+test test_trap_recovery ... ok(B
+test test_inter_canister_message_exchange_4 ... ok(B
+test test_update_available_memory_3 ... ok(B
+test test_upgrade_canister_stable_memory_persists ... ok(B
+test test_inter_canister_message_exchange_2 ... ok(B
+test full_canister_lifecycle_from_another_canister ... ok(B
+test test_inter_canister_message_exchange_1 ... ok(B
+test test_inter_canister_message_exchange_3 ... ok(B
+test test_update_available_memory_4 ... ok(B
+
+test result: ok(B. 37 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out
+
+pthread lock: Invalid argument
+error: test failed, to rerun pass '--test tests'
+
+Caused by:
+  process didn't exit successfully: `/private/var/folders/nn/ptvj18r56wj8g2hz241_d46h0000gn/T/nix-build-crate-ic-replica-0.1.0.drv-0/source/target_check/x86_64-apple-darwin/debug/deps/tests-d0cfbc7a1f85af40` (signal: 6, SIGABRT: process abort signal)
+builder for '/nix/store/f7gdxczb78ylhbwqx6azdjh76zwb32vx-crate-ic-replica-0.1.0.drv' failed with exit code 101
+cannot build derivation '/nix/store/21wprnv824nvrwnnvqkplx6fsvgbzwz6-run.drv': 1 dependencies couldn't be built
+cannot build derivation '/nix/store/hm1rycl77bkr22b0c2qn907bfjz5aw2z-basic-resume-test.drv': 1 dependencies couldn't be built
+error: build of '/nix/store/hm1rycl77bkr22b0c2qn907bfjz5aw2z-basic-resume-test.drv' failed

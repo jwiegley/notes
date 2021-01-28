@@ -1,0 +1,1262 @@
+src/emacs:
+Load command 0
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __PAGEZERO
+   vmaddr 0x0000000000000000
+   vmsize 0x0000000100000000
+  fileoff 0
+ filesize 0
+  maxprot 0x00000000
+ initprot 0x00000000
+   nsects 0
+    flags 0x0
+Load command 1
+      cmd LC_SEGMENT_64
+  cmdsize 872
+  segname __TEXT
+   vmaddr 0x0000000100000000
+   vmsize 0x000000000025d000
+  fileoff 0
+ filesize 2478080
+  maxprot 0x00000007
+ initprot 0x00000005
+   nsects 10
+    flags 0x0
+Section
+  sectname __text
+   segname __TEXT
+      addr 0x0000000100002e40
+      size 0x000000000022299f
+    offset 11840
+     align 2^4 (16)
+    reloff 0
+    nreloc 0
+     flags 0x80000400
+ reserved1 0
+ reserved2 0
+Section
+  sectname __stubs
+   segname __TEXT
+      addr 0x00000001002257e0
+      size 0x0000000000000df2
+    offset 2250720
+     align 2^1 (2)
+    reloff 0
+    nreloc 0
+     flags 0x80000408
+ reserved1 0 (index into indirect symbol table)
+ reserved2 6 (size of stubs)
+Section
+  sectname __stub_helper
+   segname __TEXT
+      addr 0x00000001002265d4
+      size 0x000000000000174e
+    offset 2254292
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x80000400
+ reserved1 0
+ reserved2 0
+Section
+  sectname __const
+   segname __TEXT
+      addr 0x0000000100227d30
+      size 0x00000000000164a0
+    offset 2260272
+     align 2^4 (16)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __cstring
+   segname __TEXT
+      addr 0x000000010023e1d0
+      size 0x000000000001798a
+    offset 2351568
+     align 2^4 (16)
+    reloff 0
+    nreloc 0
+     flags 0x00000002
+ reserved1 0
+ reserved2 0
+Section
+  sectname __gcc_except_tab
+   segname __TEXT
+      addr 0x0000000100255b5c
+      size 0x000000000000004c
+    offset 2448220
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_methname
+   segname __TEXT
+      addr 0x0000000100255ba8
+      size 0x00000000000037eb
+    offset 2448296
+     align 2^0 (1)
+    reloff 0
+    nreloc 0
+     flags 0x00000002
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_classname
+   segname __TEXT
+      addr 0x0000000100259393
+      size 0x0000000000000113
+    offset 2462611
+     align 2^0 (1)
+    reloff 0
+    nreloc 0
+     flags 0x00000002
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_methtype
+   segname __TEXT
+      addr 0x00000001002594a6
+      size 0x00000000000016df
+    offset 2462886
+     align 2^0 (1)
+    reloff 0
+    nreloc 0
+     flags 0x00000002
+ reserved1 0
+ reserved2 0
+Section
+  sectname __unwind_info
+   segname __TEXT
+      addr 0x000000010025ab88
+      size 0x000000000000246c
+    offset 2468744
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Load command 2
+      cmd LC_SEGMENT_64
+  cmdsize 1512
+  segname __DATA
+   vmaddr 0x000000010025d000
+   vmsize 0x0000000000427000
+  fileoff 2478080
+ filesize 4354048
+  maxprot 0x00000007
+ initprot 0x00000003
+   nsects 18
+    flags 0x0
+Section
+  sectname __nl_symbol_ptr
+   segname __DATA
+      addr 0x000000010025d000
+      size 0x0000000000000010
+    offset 2478080
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000006
+ reserved1 595 (index into indirect symbol table)
+ reserved2 0
+Section
+  sectname __got
+   segname __DATA
+      addr 0x000000010025d010
+      size 0x0000000000000278
+    offset 2478096
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000006
+ reserved1 597 (index into indirect symbol table)
+ reserved2 0
+Section
+  sectname __la_symbol_ptr
+   segname __DATA
+      addr 0x000000010025d288
+      size 0x0000000000001298
+    offset 2478728
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000007
+ reserved1 676 (index into indirect symbol table)
+ reserved2 0
+Section
+  sectname __const
+   segname __DATA
+      addr 0x000000010025e520
+      size 0x0000000000006218
+    offset 2483488
+     align 2^4 (16)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __cfstring
+   segname __DATA
+      addr 0x0000000100264738
+      size 0x0000000000000880
+    offset 2508600
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_classlist
+   segname __DATA
+      addr 0x0000000100264fb8
+      size 0x0000000000000078
+    offset 2510776
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x10000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_catlist
+   segname __DATA
+      addr 0x0000000100265030
+      size 0x0000000000000008
+    offset 2510896
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x10000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_protolist
+   segname __DATA
+      addr 0x0000000100265038
+      size 0x0000000000000028
+    offset 2510904
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_imageinfo
+   segname __DATA
+      addr 0x0000000100265060
+      size 0x0000000000000008
+    offset 2510944
+     align 2^2 (4)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_const
+   segname __DATA
+      addr 0x0000000100265068
+      size 0x0000000000003c28
+    offset 2510952
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_selrefs
+   segname __DATA
+      addr 0x0000000100268c90
+      size 0x0000000000001170
+    offset 2526352
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x10000005
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_classrefs
+   segname __DATA
+      addr 0x0000000100269e00
+      size 0x0000000000000228
+    offset 2530816
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x10000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_superrefs
+   segname __DATA
+      addr 0x000000010026a028
+      size 0x0000000000000060
+    offset 2531368
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x10000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_ivar
+   segname __DATA
+      addr 0x000000010026a088
+      size 0x00000000000001f8
+    offset 2531464
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __objc_data
+   segname __DATA
+      addr 0x000000010026a280
+      size 0x00000000000004b0
+    offset 2531968
+     align 2^3 (8)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __data
+   segname __DATA
+      addr 0x000000010026a730
+      size 0x000000000036a71c
+    offset 2533168
+     align 2^4 (16)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __bss
+   segname __DATA
+      addr 0x00000001005d4e50
+      size 0x000000000008cef8
+    offset 6114896
+     align 2^4 (16)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Section
+  sectname __common
+   segname __DATA
+      addr 0x0000000100661d50
+      size 0x0000000000021ef1
+    offset 6692176
+     align 2^4 (16)
+    reloff 0
+    nreloc 0
+     flags 0x00000000
+ reserved1 0
+ reserved2 0
+Load command 3
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000000000000
+   vmsize 0x0000000000000000
+  fileoff 6832128
+ filesize 0
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 4
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000104d00000
+   vmsize 0x0000000000004024
+  fileoff 6832128
+ filesize 16280
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 5
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000104d04000
+   vmsize 0x00000000000fc000
+  fileoff 6848512
+ filesize 72472
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 6
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000105000000
+   vmsize 0x0000000000004024
+  fileoff 6922240
+ filesize 16331
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 7
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000105004000
+   vmsize 0x00000000000fc000
+  fileoff 6938624
+ filesize 25693
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 8
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000105100000
+   vmsize 0x0000000000004024
+  fileoff 6967296
+ filesize 16252
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 9
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000105104000
+   vmsize 0x00000000000fc000
+  fileoff 6983680
+ filesize 229013
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 10
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000105200000
+   vmsize 0x0000000000004024
+  fileoff 7213056
+ filesize 16420
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 11
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000105204000
+   vmsize 0x00000000000fc000
+  fileoff 7233536
+ filesize 285695
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 12
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000105300000
+   vmsize 0x0000000000004024
+  fileoff 7520256
+ filesize 16416
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 13
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000105304000
+   vmsize 0x00000000000fc000
+  fileoff 7540736
+ filesize 31215
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 14
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000105400000
+   vmsize 0x0000000000004024
+  fileoff 7573504
+ filesize 16220
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 15
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000105404000
+   vmsize 0x00000000000fc000
+  fileoff 7589888
+ filesize 98940
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 16
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000105700000
+   vmsize 0x0000000000004024
+  fileoff 7692288
+ filesize 16267
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 17
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000105704000
+   vmsize 0x00000000000fc000
+  fileoff 7708672
+ filesize 225493
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 18
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000106800000
+   vmsize 0x0000000000007fa6
+  fileoff 7938048
+ filesize 7462
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 19
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000106808000
+   vmsize 0x00000000007f8000
+  fileoff 7946240
+ filesize 1899546
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 20
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000107800000
+   vmsize 0x0000000000007fa6
+  fileoff 9846784
+ filesize 1180
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 21
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000107808000
+   vmsize 0x00000000007f8000
+  fileoff 9850880
+ filesize 291837
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 22
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000110000000
+   vmsize 0x0000000000004024
+  fileoff 10145792
+ filesize 16420
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 23
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000110008000
+   vmsize 0x0000000007ff8000
+  fileoff 10166272
+ filesize 988257
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 24
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x000000011a800000
+   vmsize 0x0000000000007fa6
+  fileoff 11157504
+ filesize 2644
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 25
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x000000011a808000
+   vmsize 0x00000000007f8000
+  fileoff 11161600
+ filesize 659397
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 26
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x000000011cc00000
+   vmsize 0x0000000000004024
+  fileoff 11821056
+ filesize 16264
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 27
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x000000011cc04000
+   vmsize 0x00000000000fc000
+  fileoff 11837440
+ filesize 12239
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 28
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x000000011cd00000
+   vmsize 0x0000000000004024
+  fileoff 11849728
+ filesize 16420
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 29
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x000000011cd04000
+   vmsize 0x00000000000fc000
+  fileoff 11870208
+ filesize 20485
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 30
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x000000011cf00000
+   vmsize 0x0000000000004024
+  fileoff 11894784
+ filesize 16419
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 31
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x000000011cf04000
+   vmsize 0x00000000000fc000
+  fileoff 11915264
+ filesize 3973
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 32
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x000000011d800000
+   vmsize 0x0000000000007fa6
+  fileoff 11919360
+ filesize 8280
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 33
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x000000011d808000
+   vmsize 0x00000000007f8000
+  fileoff 11931648
+ filesize 2109437
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 34
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x000000011e000000
+   vmsize 0x0000000000007fa6
+  fileoff 14041088
+ filesize 422
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 35
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x000000011e008000
+   vmsize 0x00000000007f8000
+  fileoff 14045184
+ filesize 97270
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 36
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x000000011e800000
+   vmsize 0x0000000000007fa6
+  fileoff 14143488
+ filesize 2580
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 37
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x000000011e808000
+   vmsize 0x00000000007f8000
+  fileoff 14147584
+ filesize 649703
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 38
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x000000011f000000
+   vmsize 0x0000000000007fa6
+  fileoff 14798848
+ filesize 15038
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 39
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x000000011f008000
+   vmsize 0x00000000007f8000
+  fileoff 14815232
+ filesize 3839485
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 40
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000128000000
+   vmsize 0x0000000000004024
+  fileoff 18657280
+ filesize 16420
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 41
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000128008000
+   vmsize 0x0000000007ff8000
+  fileoff 18677760
+ filesize 4578109
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 42
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000130000000
+   vmsize 0x0000000000004024
+  fileoff 23257088
+ filesize 16420
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 43
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000130008000
+   vmsize 0x0000000007ff8000
+  fileoff 23277568
+ filesize 2326533
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 44
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000138000000
+   vmsize 0x0000000000004024
+  fileoff 25608192
+ filesize 16420
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 45
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000138008000
+   vmsize 0x0000000007ff8000
+  fileoff 25628672
+ filesize 170686
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 46
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000140000000
+   vmsize 0x0000000000007fa6
+  fileoff 25800704
+ filesize 2434
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 47
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000140008000
+   vmsize 0x00000000007f8000
+  fileoff 25804800
+ filesize 612861
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 48
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000141000000
+   vmsize 0x0000000000007fa6
+  fileoff 26419200
+ filesize 416
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 49
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000141008000
+   vmsize 0x00000000007f8000
+  fileoff 26423296
+ filesize 90975
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 50
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000142800000
+   vmsize 0x0000000000007fa6
+  fileoff 26517504
+ filesize 76
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 51
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000142808000
+   vmsize 0x00000000007f8000
+  fileoff 26521600
+ filesize 8541
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 52
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000148000000
+   vmsize 0x0000000000004024
+  fileoff 26533888
+ filesize 16420
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 53
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000148008000
+   vmsize 0x0000000007ff8000
+  fileoff 26554368
+ filesize 122589
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 54
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000158000000
+   vmsize 0x0000000000004024
+  fileoff 26677248
+ filesize 16420
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 55
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __DATA
+   vmaddr 0x0000000158008000
+   vmsize 0x0000000007ff8000
+  fileoff 26697728
+ filesize 65541
+  maxprot 0x00000003
+ initprot 0x00000003
+   nsects 0
+    flags 0x0
+Load command 56
+      cmd LC_SEGMENT_64
+  cmdsize 72
+  segname __LINKEDIT
+   vmaddr 0x0000000100684000
+   vmsize 0x0000000000066000
+  fileoff 26767360
+ filesize 416148
+  maxprot 0x00000007
+ initprot 0x00000001
+   nsects 0
+    flags 0x0
+Load command 57
+            cmd LC_DYLD_INFO_ONLY
+        cmdsize 48
+     rebase_off 0
+    rebase_size 0
+       bind_off 26767360
+      bind_size 4728
+  weak_bind_off 0
+ weak_bind_size 0
+  lazy_bind_off 26772088
+ lazy_bind_size 14552
+     export_off 26786640
+    export_size 89408
+Load command 58
+     cmd LC_SYMTAB
+ cmdsize 24
+  symoff 26883072
+   nsyms 8343
+  stroff 27021644
+ strsize 161864
+Load command 59
+            cmd LC_DYSYMTAB
+        cmdsize 80
+      ilocalsym 0
+      nlocalsym 3611
+     iextdefsym 3611
+     nextdefsym 3993
+      iundefsym 7604
+      nundefsym 739
+         tocoff 0
+           ntoc 0
+      modtaboff 0
+        nmodtab 0
+   extrefsymoff 0
+    nextrefsyms 0
+ indirectsymoff 27016560
+  nindirectsyms 1271
+      extreloff 0
+        nextrel 0
+      locreloff 0
+        nlocrel 0
+Load command 60
+          cmd LC_LOAD_DYLINKER
+      cmdsize 32
+         name /usr/lib/dyld (offset 12)
+Load command 61
+      cmd LC_VERSION_MIN_MACOSX
+  cmdsize 16
+  version 10.12
+      sdk 10.12
+Load command 62
+      cmd LC_SOURCE_VERSION
+  cmdsize 16
+  version 0.0
+Load command 63
+       cmd LC_MAIN
+   cmdsize 24
+  entryoff 821504
+ stacksize 0
+Load command 64
+          cmd LC_LOAD_DYLIB
+      cmdsize 88
+         name /System/Library/Frameworks/AppKit.framework/Versions/C/AppKit (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 1894.40.150
+compatibility version 45.0.0
+Load command 65
+          cmd LC_LOAD_DYLIB
+      cmdsize 88
+         name /System/Library/Frameworks/IOKit.framework/Versions/A/IOKit (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 275.0.0
+compatibility version 1.0.0
+Load command 66
+          cmd LC_LOAD_DYLIB
+      cmdsize 112
+         name /nix/store/9gwf0wk97ax69ja5a4pxdj3jp2r7ails-libjpeg-turbo-2.0.3/lib/libjpeg.62.dylib (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 62.3.0
+compatibility version 62.0.0
+Load command 67
+          cmd LC_LOAD_DYLIB
+      cmdsize 112
+         name /nix/store/p4gi1s3lkw3cnc38m5fgi268ybrf7i5y-librsvg-2.46.4/lib/librsvg-2.2.dylib (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 49.0.0
+compatibility version 49.0.0
+Load command 68
+          cmd LC_LOAD_DYLIB
+      cmdsize 112
+         name /nix/store/42svdgwl6zqyzgsqbfmw9rh7bssyms0a-Libsystem-osx-10.12.6/lib/libSystem.B.dylib (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 1226.10.1
+compatibility version 1.0.0
+Load command 69
+          cmd LC_LOAD_DYLIB
+      cmdsize 104
+         name /nix/store/adjjf536w6vx6djabbv2ccl34w6wmhvi-glib-2.62.5/lib/libgio-2.0.0.dylib (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 6201.5.0
+compatibility version 6201.0.0
+Load command 70
+          cmd LC_LOAD_DYLIB
+      cmdsize 120
+         name /nix/store/1f2qbz66yh53bchvkl2s4xz7qrm4z1y8-gdk-pixbuf-2.40.0/lib/libgdk_pixbuf-2.0.0.dylib (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 4001.0.0
+compatibility version 4001.0.0
+Load command 71
+          cmd LC_LOAD_DYLIB
+      cmdsize 112
+         name /nix/store/adjjf536w6vx6djabbv2ccl34w6wmhvi-glib-2.62.5/lib/libgobject-2.0.0.dylib (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 6201.5.0
+compatibility version 6201.0.0
+Load command 72
+          cmd LC_LOAD_DYLIB
+      cmdsize 104
+         name /nix/store/adjjf536w6vx6djabbv2ccl34w6wmhvi-glib-2.62.5/lib/libglib-2.0.0.dylib (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 6201.5.0
+compatibility version 6201.0.0
+Load command 73
+          cmd LC_LOAD_DYLIB
+      cmdsize 104
+         name /nix/store/3pfn4p1b8v9y46gqqb67xzg23spwlwvr-cairo-1.16.0/lib/libcairo.2.dylib (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 11603.0.0
+compatibility version 11603.0.0
+Load command 74
+          cmd LC_LOAD_DYLIB
+      cmdsize 128
+         name /nix/store/b4kp1q5pnzxfw7q1dj11x5bswdnxnz0b-imagemagick-6.9.10-71/lib/libMagickWand-6.Q16.6.dylib (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 7.0.0
+compatibility version 7.0.0
+Load command 75
+          cmd LC_LOAD_DYLIB
+      cmdsize 128
+         name /nix/store/b4kp1q5pnzxfw7q1dj11x5bswdnxnz0b-imagemagick-6.9.10-71/lib/libMagickCore-6.Q16.6.dylib (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 7.0.0
+compatibility version 7.0.0
+Load command 76
+          cmd LC_LOAD_DYLIB
+      cmdsize 104
+         name /nix/store/9s9b2k6mipllqi84nb7hcy49i3mygsmh-libxml2-2.9.10/lib/libxml2.2.dylib (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 12.10.0
+compatibility version 12.0.0
+Load command 77
+          cmd LC_LOAD_DYLIB
+      cmdsize 104
+         name /nix/store/izvb1pxcljmwblf8cb6zp2wwzl9m9vr5-ncurses-6.2/lib/libncursesw.6.dylib (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 6.0.0
+compatibility version 6.0.0
+Load command 78
+          cmd LC_LOAD_DYLIB
+      cmdsize 112
+         name /nix/store/3mq8jl3qjjlvyppd2yvh2lbmb9nm2kvc-gnutls-3.6.12/lib/libgnutls.30.dylib (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 57.2.0
+compatibility version 57.0.0
+Load command 79
+          cmd LC_LOAD_DYLIB
+      cmdsize 104
+         name /nix/store/crq2wlb7l0xz0yrzxlml3sfb8a933pjp-lcms2-2.9/lib/liblcms2.2.dylib (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 3.8.0
+compatibility version 3.0.0
+Load command 80
+          cmd LC_LOAD_DYLIB
+      cmdsize 96
+         name /nix/store/a94k4f1y1jdcsqvjcvj6ym5vi6kr24al-zlib-1.2.11/lib/libz.dylib (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 1.2.11
+compatibility version 1.0.0
+Load command 81
+          cmd LC_LOAD_DYLIB
+      cmdsize 104
+         name /nix/store/jrg2b8aqqag39r8bx6dcjk3qvdlji716-gettext-0.20.1/lib/libintl.8.dylib (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 10.6.0
+compatibility version 10.0.0
+Load command 82
+          cmd LC_LOAD_DYLIB
+      cmdsize 112
+         name /nix/store/k600sa8qadp74bwy638nc288d66iq1ch-libiconv-osx-10.12.6/lib/libiconv.dylib (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 7.0.0
+compatibility version 7.0.0
+Load command 83
+          cmd LC_LOAD_DYLIB
+      cmdsize 104
+         name /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 1675.129.0
+compatibility version 150.0.0
+Load command 84
+          cmd LC_LOAD_DYLIB
+      cmdsize 104
+         name /System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 1355.13.0
+compatibility version 64.0.0
+Load command 85
+          cmd LC_LOAD_DYLIB
+      cmdsize 96
+         name /System/Library/Frameworks/CoreText.framework/Versions/A/CoreText (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 1.0.0
+compatibility version 1.0.0
+Load command 86
+          cmd LC_LOAD_DYLIB
+      cmdsize 96
+         name /System/Library/Frameworks/Foundation.framework/Versions/C/Foundation (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 1675.129.0
+compatibility version 300.0.0
+Load command 87
+          cmd LC_LOAD_DYLIB
+      cmdsize 56
+         name /usr/lib/libobjc.A.dylib (offset 24)
+   time stamp 2 Thu Jan  1 00:00:02 1970
+      current version 228.0.0
+compatibility version 1.0.0
+Load command 88
+          cmd LC_RPATH
+      cmdsize 40
+         path /System/Library/Frameworks (offset 12)
+Load command 89
+      cmd LC_FUNCTION_STARTS
+  cmdsize 16
+  dataoff 26876048
+ datasize 6104
+Load command 90
+      cmd LC_DATA_IN_CODE
+  cmdsize 16
+  dataoff 26882152
+ datasize 920

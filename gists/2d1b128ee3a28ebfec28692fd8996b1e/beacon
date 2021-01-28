@@ -1,0 +1,108 @@
+REAL:
+[ AddToValidated
+    (RandomBeaconShareMsg
+       RandomBeaconShare
+         { rbs_replicaId =
+             eb3e7-ev3em-sekej-omh5r-oi5wo-bkrcu-a2fl7-ze7cf-znppw-tw2ql-aae
+         , rbs_height = 1
+         , rbs_parent =
+             HashOfRandomBeacon <hash 39eefd9bbfe961aae13a678a211cbbf7>
+         , rbs_randomBeaconShareSignature =
+             RandomBeaconShareSignature <tshare a56b2d43c723cea8a2e3ab762cc28ea>
+         })
+]
+
+REAL:
+[]
+
+REAL:
+[ AddToValidated
+    (BlockProposalMsg
+       BlockProposal
+         { bp_replicaId =
+             eb3e7-ev3em-sekej-omh5r-oi5wo-bkrcu-a2fl7-ze7cf-znppw-tw2ql-aae
+         , bp_block =
+             Block
+               { b_height = 1
+               , b_parent = HashOfBlock <hash 7391156edfc5e86c52c41ce46a8079a>
+               , b_slot = 0
+               , b_payload = Payload { getPayload =  }
+               }
+         , bp_signature =
+             BlockSignature <sig 93c04ef3e395519beb691eead103468>
+         })
+]
+
+REAL:
+[ AddToValidated
+    (RandomBeaconMsg
+       RandomBeacon
+         { rb_height = 1
+         , rb_parent =
+             HashOfRandomBeacon <hash 39eefd9bbfe961aae13a678a211cbbf7>
+         , rb_randomBeaconSignature =
+             RandomBeaconSignature <tsig a56b2d43c723cea8a2e3ab762cc28ea>
+         })
+]
+
+REAL:
+[ AddToValidated
+    (NotarizationShareMsg
+       NotarizationShare
+         { ns_replicaId =
+             eb3e7-ev3em-sekej-omh5r-oi5wo-bkrcu-a2fl7-ze7cf-znppw-tw2ql-aae
+         , ns_height = 1
+         , ns_block = HashOfBlock <hash 83a48f3cece5b1eac021a93d1cf3ff5a>
+         , ns_notarizationShareSignature =
+             NotarizationShareSignature
+               [ <sig b59b6980e0430ff4a3d9c8487e19675> ]
+         })
+]
+
+REAL:
+[ AddToValidated
+    (NotarizationMsg
+       Notarization
+         { n_replicaIds =
+             [ eb3e7-ev3em-sekej-omh5r-oi5wo-bkrcu-a2fl7-ze7cf-znppw-tw2ql-aae ]
+         , n_height = 1
+         , n_block = HashOfBlock <hash 83a48f3cece5b1eac021a93d1cf3ff5a>
+         , n_notarizationSignature =
+             NotarizationSignature [ <sig b59b6980e0430ff4a3d9c8487e19675> ]
+         })
+]
+
+REAL:
+[ AddToValidated
+    (RandomBeaconShareMsg
+       RandomBeaconShare
+         { rbs_replicaId =
+             eb3e7-ev3em-sekej-omh5r-oi5wo-bkrcu-a2fl7-ze7cf-znppw-tw2ql-aae
+         , rbs_height = 2
+         , rbs_parent =
+             HashOfRandomBeacon <hash caa9b942d1f977368415d4ed7bce619>
+         , rbs_randomBeaconShareSignature =
+             RandomBeaconShareSignature <tshare 8fe590a9f8d907f7d22b92f42fd5bd>
+         })
+]
+
+========================================
+NOT within set of possibilities:
+
+REAL:
+[ AddToValidated
+    (BlockProposalMsg
+       BlockProposal
+         { bp_replicaId =
+             eb3e7-ev3em-sekej-omh5r-oi5wo-bkrcu-a2fl7-ze7cf-znppw-tw2ql-aae
+         , bp_block =
+             Block
+               { b_height = 2
+               , b_parent = HashOfBlock <hash 83a48f3cece5b1eac021a93d1cf3ff5a>
+               , b_slot = 0
+               , b_payload = Payload { getPayload =  }
+               }
+         , bp_signature =
+             BlockSignature <sig 816c1d644b5c777d79314364e5f0995d>
+         })
+]

@@ -1,0 +1,83 @@
+{-@ type Nat = {v:Int|0 <= v} @-}
+type Nat = Int
+
+{-@ type Height = Nat @-}
+type Height = Nat
+
+{-@ notarized_height :: ConsensusPoolSection -> Maybe Height @-}
+notarized_height :: ConsensusPoolSection -> Maybe Height
+notarized_height validated_pool =
+  Safe.maximum
+    [ height
+      | NotarizationMsg (Notarization _signers height _block_hash _sig) <-
+          msgs validated_pool
+    ]
+
+{-@ finalized_height :: ConsensusPoolSection -> Maybe Height @-}
+finalized_height :: ConsensusPoolSection -> Maybe Height
+finalized_height validated_pool =
+  Safe.maximum
+    [ height
+      | FinalizationMsg (Finalization _signers height _block_hash _sig) <-
+          msgs validated_pool
+    ]
+
+{-@
+registry_version :: ConsensusPoolSection -> Height -> RegistryVersion
+@-}
+
+registry_version :: ConsensusPoolSection -> Height -> RegistryVersion
+registry_version _validated_pool _height =
+  -- TODO: registry_version
+  0
+
+{-@
+notarization_committee ::
+  Height ->
+  ConsensusPoolSection ->
+  Maybe (Threshold, [ReplicaId])
+@-}
+
+notarization_committee ::
+  (?topo :: Topology) =>
+  Height ->
+  ConsensusPoolSection ->
+  Maybe (Threshold, [ReplicaId])
+notarization_committee _ _ =
+  -- TODO: notarization_committee
+  Just (0, replicas ?topo)
+
+
+  [ AddToValidated (FinalizationShareMsg share)
+    | Just not_height <- [notarized_height validated_pool],
+      Just fin_height <- [finalized_height validated_pool],
+      height <- [fin_height + 1 .. not_height],
+      let reg_version = registry_version validated_pool height,
+      Just (_threshold, committee) <-
+        [notarization_committee height validated_pool],
+      ...
+    ]
+
+------------------------------------------------------------------------
+
+-*- mode: compilation; default-directory: "~/dfinity/consensus-model/reference/src/" -*-
+Compilation started at Sun Nov  1 16:36:05
+
+(cd ~/dfinity/consensus-model/reference ; rm -fr .liquid src/.liquid ; time liquid --max-case-expand=0 --no-pattern-inline --idirs=src src/Consensus.hs)
+
+**** LIQUID: SAFE (0 constraints checked) **************************************
+
+**** LIQUID: SAFE (2 constraints checked) **************************************
+
+**** LIQUID: UNSAFE ************************************************************
+/Users/johnw/dfinity/consensus-model/reference/src/Consensus.hs:988:33-38:
+ error:  Liquid Type Mismatch
+            .
+            The inferred type
+              VV : {v : GHC.Types.Int | v == ?a}
+            .
+            is not a subtype of the required type
+              VV : {VV : GHC.Types.Int | VV >= 0}
+            .
+            in the context
+            ?a : GHC.Types.Int

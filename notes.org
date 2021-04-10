@@ -1,0 +1,9 @@
+* NOTE How to disable Yubikey from generate codes on touch
+For macOS:
+1. Run the YubiKey Personalization Tool
+2. Select the "Settings" tab
+3. Click the Update Settings... button in the lower right
+4. Select Configuration Slot 1
+5. Check Dormant
+6. Click the Update button
+7. Quit

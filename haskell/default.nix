@@ -1,17 +1,14 @@
-{ compiler ? "ghc884"
+{ compiler ? "ghc8104"
 
-, rev    ? "970b2b853d41ec80a3c2aba3e585f52818fbbfa3"
-, sha256 ? "0cwm2gvnb7dfw9pjrwzlxb2klix58chc36nnymahjqaa1qmnpbpq"
+, rev    ? "c74fa74867a3cce6ab8371dfc03289d9cc72a66e"
+, sha256 ? "13bnmpdmh1h6pb7pfzw5w3hm6nzkg9s1kcrwgw1gmdlhivrmnx75"
+, pkgs   ? import (builtins.fetchTarball {
+    url = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
+    inherit sha256; }) {
+    config.allowUnfree = true;
+    config.allowBroken = false;
+  }
 
-, pkgs ?
-    if builtins.compareVersions builtins.nixVersion "2.0" < 0
-    then abort "hnix requires at least nix 2.0"
-    else import (builtins.fetchTarball {
-           url = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
-           inherit sha256; }) {
-           config.allowUnfree = true;
-           config.allowBroken = false;
-         }
 , returnShellEnv ? pkgs.lib.inNixShell
 , mkDerivation ? null
 }:

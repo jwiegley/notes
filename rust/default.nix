@@ -22,12 +22,12 @@ rustPlatform.buildRustPackage rec {
 
   nativeBuildInputs = [ asciidoc asciidoctor plantuml docbook_xsl libxslt ];
   buildInputs = [ rustfmt ]
-    ++ (stdenv.lib.optional stdenv.isDarwin darwin.apple_sdk.frameworks.Security);
+    ++ (lib.optional stdenv.isDarwin darwin.apple_sdk.frameworks.Security);
 
   preFixup = ''
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "Hello, world!";
     homepage = https://github.com/jwiegley/hello;
     license = with licenses; [ mit ];

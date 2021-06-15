@@ -1,6 +1,8 @@
 module Scan where
 
-type Stream a = Int -> a
+type Nat = Int -- quiet, Conal! :-)
+
+type Stream a = Nat -> a
 
 listToStream :: [a] -> Stream a
 listToStream [] = error "Cannot make finite list into stream"
@@ -16,10 +18,42 @@ streamToList f = go 0
 -- may only consult positions 1-(N-1) from the input.
 type StreamTransform a b = Stream a -> Stream b
 
-data Scan a b = Scan {
-    step  :: b -> a -> b,
+-- scanr :: (a -> b -> b) -> b -> [a] -> [b]
+
+-- This is unnecessary beacuse 'f' can simply close over the environment
+reader env f z = map snd . scanr (\a (env', b) -> (env', f b a)) (env, z)
+
+state f s = scanr f s
+
+-- A specialization of state where you keep every state that is 'put' and you
+-- never 'get'.
+writer f s = scanr f s
+
+-- Cont is a bastardization used to provide a meaning to 'goto'.
+
+maybe f z = scanr (\(t, b) a -> if t then (True, f b a) else (False, b)) (True, z)
+
+-- Q: Can I write all the various Pipes into the pipes library as scans.
+
+-- Producer   = Pipe Void a ()
+-- Pipe       = Pipe a b ()
+-- Consumer r = Pipe a Void r
+
+-- Producer a   = [a]
+-- Pipe a b     = [a] -> [b]
+-- Consumer a r = [a] -> r
+
+-- Pipe a b m r = [a] -> [b]
+
+-- scanM :: Monad m => (a -> b -> m a) -> a -> [b] -> m [a]
+
+data Fold a b = Fold {
+    step  :: a -> b -> b,
     start :: b
     }
 
-scan :: Scan a b -> StreamTransform a b
-scan (Scan f z) = listToStream . scanl f z . streamToList
+scan :: Fold a b -> StreamTransform a b
+scan (Fold f z) = listToStream . scanr f z . streamToList
+
+fold :: Fold a b -> Stream a -> b
+fold (Fold f z) = foldr f z . streamToList

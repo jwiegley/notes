@@ -1,0 +1,16 @@
+1 subgoal (ID 76)
+  
+  MAX_DISSOLVE_DELAY_SECONDS, MAX_NEURON_AGE_FOR_AGE_BONUS,
+  MIN_DISSOLVE_DELAY_FOR_VOTE_ELIGIBILITY_SECONDS : Duration
+  mdds : 0 < ` MAX_DISSOLVE_DELAY_SECONDS
+  x1 : R
+  r1 : 0 <= x1
+  mnafab : 0 < ` (x1; r1)
+  mddfves : 0 < ` MIN_DISSOLVE_DELAY_FOR_VOTE_ELIGIBILITY_SECONDS
+  mddfvmdd : ` MIN_DISSOLVE_DELAY_FOR_VOTE_ELIGIBILITY_SECONDS < ` MAX_DISSOLVE_DELAY_SECONDS
+  x : R
+  r : 0 <= x
+  x0 : R
+  r0 : 0 <= x0
+  ============================
+  0 <= x * (Rmin x0 x1 + 4 * x1) / (4 * x1)

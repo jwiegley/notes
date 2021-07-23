@@ -1,0 +1,6 @@
+  mnafab : 0 < MAX_NEURON_AGE_FOR_AGE_BONUS
+  age : R
+  H : 0 <= age
+  H0 : age <= MAX_NEURON_AGE_FOR_AGE_BONUS
+  ============================
+  1 <= (age + 4 * MAX_NEURON_AGE_FOR_AGE_BONUS) / (4 * MAX_NEURON_AGE_FOR_AGE_BONUS)

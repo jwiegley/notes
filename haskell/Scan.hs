@@ -1,3 +1,5 @@
+{-# LANGUAGE ScopedTypeVariables #-}
+
 module Scan where
 
 type Nat = Int -- quiet, Conal! :-)
@@ -6,8 +8,8 @@ type Stream a = Nat -> a
 
 listToStream :: [a] -> Stream a
 listToStream [] = error "Cannot make finite list into stream"
-listToStream (x:xs) = \n ->
-    if n == 0 then x else listToStream xs (n - 1)
+listToStream (x : xs) = \n ->
+  if n == 0 then x else listToStream xs (n - 1)
 
 streamToList :: Stream a -> [a]
 streamToList f = go 0
@@ -47,9 +49,19 @@ maybe f z = scanr (\(t, b) a -> if t then (True, f b a) else (False, b)) (True, 
 
 -- scanM :: Monad m => (a -> b -> m a) -> a -> [b] -> m [a]
 
-data Fold a b = Fold {
-    step  :: a -> b -> b,
+data Fold a b = Fold
+  { step :: a -> b -> b,
     start :: b
+  }
+
+compose :: forall a b c. Fold a b -> Fold b c -> Fold a (b, c)
+compose (Fold s1 z1) (Fold s2 z2) =
+  Fold
+    { step = \a (b, c) ->
+        let intermediate = s1 a b
+            result :: c = s2 intermediate c
+         in (intermediate, result),
+      start = (z1, z2)
     }
 
 scan :: Fold a b -> StreamTransform a b

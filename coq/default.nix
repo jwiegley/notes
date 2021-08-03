@@ -1,36 +1,16 @@
-{ packages ? "coqPackages_8_10"
+args@{ coqPackages ? "coqPackages_8_13"
 
-, rev      ? "8da81465c19fca393a3b17004c743e4d82a98e4f"
-, sha256   ? "1f3s27nrssfk413pszjhbs70wpap43bbjx2pf4zq5x2c1kd72l6y"
-
-, pkgs     ? import (builtins.fetchTarball {
+, rev    ? "c74fa74867a3cce6ab8371dfc03289d9cc72a66e"
+, sha256 ? "13bnmpdmh1h6pb7pfzw5w3hm6nzkg9s1kcrwgw1gmdlhivrmnx75"
+, pkgs   ? import (builtins.fetchTarball {
     url = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
     inherit sha256; }) {
     config.allowUnfree = true;
     config.allowBroken = false;
-    overlays = [
-      (self: super:
-       let
-         nixpkgs = { rev, sha256 }:
-           import (super.fetchFromGitHub {
-             owner = "NixOS";
-             repo  = "nixpkgs";
-             inherit rev sha256;
-           }) { config.allowUnfree = true; };
-
-         known-good-20191113_070954 = nixpkgs {
-           rev    = "620124b130c9e678b9fe9dd4a98750968b1f749a";
-           sha256 = "0xgy2rn2pxii3axa0d9y4s25lsq7d9ykq30gvg2nzgmdkmy375rr";
-         };
-       in
-       {
-         inherit (known-good-20191113_070954) shared-mime-info;
-       })
-    ];
   }
 }:
 
-with pkgs.${packages};
+with pkgs.${coqPackages};
 
 let
   coq-haskell = pkgs.stdenv.mkDerivation rec {
@@ -70,21 +50,25 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "jwiegley";
       repo = "category-theory";
-      rev = "380ff60d34c306f7005babc3dade1d96b5eeb935";
-      sha256 = "1r4v5lm090i23kqa1ad39sgfph7pfl458kh8rahsh1mr6yl1cbv9";
-      # date = 2020-01-12T15:09:07-08:00;
+      rev = "98f6bdd5b9931a68739819823ac81e275087c73c";
+      sha256 = "1srdg3ivfirpl50y4wq961ksymasd62v3vb0xd7dywllvdxb9d6m";
+      # date = 2021-08-02T21:13:14-07:00;
     };
 
     buildInputs = [ coq coq.ocaml coq.camlp5 coq.findlib equations ];
     enableParallelBuilding = true;
 
-    buildPhase = "make JOBS=$NIX_BUILD_CORES";
-    preBuild = "coq_makefile -f _CoqProject -o Makefile";
+    preBuild = ''
+      export MAKEFLAGS="-j $NIX_BUILD_CORES"
+      coq_makefile -f _CoqProject -o Makefile
+    '';
+
     installFlags = "COQLIB=$(out)/lib/coq/${coq.coq-version}/";
 
+    env = pkgs.buildEnv { inherit name; paths = buildInputs; };
     passthru = {
-      compatibleCoqVersions = v: builtins.elem v [ "8.6" "8.7" "8.8" "8.9" "8.10" ];
-   };
+      compatibleCoqVersions = v: builtins.elem v [ "8.10" "8.11" "8.12" "8.13" ];
+    };
   };
 
   fiat-core = pkgs.stdenv.mkDerivation rec {
@@ -140,7 +124,7 @@ in pkgs.stdenv.mkDerivation rec {
 
   buildInputs = [
     coq coq.ocaml coq.camlp5 coq.findlib
-    equations coq-haskell #category-theory fiat-core
+    equations category-theory #fiat-core coq-haskell
   ];
   enableParallelBuilding = true;
 
@@ -150,6 +134,6 @@ in pkgs.stdenv.mkDerivation rec {
 
   env = pkgs.buildEnv { name = name; paths = buildInputs; };
   passthru = {
-    compatibleCoqVersions = v: builtins.elem v [ "8.6" "8.7" "8.8" ];
+    compatibleCoqVersions = v: builtins.elem v [ "8.10" "8.11" "8.12" "8.13" ];
  };
 }

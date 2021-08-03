@@ -922,7 +922,7 @@ Obligation 2.
          | V a => pskip0 (@PAssign I X O) O (@V I X O a)
          end) = @pskip0 _).
     extensionality H.
-    extensionality x.
+    extensionality xo.
     destruct x.
     reflexivity.
     rewrite H. clear H.

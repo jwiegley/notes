@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 52d4a6cfb4acded37a8be30a1f9d9bcc934c6944b0856a4a103e0cf91eadd10c
+-- hash: 9a9c29bb61bb5bcef70b5977cd302d2f077fb8894c5abf8b8438b5e8a862a984
 
 name:           haskell
 version:        0.0.1
@@ -36,6 +36,7 @@ library
       Applicative
       ApplicativeFree
       ApplicativeSum
+      ArmandoDual
       AsyncC
       Athan
       Atomic
@@ -86,6 +87,7 @@ library
       Day
       Day1
       DBLens
+      Dissolve
       Distribute
       DoubleNeg
       DumbMonad
@@ -140,6 +142,7 @@ library
       GenericClosure
       GershomHoas
       GGuy
+      Governance
       Gpyh
       Guarded
       GuardedLens
@@ -202,6 +205,7 @@ library
       Mu
       MySTM
       NatTrans
+      NB
       NestedState
       Newtype
       Nikita
@@ -246,6 +250,7 @@ library
       Reflection3
       Reflection4
       Reflection_
+      Registry
       ReifyExample
       Rewrites
       RoseFree
@@ -254,6 +259,7 @@ library
       Ryan2
       SAT
       SBV
+      Scan
       SchwarzianTransform
       Secure
       Security
@@ -275,6 +281,7 @@ library
       STExample
       StreamingFolds
       StreamList
+      StreamState
       Strict
       Strictness
       Subtext
@@ -293,6 +300,7 @@ library
       ToHex
       Transformer
       Transforms
+      Transport
       TraversableT
       Tries
       Tuples
@@ -305,6 +313,7 @@ library
       Vectors
       Vectors2
       VectorTest
+      VictorAssociatedTypes
       Voided
       Wat
       WithIORef
@@ -315,21 +324,26 @@ library
   other-modules:
       Paths_haskell
   hs-source-dirs:
-      ./.
+      ./
   ghc-options: -Wall
   build-depends:
-      QuickCheck
+      HUnit
+    , QuickCheck
     , arrows
     , base >=4.9 && <5
     , bytestring
     , constraints
     , containers
     , deepseq
+    , hedgehog
     , lens
     , monad-par
     , mtl
     , multiset
     , pcre-heavy
+    , tasty
+    , tasty-hedgehog
+    , tasty-hunit
     , transformers
     , unordered-containers
   default-language: Haskell2010

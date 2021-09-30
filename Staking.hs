@@ -3,6 +3,7 @@
 module Journal.Staking where
 
 import Control.Monad.State
+import Debug.Trace
 
 oneDaySeconds, oneYearSeconds, oneMonthSeconds :: Double
 oneDaySeconds = 24 * 60 * 60
@@ -18,12 +19,17 @@ maxAgeBonus = 4 * oneYearSeconds
 ytd :: Double -> Double
 ytd = (* oneYearSeconds)
 
+-- From https://docs.google.com/document/d/1wP7zEcWdb2hE7L7of2Zhf6LxbWOqWnKGQ6LdIlDPzsk/edit
+-- R(t) = Rf + (R0-Rf) [ (t-T) / (G-T) ]^2
 percentageOfSupply :: Double -> Double
-percentageOfSupply s =
-  (10 - (5 * (min s (8 * oneYearSeconds) / (8 * oneYearSeconds)))) / 100
+percentageOfSupply t =
+  0.05 + (0.1 - 0.05) * (((t - nT) / (nG - nT)) ** 2.0)
+  where
+    nG = 0
+    nT = 8 * oneYearSeconds
 
 data NNS = NNS
-  { supply :: Double,
+  { totalSupply :: Double,
     votingPercentage :: Double,
     mintingPercentage :: Double,
     since :: Double
@@ -31,6 +37,7 @@ data NNS = NNS
   deriving (Show)
 
 votingPower :: Double -> Double -> Double -> Double
+votingPower _ delay _ | delay < 6 * oneMonthSeconds = 0
 votingPower stake delay age =
   let d = min delay maxDissolveDelay
       d_stake = stake + ((stake * d) / maxDissolveDelay)
@@ -42,13 +49,13 @@ singleDay :: Double -> Double -> Double -> State NNS Double
 singleDay stake delay age = do
   nns <- get
   let vp = votingPower stake delay age
-      new = (supply nns * percentageOfSupply (since nns)) / 365.0
-      earned = new * (vp / (supply nns * votingPercentage nns))
+      dailyPercentage = percentageOfSupply (since nns) / 365.0
+      potentialMinted = totalSupply nns * dailyPercentage
+      earned = dailyPercentage * (vp / votingPercentage nns)
+      minted = max earned (potentialMinted * mintingPercentage nns)
   put
-    NNS
-      { supply = supply nns + min earned (new * mintingPercentage nns),
-        votingPercentage = votingPercentage nns,
-        mintingPercentage = mintingPercentage nns,
+    nns
+      { totalSupply = totalSupply nns + minted,
         since = since nns + oneDaySeconds
       }
   pure earned
@@ -92,7 +99,7 @@ scenario =
     469_000_000
     0.67
     0.15
-    (4 * oneMonthSeconds)
+    0 -- (4 * oneMonthSeconds)
     100_000
     (8 * oneYearSeconds)
     (8 * oneYearSeconds)

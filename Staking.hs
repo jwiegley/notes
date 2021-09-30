@@ -3,7 +3,6 @@
 module Journal.Staking where
 
 import Control.Monad.State
-import Debug.Trace
 
 oneDaySeconds, oneYearSeconds, oneMonthSeconds :: Double
 oneDaySeconds = 24 * 60 * 60
@@ -50,9 +49,14 @@ singleDay stake delay age = do
   nns <- get
   let vp = votingPower stake delay age
       dailyPercentage = percentageOfSupply (since nns) / 365.0
-      potentialMinted = totalSupply nns * dailyPercentage
-      earned = dailyPercentage * (vp / votingPercentage nns)
-      minted = max earned (potentialMinted * mintingPercentage nns)
+      dailyReward = totalSupply nns * dailyPercentage
+      fraction = vp / (totalSupply nns * votingPercentage nns)
+      earned = dailyReward * fraction
+      -- Another way of writing 'earned' is the following, which shows that if
+      -- the voting population keeps pace with the increase in supply, one's
+      -- daily take remains the same.
+      -- earned' = dailyPercentage * (vp / votingPercentage nns)
+      minted = max earned (dailyReward * mintingPercentage nns)
   put
     nns
       { totalSupply = totalSupply nns + minted,
@@ -93,13 +97,20 @@ computeStake
           go (t - oneDaySeconds) (s + reward) (min d t)
 
 -- Result: ~403184
-scenario :: Double
-scenario =
-  computeStake
-    469_000_000
-    0.67
-    0.15
-    0 -- (4 * oneMonthSeconds)
-    100_000
-    (8 * oneYearSeconds)
-    (8 * oneYearSeconds)
+scenario :: IO ()
+scenario = do
+  putStrLn "1,000 ICP"
+  putStrLn $ "dissolve delay 8, dissolving in 8  = " ++ show (compute 8 8)
+  putStrLn $ "dissolve delay 8, dissolving in 12 = " ++ show (compute 8 12)
+  putStrLn $ "dissolve delay 4, dissolving in 8  = " ++ show (compute 4 8)
+  putStrLn $ "dissolve delay 4, dissolving in 12 = " ++ show (compute 4 12)
+  where
+    compute delay duration =
+      computeStake
+        469_000_000
+        0.67
+        0.15
+        (5 * oneMonthSeconds)
+        1_000
+        (delay * oneYearSeconds)
+        (duration * oneYearSeconds)

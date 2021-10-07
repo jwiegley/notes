@@ -4,4 +4,9 @@ version = "0.1.0"
 authors = ["John Wiegley <johnw@newartisans.com>"]
 edition = "2018"
 
+[[bin]]
+name = "foo"
+path = "dbiter.rs"
+
 [dependencies]
+ghost-cell = "0.2"

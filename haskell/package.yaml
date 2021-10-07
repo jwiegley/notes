@@ -34,4 +34,3 @@ library:
     - tasty-hedgehog
     - tasty-hunit
     - HUnit
-

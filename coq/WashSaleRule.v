@@ -76,51 +76,148 @@ Record Ticket := {
   price : Price;                (* price transaction occurred at *)
 }.
 
-Record Opening := {
-  opening_ticket : Ticket;
-  (* When no wash sale is applied, opening_basis = price opening_ticket *)
-  opening_basis  : Price;
+Record Opened := {
+  opened_ticket : Ticket;
+  (* When no wash sale is applied, opened_basis = price opened_ticket *)
+  opened_basis  : Price;
 }.
 
-(** A closing ticket always closes existing open position. However, because
+(** A closed ticket always closes existing open position. However, because
     the ticket may specify a fraction of the total open lots, it also
-    specifies the "remainder" that was not addressed by the closing. *)
-Record Closing := {
-  closing_ticket    : Ticket;
-  closing_lots      : list Opening;
-  closing_remainder : Opening;
+    specifies the "remainder" that was not addressed by the closed. *)
+Record Closed := {
+  closed_ticket : Ticket;
+  closed_lots   : list Opened;
 }.
 
 Definition sum (xs : list R) : R := List.fold_left Rplus xs 0.
 
-Definition gainsLosses (c : Closing) : list Price :=
-  List.map (fun o => count (opening_ticket o) *
-                     (price (closing_ticket c) - opening_basis o))
-           (closing_lots c).
+Definition sumOf {A : Type} (f : A -> R) (xs : list A) : R :=
+  sum (List.map f xs).
 
-Definition gainLoss (c : Closing) : Price := sum (gainsLosses c).
+Theorem sumOf_cons A (f : A -> R) x xs :
+  sumOf f (cons x xs) = f x + sumOf f xs.
+Proof.
+  unfold sumOf, sum; simpl.
+  rewrite Rplus_0_l.
+  generalize (f x).
+  induction xs; simpl; intros; [lra|].
+  rewrite Rplus_0_l.
+  rewrite IHxs.
+  rewrite Rplus_assoc.
+  f_equal.
+  symmetry.
+  apply IHxs.
+Qed.
 
-Inductive Transaction :=
-  | Open (opening : Opening)
-  | Close (closing : Closing).
+Definition gainsLosses (c : Closed) : list Price :=
+  List.map (fun o => count (opened_ticket o) *
+                     (price (closed_ticket c) - opened_basis o))
+           (closed_lots c).
 
-Inductive WashSale :
-  Ensemble Transaction ->        (* previously transacted shares *)
-  Transaction     ->             (* lot to be transacted *)
-  Transaction     ->             (* adjusted transaction, if opening *)
-  Ensemble Transaction ->        (* resulting set of transactions *)
+Definition gainLoss (c : Closed) : Price := sum (gainsLosses c).
+
+Definition FromOption `(mx : option A) : Ensemble A := fun x =>
+  match mx with
+  | None => False
+  | Some x' => x = x'
+  end.
+
+Definition FromList `(xs : list A) : Ensemble A := fun x => List.In x xs.
+
+Inductive These (A B : Type) : Type :=
+  | This : A -> These A B
+  | That : B -> These A B
+  | Both : A -> B -> These A B.
+
+Arguments This {A B} _.
+Arguments That {A B} _.
+Arguments Both {A B} _ _.
+
+(** This inductive proposition determines only what the annotated ticket shall
+    be when considering a new ticket against a previous set of transactions.
+    We determine how that set of transactions is modified by this ticket using
+    a different proposition, for the sake of expositional clarity. *)
+Inductive TicketApplied (o : Ensemble Opened) (t : Ticket) :
+  These Opened Closed -> Prop :=
+  (** In the simplest scenario, this ticket does not relate to any prior
+      transaction, and thus represents a new opening of a long or short
+      position. *)
+  | Open :
+      TicketApplied o t (This {| opened_ticket := t; opened_basis := price t |})
+  | Close lots :
+      (* Using the FIFO method (jww (2021-08-21): we need to support all
+         methods), the lots we are closing must be "earliest" in the set. *)
+      (forall x y, List.In x lots -> ~ (List.In y lots) -> In _ o y ->
+                   date (opened_ticket y) >= date (opened_ticket x)) ->
+      sumOf (count ∘ opened_ticket) lots = count t ->
+      TicketApplied o t (That {| closed_ticket := t; closed_lots := lots |})
+  | OpenAndClose :
+      TicketApplied o t (Both {| opened_ticket := t; opened_basis := price t |}
+                              {| closed_ticket := t; closed_lots := nil |}).
+
+(** A ticket is determined to be either an opening of a new position, or a
+    closing of an old position, or both, depending on the current set of known
+    open transactions.
+
+    If it closes a position, the resulting set will be smaller; if it opens a
+    new position, the resulting set will be larger. If both, it may be the
+    same size, but the contents will have been changed, so the resulting set
+    is always different in some way from the input set. *)
+Definition applyTicket (opened : Ensemble Opened) (t : Ticket) :
+  Ensemble Opened * These Opened Closed :=
+  (opened, This {| opened_ticket := t; opened_basis := price t |}).
+
+(** When a transaction is closed at a loss, it may affect the set of both
+    known open and closed transactions. It may affect open transactions by
+    adjusting their cost basis in order to "apply the wash sale rule"; if may
+    affect closed transactions by recording the losing sale in order to apply
+    the wash sale rule to future opening transactions. *)
+
+Definition applyClosed
+           (opened : Ensemble Opened)
+           (closed : Ensemble Closed) (c : Closed) :
+  Ensemble Opened * Ensemble Closed :=
+  (opened, closed).
+
+Definition washOpened (opens : Ensemble Closed) (t : Ticket) :
+  Ensemble Opened * These Opened Closed :=
+  (opens, This {| opened_ticket := t; opened_basis := price t |}).
+
+(** When a ticket is submitted to a broker, it can result in both opened and
+    closed transaction, and may affect the set of recorded transactions. *)
+Inductive Transaction :
+  Ensemble Opened     ->       (* previously transacted shares *)
+  Ensemble Closed     ->       (* previously transacted shares *)
+  Ticket              ->       (* lot to be transacted *)
+  Ensemble Opened     ->       (* resulting set of transactions *)
+  Ensemble Closed     ->       (* resulting set of transactions *)
+  These Opened Closed ->       (* adjusted transaction, if opened *)
   Prop :=
+
+  (** Closed a position at a gain only removes past open positions from the
+      set of known transactions.
+
+      jww (2021-08-17): Account for the fact that selling N shares may
+      resulting in selling L lots, some of which incur a loss while others
+      provide a gain. *)
+  | CapitalGain opens closes t xacts :
+      Transaction opens closes t
+                  (Union _ (Setminus _ old (FromList (List.map Open (closed_lots c))))
+                         (FromOption (option_map Open (closed_remainder c))))
+                  closes
+                  xacts
 
   (** When a new position is opened, any unapplied wash sale amounts may be
       transferred into the cost basis of that new lot. *)
   | Opened old lot lot' new : WashSale old lot lot' new
 
-  (** When closing a position at a loss, previous openings may have their cost
+  (** When closed a position at a loss, previous openings may have their cost
       basis adjusted by this "wash sale". Unapplied adjustments are remembered
       toward possible future openings. *)
   | ClosedAtLoss old lot lot' new : WashSale old lot lot' new
 
-  (** When closing at break-even or a profit, we have no need to remember this
+  (** When closed at break-even or a profit, we have no need to remember this
       lot, we just remove the positions it closes from the set of shares. *)
   | Closed old lot lot' new : WashSale old lot lot' new
 .

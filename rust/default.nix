@@ -1,27 +1,29 @@
-{ rev    ? "61f0936d1cd73760312712615233cd80195a9b47"
-, sha256 ? "1fkmp99lxd827km8mk3cqqsfmgzpj0rvaz5hgdmgzzyji70fa2f8"
+{ rev    ? "a3a23d9599b0a82e333ad91db2cdc479313ce154"
+, sha256 ? "05xmgrrnw6j39lh3d48kg064z510i0w5vvrm1s5cdwhdc2fkspjq"
 , pkgs   ? import (builtins.fetchTarball {
-             url = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
-             inherit sha256; }) {
-             config.allowUnfree = true;
-             config.allowBroken = true;
-           }
+    url = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
+    inherit sha256; }) {
+    config.allowUnfree = true;
+    config.allowBroken = false;
+  }
+, returnShellEnv ? pkgs.lib.inNixShell
 , mkDerivation ? null
 }:
 
-with pkgs;
-rustPlatform.buildRustPackage rec {
+with pkgs; rustPlatform.buildRustPackage rec {
   pname = "hello";
   version = "1.0.0";
 
   src = ./.;
 
-  cargoSha256 = "0jacm96l1gw9nxwavqi1x4669cg6lzy9hr18zjpwlcyb3qkw9z7f";
+  cargoSha256 = "02ix7i6i98mg8rz5qcqcgpm9bqbwvy53n5w8ji0ldg7civkvlfrx";
 
   cargoBuildFlags = [];
 
-  nativeBuildInputs = [ asciidoc asciidoctor plantuml docbook_xsl libxslt ];
-  buildInputs = [ rustfmt ]
+  nativeBuildInputs = [
+    asciidoc asciidoctor plantuml docbook_xsl libxslt rls rustfmt clippy
+  ];
+  buildInputs = [ ]
     ++ (lib.optional stdenv.isDarwin darwin.apple_sdk.frameworks.Security);
 
   preFixup = ''

@@ -1,14 +1,5 @@
 { ghcCompiler ? "ghc8107"
-
-, rev    ? "a3a23d9599b0a82e333ad91db2cdc479313ce154"
-, sha256 ? "05xmgrrnw6j39lh3d48kg064z510i0w5vvrm1s5cdwhdc2fkspjq"
-, pkgs   ? import (builtins.fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/${rev}.tar.gz";
-    inherit sha256; }) {
-    config.allowUnfree = true;
-    config.allowBroken = false;
-  }
-
+, pkgs ? (import <darwin> {}).pkgs
 , returnShellEnv ? pkgs.lib.inNixShell
 , mkDerivation ? null
 }:
@@ -35,3 +26,5 @@ in haskellPackages.developPackage {
 
   inherit returnShellEnv;
 }
+
+

@@ -1,7 +1,7 @@
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE TypeOperators #-}
 
-module Journal.SumLens where
+module SumLens where
 
 import Control.Lens
 import Data.Sum

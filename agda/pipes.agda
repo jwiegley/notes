@@ -1,6 +1,6 @@
 module pipes where
 
-open import container.m.core
+-- open import container.m.core
 
 data Pipe (a b r : Set) : Set where
   pure : r → Pipe a b r

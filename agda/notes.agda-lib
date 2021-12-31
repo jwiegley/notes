@@ -1,0 +1,3 @@
+name: notes
+depend: agda-categories standard-library agda2hs
+include: .

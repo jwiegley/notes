@@ -14,11 +14,6 @@ pub struct Tally {
     pub total: u64,
 }
 
-(Power, Voter Info)
-   |
-   v
- Ballot
-
 /// The Voter trait represent an entity with voting power.
 pub trait Voter {
     /// Return this voter's current voting power. How this is calculated is up
@@ -59,15 +54,30 @@ pub trait Poll<Proposal> {
     /// that remembers their available voting power at the time the poll was
     /// made.
     fn cast_vote(&mut self, now_seconds: u64, voter: VoterId) -> Tally;
+
+    fn is_decided() -> Option<Tally>;
 }
 
-pub trait Governance<Proposal> {
+pub trait VoterRegistration {
     fn register_voter(&mut self, voter: Box<dyn Voter>) -> VoterId;
     fn unregister_voter(&mut self, voter: VoterId) -> bool;
 
     fn known_voters(&mut self) -> std::slice::IterMut<'_, &mut Box<dyn Voter>>;
 
     fn total_voting_power(&self, now_seconds: u64) -> u64;
+}
+
+pub trait SNS {
+    Set<Poll>    database
+
+    Rewards      algorithm in data
+    VotingPower  algorithm in data
+    Polling      algorithm in data
+}
+
+pub trait Governance<Proposal> {
+    Set<Neuron>     database
+    Set<Proposals>  database
 
     /// Create a poll for a given proposal.
     fn create_poll(&mut self, now_seconds: u64, proposal: &Proposal) -> Box<dyn Poll<Proposal>>;

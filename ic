@@ -1,0 +1,8 @@
+function get_neuron_id_from() {
+    perl -ne \
+        'if (/(?:created_neuron_id|NeuronId) = (?:opt )?record { id = ([0-9_]+) }/) {
+             my $var = $1;
+             $var =~ s/_//g;
+             print $var, "\n";
+         } ' $1
+}

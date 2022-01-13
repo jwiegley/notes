@@ -6,8 +6,11 @@ import Relation.Binary.PropositionalEquality as Eq
 open Eq using (_≡_; refl)
 open import Data.Bool
 open import Data.List
+open import Data.List.Membership.Propositional using (_∈_)
+open import Function
+open import Data.Maybe
 open import Data.Nat using (zero; suc; _≡ᵇ_)
-open import Data.Rational using (ℚ; 0ℚ; _+_; _-_; -_)
+open import Data.Rational using (ℚ; 0ℚ; _+_; _-_; -_; _≤ᵇ_)
 open import Data.Rational.Properties
 open import Relation.Nullary using (¬_)
 open import Data.Product using (Σ-syntax; _×_; proj₁; proj₂)
@@ -75,13 +78,39 @@ net (MkDelta f) x y with x ≡ᵇ y
 ... | true = 0ℚ
 ... | false = f x y - f y x
 
-balance : Delta → AccountId → Amount
-balance f acct = go maxAccount
+foldAccounts : ∀ {a : Set} → (a → AccountId → a) → a → a
+foldAccounts {a} f z = go z maxAccount
   where
     mutual
-      go : AccountId → Amount
-      go n = net f n acct + descend n
+      go : a → AccountId → a
+      go z′ n = descend (f z′ n) n
 
-      descend : AccountId → Amount
-      descend zero = 0ℚ
-      descend (suc n) = go n
+      descend : a → AccountId → a
+      descend z′ zero = z′
+      descend z′ (suc n) = go z′ n
+
+forallAccounts : (AccountId → Bool) → Bool
+forallAccounts f = foldAccounts (λ p n → p ∧ f n) true
+
+balance : Delta → AccountId → Amount
+balance f acct = foldAccounts (λ acc n → net f n acct + acc) 0ℚ
+
+------------------------------------------------------------------------
+
+policy : ∀ {start : Delta} → List Delta → Set
+policy {start} history =
+    ∀ d → d ∈ inits (start ∷ history)
+  → ∀ s → s ≡ foldl _∙_ ε d
+  → forallAccounts (λ n → 0ℚ ≤ᵇ balance s n) ≡ true
+
+settle
+  : ∀ {start}
+  → (d : Delta)
+  → (ds : List Delta)
+  → policy {start} ds
+  → Maybe (policy {start} (ds ++ [ d ]))
+settle {start} d ds P =
+  let s = foldl _∙_ ε (start ∷ ds ++ [ d ]) in
+  case forallAccounts (λ n → 0ℚ ≤ᵇ balance s n) of λ where
+    true → just λ d₁ x s₁ x₁ → {!!}
+    false → nothing

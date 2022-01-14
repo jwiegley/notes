@@ -35,9 +35,7 @@ MkDelta f ≡ᵈ MkDelta g = ∀ from to → f from to ≡ g from to
 infixr 9 _∙_
 _∙_ : Delta → Delta → Delta
 MkDelta f ∙ MkDelta g =
-  record { xact = λ from to →
-    f from to + g from to
-  }
+  record { xact = λ from to → f from to + g from to }
 
 ∙-assoc : ∀ x y z → (x ∙ y) ∙ z ≡ᵈ x ∙ (y ∙ z)
 ∙-assoc x y z to from =
@@ -45,7 +43,7 @@ MkDelta f ∙ MkDelta g =
 
 -- Delta is a monoid
 ε : Delta
-ε = record { xact = λ _ _ → 0ℚ }
+xact ε _ _ = 0ℚ
 
 ∙-ε : ∀ x → ε ∙ x ≡ᵈ x
 ∙-ε x to from = +-identityˡ (xact x to from)
@@ -68,10 +66,8 @@ invert-right x to from = +-inverseʳ (xact x to from)
 ------------------------------------------------------------------------
 
 transfer : AccountId → AccountId → Amount → Delta
-transfer from to amt =
-  record { xact = λ f t →
-    if (from ≡ᵇ f) ∧ (to ≡ᵇ t) then amt else 0ℚ
-  }
+xact (transfer from to amt) f t =
+  if (from ≡ᵇ f) ∧ (to ≡ᵇ t) then amt else 0ℚ
 
 net : Delta → AccountId → AccountId → Amount
 net (MkDelta f) x y with x ≡ᵇ y

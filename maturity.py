@@ -1,14 +1,20 @@
+import re
 import csv
 import sys
 from datetime import datetime, timedelta
-from pycoingecko import CoinGeckoAPI
 
-cg = CoinGeckoAPI()
+pricedb = "icp.pricedb"
 
 def icp_price(date):
-    s = date.strftime('%d-%m-%Y')
-    data = cg.get_coin_history_by_id('internet-computer', date=s)
-    return data['market_data']['current_price']['usd']
+    entry = re.compile(r"P ([-0-9]+) ICP \$([0-9.]+)")
+    with open(pricedb, newline='') as db:
+        for line in db:
+            m = entry.match(line)
+            if m is not None:
+                d = datetime.fromisoformat(m.group(1))
+                if d == date:
+                    return float(m.group(2))
+    return None
 
 print("date,neuron,portion,basis,income,balance,total")
 
@@ -34,10 +40,10 @@ with open(sys.argv[1], newline='') as csvfile:
 
         days = (date - last_date[neuron]).days
         portion = float(row['amount']) / float(days)
-        last_date[neuron] = last_date[neuron] + timedelta(days=1)
 
         for i in range(days):
-            d = last_date[neuron] + timedelta(days=i)
+            last_date[neuron] = last_date[neuron] + timedelta(days=1)
+            d = last_date[neuron]
             balance[neuron] = balance[neuron] + (portion * icp_price(d))
             print(",".join([str(d),
                             neuron,

@@ -1,0 +1,3 @@
+        curl -s -L -X 'GET' -H 'accept: application/json' \
+            'https://api.coingecko.com/api/v3/coins/internet-computer/market_chart/range?vs_currency=usd&from=1609488000&to=2639161795' \
+            | jq -r '.prices[][0] |= (. / 1000 | strftime("%Y-%m-%d")) | .prices | map("P " + (.[0]) + " ICP $" + (.[1]|tostring)) | .[]'

@@ -1,9 +1,14 @@
 module Swiftlet where
 
-open import Data.Integer
-open import Data.Product
-open import Data.String
-open import Data.List
+open import Data.Fin using (Fin; toℕ)
+open import Data.Nat using (ℕ)
+import Data.Sign
+open import Data.Integer using (ℤ; sign; _◃_; ∣_∣)
+open import Data.Product using (_×_; _,_)
+open import Data.String using (String)
+open import Data.List using (List)
+open import Data.Vec using (Vec; lookup)
+open import Relation.Binary.PropositionalEquality
 
 Name : Set
 Name = String
@@ -19,19 +24,19 @@ mutual
   Struct = Name × List Bind
 
   data Qual : Set where
-    qlet, qvar : Qual
+    qlet, var : Qual
 
   Bind : Set
   Bind = Qual × Name × Type
 
   data Arg : Set where
-    apath : Path → Arg
-    aexpr : Expr → Arg
+    ref : Path → Arg
+    arg : Expr → Arg
 
   data Expr : Set where
-    seq   : Expr → Expr → Expr
-    b=in  : Bind → Expr → Expr → Expr
-    p=e   : Path → Expr → Expr
+    _；_   : Expr → Expr → Expr
+    _≔_𝑖𝑛_ : Bind → Expr → Expr → Expr
+    _≔_   : Path → Expr → Expr
     [e]   : List Expr → Expr
     epath : Path → Expr
     eval  : Value → Expr
@@ -60,7 +65,7 @@ mutual
   data Value : Set where
     lam  : List (Name × Param) → Expr → Value
     ctx  : Context → Value
-    ary  : List Value → Value
+    ary  : {n : ℕ} → Vec Value n → Value
     box  : Value → Value
     int  : ℤ → Value
 
@@ -68,3 +73,42 @@ mutual
     ldot  : LValue → Name → LValue
     lsub  : LValue → ℤ → LValue
     lname : Name → LValue
+
+  data _,_⊢_⇓ᴿ_,_ (Δ : List Struct) :
+    Context → Expr → Context → Value → Set
+    where
+    e-name
+      : (μ : Context) (x : Name) (m : Qual) (v : Value)
+      → μ x ≡ ( m , v )
+      → Δ , μ ⊢ epath (lval (lname x)) ⇓ᴿ μ , v
+
+    e-prop
+      : (μ μ′ : Context) (e : Expr) (θˢ : Context)
+      → Δ , μ ⊢ e ⇓ᴿ μ′ , ctx θˢ
+      → (x : Name) (m : Qual) (v : Value)
+      → θˢ x ≡ ( m , v )
+      → Δ , μ ⊢ epath (dot e x) ⇓ᴿ μ , v
+
+    e-elem
+      : (μ μ′ : Context) (e₁ : Expr) (k : ℕ) (v : Vec Value k)
+      → Δ , μ ⊢ e₁ ⇓ᴿ μ′ , ary v
+      → (μ″ : Context) (e₂ : Expr) (z : ℤ)
+      → Δ , μ′ ⊢ e₂ ⇓ᴿ μ″ , int z
+      → sign z ≡ Data.Sign.+
+      → (c : Fin k) (H : ∣ z ∣ Data.Nat.< k)
+      → c ≡ Data.Fin.fromℕ< H
+      → (vᵢ : Value) → vᵢ ≡ lookup v c
+      → Δ , μ ⊢ epath (sub e₁ e₂) ⇓ᴿ μ″ , vᵢ
+
+    e-inout
+      : (μ μ′ : Context) (r : Path) (w : LValue)
+      → Δ , μ ⊢ r ⇓ᴸ μ′ , var , w
+      → Δ , μ ⊢ {!!} (ref r) ⇓ᴿ μ′ , {!!}
+
+  data _,_⊢_⇓ᴸ_,_,_ (Δ : List Struct) :
+    Context → Path → Context → Qual → LValue → Set
+    where
+    p-name
+      : (μ : Context) (x : Name) (m : Qual) (v : Value)
+      → μ x ≡ ( m , v )
+      → Δ , μ ⊢ lval (lname x) ⇓ᴸ μ , m , lname x

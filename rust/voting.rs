@@ -1,10 +1,10 @@
-type VoterId = u64;
+pub type VoterId = u64;
 
-pub enum Vote {
-    Unspecified,
-    Yes,
-    No,
-}
+// pub enum Vote {
+//     Unspecified,
+//     Yes,
+//     No,
+// }
 
 #[derive(Clone)]
 pub struct Tally {
@@ -67,18 +67,18 @@ pub trait VoterRegistration {
     fn total_voting_power(&self, now_seconds: u64) -> u64;
 }
 
-pub trait SNS {
-    Set<Poll>    database
+// pub trait SNS {
+//     Set<Poll>    database
 
-    Rewards      algorithm in data
-    VotingPower  algorithm in data
-    Polling      algorithm in data
-}
+//     Rewards      algorithm in data
+//     VotingPower  algorithm in data
+//     Polling      algorithm in data
+// }
 
-pub trait Governance<Proposal> {
-    Set<Neuron>     database
-    Set<Proposals>  database
+// pub trait Governance<Proposal> {
+//     Set<Neuron>     database
+//     Set<Proposals>  database
 
-    /// Create a poll for a given proposal.
-    fn create_poll(&mut self, now_seconds: u64, proposal: &Proposal) -> Box<dyn Poll<Proposal>>;
-}
+//     /// Create a poll for a given proposal.
+//     fn create_poll(&mut self, now_seconds: u64, proposal: &Proposal) -> Box<dyn Poll<Proposal>> {}
+// }

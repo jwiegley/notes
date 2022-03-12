@@ -1,17 +1,24 @@
 module Trees where
 
+open import Data.Empty
 open import Data.Fin using (Fin)
 open import Data.Nat
 open import Data.Maybe
 open import Data.Sum
 open import Data.Product
 open import Function
+open import Algebra.Structures
+open import Function.Related.TypeIsomorphisms
 open import Level using (Level; 0ℓ)
 import Data.List
 import Data.List.Membership.Propositional
 open import Relation.Nullary
 open import Relation.Unary
-open import Relation.Binary.PropositionalEquality
+open import Relation.Binary
+open import Relation.Binary.PropositionalEquality hiding ([_]; Extensionality)
+open ≡-Reasoning
+open import Axiom.Extensionality.Propositional
+postulate extensionality : ∀ {ℓ ℓ′} → Extensionality ℓ ℓ′
 
 private variable
   k v : Set
@@ -33,7 +40,18 @@ Finite-add : ∀ {n : ℕ} {P : Pred k 0ℓ}
   → Finite n P
   → {x : k} → x ∉ P
   → Finite (suc n) (P ∪ ｛ x ｝)
-Finite-add F x∉P = {!!}
+Finite-add
+  record { f       = f
+         ; f⁻¹     = f⁻¹
+         ; cong₁   = cong₁
+         ; cong₂   = cong₂
+         ; inverse = inverse
+         } {x} x∉P =
+  record { f       = {!!}
+         ; f⁻¹     = {!!}
+         ; cong₁   = {!!}
+         ; cong₂   = {!!}
+         ; inverse = (λ x₁ → {!!}) , λ x₁ → {!!} }
 
 Finite-drop : ∀ {n : ℕ} {P : Pred k 0ℓ}
   → Finite (suc n) P
@@ -51,30 +69,82 @@ record α (n : ℕ) (k v : Set) : Set₁ where
 -- α : ℕ → Set → Set → Set₁
 -- α n k v = ∃ λ (P : k → Set) → Finite n P → ∃ P → v
 
+cong₃ : ∀ {ℓa ℓb ℓc ℓ′} {A : Set ℓa} {B : Set ℓb} {C : Set ℓc} {D : Set ℓ′}
+          (f : A → B → C → D) {x y u v i j}
+  → x ≡ y → u ≡ v → i ≡ j → f x u i ≡ f y v j
+cong₃ f refl refl refl = refl
+
+_∧_ : Set → Set → Set
+P ∧ Q = P × Q
+
+record _≈_ {n : ℕ} (p q : α n k v) : Set₁ where
+  constructor α≈
+  field
+    P≈ : ∀ (x : k) → α.P p x ↔ α.P q x
+    F≈ : ∀ x P → Inverse.f (α.F p) (x , P) ≡ Inverse.f (α.F q) (x , Inverse.f (P≈ x) P)
+    -- F⁻¹≈ : ∀ n → Inverse.f⁻¹ (α.F p) n ≡ Inverse.f⁻¹ (α.F {!!}) n
+    f≈ : ∀ x P → α.f p (x , P) ≡ α.f q (x , Inverse.f (P≈ x) P)
+
 present : ∀ {n : ℕ} → α n k v → Pred k 0ℓ
 present = α.P
 
-insert : ∀ {n : ℕ} (x : k)
-  → (∃ λ (m  : α      n  k v)  → ¬ present m  x)
+insert : ∀ {n : ℕ} {x : k}
   → v
+  → (∃ λ (m  : α      n  k v)  → ¬ present m  x)
   → (∃ λ (m′ : α (suc n) k v) →   present m′ x)
-insert x (mkα P F f , ¬present) v =
+insert {x = x} v (mkα P F f , ¬present) =
   mkα (P ∪ ｛ x ｝) (Finite-add F ¬present)
     (λ { (x′ , inj₁ l)    → f (x′ , l)
        ; (.x , inj₂ refl) → v })
     , inj₂ refl
 
-delete : ∀ {n : ℕ} (x : k)
+delete : ∀ {n : ℕ} {x : k}
   → (∃ λ (m  : α (suc n) k v) →   present m  x)
   → (∃ λ (m′ : α      n  k v)  → ¬ present m′ x)
-delete x (mkα P F f , is-present) =
+delete {x = x} (mkα P F f , is-present) =
   mkα (P ∩ ∁ ｛ x ｝) (Finite-drop F is-present)
     (λ { (x′ , Px′ , x≢x′) → f (x′ , Px′) })
     , λ z → proj₂ z refl
 
-lemma : ∀ {n : ℕ} (m : α n k v) (x : k) P (u : v)
-   → proj₁ (delete x (insert x (m , P) u)) ≡ m
-lemma (mkα P₁ F f) x P u = {!!}
+-- _≈̂_ : {!!}
+-- _≈̂_ = _≡_ on proj₁
+
+lemma : ∀ {n : ℕ} (x : k) (e : ∃ λ (m : α n  k v)  → ¬ present m x) (u : v)
+   → proj₁ (delete {x = x} (insert u e)) ≡ proj₁ e
+lemma {n} x (mkα P F f , ¬Px) u =
+  begin
+    proj₁ (delete (insert u (mkα P F f , ¬Px)))
+  ≡⟨⟩
+    mkα
+      (λ x₁ → (P x₁ ⊎ x ≡ x₁) × (x ≢ x₁))
+      _
+      (λ { (x′ , Px′ , x≢x′)
+             → (λ { (x′ , inj₁ l) → f (x′ , l) ; (_ , inj₂ refl) → u })
+               (x′ , Px′)
+         })
+  ≡⟨ cong₃ (λ x₁ x₂ x₃ → mkα x₁ x₂ {!!})
+           helper
+           {!!}
+           {!!} ⟩
+    mkα P F f
+  ∎
+  where
+  helper : (λ x₁ → (P x₁ ⊎ x ≡ x₁) × x ≢ x₁) ≡ P
+  helper = extensionality λ x₁ →
+    begin
+      ((P x₁ ⊎ x ≡ x₁) × x ≢ x₁)
+    -- ≡⟨ trans (×-distribˡ-⊎ _ ? (x ≡ x₁) (x ≢ x₁)) ? ⟩
+    ≡⟨ {!!} ⟩
+      ((P x₁ × x ≢ x₁) ⊎ (x ≡ x₁ × x ≢ x₁))
+    ≡⟨ {!!} ⟩
+      ((P x₁ × x ≢ x₁) ⊎ ⊥)
+    ≡⟨ {!!} ⟩
+      (P x₁ × x ≢ x₁)
+    ≡⟨ {!!} ⟩
+      {!!}
+    ≡⟨⟩
+      P x₁
+    ∎
 
 ------------------------------------------------------------------------
 -- Maps
@@ -92,9 +162,6 @@ FinFunc k v = k → v
 
 -- insert : FinFunc k v → k → v → FinFunc k v
 -- insert m k v k′ = {!!}
-
-_∧_ : Set → Set → Set
-P ∧ Q = P × Q
 
 -- The size of a map is the cardinality of its key set
 -- size : FinFunc k v → ℕ → Set

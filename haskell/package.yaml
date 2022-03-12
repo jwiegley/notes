@@ -21,6 +21,7 @@ library:
     - constraints
     - containers
     - deepseq
+    - free
     - lens
     - mtl
     - monad-par
@@ -33,4 +34,5 @@ library:
     - tasty
     - tasty-hedgehog
     - tasty-hunit
+    - time
     - HUnit

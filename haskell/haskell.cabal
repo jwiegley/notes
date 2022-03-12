@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.4.
+-- This file has been generated from package.yaml by hpack version 0.34.6.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 9a9c29bb61bb5bcef70b5977cd302d2f077fb8894c5abf8b8438b5e8a862a984
+-- hash: 3b218d435732773e6627b00cbaf5fbf2f9b03af14fe898871d444a74b337fb91
 
 name:           haskell
 version:        0.0.1
@@ -47,6 +47,7 @@ library
       Barbar
       Base10
       BB
+      Blockchain
       Bollu
       Broken
       Broma
@@ -87,6 +88,7 @@ library
       Day
       Day1
       DBLens
+      Delta
       Dissolve
       Distribute
       DoubleNeg
@@ -130,6 +132,7 @@ library
       FreeMaybe
       FreeMonad
       FreeMonad_
+      FreeMTL
       FreeMtlEquiv
       Freer
       FreerErrors
@@ -275,6 +278,7 @@ library
       SNil
       SortOn
       Stable
+      Staking
       StatefulConsumer
       StatePipes
       Step
@@ -335,6 +339,7 @@ library
     , constraints
     , containers
     , deepseq
+    , free
     , hedgehog
     , lens
     , monad-par
@@ -344,6 +349,7 @@ library
     , tasty
     , tasty-hedgehog
     , tasty-hunit
+    , time
     , transformers
     , unordered-containers
   default-language: Haskell2010

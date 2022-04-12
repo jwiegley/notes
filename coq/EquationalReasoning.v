@@ -28,22 +28,32 @@ Definition begin_ {A : Type} {R : relation A} {p q} (pq : R p q)
            `{E : Equational A R} : R p q :=
   @_begin_ A R E p q pq.
 
+Arguments begin_ {A R} {p q} pq & {E}.
+
 Definition beginr_ {A : Type} {R : relation A} {p q} (pq : R p q)
            `{E : Equational A R} `{S : Symmetric A R} : R q p :=
   @_beginr_ A R E p q pq S.
+
+Arguments beginr_ {A R} {p q} pq & {E S}.
 
 Definition step_eqv {A : Type} {R : relation A} p {q r}
            (qr : R q r) (pq : R p q) `{E : Equational A R} : R p r :=
   @_step_eqv A R E p q r qr pq.
 
+Arguments step_eqv {A R} p {q r} qr pq & {E}.
+
 Definition step_eqv_r {A : Type} {R : relation A} {p q} r
            (pq : R p q) (qr : R q r) `{E : Equational A R} : R p r :=
   @_step_eqv_r A R E p q r pq qr.
+
+Arguments step_eqv_r {A R} {p q} r pq qr & {E}.
 
 Definition step_sym_eqv {A : Type} {R : relation A} {p q} r
            (qr : R q r) (qp : R q p)
            `{E : Equational A R} `{S : Symmetric A R} : R p r :=
   @_step_sym_eqv A R E p q r qr qp S.
+
+Arguments step_sym_eqv {A R} {p q} r qr qp & {E S}.
 
 Notation "'begin' pq"    := (begin_  pq) (at level 100).
 Notation "'forward'  pq" := (begin_  pq) (at level 100).

@@ -31,6 +31,31 @@ private variable
 
 -- Map k u
 
+record α (k v : Set) : Set₁ where
+  constructor mkα
+  field
+    f : Pred (k × v) 0ℓ
+
+present : α k v → Pred k 0ℓ
+present m = λ i → ∃ λ x → α.f m (i , x)
+
+all-keys : k → Pred (k × v) 0ℓ
+all-keys i = λ (j , y) → i ≡ j
+
+insert : ∀ {i : k}
+  → v
+  → (∃ λ (m  : α k v) → ¬ present m  i)
+  → (∃ λ (m′ : α k v) →   present m′ i)
+insert {i = i} x (mkα f , ¬present) =
+  mkα (f ∪ ｛ ( i , x )  ｝) , x , inj₂ refl
+
+delete : ∀ {i : k}
+  → (∃ λ (m  : α k v) →   present m  i)
+  → (∃ λ (m′ : α k v) → ¬ present m′ i)
+delete {i = i} (mkα f , is-present) =
+  mkα (f ∩ ∁ (all-keys i)) , λ (_ , _ , k) → k refl
+
+{-
 ------------------------------------------------------------------------
 
 Finite : ℕ → Pred k 0ℓ → Set
@@ -203,3 +228,4 @@ CostFinFunc k v = k → (Maybe v × ℕ)
 -- size : Map k v → ℕ → Set₁
 -- size m sz = {!!}
 --   -- ∀ k → ∃ λ x → m k ≡ just x
+-}

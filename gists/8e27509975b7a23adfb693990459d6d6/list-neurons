@@ -1,0 +1,55 @@
+#!/bin/bash
+
+set -e
+
+KEY_PATH=$(pass show IC/key-path | head -1)
+
+function do_quill() {
+    echo "> quill $@"
+    yes | quill send <(gpg --decrypt $KEY_PATH | quill --pem-file - "$@")
+}
+
+function to_json() {
+    $@ | perl -ne 's/^Response: //; print if /^\(/ .. /^\)/'     \
+       | idl2json
+}
+
+COMMAND=$1
+shift 1
+
+if [[ ! -f $KEY_PATH ]]; then
+    echo "Please insert secure USB device containing the private key."
+    exit 1
+fi
+
+case "$COMMAND" in
+    list-neurons)
+        do_quill list-neurons $*                                        \
+            | perl -ne 's/^Response: //; print if /^\($/ .. /^\)$/'     \
+            | idl2json                                                  \
+            | jq -r '
+              .full_neurons
+            | map(select(.cached_neuron_stake_e8s != "0"))
+            | map( del(.recent_ballots)
+                 | del(.transfer)
+                 | del(.account)
+                 | del(.followees)
+                 )
+        '
+        ;;
+
+    maturity)
+        $0 list-neurons $* | jq '
+              .[]
+            | { id:       .id[0].id
+              , stake:    ((.cached_neuron_stake_e8s | tonumber) / 100000000)
+              , maturity: ((.maturity_e8s_equivalent | tonumber) / 100000000)
+              }
+        '
+        ;;
+
+    *)
+        echo "usage: ic <command> [args]"
+        exit 1
+        ;;
+esac

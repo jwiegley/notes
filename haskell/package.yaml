@@ -21,7 +21,9 @@ library:
     - constraints
     - containers
     - deepseq
+    - fastsum
     - free
+    - freer-simple
     - lens
     - mtl
     - monad-par
@@ -31,6 +33,7 @@ library:
     - unordered-containers
     - QuickCheck
     - hedgehog
+    - row-types
     - tasty
     - tasty-hedgehog
     - tasty-hunit

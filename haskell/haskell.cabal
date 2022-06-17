@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.6.
+-- This file has been generated from package.yaml by hpack version 0.34.7.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 3b218d435732773e6627b00cbaf5fbf2f9b03af14fe898871d444a74b337fb91
+-- hash: aca4d18dc0396e2e476c4cfe049ed07091d8627b6dc321ae9a49b2fa91ab1548
 
 name:           haskell
 version:        0.0.1
@@ -54,6 +54,7 @@ library
       BTubss
       Buttons840
       CallStack
+      Capability
       Cata
       CCCs
       Challenge
@@ -163,6 +164,7 @@ library
       InterpretedFree
       InterpretedFree2
       Intervaled
+      Interview
       IOAlternative
       IOState
       Ishtiaq
@@ -339,13 +341,16 @@ library
     , constraints
     , containers
     , deepseq
+    , fastsum
     , free
+    , freer-simple
     , hedgehog
     , lens
     , monad-par
     , mtl
     , multiset
     , pcre-heavy
+    , row-types
     , tasty
     , tasty-hedgehog
     , tasty-hunit

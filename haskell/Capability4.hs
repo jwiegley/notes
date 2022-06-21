@@ -177,6 +177,7 @@ requireCapability name arg = do
 type CapabilityM a =
   Eff [Reader ModuleDefs,
        Reader [[Capability]],
+       State ManagedMap,
        Error CapabilityError] a
 
 runCapabilities
@@ -184,7 +185,7 @@ runCapabilities
   -> CapabilityM a
   -> Either CapabilityError a
 runCapabilities defs action =
-  run $ runError $ runReader [] $ runReader defs action
+  run $ runError $ evalState mempty $ runReader [] $ runReader defs action
 
 {------------------------------------------------------------------------
  - Examples

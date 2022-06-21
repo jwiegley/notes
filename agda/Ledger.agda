@@ -73,7 +73,8 @@ balance f acct = foldr _+_ 0ℚ (tabulate (net f acct))
 
 settled : ∀ {start : AccountId → Amount} → List Delta → Set
 settled {start} history =
-    ∀ f → f ∈ scanl (λ ldg f acct → ldg acct + f acct) start (Data.List.map balance history)
+    ∀ f → f ∈ scanl (λ ldg f acct → ldg acct + f acct)
+                    start (Data.List.map balance history)
   → ∀ n → 0ℚ ≤ f n
 
 ------------------------------------------------------------------------

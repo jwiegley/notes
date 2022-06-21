@@ -72,13 +72,14 @@ data ModuleDefs = ModuleDefs {
   capabilitySigs :: Map String Signature
 }
 
-newtype MealyT a = MealyT {
-  runMealyT :: a -> Either CapabilityError (MealyT a)
+-- A variant Mealy machine that goes from `a' to unit, but may yield an error.
+newtype EMealy a = EMealy {
+  runEMealy :: a -> Either CapabilityError (EMealy a)
   }
 
 data Capability s
   = Token String PactValue
-  | Managed String PactValue (STRef s (MealyT PactValue))
+  | Managed String PactValue (STRef s (EMealy PactValue))
 
 -- Operations on the Pact database
 data Database k v r where
@@ -120,15 +121,14 @@ checkCapability :: forall s effs. MonadCapability s effs
   => String -> PactValue -> PactValue -> Eff effs (Maybe (Capability s))
 checkCapability name arg val = do
   _ <- lookupSignature @s @effs name arg val
-  capss <- ask @[[Capability s]]
-  go capss
+  go =<< ask @[[Capability s]]
  where
   go [] = pure Nothing
   go (caps : capss) = go' caps capss
 
-  go' (tok@(Token cname carg) : _) _ | name == cname && arg == carg =
+  go' (tok@(Token cname carg)     : _) _ | name == cname && arg == carg =
     pure $ Just tok
-  go' (mng@(Managed cname carg _) : _) _ | name == cname && arg == carg = do
+  go' (mng@(Managed cname carg _) : _) _ | name == cname && arg == carg =
     pure $ Just mng
   go' [] capss = go capss
   go' (_ : caps) capss = go' caps capss
@@ -150,7 +150,7 @@ requireCapability name arg val = do
   case mcap of
     Just (Managed _ _ ref) -> do
       machine <- send $ readSTRef ref
-      case runMealyT machine val of
+      case runEMealy machine val of
           Left err -> throwError err
           Right machine' -> send $ writeSTRef ref machine'
     Just _ -> pure ()
@@ -206,8 +206,8 @@ transferCap = Signature {
     machine <- send $ newSTRef mkMachine
     pure $ Managed "TRANSFER" (VPair sender receiver) machine : ds ++ cs
    where
-    mkMachine :: MealyT PactValue
-    mkMachine = MealyT f
+    mkMachine :: EMealy PactValue
+    mkMachine = EMealy f
      where
       f (VInt requested) | managed >= requested =
         Left $ ManagedError "Transfer quantity exhausted"

@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: aca4d18dc0396e2e476c4cfe049ed07091d8627b6dc321ae9a49b2fa91ab1548
+-- hash: 408192d3a1403da7447fa08c3e58276424367e5c5a65096b5aa86a0a8a761539
 
 name:           haskell
 version:        0.0.1
@@ -55,6 +55,8 @@ library
       Buttons840
       CallStack
       Capability
+      Capability2
+      Capability3
       Cata
       CCCs
       Challenge
@@ -150,10 +152,12 @@ library
       Gpyh
       Guarded
       GuardedLens
+      Guards
       Hafydd
       Hello_
       Hermit
       HLens
+      HList
       HOApplicative
       Hylo
       Hyper

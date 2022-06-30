@@ -16,6 +16,8 @@ library:
     - -Wall
   dependencies:
     - base                        >= 4.9 && < 5
+    - HUnit
+    - QuickCheck
     - arrows
     - bytestring
     - constraints
@@ -24,18 +26,16 @@ library:
     - fastsum
     - free
     - freer-simple
+    - hedgehog
     - lens
-    - mtl
     - monad-par
+    - mtl
     - multiset
     - pcre-heavy
-    - transformers
-    - unordered-containers
-    - QuickCheck
-    - hedgehog
     - row-types
     - tasty
     - tasty-hedgehog
     - tasty-hunit
     - time
-    - HUnit
+    - transformers
+    - unordered-containers

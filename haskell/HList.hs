@@ -1,4 +1,14 @@
+{-# LANGUAGE DataKinds #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE GADTs #-}
+{-# LANGUAGE KindSignatures #-}
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE PolyKinds #-}
+{-# LANGUAGE TypeOperators #-}
+
 module HList where
+
+import Data.Kind
 
 data HList (ts :: [Type]) where
   Nil :: HList '[]
@@ -10,6 +20,5 @@ class Member (x :: Type) (xs :: [Type]) where
 instance Member x (x : xs) where
   element (Cons x _) = x
 
-instance Member x (y : xs) where
+instance Member x xs => Member x (y : xs) where
   element (Cons _ xs) = element xs
-

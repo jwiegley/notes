@@ -1,4 +1,4 @@
-{ ghcCompiler ? "ghc923"
+{ ghcCompiler ? "ghc924"
 , pkgs ? (import <darwin> {}).pkgs
 , returnShellEnv ? pkgs.lib.inNixShell
 , mkDerivation ? null

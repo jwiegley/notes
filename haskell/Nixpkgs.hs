@@ -10,7 +10,7 @@ type Pkgs = Map String String
 -- 'super' is the package set state *up to that override function*. Thus, you
 -- can always refer to entries in 'super' without fear of infinite recursion.
 --
--- 'self' is the closure of the package set after all overrides have been
+-- 'self' is the completed package set after all overrides have been
 -- performed. This works due to laziness, and requires that every tree of
 -- attributes forced after overriding is an acyclic graph.
 --

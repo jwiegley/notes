@@ -38,7 +38,11 @@ override1 self super =
       ?~ super ^?! ix "foo" ++ self ^?! ix "alpha"
 
 override2 :: Pkgs -> Pkgs -> Pkgs
-override2 _self super = super
+override2 self super =
+  super
+    & at "alpha" ?~ "gamma"
+    & at "foo"
+      ?~ super ^?! ix "foo" ++ self ^?! ix "alpha"
 
 composeExtensions :: ExtFun -> ExtFun -> ExtFun
 composeExtensions f g = \self -> f self . g self
@@ -47,10 +51,16 @@ runExtensions :: ExtFun -> Pkgs -> Pkgs
 runExtensions f pkgs = let self = f self pkgs in self
 
 main :: IO ()
-main =
-  -- Prints: fromList [("alpha","beta"),("foo","is_foobeta")]
+main = do
+  -- Prints: fromList [("alpha","beta"),("foo","is_foobetabeta")]
   print
     ( runExtensions
         (composeExtensions override1 override2)
+        (empty & at "foo" ?~ "is_foo")
+    )
+  -- Prints: fromList [("alpha","gamma"),("foo","is_foogammagamma")]
+  print
+    ( runExtensions
+        (composeExtensions override2 override1)
         (empty & at "foo" ?~ "is_foo")
     )

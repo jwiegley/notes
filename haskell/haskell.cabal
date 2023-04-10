@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.34.7.
+-- This file has been generated from package.yaml by hpack version 0.35.2.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 408192d3a1403da7447fa08c3e58276424367e5c5a65096b5aa86a0a8a761539
+-- hash: c3e8291454a3ddda5fff80b3016a3dd6cb92890d7e0c63b1b991ff855957e9be
 
 name:           haskell
 version:        0.0.1
@@ -57,6 +57,7 @@ library
       Capability
       Capability2
       Capability3
+      Capability4
       Cata
       CCCs
       Challenge
@@ -87,10 +88,14 @@ library
       Costate
       Coy
       Coyid
+      CurryM
       Darais
+      DataKind
       Day
       Day1
+      Db
       DBLens
+      DefPact
       Delta
       Dissolve
       Distribute
@@ -174,6 +179,7 @@ library
       Ishtiaq
       Isolate
       IsoMu
+      IxSet
       Jamie
       KEndo
       KeyedMap
@@ -184,6 +190,7 @@ library
       Laarhoven
       Lambda
       LangCode
+      Lars
       Laws
       LazyFusion
       LensConduit
@@ -198,6 +205,7 @@ library
       Logic
       LTL
       LZip
+      Main
       Mapped
       Maps
       MCompose
@@ -218,6 +226,7 @@ library
       NestedState
       Newtype
       Nikita
+      Nixpkgs
       NthFold
       Operational
       Orb
@@ -286,6 +295,7 @@ library
       Stable
       Staking
       StatefulConsumer
+      StateLens
       StatePipes
       Step
       STExample
@@ -337,7 +347,8 @@ library
       ./
   ghc-options: -Wall
   build-depends:
-      HUnit
+      CC-delcont
+    , HUnit
     , QuickCheck
     , arrows
     , base >=4.9 && <5

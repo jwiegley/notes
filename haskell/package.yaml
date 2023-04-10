@@ -39,3 +39,4 @@ library:
     - time
     - transformers
     - unordered-containers
+    - CC-delcont

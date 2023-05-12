@@ -16,6 +16,7 @@ library:
     - -Wall
   dependencies:
     - base                        >= 4.9 && < 5
+    - Decimal
     - HUnit
     - QuickCheck
     - arrows

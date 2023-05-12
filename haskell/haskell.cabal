@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c3e8291454a3ddda5fff80b3016a3dd6cb92890d7e0c63b1b991ff855957e9be
+-- hash: af4bedc75ab27931ffb79e68860ea12213f0c8d00c000936d90d32a5842f8303
 
 name:           haskell
 version:        0.0.1
@@ -201,6 +201,7 @@ library
       Lift
       LiftedAsync
       Liquid
+      Ln
       Loeb
       Logic
       LTL
@@ -348,6 +349,7 @@ library
   ghc-options: -Wall
   build-depends:
       CC-delcont
+    , Decimal
     , HUnit
     , QuickCheck
     , arrows

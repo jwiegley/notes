@@ -15,7 +15,7 @@ with pkgs; rustPlatform.buildRustPackage rec {
 
   RUSTC_BOOTSTRAP = 1;
 
-  nativeBuildInputs = [ rls rustfmt clippy pkg-config cargo-expand ];
+  nativeBuildInputs = [ rust-analyzer rustfmt clippy pkg-config cargo-expand ];
   buildInputs = [ openssl protobuf ]
     ++ (lib.optional stdenv.isDarwin darwin.apple_sdk.frameworks.Security);
 }

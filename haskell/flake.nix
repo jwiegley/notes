@@ -1,5 +1,5 @@
 {
-  description = "Haskell notes";
+  description = "My Hakyll site generator";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs?rev=bb2009ca185d97813e75736c2b8d1d8bb81bde05";
@@ -14,11 +14,11 @@
         inherit system overlays;
         inherit (haskellNix) config;
       };
-      flake = pkgs.haskell.flake {
+      flake = pkgs.haskell-notes.flake {
       };
       overlays = [ haskellNix.overlay
         (final: prev: {
-          haskell =
+          haskell-notes =
             final.haskell-nix.project' {
               src = ./.;
               compiler-nix-name = "ghc927";
@@ -34,7 +34,7 @@
         })
       ];
     in flake // {
-      packages.default = flake.packages."haskell:lib:haskell";
+      packages.default = flake.packages."haskell-notes:lib:haskell-notes";
 
       devShell = pkgs.haskellPackages.shellFor {
         packages = p: [

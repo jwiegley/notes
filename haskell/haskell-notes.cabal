@@ -3,10 +3,8 @@ cabal-version: 1.12
 -- This file has been generated from package.yaml by hpack version 0.35.2.
 --
 -- see: https://github.com/sol/hpack
---
--- hash: ff84d1f9954c344e1590789a9fd3bf8bf4c364c712a57647e7aeb5ade58ac5b6
 
-name:           haskell
+name:           haskell-notes
 version:        0.0.1
 synopsis:       Various Haskell notes
 description:    Various Haskell notes.
@@ -344,7 +342,7 @@ library
       Ximin
       Zips
   other-modules:
-      Paths_haskell
+      Paths_haskell_notes
   hs-source-dirs:
       ./
   ghc-options: -Wall

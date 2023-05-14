@@ -1,8 +1,8 @@
 {
-  description = "My Hakyll site generator";
+  description = "Haskell notes";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs?rev=bb2009ca185d97813e75736c2b8d1d8bb81bde05";
+    nixpkgs.follows = "haskellNix/nixpkgs-unstable";
     haskellNix.url = "github:input-output-hk/haskell.nix";
     flake-utils.url = "github:numtide/flake-utils";
   };
@@ -24,8 +24,8 @@
               compiler-nix-name = "ghc927";
               shell.tools = {
                 cabal = {};
-                haskell-language-server = {};
-                # hlint = {};
+                # haskell-language-server = {};
+                hlint = {};
               };
               shell.buildInputs = with pkgs; [
                 pkgconfig
@@ -34,7 +34,7 @@
         })
       ];
     in flake // {
-      packages.default = flake.packages."haskell-notes:lib:haskell-notes";
+      packages.default = flake.packages."haskell-notes:lib";
 
       devShell = pkgs.haskellPackages.shellFor {
         packages = p: [

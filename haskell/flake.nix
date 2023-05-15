@@ -25,7 +25,7 @@
               shell.tools = {
                 cabal = {};
                 # haskell-language-server = {};
-                # hlint = {};
+                hlint = {};
               };
               shell.buildInputs = with pkgs; [
                 pkgconfig

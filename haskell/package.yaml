@@ -24,7 +24,6 @@ library:
     - constraints
     - containers
     - deepseq
-    - fastsum
     - free
     - freer-simple
     - hedgehog
@@ -39,5 +38,3 @@ library:
     - tasty-hunit
     - time
     - transformers
-    - unordered-containers
-    - CC-delcont

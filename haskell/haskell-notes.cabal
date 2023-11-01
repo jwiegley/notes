@@ -347,8 +347,7 @@ library
       ./
   ghc-options: -Wall
   build-depends:
-      CC-delcont
-    , Decimal
+      Decimal
     , HUnit
     , QuickCheck
     , arrows
@@ -357,7 +356,6 @@ library
     , constraints
     , containers
     , deepseq
-    , fastsum
     , free
     , freer-simple
     , hedgehog
@@ -372,5 +370,4 @@ library
     , tasty-hunit
     , time
     , transformers
-    , unordered-containers
   default-language: Haskell2010

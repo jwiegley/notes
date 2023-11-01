@@ -135,14 +135,14 @@
         "type": "github"
       }
     },
-    "ghc980": {
+    "ghc98X": {
       "flake": false,
       "locked": {
-        "lastModified": 1692910316,
-        "narHash": "sha256-Qv8I3GzzIIN32RTEKI38BW5nO1f7j6Xm+dDeDUyYZWo=",
+        "lastModified": 1696643148,
+        "narHash": "sha256-E02DfgISH7EvvNAu0BHiPvl1E5FGMDi0pWdNZtIBC9I=",
         "ref": "ghc-9.8",
-        "rev": "249aa8193e4c5c1ee46ce29b39d2fffa57de7904",
-        "revCount": 61566,
+        "rev": "443e870d977b1ab6fc05f47a9a17bc49296adbd6",
+        "revCount": 61642,
         "submodules": true,
         "type": "git",
         "url": "https://gitlab.haskell.org/ghc/ghc"
@@ -157,11 +157,11 @@
     "ghc99": {
       "flake": false,
       "locked": {
-        "lastModified": 1695427505,
-        "narHash": "sha256-j0hXl6uEI+Uwf37z3WLuQZN4S0XqGtiepELv2Gl2aHU=",
+        "lastModified": 1697054644,
+        "narHash": "sha256-kKarOuXUaAH3QWv7ASx+gGFMHaHKe0pK5Zu37ky2AL4=",
         "ref": "refs/heads/master",
-        "rev": "b8e4fe2318798185228fb5f8214ba2384ac95b4f",
-        "revCount": 61951,
+        "rev": "f383a242c76f90bcca8a4d7ee001dcb49c172a9a",
+        "revCount": 62040,
         "submodules": true,
         "type": "git",
         "url": "https://gitlab.haskell.org/ghc/ghc"
@@ -175,11 +175,11 @@
     "hackage": {
       "flake": false,
       "locked": {
-        "lastModified": 1696897370,
-        "narHash": "sha256-650XzXDHx98os6VAjNvlDNmOv2FMXO6h2DkcZUd0qok=",
+        "lastModified": 1698193462,
+        "narHash": "sha256-5R/6mHM5NR2gESysZE34SH0ih7qSovl8Po8uXUadJ0M=",
         "owner": "input-output-hk",
         "repo": "hackage.nix",
-        "rev": "cc114a9a1fadc3bd883476497b2ab09608735f79",
+        "rev": "9384d8e2e4838b3c9909660fae60da9d9ff50415",
         "type": "github"
       },
       "original": {
@@ -197,13 +197,14 @@
         "cardano-shell": "cardano-shell",
         "flake-compat": "flake-compat",
         "ghc-8.6.5-iohk": "ghc-8.6.5-iohk",
-        "ghc980": "ghc980",
+        "ghc98X": "ghc98X",
         "ghc99": "ghc99",
         "hackage": "hackage",
         "hls-1.10": "hls-1.10",
         "hls-2.0": "hls-2.0",
         "hls-2.2": "hls-2.2",
         "hls-2.3": "hls-2.3",
+        "hls-2.4": "hls-2.4",
         "hpc-coveralls": "hpc-coveralls",
         "hydra": "hydra",
         "iserv-proxy": "iserv-proxy",
@@ -222,11 +223,11 @@
         "stackage": "stackage"
       },
       "locked": {
-        "lastModified": 1696938432,
-        "narHash": "sha256-OmRJCHUhgPphfzBegfL6MF30A+ui5rloWSf6h2/PO5k=",
+        "lastModified": 1698195020,
+        "narHash": "sha256-TyIewh6MwAOnUp7XQ8OJ2WMeWDDXi929rpX+P3NKv7o=",
         "owner": "input-output-hk",
         "repo": "haskell.nix",
-        "rev": "f9ae9f1e8479d31f43eda55efc28b3a44495d63e",
+        "rev": "576641e18039bdf56b207f9511d1c962ad8302b2",
         "type": "github"
       },
       "original": {
@@ -299,6 +300,23 @@
       "original": {
         "owner": "haskell",
         "ref": "2.3.0.0",
+        "repo": "haskell-language-server",
+        "type": "github"
+      }
+    },
+    "hls-2.4": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1696939266,
+        "narHash": "sha256-VOMf5+kyOeOmfXTHlv4LNFJuDGa7G3pDnOxtzYR40IU=",
+        "owner": "haskell",
+        "repo": "haskell-language-server",
+        "rev": "362fdd1293efb4b82410b676ab1273479f6d17ee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "haskell",
+        "ref": "2.4.0.0",
         "repo": "haskell-language-server",
         "type": "github"
       }
@@ -570,11 +588,11 @@
     "stackage": {
       "flake": false,
       "locked": {
-        "lastModified": 1696896539,
-        "narHash": "sha256-dr7SiY6c+KndtOHaxWIT1t4XDM2Kx9LdDZzM1Uk4oFM=",
+        "lastModified": 1698192569,
+        "narHash": "sha256-cDrniotHYjkGQhcvuzt7HAGroL12pVlyUA1M8iOJpBg=",
         "owner": "input-output-hk",
         "repo": "stackage.nix",
-        "rev": "0ba46ba4a66fa51aa4699d52e07ab03c349f7303",
+        "rev": "d02334d2040ea2d83f9338a45b4af2ef2fd8ec64",
         "type": "github"
       },
       "original": {

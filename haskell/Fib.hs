@@ -16,6 +16,26 @@ foldl2 b f z (x:xs) =
         Nothing -> return Nothing
         Just () -> Main.foldl2 b f (f z x) xs
 
+fib :: Int -> Int
+fib 0 = 1
+fib 1 = 1
+fib n = fib (n - 2) + fib (n - 1)
+
+fibList :: [Int]
+fibList = go 0
+  where
+  go n = fib n : go (n + 1)
+
+lazyDiv :: Integral a => a -> a -> a
+lazyDiv _ 0 = 1 `div` 0
+lazyDiv x y = x `div` y
+
+f :: Int → Bool
+f 0 = False
+f 1 = True
+f 2 = unsafePerformIO pureEvil
+f n = error "Oops"
+
 main :: IO ()
 main = test Main.foldl >> test Main.foldl2
   where

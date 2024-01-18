@@ -1,5 +1,5 @@
-{ rev      ? "a3a23d9599b0a82e333ad91db2cdc479313ce154"
-, sha256   ? "05xmgrrnw6j39lh3d48kg064z510i0w5vvrm1s5cdwhdc2fkspjq"
+{ rev      ? "f0326542989e1bdac955ad6269b334a8da4b0c95"
+, sha256   ? "1p7vxlwdnhnhg287dp7n890806yi1mmxad0qgfi5f1pr1pgw8pkf"
 , pkgs     ? import (builtins.fetchTarball {
     url = "https://github.com/jwiegley/nixpkgs/archive/${rev}.tar.gz";
     inherit sha256; }) {
@@ -18,9 +18,9 @@ let
       root = pkgs.fetchFromGitHub {
         owner = "agda";
         repo = "agda2hs";
-        rev = "160478a51bc78b0fdab07b968464420439f9fed6";
-        sha256 = "13k2lcljgq0f5zbbyyafx1pizw4ln60xi0x0n0p73pczz6wdpz79";
-        # date = 2021-09-08T18:00:00+02:00;
+        rev = "984821ab84b33917a1709c36bf66a0732ebbb46d";
+        sha256 = "1kgfwh5wp85gw3chvnqdkh0h063ifgwj6vwa5s8yrls5h3jzwgj1";
+        # date = 2024-01-17T10:14:42+01:00;
       };
 
       source-overrides = {};
@@ -47,9 +47,9 @@ let
     src = pkgs.fetchFromGitHub {
       owner = "agda";
       repo = "agda2hs";
-      rev = "160478a51bc78b0fdab07b968464420439f9fed6";
-      sha256 = "13k2lcljgq0f5zbbyyafx1pizw4ln60xi0x0n0p73pczz6wdpz79";
-      # date = 2021-09-08T18:00:00+02:00;
+      rev = "984821ab84b33917a1709c36bf66a0732ebbb46d";
+      sha256 = "1kgfwh5wp85gw3chvnqdkh0h063ifgwj6vwa5s8yrls5h3jzwgj1";
+      # date = 2024-01-17T10:14:42+01:00;
     };
 
     buildInputs = [

@@ -81,12 +81,12 @@ pkgs.stdenv.mkDerivation rec {
 
   buildInputs = [
     pkgs.which
-    agda2hs
+    # agda2hs
     (haskellPackages.ghcWithPackages (p: [
        p.lens
      ]))
     (pkgs.agdaPackages.agda.withPackages (p: [
-       p.standard-library p.agda-categories agda2hs-lib
+       p.standard-library p.agda-categories # agda2hs-lib
      ]))
   ];
 

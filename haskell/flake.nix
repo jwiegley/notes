@@ -21,7 +21,7 @@
           haskell-notes =
             final.haskell-nix.project' {
               src = ./.;
-              compiler-nix-name = "ghc963";
+              compiler-nix-name = "ghc96";
               shell.tools = {
                 cabal = {};
                 # haskell-language-server = {};

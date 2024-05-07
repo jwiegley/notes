@@ -1,3 +1,3 @@
 name: notes
-depend: agda-categories standard-library agda2hs
+depend: agda-categories standard-library
 include: .

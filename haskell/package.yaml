@@ -25,7 +25,6 @@ library:
     - containers
     - deepseq
     - free
-    - freer-simple
     - hedgehog
     - lens
     - monad-par

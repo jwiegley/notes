@@ -21,11 +21,11 @@
           haskell-notes =
             final.haskell-nix.project' {
               src = ./.;
-              compiler-nix-name = "ghc96";
+              compiler-nix-name = "ghc910";
               shell.tools = {
                 cabal = {};
-                # haskell-language-server = {};
-                hlint = {};
+                haskell-language-server = {};
+                # hlint = {};
               };
               shell.buildInputs = with pkgs; [
                 pkg-config

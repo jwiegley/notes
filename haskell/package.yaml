@@ -33,6 +33,7 @@ library:
     - pcre-heavy
     - row-types
     - singletons
+    - singletons-th
     - tasty
     - tasty-hedgehog
     - tasty-hunit

@@ -1,0 +1,162 @@
+================================================================================
+            KIND MISMATCH: Why Parameterized Pattern Fails with hegg
+================================================================================
+
+HEGG'S REQUIREMENT
+==================
+
+  LanguageI :: forall k. (k -> Type -> Type) -> Constraint
+                          └───────┬──────────┘
+                                  │
+                    Language functor l :: k -> Type -> Type
+                                          │         │
+                                          │         └─ Recursion parameter
+                                          └─────────── Domain/index parameter
+
+  Example instantiation:
+
+    k = SymType
+    l = SymExprF
+
+    SymExprF :: SymType -> Type -> Type
+                   │          │
+                   │          └─ Can be ClassId, Fix, etc.
+                   └──────────── TyDouble, TyString, etc.
+
+  When partially applied to a domain:
+
+    SymExprF TyDouble :: Type -> Type
+                         └──┬──┘
+                            │
+                    Functor over recursion parameter
+
+  Used in hegg's addI:
+
+    addI :: l dom ClassId -> ...
+              │     │
+              │     └─ Concrete type (Type kind)
+              └─────── Domain type (k kind)
+
+    addI (ConstantF 42.0 :: SymExprF TyDouble ClassId) egraph
+                                        │          │
+                                        │          └─ r = ClassId :: Type ✓
+                                        └──────────── t = TyDouble :: SymType ✓
+
+
+PARAMETERIZED PATTERN
+=====================
+
+  SymExpr :: SymType -> (SymType -> Type) -> Type
+                │           └────┬─────┘
+                │                │
+                │                └─ HIGHER-KINDED recursion parameter
+                └────────────────── Domain/index parameter
+
+  Example instantiation:
+
+    SymExpr :: SymType -> (SymType -> Type) -> Type
+                   │              │
+                   │              └─ Must be a type constructor!
+                   └──────────────── TyDouble, TyString, etc.
+
+  When partially applied to a domain:
+
+    SymExpr TyDouble :: (SymType -> Type) -> Type
+                         └──────┬──────┘
+                                │
+                    Expects indexed type constructor
+                    (e.g., Const a, Rec f)
+
+  Cannot use with hegg's addI:
+
+    addI (Constant 42.0 :: SymExpr TyDouble ClassId) egraph
+                                      │          │
+                                      │          └─ ClassId :: Type
+                                      │
+                                      └─ ERROR! Expected: SymType -> Type
+                                                 Actual:   Type
+
+    TYPE ERROR:
+      Kind mismatch:
+        Expected kind: SymType -> Type
+        Actual kind:   Type
+
+      Cannot apply (SymType -> Type) -> Type
+                to Type
+
+
+VISUAL KIND COMPARISON
+======================
+
+  hegg requirement:     SymExprF :: SymType ───> Type ───> Type
+                                      │             │
+                                      │             └─ First-order parameter
+                                      └─────────────── Index parameter
+
+                        When applied:  SymExprF TyDouble ClassId :: Type
+                                            ✓              ✓
+                                       SymType           Type
+
+
+  Parameterized:        SymExpr :: SymType ───> (SymType -> Type) ───> Type
+                                     │                    │
+                                     │                    └─ Higher-kinded parameter!
+                                     └──────────────────────── Index parameter
+
+                        When applied:  SymExpr TyDouble ClassId :: ???
+                                            ✓              ✗
+                                       SymType       Type (wrong kind!)
+
+                                       Need: SymExpr TyDouble (Const Int)
+                                                 ✓                ✓
+                                            SymType        SymType -> Type
+
+
+THE FUNDAMENTAL INCOMPATIBILITY
+================================
+
+  hegg's addI needs:        l dom ClassId
+                                    │
+                                    └─ ClassId :: Type
+
+  Parameterized SymExpr needs:   SymExpr dom r
+                                             │
+                                             └─ r :: SymType -> Type
+
+  These cannot be unified because:
+    Type ≠ (SymType -> Type)
+
+  No amount of type-level tricks can make ClassId :: Type
+  become something of kind (SymType -> Type).
+
+
+WHAT WORKS
+==========
+
+  Current approach (two types):
+
+    SymExpr :: SymType -> Type
+      - Direct recursion
+      - User-facing
+
+    SymExprF :: SymType -> Type -> Type
+      - Parameterized recursion
+      - hegg integration
+      - r :: Type (can be ClassId)
+
+  This separation is NECESSARY because the two use cases
+  have fundamentally different kind requirements.
+
+
+CONCLUSION
+==========
+
+  The parameterized recursive type pattern with higher-kinded
+  recursion (r :: k -> Type) is incompatible with hegg's
+  first-order recursion requirement (r :: Type).
+
+  This is a KIND-LEVEL mismatch that cannot be resolved.
+
+  Keep the two-type approach OR use only SymExprF with Fix.
+
+================================================================================

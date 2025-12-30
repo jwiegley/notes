@@ -19,3 +19,16 @@ newtype StateT s m a = StateT { runStateT :: s -> m (a, s) }
 
 instance MonadTrans (StateT s) where
     lift x = StateT $ \s -> (,s) <$> x
+
+    case RewriteFxRewriteFx.findCycles model of
+        [] -> pure ()
+        cycles -> do
+          let err = unlines (map showCycle cycles)
+              showCycle [name] = "  " ++ show name ++ " (self-referential)"
+              showCycle names = "  " ++ intercalate " -> " (map show names)
+          fail $ "Cycles found after equality saturation: " ++ err
+
+    forM_ (RewriteFxRewriteFx.findCycles model) $ \cycle -> do
+          let showCycle [name] = "  " ++ show name ++ " (self-referential)"
+              showCycle names = "  " ++ intercalate " -> " (map show names)
+          fail $ "Cycles found after equality saturation: " ++ showCycle cycle

@@ -1,2 +1,4 @@
 backup:
-	USER=jwiegley TOKEN=$(shell /usr/bin/security find-internet-password -a jwiegley -s github.com -l 'ghi token' -w) python gists/gist-backup.py
+	USER=jwiegley \
+	TOKEN=$(shell pass api.github.com | head -1) \
+	python gists/gist-backup.py

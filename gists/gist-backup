@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-exec uv run --no-config --with requests gist-backup.py "$@"

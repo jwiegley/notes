@@ -37,4 +37,4 @@ def download_all_gists(username, dest_dir="gists", github_token=None):
                 print(f"Gist {gist_id} already exists, skipping.")
         page += 1
 
-download_all_gists("jwiegley", dest_dir=".", github_token=os.environ['GITHUB_TOKEN'])
+download_all_gists("jwiegley", dest_dir="gists", github_token=os.environ['TOKEN'])
